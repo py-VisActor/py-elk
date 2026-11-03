@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "project": "py-elk",
+  "status": "bootstrap-structure-and-planning",
+  "baselineVerifiedOn": "2026-11-02",
+  "javascript": {
+    "repository": "https://github.com/kieler/elkjs",
+    "npmPackage": "elkjs",
+    "version": "0.12.1",
+    "tag": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "release": "https://github.com/kieler/elkjs/releases/tag/0.12.1",
+    "types": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/typings/elk-api.d.ts",
+    "apiSource": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/src/js/elk-api.js",
+    "licenseSpdx": "EPL-2.0 OR GPL-3.0-or-later"
+  },
+  "python": {
+    "implementation": "native-python",
+    "minimumVersionPlanned": "3.11",
+    "distributionNamePlanned": "py-elk",
+    "importNamePlanned": "pyelk",
+    "runtimeImplemented": false,
+    "implementedAlgorithms": [],
+    "packagePublished": false,
+    "scaffoldVersion": "0.0.1a0"
+  },
+  "referenceFixtures": {
+    "captured": true,
+    "plannedMilestone": "M1",
+    "preserveRawOutput": true,
+    "path": "references/layout",
+    "indexSha256": "a5e02d9e4c4979804736a095cc9b96f884f78c1f523308b8ccfe3f2c34e6546a",
+    "caseCount": 25,
+    "repeats": 2,
+    "pythonAlgorithmsVerified": 0,
+    "limitation": "Project-authored requests; locked official layouts/errors/side effects. Not a complete upstream assertion inventory or Python acceptance."
+  },
+  "coordinateComparisonPlanned": {
+    "absoluteTolerance": 1e-06,
+    "relativeTolerance": 1e-09
+  },
+  "upgradePolicy": "Pin a release and commit; regenerate reference fixtures and review differences before changing this baseline.",
+  "sourceSha256": {
+    "package.json": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+    "package-lock.json": "6fccd376c9ceb76acbb86b03e36098239d38e15f823212e33b1393e4151d6af8",
+    "README.md": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c",
+    "LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "build.gradle": "536f320e3931fa1175abd8e5f62982226f9322be3f4ab3ec9ef51ab01cbca82f",
+    "typings/elk-api.d.ts": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+    "src/js/elk-api.js": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+    "src/js/main-node.js": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+    "src/java/org/eclipse/elk/js/ElkJs.java": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+    "src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend": "c968d1589ae1bbe74bf9ee75b45043da8c5b51dcd63e4e16e0cfa43fdf2d0c19",
+    ".github/workflows/ci.yml": "c9ec18e3084143d8f5cae9a16c70ae9bb1e35acc8e81c5650e5cd9a951e4e7de"
+  },
+  "distribution": {
+    "tarball": "https://registry.npmjs.org/elkjs/-/elkjs-0.12.1.tgz",
+    "integrity": "sha512-IhMYKHE4S2vtx0QrhBP3lYOIKDeIiJXBrdq9MGYkuB8ZHqhrBnHNfSUndjXFewrX1CPK8chwq+2NA0K0hliYuw==",
+    "sha256": "7a017dd56e31e4963ad5c4b9deb3230db5c37edf53a82dc507a8599f2f01122f",
+    "gitHead": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "sha256Files": {
+      "lib/elk-api.d.ts": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "lib/elk-api.js": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "lib/elk-worker.d.ts": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lib/elk-worker.min.js": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "lib/elk.bundled.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/elk.bundled.js": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "lib/main.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/main.js": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "package.json": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "README.md": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c"
+    }
+  },
+  "metadataCapture": {
+    "captured": true,
+    "nodeVersion": "v24.19.0",
+    "entrypoint": "lib/elk.bundled.js",
+    "counts": {
+      "algorithms": 12,
+      "options": 243,
+      "categories": 8
+    },
+    "files": {
+      "references/metadata/algorithms.json": "d545c2505c5624f16a7faecb77e46a2fafa6774e4da6370081c1185059abf807",
+      "references/metadata/options.json": "8dd300a384dd50531f9d830c5e3116661d25a24fed3ee692c43184dbff127e93",
+      "references/metadata/categories.json": "57206659f57ba0e646fc65f5710e254160a1409c25e175a4293e618c81e255d8",
+      "references/metadata/manifest.json": "e5606be19833a61f31b70128466f2094e957be85f104f88fc47453dd89ad7521"
+    },
+    "limitation": "Default registration metadata only; no layout fixtures or Python behavior verified."
+  },
+  "javaImplementationSource": {
+    "status": "unresolved",
+    "reason": "elkjs build.gradle reads an external ../elk checkout; the pinned upstream CI selects master. Its exact Java implementation commit is not established by the elkjs tag.",
+    "requiredBefore": "Mechanical algorithm-source port; behavioral oracle remains the locked npm artifact."
+  },
+  "integrationPolicy": {
+    "consumer": "py-mermaid",
+    "engine": "py-elk",
+    "baseline": "elkjs@0.12.1 only",
+    "legacyElkCompatibilityRequired": false,
+    "boundary": "Graph geometry in py-elk; Mermaid semantic conversion and text measurement/rendering remain in py-mermaid."
+  },
+  "releasePlan": {
+    "firstStableVersionPlanned": "0.1.0",
+    "firstReleaseProfile": "basic-layered",
+    "mermaidIntegrationSeparate": true,
+    "firstReleaseDependsOnMermaid": false,
+    "scopeDocument": "docs/FIRST_RELEASE_SCOPE.md",
+    "currentScaffoldIsPublishable": false
+  }
+}

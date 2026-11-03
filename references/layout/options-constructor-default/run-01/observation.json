@@ -1,0 +1,171 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "business": {
+      "description": "preserve custom fields",
+      "weight": 1e-9
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 7,
+      "elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "elk.spacing.nodeNode": 20,
+      "elk.layered.spacing.nodeNodeBetweenLayers": 30,
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        },
+        "$H": 277,
+        "x": 12,
+        "y": 12
+      },
+      {
+        "id": "b",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        },
+        "$H": 279,
+        "x": 12,
+        "y": 72
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": 32,
+              "y": 42
+            },
+            "endPoint": {
+              "x": 32,
+              "y": 72
+            },
+            "incomingShape": "a",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 64,
+    "height": 114
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "business": {
+      "description": "preserve custom fields",
+      "weight": 1e-9
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 7,
+      "elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "elk.spacing.nodeNode": 20,
+      "elk.layered.spacing.nodeNodeBetweenLayers": 30,
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        },
+        "$H": 277,
+        "x": 12,
+        "y": 12
+      },
+      {
+        "id": "b",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        },
+        "$H": 279,
+        "x": 12,
+        "y": 72
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": 32,
+              "y": 42
+            },
+            "endPoint": {
+              "x": 32,
+              "y": 72
+            },
+            "incomingShape": "a",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 64,
+    "height": 114
+  },
+  "constructorAfter": {
+    "defaultLayoutOptions": {
+      "elk.direction": "DOWN"
+    }
+  },
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

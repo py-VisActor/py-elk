@@ -1,0 +1,33 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "outcome": "threw",
+  "error": {
+    "name": "Error",
+    "message": "Missing mandatory parameter 'graph'."
+  },
+  "diagnostics": {
+    "errorStack": "Error: Missing mandatory parameter 'graph'.\n    at ELKNode.layout (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:82:31)\n    at main (C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs:32:36)\n    at Object.<anonymous> (C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs:55:1)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47"
+  },
+  "inputAfter": null,
+  "constructorAfter": {},
+  "argumentsAfter": {
+    "layoutOptions": {
+      "elk.randomSeed": 7
+    }
+  },
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

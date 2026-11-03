@@ -1,0 +1,34 @@
+{
+  "schema": "py-elk-release-profiles/v1",
+  "firstStableVersionPlanned": "0.1.0",
+  "profiles": [
+    {
+      "id": "basic-layered",
+      "status": "planned",
+      "algorithms": [
+        "org.eclipse.elk.layered"
+      ],
+      "options": [
+        "org.eclipse.elk.algorithm",
+        "org.eclipse.elk.direction",
+        "org.eclipse.elk.padding",
+        "org.eclipse.elk.spacing.nodeNode",
+        "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+        "org.eclipse.elk.separateConnectedComponents",
+        "org.eclipse.elk.spacing.componentComponent",
+        "org.eclipse.elk.edgeRouting",
+        "org.eclipse.elk.randomSeed"
+      ],
+      "edgeRouting": [
+        "ORTHOGONAL"
+      ],
+      "nestedGraphs": false,
+      "ports": false,
+      "independentLabelLayout": false,
+      "mermaidIntegrationRequired": false,
+      "releaseMilestone": "M5",
+      "implemented": false
+    }
+  ],
+  "fullCompatibilityDenominatorRetained": true
+}

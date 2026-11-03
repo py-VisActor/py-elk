@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.png binary
+*.woff2 binary
+references/layout/** -text
+# Preserve the captured lock's original CRLF bytes and its recorded SHA.
+references/layout/upstream-lock.json whitespace=cr-at-eol
+tests/fixtures/validation/** -text

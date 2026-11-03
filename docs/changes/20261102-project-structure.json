@@ -1,0 +1,448 @@
+{
+  "schema": "py-elk-change/v1",
+  "taskId": "20261102-project-structure",
+  "baseCommit": null,
+  "startingStatus": "Directory contains four user-provided design files and no .git directory",
+  "startingFileSha256": {
+    "README.md": "93d52e810be284e4fa979b1c449b985a5fe1b889b7d6d7c5f6cd6cfcc54d5a01",
+    "DEVELOPMENT_PLAN.md": "f4f9a4d423164a8bdd911fd0874898109ab275577cdf78d6a0b5450c90ec24ad",
+    "API_COMPATIBILITY.md": "2b60bd502b1a4db306f1d8d8af6420f9ca58d9d723bd364e1e29b3bae76f5372",
+    "UPSTREAM.json": "be9fbf4119620b16a4819aa6be7972ef34dd1606b9926500ed065fa810967b3c"
+  },
+  "objective": "Complete the local py-elk scaffold and full native-layout iteration plan. Prioritize a real standalone stable Python package; put py-mermaid integration in a separate later workstream.",
+  "kind": "bootstrap-tooling-documentation-planning",
+  "authorization": "Local project structure and iteration planning; user directs standalone basic functionality and a formal Python package before separate integration. No current usable algorithm or publishable candidate exists.",
+  "acceptanceCriteria": [
+    "Preserve the four existing design documents and the fixed elkjs 0.12.1 behavior baseline",
+    "Verified Git/npm sources, default metadata and complete algorithm/option/category denominators are explicit",
+    "M0-M8 defines basic-functionality-to-stable-package delivery before independent I0-I3 Mermaid integration",
+    "Only version metadata is exported by the local scaffold; no fake layout or implemented capability claims",
+    "Source/bootstrap/negative-control and metadata recapture checks pass; local wheel build and isolated import honestly scoped"
+  ],
+  "sourceSha256": {
+    ".gitattributes": "12947ab11783de1318a3aa111c1fc7efd4a7992096f665186e266f19e44d9560",
+    ".github/workflows/validate.yml": "99fda99cf1185e8740596d3e7fd09ac9c43fd10f622624f3e72a12e3286fc767",
+    ".gitignore": "d91599ae38f089faee96df60c294ee6a07d53ea8cd90341e48651dc999865c6f",
+    "API_COMPATIBILITY.md": "ad36fecfb6783532ba2d1cd0ec8a1f8be88fc2eb14f53ca43082c3f81937c0f9",
+    "benchmarks/README.md": "824dd2f55b51301b15c578fe9ec141d46512f800bbae0ed8126e7e47c051902c",
+    "DEVELOPMENT_PLAN.md": "365bf639614d786b8473c1420783bb07d308403fa3e66bb3a31250d19603743f",
+    "docs/compatibility.json": "44bd1797168e8611c5c79fbb3c58c4579394ef6c87b4b75ecc279ade9bd63596",
+    "docs/FIRST_RELEASE_SCOPE.md": "065e7eb583286e2054f5fb4521ba3ff891e6da3a7ae871dc1f4d4e7bc242c082",
+    "docs/IMPLEMENTATION_PLAN.md": "9da9df661382d71c42fd305e235ee714d17c7bf0820899d0f46c98685d1bbf30",
+    "docs/MERMAID_INTEGRATION.md": "d8532a5a425dc0fb6d643df51d7517c20727c278292834786202fe6b3057078a",
+    "docs/NEW_SESSION.md": "5b0336d390247787320a46eca69d01307dd49025b0f66071b04fcfaa66187988",
+    "docs/release-profiles.json": "8d8a360466907bc126ef27c667c11e15be34cd7bbdd7a75e549df0eb7c815722",
+    "docs/RELEASE_STATUS.md": "40f9cc678f2c93ee763affbd8f4f1015e6da17a6208f9265ab72eca48b88471c",
+    "docs/TASKS.md": "ee0866bc55ace4de63d43576841142d668364bb4c9dbc8abcafba4397d996ecd",
+    "docs/TEST_AND_RELEASE.md": "0c9197516bede0f6503e54634f8319917339f8a82b288db133cda169c289b1ea",
+    "examples/README.md": "01152a6c26fc722509c7954949c62a99841fe7d1afde2103b796cca0bbd3190a",
+    "examples/show_scope.py": "e562434f03bb64f6ba7fe9508f8212f7f605e8f15950545950648ffe346abde7",
+    "pyproject.toml": "5c494edf1ba1308dc49193c745ed551a2e50af9261baa44406680501ec39e64e",
+    "README.en.md": "acfb7e96ceb2f2304da0f98ccc746389d1bb80a4fe8662f8569d8fecbfcb5d35",
+    "README.md": "9baf2e9693f2191206986fd641a9e77011449fb22c54ad036d9dadfff9bb6ab0",
+    "references/licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "references/metadata/algorithms.json": "d545c2505c5624f16a7faecb77e46a2fafa6774e4da6370081c1185059abf807",
+    "references/metadata/categories.json": "57206659f57ba0e646fc65f5710e254160a1409c25e175a4293e618c81e255d8",
+    "references/metadata/manifest.json": "e5606be19833a61f31b70128466f2094e957be85f104f88fc47453dd89ad7521",
+    "references/metadata/options.json": "8dd300a384dd50531f9d830c5e3116661d25a24fed3ee692c43184dbff127e93",
+    "references/README.md": "9f4a2dbd74d33aa8cdafae9d94b01389f87aac428fc3dfa4c770872719059322",
+    "references/source-inventory.json": "f6ffa4123985137f26444601822e5243ea77ffe50db522fa7852d63ecb2a764c",
+    "scripts/upstream.py": "fdb0af88917d4b717bc25e4c7181ebfc8c5d6f2697ec07085a4d547e65df4325",
+    "scripts/validate_bootstrap.py": "2838f88eab4bcf70e5272fafb559141230cafe84886424155f78caf572f7c930",
+    "src/pyelk/__init__.py": "372d1d00417618572d01fb1ddf201ee2cf616ae3ebf4c49947605f8335b78935",
+    "src/pyelk/algorithms/layered/README.md": "d449a3ab68325a676f6157849e69a029a272de161910c8eed89f93824c97090c",
+    "src/pyelk/execution/README.md": "e858ab8894fb12df3b36e1437f0f1c47a29867d33541df8a8dc787fef921dcc1",
+    "src/pyelk/geometry/README.md": "f710ab95477f6916fa0657c21d916fa6c9ca2c290ff8e55051892d38add26a9d",
+    "src/pyelk/metadata/README.md": "a4e55118390c49a50ee11f91cd3b3299502afe776a448bfee3dede23e9210100",
+    "src/pyelk/model/README.md": "a99f470d70e9425899d19c931d2b6a289fa95691fd9d70257f627becb863fb15",
+    "src/pyelk/options/README.md": "8ced1311ce6546b3116abad4fc3680b4fd56888d657eb16688325105e07c55f6",
+    "src/pyelk/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests/bootstrap/test_bootstrap.py": "150925d2ca756b5228aeec6a75dce20a4d9003949910a3d1e33c438ad5f4664e",
+    "tests/fixtures/cases.json": "377d157f9b54062605eb0aa9c30cee3803fa35d228ec97a922f00761ff91981e",
+    "tests/fixtures/graphs/layered-two-node.json": "3fc6ea899d0d2bf9afb012ff7fc71870a030c16d69b8d237003e5d194958f973",
+    "tests/fixtures/README.md": "5f8851bd6d82de18227a8296c951e7e2e0189e3a7d50604a0923fd7a50d40bfd",
+    "tests/README.md": "014a0b1f59e4e107dab54d0cfbdeaace1eccda1fee0b569e233ebc00bca1a70b",
+    "THIRD_PARTY_NOTICES.md": "22e2d3f6819fefe440eb51ec6cc689aa783f6c9b9b8eb2e910b19a29bc4dffcd",
+    "tools/reference/capture_metadata.cjs": "4077cedf9ba9afaae20919388711a30d3628c7b513e152654377a36138d19623",
+    "tools/reference/README.md": "69fc1d7ce59348cf9d8c580df156d489d1467f2233d1b8ec6b82aa08b3d41c41",
+    "UPSTREAM.json": "070d8dff36db2b4b370f1439d91d525697c8985cca508198aa9651dc371db8d0"
+  },
+  "commands": [
+    {
+      "id": "bootstrap-final",
+      "command": [
+        "python",
+        "scripts/validate_bootstrap.py",
+        "--out",
+        "test-runs/20261102-project-plan-01/bootstrap-final.json"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.072,
+      "environmentKeysRemoved": [],
+      "log": "test-runs/20261102-project-plan-01/bootstrap-final.log",
+      "logSha256": "aaf7995c97f129aa41febf2de03d4b542dd19970e63642e0487bd51aa3d75d34"
+    },
+    {
+      "id": "bootstrap",
+      "command": [
+        "python",
+        "scripts/validate_bootstrap.py",
+        "--out",
+        "test-runs/20261102-project-plan-01/bootstrap.json"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.079,
+      "log": "test-runs/20261102-project-plan-01/bootstrap.log",
+      "logSha256": "aaf7995c97f129aa41febf2de03d4b542dd19970e63642e0487bd51aa3d75d34"
+    },
+    {
+      "id": "build-local-scaffold",
+      "command": [
+        "C:/venvs/pymmd-20261102/Scripts/python.exe",
+        "-m",
+        "build",
+        "--wheel",
+        "--sdist",
+        "--no-isolation",
+        "--outdir",
+        "C:/code/py-visactor/py-elk/test-runs/20261102-project-plan-01/dist"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 1.12,
+      "log": "test-runs/20261102-project-plan-01/build-local-scaffold.log",
+      "logSha256": "9f6c9f8417dd9d384f26133f1d2478d52d7e12eaadbec14fe27bf23f42c46c05"
+    },
+    {
+      "command": [
+        "node",
+        "tools/reference/capture_metadata.cjs",
+        ".local/npm-elkjs/package",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261102-project-plan-01\\official-metadata-02"
+      ],
+      "exitCode": 0,
+      "logSha256": "e5606be19833a61f31b70128466f2094e957be85f104f88fc47453dd89ad7521",
+      "id": "capture-metadata-02",
+      "log": "test-runs/20261102-project-plan-01/capture-metadata-02.log"
+    },
+    {
+      "command": [
+        "node",
+        "tools/reference/capture_metadata.cjs",
+        ".local/npm-elkjs/package",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261102-project-plan-01\\official-metadata"
+      ],
+      "exitCode": 1,
+      "logSha256": "f563d6065f55794419db1e0dc7e1298ef9d6cdcfa133ac470622588b2f6c8e24",
+      "id": "capture-metadata",
+      "log": "test-runs/20261102-project-plan-01/capture-metadata.log"
+    },
+    {
+      "id": "fresh-upstream-fetch",
+      "command": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/upstream.py",
+        "fetch"
+      ],
+      "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-source-recheck-x51lgt2p",
+      "exitCode": 0,
+      "seconds": 7.54,
+      "environmentKeysRemoved": [],
+      "log": "test-runs/20261102-project-plan-01/fresh-upstream-fetch.log",
+      "logSha256": "b42f60ff962b00f5420c906ba89e0159e373f483dcee12db2d2635eb5cec8f6f"
+    },
+    {
+      "id": "isolated-install",
+      "command": [
+        "C:/venvs/pyelk-plan-20261102-01/Scripts/python.exe",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--report",
+        "test-runs/20261102-project-plan-01/isolated-install-report.json",
+        "test-runs/20261102-project-plan-01/dist/py_elk-0.0.1a0-py3-none-any.whl"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.544,
+      "environmentKeysRemoved": [],
+      "log": "test-runs/20261102-project-plan-01/isolated-install.log",
+      "logSha256": "fa4fb92f073b0b711beb324b15b29fd604772aef380dd8f9b05c7fde76f2f59b"
+    },
+    {
+      "id": "isolated-probe",
+      "command": [
+        "C:/venvs/pyelk-plan-20261102-01/Scripts/python.exe",
+        "-I",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-project-plan-e01dbc5v\\verify_package.py",
+        "C:\\code\\py-visactor\\py-elk",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261102-project-plan-01\\dist\\py_elk-0.0.1a0-py3-none-any.whl",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261102-project-plan-01\\dist\\py_elk-0.0.1a0.tar.gz",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261102-project-plan-01\\isolated-package.json"
+      ],
+      "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-project-plan-e01dbc5v",
+      "exitCode": 0,
+      "seconds": 0.087,
+      "environmentKeysRemoved": [
+        "PATH",
+        "PYTHONPATH",
+        "PYTHONHOME"
+      ],
+      "log": "test-runs/20261102-project-plan-01/isolated-probe.log",
+      "logSha256": "13d87ae1fad557ed8376ed01589bb89c7482c45e57ec99c2a299423f344acc7c"
+    },
+    {
+      "id": "isolated-venv",
+      "command": [
+        "python",
+        "-m",
+        "venv",
+        "C:/venvs/pyelk-plan-20261102-01"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 2.262,
+      "log": "test-runs/20261102-project-plan-01/isolated-venv.log",
+      "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "id": "metadata-final",
+      "command": [
+        "node",
+        "tools/reference/capture_metadata.cjs",
+        ".local/npm-elkjs/package",
+        "test-runs/20261102-project-plan-01/official-metadata-final"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.224,
+      "log": "test-runs/20261102-project-plan-01/metadata-final.log",
+      "logSha256": "e5606be19833a61f31b70128466f2094e957be85f104f88fc47453dd89ad7521"
+    },
+    {
+      "id": "scope-example",
+      "command": [
+        "python",
+        "examples/show_scope.py"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.038,
+      "log": "test-runs/20261102-project-plan-01/scope-example.log",
+      "logSha256": "bc3c12a7911ba38711c63ebf2382a10a9361620c85d4cfea26e69a00edfe7a30"
+    },
+    {
+      "id": "unit",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/bootstrap",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.553,
+      "log": "test-runs/20261102-project-plan-01/unit.log",
+      "logSha256": "0425bcebaae3d3bd79c4dbcafc35177d0c4a7350cac35f5d4b784d80e463a9f1"
+    },
+    {
+      "id": "upstream-check",
+      "command": [
+        "python",
+        "scripts/upstream.py",
+        "check"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "seconds": 0.553,
+      "log": "test-runs/20261102-project-plan-01/upstream-check.log",
+      "logSha256": "3a0daa6a5ceb0084abc8d011dd5cf266666a151b4fa4ee334c06f83e70262ec4"
+    },
+    {
+      "id": "upstream-clone",
+      "command": [
+        "git",
+        "clone",
+        "--depth",
+        "1",
+        "--single-branch",
+        "--branch",
+        "0.12.1",
+        "https://github.com/kieler/elkjs.git",
+        "C:\\code\\py-visactor\\py-elk\\.local\\upstream-elkjs"
+      ],
+      "exitCode": 0,
+      "logSha256": "ba8455827b36d7a37aa50b60f6516d12c5f5d677f4e57cd8e90bd4421127e571",
+      "log": "test-runs/20261102-project-plan-01/upstream-clone.log"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "test-runs/20261102-project-plan-01/starting-snapshot.json",
+      "sha256": "06ff5f6145fafbc301bce663c7d49e565a2200b2368f8f902a338c37676dccc2"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/npm-artifact.json",
+      "sha256": "5caaa7b876ad757ea829172969f4fd61dfe4049b62107a88b9806d5335ddbaca"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/capture-metadata.log",
+      "sha256": "f563d6065f55794419db1e0dc7e1298ef9d6cdcfa133ac470622588b2f6c8e24"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/capture-metadata-02.log",
+      "sha256": "e5606be19833a61f31b70128466f2094e957be85f104f88fc47453dd89ad7521"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/bootstrap.json",
+      "sha256": "aaf7995c97f129aa41febf2de03d4b542dd19970e63642e0487bd51aa3d75d34"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/bootstrap-final.json",
+      "sha256": "aaf7995c97f129aa41febf2de03d4b542dd19970e63642e0487bd51aa3d75d34"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/unit.log",
+      "sha256": "0425bcebaae3d3bd79c4dbcafc35177d0c4a7350cac35f5d4b784d80e463a9f1"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/upstream-check.log",
+      "sha256": "3a0daa6a5ceb0084abc8d011dd5cf266666a151b4fa4ee334c06f83e70262ec4"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/fresh-upstream-fetch.log",
+      "sha256": "b42f60ff962b00f5420c906ba89e0159e373f483dcee12db2d2635eb5cec8f6f"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/plan-scope-review.json",
+      "sha256": "37b3eac5972daa453a23f7785765f4a5015770ec33c26cfac1389d4262f525b0"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/isolated-package.json",
+      "sha256": "13d87ae1fad557ed8376ed01589bb89c7482c45e57ec99c2a299423f344acc7c"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/isolated-install-report.json",
+      "sha256": "76443cd17f07b6767564a6f7d89217d1efa701a44186098dd3d0043cdbc3d830"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/pypi-name-observation.json",
+      "sha256": "29fa5f2da2196e1db94473af9dc64b1503b854b3d292efe5f91970d46084b1a7"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/official-metadata-final/manifest.json",
+      "sha256": "e5606be19833a61f31b70128466f2094e957be85f104f88fc47453dd89ad7521"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/dist/py_elk-0.0.1a0-py3-none-any.whl",
+      "sha256": "dfcab365b9d9c97d5813d275a657f5296604f7175f11450c3757109f01417cb2"
+    },
+    {
+      "path": "test-runs/20261102-project-plan-01/dist/py_elk-0.0.1a0.tar.gz",
+      "sha256": "795962ba127ad96962d2e216d471f3e1f7b0842cedd4578d338df790bec35276"
+    }
+  ],
+  "documentationReview": [
+    {
+      "topic": "existing-entry-documents",
+      "status": "updated",
+      "paths": [
+        "README.md",
+        "README.en.md",
+        "DEVELOPMENT_PLAN.md",
+        "API_COMPATIBILITY.md",
+        "UPSTREAM.json"
+      ],
+      "reason": "Preserve the existing behavior baseline and coordinate thresholds, add runnable development entry points, record actual source scope and prioritize standalone stable release before separate integration."
+    },
+    {
+      "topic": "complete-plan-and-release",
+      "status": "created",
+      "paths": [
+        "docs/IMPLEMENTATION_PLAN.md",
+        "docs/TASKS.md",
+        "docs/FIRST_RELEASE_SCOPE.md",
+        "docs/release-profiles.json",
+        "docs/MERMAID_INTEGRATION.md",
+        "docs/NEW_SESSION.md",
+        "docs/TEST_AND_RELEASE.md",
+        "docs/RELEASE_STATUS.md"
+      ],
+      "reason": "Separate scaffold, basic implementation, formal package publication, later full coverage and independent integration, with explicit dependencies and acceptance gates."
+    },
+    {
+      "topic": "source-and-runtime-boundary",
+      "status": "created",
+      "paths": [
+        "references",
+        "THIRD_PARTY_NOTICES.md",
+        "src/pyelk",
+        "pyproject.toml",
+        "scripts",
+        "tools/reference"
+      ],
+      "reason": "Bind the exact Git/npm behavior source and actual metadata denominator; record unresolved Java source and distribution license; export no fake layout API."
+    },
+    {
+      "topic": "tests-and-examples",
+      "status": "created",
+      "paths": [
+        "tests",
+        "examples",
+        "benchmarks",
+        ".github/workflows/validate.yml"
+      ],
+      "reason": "Add meaningful corruption/false-claim/profile/source controls and a real scope example. Graph inputs have no fabricated expected geometry; performance and CI remain planned until executed."
+    },
+    {
+      "topic": "rendered-images",
+      "status": "not-applicable",
+      "paths": [],
+      "reason": "py-elk computes geometry and currently has no algorithm; no layout image is created or claimed, and no renderer or font-shaping dependency is introduced."
+    }
+  ],
+  "limitations": [
+    "No Python layout/API/algorithm implementation",
+    "No formal Python package published; current scaffold is not publishable",
+    "Exact external Java implementation source commit remains unresolved",
+    "Project distribution license and publishing identity/name remain release tasks",
+    "No local Git repository initialized or remote repository access confirmed",
+    "Python/Windows/Linux CI matrix is prepared, not a claim of executed remote CI"
+  ],
+  "nextStep": "M1 source/license and basic-profile contracts, graph oracle and comparison negative controls; then real M2 layered, M3 closure, M4 standalone candidate, M5 stable 0.1.0 release. Integration is independent I0-I3 afterward.",
+  "status": "project_structure_and_iteration_plan_scoped_verified",
+  "acceptanceResults": [
+    "Original four design files preserved before modification; sole elkjs 0.12.1 baseline retained",
+    "Git source and npm artifact identity/integrity verified; fresh external source fetch/check reproduced",
+    "Twelve algorithms, 243 options, eight categories and 64 source files retained as denominators with zero implemented Python algorithms",
+    "Roadmap split into 40 main work packages: basic functionality and stable Python package release at M5 before separate I0-I3 Mermaid integration",
+    "Basic stable release profile planned at 0.1.0 with nine core option IDs and explicit unsupported advanced scope",
+    "Bootstrap, fourteen existing/new source/denominator/profile negative-control tests and byte-identical metadata recapture passed",
+    "Local metadata-only wheel/sdist built and installed into a fresh environment; outside-workspace isolated import with PATH/PYTHONPATH/PYTHONHOME removed passed",
+    "No current algorithm implementation, formal release, remote CI execution, Git initialization, commit or push claimed"
+  ],
+  "buildInputsSha256": {
+    "pyproject.toml": "5c494edf1ba1308dc49193c745ed551a2e50af9261baa44406680501ec39e64e",
+    "README.md": "9baf2e9693f2191206986fd641a9e77011449fb22c54ad036d9dadfff9bb6ab0",
+    "src/pyelk/__init__.py": "372d1d00417618572d01fb1ddf201ee2cf616ae3ebf4c49947605f8335b78935",
+    "src/pyelk/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "knownFailedAttempt": {
+    "commandId": "capture-metadata",
+    "exitCode": 1,
+    "reason": "Official bundled FakeWorker terminateWorker raises TypeError. Original failure retained; later collector records the explicit throws observation without claiming lifecycle acceptance."
+  },
+  "validationEnvironment": {
+    "python": "CPython 3.13.15",
+    "node": "v24.19.0",
+    "platform": "Windows AMD64",
+    "unexecuted": "Linux and CPython 3.11/3.12/3.14 matrix is configured but not executed here."
+  }
+}

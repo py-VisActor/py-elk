@@ -1,0 +1,271 @@
+{
+  "schema": "py-elk-iteration-plan/v1",
+  "updatedOn": "2026-11-03",
+  "status": "planned",
+  "nextIteration": "E01",
+  "detailsDocument": "ITERATION_PLAN.md",
+  "strategyDocument": "IMPLEMENTATION_PLAN.md",
+  "workPackagesDocument": "TASKS.md",
+  "actualStatusDocument": "RELEASE_STATUS.md",
+  "upstreamVersion": "0.12.1",
+  "upstreamCommit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+  "firstStableVersionPlanned": "0.1.0",
+  "firstReleaseIterations": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12"],
+  "mermaidIntegrationRequiredForFirstRelease": false,
+  "iterationStates": ["planned", "in_progress", "waiting", "complete"],
+  "gateStates": ["unverified", "verified"],
+  "gates": [
+    {
+      "id": "algorithm-source",
+      "ownerIteration": "E01",
+      "status": "unverified",
+      "scope": "Components executed by the current slice; renew the evidence when adding a component or strategy",
+      "criterion": "Reviewable source-to-artifact mapping, exact source identity and copyright/license handling for each ported component",
+      "evidence": []
+    },
+    {
+      "id": "native-contract",
+      "ownerIteration": "E02",
+      "status": "unverified",
+      "criterion": "Explicit native host mapping and executable comparison profile; raw strict differences retained",
+      "evidence": []
+    },
+    {
+      "id": "ordered-model-options",
+      "ownerIteration": "E03",
+      "status": "unverified",
+      "criterion": "Ordered identity, lossless model transfer, option precedence and call-state tests pass",
+      "evidence": []
+    },
+    {
+      "id": "first-release-coverage",
+      "ownerIteration": "E09",
+      "status": "unverified",
+      "criterion": "Every declared basic-layered branch has implementation and API/geometry/coordinate evidence",
+      "evidence": []
+    },
+    {
+      "id": "platform-quality",
+      "ownerIteration": "E10",
+      "status": "unverified",
+      "criterion": "Real layout on declared platforms with measured performance, resource and lifecycle limits",
+      "evidence": []
+    },
+    {
+      "id": "candidate-accepted",
+      "ownerIteration": "E11",
+      "status": "unverified",
+      "criterion": "Final wheel/sdist hashes, source/license closure and isolated real-layout acceptance",
+      "evidence": []
+    },
+    {
+      "id": "package-published",
+      "ownerIteration": "E12",
+      "status": "unverified",
+      "criterion": "Actual release URLs, download hashes and fresh installation/layout evidence",
+      "evidence": []
+    }
+  ],
+  "iterations": [
+    {
+      "id": "E01",
+      "title": "Source and default-path audit",
+      "status": "planned",
+      "dependsOn": [],
+      "requiredGates": [],
+      "workPackages": ["M1-01", "M1-02"],
+      "evidence": []
+    },
+    {
+      "id": "E02",
+      "title": "Native contract and comparison profile",
+      "status": "planned",
+      "dependsOn": ["E01"],
+      "requiredGates": [],
+      "workPackages": ["M1-03", "M1-05", "M1-06", "M1-08"],
+      "evidence": []
+    },
+    {
+      "id": "E03",
+      "title": "Ordered model, options and execution context",
+      "status": "planned",
+      "dependsOn": ["E02"],
+      "requiredGates": ["native-contract"],
+      "workPackages": ["M1-04", "M1-05", "M2-01"],
+      "evidence": []
+    },
+    {
+      "id": "E04",
+      "title": "First real end-to-end layered slice",
+      "status": "planned",
+      "dependsOn": ["E03"],
+      "requiredGates": ["algorithm-source", "native-contract", "ordered-model-options"],
+      "workPackages": ["M1-06", "M1-07", "M1-08", "M2-01", "M2-03", "M2-04", "M2-05", "M2-06"],
+      "algorithms": ["org.eclipse.elk.layered"],
+      "evidence": []
+    },
+    {
+      "id": "E05",
+      "title": "DAGs, long edges and default phases",
+      "status": "planned",
+      "dependsOn": ["E04"],
+      "requiredGates": ["algorithm-source"],
+      "workPackages": ["M2-03", "M2-04", "M2-05", "M2-06"],
+      "evidence": []
+    },
+    {
+      "id": "E06",
+      "title": "Cycles, self-loops and parallel edges",
+      "status": "planned",
+      "dependsOn": ["E05"],
+      "requiredGates": ["algorithm-source"],
+      "workPackages": ["M2-02", "M2-03", "M2-04", "M2-06"],
+      "evidence": []
+    },
+    {
+      "id": "E07",
+      "title": "Directions, components and nine basic options",
+      "status": "planned",
+      "dependsOn": ["E06"],
+      "requiredGates": ["algorithm-source"],
+      "workPackages": ["M2-01", "M2-05", "M2-06", "M3-01"],
+      "evidence": []
+    },
+    {
+      "id": "E08",
+      "title": "Public API, metadata and execution lifecycle",
+      "status": "planned",
+      "dependsOn": ["E07"],
+      "requiredGates": ["native-contract"],
+      "workPackages": ["M1-03", "M1-06", "M3-02", "M3-04", "M4-02"],
+      "evidence": []
+    },
+    {
+      "id": "E09",
+      "title": "Basic release conformance closure",
+      "status": "planned",
+      "dependsOn": ["E08"],
+      "requiredGates": ["native-contract"],
+      "workPackages": ["M1-02", "M3-01", "M3-02", "M3-03", "M3-04"],
+      "evidence": []
+    },
+    {
+      "id": "E10",
+      "title": "Platform, performance and resource acceptance",
+      "status": "planned",
+      "dependsOn": ["E09"],
+      "requiredGates": ["first-release-coverage"],
+      "workPackages": ["M4-01", "M4-02", "M4-03"],
+      "evidence": []
+    },
+    {
+      "id": "E11",
+      "title": "Final wheel/sdist candidate acceptance",
+      "status": "planned",
+      "dependsOn": ["E10"],
+      "requiredGates": ["platform-quality"],
+      "workPackages": ["M4-04", "M5-01"],
+      "evidence": []
+    },
+    {
+      "id": "E12",
+      "title": "Stable release and download verification",
+      "status": "planned",
+      "dependsOn": ["E11"],
+      "requiredGates": ["candidate-accepted"],
+      "workPackages": ["M5-02", "M5-03"],
+      "evidence": []
+    },
+    {
+      "id": "E13",
+      "title": "Ports and given-size labels",
+      "status": "planned",
+      "dependsOn": ["E12"],
+      "requiredGates": ["package-published", "algorithm-source"],
+      "workPackages": ["M6-01", "M6-02"],
+      "evidence": []
+    },
+    {
+      "id": "E14",
+      "title": "Hierarchy and coordinate containers",
+      "status": "planned",
+      "dependsOn": ["E13"],
+      "requiredGates": ["algorithm-source"],
+      "workPackages": ["M6-03"],
+      "evidence": []
+    },
+    {
+      "id": "E15",
+      "title": "Full layered strategies and routing",
+      "status": "planned",
+      "dependsOn": ["E14"],
+      "requiredGates": ["algorithm-source"],
+      "workPackages": ["M6-04", "M6-05"],
+      "evidence": []
+    },
+    {
+      "id": "E16",
+      "title": "fixed, box and random",
+      "status": "planned",
+      "dependsOn": ["E12"],
+      "requiredGates": ["package-published", "algorithm-source"],
+      "workPackages": ["M7-01"],
+      "algorithms": ["org.eclipse.elk.fixed", "org.eclipse.elk.box", "org.eclipse.elk.random"],
+      "evidence": []
+    },
+    {
+      "id": "E17",
+      "title": "mrtree and radial",
+      "status": "planned",
+      "dependsOn": ["E12"],
+      "requiredGates": ["package-published", "algorithm-source"],
+      "workPackages": ["M7-02"],
+      "algorithms": ["org.eclipse.elk.mrtree", "org.eclipse.elk.radial"],
+      "evidence": []
+    },
+    {
+      "id": "E18",
+      "title": "force and stress",
+      "status": "planned",
+      "dependsOn": ["E12"],
+      "requiredGates": ["package-published", "algorithm-source"],
+      "workPackages": ["M7-03"],
+      "algorithms": ["org.eclipse.elk.force", "org.eclipse.elk.stress"],
+      "evidence": []
+    },
+    {
+      "id": "E19",
+      "title": "disco, sporeOverlap, sporeCompaction and rectpacking",
+      "status": "planned",
+      "dependsOn": ["E12"],
+      "requiredGates": ["package-published", "algorithm-source"],
+      "workPackages": ["M7-04"],
+      "algorithms": ["org.eclipse.elk.disco", "org.eclipse.elk.sporeOverlap", "org.eclipse.elk.sporeCompaction", "org.eclipse.elk.rectpacking"],
+      "evidence": []
+    },
+    {
+      "id": "E20",
+      "title": "Full coverage and reliability audit",
+      "status": "planned",
+      "dependsOn": ["E15", "E16", "E17", "E18", "E19"],
+      "requiredGates": [],
+      "workPackages": ["M8-01", "M8-02"],
+      "evidence": []
+    },
+    {
+      "id": "E21",
+      "title": "Full candidate and subsequent releases",
+      "status": "planned",
+      "dependsOn": ["E20"],
+      "requiredGates": [],
+      "workPackages": ["M8-03"],
+      "evidence": []
+    }
+  ],
+  "integration": [
+    {"id": "I0", "status": "planned", "dependsOn": ["E12"], "requiredGates": ["package-published"], "workPackages": ["I0"], "evidence": []},
+    {"id": "I1", "status": "planned", "dependsOn": ["I0"], "requiredGates": ["package-published"], "additionalRequirement": "Published capabilities required by the I0 audit", "workPackages": ["I1"], "evidence": []},
+    {"id": "I2", "status": "planned", "dependsOn": ["I1"], "requiredGates": [], "workPackages": ["I2"], "evidence": []},
+    {"id": "I3", "status": "planned", "dependsOn": ["I2"], "requiredGates": [], "workPackages": ["I3"], "evidence": []}
+  ]
+}
