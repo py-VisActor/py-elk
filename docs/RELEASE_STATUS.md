@@ -1,6 +1,6 @@
 # 当前状态
 
-功能迁移已完成，统一校验和定向修复尚未全部收口，正式包尚未上传；发行名已确认使用 `py-visactor-elk`，导入名保留 `pyelk`。权威机器状态见 [任务账本](implementation-backlog.json)及 [发行门禁](releases/0.1.0-readiness.json)。
+功能迁移已完成，首个独立发行 **[py-visactor-elk 0.1.0](https://pypi.org/project/py-visactor-elk/0.1.0/)** 已正式发布并完成 PyPI 下载、wheel/sdist 安装复验。导入名保留 `pyelk`。全部声明分支的 E20/E21 验收仍在继续；权威状态见 [任务账本](implementation-backlog.json)及 [实际发行证据](releases/evidence/published-0.1.0/publication.json)。
 
 正式源码是 `src/pyelk`：196 个 Python 模块、208 个运行文件，12 个算法、243 个选项、8 个类别。`py-mermaid` 集成后置。实现接线完成不等于所有输入、选项值和组合的行为均已验证。
 
@@ -11,7 +11,7 @@
 剩余工作：
 
 - 完成有限声明分支和 243 选项角色的证据映射，关闭确实缺失的见证；当前 73 项 scoped geometry／15 项 scoped state 和便携归档已收口。
-- 完成首个独立发行的候选审阅、实际上传和下载安装验收；用户已配置新名 Trusted Publisher；修复与 README 元数据新候选已构建和安装检查，无需重复未变数学组。
+- 将新补的真实状态 DTO、旧枚举原始状态及 Source 边界合入有限声明矩阵；只为仍无证据的明确分支补最小见证，不重跑未变数学组。
 
 当前选项覆盖和高级几何仅作其声明范围内的证明，未评估项继续保留；独立算法几何的 28 个观察另有双方各 10 PASS／4 NOT_ASSESSED，见 [独立算法几何](INDEPENDENT_ALGORITHM_GEOMETRY.md)。详见 [选项账本](iterations/FULL_OPTION_COVERAGE.md)、[性能边界](FULL_PERFORMANCE.md)及 [发行说明](releases/0.1.0.md)。
 

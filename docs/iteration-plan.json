@@ -2,7 +2,7 @@
   "schema": "py-elk-iteration-plan/v1",
   "updatedOn": "2026-11-04",
   "status": "in_progress",
-  "nextIteration": "E12",
+  "nextIteration": "E20",
   "detailsDocument": "ITERATION_PLAN.md",
   "strategyDocument": "IMPLEMENTATION_PLAN.md",
   "workPackagesDocument": "TASKS.md",
@@ -136,9 +136,31 @@
     {
       "id": "package-published",
       "ownerIteration": "E12",
-      "status": "unverified",
+      "status": "verified",
       "criterion": "Actual release URLs, download hashes and fresh installation/layout evidence",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/verification.json",
+          "sha256": "35d2141149af215cd01cb51c7278d06b5286f4cd04384833e80d52e4707e86f2"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/wheel-installed.json",
+          "sha256": "7be462db372fd0229688fb22c368c8caac1a9614d5890098e2e8fb5fe546af7f"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/sdist-installed.json",
+          "sha256": "d1f92a981faa8f6187e31ad543b16ac174963c7c341eeb687a2af0775b7a83fd"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/workflow-run.json",
+          "sha256": "8eda2530794752ac1d0fe725f5f17c2268a28c62fdee58860445089c1093c2be"
+        }
+      ],
+      "scope": "Actual py-visactor-elk0.1.0 via GitHub OIDC, exact uploaded/downloaded wheel/sdist hashes, real external installations. Full E20/E21 acceptance remains separate."
     }
   ],
   "iterations": [
@@ -469,7 +491,7 @@
     {
       "id": "E12",
       "title": "Stable release and download verification",
-      "status": "in_progress",
+      "status": "complete",
       "dependsOn": [
         "E11"
       ],
@@ -480,10 +502,31 @@
         "M5-02",
         "M5-03"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/verification.json",
+          "sha256": "35d2141149af215cd01cb51c7278d06b5286f4cd04384833e80d52e4707e86f2"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/wheel-installed.json",
+          "sha256": "7be462db372fd0229688fb22c368c8caac1a9614d5890098e2e8fb5fe546af7f"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/sdist-installed.json",
+          "sha256": "d1f92a981faa8f6187e31ad543b16ac174963c7c341eeb687a2af0775b7a83fd"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/workflow-run.json",
+          "sha256": "8eda2530794752ac1d0fe725f5f17c2268a28c62fdee58860445089c1093c2be"
+        }
+      ],
       "parallelStrategy": "E12",
-      "retrospective": null,
-      "waitingFor": "Actual reviewed Git commit/tag OIDC upload and downloaded-artifact verification"
+      "retrospective": "retrospectives/E12.md",
+      "acceptanceStatus": "actual-oidc-published-download-dual-install-verified"
     },
     {
       "id": "E13",
@@ -941,7 +984,7 @@
     "historicalPrivatePreparation": "iterations/parallel-preparation-history-20261104.json",
     "publicAPIIntegrated": true,
     "activeSourceDirectory": "src/pyelk",
-    "packagePublished": false,
+    "packagePublished": true,
     "implementationAlgorithms": 12,
     "metadataOptions": 243,
     "metadataCategories": 8,
