@@ -70,6 +70,20 @@ class FullNativeCIPlanTests(unittest.TestCase):
             selection=ci_selected.plan([name],manifest,root)
             self.assertFalse(selection['passed']);self.assertEqual(selection['unplannedPaths'],[name])
 
+    def test_independent_evidence_archives_select_only_their_consumers(self):
+        for stem, check in (('options', 'option-evidence-strict'),
+                            ('branches', 'declared-branches'),
+                            ('algorithms', 'algorithm-acceptance')):
+            for suffix in ('.zip', '.manifest.json'):
+                with self.subTest(archive=stem + suffix):
+                    names,_ = self.selected(['references/full-native-closure/' + stem + suffix])
+                    self.assertIn(check, names)
+                    if stem != 'options':
+                        self.assertNotIn('option-evidence-restore', names)
+                        self.assertNotIn('option-evidence-strict', names)
+        names,_ = self.selected(['tests/fixtures/suites/full-option-effects/geometry-contracts/manifest.json'])
+        self.assertEqual(names, {'advanced-geometry'})
+
     def test_unknown_code_stops_all_commands_and_docs_select_no_runtime(self):
         manifest=self.manifest()
         with tempfile.TemporaryDirectory()as folder,patch.object(ci_selected.subprocess,'run')as process:

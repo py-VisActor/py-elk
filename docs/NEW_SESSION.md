@@ -9,10 +9,12 @@
 接续顺序：
 
 1. 查看 [机器任务账本](implementation-backlog.json)、[迭代计划](iteration-plan.json)和 agent 实际状态，避免覆盖仍在执行的工作。
-2. A 正将 ignored 的 31 个旧枚举状态、5 类 owner DTO、Unzip/EQUAL 及已知 Source 边界合入分支矩阵；先读其 handoff 和 agent 实际状态。
+2. 先读 [有限声明矩阵](iterations/FULL_DECLARED_BRANCH_MATRIX.md)及其归档；90 个核心 factory 已有分范围终态，补充枚举另列，不把两者混成全部通过。先确认 agent 是否仍持有文件写入权。
 3. 用 `declared_branch_matrix.py --check` 和 `option_roles.py --check` 离线核映射，只为确实缺失的有限分支准备最小状态/效果见证。不要重采 52、72、81、151 已过矩阵。
 4. 收口 E13–E21 逐项退出条件，保留部分评估、未验证和 Source 失败；首个独立包发布不代表全部迁移目标完成。
 5. 已发布 0.1.0 不覆盖重传；若运行代码需修复，按影响检查并准备后续版本。纯证据和文档更新不重建未变发行包。
+
+E16–E19 已按 [逐条件清单](iterations/E16_E19_ACCEPTANCE.md)收口，E17 保留私有目标数组的 11 个严格浮点差异；这不阻止如实记录已观察最终几何，也不证明任意近似平局选择一致。[高级几何增量](ADVANCED_GEOMETRY.md)补齐固定端口、最小尺寸、样条、标签间距及真实 section 连接约束，部分评估仍保留。
 
 可复用证据：冻结开发全量 37 步／917 测试、原 0.0.1a0 的八格 wheel 与两个 sdist 代表平台、当前候选的逐算法性能、独立几何谓词及选项效果账本。每项都只支持其执行版本、源码和适用范围。见 [完整实现](FULL_NATIVE_IMPLEMENTATION.md)、[性能报告](FULL_PERFORMANCE.md)、[选项覆盖](iterations/FULL_OPTION_COVERAGE.md)。
 

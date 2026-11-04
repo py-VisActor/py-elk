@@ -1,0 +1,87 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "graph": {
+    "id": "sections-root",
+    "business": {
+      "shape": "real-two-section-chain"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.edgeRouting": "POLYLINE",
+      "elk.padding": "[top=0,left=0,bottom=0,right=0]"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "x": 10,
+        "y": 20,
+        "width": 30,
+        "height": 20
+      },
+      {
+        "id": "n1",
+        "x": 100,
+        "y": 50,
+        "width": 40,
+        "height": 30
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "sections": [
+          {
+            "id": "s0",
+            "incomingShape": "n0",
+            "startPoint": {
+              "x": 40,
+              "y": 30
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 30
+              }
+            ],
+            "endPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "outgoingSections": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s1",
+            "incomingSections": [
+              "s0"
+            ],
+            "startPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 65
+              }
+            ],
+            "endPoint": {
+              "x": 100,
+              "y": 65
+            },
+            "outgoingShape": "n1"
+          }
+        ]
+      }
+    ]
+  },
+  "layoutArguments": {}
+}

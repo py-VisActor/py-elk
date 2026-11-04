@@ -30,14 +30,18 @@ ALGORITHMS=('fixed','box','random','layered','mrtree','radial','force','stress',
 SIZES=(8,32,96)
 
 
-def plan():
+def plan(algorithms=None):
+    selected=ALGORITHMS if algorithms is None else tuple(algorithms)
+    if not selected or set(selected)-set(ALGORITHMS):raise ValueError('Expected known algorithm names')
     rows=[{'algorithm':algorithm,'nodes':size,'options':{}}
-          for algorithm in ALGORITHMS for size in SIZES]
-    rows.extend({'algorithm':'force','nodes':size,'options':{'force.model':'EADES'}}for size in SIZES)
+          for algorithm in ALGORITHMS if algorithm in selected for size in SIZES]
+    if 'force'in selected:
+        rows.extend({'algorithm':'force','nodes':size,'options':{'force.model':'EADES'}}for size in SIZES)
     return {'schema':'py-elk-full-performance-plan/v1','profiles':rows,'warmups':1,'samples':5,
             'seed':37,'jobTimeoutSeconds':60,'memoryObservation':'OS worker peak working set / VmHWM',
             'quality':'Bounding extent, overlaps, edge lengths; connected-tree normalized stress',
-            'convergenceLimits':[1,25,150],'platform':platform.system(),
+            'convergenceLimits':[1,25,150],'convergenceAlgorithms':[x for x in('force','stress')if x in selected],
+            'selectedAlgorithms':[x for x in ALGORITHMS if x in selected],'platform':platform.system(),
             'fullValidation':False,'layoutExecutions':0}
 
 
@@ -139,7 +143,8 @@ async def capture(args):
             for p in package.rglob('*')if p.is_file()and'__pycache__'not in p.parts}
     assert expected==actual,'Installed payload differs from measured artifact'
     rows=[]
-    for profile in plan()['profiles']:
+    measurement_plan=plan(args.algorithm)
+    for profile in measurement_plan['profiles']:
         row={**profile,'samples':[]};request=graph_for(profile['algorithm'],profile['nodes'],profile['options'])
         before=fingerprint(request)
         try:
@@ -171,7 +176,7 @@ async def capture(args):
         print(json.dumps({'algorithm':profile['algorithm'],'nodes':profile['nodes'],'options':profile['options'],
                           'passed':row['passed'],'statistics':row.get('statistics'),'error':row.get('error')}),flush=True)
     convergence=[]
-    for algorithm in('force','stress'):
+    for algorithm in measurement_plan['convergenceAlgorithms']:
         for limit in(1,25,150):
             options={('force.iterations'if algorithm=='force'else'stress.iterationLimit'):limit}
             if algorithm=='stress':options['stress.epsilon']=0
@@ -187,7 +192,7 @@ async def capture(args):
     report={'schema':'py-elk-installed-full-performance/v1','passed':all(x['passed']for x in rows+convergence),
             'version':pyelk.__version__,'python':sys.version,'executable':sys.executable,
             'platform':platform.platform(),'package':str(package),'isolated':True,'runtimeFilesSha256':actual,
-            'wheelSha256':hashlib.sha256(args.wheel.read_bytes()).hexdigest(),'plan':plan(),'profiles':rows,
+            'wheelSha256':hashlib.sha256(args.wheel.read_bytes()).hexdigest(),'plan':measurement_plan,'profiles':rows,
             'convergenceObservations':convergence,'claimedUniversalResourceLimit':None,
             'scope':'This artifact/interpreter/host, declared finite inputs and options only; warmups separated from steady-state samples'}
     save(args.out/'report.json',report)
@@ -201,8 +206,10 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--plan-only',action='store_true');parser.add_argument('--capture',action='store_true')
     parser.add_argument('--wheel',type=Path);parser.add_argument('--out',type=Path)
+    parser.add_argument('--algorithm',action='append',choices=ALGORITHMS,
+                        help='Measure only the named affected algorithm; repeat to select more')
     args=parser.parse_args()
-    if args.plan_only:print(json.dumps(plan(),indent=2));return 0
+    if args.plan_only:print(json.dumps(plan(args.algorithm),indent=2));return 0
     if args.wheel is None or args.out is None:parser.error('--wheel and --out are required for measurement')
     args.wheel=args.wheel.resolve();args.out=args.out.resolve();args.out.mkdir(parents=True,exist_ok=False)
     if args.capture:return asyncio.run(capture(args))
@@ -211,7 +218,8 @@ def main():
         python=environment/('Scripts/python.exe'if os.name=='nt'else'bin/python')
         commands=[('install',[str(python),'-I','-m','pip','install','--no-index','--no-deps',str(args.wheel)]),
                   ('capture',[str(python),'-I',str(Path(__file__).resolve()),'--capture','--wheel',str(args.wheel),
-                              '--out',str(args.out/'installed')])]
+                              '--out',str(args.out/'installed'),
+                              *[part for name in(args.algorithm or[])for part in('--algorithm',name)]])]
         records=[]
         for name,command in commands:
             start=time.perf_counter();process=subprocess.run(command,cwd=folder,capture_output=True,timeout=900)

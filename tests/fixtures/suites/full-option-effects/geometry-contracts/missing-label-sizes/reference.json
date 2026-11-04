@@ -1,0 +1,412 @@
+{
+  "id": "missing-label-sizes",
+  "requestSha256": "8b39d102a6beeec37078bde4f3b9e48871c26dbe8dba784ad4e5886f32ad56e6",
+  "inputBefore": {
+    "id": "labels-root",
+    "business": {
+      "keep": [
+        false,
+        0,
+        null
+      ],
+      "$H": "business-preserved"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": 29
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "labels": [
+          {
+            "id": "a-label",
+            "text": "No font measurement"
+          }
+        ],
+        "ports": [
+          {
+            "id": "a-out",
+            "width": 6,
+            "height": 4,
+            "layoutOptions": {
+              "elk.port.side": "EAST"
+            },
+            "labels": [
+              {
+                "id": "a-port-label",
+                "text": "source port"
+              }
+            ]
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.nodeLabels.placement": "[INSIDE,H_CENTER,V_CENTER]"
+        }
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 35,
+        "labels": [
+          {
+            "id": "b-label",
+            "text": "? node"
+          }
+        ],
+        "ports": [
+          {
+            "id": "b-in",
+            "width": 5,
+            "height": 5,
+            "layoutOptions": {
+              "elk.port.side": "WEST"
+            },
+            "labels": [
+              {
+                "id": "b-port-label",
+                "text": "target port"
+              }
+            ]
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a-out"
+        ],
+        "targets": [
+          "b-in"
+        ],
+        "labels": [
+          {
+            "id": "edge-label",
+            "text": "edge text",
+            "layoutOptions": {
+              "elk.edgeLabels.placement": "CENTER"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "result": {
+    "id": "labels-root",
+    "business": {
+      "keep": [
+        false,
+        0,
+        null
+      ],
+      "$H": "business-preserved"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": 29
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "labels": [
+          {
+            "id": "a-label",
+            "text": "No font measurement",
+            "x": 20,
+            "y": 15,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "ports": [
+          {
+            "id": "a-out",
+            "width": 6,
+            "height": 4,
+            "layoutOptions": {
+              "elk.port.side": "EAST"
+            },
+            "labels": [
+              {
+                "id": "a-port-label",
+                "text": "source port",
+                "x": 7,
+                "y": 5,
+                "width": 0,
+                "height": 0
+              }
+            ],
+            "x": 40,
+            "y": 13
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.nodeLabels.placement": "[INSIDE,H_CENTER,V_CENTER]"
+        },
+        "$H": 277,
+        "x": 12,
+        "y": 14.5
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 35,
+        "labels": [
+          {
+            "id": "b-label",
+            "text": "? node",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "ports": [
+          {
+            "id": "b-in",
+            "width": 5,
+            "height": 5,
+            "layoutOptions": {
+              "elk.port.side": "WEST"
+            },
+            "labels": [
+              {
+                "id": "b-port-label",
+                "text": "target port",
+                "x": -1,
+                "y": 6,
+                "width": 0,
+                "height": 0
+              }
+            ],
+            "x": -5,
+            "y": 15
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE"
+        },
+        "$H": 284,
+        "x": 105,
+        "y": 12
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a-out"
+        ],
+        "targets": [
+          "b-in"
+        ],
+        "labels": [
+          {
+            "id": "edge-label",
+            "text": "edge text",
+            "layoutOptions": {
+              "elk.edgeLabels.placement": "CENTER"
+            },
+            "x": 79,
+            "y": 32.5,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 58,
+              "y": 29.5
+            },
+            "endPoint": {
+              "x": 100,
+              "y": 29.5
+            },
+            "incomingShape": "a-out",
+            "outgoingShape": "b-in"
+          }
+        ],
+        "container": "labels-root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 167,
+    "height": 59
+  },
+  "outcome": "returned",
+  "elapsedSeconds": 0.0758951,
+  "inputAfter": {
+    "id": "labels-root",
+    "business": {
+      "keep": [
+        false,
+        0,
+        null
+      ],
+      "$H": "business-preserved"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": 29
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "labels": [
+          {
+            "id": "a-label",
+            "text": "No font measurement",
+            "x": 20,
+            "y": 15,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "ports": [
+          {
+            "id": "a-out",
+            "width": 6,
+            "height": 4,
+            "layoutOptions": {
+              "elk.port.side": "EAST"
+            },
+            "labels": [
+              {
+                "id": "a-port-label",
+                "text": "source port",
+                "x": 7,
+                "y": 5,
+                "width": 0,
+                "height": 0
+              }
+            ],
+            "x": 40,
+            "y": 13
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.nodeLabels.placement": "[INSIDE,H_CENTER,V_CENTER]"
+        },
+        "$H": 277,
+        "x": 12,
+        "y": 14.5
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 35,
+        "labels": [
+          {
+            "id": "b-label",
+            "text": "? node",
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "ports": [
+          {
+            "id": "b-in",
+            "width": 5,
+            "height": 5,
+            "layoutOptions": {
+              "elk.port.side": "WEST"
+            },
+            "labels": [
+              {
+                "id": "b-port-label",
+                "text": "target port",
+                "x": -1,
+                "y": 6,
+                "width": 0,
+                "height": 0
+              }
+            ],
+            "x": -5,
+            "y": 15
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE"
+        },
+        "$H": 284,
+        "x": 105,
+        "y": 12
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a-out"
+        ],
+        "targets": [
+          "b-in"
+        ],
+        "labels": [
+          {
+            "id": "edge-label",
+            "text": "edge text",
+            "layoutOptions": {
+              "elk.edgeLabels.placement": "CENTER"
+            },
+            "x": 79,
+            "y": 32.5,
+            "width": 0,
+            "height": 0
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 58,
+              "y": 29.5
+            },
+            "endPoint": {
+              "x": 100,
+              "y": 29.5
+            },
+            "incomingShape": "a-out",
+            "outgoingShape": "b-in"
+          }
+        ],
+        "container": "labels-root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 167,
+    "height": 59
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

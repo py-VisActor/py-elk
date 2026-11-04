@@ -40,3 +40,19 @@ fixed 使用给定位置；DisCo 使用多个初始连通分量；Spore 输入�
 
 原始逐样本数据：`test-runs/full-native-closure/performance-01/installed/report.json`；[完整摘要](changes/20261104-full-performance.json)绑定其 SHA。原始退出码、安装命令及 stdout/stderr 位于同级目录。
 此次只有该 Windows 主机的性能／峰值观察；已有 Windows/Linux × 3.11–3.14 功能矩阵继续保留其实际版本与安装范围，没有由本表外推平台性能。
+
+## 已发布修复版本的 MrTree 变更测量
+
+针对实际 PyPI wheel `93c9f75e…`，仅重测受活动路径修复影响的 MrTree 8／32／96 节点，3 次预热、15 个正式样本，未执行其他算法或 Force／Stress 迭代组。每配置五次正式结果 SHA 一致，进程复用和输入保留检查均通过。它不把上方旧候选其他配置重标为新测量。
+
+| 节点数 | 中位 wall 秒 | 工作进程峰值 MiB |
+| --- | --- | --- |
+| 8 | 0.003374 | 30.28 |
+| 32 | 0.011668 | 31.62 |
+| 96 | 0.040592 | 34.41 |
+
+原始报告见 [MrTree 变更性能](changes/20261104-published-mrtree-performance.json)。其余 36 配置的数学模块及运行字节未因该修复改变，继续保留原测量身份，不重跑、不宣称相同主机测量的提升比例。
+
+```shell
+python scripts/validate_full_performance.py --algorithm mrtree --wheel PUBLISHED_WHEEL --out NEW_DIRECTORY
+```

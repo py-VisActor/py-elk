@@ -1,0 +1,104 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "graph": {
+    "id": "labels-root",
+    "business": {
+      "keep": [
+        false,
+        0,
+        null
+      ],
+      "$H": "business-preserved"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": 29
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "labels": [
+          {
+            "id": "a-label",
+            "text": "No font measurement"
+          }
+        ],
+        "ports": [
+          {
+            "id": "a-out",
+            "width": 6,
+            "height": 4,
+            "layoutOptions": {
+              "elk.port.side": "EAST"
+            },
+            "labels": [
+              {
+                "id": "a-port-label",
+                "text": "source port"
+              }
+            ]
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.nodeLabels.placement": "[INSIDE,H_CENTER,V_CENTER]"
+        }
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 35,
+        "labels": [
+          {
+            "id": "b-label",
+            "text": "? node"
+          }
+        ],
+        "ports": [
+          {
+            "id": "b-in",
+            "width": 5,
+            "height": 5,
+            "layoutOptions": {
+              "elk.port.side": "WEST"
+            },
+            "labels": [
+              {
+                "id": "b-port-label",
+                "text": "target port"
+              }
+            ]
+          }
+        ],
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a-out"
+        ],
+        "targets": [
+          "b-in"
+        ],
+        "labels": [
+          {
+            "id": "edge-label",
+            "text": "edge text",
+            "layoutOptions": {
+              "elk.edgeLabels.placement": "CENTER"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "layoutArguments": {}
+}

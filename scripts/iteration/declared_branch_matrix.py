@@ -28,6 +28,13 @@ OPTIONS_MANIFEST = OPTIONS_ARCHIVE.with_suffix('.manifest.json')
 P1_P2_MAP = 'test-runs/full-native-closure/B/p1-p2-runtime-witness-map-01.json'
 LOGGED_REPORT = 'test-runs/full-native-closure/B/missing-p1-p2-runtime-01/report.json'
 LOGGED_SUITE = 'tests/fixtures/suites/missing-p1-p2-runtime/cases.json'
+OLD_ENUM_MAP = 'test-runs/full-native-closure/A/old-enum-map-01/handoff.json'
+CONSUMER_LINKS = 'test-runs/full-native-closure/A/old-enum-map-01/consumer-links.json'
+STAGED_CLASSIFICATIONS = 'test-runs/full-native-closure/A/old-enum-map-01/staging.json'
+FIVE_OWNERS = 'test-runs/full-native-closure/B/missing-owner-dtos-02/handoff.json'
+UNZIP_EQUAL = 'test-runs/full-native-closure/B/unzip-equal-owner-01/handoff.json'
+EXISTING_ENUM_MAP = 'test-runs/full-native-closure/V/layered-enum-existing-01/findings.json'
+PROMOTION_MAP = 'test-runs/full-native-closure/B/node-promotion-owner-01/handoff.json'
 GREEDY_ONE = {
     'request': 'test-runs/20261104-HOST-11/V/greedy-phase-one-oracle-01/request-original.json',
     'sourceProbe': 'test-runs/20261104-HOST-11/V/greedy-phase-one-oracle-01/probe-original.cjs',
@@ -203,6 +210,23 @@ def extend_archive():
     before = sha(ARCHIVE.read_bytes())
     evidence = json.loads((ROOT / P1_P2_MAP).read_text('utf-8'))
     paths = {P1_P2_MAP, LOGGED_REPORT, *SPLINE_PREPARED.values(), *GREEDY_ONE.values()}
+    increments = (OLD_ENUM_MAP, CONSUMER_LINKS, STAGED_CLASSIFICATIONS, FIVE_OWNERS, UNZIP_EQUAL, EXISTING_ENUM_MAP, PROMOTION_MAP)
+    paths.update(increments)
+    for filename in increments:
+        document = json.loads((ROOT / filename).read_text('utf-8'))
+        # Only explicit repository-relative saved evidence bindings. Runtime
+        # absolute paths inside original receipts are never followed or searched.
+        for _, obj in walk(document):
+            if isinstance(obj.get('path'), str) and isinstance(obj.get('sha256'), str):
+                path = obj['path']
+                if path.startswith('test-runs/') and 'archive' not in obj:
+                    paths.add(path)
+            if isinstance(obj.get('filesSha256'), dict):
+                paths.update(path for path in obj['filesSha256'] if path.startswith('test-runs/'))
+    staged = json.loads((ROOT / STAGED_CLASSIFICATIONS).read_text('utf-8'))
+    for key in ('sourcePeerReceipt', 'codePeerReceipt'):
+        receipt = json.loads((ROOT / staged['managerBoundary'][key]['path']).read_text('utf-8'))
+        paths.update(path for path in receipt['filesSha256'] if path.startswith('test-runs/'))
     for row in json.loads((ROOT / LOGGED_REPORT).read_text('utf-8'))['rows']:
         paths.update(x['path'] for x in row['bindings'].values())
     logged_directory = ROOT / LOGGED_REPORT.rsplit('/', 1)[0]
@@ -214,7 +238,7 @@ def extend_archive():
         if path in data and data[path] != raw:
             raise ValueError('Refusing to replace a historical member: ' + path)
         data[path] = raw
-    preserved = ROOT / 'test-runs/full-native-closure/A/declared-branches-02'
+    preserved = ROOT / 'test-runs/full-native-closure/A/declared-branches-03'
     for source in (ARCHIVE, MANIFEST):
         destination = preserved / ('before-increment-' + source.name)
         if not destination.exists():
@@ -390,6 +414,312 @@ def add_logged_selection(rows):
                 'scope': 'New authorized logged public call: actual configured Source/native class and named task, not input-tag inference. No additional math claim.'})
             row['actualTaskCaseCount'] += 1
             row['status'] = 'witnessed_scoped'
+
+
+def checked_binding(item):
+    actual = binding(item['path'])
+    if actual['sha256'] != item['sha256']:
+        raise ValueError('Saved evidence binding changed: ' + item['path'])
+    return actual
+
+
+def verify_equal_fallback(witness, source, native):
+    conditions = pointer(source, witness['sourceConditionPointer'])
+    native_conditions = pointer(native, witness['nativeConditionPointer'])
+    expected, actual = pointer(source, witness['sourceReturnPointer']), pointer(native, witness['nativeReturnPointer'])
+    fallback = pointer(source, witness['sourceFallbackObservedPointer'])
+    if (not equal(conditions, native_conditions)
+            or type(conditions.get('incomingCount')) not in (int, float) or conditions['incomingCount'] != 0
+            or type(conditions.get('portCount')) not in (int, float) or conditions['portCount'] != 1
+            or conditions.get('strategy') != 'EQUAL' or type(expected) not in (int, float)
+            or expected != 0 or not equal(expected, actual)
+            or fallback != {'name': 'EQUAL', 'ordinal': 2}
+            or pointer(source, witness['sourceObserverDelegatesOriginalPointer']) is not True):
+        raise ValueError('EQUAL fallback condition/event/result is not witnessed')
+    return conditions, expected, actual
+
+
+def verify_alias_source_row(actual, family, variant):
+    if (actual.get('family') != family or actual.get('name') != variant
+            or actual.get('className') != 'org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter'):
+        raise ValueError('Source factory alias does not identify this shared orthogonal factory')
+
+
+def verify_manager_controls(controls):
+    by_case = {row['id']: row for row in controls['cases']}
+    if by_case['absent']['returned'] is not True or by_case['absent']['done'] is not True:
+        raise ValueError('Manager null/default contract failed')
+    if any(by_case[key]['returned'] is not False or by_case[key]['done'] is not False for key in ('false', 'zero', 'emptyString', 'emptyList')):
+        raise ValueError('Manager nonnull guard boundary failed')
+
+
+def add_current_increment(rows, supplemental):
+    core = {row['id']: row for row in rows}
+    enums = {row['id']: row for row in supplemental}
+    owners = read(FIVE_OWNERS)
+    owner_bindings = {key: checked_binding(owners[key]) for key in ('request', 'sourceRaw', 'sourceProbe', 'nativeChecker')}
+    source = read(owners['sourceRaw']['path'])
+    if source['probeSha256'] != owners['sourceProbe']['sha256'] or source['requestSha256'] != owners['request']['sha256']:
+        raise ValueError('Five-owner Source acquisition does not bind request/probe')
+    for witness in owners['witnesses']:
+        native_binding = checked_binding(witness['nativeReport'])
+        native = read(witness['nativeReport']['path'])
+        expected, actual = pointer(source, witness['sourcePointer']), pointer(native, witness['nativePointer'])
+        if not equal(expected, actual):
+            raise ValueError('Actual owner.process state differs: ' + witness['id'])
+        before, after = pointer(source, witness['sourceBeforePointer']), pointer(source, witness['sourceAfterPointer'])
+        if equal(before, after):
+            raise ValueError('Missing nontrivial owner state transition: ' + witness['id'])
+        row = core[witness['id']]
+        row['witnesses'].append({'id': witness['id'] + ':direct-owner-state', 'kind': 'object-state-assertion',
+            'evidenceMap': binding(FIVE_OWNERS), 'bindings': dict(owner_bindings, native=native_binding),
+            'referencePointer': witness['sourcePointer'], 'nativePointer': witness['nativePointer'],
+            'strictStateEqual': True, 'nontrivialBeforeAfterChange': True,
+            'sourceFunction': witness['sourceFunction'], 'nativeFunction': witness['nativeFunction'],
+            'scope': 'Actual original and native owner.process on prepared objects, with complete before/after/monitor state. No public whole caller or extra branch claim.'})
+        row['status'] = 'witnessed_scoped'
+        row.pop('remainingClassification', None); row.pop('minimalRemainingWitness', None)
+
+    # Original observations are authoritative. The old handoff stores both
+    # pointer locations and exact selected DTOs, all independently rechecked.
+    old = read(OLD_ENUM_MAP)
+    for path, digest in old['filesSha256'].items():
+        if binding(path)['sha256'] != digest:
+            raise ValueError('Old enum evidence dependency changed: ' + path)
+    for witness in old['rows']:
+        refs = {key: checked_binding(value) for key, value in witness['bindings'].items()}
+        ref, native = read(witness['bindings']['reference']['path']), read(witness['bindings']['native']['path'])
+        expected, actual = pointer(ref, witness['sourcePointer']), pointer(native, witness['nativePointer'])
+        if not equal(expected, actual) or not equal(expected, witness['expected']) or not equal(actual, witness['actual']):
+            raise ValueError('Old enum actual saved state differs: ' + witness['id'])
+        if ref.get('probeSha256') and ref['probeSha256'] != refs['sourceProbe']['sha256']:
+            raise ValueError('Old enum Source probe differs')
+        if ref.get('requestSha256') and 'request' in refs and ref['requestSha256'] != refs['request']['sha256']:
+            raise ValueError('Old enum Source request differs')
+        row = enums[witness['id']]
+        row['witnesses'].append({'id': witness['id'] + ':saved-object-state', 'kind': 'object-state-assertion',
+            'evidenceMap': binding(OLD_ENUM_MAP), 'bindings': refs,
+            'sourcePointer': witness['sourcePointer'], 'nativePointer': witness['nativePointer'],
+            'sourceCall': witness['sourceCall'], 'expected': expected, 'actual': actual,
+            'strictStateEqual': True, 'historicalRuntimeReboundToCurrentModule': False,
+            'scope': witness['scope']})
+        row['status'] = 'witnessed_scoped'
+
+    final = read(UNZIP_EQUAL)
+    final_bindings = {key: checked_binding(value) for key, value in final['bindings'].items()}
+    ref, native = read(final['bindings']['sourceRaw']['path']), read(final['bindings']['nativeRaw']['path'])
+    if ref['probeSha256'] != final['bindings']['sourceProbe']['sha256'] or ref['requestSha256'] != final['bindings']['request']['sha256']:
+        raise ValueError('Unzip/EQUAL Source acquisition binding differs')
+    for witness in final['witnesses']:
+        if witness['id'].startswith('factory:'):
+            pairs = [(witness['sourceBeforePointer'], witness['nativeBeforePointer']),
+                     (witness['sourceAfterPointer'], witness['nativeAfterPointer'])]
+            assertions = []
+            for ref_pointer, native_pointer in pairs:
+                expected, actual = pointer(ref, ref_pointer), pointer(native, native_pointer)
+                if not equal(expected, actual):
+                    raise ValueError('Actual unzip state differs')
+                assertions.append({'sourcePointer': ref_pointer, 'nativePointer': native_pointer,
+                                   'expected': expected, 'actual': actual, 'passed': True})
+            if equal(assertions[0]['expected'], assertions[1]['expected']):
+                raise ValueError('Unzip has no layer state change')
+            row = core[witness['id']]
+            row['witnesses'].append({'id': 'unzip-real-layer-state', 'kind': 'object-state-assertion',
+                'evidenceMap': binding(UNZIP_EQUAL), 'bindings': final_bindings, 'assertions': assertions,
+                'monitorIgnoredBySource': True, 'sourceFunction': witness['sourceFunction'],
+                'scope': 'Actual unzip process transforms one six-node layer into alternating three-node layers. No monitor task invented; prepared objects, not public layout.'})
+            row['status'] = 'witnessed_scoped'
+        else:
+            conditions, expected, actual = verify_equal_fallback(witness, ref, native)
+            row = enums[witness['id']]
+            row['witnesses'].append({'id': 'equal-actual-no-incoming-fallback', 'kind': 'direct-helper-condition-and-result',
+                'evidenceMap': binding(UNZIP_EQUAL), 'bindings': final_bindings,
+                'sourceConditionPointer': witness['sourceConditionPointer'], 'nativeConditionPointer': witness['nativeConditionPointer'],
+                'sourceReturnPointer': witness['sourceReturnPointer'], 'nativeReturnPointer': witness['nativeReturnPointer'],
+                'sourceFallbackObservedPointer': witness['sourceFallbackObservedPointer'],
+                'conditions': conditions, 'expected': expected, 'actual': actual, 'passed': True,
+                'scope': 'Actual zero-incoming helper fallback delegates original returnValue(EQUAL), returning0. Role-specific names and Source-only observer are not claimed raw-identical.'})
+            row['status'] = 'witnessed_scoped'
+
+    links = read(CONSUMER_LINKS)
+    high = core['factory:IntermediateProcessorStrategy:HIGH_DEGREE_NODE_LAYER_PROCESSOR']
+    for entry in links['highDegree']:
+        document = json.loads(option_blob(entry['report']['path']))
+        assertion = pointer(document, entry['assertionPointer'])
+        values = {}
+        refs = {}
+        for key in ('reference', 'native', 'baselineReference', 'baselineNative'):
+            refs[key], raw = option_binding(entry[key])
+            projected = [pointer(raw, p) for p in entry['pointers']]
+            values[key] = projected[0] if 'pointer' in assertion['effectTest'] else projected
+        verify_causal_values(values['reference'], values['native'], values['baselineReference'], values['baselineNative'], assertion)
+        high['witnesses'].append({'id': entry['id'], 'kind': 'causal-consumer-chain', 'evidenceMap': binding(CONSUMER_LINKS),
+            'bindings': refs, 'report': entry['report'], 'assertionPointer': entry['assertionPointer'],
+            'expected': values['reference'], 'actual': values['native'], 'passed': True,
+            'noDirectTrace': True, 'scope': entry['scope']})
+    if not links['highDegree']:
+        raise ValueError('HighDegree has no actual causal-output witness')
+    high['status'] = 'causal_consumer_chain_scoped'; high['noDirectTrace'] = True
+
+    staged = read(STAGED_CLASSIFICATIONS)
+    source_rows = read('tests/fixtures/suites/next-native/layered-processor-classes-oracle.json')['observation']['rows']
+    for alias in staged['aliasClassifications']:
+        checked_binding(alias['reference'])
+        actual = pointer({'observation': {'rows': source_rows}}, alias['referencePointer'])
+        row = core[alias['id']]
+        verify_alias_source_row(actual, row['family'], row['variant'])
+        row['status'] = 'shared_body_alias_verified'
+        row['aliasEvidence'] = alias
+        row['limitations'] = [line for line in row['limitations'] if not line.startswith('Both factories share a body.')]
+        row['limitations'].append('Actual Source factory construction verifies the shared-body alias; separate public alias selection is not asserted and no second routing mathematics exists.')
+        row['independentMathematicsClaimed'] = False
+        row['nativeJsonContractSatisfied'] = True
+    manager = staged['managerBoundary']
+    for key in ('sourcePeerReceipt', 'codePeerReceipt', 'actualNativeFalseyErrorControls'):
+        checked_binding(manager[key])
+    source_receipt = read(manager['sourcePeerReceipt']['path'])
+    source_text = []
+    for path, digest in source_receipt['filesSha256'].items():
+        if not path.startswith('test-runs/'):
+            continue
+        if binding(path)['sha256'] != digest:
+            raise ValueError('Manager fixed Source proposal differs')
+        for _, span in walk(read(path)):
+            if 'sourceBytesBase64' in span and 'sha256' in span:
+                raw = base64.b64decode(span['sourceBytesBase64'], validate=True)
+                if sha(raw) != span['sha256']:
+                    raise ValueError('Manager fixed Source bytes differ')
+                source_text.append(raw.decode('utf-8'))
+    if 'throwClassCastExceptionUnlessNull' not in '\n'.join(source_text):
+        raise ValueError('Compiled null-only manager cast is not present')
+    controls = read(manager['actualNativeFalseyErrorControls']['path'])
+    verify_manager_controls(controls)
+    for row_id in manager['ids']:
+        row = core[row_id]
+        row['status'] = 'source_raw_unconstructible_boundary'
+        row['normalRuntimeMathPass'] = False
+        row['nativeJsonContractSatisfied'] = True
+        row['nativeJsonContractScope'] = 'Default/null manager accepted; unsupported nonnull internal manager values rejected. No successful arbitrary manager callback feature.'
+        row['boundaryEvidence'] = manager
+        row['sourceRuntimeFailureClaimed'] = False
+    for row in rows:
+        row['objectStateWitnessCount'] = sum(w['kind'] == 'object-state-assertion' for w in row['witnesses'])
+        if row['status'] != 'no_runtime_witness':
+            row.pop('remainingClassification', None); row.pop('minimalRemainingWitness', None)
+
+
+def add_existing_enum_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    findings = read(EXISTING_ENUM_MAP)
+    for entry in findings['rows']:
+        refs = {key: checked_binding(entry[key]) for key in ('request', 'source', 'native', 'sourceProbe', 'nativeChecker') if key in entry}
+        source, native = read(entry['source']['path']), read(entry['native']['path'])
+        row = by_id[entry['id']]
+        if entry['status'] in ('existing_direct_helper_witness', 'existing_actual_transformer_state_witness'):
+            expected, actual = pointer(source, entry['sourcePointer']), pointer(native, entry['nativePointer'])
+            if not equal(expected, actual):
+                raise ValueError('Existing enum helper/transformer state differs')
+            probe_digest = source.get('probeSha256')
+            if probe_digest is None and entry['status'] == 'existing_direct_helper_witness':
+                wrapper = read('tests/fixtures/suites/next-native/ports-helper-oracle.json')
+                if wrapper['observationSha256'] != entry['source']['sha256']:
+                    raise ValueError('Port primitive wrapper does not bind the saved Source bytes')
+                probe_digest = wrapper['probeSha256']
+            if probe_digest != entry['sourceProbe']['sha256'] or source.get('requestSha256') != entry['request']['sha256']:
+                raise ValueError('Existing enum Source request/probe binding differs')
+            if entry.get('requestPointer') and pointer(read(entry['request']['path']), entry['requestPointer']).get('direction') != row['variant']:
+                raise ValueError('Direction helper did not receive this typed value')
+            row['witnesses'].append({'id': entry['id'] + ':existing-helper-or-transformer', 'kind': 'object-state-assertion',
+                'evidenceMap': binding(EXISTING_ENUM_MAP), 'bindings': refs,
+                'sourcePointer': entry['sourcePointer'], 'nativePointer': entry['nativePointer'],
+                'expected': expected, 'actual': actual, 'strictStateEqual': True,
+                'graphDirectionResolutionClaimed': False, 'historicalRuntimeReboundToCurrentModule': False,
+                'scope': entry['scope']})
+            row['status'] = 'witnessed_scoped'
+        elif entry['status'] == 'existing_actual_consumer_state_without_helper_return_trace':
+            assertions = []
+            for src_key, native_key in [('sourceBeforePointer', 'nativeBeforePointer'), ('sourceAfterPointer', 'nativeAfterPointer')]:
+                expected, actual = pointer(source, entry[src_key]), pointer(native, entry[native_key])
+                if not equal(expected, actual):
+                    raise ValueError('Actual reference-point consumer state differs')
+                assertions.append({'sourcePointer': entry[src_key], 'nativePointer': entry[native_key],
+                                   'expected': expected, 'actual': actual, 'passed': True})
+            if pointer(read(entry['request']['path']), entry['requestPointer']) != row['variant']:
+                raise ValueError('Actual consumer did not receive this reference point')
+            row['witnesses'].append({'id': entry['id'] + ':consumer-state', 'kind': 'consumer-state-without-helper-return-trace',
+                'evidenceMap': binding(EXISTING_ENUM_MAP), 'bindings': refs, 'assertions': assertions,
+                'independentReferencePointVectorWitness': False, 'causalAlternateValueComparison': False,
+                'scope': entry['scope']})
+            row['status'] = 'consumer_state_scoped'
+        else:
+            # A directly constructed ALTERNATING body does not prove that the
+            # Source configuration selector read ALTERNATING instead of NONE.
+            row['relatedBodyEvidence'] = {'evidenceMap': binding(EXISTING_ENUM_MAP), 'bindings': refs, 'scope': entry['scope']}
+            row['enumConfigurationRouteClaimed'] = False
+
+
+def promotion_projection(value):
+    # Original recursion and native explicit frames expose different helper
+    # invocation boundaries. Keep raw counts; compare all other actual state.
+    projected = json.loads(json.dumps(value))
+    projected['counts'].pop('promote', None)
+    projected['counts'].pop('newLayeringModel', None)
+    return projected
+
+
+def add_promotion_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    report = read(PROMOTION_MAP)
+    common = {key: checked_binding(report[key]) for key in ('request', 'sourceProbe', 'nativeChecker', 'sourceRaw')}
+    source = read(report['sourceRaw']['path'])
+    if source['requestSha256'] != report['request']['sha256'] or source['probeSha256'] != report['sourceProbe']['sha256']:
+        raise ValueError('Promotion Source acquisition binding differs')
+    for entry in report['ownerWitnesses']:
+        native_binding = checked_binding(entry['nativeReport'])
+        native = read(entry['nativeReport']['path'])
+        expected_raw, actual_raw = pointer(source, entry['sourcePointer']), pointer(native, entry['nativePointer'])
+        expected, actual = promotion_projection(expected_raw), promotion_projection(actual_raw)
+        variant = by_id[entry['id']]['variant']
+        if not equal(expected, actual) or expected.get('selectedProperty') != variant or expected.get('outcome') != 'returned':
+            raise ValueError('Promotion selected enum / shared actual state differs')
+        if not expected.get('events') or expected.get('finalStrategy') != entry['finalActualStrategy']:
+            raise ValueError('Promotion has no actual helper/final strategy state')
+        row = by_id[entry['id']]
+        row['witnesses'].append({'id': entry['id'] + ':owner-state', 'kind': 'object-state-assertion',
+            'evidenceMap': binding(PROMOTION_MAP), 'bindings': dict(common, native=native_binding),
+            'sourcePointer': entry['sourcePointer'], 'nativePointer': entry['nativePointer'],
+            'expected': expected, 'actual': actual, 'strictSharedStateEqual': True,
+            'rawHelperCountParityClaimed': False, 'excludedRawCountFields': ['promote', 'newLayeringModel'],
+            'scope': 'Actual NodePromotion owner and prepare/magic/model/continuation state for this selected enum; raw recursion/frame counts preserved separately.',
+            'unexercisedLeaves': report['unexercisedLeaves']})
+        row['status'] = 'witnessed_scoped'
+    none = report['noneSchedulerWitness']
+    for key in ('sourceDefaultDeclaration', 'sourceSchedulerGuard'):
+        raw = base64.b64decode(none[key]['bytesBase64'], validate=True)
+        if sha(raw) != none[key]['sha256']:
+            raise ValueError('Promotion NONE Source declaration/guard bytes differ')
+    request = read(none['request']['path']); checked_binding(none['request'])
+    option = 'org.eclipse.elk.layered.layering.nodePromotion.strategy'
+    if request.get('constructor', {}).get('defaultLayoutOptions') or request.get('layoutArguments', {}).get('layoutOptions'):
+        raise ValueError('NONE default witness has unaccounted global overrides')
+    if any(option in obj.get('layoutOptions', {}) or 'elk.layered.layering.nodePromotion.strategy' in obj.get('layoutOptions', {}) for _, obj in walk(request)):
+        raise ValueError('NONE historical default witness is not an absent property')
+    refs = {}
+    for role in ('source', 'native'):
+        refs[role] = checked_binding(none[role]['raw'])
+        actual = read(none[role]['raw']['path'])
+        values = [obj.get('name') for _, obj in walk(actual.get('result', {}).get('logging', {}))]
+        slots = [name for _, classes, _ in contexts(actual) for name in classes]
+        if actual.get('outcome') != 'returned' or not slots or any('NodePromotion' in name for name in slots) or 'Node promotion heuristic' in values:
+            raise ValueError('NONE actual successful scheduler exclusion is absent')
+    checked_binding(none['nativeScheduler'])
+    row = by_id[none['id']]
+    row['witnesses'].append({'id': 'promotion-none-actual-scheduler-exclusion', 'kind': 'intentional-scheduler-exclusion',
+        'evidenceMap': binding(PROMOTION_MAP), 'bindings': dict(refs, request=checked_binding(none['request'])),
+        'sourceDefaultDeclaration': none['sourceDefaultDeclaration'], 'sourceSchedulerGuard': none['sourceSchedulerGuard'],
+        'nativeScheduler': none['nativeScheduler'], 'newOwnerProcessCalled': False,
+        'scope': 'Actual nonempty complete public layout excludes NodePromotion slots/tasks under the actual absent-property NONE default. Direct process(NONE) is not asserted to be a no-op.'})
+    row['status'] = 'scheduler_exclusion_scoped'
 
 
 def add_effects(rows):
@@ -667,61 +997,75 @@ def build():
         if option.startswith('org.eclipse.elk.layered.') or option in ('org.eclipse.elk.direction', 'org.eclipse.elk.portConstraints', 'org.eclipse.elk.port.side'):
             for member in members:
                 supplemental.append({'id': 'option:' + option + ':' + member, 'family': 'declared-option-enum',
-                                     'optionId': option, 'variant': member, 'status': 'not_mapped_in_core_first_version',
+                                     'optionId': option, 'variant': member, 'status': 'no_variant_witness',
                                      'sourceEvidence': [dict(binding('src/pyelk/options/_generic_data.py'), locator=option)],
                                      'witnesses': [], 'limitations': ['Explicit finite enum denominator; requires variant-specific accounting, not input-occurrence inference.']})
     add_effects(supplemental)
     add_named_strategies(supplemental, cases)
+    add_current_increment(rows, supplemental)
+    add_existing_enum_scope(supplemental)
+    add_promotion_scope(supplemental)
+    counts = dict(Counter(x['status'] for x in rows))
     return {'schema': 'pyelk-declared-branch-matrix/v1', 'scope': 'finite-factory-and-existing-evidence-increment',
             'workerSha256': packet['workerSha256'], 'productExecutionCount': 0, 'sourceExecutionCount': 0,
             'denominator': {'coreFactories': 90, 'intermediate': 59, 'P1': 9, 'P2': 9, 'P3': 4, 'P4': 5, 'P5Factories': 4,
                             'P5DistinctBodies': 3, 'supplementalEnumRows': len(supplemental)},
             'summary': {'coreStatuses': counts, 'normalSavedCasesRead': len(cases),
                         'supplementalStatuses': dict(Counter(x['status'] for x in supplemental)),
+                        'coreRowsAccountedForWithinStatedScope': all(row['status'] != 'no_runtime_witness' for row in rows),
+                        'allDeclaredEnumBranchesAccepted': all(row['status'] == 'witnessed_scoped' for row in supplemental),
+                        'normalMathematicsBoundaryRows': [row['id'] for row in rows if row.get('normalRuntimeMathPass') is False],
+                        'coreNoDirectTraceRows': [row['id'] for row in rows if row.get('noDirectTrace') is True],
                         'unwitnessedCoreIds': [r['id'] for r in rows if r['status'] in ('configured_only', 'no_runtime_witness')]},
             'inputs': [binding(SUMMARY), binding(SOURCE), binding('src/pyelk/algorithms/layered/phase_factories.py'),
                        binding('tests/fixtures/suites/full-native-layered/cases.json'),
                        binding(P1_P2_MAP), binding(OPTIONS_MANIFEST.relative_to(ROOT).as_posix()),
                        binding(LOGGED_REPORT), binding(LOGGED_SUITE),
+                       binding(OLD_ENUM_MAP), binding(CONSUMER_LINKS), binding(STAGED_CLASSIFICATIONS),
+                       binding(FIVE_OWNERS), binding(UNZIP_EQUAL),
+                       binding(EXISTING_ENUM_MAP),
+                       binding(PROMOTION_MAP),
                        binding(MANIFEST.relative_to(ROOT).as_posix())],
             'interpretation': ['No missing implementation is inferred from a missing witness.',
                                'Literal Source/native tasks or original owner.process with strict raw state projections elevate core rows; unique hierarchy tasks need no flat slot log.',
                                'Configured slots, enum membership and class names alone never elevate runtime witness status.',
                                'Historical observations retain their original engine/version and source bindings; current anchors do not rebind old executions.',
+                               'Shared-body factory aliases do not create duplicate mathematics. Source raw-unconstructible manager boundaries are contract evidence, never normal mathematics PASS.',
+                               'HighDegree has a true causal public output witness but retains noDirectTrace; raw role-specific unzip/EQUAL observer structures are not falsely called equal.',
                                'Supplemental causal rows require successful raw paired pointer projections and a genuine before/after change; a passed report flag alone is insufficient.',
                                'Supplemental rows are a separate finite accounting backlog, not claims of missing code or a demand for all option combinations.'],
             'rows': rows, 'supplementalRows': supplemental}
 
 
 def markdown(data):
-    lines = ['# Layered 声明分支证据矩阵', '',
-             '首版固定 90 个工厂：59 个中间处理器、P1/P2 各 9、P3 4、P4 5、P5 4。P5 的 UNDEFINED 与 ORTHOGONAL 共用同一数学实现。', '',
-             '本次仅离线读取既存记录；没有运行布局、Source 或旧测试。任务名称必须同时出现在原版与候选的同一日志上下文：平面流程结合对应工厂类，层级流程只接受全局唯一任务名；共享任务按真实配置槽顺序绑定不同事件。配置槽、输入提及和类存在各自不能证明运行分支。', '',
-             '## 核心计数', '', '| 状态 | 行数 |', '|---|---:|']
-    lines += ['| ' + k + ' | ' + str(v) + ' |' for k, v in data['summary']['coreStatuses'].items()]
-    lines += ['', '## 核心逐行', '', '| 工厂 | 状态 | 真任务见证数 | 首个案例 | 实现 |', '|---|---|---:|---|---|']
+    lines = ['# Layered declared-branch evidence matrix', '',
+             'Finite core denominator: 59 intermediate factories, P1 9, P2 9, P3 4, P4 5, and P5 4 factories / 3 distinct bodies. UNDEFINED and ORTHOGONAL share the actual orthogonal body.', '',
+             'This generator reads saved data only. No product, Source process or old suite is executed. Configured slots and input occurrence alone never establish runtime consumption.', '',
+             '## Core accounting', '', '| Status | Rows |', '|---|---:|']
+    lines += ['| ' + key + ' | ' + str(value) + ' |' for key, value in data['summary']['coreStatuses'].items()]
+    lines += ['', '85 rows have actual task or owner/helper-state witnesses. HighDegree has a verified causal public output witness and explicitly retains noDirectTrace. Two Source-constructed orthogonal aliases share one already witnessed body. Two label-manager rows satisfy the fixed Native JSON/null-only boundary; they are not normal mathematics PASS or arbitrary callback support.', '',
+              'Core accounting does not close every internal conditional branch. The supplemental finite enum denominator is independent: ' + str(data['denominator']['supplementalEnumRows']) + ' rows, ' + str(data['summary']['supplementalStatuses'].get('witnessed_scoped', 0)) + ' scoped witnesses. Remaining enum values stay explicitly unverified; no all-option Cartesian-product claim is made.', '',
+              '## Core rows', '', '| Factory | Status | Actual task cases | Object states | First witness | Implementation |', '|---|---|---:|---:|---|---|']
     for row in data['rows']:
-        first = row['witnesses'][0]['id'] if row['witnesses'] else '—'
+        first = row['witnesses'][0]['id'] if row['witnesses'] else '(boundary / alias evidence)'
         impl = row['implementation'][0]
-        lines.append('| ' + row['family'] + '.' + row['variant'] + ' | ' + row['status'] + ' | ' + str(row['actualTaskCaseCount']) + ' | ' + first + ' | ' + impl['path'].split('/')[-1] + ':' + str(impl['line']) + ' |')
-    lines += ['', '## 解释与后续', '',
-              '未找到任务见证不等于未实现。本版扫描既有 72 例中的 66 个正常返回匹配结果，合入 4 个 P1/P2 实际 owner.process 对象见证、2 个 Spline→Final 准备图及 ONE_SIDED 真阶段状态；另合入新授权 7 个日志调用中的 5 个正常对，具名任务证明 8 个策略行。另两对 Source/native 同为 NPE，无结果树，不升级其中 4 个策略。历史执行保其原模块 SHA，不重绑当前模块。另 16 条 P1/P2 公开返回关联单列，不凭输入策略升级。', '',
-              '`body_witnessed_factory_alias_unresolved` 只证明共享正交路由体，不声称区分两个工厂别名。无任务名的 FinalSpline / HighDegree 需要已有对象或因果输出证据；不为它们补造日志。两个 LabelManagement 工厂的实际非空 raw-manager 选择受原版 cast 限制，需区分 API 可构造性与回调数学。', '',
-              '附加枚举层逐项保留有限分母：' + str(data['summary']['supplementalStatuses'].get('witnessed_scoped', 0)) + ' 行已有真实因果几何或明确命名任务见证，其余仍未映射。不能用同一通用任务加输入提及替代内部分支证据；不要求数值无限取值或所有选项组合。JSON 保留完整路径、SHA、JSONPointer、静态锚及限制。', '',
-              '## 附加枚举有限缺项', '', '| 选项 | 已证值 | 尚无本表见证的值 |', '|---|---|---|']
+        lines.append('| ' + row['family'] + '.' + row['variant'] + ' | ' + row['status'] + ' | ' + str(row['actualTaskCaseCount']) + ' | ' + str(row['objectStateWitnessCount']) + ' | ' + first + ' | ' + impl['path'].split('/')[-1] + ':' + str(impl['line']) + ' |')
+    lines += ['', '## Scope and retained failures', '',
+              'Historical primitive, prepared-phase and public observations retain their own original runtime/module hashes. Current implementation anchors do not rebind historical executions. Raw failed probes and the logged Source/native NPE pairs remain archived, even where later direct owner-state observations establish a normal branch witness.', '',
+              'Unzip now has real before/after layer-array evidence: one six-node layer becomes two alternating three-node layers. Its monitor is unused by Source. EQUAL has a genuine zero-incoming helper fallback event that delegates the original return function and yields0. Role-specific callable names and the Source-only observer are not declared raw-identical.', '',
+              'The 31 older enum rows were rechecked against actual original DTOs and saved native DTOs, not a pass flag. BK selects the exact original02/03 raw case after the historical observer correction; the first native geometry is unchanged. Port-side witnesses concern actual produced side/anchor state in the approved primitive scope, not every importer target.', '',
+              'The current family increment adds typed Direction helper states (not GraphConfigurator resolution), actual DOWN/READING GraphTransformer state, and nine NodePromotion owner cases. TOP_LEFT remains consumer-state-only without an independent helper return spy. Promotion NONE is an intentional real scheduler exclusion under the bound Source default/guard, not a forced process(NONE) no-op. Promotion recursive/frame helper counts remain raw and are not equated; IMPROVED retry and NODECOUNT terminal cap remain unexercised leaves.', '',
+              '## Supplemental enum values', '', '| Option | Direct helper/body/effect witness | Limited consumer / scheduler scope | No variant witness in this table |', '|---|---|---|---|']
     grouped = {}
     for row in data['supplementalRows']:
         grouped.setdefault(row['optionId'], []).append(row)
     for option, rows in grouped.items():
-        lines.append('| ' + option + ' | ' + ', '.join(r['variant'] for r in rows if r['status'] == 'witnessed_scoped') + ' | ' + ', '.join(r['variant'] for r in rows if r['status'] != 'witnessed_scoped') + ' |')
-    lines += ['',
-              '## 核心尚无直接见证', '', '| 工厂 | 明确分类 | 最小后续动作 |', '|---|---|---|']
-    for row in data['rows']:
-        if row['status'] == 'no_runtime_witness':
-            lines.append('| ' + row['family'] + '.' + row['variant'] + ' | ' + row['remainingClassification'] + ' | ' + row['minimalRemainingWitness'] + ' |')
-    lines += ['',
-              '## 干净检出复核', '',
-              '`python scripts/iteration/declared_branch_matrix.py --check` 仅读取版本化源码、请求和 `references/full-native-closure/branches.zip` 的精确成员；SHA 与清单逐个核对，不回退本机 ignored 路径。原始观察字节不改写。', '']
+        lines.append('| ' + option + ' | ' + ', '.join(row['variant'] for row in rows if row['status'] == 'witnessed_scoped') + ' | ' + ', '.join(row['variant'] + ' (' + row['status'] + ')' for row in rows if row['status'] in ('consumer_state_scoped', 'scheduler_exclusion_scoped')) + ' | ' + ', '.join(row['variant'] for row in rows if row['status'] == 'no_variant_witness') + ' |')
+    lines += ['', '## Remaining finite work', '',
+              'There is no unclassified core factory row. HighDegree lacks a direct body trace but has an actual scoped option effect; manager callback restrictions are an upstream compiled/JSON boundary, not a missing successful raw callback. Shared aliases do not require duplicate mathematics.', '',
+              'The remaining enum values above require their own actual state/effect or an explicitly justified Source boundary. First reuse the saved direction/promotion/constraint/wrapping/component observations and existing source predicates. Only still-unwitnessed condition families need new small applicable DTOs; absence here is not proof of missing code or a demand to rerun72/81/151 cases.', '',
+              '## Portable offline check', '',
+              '`python scripts/iteration/declared_branch_matrix.py --check` reads tracked source/request inputs and exact members of branches.zip / options.zip, checks bound hashes and recomputes states, causal projections and accounting. It never falls back to a local ignored directory. Raw observation bytes remain unchanged.', '']
     return '\n'.join(lines)
 
 

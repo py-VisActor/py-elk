@@ -74,7 +74,7 @@
     "Reconcile E13-E21 final per-requirement results; original whole-migration goal remains active"
   ],
   "closureProgressDocument": "changes/20261104-targeted-closure-progress.json",
-  "currentCandidatePerformanceVerifiedScope": "39profiles/195steady/39warm/6limits on prior version-only0.1.0 WindowsCPython3.13 wheel; not relabelled as repair-wheel execution",
+  "currentCandidatePerformanceVerifiedScope": "Original39 profiles plus published-wheel MrTree3-profile delta; each retained at actual artifact/host scope",
   "knownProductDifferences": [
     {
       "algorithm": "mrtree",
@@ -85,6 +85,14 @@
       "nativeError": "RecursionError",
       "decision": "decisions/0015-mrtree-recursive-cycle.md",
       "evidence": "releases/evidence/runtime-repair/cycle-termination.json"
+    },
+    {
+      "algorithm": "radial",
+      "status": "reported_private_objective_numeric_boundary",
+      "maxObjectiveUlps": 2,
+      "exactObjectives": false,
+      "observedFinalGeometryExact": true,
+      "decision": "decisions/0016-radial-private-objective-observations.md"
     }
   ],
   "repairCandidate": {
@@ -106,5 +114,11 @@
   "independentAlgorithmGeometry": "INDEPENDENT_ALGORITHM_GEOMETRY.md",
   "distributionName": "py-visactor-elk",
   "pypiPublisherConfiguredByUser": true,
-  "publicationDocument": "releases/evidence/published-0.1.0/publication.json"
+  "publicationDocument": "releases/evidence/published-0.1.0/publication.json",
+  "m7Acceptance": {
+    "E16": "met_scoped",
+    "E17": "met_scoped_with_numeric_diagnostics",
+    "E18": "met_scoped",
+    "E19": "met_scoped"
+  }
 }

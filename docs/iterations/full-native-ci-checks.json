@@ -257,6 +257,15 @@
       "arguments": [
         "--help"
       ]
+    },
+    "algorithm-acceptance": {
+      "kind": "python-script",
+      "path": "scripts/iteration/e16_e19_acceptance.py",
+      "arguments": [
+        "--check",
+        "--root-map",
+        "C:/code/py-visactor/py-elk=."
+      ]
     }
   },
   "rules": [
@@ -308,9 +317,11 @@
     {
       "paths": [
         "scripts/advanced_geometry.py",
+        "docs/changes/20261104-advanced-geometry-contracts.json",
         "tests/validation/test_advanced_geometry.py",
         "tests/fixtures/suites/full-option-effects/geometry-saved/**",
-        "tests/fixtures/suites/full-option-effects/geometry-frames/**"
+        "tests/fixtures/suites/full-option-effects/geometry-frames/**",
+        "tests/fixtures/suites/full-option-effects/geometry-contracts/**"
       ],
       "checks": [
         "advanced-geometry"
@@ -338,7 +349,7 @@
     {
       "paths": [
         "scripts/validate_option_effects.py",
-        "tests/fixtures/suites/full-option-effects/**"
+        "tests/fixtures/suites/full-option-effects/protocol-saved/**"
       ],
       "checks": [
         "option-effects-saved",
@@ -565,7 +576,8 @@
         "scripts/iteration/option_evidence.py",
         "scripts/iteration/option_coverage.py",
         "docs/option-coverage.json",
-        "references/full-native-closure/**"
+        "references/full-native-closure/options.zip",
+        "references/full-native-closure/options.manifest.json"
       ],
       "checks": [
         "option-evidence-restore",
@@ -673,6 +685,26 @@
       "checks": [
         "p1p2-capture-interface",
         "declared-branches"
+      ]
+    },
+    {
+      "paths": [
+        "docs/changes/20261104-published-mrtree-performance.json"
+      ],
+      "checks": [
+        "performance-plan",
+        "performance-owner"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/e16_e19_acceptance.py",
+        "docs/iterations/E16_E19_ACCEPTANCE.json",
+        "references/full-native-closure/algorithms.zip",
+        "references/full-native-closure/algorithms.manifest.json"
+      ],
+      "checks": [
+        "algorithm-acceptance"
       ]
     }
   ],

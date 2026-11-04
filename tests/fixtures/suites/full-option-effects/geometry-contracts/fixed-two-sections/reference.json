@@ -1,0 +1,275 @@
+{
+  "id": "fixed-two-sections",
+  "requestSha256": "717cfc185bac54970a552b91721e090bb1f05041f06e8608906480387f705f56",
+  "inputBefore": {
+    "id": "sections-root",
+    "business": {
+      "shape": "real-two-section-chain"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.edgeRouting": "POLYLINE",
+      "elk.padding": "[top=0,left=0,bottom=0,right=0]"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "x": 10,
+        "y": 20,
+        "width": 30,
+        "height": 20
+      },
+      {
+        "id": "n1",
+        "x": 100,
+        "y": 50,
+        "width": 40,
+        "height": 30
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "sections": [
+          {
+            "id": "s0",
+            "incomingShape": "n0",
+            "startPoint": {
+              "x": 40,
+              "y": 30
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 30
+              }
+            ],
+            "endPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "outgoingSections": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s1",
+            "incomingSections": [
+              "s0"
+            ],
+            "startPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 65
+              }
+            ],
+            "endPoint": {
+              "x": 100,
+              "y": 65
+            },
+            "outgoingShape": "n1"
+          }
+        ]
+      }
+    ]
+  },
+  "result": {
+    "id": "sections-root",
+    "business": {
+      "shape": "real-two-section-chain"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.edgeRouting": "POLYLINE",
+      "elk.padding": "[top=0,left=0,bottom=0,right=0]"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "x": 10,
+        "y": 20,
+        "width": 30,
+        "height": 20,
+        "$H": 353
+      },
+      {
+        "id": "n1",
+        "x": 100,
+        "y": 50,
+        "width": 40,
+        "height": 30,
+        "$H": 355
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "sections": [
+          {
+            "id": "s0",
+            "incomingShape": "n0",
+            "startPoint": {
+              "x": 40,
+              "y": 30
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 30
+              }
+            ],
+            "endPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "outgoingSections": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s1",
+            "incomingSections": [
+              "s0"
+            ],
+            "startPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 65
+              }
+            ],
+            "endPoint": {
+              "x": 100,
+              "y": 65
+            },
+            "outgoingShape": "n1"
+          }
+        ],
+        "container": "sections-root"
+      }
+    ],
+    "$H": 351,
+    "x": 0,
+    "y": 0,
+    "width": 140,
+    "height": 80
+  },
+  "outcome": "returned",
+  "elapsedSeconds": 0.0275085,
+  "inputAfter": {
+    "id": "sections-root",
+    "business": {
+      "shape": "real-two-section-chain"
+    },
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.edgeRouting": "POLYLINE",
+      "elk.padding": "[top=0,left=0,bottom=0,right=0]"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "x": 10,
+        "y": 20,
+        "width": 30,
+        "height": 20,
+        "$H": 353
+      },
+      {
+        "id": "n1",
+        "x": 100,
+        "y": 50,
+        "width": 40,
+        "height": 30,
+        "$H": 355
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "sections": [
+          {
+            "id": "s0",
+            "incomingShape": "n0",
+            "startPoint": {
+              "x": 40,
+              "y": 30
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 30
+              }
+            ],
+            "endPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "outgoingSections": [
+              "s1"
+            ]
+          },
+          {
+            "id": "s1",
+            "incomingSections": [
+              "s0"
+            ],
+            "startPoint": {
+              "x": 70,
+              "y": 45
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 65
+              }
+            ],
+            "endPoint": {
+              "x": 100,
+              "y": 65
+            },
+            "outgoingShape": "n1"
+          }
+        ],
+        "container": "sections-root"
+      }
+    ],
+    "$H": 351,
+    "x": 0,
+    "y": 0,
+    "width": 140,
+    "height": 80
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

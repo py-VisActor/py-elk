@@ -9,6 +9,13 @@ module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 
 class FullPerformanceTests(unittest.TestCase):
+    def test_affected_mrtree_plan_excludes_other_profiles_and_force_stress_runs(self):
+        plan=module.plan(('mrtree',))
+        self.assertEqual([(row['algorithm'],row['nodes'])for row in plan['profiles']],
+                         [('mrtree',8),('mrtree',32),('mrtree',96)])
+        self.assertEqual(plan['convergenceAlgorithms'],[])
+        self.assertEqual(plan['layoutExecutions'],0)
+
     def test_plan_covers_all_algorithms_scales_and_force_models(self):
         plan=module.plan();rows=plan['profiles']
         self.assertEqual(len(rows),39)
