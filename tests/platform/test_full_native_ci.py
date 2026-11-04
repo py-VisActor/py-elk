@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 import shutil
+import subprocess
 import sys
 import tempfile
 import unittest
@@ -83,6 +84,12 @@ class FullNativeCIPlanTests(unittest.TestCase):
                         self.assertNotIn('option-evidence-strict', names)
         names,_ = self.selected(['tests/fixtures/suites/full-option-effects/geometry-contracts/manifest.json'])
         self.assertEqual(names, {'advanced-geometry'})
+
+    def test_algorithm_manifest_direct_dependencies_are_really_in_git_index(self):
+        manifest=ci_selected.load(ROOT/'references/full-native-closure/algorithms.manifest.json')
+        tracked=set(subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode('utf8').split('\0'))
+        missing=sorted(row['path'] for row in manifest['requiredRepositoryFiles'] if row['path'] not in tracked)
+        self.assertFalse(missing, 'Direct archive dependencies would be missing from a fresh checkout: '+repr(missing))
 
     def test_unknown_code_stops_all_commands_and_docs_select_no_runtime(self):
         manifest=self.manifest()
