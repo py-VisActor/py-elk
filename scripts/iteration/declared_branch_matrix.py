@@ -34,6 +34,13 @@ STAGED_CLASSIFICATIONS = 'test-runs/full-native-closure/A/old-enum-map-01/stagin
 FIVE_OWNERS = 'test-runs/full-native-closure/B/missing-owner-dtos-02/handoff.json'
 UNZIP_EQUAL = 'test-runs/full-native-closure/B/unzip-equal-owner-01/handoff.json'
 EXISTING_ENUM_MAP = 'test-runs/full-native-closure/V/layered-enum-existing-01/findings.json'
+ORIENTATION_MAP = 'test-runs/full-native-closure/B/orientation-helpers-01/handoff.json'
+CONSUMER_ENUM_MAP = 'test-runs/full-native-closure/A/enum-consumers-01/handoff.json'
+NETWORK_SIMPLEX_MAP = 'test-runs/full-native-closure/B/network-simplex-consumer-01/handoff.json'
+GREEDY_CONFIG_MAP = 'test-runs/full-native-closure/B/greedy-switch-config-01/handoff.json'
+SPLINE_SOFT_MAP = 'test-runs/full-native-closure/B/spline-soft-consumer-01/handoff.json'
+POST_WRAPPING_MAP = 'test-runs/full-native-closure/B/postcompaction-wrapping-closure-01/handoff.json'
+COMPONENT_GROUP_MAP = 'test-runs/full-native-closure/V/components-order-family-01/handoff.json'
 PROMOTION_MAP = 'test-runs/full-native-closure/B/node-promotion-owner-01/handoff.json'
 GREEDY_ONE = {
     'request': 'test-runs/20261104-HOST-11/V/greedy-phase-one-oracle-01/request-original.json',
@@ -210,7 +217,7 @@ def extend_archive():
     before = sha(ARCHIVE.read_bytes())
     evidence = json.loads((ROOT / P1_P2_MAP).read_text('utf-8'))
     paths = {P1_P2_MAP, LOGGED_REPORT, *SPLINE_PREPARED.values(), *GREEDY_ONE.values()}
-    increments = (OLD_ENUM_MAP, CONSUMER_LINKS, STAGED_CLASSIFICATIONS, FIVE_OWNERS, UNZIP_EQUAL, EXISTING_ENUM_MAP, PROMOTION_MAP)
+    increments = (OLD_ENUM_MAP, CONSUMER_LINKS, STAGED_CLASSIFICATIONS, FIVE_OWNERS, UNZIP_EQUAL, EXISTING_ENUM_MAP, PROMOTION_MAP, ORIENTATION_MAP, CONSUMER_ENUM_MAP, NETWORK_SIMPLEX_MAP, GREEDY_CONFIG_MAP, SPLINE_SOFT_MAP, POST_WRAPPING_MAP, COMPONENT_GROUP_MAP)
     paths.update(increments)
     for filename in increments:
         document = json.loads((ROOT / filename).read_text('utf-8'))
@@ -722,6 +729,303 @@ def add_promotion_scope(supplemental):
     row['status'] = 'scheduler_exclusion_scoped'
 
 
+def add_orientation_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    report = read(ORIENTATION_MAP)
+    common = {key: checked_binding(report[key]) for key in (
+        'request', 'probe', 'sourceCommand', 'firstNativeCommand',
+        'rotationCorrectedCommand', 'firstNativeChecker', 'rotationCorrectedChecker')}
+    for entry in report['rows']:
+        refs = dict(common, source=checked_binding(entry['sourceRaw']), native=checked_binding(entry['nativeRaw']))
+        source, native = read(entry['sourceRaw']['path']), read(entry['nativeRaw']['path'])
+        expected, actual = pointer(source, entry['sourcePointer']), pointer(native, entry['nativePointer'])
+        if source.get('requestSha256') != common['request']['sha256'] or source.get('probeSha256') != common['probe']['sha256']:
+            raise ValueError('Orientation Source acquisition binding differs')
+        if not equal(expected, actual) or expected.get('id') != entry['id'] or expected.get('outcome') != 'returned' or not equal(expected.get('value'), entry['actualValue']):
+            raise ValueError('Orientation actual helper/configuration state differs')
+        value = expected['value']
+        configuration = entry['kind'] == 'actual-phase-independent-configuration-state'
+        resolver = entry['id'].startswith('UNDEFINED-')
+        if configuration and (value['beforeP4HasFactory'] is not (value['selected'] == 'ALTERNATING') or value['slot'] != 3):
+            raise ValueError('Unzip configuration did not preserve actual selection')
+        if resolver and (value['before'] != 'UNDEFINED' or value['after'] != 'UNDEFINED' or value['result'] not in ('RIGHT', 'DOWN')):
+            raise ValueError('Undefined resolver return/persistence contract differs')
+        if entry['id'].startswith('reference-') and value['newVector'] is not True:
+            raise ValueError('Reference-point helper did not return a new vector')
+        for branch_id in entry['optionBranchIds']:
+            row = by_id[branch_id]
+            row['witnesses'].append({'id': entry['id'] + ':actual-orientation-state',
+                'kind': 'configuration-state-assertion' if configuration else 'object-state-assertion',
+                'evidenceMap': binding(ORIENTATION_MAP), 'bindings': refs,
+                'sourceFunction': entry['sourceFunction'], 'nativeFunction': entry['nativeFunction'],
+                'sourcePointer': entry['sourcePointer'], 'nativePointer': entry['nativePointer'],
+                'expected': expected, 'actual': actual, 'strictStateEqual': True,
+                'ownerProcessExecuted': entry['kind'] == 'actual-owner-body-and-state',
+                'resolverReturnWitness': resolver, 'resolvedDirectionPersistenceClaimed': False,
+                'publicLayoutExecuted': False, 'historicalRuntimeReboundToCurrentModule': False,
+                'scope': ('Actual before-P4 configuration factory presence/absence only; no owner.process execution in this observation.' if configuration else
+                          'Actual GraphTransformer LEFT/ROTATION working-graph state.' if entry['kind'] == 'actual-owner-body-and-state' else
+                          'Actual helper return and identity state only; UNDEFINED resolution leaves the graph property unchanged.'),
+                'limits': report['limits']})
+            row['status'] = 'configuration_state_scoped' if configuration else 'witnessed_scoped'
+            if configuration:
+                row['enumConfigurationRouteClaimed'] = True
+                row['ownerExecutionFromConfigurationWitnessClaimed'] = False
+
+
+def add_consumer_enum_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    report = read(CONSUMER_ENUM_MAP)
+    for entry in report['rows']:
+        refs = {key: checked_binding(value) for key, value in entry['bindings'].items()}
+        source, native = read(refs['reference']['path']), read(refs['native']['path'])
+        expected, actual = pointer(source, entry['sourcePointer']), pointer(native, entry['nativePointer'])
+        if not equal(expected, actual) or not equal(expected, entry['expected']) or not equal(actual, entry['actual']):
+            raise ValueError('Existing enum consumer actual state differs')
+        if source.get('requestSha256') != refs['request']['sha256']:
+            raise ValueError('Existing enum consumer request binding differs')
+        probe_digest = source.get('probeSha256')
+        if probe_digest is None and entry['id'].startswith('option:org.eclipse.elk.layered.portSortingStrategy:'):
+            wrapper_path = 'tests/fixtures/suites/next-native/ports-order-oracle.json'
+            wrapper = read(wrapper_path)
+            if wrapper['observationSha256'] != refs['reference']['sha256']:
+                raise ValueError('Existing port-order wrapper does not bind Source bytes')
+            probe_digest = wrapper['probeSha256']
+            refs['sourceWrapper'] = binding(wrapper_path)
+        if probe_digest != refs['sourceProbe']['sha256'] or entry['publicRawSelectorBranchClaimed'] is not False:
+            raise ValueError('Existing enum consumer probe/scope binding differs')
+        row = by_id[entry['id']]
+        row['witnesses'].append({'id': entry['id'] + ':existing-consumer-state', 'kind': 'object-state-assertion',
+            'evidenceMap': binding(CONSUMER_ENUM_MAP), 'bindings': refs,
+            'sourcePointer': entry['sourcePointer'], 'nativePointer': entry['nativePointer'],
+            'expected': expected, 'actual': actual, 'strictStateEqual': True,
+            'publicRawSelectorBranchClaimed': False, 'historicalRuntimeReboundToCurrentModule': False,
+            'scope': entry['scope']})
+        row['status'] = 'witnessed_scoped'
+
+
+def network_simplex_projection(value):
+    projected = json.loads(json.dumps(value))
+    for event in projected['events']:
+        event.pop('className', None)
+    return projected
+
+
+def add_network_simplex_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    report = read(NETWORK_SIMPLEX_MAP)
+    common = {key: checked_binding(report[key]) for key in (
+        'request', 'sourceProbe', 'firstNativeChecker', 'recomputeCorrectedChecker',
+        'runner', 'sourceCommand', 'nativePilotCommand', 'nativeRemainingCommand', 'nativeCorrectedRecomputeCommand')}
+    for entry in report['rows']:
+        refs = dict(common, source=checked_binding(entry['sourceRaw']), native=checked_binding(entry['nativeRaw']))
+        source, native = read(entry['sourceRaw']['path']), read(entry['nativeRaw']['path'])
+        if source.get('requestSha256') != common['request']['sha256'] or source.get('probeSha256') != common['sourceProbe']['sha256']:
+            raise ValueError('Network simplex Source acquisition binding differs')
+        source_raw, native_raw = pointer(source, entry['sourcePointer']), pointer(native, entry['nativePointer'])
+        expected, actual = network_simplex_projection(source_raw), network_simplex_projection(native_raw)
+        if not equal(expected, actual) or expected.get('id') != entry['caseId'] or expected.get('outcome') != 'returned':
+            raise ValueError('Network simplex actual consumer state differs')
+        if not equal(source_raw['events'], entry['sourceEvents']) or not equal(native_raw['events'], entry['nativeEvents']):
+            raise ValueError('Network simplex actual event binding differs')
+        row = by_id[entry['id']]
+        if entry['caseId'].startswith('recompute-'):
+            calls = expected['events'][:2]
+            if [event.get('helper') for event in calls] != ['factory', 'placer.process'] or any(event.get('strategy') != row['variant'] for event in calls):
+                raise ValueError('Repeater did not delegate the actual selected strategy')
+        elif not any(event.get('helper') == 'isFlexibleNode' and event.get('flexibility') == row['variant'] for event in expected['events']):
+            raise ValueError('Flexibility enum was not read by the actual consumer')
+        row['witnesses'].append({'id': entry['caseId'] + ':network-simplex-consumer', 'kind': 'object-state-assertion',
+            'evidenceMap': binding(NETWORK_SIMPLEX_MAP), 'bindings': refs,
+            'sourceFunction': entry['sourceFunction'], 'nativeFunction': entry['nativeFunction'],
+            'sourcePointer': entry['sourcePointer'], 'nativePointer': entry['nativePointer'],
+            'expected': expected, 'actual': actual, 'strictSemanticStateEqual': True,
+            'rawStrictEqual': equal(source_raw, native_raw),
+            'excludedCrossHostFields': ['events[*].className'],
+            'rawSourceClassNames': [event.get('className') for event in source_raw['events'] if 'className' in event],
+            'rawNativeClassNames': [event.get('className') for event in native_raw['events'] if 'className' in event],
+            'scope': 'Actual prepared NetworkSimplexPlacer flexibility/solver or Repeater factory and original placer.process; no full public selector or height-expansion claim.',
+            'limits': report['limits'], 'historicalRuntimeReboundToCurrentModule': False})
+        row['status'] = 'witnessed_scoped'
+
+
+
+def validate_source_binding(source, refs):
+    if source.get('requestSha256') != refs['request']['sha256'] or source.get('probeSha256') != refs['sourceProbe']['sha256']:
+        raise ValueError('Final consumer Source acquisition binding differs')
+
+
+def add_final_config_and_spline(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    for filename in (GREEDY_CONFIG_MAP, SPLINE_SOFT_MAP):
+        report = read(filename)
+        refs = {key: checked_binding(report[key]) for key in (
+            'request', 'sourceProbe', 'nativeChecker', 'sourceRaw', 'nativeRaw', 'sourceCommand', 'nativeCommand')}
+        source, native = read(refs['sourceRaw']['path']), read(refs['nativeRaw']['path'])
+        validate_source_binding(source, refs)
+        for entry in report['rows']:
+            expected, actual = pointer(source, entry['sourcePointer']), pointer(native, entry['nativePointer'])
+            if not equal(expected, actual):
+                raise ValueError('Final consumer actual configuration/spline state differs')
+            configuration = filename == GREEDY_CONFIG_MAP
+            if configuration:
+                if expected.get('outcome') != 'returned' or not equal(expected['root'], entry['actualRoot']) or not equal(expected['nested'], entry['actualNested']):
+                    raise ValueError('Greedy root/nested configuration state differs')
+            elif pointer(expected, entry['actualFinalModePointer']) != 'CONSERVATIVE_SOFT' or pointer(expected, entry['actualModeReadsPointer']) != ['CONSERVATIVE_SOFT', 'CONSERVATIVE_SOFT']:
+                raise ValueError('Actual P5/Final did not read CONSERVATIVE_SOFT')
+            row = by_id[entry['id']]
+            row['witnesses'].append({'id': entry['id'] + ':actual-final-consumer',
+                'kind': 'configuration-state-assertion' if configuration else 'object-state-assertion',
+                'evidenceMap': binding(filename), 'bindings': refs,
+                'sourceFunction': entry['sourceFunction'], 'nativeFunction': entry['nativeFunction'],
+                'sourcePointer': entry['sourcePointer'], 'nativePointer': entry['nativePointer'],
+                'expected': expected, 'actual': actual, 'strictStateEqual': True,
+                'ownerExecutionFromConfigurationWitnessClaimed': False,
+                'scope': 'Actual activation and configuration factory presence for root/nested graph; not execution of the greedy body.' if configuration else 'Actual P5+Final prepared graph and two stored SOFT mode reads, full segment/control state; no public JSON layout or spline obstacle guarantee.',
+                'limits': report['limits'], 'historicalRuntimeReboundToCurrentModule': False})
+            row['status'] = 'configuration_state_scoped' if configuration else 'witnessed_scoped'
+
+
+def component_geometry_projection(value):
+    # Source/native enum identity bucket order is an explicit ADR0010 boundary.
+    # Preserve raw split/groups/list order; compare only actual geometry by ID.
+    nodes = value['nodes']
+    if len({node['id'] for node in nodes}) != len(nodes):
+        raise ValueError('Component geometry has duplicate stable node IDs')
+    return {'size': value['size'], 'nodes': sorted(nodes, key=lambda node: node['id'])}
+
+
+def add_component_group_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    report = read(COMPONENT_GROUP_MAP)
+    common = {key: checked_binding(report[key]) for key in ('sourceProbe', 'nativeChecker', 'prepare', 'sourceCommand', 'nativeCommand')}
+    adapters = [checked_binding(entry) for entry in report['historicalAdapters']]
+    consumers = [checked_binding(entry) for entry in report['currentConsumers']]
+    for entry in report['rows']:
+        refs = {key: checked_binding(entry[key]) for key in ('request', 'reference', 'native')}
+        source, native = read(refs['reference']['path']), read(refs['native']['path'])
+        expected_raw, actual_raw = pointer(source, entry['referencePointer']), pointer(native, entry['nativePointer'])
+        if not equal(expected_raw, entry['referenceValue']) or not equal(actual_raw, entry['nativeValue']):
+            raise ValueError('Component/group actual state binding differs')
+        identity_boundary = entry['status'] == 'helper_state_scoped_with_identity_order_diagnostic'
+        expected = component_geometry_projection(expected_raw) if identity_boundary else expected_raw
+        actual = component_geometry_projection(actual_raw) if identity_boundary else actual_raw
+        if not equal(expected, actual):
+            raise ValueError('Component/group actual scoped state differs')
+        if refs['reference']['path'].endswith('components-order-family-01/source-02.json'):
+            validate_source_binding(source, {'request': refs['request'], 'sourceProbe': common['sourceProbe']})
+        row = by_id['option:' + entry['optionId'] + ':' + entry['variant']]
+        exclusion = entry['status'] == 'scheduler_exclusion_scoped'
+        if exclusion and (expected['strategy'] != 'NONE' or expected['strategyReads'] != ['NONE'] or expected['sorterScheduled'] is not False):
+            raise ValueError('Actual model-order NONE scheduler exclusion differs')
+        witness = {'id': row['id'] + ':actual-component-group-state',
+            'kind': 'identity-order-boundary-state' if identity_boundary else 'scheduler-exclusion-state' if exclusion else 'object-state-assertion',
+            'evidenceMap': binding(COMPONENT_GROUP_MAP), 'bindings': refs, 'newCaptureBindings': common,
+            'historicalAdapters': adapters, 'currentConsumers': consumers,
+            'referencePointer': entry['referencePointer'], 'nativePointer': entry['nativePointer'],
+            'expected': expected, 'actual': actual, 'strictScopedStateEqual': True,
+            'rawStrictEqual': equal(expected_raw, actual_raw), 'scope': entry['scope'],
+            'limits': report['limitations'], 'historicalRuntimeReboundToCurrentModule': False}
+        if identity_boundary:
+            if equal(expected_raw, actual_raw) or entry['rawStrictPassed'] is not False or entry['rawDifferenceCount'] != 23:
+                raise ValueError('Original identity-order diagnostic was lost')
+            witness.update(rawReference=expected_raw, rawNative=actual_raw, rawDifferenceCount=23,
+                           projection='Only graph size and actual nodes sorted by stable ID; split/group bucket and list order remain raw diagnostic, not parity.')
+        row['witnesses'].append(witness)
+        row['status'] = 'identity_order_boundary_scoped' if identity_boundary else 'scheduler_exclusion_scoped' if exclusion else 'witnessed_scoped'
+
+
+def add_postcompaction_wrapping_scope(supplemental):
+    by_id = {row['id']: row for row in supplemental}
+    report = read(POST_WRAPPING_MAP)
+    boundary = report['oldManualJsonReflectionFailure']
+    old_source = read(checked_binding(boundary['sourceRaw'])['path'])
+    old_native = read(checked_binding(boundary['nativeRaw'])['path'])
+    if old_source.get('outcome') != 'threw' or old_native.get('outcome') != 'threw' or not equal(old_source.get('error'), boundary['error']) or old_native.get('error', {}).get('message') != boundary['error']['message']:
+        raise ValueError('Historical public MANUAL reflection failure was lost')
+    for span in report['sourceRouteSupportSpans']:
+        if sha(base64.b64decode(span['base64'], validate=True)) != span['sha256']:
+            raise ValueError('Postcompaction/wrapping Source route bytes differ')
+    typed_refs = {key: checked_binding(report[key]) for key in ('newRequest', 'newSourceProbe', 'newNativeChecker', 'newSourceCommand', 'newNativeCommand')}
+    for entry in report['rows']:
+        row = by_id[entry['id']]
+        witness = {'id': entry['id'] + ':post-wrapping-state', 'kind': entry['kind'], 'evidenceMap': binding(POST_WRAPPING_MAP),
+                   'internalEnumTraceClaimed': False, 'causalGeometryDifferenceClaimed': False,
+                   'historicalRuntimeReboundToCurrentModule': False, 'limits': report['claimLimits']}
+        kind = entry['kind']
+        if kind == 'source-route-state':
+            refs = {key: checked_binding(entry[key]) for key in ('request', 'sourceRaw', 'nativeRaw', 'comparisonReport')}
+            source, native = read(refs['sourceRaw']['path']), read(refs['nativeRaw']['path'])
+            if source.get('outcome') != 'returned' or native.get('outcome') != 'returned' or pointer(source, entry['sourceInputValuePointer']) != row['variant'] or pointer(native, entry['nativeInputValuePointer']) != row['variant']:
+                raise ValueError('Actual public route selected value/outcome differs')
+            assertions = []
+            for geometry in entry['geometryState']:
+                expected, actual = pointer(source, geometry['pointer']), pointer(native, geometry['pointer'])
+                if not equal(expected, actual) or not equal(expected, geometry['value']):
+                    raise ValueError('Postcompaction/wrapping actual public geometry differs')
+                assertions.append({'pointer': geometry['pointer'], 'expected': expected, 'actual': actual})
+            for role, raw in (('source', source), ('native', native)):
+                tasks = entry[role + 'Tasks']
+                if not tasks or any(not equal(pointer(raw, item['pointer']), item['value']) for item in tasks):
+                    raise ValueError('Actual postcompaction/wrapping task differs')
+            if not entry['sourceActualSlots'] or any(pointer(source, item['pointer']) != item['value'] for item in entry['sourceActualSlots']):
+                raise ValueError('Actual public configured slot differs')
+            module = entry['relevantNativeModule']
+            current = binding(module['file'])
+            if current['sha256'] != module['currentSha256'] or module['currentSha256'] != module['historicalExecutionSha256']:
+                raise ValueError('Historical route implementation bytes differ')
+            witness.update(bindings=refs, assertions=assertions, sourceTasks=entry['sourceTasks'], nativeTasks=entry['nativeTasks'],
+                           sourceActualSlots=entry['sourceActualSlots'], nativeModule=current,
+                           historicalNativeVersion=entry['historicalNativeVersion'], scope=entry['scope'])
+            row['status'] = 'source_route_state_scoped'
+        elif kind == 'actual-public-scheduler-exclusion-with-source-default-route':
+            refs = {'request': checked_binding(entry['request'])}
+            request = read(entry['request']['path'])
+            option = row['optionId']
+            if any(any(key in obj.get('layoutOptions', {}) for key in (option, 'elk.' + option.removeprefix('org.eclipse.elk.'))) for _, obj in walk(request)):
+                raise ValueError('Wrapping OFF witness is not absent-property default')
+            for observation in entry['observations']:
+                refs[observation['role']] = checked_binding(observation['raw'])
+                raw = read(observation['raw']['path'])
+                if raw.get('outcome') != 'returned' or not raw['result'].get('children'):
+                    raise ValueError('Wrapping OFF has no actual nonempty return')
+                for item in observation['tasks'] + observation['slots']:
+                    if pointer(raw, item['pointer']) != item['value'] or 'wrapping' in item['value'].lower() or 'wrapper' in item['value'].lower():
+                        raise ValueError('Wrapping OFF actual exclusion differs')
+                task_names = [obj.get('name') for _, obj in walk(raw['result'].get('logging', {})) if isinstance(obj.get('name'), str)]
+                slot_names = [name for _, classes, _ in contexts(raw) for name in classes]
+                if not slot_names or any('wrapping' in name.lower() or 'wrapper' in name.lower() for name in task_names + slot_names):
+                    raise ValueError('Wrapping OFF raw scheduler contains a wrapping processor')
+            witness.update(bindings=refs, sourceDefault=entry['sourceDefault'], scope='Actual default OFF public scheduler exclusion plus fixed Source declaration/selector; no forced process(OFF) no-op.')
+            row['status'] = 'scheduler_exclusion_scoped'
+        elif kind in ('actual-owner-helper-delegation-and-state', 'actual-manual-calculator-original-owner-consumer'):
+            refs = dict(typed_refs, source=checked_binding(entry['sourceRaw']), native=checked_binding(entry['nativeRaw']))
+            source, native = read(entry['sourceRaw']['path']), read(entry['nativeRaw']['path'])
+            validate_source_binding(source, {'request': refs['newRequest'], 'sourceProbe': refs['newSourceProbe']})
+            src_pointers = entry.get('sourcePointers', [entry.get('sourcePointer')])
+            nat_pointers = entry.get('nativePointers', [entry.get('nativePointer')])
+            assertions = []
+            for src_pointer, native_pointer in zip(src_pointers, nat_pointers, strict=True):
+                expected, actual = pointer(source, src_pointer), pointer(native, native_pointer)
+                if not equal(expected, actual):
+                    raise ValueError('Actual typed MANUAL/validify owner state differs')
+                assertions.append({'sourcePointer': src_pointer, 'nativePointer': native_pointer, 'expected': expected, 'actual': actual})
+            if kind == 'actual-owner-helper-delegation-and-state':
+                actual = assertions[0]['actual']
+                if not equal(actual['events'], entry['actualEvents']) or not equal(actual['before'], entry['before']) or not equal(actual['after'], entry['after']):
+                    raise ValueError('Actual validify helper/performCuts state differs')
+            else:
+                if any(item['actual'].get('helper') != 'manual' or item['actual'].get('result') != [2, 4] for item in assertions):
+                    raise ValueError('Actual MANUAL calculator return differs')
+            witness.update(bindings=refs, assertions=assertions, scope='Typed prepared MANUAL calculator -> actual chosen validify -> original performCuts body, full layer/endpoint state; not public raw reflection support.',
+                           oldManualPublicFailure=report['oldManualJsonReflectionFailure'])
+            row['status'] = 'witnessed_scoped'
+        else:
+            raise ValueError('Unknown final postcompaction/wrapping witness kind')
+        row['witnesses'].append(witness)
+
+
+
 def add_effects(rows):
     index = {row['id']: row for row in rows}
     def enum_rows(request, option):
@@ -1005,6 +1309,12 @@ def build():
     add_current_increment(rows, supplemental)
     add_existing_enum_scope(supplemental)
     add_promotion_scope(supplemental)
+    add_orientation_scope(supplemental)
+    add_consumer_enum_scope(supplemental)
+    add_network_simplex_scope(supplemental)
+    add_final_config_and_spline(supplemental)
+    add_postcompaction_wrapping_scope(supplemental)
+    add_component_group_scope(supplemental)
     counts = dict(Counter(x['status'] for x in rows))
     return {'schema': 'pyelk-declared-branch-matrix/v1', 'scope': 'finite-factory-and-existing-evidence-increment',
             'workerSha256': packet['workerSha256'], 'productExecutionCount': 0, 'sourceExecutionCount': 0,
@@ -1014,6 +1324,9 @@ def build():
                         'supplementalStatuses': dict(Counter(x['status'] for x in supplemental)),
                         'coreRowsAccountedForWithinStatedScope': all(row['status'] != 'no_runtime_witness' for row in rows),
                         'allDeclaredEnumBranchesAccepted': all(row['status'] == 'witnessed_scoped' for row in supplemental),
+                        'allDeclaredEnumRowsAccountedForWithinStatedScope': all(row['status'] != 'no_variant_witness' for row in supplemental),
+                        'unwitnessedEnumIds': [row['id'] for row in supplemental if row['status'] == 'no_variant_witness'],
+                        'fullRawEnumParityClaimed': False,
                         'normalMathematicsBoundaryRows': [row['id'] for row in rows if row.get('normalRuntimeMathPass') is False],
                         'coreNoDirectTraceRows': [row['id'] for row in rows if row.get('noDirectTrace') is True],
                         'unwitnessedCoreIds': [r['id'] for r in rows if r['status'] in ('configured_only', 'no_runtime_witness')]},
@@ -1024,7 +1337,8 @@ def build():
                        binding(OLD_ENUM_MAP), binding(CONSUMER_LINKS), binding(STAGED_CLASSIFICATIONS),
                        binding(FIVE_OWNERS), binding(UNZIP_EQUAL),
                        binding(EXISTING_ENUM_MAP),
-                       binding(PROMOTION_MAP),
+                       binding(PROMOTION_MAP), binding(ORIENTATION_MAP), binding(CONSUMER_ENUM_MAP), binding(NETWORK_SIMPLEX_MAP),
+                       binding(GREEDY_CONFIG_MAP), binding(SPLINE_SOFT_MAP), binding(POST_WRAPPING_MAP), binding(COMPONENT_GROUP_MAP),
                        binding(MANIFEST.relative_to(ROOT).as_posix())],
             'interpretation': ['No missing implementation is inferred from a missing witness.',
                                'Literal Source/native tasks or original owner.process with strict raw state projections elevate core rows; unique hierarchy tasks need no flat slot log.',
@@ -1033,7 +1347,8 @@ def build():
                                'Shared-body factory aliases do not create duplicate mathematics. Source raw-unconstructible manager boundaries are contract evidence, never normal mathematics PASS.',
                                'HighDegree has a true causal public output witness but retains noDirectTrace; raw role-specific unzip/EQUAL observer structures are not falsely called equal.',
                                'Supplemental causal rows require successful raw paired pointer projections and a genuine before/after change; a passed report flag alone is insufficient.',
-                               'Supplemental rows are a separate finite accounting backlog, not claims of missing code or a demand for all option combinations.'],
+                               'All supplemental rows now have an exact declared scope; direct-only parity remains false because configuration, route/state, scheduler exclusions and ADR0010 identity ordering are distinct evidence kinds.',
+                               'Typed MANUAL wrapping does not remove the archived public JSON reflection boundary. Supplemental accounting does not prove every internal leaf or all option combinations.'],
             'rows': rows, 'supplementalRows': supplemental}
 
 
@@ -1044,7 +1359,7 @@ def markdown(data):
              '## Core accounting', '', '| Status | Rows |', '|---|---:|']
     lines += ['| ' + key + ' | ' + str(value) + ' |' for key, value in data['summary']['coreStatuses'].items()]
     lines += ['', '85 rows have actual task or owner/helper-state witnesses. HighDegree has a verified causal public output witness and explicitly retains noDirectTrace. Two Source-constructed orthogonal aliases share one already witnessed body. Two label-manager rows satisfy the fixed Native JSON/null-only boundary; they are not normal mathematics PASS or arbitrary callback support.', '',
-              'Core accounting does not close every internal conditional branch. The supplemental finite enum denominator is independent: ' + str(data['denominator']['supplementalEnumRows']) + ' rows, ' + str(data['summary']['supplementalStatuses'].get('witnessed_scoped', 0)) + ' scoped witnesses. Remaining enum values stay explicitly unverified; no all-option Cartesian-product claim is made.', '',
+              'Core accounting does not close every internal conditional branch. The supplemental finite enum denominator is independent: ' + str(data['denominator']['supplementalEnumRows']) + ' rows, ' + str(data['summary']['supplementalStatuses'].get('witnessed_scoped', 0)) + ' scoped witnesses. Every row now has an explicit finite scope or identity boundary. The direct-only allDeclaredEnumBranchesAccepted flag remains false: configuration, route/state, exclusion and identity boundary evidence are deliberately not reclassified as direct mathematics/raw parity. No all-option Cartesian-product claim is made.', '',
               '## Core rows', '', '| Factory | Status | Actual task cases | Object states | First witness | Implementation |', '|---|---|---:|---:|---|---|']
     for row in data['rows']:
         first = row['witnesses'][0]['id'] if row['witnesses'] else '(boundary / alias evidence)'
@@ -1054,16 +1369,16 @@ def markdown(data):
               'Historical primitive, prepared-phase and public observations retain their own original runtime/module hashes. Current implementation anchors do not rebind historical executions. Raw failed probes and the logged Source/native NPE pairs remain archived, even where later direct owner-state observations establish a normal branch witness.', '',
               'Unzip now has real before/after layer-array evidence: one six-node layer becomes two alternating three-node layers. Its monitor is unused by Source. EQUAL has a genuine zero-incoming helper fallback event that delegates the original return function and yields0. Role-specific callable names and the Source-only observer are not declared raw-identical.', '',
               'The 31 older enum rows were rechecked against actual original DTOs and saved native DTOs, not a pass flag. BK selects the exact original02/03 raw case after the historical observer correction; the first native geometry is unchanged. Port-side witnesses concern actual produced side/anchor state in the approved primitive scope, not every importer target.', '',
-              'The current family increment adds typed Direction helper states (not GraphConfigurator resolution), actual DOWN/READING GraphTransformer state, and nine NodePromotion owner cases. TOP_LEFT remains consumer-state-only without an independent helper return spy. Promotion NONE is an intentional real scheduler exclusion under the bound Source default/guard, not a forced process(NONE) no-op. Promotion recursive/frame helper counts remain raw and are not equated; IMPROVED retry and NODECOUNT terminal cap remain unexercised leaves.', '',
-              '## Supplemental enum values', '', '| Option | Direct helper/body/effect witness | Limited consumer / scheduler scope | No variant witness in this table |', '|---|---|---|---|']
+              'The current family increment adds actual LEFT/ROTATION transformer state; CENTER/TOP_LEFT helper vectors; UNDEFINED resolver returns RIGHT/DOWN without persisting the resolved direction; and NONE/ALTERNATING before-P4 configuration factory exclusion/inclusion. The latter two rows are configuration-state scope, not owner execution. Existing ALTERNATING body execution remains separately bound. Nine older port-sorting, layer-constraint and model-order DTOs add actual helper/body states, with VM enum-adapter and supplied-layering limitations retained. Nine NetworkSimplex consumer DTOs add actual flexibility/solver and Repeater factory-to-placer calls. Only event className is excluded across hosts; all selected strategies, calls, geometry and property state remain strict. Raw first failures and class-name differences remain archived, and physical height expansion is not claimed. None implies whole public selector coverage. Promotion NONE is an intentional real scheduler exclusion under the bound Source default/guard, not a forced process(NONE) no-op. Promotion recursive/frame helper counts remain raw and are not equated; IMPROVED retry and NODECOUNT terminal cap remain unexercised leaves.', '',
+              '## Supplemental enum values', '', '| Option | Direct helper/body/effect witness | Configuration / route / exclusion / identity-boundary scope | No variant witness in this table |', '|---|---|---|---|']
     grouped = {}
     for row in data['supplementalRows']:
         grouped.setdefault(row['optionId'], []).append(row)
     for option, rows in grouped.items():
-        lines.append('| ' + option + ' | ' + ', '.join(row['variant'] for row in rows if row['status'] == 'witnessed_scoped') + ' | ' + ', '.join(row['variant'] + ' (' + row['status'] + ')' for row in rows if row['status'] in ('consumer_state_scoped', 'scheduler_exclusion_scoped')) + ' | ' + ', '.join(row['variant'] for row in rows if row['status'] == 'no_variant_witness') + ' |')
+        lines.append('| ' + option + ' | ' + ', '.join(row['variant'] for row in rows if row['status'] == 'witnessed_scoped') + ' | ' + ', '.join(row['variant'] + ' (' + row['status'] + ')' for row in rows if row['status'] in ('consumer_state_scoped', 'scheduler_exclusion_scoped', 'configuration_state_scoped', 'source_route_state_scoped', 'identity_order_boundary_scoped')) + ' | ' + ', '.join(row['variant'] for row in rows if row['status'] == 'no_variant_witness') + ' |')
     lines += ['', '## Remaining finite work', '',
               'There is no unclassified core factory row. HighDegree lacks a direct body trace but has an actual scoped option effect; manager callback restrictions are an upstream compiled/JSON boundary, not a missing successful raw callback. Shared aliases do not require duplicate mathematics.', '',
-              'The remaining enum values above require their own actual state/effect or an explicitly justified Source boundary. First reuse the saved direction/promotion/constraint/wrapping/component observations and existing source predicates. Only still-unwitnessed condition families need new small applicable DTOs; absence here is not proof of missing code or a demand to rerun72/81/151 cases.', '',
+              'There are no unclassified rows in the declared 121-value enum denominator. Seven Greedy/Unzip rows prove actual configuration state, three NONE/OFF rows prove actual scheduler exclusion, and seven compaction/wrapping rows bind fixed Source selectors to successful public tasks and full geometry state without inventing an internal enum trace or causal difference. Component NONE retains its original 23 raw identity-bucket-order differences under ADR0010; only actual geometry by stable node ID is equal. This is a documented identity-order boundary, not normal raw parity. MANUAL has real typed calculator/performCuts evidence, while the historical public JSON reflective-value failure remains archived; no new public raw support is claimed. Promotion retry/cap leaves and other internal conditions retain the existing limited-sample caveats. No additional mandatory enum mapping remains in this finite table.', '',
               '## Portable offline check', '',
               '`python scripts/iteration/declared_branch_matrix.py --check` reads tracked source/request inputs and exact members of branches.zip / options.zip, checks bound hashes and recomputes states, causal projections and accounting. It never falls back to a local ignored directory. Raw observation bytes remain unchanged.', '']
     return '\n'.join(lines)

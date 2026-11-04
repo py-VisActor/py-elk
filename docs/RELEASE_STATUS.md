@@ -1,20 +1,19 @@
 # 当前状态
 
-功能迁移已完成，首个独立发行 **[py-visactor-elk 0.1.0](https://pypi.org/project/py-visactor-elk/0.1.0/)** 已正式发布并完成 PyPI 下载、wheel/sdist 安装复验。导入名保留 `pyelk`。全部声明分支的 E20/E21 验收仍在继续；权威状态见 [任务账本](implementation-backlog.json)及 [实际发行证据](releases/evidence/published-0.1.0/publication.json)。
+原生 Python ELK 迁移及独立包交付已按 E01–E21 的明示有限条件完成验收。正式实现为 `src/pyelk`，12 个算法、243 个选项、8 个类别、196 个 Python 模块／208 个运行文件。py-mermaid 的 I0–I3 集成继续单独后置。
 
-正式源码是 `src/pyelk`：196 个 Python 模块、208 个运行文件，12 个算法、243 个选项、8 个类别。`py-mermaid` 集成后置。实现接线完成不等于所有输入、选项值和组合的行为均已验证。
+**[py-visactor-elk 0.1.0](https://pypi.org/project/py-visactor-elk/0.1.0/)** 已通过 GitHub OIDC 实际发布、PyPI 下载和外部 wheel／sdist 安装；导入名为 `pyelk`。当前 208 个运行文件与实际发布 payload 逐 SHA 一致，纯验收资料更新没有重发或覆盖该版本。见 [发行证据](releases/evidence/published-0.1.0/publication.json)。
 
-已完成的校验包括冻结 0.0.1a0 的 37 步／917 测试、该包的 Windows/Linux × Python 3.11–3.14 wheel 矩阵及两个 sdist 代表；选定公共输入的原版对比；0.1.0 候选安装和 Windows 3.13 的性能测量。各结果保留原版本与源码绑定，不将它们改称新修复代码的执行结果。
+[最终逐条件审计](iterations/E20_E21_ACCEPTANCE.md)覆盖原 M8 条件、[M6](iterations/E13_E15_ACCEPTANCE.md)、[M7](iterations/E16_E19_ACCEPTANCE.md)、[90／121 分支矩阵](iterations/FULL_DECLARED_BRANCH_MATRIX.md)、[243 选项角色](iterations/FULL_OPTION_ROLES.md)、平台／状态／资源及实际发行。原 37 步／917 测试（含 1 skip）和 Windows／Linux × CPython 3.11–3.14 的 8 wheel／2 sdist 代表单元保留执行版本 0.0.1a0；当前版本／MrTree 修复另有受影响证据，不把旧运行改称新执行。
 
-已修复 MrTree BFS 的兄弟控制环：原版抛 RangeError，原生现在按活动调用路径检测并抛 RecursionError，差异明确保留。正常公共输入、共享节点合法重访和 1500 层链通过；新 0.1.0 候选已完成 Windows wheel/sdist 双安装及 Linux wheel 受影响安装。
+39 个性能配置／195 次正式测量及 6 个迭代观察保留实际版本；发布版仅为 MrTree 增加 3 配置／15 次正式测量。新总 gate 离线重核 66 个正常 Layered／40 个其他 provider 的完整结果与调用方输入，临时恢复 661 份选项输入并实际重算原效果账本，同时核 39 配置的五份输出 SHA；均未启动布局、Source、安装或平台任务。
 
-剩余工作：
+完成验收不代表无限输入或所有选项组合已证明正确。原 73 项几何／15 项状态、去重 82 项的效果账本不变；独立角色见证 87 项，156 项仍无独立角色消费见证，完整 243 项语义通过数为 0。PARTIAL／NOT_ASSESSED、Source 错误／非有限值／seed0 宿主熵、8 个工厂异常名、23 个内部身份顺序和 11 个 Radial 私有浮点差异保留。MrTree 的 Source RangeError／原生 RecursionError 终止修复见 [ADR0015](decisions/0015-mrtree-recursive-cycle.md)。
 
-- 完成有限声明分支和 243 选项角色的证据映射，关闭确实缺失的见证；当前 73 项 scoped geometry／15 项 scoped state 和便携归档已收口。
-- 复用已归档的真实状态 DTO、旧枚举和 Source 边界；只为仍无证据的明确分支补最小见证，不重跑未变数学组。
+离线重核完成条件：
 
-E13／E14 已按 [M6 清单](iterations/E13_E15_ACCEPTANCE.md)、E16–E19 已按 [独立算法清单](iterations/E16_E19_ACCEPTANCE.md)在实际证据范围内收口；E17 私有目标值的 11 个严格差异保留。新增[高级几何约束](ADVANCED_GEOMETRY.md)的 24 个公共结果及 4 个堆叠状态提供 154 项增量检查，无已适用失败，14 个公共结果仍为 PARTIAL。E15／E20／E21 的未完验收继续明确列出。
+```shell
+python scripts/iteration/migration_acceptance.py --check --require-complete
+```
 
-当前选项覆盖和高级几何仅作其声明范围内的证明，未评估项继续保留；独立算法几何的 28 个观察另有双方各 10 PASS／4 NOT_ASSESSED，见 [独立算法几何](INDEPENDENT_ALGORITHM_GEOMETRY.md)。详见 [选项账本](iterations/FULL_OPTION_COVERAGE.md)、[性能边界](FULL_PERFORMANCE.md)及 [发行说明](releases/0.1.0.md)。
-
-执行政策：先实现所有功能，再统一校验和修复；修复只检查受影响项，最后全量验收。已通过的数学组和平台矩阵不因无关改动重复运行。以前逐批进度文案已移至 [历史副本](RELEASE_STATUS.history-20261104.md)，不得作为当前状态。
+后续修复只验证影响范围；新发行绑定自己的候选字节及实际下载。不要因文档更新重跑已过数学／跨平台全量。历史进度不替代 [机器账本](implementation-backlog.json)和 [机器计划](iteration-plan.json)。

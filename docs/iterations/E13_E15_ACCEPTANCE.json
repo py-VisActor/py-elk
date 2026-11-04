@@ -26,7 +26,7 @@
     },
     {
       "id": "E15",
-      "status": "in_progress_finite_variants"
+      "status": "met_scoped"
     }
   ],
   "requirements": [
@@ -152,13 +152,13 @@
       "id": "M6-04-M6-05-declared-branches",
       "iteration": "E15",
       "explicitCondition": "Per-declared-branch Source/differential/geometry acceptance and applicable Layered options",
-      "status": "pending_finite_variant_witnesses",
+      "status": "met_scoped",
       "evidence": [
         "finiteBranches90",
         "optionRoleMap",
         "frozenOptionLedger"
       ],
-      "finding": "The current finite121-row supplemental enum map still contains explicitly unverified values, listed below. Static/default/parser/input mentions do not satisfy runtime consumption.",
+      "finding": "All121 supplemental rows are accounted at their actual scoped witness strength, including configuration/route state, scheduler exclusion and the retained identity-order boundary. Static/default/parser/input mentions are not runtime effects.",
       "limitations": [
         "Numeric values and graph combinations are not an infinite test denominator. Role/state/diagnostic/metadata/unconstructible options must be classified at their actual role."
       ]
@@ -214,66 +214,15 @@
   "finiteRemainingWork": {
     "denominator": 121,
     "statusCounts": {
-      "witnessed_scoped": 68,
-      "no_variant_witness": 51,
-      "consumer_state_scoped": 1,
-      "scheduler_exclusion_scoped": 1
+      "witnessed_scoped": 103,
+      "scheduler_exclusion_scoped": 3,
+      "configuration_state_scoped": 7,
+      "source_route_state_scoped": 7,
+      "identity_order_boundary_scoped": 1
     },
-    "unwitnessedCount": 51,
-    "unwitnessedIds": [
-      "option:org.eclipse.elk.layered.directionCongruency:ROTATION",
-      "option:org.eclipse.elk.layered.interactiveReferencePoint:CENTER",
-      "option:org.eclipse.elk.layered.portSortingStrategy:INPUT_ORDER",
-      "option:org.eclipse.elk.layered.portSortingStrategy:PORT_DEGREE",
-      "option:org.eclipse.elk.layered.layering.layerConstraint:NONE",
-      "option:org.eclipse.elk.layered.layering.layerConstraint:FIRST",
-      "option:org.eclipse.elk.layered.layering.layerConstraint:FIRST_SEPARATE",
-      "option:org.eclipse.elk.layered.layering.layerConstraint:LAST",
-      "option:org.eclipse.elk.layered.layering.layerConstraint:LAST_SEPARATE",
-      "option:org.eclipse.elk.layered.crossingMinimization.greedySwitch.type:ONE_SIDED",
-      "option:org.eclipse.elk.layered.crossingMinimization.greedySwitch.type:OFF",
-      "option:org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type:ONE_SIDED",
-      "option:org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type:TWO_SIDED",
-      "option:org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type:OFF",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:NONE",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:PORT_POSITION",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:NODE_SIZE_WHERE_SPACE_PERMITS",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default:PORT_POSITION",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default:NODE_SIZE_WHERE_SPACE_PERMITS",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:INTERACTIVE",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:LINEAR_SEGMENTS",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:BRANDES_KOEPF",
-      "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:NETWORK_SIMPLEX",
-      "option:org.eclipse.elk.layered.edgeRouting.splines.mode:CONSERVATIVE_SOFT",
-      "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:RIGHT",
-      "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:LEFT_RIGHT_CONSTRAINT_LOCKING",
-      "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:LEFT_RIGHT_CONNECTION_LOCKING",
-      "option:org.eclipse.elk.layered.compaction.postCompaction.constraints:QUADRATIC",
-      "option:org.eclipse.elk.layered.compaction.postCompaction.constraints:SCANLINE",
-      "option:org.eclipse.elk.layered.wrapping.strategy:OFF",
-      "option:org.eclipse.elk.layered.wrapping.strategy:SINGLE_EDGE",
-      "option:org.eclipse.elk.layered.wrapping.strategy:MULTI_EDGE",
-      "option:org.eclipse.elk.layered.wrapping.cutting.strategy:MANUAL",
-      "option:org.eclipse.elk.layered.wrapping.validify.strategy:NO",
-      "option:org.eclipse.elk.layered.wrapping.validify.strategy:GREEDY",
-      "option:org.eclipse.elk.layered.wrapping.validify.strategy:LOOK_BACK",
-      "option:org.eclipse.elk.layered.layerUnzipping.strategy:NONE",
-      "option:org.eclipse.elk.layered.layerUnzipping.strategy:ALTERNATING",
-      "option:org.eclipse.elk.layered.considerModelOrder.strategy:NONE",
-      "option:org.eclipse.elk.layered.considerModelOrder.strategy:PREFER_EDGES",
-      "option:org.eclipse.elk.layered.considerModelOrder.strategy:PREFER_NODES",
-      "option:org.eclipse.elk.layered.considerModelOrder.components:NONE",
-      "option:org.eclipse.elk.layered.considerModelOrder.components:INSIDE_PORT_SIDE_GROUPS",
-      "option:org.eclipse.elk.layered.considerModelOrder.components:GROUP_MODEL_ORDER",
-      "option:org.eclipse.elk.layered.considerModelOrder.components:MODEL_ORDER",
-      "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy:ONLY_WITHIN_GROUP",
-      "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy:MODEL_ORDER",
-      "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy:ENFORCED",
-      "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy:ONLY_WITHIN_GROUP",
-      "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy:MODEL_ORDER",
-      "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy:ENFORCED"
-    ],
-    "nextAction": "The branch single writer maps old actual helper/body/state/effect witnesses first. Only still-missing consumer families need small applicable DTOs; no old matrix rerun or infinite combinations."
+    "unwitnessedCount": 0,
+    "unwitnessedIds": [],
+    "nextAction": "No declared supplemental value remains unmapped. Preserve the scoped distinctions and all Source/error/identity boundaries; no additional layout or infinite-combination proof is implied."
   },
   "public72": {
     "summary": {
@@ -1450,13 +1399,13 @@
           "path": "test-runs/20261104-HOST-19/A/full-layered-01/wrapping-single-edge-manual/reference.json",
           "sha256": "8bd1e000f9bd46e2e8bd98e1218bbac4ef8bef49ca638472df8558822e7d7a9b",
           "bytes": 11784,
-          "storage": "references/full-native-closure/advanced.zip"
+          "storage": "references/full-native-closure/branches.zip"
         },
         "native": {
           "path": "test-runs/20261104-HOST-19/A/full-layered-01/wrapping-single-edge-manual/candidate.json",
           "sha256": "a86f7b90672c538bb9ab231c9ab07bf57ff07a055c2f476c0bceaa3bd6981c9a",
           "bytes": 33008,
-          "storage": "references/full-native-closure/advanced.zip"
+          "storage": "references/full-native-closure/branches.zip"
         },
         "comparison": {
           "path": "test-runs/20261104-HOST-19/A/full-layered-01/wrapping-single-edge-manual/comparison.json",
@@ -8714,8 +8663,8 @@
   "finiteBranches90": {
     "binding": {
       "path": "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json",
-      "sha256": "2efa0a0a1ff3edc7eaaf86f3c2d03eb290a8db80830a96ead473796e6871aa94",
-      "bytes": 1683378,
+      "sha256": "43b23f911e94bc726199172de10d3bebe13fbdaa7e07951d9d17509f5895e1a1",
+      "bytes": 2606487,
       "storage": "repository"
     },
     "denominator": {
@@ -8738,13 +8687,17 @@
       },
       "normalSavedCasesRead": 66,
       "supplementalStatuses": {
-        "witnessed_scoped": 68,
-        "no_variant_witness": 51,
-        "consumer_state_scoped": 1,
-        "scheduler_exclusion_scoped": 1
+        "witnessed_scoped": 103,
+        "scheduler_exclusion_scoped": 3,
+        "configuration_state_scoped": 7,
+        "source_route_state_scoped": 7,
+        "identity_order_boundary_scoped": 1
       },
       "coreRowsAccountedForWithinStatedScope": true,
       "allDeclaredEnumBranchesAccepted": false,
+      "allDeclaredEnumRowsAccountedForWithinStatedScope": true,
+      "unwitnessedEnumIds": [],
+      "fullRawEnumParityClaimed": false,
       "normalMathematicsBoundaryRows": [
         "factory:IntermediateProcessorStrategy:CENTER_LABEL_MANAGEMENT_PROCESSOR",
         "factory:IntermediateProcessorStrategy:END_NODE_PORT_LABEL_MANAGEMENT_PROCESSOR"
@@ -8763,8 +8716,8 @@
   "optionRoleMap": {
     "binding": {
       "path": "docs/iterations/FULL_OPTION_ROLES.json",
-      "sha256": "ad18fef634f578d46f49c0cf0226b102d6ee07d2a752c6bf24030d77ef730759",
-      "bytes": 1201984,
+      "sha256": "149629bdc5545fe422de691d2e3a335acdcd90b700065623dbe577ede8eb7641",
+      "bytes": 1280287,
       "storage": "repository"
     },
     "scope": "pyelk-full-option-roles/v1",
@@ -8787,23 +8740,42 @@
     "Native preserves caller input; Source mutation and generated hashes are separately retained under explicit existing rules.",
     "No universal OUTSIDE collision freedom, spline avoidance, optimal packing or infinite option cross-products are required by this closure."
   ],
+  "previousScopedBaseline": {
+    "documentSha256": "01a2442c477f683ce143ea9b20356e63949ba088fb6fc57eed4325cbabd90e3b",
+    "evidenceBindings": 931,
+    "storageCounts": {
+      "repository": 366,
+      "advanced": 177,
+      "options": 50,
+      "branches": 338
+    },
+    "retainedScopes": [
+      "72 public cases:66 normal matches and6 Source-error observations",
+      "142 historical independent geometry:102PASS/40PARTIAL/188 not-assessed",
+      "24 sensitive JSON observations plus4 prepared LabelCell states",
+      "23 prepared identity-order differences remain raw false",
+      "Historical runtime versions are not relabelled as new published-package runs"
+    ],
+    "incrementScope": "Final finite branch mapping and five saved-only role witnesses. Previous execution scopes and negative observations are retained; no product reruns."
+  },
   "newExecutions": {
     "products": 0,
     "source": 0,
     "tests": 0,
     "installs": 0
   },
+  "allE15RequirementsMetWithinDeclaredScope": true,
   "allE15BranchesAccepted": false,
   "e20E21Complete": false,
   "evidenceStorage": {
     "archive": {
       "path": "references/full-native-closure/advanced.zip",
-      "sha256": "ab2e090003ee19dbb5792e60084704f078ef29205c43ff06a0a0746a3652c79a",
-      "bytes": 251098
+      "sha256": "1225607320e03b8678e401a34d688dfcecad7331c40be707775b1ba0f64de79f",
+      "bytes": 251746
     },
     "manifest": {
       "path": "references/full-native-closure/advanced.manifest.json",
-      "sha256": "ddd91fa952e157e1c8839bd8f06b5ca9dc39317800c8000378cd4980d92d9e99"
+      "sha256": "eca0eb7020f02bcdba990665e9397752937eed0e88120d06ae9a11ab5743e674"
     }
   },
   "pathPolicy": {
@@ -8852,14 +8824,14 @@
     },
     {
       "path": "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json",
-      "sha256": "2efa0a0a1ff3edc7eaaf86f3c2d03eb290a8db80830a96ead473796e6871aa94",
-      "bytes": 1683378,
+      "sha256": "43b23f911e94bc726199172de10d3bebe13fbdaa7e07951d9d17509f5895e1a1",
+      "bytes": 2606487,
       "storage": "repository"
     },
     {
       "path": "docs/iterations/FULL_OPTION_ROLES.json",
-      "sha256": "ad18fef634f578d46f49c0cf0226b102d6ee07d2a752c6bf24030d77ef730759",
-      "bytes": 1201984,
+      "sha256": "149629bdc5545fe422de691d2e3a335acdcd90b700065623dbe577ede8eb7641",
+      "bytes": 1280287,
       "storage": "repository"
     },
     {
@@ -8875,15 +8847,27 @@
       "storage": "repository"
     },
     {
+      "path": "references/full-native-closure/algorithms.manifest.json",
+      "sha256": "cf0dfcbc018453a1ba634eac395ca936e50e8c2dae671c0e87252b170601b19d",
+      "bytes": 139482,
+      "storage": "repository"
+    },
+    {
+      "path": "references/full-native-closure/algorithms.zip",
+      "sha256": "9dbb1ab9ade9d9ec72a79d9011dde05c301e04cf50648d540cd476ad7c32f932",
+      "bytes": 1714831,
+      "storage": "repository"
+    },
+    {
       "path": "references/full-native-closure/branches.manifest.json",
-      "sha256": "d015cc40e1286fe14b2368c3b9865fd1c8e9d7b5dbf14c5d581cb27be1dfd56c",
-      "bytes": 63358,
+      "sha256": "55d8a6a21f897f79c4742814ef52f6812d722800e3c9670c918eb80dc84c0084",
+      "bytes": 75103,
       "storage": "repository"
     },
     {
       "path": "references/full-native-closure/branches.zip",
-      "sha256": "12af69a21dce674661b6c676656d51f190ccf0b92046bb070a0eabf2c036eaf1",
-      "bytes": 1777402,
+      "sha256": "adec6873f396256195fd0308540c6d14674b3b84b19b6ba4f27b51cba4f09a28",
+      "bytes": 2042490,
       "storage": "repository"
     },
     {
@@ -10171,9 +10155,21 @@
       "storage": "references/full-native-closure/branches.zip"
     },
     {
+      "path": "test-runs/20261104-E13-01/V/model-order-boxes-comparison-01.json",
+      "sha256": "d4585256cef4bf7786c234a9f22d25c295cb76cdde22ca511d87655a48d1fef1",
+      "bytes": 4139,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/20261104-E13-01/V/port-helper-oracle-01/observation.json",
       "sha256": "7b7d856af175c17cb5010c662e987b0e658c98ac06400bcaa1f0e574927b9401",
       "bytes": 3299,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-E13-01/V/port-order-oracle-02/observation.json",
+      "sha256": "8c1f6d274a09fc76ff45f1087f906ee0e70ed5f97313a60eff5e448f11380472",
+      "bytes": 4738,
       "storage": "references/full-native-closure/branches.zip"
     },
     {
@@ -10213,6 +10209,12 @@
       "storage": "references/full-native-closure/advanced.zip"
     },
     {
+      "path": "test-runs/20261104-HOST-10/root/model-order-native-01/comparison.json",
+      "sha256": "15c398ff066029e155067a5b6754a3943ce0dafa534cdebd7c175596cdcd9289",
+      "bytes": 12491,
+      "storage": "references/full-native-closure/advanced.zip"
+    },
+    {
       "path": "test-runs/20261104-HOST-11/V/greedy-phase-one-comparison-01/comparison.json",
       "sha256": "a5db5401321af7aed819d36e142e5c602ba90bd3a418c73bdcfdbb5184f44d68",
       "bytes": 10161,
@@ -10237,6 +10239,30 @@
       "storage": "references/full-native-closure/branches.zip"
     },
     {
+      "path": "test-runs/20261104-HOST-11/V/model-order-cost-comparison-01/comparison.json",
+      "sha256": "0ee319c9bc20c2cc239217ceae207cf6f7a615e29d3389673fb0cc50c01bd0ce",
+      "bytes": 7967,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-11/V/model-order-cost-oracle-01/observation.json",
+      "sha256": "c20a017248c79bd9567171b504629c55480a9ecd8a329a7b2d01eb7460b4a44c",
+      "bytes": 1860,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-11/V/model-order-feedback-comparison-01/comparison.json",
+      "sha256": "a42c276ba57ff9dc75ec56f8bc1332c4c821b82ac1f3851b945e1298b466d3ec",
+      "bytes": 8087,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-11/V/model-order-feedback-oracle-01/observation.json",
+      "sha256": "1aebee54e712852b20c66fab790bb8e340e8487bac5fb7f38564fb165e461c9d",
+      "bytes": 2635,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/20261104-HOST-11/V/node-order-enum-comparison-01/comparison.json",
       "sha256": "2c45d4be229aecf88ab9da2a9818ecf7d3c6fda8c56a0d126e0163e184f37bbc",
       "bytes": 3914,
@@ -10247,6 +10273,12 @@
       "sha256": "dd338d73673857e39d9b8fd40704a6fea9b8876ef20669430ecd4e38344fc286",
       "bytes": 703,
       "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-11/root/recursive-ordinary-nested-native-01/comparison.json",
+      "sha256": "8078618fa63aab2c8e6b0c8f6ebc2cd5dea5993d7f2a7c8aab95b6c644a47627",
+      "bytes": 18957,
+      "storage": "references/full-native-closure/advanced.zip"
     },
     {
       "path": "test-runs/20261104-HOST-12/B/brandes-koepf-native-01/checker-executed.py",
@@ -10348,6 +10380,36 @@
       "path": "test-runs/20261104-HOST-14/B/self-loop-restorer-director-request.json",
       "sha256": "e78f752c285ed454a2960c9d21f86dc9ee367b57551569d9fd8950886cb28b64",
       "bytes": 592,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-14/V/general-constraints-native-01/checker-executed.py",
+      "sha256": "84d37df63160b92f3b3a36221a465cc879ed95f369cdad6219d63cab8826bfef",
+      "bytes": 6071,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-14/V/general-constraints-native-01/report.json",
+      "sha256": "852ad536644242a9358fecf25e5701bc34ac99f4862c75a4d8c9da2c9b1ba7fb",
+      "bytes": 23905,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-14/V/general-constraints-original-01/observation.json",
+      "sha256": "ba73a911239797da31ca8bbe6cb4a36d48b50a37f1870dc7e7278298fd2cc59a",
+      "bytes": 10019,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-14/root/external-components-native-01/report.json",
+      "sha256": "545765cb4e42629ff24da6f77c63369ac42be8a0a6148cee3dd2dca69faed232",
+      "bytes": 60193,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/20261104-HOST-14/root/external-components-original-01/observation.json",
+      "sha256": "dc9911e94fef28a44e10d9abd7058394afe5416b3abb8f425e7e1406d9f4ab2a",
+      "bytes": 47463,
       "storage": "references/full-native-closure/branches.zip"
     },
     {
@@ -11614,7 +11676,7 @@
       "path": "test-runs/20261104-HOST-19/A/full-layered-01/wrapping-single-edge-manual/candidate.json",
       "sha256": "a86f7b90672c538bb9ab231c9ab07bf57ff07a055c2f476c0bceaa3bd6981c9a",
       "bytes": 33008,
-      "storage": "references/full-native-closure/advanced.zip"
+      "storage": "references/full-native-closure/branches.zip"
     },
     {
       "path": "test-runs/20261104-HOST-19/A/full-layered-01/wrapping-single-edge-manual/comparison.json",
@@ -11626,7 +11688,7 @@
       "path": "test-runs/20261104-HOST-19/A/full-layered-01/wrapping-single-edge-manual/reference.json",
       "sha256": "8bd1e000f9bd46e2e8bd98e1218bbac4ef8bef49ca638472df8558822e7d7a9b",
       "bytes": 11784,
-      "storage": "references/full-native-closure/advanced.zip"
+      "storage": "references/full-native-closure/branches.zip"
     },
     {
       "path": "test-runs/20261104-HOST-19/A/full-layered-02/external-nested-ports/candidate.json",
@@ -11929,6 +11991,18 @@
       "storage": "references/full-native-closure/advanced.zip"
     },
     {
+      "path": "test-runs/full-native-01/B/native-01/observations/basic-box.json",
+      "sha256": "b1f26f2bc6ac8d5cf826176ac1714136d4a1e2eb06833d5c9ec9a390459df32c",
+      "bytes": 5321,
+      "storage": "references/full-native-closure/algorithms.zip"
+    },
+    {
+      "path": "test-runs/full-native-01/B/native-01/observations/basic-layered.json",
+      "sha256": "1b58cf83f0d31243048f961bfdbc78a9fc9b34c4a3340d97c4205ec181563068",
+      "bytes": 7442,
+      "storage": "references/full-native-closure/advanced.zip"
+    },
+    {
       "path": "test-runs/full-native-01/B/native-01/observations/p1-bfs_node_order--p2-network_simplex.json",
       "sha256": "cfa3ff6a2c4938918a19e909963c502039fd3020f51544af130d25cb88c63f58",
       "bytes": 11583,
@@ -12023,6 +12097,18 @@
       "sha256": "77395f208636580491123097b4c05b3de34bed1d4704a03fb0be69c4d37da89f",
       "bytes": 11579,
       "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-01/B/reference-01/observations/basic-box.json",
+      "sha256": "f90d92ebde27fd81e828ded5eb5458308c7c137fc26109eff6b6ee7d84a5f39c",
+      "bytes": 5405,
+      "storage": "references/full-native-closure/algorithms.zip"
+    },
+    {
+      "path": "test-runs/full-native-01/B/reference-01/observations/basic-layered.json",
+      "sha256": "954caac5e8d0745ed184ad7f6c095de9b4888c90cd87a764f6d34c70f063bf4e",
+      "bytes": 9529,
+      "storage": "references/full-native-closure/advanced.zip"
     },
     {
       "path": "test-runs/full-native-01/B/reference-01/observations/p1-bfs_node_order--p2-network_simplex.json",
@@ -12997,6 +13083,12 @@
       "storage": "references/full-native-closure/advanced.zip"
     },
     {
+      "path": "test-runs/full-native-closure/A/enum-consumers-01/handoff.json",
+      "sha256": "75d208d60ecaab79fb6a8b6b4b2c7e110884c9f9b03e70f20678d87f03cf7165",
+      "bytes": 72886,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/full-native-closure/A/old-enum-map-01/consumer-links.json",
       "sha256": "446c74a3b87b4010c6db34b2f38b9cdee918b1b73e0e35ff65360b17c15cdfa6",
       "bytes": 29216,
@@ -13315,6 +13407,54 @@
       "storage": "references/full-native-closure/options.zip"
     },
     {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/compare.py",
+      "sha256": "5d6f84a15d89eb3a811954b5512fd256dca0546d8275ee634f51d1d6ff44573d",
+      "bytes": 2682,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/handoff.json",
+      "sha256": "d5a4278df4a9e29ebd1c6c95e51063fbe9448ec31fce73b1a7c1fa827b807376",
+      "bytes": 8928,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/native-command.json",
+      "sha256": "a11d256b6a3a2a17bce6c5a583b9a229206a7a471d6d21c8e134c6c1edfb7324",
+      "bytes": 490,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/native.json",
+      "sha256": "1c34e768f56bce3495fd25b6589645d197dd6b5cd0f230dbde9408d821ab16ac",
+      "bytes": 26543,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/probe.cjs",
+      "sha256": "1feb99db4373a3f76a277f848026d18b1a8162b3d471cad8a896de70fb287608",
+      "bytes": 2280,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/request.json",
+      "sha256": "f61d69f5e2adc2cf168912b8e88651f9344243a7e1d7dd3de3cba64c9fc91153",
+      "bytes": 765,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/source-command.json",
+      "sha256": "bc5e29e287c75930a63f459fc0af8c47799f15ba5f134865c786ee4b8199ce82",
+      "bytes": 735,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/greedy-switch-config-01/source.json",
+      "sha256": "9ea0ce6ee82388ec83ea8a0dfcefe1b8c78cdd13d0200dd173a735a6a1090b52",
+      "bytes": 3685,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/full-native-closure/B/missing-owner-dtos-02/compare.py",
       "sha256": "412bb9efe28eca8f09c0d691e7d2b25ad072d99f93785fa479edc54ed3b9f4bd",
       "bytes": 5429,
@@ -13447,6 +13587,90 @@
       "storage": "references/full-native-closure/branches.zip"
     },
     {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/compare.py",
+      "sha256": "49722f9a56e86644707a51af8e6862f02df08c5bafdd0d0127594db28fe22851",
+      "bytes": 5392,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/compare_recompute_02.py",
+      "sha256": "a00a650b5d84620a45031efe9000ef2e705e79bf18c16c99789eaf1428057c3c",
+      "bytes": 5930,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/handoff.json",
+      "sha256": "7dd2540cd9b2cf58dfd4c171358e5e194ed538bc46ce3ae8600ab41a4546fad5",
+      "bytes": 151889,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/native-pilot-command.json",
+      "sha256": "62313b46ccf26517ded4de07470315e3241d19e2ad1daf3d4f3b7b6907b91a60",
+      "bytes": 508,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/native-pilot.json",
+      "sha256": "1a92d0a5717acea0b7c91a9db2a9bf87d6e919f0aac53fcc3a95ec13212dfa58",
+      "bytes": 34299,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/native-recompute-02-command.json",
+      "sha256": "e4428676466b6ef2a2f5e5ce7907c3e565b3efbd9fac6ae5635638a98d355e17",
+      "bytes": 524,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/native-recompute-02.json",
+      "sha256": "e21778fde266a70d468516d196113c75ceaa43a03fc304ae25442633e99c39a1",
+      "bytes": 62466,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/native-remaining-command.json",
+      "sha256": "2eb2a53aa3ca428c4d365ae7042cbe616b4152fe0df78a817536824f8ef0d9af",
+      "bytes": 511,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/native-remaining.json",
+      "sha256": "c93720d05b6bfc0b59ea5a3fc889b7570535a111fb4661854d0b543c57df870a",
+      "bytes": 108291,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/probe.cjs",
+      "sha256": "6030516c70fcf2ae63efcc7628ca0eb527df7f199c50ff0c39b0cc6a8cbfe880",
+      "bytes": 4924,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/request.json",
+      "sha256": "ce7a43cd8dc297e6320ffcdbf9553f25fe2c25abbf27dc5ecf683695442049c4",
+      "bytes": 2207,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/run.py",
+      "sha256": "4e954df088ad4808897ed6c1805f1bf493473e5610e5082b863741eba72a8f85",
+      "bytes": 2717,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/source-command.json",
+      "sha256": "fad39cb382e647261c589acfea23a644144ed217de408cbcac05085f1ae65ad5",
+      "bytes": 784,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/network-simplex-consumer-01/source-final.json",
+      "sha256": "66619ec2e8030d63b44384e60d3e2b2017c8c819304bf052edcd1e6f65851a03",
+      "bytes": 89870,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/full-native-closure/B/node-promotion-owner-01/compare.py",
       "sha256": "7764baadf5adcac642f8c05ce06156662b33e1614246c88b5cc7bf7ac18e17f2",
       "bytes": 6628,
@@ -13489,9 +13713,129 @@
       "storage": "references/full-native-closure/branches.zip"
     },
     {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/compare.py",
+      "sha256": "1c996ed750a939a0e84240ddbf6f2e23f76e584fa0ca95eec52989915594e71b",
+      "bytes": 6530,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/compare_rotation_02.py",
+      "sha256": "509cd8cb45820a235e461d8d495a789467431ee35cd88b4f840255c7ca512c7b",
+      "bytes": 6361,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/handoff.json",
+      "sha256": "47e25a2453b39f825aaf209122ba44e9e39121afbfbcbd3d4c8508bddd5bf15b",
+      "bytes": 45768,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/native-command.json",
+      "sha256": "4528ced02cc44d7b5430c9934e3bc5caf309a121cfc4af7024f3876011c75f84",
+      "bytes": 489,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/native-rotation-02-command.json",
+      "sha256": "54119a4cb2b186bad2d6efc0ee8f670e27d932aa701976ce5c3ae694d2029d9e",
+      "bytes": 501,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/native-rotation-02.json",
+      "sha256": "1b23b4ed54d4cdd97b42c834865a5ac257ec0b9c4d02c66725c66edb62df5a35",
+      "bytes": 25496,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/native.json",
+      "sha256": "c98464fd7c0aae7311a5c2ed1442133b61d48984f7d7ffd73578f43ab04a4ed4",
+      "bytes": 27883,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/probe.cjs",
+      "sha256": "9e8c574db67014b323b20c7113f7f4c0b609706764e2c721618d6d079cc0c070",
+      "bytes": 5365,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/request.json",
+      "sha256": "7afbdff14cfe06ec4ff6737e9df033b622019eed3b76b5c591752b15925eb641",
+      "bytes": 610,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/source-command.json",
+      "sha256": "6cc531d29b84b4cf34bc558bb4b12fb5377384d6856d69821211f54561fa2dd8",
+      "bytes": 732,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/orientation-helpers-01/source.json",
+      "sha256": "3cf9acacbf67fbfe2b543e53b16b6294bf080aff2b38f5cb9d592bf288a91286",
+      "bytes": 4037,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/full-native-closure/B/p1-p2-runtime-witness-map-01.json",
       "sha256": "5c1b5d9485f467a3488536f5e85e564761e873670a97eb1d2208609c74a69596",
       "bytes": 44554,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/postcompaction-wrapping-closure-01/handoff.json",
+      "sha256": "e2a01c5562380588189d50cec8e5ee18440b925a2dfd0f5a04204fdadb03a66b",
+      "bytes": 138924,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/compare.py",
+      "sha256": "1594c8d3261685e8dafba9f74b5dfcf55d99e1f32f082d0313a5334d3c72160a",
+      "bytes": 5306,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/handoff.json",
+      "sha256": "560c9a8faa988328370cb81ce8ddbe2b97a92ac0f680e9f7adf1a52cc23ade7b",
+      "bytes": 4284,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/native-02-command.json",
+      "sha256": "bb50de0826b7a4893d843f3d24e822af260a50f2103050a0a0a8a00c85c24bce",
+      "bytes": 975,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/native.json",
+      "sha256": "562b7d81fab5acf084a580ffe8dadd14362e4faeea85d0bd67a4ec3727b8ad8e",
+      "bytes": 39961,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/probe.cjs",
+      "sha256": "586e78f40c8e445728c2a319eaefca131cfc1608edc313a51b52e1b02954774b",
+      "bytes": 4493,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/request.json",
+      "sha256": "2477de9db29556e8a708e1ea1f49b7973b8c1f48403abf84f11c2e99cbaaaba5",
+      "bytes": 1108,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/source-command.json",
+      "sha256": "e844904bddd283235bbef2a5b6640d2b6c36ef6fbf7de586758dfb46f1ff7131",
+      "bytes": 735,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/spline-soft-consumer-01/source.json",
+      "sha256": "c98b50d103fa542b1b6aed1f6fe487d31b6ae5d38c4fc05e7b7394c990ee0544",
+      "bytes": 7275,
       "storage": "references/full-native-closure/branches.zip"
     },
     {
@@ -13543,10 +13887,118 @@
       "storage": "references/full-native-closure/branches.zip"
     },
     {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/compare.py",
+      "sha256": "08fba19471712647901f5569c864004b22bad1e6845d5f80a41f2d6635fae879",
+      "bytes": 3795,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/native-command.json",
+      "sha256": "4b1a323cbe8e1de702106ed964449ea3617e42cf020570a5e0035c5609e9061f",
+      "bytes": 492,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/native.json",
+      "sha256": "60df2000ff85a33d41c5360db0a445077942a0f43a75e35cd905656d18719231",
+      "bytes": 42108,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/probe.cjs",
+      "sha256": "29cfcb5eb9f2a79260aaa48e97dafb2bb7bc7f4662b70b3324d52bc1c46e8281",
+      "bytes": 4109,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/request.json",
+      "sha256": "5e64e22266e00daf2af556ba4259fb801e69113fc3fdf72f74bd1e1f07bdc730",
+      "bytes": 514,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/source-command.json",
+      "sha256": "cbade7b1ce72363ba94b8a91ba703d6cde3100d81b31a53b3aff5f83048e5d9b",
+      "bytes": 744,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/B/wrapping-validify-owner-01/source.json",
+      "sha256": "6d8a100e89b415d09da0e534e43941d513bce4f2eefb7d9f7726e9766ff86c12",
+      "bytes": 18550,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/compare.py",
+      "sha256": "75632ca9154239efe63ee15b032ea81f7c586073531c14f1313a17d937d525a8",
+      "bytes": 5236,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/handoff.json",
+      "sha256": "953b8dfe12ea4cb7cad4adcee8fd51948b7139df7840d5d66a8bcaf5f8635fb0",
+      "bytes": 110748,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/native-01.command.json",
+      "sha256": "a8a338ca40b3259a0fee7aed4c8db7c6432b53c2b16427a30cd42fdee2a3e007",
+      "bytes": 225,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/native-01.json",
+      "sha256": "db4a3f85f2a8b2165fecdb906e6e2d925501b609d16e66e6c6ed0ed79ca9d248",
+      "bytes": 13693,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/prepare.py",
+      "sha256": "9b3e6ef2832a0a8bf528ea6ca744433ce27d543da00331440df5833ac5a0e7fe",
+      "bytes": 4642,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/probe.cjs",
+      "sha256": "af4692f3c37adfe0dc30a781e5128cb7c30c22647619b90f2ec0a01eacd9620b",
+      "bytes": 6311,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/request.json",
+      "sha256": "4da0ce1519a857c3ece0eccdb111094b1956b0d5ee9b71c755f37b82b090f454",
+      "bytes": 645,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/source-02.command.json",
+      "sha256": "6d3b6812082ae93f9bd903d16185ff804996c20ae93585da0bc87710bb7abb24",
+      "bytes": 422,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "test-runs/full-native-closure/V/components-order-family-01/source-02.json",
+      "sha256": "6711dbedb3798eb0b564ea36db992c355173c4791503ee377aa4498cd85515e8",
+      "bytes": 3081,
+      "storage": "references/full-native-closure/branches.zip"
+    },
+    {
       "path": "test-runs/full-native-closure/V/layered-enum-existing-01/findings.json",
       "sha256": "1d20aa625eb5746ef54439c0de7b18746ce9b7c98b966e7cb1196bd22acb873d",
       "bytes": 19494,
       "storage": "references/full-native-closure/branches.zip"
+    },
+    {
+      "path": "tests/fixtures/suites/full-native-algorithms/requests/basic-box.json",
+      "sha256": "45394f188b31e8d6b40446cfb3877173259431ccfac26cffb26c4624de75d225",
+      "bytes": 1561,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/full-native-algorithms/requests/basic-layered.json",
+      "sha256": "96189d3d61d0f1391d0ebe767bfefe04df8bb51d0a89d1fd27aa53dd4e9f82dd",
+      "bytes": 1565,
+      "storage": "repository"
     },
     {
       "path": "tests/fixtures/suites/full-native-algorithms/requests/p1-bfs_node_order--p2-network_simplex.json",
@@ -14299,6 +14751,12 @@
       "storage": "repository"
     },
     {
+      "path": "tests/fixtures/suites/next-native/compare_external_components.py",
+      "sha256": "6eedb105a495640f548baf8d9606cb4ffac9b0c652473b0bb476c34f359736d6",
+      "bytes": 4053,
+      "storage": "repository"
+    },
+    {
       "path": "tests/fixtures/suites/next-native/compare_general_direction_context.py",
       "sha256": "8b1158044ceeede2a6744c0ab4c2cc5234f9bd58b3c2c29ae764377efbc1b3f4",
       "bytes": 4380,
@@ -14311,9 +14769,51 @@
       "storage": "repository"
     },
     {
+      "path": "tests/fixtures/suites/next-native/compare_model_order_boxes.py",
+      "sha256": "010fd319da453dc6dc62d59fb2967673b3ae6217a592260803a567c13c75e42f",
+      "bytes": 3729,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/compare_model_order_cost.py",
+      "sha256": "9ce207a047384ca75357077083c421b84744eb9f5fdf7e6646b5aec904c0def8",
+      "bytes": 6123,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/compare_model_order_feedback.py",
+      "sha256": "bf489c0d27b033f18435a692a6106b527c5dd5ef3af2ab20d032d5128aa79700",
+      "bytes": 4206,
+      "storage": "repository"
+    },
+    {
       "path": "tests/fixtures/suites/next-native/compare_node_order_enum.py",
       "sha256": "1a8bcf7be224ee0021d85256960200797bd33ce4ec1649feca03f45a2e2fd0f3",
       "bytes": 3194,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/external-components-probe.cjs",
+      "sha256": "7f0bf7b67d6e9c215fc5628bb769683fac9f9e8c8c9ece29aa8751c41b4d8efd",
+      "bytes": 3412,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/external-components-request.json",
+      "sha256": "5aebafcc61d6f2861226f4a97277a79e3073ddf589f3e1a69dfc3f4514d90771",
+      "bytes": 5064,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/general-constraints-probe.cjs",
+      "sha256": "eb17c178130d154027d139b455d40dba68ba55731c75471d9922d9a32955b57a",
+      "bytes": 4543,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/general-constraints-request.json",
+      "sha256": "46eee75eefdfbbda8f40e356ea53ffbe7c4d2823dbdd6001989483e775773e43",
+      "bytes": 953,
       "storage": "repository"
     },
     {
@@ -14371,6 +14871,60 @@
       "storage": "repository"
     },
     {
+      "path": "tests/fixtures/suites/next-native/model-order-boxes-oracle.json",
+      "sha256": "dedfba25b614cec418c26c0582a201fd7046f96c9f7af1fc301fe2ba79ac6922",
+      "bytes": 1091,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-boxes-probe.cjs",
+      "sha256": "f55c57bf86572cac708af0ff7709b6041b05a9512e6d730525f97f88475e8a27",
+      "bytes": 2496,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-boxes-request.json",
+      "sha256": "8a2a7bd2cb64cb29fd634486f1a4e76699f358d7257e89ef38c15d32b5e13dc4",
+      "bytes": 339,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-cost-probe.cjs",
+      "sha256": "87dd20b0ba83cfc04c1c5007d27edea013229d6bca9e82286c562be567733986",
+      "bytes": 4279,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-cost-request.json",
+      "sha256": "abbdadd32dab68c6d2ab2d0eb21860666d8dc8232ea765ec9e0f8672fddce0b9",
+      "bytes": 474,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-feedback-probe.cjs",
+      "sha256": "bce53abba5ea431f15d6689ddbecc70739085d1ce1b4976883d787c000f2a32e",
+      "bytes": 2885,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-feedback-request.json",
+      "sha256": "6eef9cde035fb2fc79d3db5ba11568f10d4e18c9948f029091cc38327d9ffad0",
+      "bytes": 447,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-producer-oracle.json",
+      "sha256": "4a59417c1e46673a73a03e7c8286a2937bd3d304a18083ca63ed6757e5ac877e",
+      "bytes": 3026,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/model-order-producer-probe.cjs",
+      "sha256": "4f3efe0ca67f4165b49ff3d44630df9c0d849d1bfd7389d3d23fdd05fe3cdde7",
+      "bytes": 3187,
+      "storage": "repository"
+    },
+    {
       "path": "tests/fixtures/suites/next-native/node-order-enum-probe.cjs",
       "sha256": "b69ecb079df1ce3a9c9fa4bb3f8a9083a454bbb9827c416277930b00c35d5ed5",
       "bytes": 2162,
@@ -14392,6 +14946,42 @@
       "path": "tests/fixtures/suites/next-native/ports-helper-request.json",
       "sha256": "3337b249126a0a2430509f3a4468abb5851954ef5ccb81991b2f5062c41cd59b",
       "bytes": 4780,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/ports-order-oracle.json",
+      "sha256": "87191ea504a7336032b4879c04b166ac286b0ccac7c18ae0669652b328807c23",
+      "bytes": 21042,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/ports-order-probe.cjs",
+      "sha256": "05cd30233517a6cdb88d511a5c4884ea2af9c82393af600d079e842842b8ef7c",
+      "bytes": 5403,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/ports-order-request.json",
+      "sha256": "8178a1232c3e59d18879d8c6b9e916bec59310bc75585556ef2fcc5b82a644a8",
+      "bytes": 9738,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/recursive-ordinary-nested-oracle.json",
+      "sha256": "1016b8393a086dd93dd56b524e50bc340b77d498aac26983a927d516923653c3",
+      "bytes": 6945,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/recursive-ordinary-nested-request.json",
+      "sha256": "04b033d6537292b51bf1f7d6236ffe6c8f1f3026e543fe68df68b6cb39ca61b4",
+      "bytes": 1098,
+      "storage": "repository"
+    },
+    {
+      "path": "tests/fixtures/suites/next-native/recursive-ordinary-probe.cjs",
+      "sha256": "3af2252d0724e928983140d2417514ffd91f0b46b5c12b5e8d1362a4b4b5ea84",
+      "bytes": 4329,
       "storage": "repository"
     },
     {

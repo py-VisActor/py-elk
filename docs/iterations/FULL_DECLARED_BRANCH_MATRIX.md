@@ -15,7 +15,7 @@ This generator reads saved data only. No product, Source process or old suite is
 
 85 rows have actual task or owner/helper-state witnesses. HighDegree has a verified causal public output witness and explicitly retains noDirectTrace. Two Source-constructed orthogonal aliases share one already witnessed body. Two label-manager rows satisfy the fixed Native JSON/null-only boundary; they are not normal mathematics PASS or arbitrary callback support.
 
-Core accounting does not close every internal conditional branch. The supplemental finite enum denominator is independent: 121 rows, 68 scoped witnesses. Remaining enum values stay explicitly unverified; no all-option Cartesian-product claim is made.
+Core accounting does not close every internal conditional branch. The supplemental finite enum denominator is independent: 121 rows, 103 scoped witnesses. Every row now has an explicit finite scope or identity boundary. The direct-only allDeclaredEnumBranchesAccepted flag remains false: configuration, route/state, exclusion and identity boundary evidence are deliberately not reclassified as direct mathematics/raw parity. No all-option Cartesian-product claim is made.
 
 ## Core rows
 
@@ -120,49 +120,49 @@ Unzip now has real before/after layer-array evidence: one six-node layer becomes
 
 The 31 older enum rows were rechecked against actual original DTOs and saved native DTOs, not a pass flag. BK selects the exact original02/03 raw case after the historical observer correction; the first native geometry is unchanged. Port-side witnesses concern actual produced side/anchor state in the approved primitive scope, not every importer target.
 
-The current family increment adds typed Direction helper states (not GraphConfigurator resolution), actual DOWN/READING GraphTransformer state, and nine NodePromotion owner cases. TOP_LEFT remains consumer-state-only without an independent helper return spy. Promotion NONE is an intentional real scheduler exclusion under the bound Source default/guard, not a forced process(NONE) no-op. Promotion recursive/frame helper counts remain raw and are not equated; IMPROVED retry and NODECOUNT terminal cap remain unexercised leaves.
+The current family increment adds actual LEFT/ROTATION transformer state; CENTER/TOP_LEFT helper vectors; UNDEFINED resolver returns RIGHT/DOWN without persisting the resolved direction; and NONE/ALTERNATING before-P4 configuration factory exclusion/inclusion. The latter two rows are configuration-state scope, not owner execution. Existing ALTERNATING body execution remains separately bound. Nine older port-sorting, layer-constraint and model-order DTOs add actual helper/body states, with VM enum-adapter and supplied-layering limitations retained. Nine NetworkSimplex consumer DTOs add actual flexibility/solver and Repeater factory-to-placer calls. Only event className is excluded across hosts; all selected strategies, calls, geometry and property state remain strict. Raw first failures and class-name differences remain archived, and physical height expansion is not claimed. None implies whole public selector coverage. Promotion NONE is an intentional real scheduler exclusion under the bound Source default/guard, not a forced process(NONE) no-op. Promotion recursive/frame helper counts remain raw and are not equated; IMPROVED retry and NODECOUNT terminal cap remain unexercised leaves.
 
 ## Supplemental enum values
 
-| Option | Direct helper/body/effect witness | Limited consumer / scheduler scope | No variant witness in this table |
+| Option | Direct helper/body/effect witness | Configuration / route / exclusion / identity-boundary scope | No variant witness in this table |
 |---|---|---|---|
 | org.eclipse.elk.direction | UNDEFINED, RIGHT, LEFT, DOWN, UP |  |  |
 | org.eclipse.elk.portConstraints | UNDEFINED, FREE, FIXED_SIDE, FIXED_ORDER, FIXED_RATIO, FIXED_POS |  |  |
 | org.eclipse.elk.port.side | UNDEFINED, NORTH, EAST, SOUTH, WEST |  |  |
-| org.eclipse.elk.layered.directionCongruency | READING_DIRECTION |  | ROTATION |
-| org.eclipse.elk.layered.interactiveReferencePoint |  | TOP_LEFT (consumer_state_scoped) | CENTER |
-| org.eclipse.elk.layered.portSortingStrategy |  |  | INPUT_ORDER, PORT_DEGREE |
-| org.eclipse.elk.layered.layering.layerConstraint |  |  | NONE, FIRST, FIRST_SEPARATE, LAST, LAST_SEPARATE |
+| org.eclipse.elk.layered.directionCongruency | READING_DIRECTION, ROTATION |  |  |
+| org.eclipse.elk.layered.interactiveReferencePoint | CENTER, TOP_LEFT |  |  |
+| org.eclipse.elk.layered.portSortingStrategy | INPUT_ORDER, PORT_DEGREE |  |  |
+| org.eclipse.elk.layered.layering.layerConstraint | NONE, FIRST, FIRST_SEPARATE, LAST, LAST_SEPARATE |  |  |
 | org.eclipse.elk.layered.layering.nodePromotion.strategy | NIKOLOV, NIKOLOV_PIXEL, NIKOLOV_IMPROVED, NIKOLOV_IMPROVED_PIXEL, DUMMYNODE_PERCENTAGE, NODECOUNT_PERCENTAGE, NO_BOUNDARY, MODEL_ORDER_LEFT_TO_RIGHT, MODEL_ORDER_RIGHT_TO_LEFT | NONE (scheduler_exclusion_scoped) |  |
-| org.eclipse.elk.layered.crossingMinimization.greedySwitch.type | TWO_SIDED |  | ONE_SIDED, OFF |
-| org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type |  |  | ONE_SIDED, TWO_SIDED, OFF |
+| org.eclipse.elk.layered.crossingMinimization.greedySwitch.type | TWO_SIDED | ONE_SIDED (configuration_state_scoped), OFF (configuration_state_scoped) |  |
+| org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type |  | ONE_SIDED (configuration_state_scoped), TWO_SIDED (configuration_state_scoped), OFF (configuration_state_scoped) |  |
 | org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening | NONE, IMPROVE_STRAIGHTNESS |  |  |
 | org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment | NONE, LEFTUP, RIGHTUP, LEFTDOWN, RIGHTDOWN, BALANCED |  |  |
-| org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility | NODE_SIZE |  | NONE, PORT_POSITION, NODE_SIZE_WHERE_SPACE_PERMITS |
-| org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default | NONE, NODE_SIZE |  | PORT_POSITION, NODE_SIZE_WHERE_SPACE_PERMITS |
-| org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement | SIMPLE |  | INTERACTIVE, LINEAR_SEGMENTS, BRANDES_KOEPF, NETWORK_SIMPLEX |
+| org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility | NONE, PORT_POSITION, NODE_SIZE_WHERE_SPACE_PERMITS, NODE_SIZE |  |  |
+| org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default | NONE, PORT_POSITION, NODE_SIZE_WHERE_SPACE_PERMITS, NODE_SIZE |  |  |
+| org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement | SIMPLE, INTERACTIVE, LINEAR_SEGMENTS, BRANDES_KOEPF, NETWORK_SIMPLEX |  |  |
 | org.eclipse.elk.layered.edgeRouting.selfLoopDistribution | EQUALLY, NORTH, NORTH_SOUTH |  |  |
 | org.eclipse.elk.layered.edgeRouting.selfLoopOrdering | STACKED, REVERSE_STACKED, SEQUENCED |  |  |
-| org.eclipse.elk.layered.edgeRouting.splines.mode | CONSERVATIVE, SLOPPY |  | CONSERVATIVE_SOFT |
-| org.eclipse.elk.layered.compaction.postCompaction.strategy | NONE, LEFT, EDGE_LENGTH |  | RIGHT, LEFT_RIGHT_CONSTRAINT_LOCKING, LEFT_RIGHT_CONNECTION_LOCKING |
-| org.eclipse.elk.layered.compaction.postCompaction.constraints |  |  | QUADRATIC, SCANLINE |
-| org.eclipse.elk.layered.wrapping.strategy |  |  | OFF, SINGLE_EDGE, MULTI_EDGE |
-| org.eclipse.elk.layered.wrapping.cutting.strategy | ARD, MSD |  | MANUAL |
-| org.eclipse.elk.layered.wrapping.validify.strategy |  |  | NO, GREEDY, LOOK_BACK |
-| org.eclipse.elk.layered.layerUnzipping.strategy |  |  | NONE, ALTERNATING |
+| org.eclipse.elk.layered.edgeRouting.splines.mode | CONSERVATIVE, CONSERVATIVE_SOFT, SLOPPY |  |  |
+| org.eclipse.elk.layered.compaction.postCompaction.strategy | NONE, LEFT, EDGE_LENGTH | RIGHT (source_route_state_scoped), LEFT_RIGHT_CONSTRAINT_LOCKING (source_route_state_scoped), LEFT_RIGHT_CONNECTION_LOCKING (source_route_state_scoped) |  |
+| org.eclipse.elk.layered.compaction.postCompaction.constraints |  | QUADRATIC (source_route_state_scoped), SCANLINE (source_route_state_scoped) |  |
+| org.eclipse.elk.layered.wrapping.strategy |  | OFF (scheduler_exclusion_scoped), SINGLE_EDGE (source_route_state_scoped), MULTI_EDGE (source_route_state_scoped) |  |
+| org.eclipse.elk.layered.wrapping.cutting.strategy | ARD, MSD, MANUAL |  |  |
+| org.eclipse.elk.layered.wrapping.validify.strategy | NO, GREEDY, LOOK_BACK |  |  |
+| org.eclipse.elk.layered.layerUnzipping.strategy |  | NONE (configuration_state_scoped), ALTERNATING (configuration_state_scoped) |  |
 | org.eclipse.elk.layered.edgeLabels.sideSelection | ALWAYS_UP, ALWAYS_DOWN, DIRECTION_UP, DIRECTION_DOWN, SMART_UP, SMART_DOWN |  |  |
 | org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy | MEDIAN_LAYER, TAIL_LAYER, HEAD_LAYER, SPACE_EFFICIENT_LAYER, WIDEST_LAYER, CENTER_LAYER |  |  |
-| org.eclipse.elk.layered.considerModelOrder.strategy | NODES_AND_EDGES |  | NONE, PREFER_EDGES, PREFER_NODES |
-| org.eclipse.elk.layered.considerModelOrder.components |  |  | NONE, INSIDE_PORT_SIDE_GROUPS, GROUP_MODEL_ORDER, MODEL_ORDER |
+| org.eclipse.elk.layered.considerModelOrder.strategy | NODES_AND_EDGES, PREFER_EDGES, PREFER_NODES | NONE (scheduler_exclusion_scoped) |  |
+| org.eclipse.elk.layered.considerModelOrder.components | INSIDE_PORT_SIDE_GROUPS, GROUP_MODEL_ORDER, MODEL_ORDER | NONE (identity_order_boundary_scoped) |  |
 | org.eclipse.elk.layered.considerModelOrder.longEdgeStrategy | DUMMY_NODE_OVER, DUMMY_NODE_UNDER, EQUAL |  |  |
-| org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy |  |  | ONLY_WITHIN_GROUP, MODEL_ORDER, ENFORCED |
-| org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy |  |  | ONLY_WITHIN_GROUP, MODEL_ORDER, ENFORCED |
+| org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy | ONLY_WITHIN_GROUP, MODEL_ORDER, ENFORCED |  |  |
+| org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy | ONLY_WITHIN_GROUP, MODEL_ORDER, ENFORCED |  |  |
 
 ## Remaining finite work
 
 There is no unclassified core factory row. HighDegree lacks a direct body trace but has an actual scoped option effect; manager callback restrictions are an upstream compiled/JSON boundary, not a missing successful raw callback. Shared aliases do not require duplicate mathematics.
 
-The remaining enum values above require their own actual state/effect or an explicitly justified Source boundary. First reuse the saved direction/promotion/constraint/wrapping/component observations and existing source predicates. Only still-unwitnessed condition families need new small applicable DTOs; absence here is not proof of missing code or a demand to rerun72/81/151 cases.
+There are no unclassified rows in the declared 121-value enum denominator. Seven Greedy/Unzip rows prove actual configuration state, three NONE/OFF rows prove actual scheduler exclusion, and seven compaction/wrapping rows bind fixed Source selectors to successful public tasks and full geometry state without inventing an internal enum trace or causal difference. Component NONE retains its original 23 raw identity-bucket-order differences under ADR0010; only actual geometry by stable node ID is equal. This is a documented identity-order boundary, not normal raw parity. MANUAL has real typed calculator/performCuts evidence, while the historical public JSON reflective-value failure remains archived; no new public raw support is claimed. Promotion retry/cap leaves and other internal conditions retain the existing limited-sample caveats. No additional mandatory enum mapping remains in this finite table.
 
 ## Portable offline check
 

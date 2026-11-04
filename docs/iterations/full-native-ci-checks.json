@@ -275,6 +275,29 @@
         "--root-map",
         "C:/code/py-visactor/py-elk=."
       ]
+    },
+    "migration-acceptance": {
+      "kind": "python-script",
+      "path": "scripts/iteration/migration_acceptance.py",
+      "arguments": [
+        "--check",
+        "--require-complete"
+      ]
+    },
+    "migration-acceptance-controls": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_migration_acceptance.py"
+    },
+    "platform-evidence-saved": {
+      "kind": "python-script",
+      "path": "scripts/iteration/platform_evidence.py",
+      "arguments": [
+        "--check"
+      ]
+    },
+    "platform-evidence-controls": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_platform_evidence.py"
     }
   },
   "rules": [
@@ -736,6 +759,91 @@
       ],
       "checks": [
         "advanced-acceptance"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/platform_evidence.py",
+        "tests/platform/test_platform_evidence.py",
+        "references/full-native-closure/platform.zip",
+        "references/full-native-closure/platform.manifest.json"
+      ],
+      "checks": [
+        "platform-evidence-saved",
+        "platform-evidence-controls"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/migration_acceptance.py",
+        "tests/platform/test_migration_acceptance.py",
+        "docs/iterations/E20_E21_ACCEPTANCE.json",
+        "docs/iterations/E20_E21_ACCEPTANCE.md"
+      ],
+      "checks": [
+        "migration-acceptance",
+        "migration-acceptance-controls"
+      ]
+    },
+    {
+      "paths": [
+        "docs/iterations/E13_E15_ACCEPTANCE.json",
+        "docs/iterations/E13_E15_ACCEPTANCE.md",
+        "docs/iterations/E16_E19_ACCEPTANCE.json",
+        "docs/iterations/E16_E19_ACCEPTANCE.md",
+        "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json",
+        "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.md",
+        "docs/iterations/FULL_OPTION_ROLES.json",
+        "docs/iterations/FULL_OPTION_ROLES.md",
+        "references/full-native-closure/*.zip",
+        "references/full-native-closure/*.manifest.json",
+        "scripts/iteration/e13_e15_acceptance.py",
+        "scripts/iteration/e16_e19_acceptance.py",
+        "scripts/iteration/declared_branch_matrix.py",
+        "scripts/iteration/option_roles.py",
+        "scripts/iteration/platform_evidence.py",
+        "scripts/iteration/option_coverage.py",
+        "scripts/iteration/option_evidence.py",
+        "scripts/layout_checks.py",
+        "scripts/iteration/check_layered_saved.py",
+        "scripts/validate_full_layered.py",
+        "docs/releases/0.1.0-readiness.json",
+        "docs/releases/evidence/published-0.1.0/*.json"
+      ],
+      "checks": [
+        "migration-acceptance"
+      ]
+    },
+    {
+      "paths": [
+        "docs/iterations/E13_E15_ACCEPTANCE.md"
+      ],
+      "checks": [
+        "advanced-acceptance"
+      ]
+    },
+    {
+      "paths": [
+        "docs/iterations/E16_E19_ACCEPTANCE.md"
+      ],
+      "checks": [
+        "algorithm-acceptance"
+      ]
+    },
+    {
+      "paths": [
+        "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.md"
+      ],
+      "checks": [
+        "declared-branches"
+      ]
+    },
+    {
+      "paths": [
+        "docs/iterations/FULL_OPTION_ROLES.md"
+      ],
+      "checks": [
+        "option-roles"
       ]
     }
   ],

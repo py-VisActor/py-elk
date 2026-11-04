@@ -3,6 +3,7 @@
   "upstreamVersion": "0.12.1",
   "denominator": 243,
   "inputsSha256": {
+    "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json": "43b23f911e94bc726199172de10d3bebe13fbdaa7e07951d9d17509f5895e1a1",
     "docs/option-coverage.json": "7fbc9194f2b9a3fa69137b88f0b6482de5435911bd1b4689c1ffed53a82403bc",
     "references/e09-diagnostics-sources.json": "440a72f3d6df209ff02c0061d15a4c244d13f37b544d8d5a916585b94493692f",
     "references/e13-cell-sources.json": "058c00dd254e494dc6d8616182d1675363ae25044ddad9e0474cc9287e78d2ca",
@@ -222,10 +223,17 @@
     "src/pyelk/options/generic.py": "de185bf76c59ca8b6938c7098081226951f4bb01eaf12ca311190f96d9307a5f",
     "src/pyelk/options/owners.py": "60a05b434de9802b4fd2b1d5511f8b230413ddf6b65efd70e096380ff007a795",
     "src/pyelk/options/resolution.py": "c9783bd37ef64d333240bf0f5297d1e589e27cb09a88f4c179ffd3a0fbb8df5b",
-    "src/pyelk/options/schema.py": "950234e95efd599b1d6a7d31cfa9051523502138563af075013d0d32f7bd38d4"
+    "src/pyelk/options/schema.py": "950234e95efd599b1d6a7d31cfa9051523502138563af075013d0d32f7bd38d4",
+    "tests/fixtures/suites/full-native-algorithms/requests/basic-box.json": "45394f188b31e8d6b40446cfb3877173259431ccfac26cffb26c4624de75d225",
+    "tests/fixtures/suites/full-native-algorithms/requests/basic-layered.json": "96189d3d61d0f1391d0ebe767bfefe04df8bb51d0a89d1fd27aa53dd4e9f82dd",
+    "tests/fixtures/suites/next-native/model-order-producer-oracle.json": "4a59417c1e46673a73a03e7c8286a2937bd3d304a18083ca63ed6757e5ac877e",
+    "tests/fixtures/suites/next-native/model-order-producer-probe.cjs": "4f3efe0ca67f4165b49ff3d44630df9c0d849d1bfd7389d3d23fdd05fe3cdde7",
+    "tests/fixtures/suites/next-native/recursive-ordinary-nested-oracle.json": "1016b8393a086dd93dd56b524e50bc340b77d498aac26983a927d516923653c3",
+    "tests/fixtures/suites/next-native/recursive-ordinary-nested-request.json": "04b033d6537292b51bf1f7d6236ffe6c8f1f3026e543fe68df68b6cb39ca61b4",
+    "tests/fixtures/suites/next-native/recursive-ordinary-probe.cjs": "3af2252d0724e928983140d2417514ffd91f0b46b5c12b5e8d1362a4b4b5ea84"
   },
   "frozenOptionLedgerSha256": "7fbc9194f2b9a3fa69137b88f0b6482de5435911bd1b4689c1ffed53a82403bc",
-  "branchMatrixPath": null,
+  "branchMatrixPath": "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json",
   "rules": [
     "Static accessors, literals, defaults and public input occurrences are not runtime witnesses.",
     "Source anchors are existing byte-verified compiled spans, not proof that a branch executed.",
@@ -244,7 +252,13 @@
     "withNativeConsumerReadAnchors": 169,
     "withArchivedSourceAccessorAnchors": 7,
     "noNativeAccessorAnchorLocated": 69,
-    "fullOptionSemanticsProven": 0
+    "fullOptionSemanticsProven": 0,
+    "additionalRoleWitnessIDs": 5,
+    "additionalCausalGeometryRoleIDs": 1,
+    "additionalStateRoleIDs": 4,
+    "roleWitnessUnionIDs": 87,
+    "withoutAnyRoleWitness": 156,
+    "branchCrossReferences": 152
   },
   "sourceInventory": {
     "packets": 22,
@@ -253,7 +267,6 @@
   },
   "unwitnessedByFamily": {
     "core": [
-      "org.eclipse.elk.algorithm",
       "org.eclipse.elk.alignment",
       "org.eclipse.elk.contentAlignment",
       "org.eclipse.elk.debugMode",
@@ -267,8 +280,6 @@
       "org.eclipse.elk.labelManager",
       "org.eclipse.elk.softwrappingFuzziness",
       "org.eclipse.elk.margins",
-      "org.eclipse.elk.noLayout",
-      "org.eclipse.elk.scaleFactor",
       "org.eclipse.elk.childAreaWidth",
       "org.eclipse.elk.childAreaHeight",
       "org.eclipse.elk.topdownLayout",
@@ -320,10 +331,8 @@
     "layered.considerModelOrder": [
       "org.eclipse.elk.layered.considerModelOrder.strategy",
       "org.eclipse.elk.layered.considerModelOrder.portModelOrder",
-      "org.eclipse.elk.layered.considerModelOrder.noModelOrder",
       "org.eclipse.elk.layered.considerModelOrder.components",
       "org.eclipse.elk.layered.considerModelOrder.longEdgeStrategy",
-      "org.eclipse.elk.layered.considerModelOrder.crossingCounterNodeInfluence",
       "org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cycleBreakingId",
       "org.eclipse.elk.layered.considerModelOrder.groupModelOrder.componentGroupId",
       "org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy",
@@ -488,7 +497,9 @@
       ],
       "staticRoleCandidate": "layout_strategy",
       "classificationBasis": "named role from declared contract; unexecuted consumer anchors only",
-      "observedRoles": [],
+      "observedRoles": [
+        "layout_strategy"
+      ],
       "nativeConsumers": [
         {
           "path": "src/pyelk/algorithms/layered/native_import_hierarchical.py",
@@ -603,16 +614,92 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [
+        {
+          "optionId": "org.eclipse.elk.algorithm",
+          "kind": "layout_geometry",
+          "role": "layout_strategy",
+          "status": "scoped_saved_causal_geometry_verified",
+          "description": "algorithm-only public paired input, layered versus box",
+          "scope": "strict existing paired public requests; only algorithm selector differs; actual Source/native numeric geometry changes match",
+          "bindings": [
+            {
+              "path": "tests/fixtures/suites/full-native-algorithms/requests/basic-layered.json",
+              "sha256": "96189d3d61d0f1391d0ebe767bfefe04df8bb51d0a89d1fd27aa53dd4e9f82dd",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/full-native-algorithms/requests/basic-layered.json"
+            },
+            {
+              "path": "tests/fixtures/suites/full-native-algorithms/requests/basic-box.json",
+              "sha256": "45394f188b31e8d6b40446cfb3877173259431ccfac26cffb26c4624de75d225",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/full-native-algorithms/requests/basic-box.json"
+            },
+            {
+              "path": "test-runs/full-native-01/B/reference-01/observations/basic-layered.json",
+              "sha256": "954caac5e8d0745ed184ad7f6c095de9b4888c90cd87a764f6d34c70f063bf4e",
+              "storage": "references/full-native-closure/advanced.zip",
+              "originalExecutionPath": "test-runs/full-native-01/B/reference-01/observations/basic-layered.json"
+            },
+            {
+              "path": "test-runs/full-native-01/B/reference-01/observations/basic-box.json",
+              "sha256": "f90d92ebde27fd81e828ded5eb5458308c7c137fc26109eff6b6ee7d84a5f39c",
+              "storage": "references/full-native-closure/algorithms.zip",
+              "originalExecutionPath": "test-runs/full-native-01/B/reference-01/observations/basic-box.json"
+            },
+            {
+              "path": "test-runs/full-native-01/B/native-01/observations/basic-layered.json",
+              "sha256": "1b58cf83f0d31243048f961bfdbc78a9fc9b34c4a3340d97c4205ec181563068",
+              "storage": "references/full-native-closure/advanced.zip",
+              "originalExecutionPath": "test-runs/full-native-01/B/native-01/observations/basic-layered.json"
+            },
+            {
+              "path": "test-runs/full-native-01/B/native-01/observations/basic-box.json",
+              "sha256": "b1f26f2bc6ac8d5cf826176ac1714136d4a1e2eb06833d5c9ec9a390459df32c",
+              "storage": "references/full-native-closure/algorithms.zip",
+              "originalExecutionPath": "test-runs/full-native-01/B/native-01/observations/basic-box.json"
+            }
+          ],
+          "checks": [
+            {
+              "pointer": "/result/children/0/x",
+              "referenceBefore": 12,
+              "actualBefore": 12.0,
+              "referenceAfter": 15,
+              "actualAfter": 15.0,
+              "passed": true
+            },
+            {
+              "pointer": "/result/children/0/y",
+              "referenceBefore": 16,
+              "actualBefore": 16.0,
+              "referenceAfter": 15,
+              "actualAfter": 15.0,
+              "passed": true
+            },
+            {
+              "pointer": "/result/children/1/x",
+              "referenceBefore": 53.5,
+              "actualBefore": 53.5,
+              "referenceAfter": 50,
+              "actualAfter": 50.0,
+              "passed": true
+            }
+          ],
+          "passed": true,
+          "fullOptionSemanticsProven": false
+        }
+      ],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
-      "finiteWitnessStatus": "no_runtime_consumption_witness",
+      "finiteWitnessStatus": "scoped_effect_or_state_witness",
       "sourceRawFactoryUnavailable": false,
       "parserValueStatus": "value_verified",
       "publicInputOccurrenceCount": 234,
       "failedOrUnprovenAttempts": [],
       "minimalRemainingWitness": {
-        "requiredForUnwitnessedRole": true,
+        "requiredForUnwitnessedRole": false,
         "need": "Applicable finite strategy branch actually executed plus Source/native state or numeric assertion; a configuration or class name alone is insufficient.",
         "channel": "applicable public API or typed state consumer",
         "fullOptionSemanticsProven": false
@@ -774,6 +861,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -987,6 +1075,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -1225,6 +1314,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "scoped_verified",
@@ -1364,6 +1454,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -1488,6 +1579,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -1618,6 +1710,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -1862,7 +1955,44 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.direction:UNDEFINED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/0",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.direction:RIGHT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/1",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.direction:LEFT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/2",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.direction:DOWN",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/3",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.direction:UP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/4",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -2042,7 +2172,37 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "factory:EdgeRouting:ORTHOGONAL",
+          "status": "shared_body_alias_verified",
+          "pointer": "/rows/13",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:EdgeRouting:POLYLINE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/14",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:EdgeRouting:SPLINES",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/15",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:EdgeRouting:UNDEFINED",
+          "status": "shared_body_alias_verified",
+          "pointer": "/rows/16",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -2163,6 +2323,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -2346,6 +2507,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -2571,6 +2733,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "scoped_verified",
@@ -2703,6 +2866,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -2802,6 +2966,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -2950,6 +3115,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -3224,7 +3390,51 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.portConstraints:UNDEFINED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/5",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.portConstraints:FREE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/6",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.portConstraints:FIXED_SIDE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/7",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.portConstraints:FIXED_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/8",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.portConstraints:FIXED_RATIO",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/9",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.portConstraints:FIXED_POS",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/10",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -3440,6 +3650,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -3690,6 +3901,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -3819,6 +4031,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -3959,6 +4172,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -4234,6 +4448,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -4358,6 +4573,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -4482,6 +4698,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -4640,6 +4857,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -4702,6 +4920,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -4875,6 +5094,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -4903,7 +5123,9 @@
       ],
       "staticRoleCandidate": "layout_strategy",
       "classificationBasis": "actual accessor location and declared value type; a candidate classification only",
-      "observedRoles": [],
+      "observedRoles": [
+        "runtime_state"
+      ],
       "nativeConsumers": [
         {
           "path": "src/pyelk/algorithms/layered/model_order_import.py",
@@ -5019,16 +5241,408 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [
+        {
+          "optionId": "org.eclipse.elk.noLayout",
+          "kind": "runtime_state",
+          "role": "runtime_state",
+          "status": "scoped_saved_state_verified",
+          "description": "actual_coordinator_exclusion_state",
+          "scope": "One nested noLayout guard after genuine recursive traversal; no all-graph geometry claim.",
+          "bindings": [
+            {
+              "path": "tests/fixtures/suites/next-native/recursive-ordinary-nested-request.json",
+              "sha256": "04b033d6537292b51bf1f7d6236ffe6c8f1f3026e543fe68df68b6cb39ca61b4",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/next-native/recursive-ordinary-nested-request.json"
+            },
+            {
+              "path": "tests/fixtures/suites/next-native/recursive-ordinary-probe.cjs",
+              "sha256": "3af2252d0724e928983140d2417514ffd91f0b46b5c12b5e8d1362a4b4b5ea84",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/next-native/recursive-ordinary-probe.cjs"
+            },
+            {
+              "path": "tests/fixtures/suites/next-native/recursive-ordinary-nested-oracle.json",
+              "sha256": "1016b8393a086dd93dd56b524e50bc340b77d498aac26983a927d516923653c3",
+              "storage": "repository",
+              "originalExecutionPath": "test-runs/20261104-HOST-11/V/recursive-ordinary-nested-oracle-01/observation.json"
+            },
+            {
+              "path": "test-runs/20261104-HOST-11/root/recursive-ordinary-nested-native-01/comparison.json",
+              "sha256": "8078618fa63aab2c8e6b0c8f6ebc2cd5dea5993d7f2a7c8aab95b6c644a47627",
+              "storage": "references/full-native-closure/advanced.zip",
+              "originalExecutionPath": "test-runs/20261104-HOST-11/root/recursive-ordinary-nested-native-01/comparison.json"
+            }
+          ],
+          "referencePointers": [
+            "/observation/events",
+            "/observation/geometry/5"
+          ],
+          "nativePointers": [
+            "/actual/events",
+            "/actual/geometry/5"
+          ],
+          "referenceValues": [
+            [
+              {
+                "kind": "enter",
+                "node": "r",
+                "geometry": {
+                  "id": "r",
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "c",
+                "geometry": {
+                  "id": "c",
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "a",
+                "geometry": {
+                  "id": "a",
+                  "x": 0,
+                  "y": 0,
+                  "width": 20,
+                  "height": 10
+                }
+              },
+              {
+                "kind": "leave",
+                "node": "a",
+                "geometry": {
+                  "id": "a",
+                  "x": 0,
+                  "y": 0,
+                  "width": 20,
+                  "height": 10
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "b",
+                "geometry": {
+                  "id": "b",
+                  "x": 0,
+                  "y": 0,
+                  "width": 10,
+                  "height": 20
+                }
+              },
+              {
+                "kind": "leave",
+                "node": "b",
+                "geometry": {
+                  "id": "b",
+                  "x": 0,
+                  "y": 0,
+                  "width": 10,
+                  "height": 20
+                }
+              },
+              {
+                "kind": "execute",
+                "node": "c",
+                "geometry": {
+                  "id": "c",
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                }
+              },
+              {
+                "kind": "fetch",
+                "node": "c",
+                "execution": "c",
+                "before": 0,
+                "after": 0,
+                "provider": 1
+              },
+              {
+                "kind": "release",
+                "execution": "c",
+                "before": 0,
+                "after": 1,
+                "provider": 1
+              },
+              {
+                "kind": "leave",
+                "node": "c",
+                "geometry": {
+                  "id": "c",
+                  "x": 0,
+                  "y": 0,
+                  "width": 28,
+                  "height": 53
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "skip",
+                "geometry": {
+                  "id": "skip",
+                  "x": 70,
+                  "y": 5,
+                  "width": 12,
+                  "height": 9
+                }
+              },
+              {
+                "kind": "leave",
+                "node": "skip",
+                "geometry": {
+                  "id": "skip",
+                  "x": 70,
+                  "y": 5,
+                  "width": 12,
+                  "height": 9
+                }
+              },
+              {
+                "kind": "execute",
+                "node": "r",
+                "geometry": {
+                  "id": "r",
+                  "x": 0,
+                  "y": 0,
+                  "width": 0,
+                  "height": 0
+                }
+              },
+              {
+                "kind": "fetch",
+                "node": "r",
+                "execution": "r",
+                "before": 1,
+                "after": 0,
+                "provider": 1
+              },
+              {
+                "kind": "release",
+                "execution": "r",
+                "before": 0,
+                "after": 1,
+                "provider": 1
+              },
+              {
+                "kind": "leave",
+                "node": "r",
+                "geometry": {
+                  "id": "r",
+                  "x": 0,
+                  "y": 0,
+                  "width": 85,
+                  "height": 95.5
+                }
+              }
+            ],
+            {
+              "id": "untouched",
+              "x": 3,
+              "y": 4,
+              "width": 6,
+              "height": 8
+            }
+          ],
+          "actualValues": [
+            [
+              {
+                "kind": "enter",
+                "node": "r",
+                "geometry": {
+                  "id": "r",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 0.0,
+                  "height": 0.0
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "c",
+                "geometry": {
+                  "id": "c",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 0.0,
+                  "height": 0.0
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "a",
+                "geometry": {
+                  "id": "a",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 20.0,
+                  "height": 10.0
+                }
+              },
+              {
+                "kind": "leave",
+                "node": "a",
+                "geometry": {
+                  "id": "a",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 20.0,
+                  "height": 10.0
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "b",
+                "geometry": {
+                  "id": "b",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 10.0,
+                  "height": 20.0
+                }
+              },
+              {
+                "kind": "leave",
+                "node": "b",
+                "geometry": {
+                  "id": "b",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 10.0,
+                  "height": 20.0
+                }
+              },
+              {
+                "kind": "execute",
+                "node": "c",
+                "geometry": {
+                  "id": "c",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 0.0,
+                  "height": 0.0
+                }
+              },
+              {
+                "kind": "fetch",
+                "node": "c",
+                "execution": "c",
+                "before": 0,
+                "after": 0,
+                "provider": 1
+              },
+              {
+                "kind": "release",
+                "execution": "c",
+                "before": 0,
+                "after": 1,
+                "provider": 1
+              },
+              {
+                "kind": "leave",
+                "node": "c",
+                "geometry": {
+                  "id": "c",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 28.0,
+                  "height": 53.0
+                }
+              },
+              {
+                "kind": "enter",
+                "node": "skip",
+                "geometry": {
+                  "id": "skip",
+                  "x": 70.0,
+                  "y": 5.0,
+                  "width": 12.0,
+                  "height": 9.0
+                }
+              },
+              {
+                "kind": "leave",
+                "node": "skip",
+                "geometry": {
+                  "id": "skip",
+                  "x": 70.0,
+                  "y": 5.0,
+                  "width": 12.0,
+                  "height": 9.0
+                }
+              },
+              {
+                "kind": "execute",
+                "node": "r",
+                "geometry": {
+                  "id": "r",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 0.0,
+                  "height": 0.0
+                }
+              },
+              {
+                "kind": "fetch",
+                "node": "r",
+                "execution": "r",
+                "before": 1,
+                "after": 0,
+                "provider": 1
+              },
+              {
+                "kind": "release",
+                "execution": "r",
+                "before": 0,
+                "after": 1,
+                "provider": 1
+              },
+              {
+                "kind": "leave",
+                "node": "r",
+                "geometry": {
+                  "id": "r",
+                  "x": 0.0,
+                  "y": 0.0,
+                  "width": 85.0,
+                  "height": 95.5
+                }
+              }
+            ],
+            {
+              "id": "untouched",
+              "x": 3.0,
+              "y": 4.0,
+              "width": 6.0,
+              "height": 8.0
+            }
+          ],
+          "passed": true,
+          "fullOptionSemanticsProven": false
+        }
+      ],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
-      "finiteWitnessStatus": "no_runtime_consumption_witness",
+      "finiteWitnessStatus": "scoped_effect_or_state_witness",
       "sourceRawFactoryUnavailable": false,
       "parserValueStatus": "value_verified",
       "publicInputOccurrenceCount": 0,
       "failedOrUnprovenAttempts": [],
       "minimalRemainingWitness": {
-        "requiredForUnwitnessedRole": true,
+        "requiredForUnwitnessedRole": false,
         "need": "Applicable finite strategy branch actually executed plus Source/native state or numeric assertion; a configuration or class name alone is insufficient.",
         "channel": "applicable public API or typed state consumer",
         "fullOptionSemanticsProven": false
@@ -5044,7 +5658,9 @@
       ],
       "staticRoleCandidate": "runtime_state",
       "classificationBasis": "actual accessor location and declared value type; a candidate classification only",
-      "observedRoles": [],
+      "observedRoles": [
+        "runtime_state"
+      ],
       "nativeConsumers": [
         {
           "path": "src/pyelk/execution/recursive_helpers.py",
@@ -5127,16 +5743,78 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [
+        {
+          "optionId": "org.eclipse.elk.scaleFactor",
+          "kind": "runtime_state",
+          "role": "runtime_state",
+          "status": "scoped_saved_state_verified",
+          "description": "actual_pre_post_scaling_state",
+          "scope": "Actual coordinator child dimensions multiplied by1.5 between child leave and final parent result; not a merely configured scale.",
+          "bindings": [
+            {
+              "path": "tests/fixtures/suites/next-native/recursive-ordinary-nested-request.json",
+              "sha256": "04b033d6537292b51bf1f7d6236ffe6c8f1f3026e543fe68df68b6cb39ca61b4",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/next-native/recursive-ordinary-nested-request.json"
+            },
+            {
+              "path": "tests/fixtures/suites/next-native/recursive-ordinary-probe.cjs",
+              "sha256": "3af2252d0724e928983140d2417514ffd91f0b46b5c12b5e8d1362a4b4b5ea84",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/next-native/recursive-ordinary-probe.cjs"
+            },
+            {
+              "path": "tests/fixtures/suites/next-native/recursive-ordinary-nested-oracle.json",
+              "sha256": "1016b8393a086dd93dd56b524e50bc340b77d498aac26983a927d516923653c3",
+              "storage": "repository",
+              "originalExecutionPath": "test-runs/20261104-HOST-11/V/recursive-ordinary-nested-oracle-01/observation.json"
+            },
+            {
+              "path": "test-runs/20261104-HOST-11/root/recursive-ordinary-nested-native-01/comparison.json",
+              "sha256": "8078618fa63aab2c8e6b0c8f6ebc2cd5dea5993d7f2a7c8aab95b6c644a47627",
+              "storage": "references/full-native-closure/advanced.zip",
+              "originalExecutionPath": "test-runs/20261104-HOST-11/root/recursive-ordinary-nested-native-01/comparison.json"
+            }
+          ],
+          "referencePointers": [
+            "/observation/events/9/geometry/width",
+            "/observation/events/9/geometry/height",
+            "/observation/geometry/1/width",
+            "/observation/geometry/1/height"
+          ],
+          "nativePointers": [
+            "/actual/events/9/geometry/width",
+            "/actual/events/9/geometry/height",
+            "/actual/geometry/1/width",
+            "/actual/geometry/1/height"
+          ],
+          "referenceValues": [
+            28,
+            53,
+            42,
+            79.5
+          ],
+          "actualValues": [
+            28.0,
+            53.0,
+            42.0,
+            79.5
+          ],
+          "passed": true,
+          "fullOptionSemanticsProven": false
+        }
+      ],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
-      "finiteWitnessStatus": "no_runtime_consumption_witness",
+      "finiteWitnessStatus": "scoped_effect_or_state_witness",
       "sourceRawFactoryUnavailable": false,
       "parserValueStatus": "value_verified",
       "publicInputOccurrenceCount": 0,
       "failedOrUnprovenAttempts": [],
       "minimalRemainingWitness": {
-        "requiredForUnwitnessedRole": true,
+        "requiredForUnwitnessedRole": false,
         "need": "Applicable Source/native state/presence/identity/serialization assertion beyond parser value and input occurrence.",
         "channel": "applicable public API or typed state consumer",
         "fullOptionSemanticsProven": false
@@ -5260,6 +5938,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5393,6 +6072,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5517,6 +6197,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5579,6 +6260,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5641,6 +6323,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5703,6 +6386,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5765,6 +6449,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5827,6 +6512,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5889,6 +6575,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -5951,6 +6638,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6013,6 +6701,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6075,6 +6764,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6216,6 +6906,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -6340,6 +7031,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6439,6 +7131,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6538,6 +7231,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6637,6 +7331,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -6770,6 +7465,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -6928,6 +7624,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7076,6 +7773,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7200,6 +7898,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7348,6 +8047,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7480,6 +8180,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7596,6 +8297,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7712,6 +8414,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -7933,6 +8636,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -8041,6 +8745,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -8150,6 +8855,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -8316,6 +9022,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -8449,6 +9156,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -8558,6 +9266,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -8666,6 +9375,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -8813,6 +9523,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -9025,6 +9736,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -9155,6 +9867,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -9276,6 +9989,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -9397,6 +10111,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -9518,6 +10233,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -9639,6 +10355,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -9873,6 +10590,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "scoped_verified",
@@ -10063,6 +10781,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "scoped_verified",
@@ -10310,6 +11029,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "scoped_verified",
@@ -10504,6 +11224,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -10763,6 +11484,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -10925,6 +11647,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -11010,6 +11733,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -11072,6 +11796,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -11282,6 +12007,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -11533,6 +12259,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -11720,7 +12447,44 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.port.side:UNDEFINED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/11",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.port.side:NORTH",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/12",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.port.side:EAST",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/13",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.port.side:SOUTH",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/14",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.port.side:WEST",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/15",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -11959,6 +12723,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "scoped_verified",
@@ -12154,6 +12919,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -12293,6 +13059,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -12423,6 +13190,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -12527,6 +13295,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -12614,6 +13383,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -12710,6 +13480,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -12814,6 +13585,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -12919,6 +13691,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13016,6 +13789,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13144,6 +13918,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13240,6 +14015,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13364,6 +14140,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13472,6 +14249,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13685,6 +14463,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13747,6 +14526,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -13847,7 +14627,23 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.directionCongruency:READING_DIRECTION",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/16",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.directionCongruency:ROTATION",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/17",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -13931,6 +14727,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14015,7 +14812,23 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.interactiveReferencePoint:CENTER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/18",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.interactiveReferencePoint:TOP_LEFT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/19",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -14099,6 +14912,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14174,6 +14988,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14278,6 +15093,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14362,7 +15178,23 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.portSortingStrategy:INPUT_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/20",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.portSortingStrategy:PORT_DEGREE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/21",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -14470,6 +15302,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14570,6 +15403,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14657,6 +15491,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -14744,7 +15579,72 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "factory:CycleBreakingStrategy:BFS_NODE_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/4",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:DEPTH_FIRST",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/5",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:DFS_NODE_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/6",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:GREEDY",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/7",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:GREEDY_MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/8",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:INTERACTIVE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/9",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/10",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:SCC_CONNECTIVITY",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/11",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CycleBreakingStrategy:SCC_NODE_TYPE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/12",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -14831,7 +15731,72 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "factory:LayeringStrategy:BF_MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/76",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:COFFMAN_GRAHAM",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/77",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:DF_MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/78",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:INTERACTIVE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/79",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:LONGEST_PATH",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/80",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:LONGEST_PATH_SOURCE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/81",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:MIN_WIDTH",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/82",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:NETWORK_SIMPLEX",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/83",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:LayeringStrategy:STRETCH_WIDTH",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/84",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -15080,7 +16045,44 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.layerConstraint:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/22",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.layerConstraint:FIRST",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/23",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.layerConstraint:FIRST_SEPARATE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/24",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.layerConstraint:LAST",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/25",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.layerConstraint:LAST_SEPARATE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/26",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -15167,6 +16169,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -15263,6 +16266,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -15359,6 +16363,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -15455,6 +16460,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -15542,7 +16548,79 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NONE",
+          "status": "scheduler_exclusion_scoped",
+          "pointer": "/supplementalRows/27",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NIKOLOV",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/28",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NIKOLOV_PIXEL",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/29",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NIKOLOV_IMPROVED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/30",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NIKOLOV_IMPROVED_PIXEL",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/31",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:DUMMYNODE_PERCENTAGE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/32",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NODECOUNT_PERCENTAGE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/33",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:NO_BOUNDARY",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/34",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:MODEL_ORDER_LEFT_TO_RIGHT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/35",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layering.nodePromotion.strategy:MODEL_ORDER_RIGHT_TO_LEFT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/36",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -15617,6 +16695,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -15701,6 +16780,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -15801,7 +16881,37 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "factory:CrossingMinimizationStrategy:INTERACTIVE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/0",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CrossingMinimizationStrategy:LAYER_SWEEP",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/1",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CrossingMinimizationStrategy:MEDIAN_LAYER_SWEEP",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/2",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:CrossingMinimizationStrategy:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/3",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -15934,6 +17044,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -16035,6 +17146,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -16124,6 +17236,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -16199,6 +17312,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -16274,6 +17388,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -16349,6 +17464,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -16433,6 +17549,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -16508,6 +17625,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -16583,7 +17701,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.crossingMinimization.greedySwitch.type:ONE_SIDED",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/37",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.crossingMinimization.greedySwitch.type:TWO_SIDED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/38",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.crossingMinimization.greedySwitch.type:OFF",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/39",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -16676,7 +17817,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type:ONE_SIDED",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/40",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type:TWO_SIDED",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/41",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.crossingMinimization.greedySwitchHierarchical.type:OFF",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/42",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -16781,7 +17945,44 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "factory:NodePlacementStrategy:BRANDES_KOEPF",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/85",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:NodePlacementStrategy:INTERACTIVE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/86",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:NodePlacementStrategy:LINEAR_SEGMENTS",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/87",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:NodePlacementStrategy:NETWORK_SIMPLEX",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/88",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "factory:NodePlacementStrategy:SIMPLE",
+          "status": "witnessed_scoped",
+          "pointer": "/rows/89",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -16920,6 +18121,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -17042,7 +18244,23 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/43",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening:IMPROVE_STRAIGHTNESS",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/44",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -17164,7 +18382,51 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/45",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment:LEFTUP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/46",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment:RIGHTUP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/47",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment:LEFTDOWN",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/48",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment:RIGHTDOWN",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/49",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment:BALANCED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/50",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -17270,6 +18532,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -17376,7 +18639,37 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/51",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:PORT_POSITION",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/52",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:NODE_SIZE_WHERE_SPACE_PERMITS",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/53",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility:NODE_SIZE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/54",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -17482,7 +18775,37 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/55",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default:PORT_POSITION",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/56",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default:NODE_SIZE_WHERE_SPACE_PERMITS",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/57",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default:NODE_SIZE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/58",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -17588,7 +18911,44 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:SIMPLE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/59",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:INTERACTIVE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/60",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:LINEAR_SEGMENTS",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/61",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:BRANDES_KOEPF",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/62",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement:NETWORK_SIMPLEX",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/63",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -17681,7 +19041,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.selfLoopDistribution:EQUALLY",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/64",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.selfLoopDistribution:NORTH",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/65",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.selfLoopDistribution:NORTH_SOUTH",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/66",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -17773,7 +19156,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.selfLoopOrdering:STACKED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/67",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.selfLoopOrdering:REVERSE_STACKED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/68",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.selfLoopOrdering:SEQUENCED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/69",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -17878,7 +19284,30 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.splines.mode:CONSERVATIVE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/70",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.splines.mode:CONSERVATIVE_SOFT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/71",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeRouting.splines.mode:SLOPPY",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/72",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -17984,6 +19413,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -18090,6 +19520,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -18183,6 +19614,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -18291,6 +19723,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -18407,6 +19840,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -18530,6 +19964,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -18662,6 +20097,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -18754,6 +20190,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -18886,6 +20323,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -18970,6 +20408,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -19077,7 +20516,51 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:NONE",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/73",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:LEFT",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/74",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:RIGHT",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/75",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:LEFT_RIGHT_CONSTRAINT_LOCKING",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/76",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:LEFT_RIGHT_CONNECTION_LOCKING",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/77",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.strategy:EDGE_LENGTH",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/78",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -19169,7 +20652,23 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.constraints:QUADRATIC",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/79",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.compaction.postCompaction.constraints:SCANLINE",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/80",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -19266,6 +20765,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -19363,6 +20863,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -19447,6 +20948,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -19539,7 +21041,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.strategy:OFF",
+          "status": "scheduler_exclusion_scoped",
+          "pointer": "/supplementalRows/81",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.strategy:SINGLE_EDGE",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/82",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.strategy:MULTI_EDGE",
+          "status": "source_route_state_scoped",
+          "pointer": "/supplementalRows/83",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -19614,6 +21139,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -19702,6 +21228,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -19799,7 +21326,30 @@
           }
         }
       ],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.cutting.strategy:ARD",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/84",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.cutting.strategy:MSD",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/85",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.cutting.strategy:MANUAL",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/86",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "scoped_effect_or_state_witness",
@@ -19883,6 +21433,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -19958,6 +21509,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20033,7 +21585,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.validify.strategy:NO",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/87",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.validify.strategy:GREEDY",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/88",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.wrapping.validify.strategy:LOOK_BACK",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/89",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -20108,6 +21683,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20183,6 +21759,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20258,6 +21835,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20346,6 +21924,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -20430,7 +22009,23 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.layerUnzipping.strategy:NONE",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/90",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.layerUnzipping.strategy:ALTERNATING",
+          "status": "configuration_state_scoped",
+          "pointer": "/supplementalRows/91",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -20505,6 +22100,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20580,6 +22176,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20655,6 +22252,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -20792,7 +22390,51 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.sideSelection:ALWAYS_UP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/92",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.sideSelection:ALWAYS_DOWN",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/93",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.sideSelection:DIRECTION_UP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/94",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.sideSelection:DIRECTION_DOWN",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/95",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.sideSelection:SMART_UP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/96",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.sideSelection:SMART_DOWN",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/97",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -20909,7 +22551,51 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy:MEDIAN_LAYER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/98",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy:TAIL_LAYER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/99",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy:HEAD_LAYER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/100",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy:SPACE_EFFICIENT_LAYER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/101",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy:WIDEST_LAYER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/102",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.edgeLabels.centerLabelPlacementStrategy:CENTER_LAYER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/103",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -21042,7 +22728,37 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.strategy:NONE",
+          "status": "scheduler_exclusion_scoped",
+          "pointer": "/supplementalRows/104",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.strategy:NODES_AND_EDGES",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/105",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.strategy:PREFER_EDGES",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/106",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.strategy:PREFER_NODES",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/107",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -21146,6 +22862,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -21171,7 +22888,9 @@
       ],
       "staticRoleCandidate": "layout_strategy",
       "classificationBasis": "actual accessor location and declared value type; a candidate classification only",
-      "observedRoles": [],
+      "observedRoles": [
+        "runtime_state"
+      ],
       "nativeConsumers": [
         {
           "path": "src/pyelk/algorithms/layered/model_order_import.py",
@@ -21250,16 +22969,100 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.noModelOrder",
+          "kind": "runtime_state",
+          "role": "runtime_state",
+          "status": "scoped_saved_state_verified",
+          "description": "actual_import_model_order_exclusion",
+          "scope": "Node remains imported but model-order assignment and its port traversal are excluded; native comparator exercises real producer with explicit geometry callbacks, not full layout.",
+          "bindings": [
+            {
+              "path": "tests/fixtures/suites/next-native/model-order-producer-probe.cjs",
+              "sha256": "4f3efe0ca67f4165b49ff3d44630df9c0d849d1bfd7389d3d23fdd05fe3cdde7",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/next-native/model-order-producer-probe.cjs"
+            },
+            {
+              "path": "tests/fixtures/suites/next-native/model-order-producer-oracle.json",
+              "sha256": "4a59417c1e46673a73a03e7c8286a2937bd3d304a18083ca63ed6757e5ac877e",
+              "storage": "repository",
+              "originalExecutionPath": "test-runs/20261104-HOST-10/root/model-order-original-01/observation.json"
+            },
+            {
+              "path": "test-runs/20261104-HOST-10/root/model-order-native-01/comparison.json",
+              "sha256": "15c398ff066029e155067a5b6754a3943ce0dafa534cdebd7c175596cdcd9289",
+              "storage": "references/full-native-closure/advanced.zip",
+              "originalExecutionPath": "test-runs/20261104-HOST-10/root/model-order-native-01/comparison.json"
+            }
+          ],
+          "referencePointers": [
+            "/observation/nodes/1",
+            "/observation/nodes/2",
+            "/observation/nodes/3",
+            "/observation/ports/0",
+            "/observation/importedNodeCount"
+          ],
+          "nativePointers": [
+            "/actual/nodes/1",
+            "/actual/nodes/2",
+            "/actual/nodes/3",
+            "/actual/ports/0",
+            "/actual/importedNodeCount"
+          ],
+          "referenceValues": [
+            [
+              "excluded",
+              null
+            ],
+            [
+              "c",
+              0
+            ],
+            [
+              "d",
+              1
+            ],
+            [
+              "xp",
+              null
+            ],
+            3
+          ],
+          "actualValues": [
+            [
+              "excluded",
+              null
+            ],
+            [
+              "c",
+              0
+            ],
+            [
+              "d",
+              1
+            ],
+            [
+              "xp",
+              null
+            ],
+            3
+          ],
+          "passed": true,
+          "fullOptionSemanticsProven": false
+        }
+      ],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
-      "finiteWitnessStatus": "no_runtime_consumption_witness",
+      "finiteWitnessStatus": "scoped_effect_or_state_witness",
       "sourceRawFactoryUnavailable": false,
       "parserValueStatus": "value_verified",
       "publicInputOccurrenceCount": 0,
       "failedOrUnprovenAttempts": [],
       "minimalRemainingWitness": {
-        "requiredForUnwitnessedRole": true,
+        "requiredForUnwitnessedRole": false,
         "need": "Applicable finite strategy branch actually executed plus Source/native state or numeric assertion; a configuration or class name alone is insufficient.",
         "channel": "applicable public API or typed state consumer",
         "fullOptionSemanticsProven": false
@@ -21354,7 +23157,37 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.components:NONE",
+          "status": "identity_order_boundary_scoped",
+          "pointer": "/supplementalRows/108",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.components:INSIDE_PORT_SIDE_GROUPS",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/109",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.components:GROUP_MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/110",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.components:MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/111",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -21462,7 +23295,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.longEdgeStrategy:DUMMY_NODE_OVER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/112",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.longEdgeStrategy:DUMMY_NODE_UNDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/113",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.longEdgeStrategy:EQUAL",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/114",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -21487,7 +23343,9 @@
       ],
       "staticRoleCandidate": "unclassified_no_static_consumer_anchor",
       "classificationBasis": "actual accessor location and declared value type; a candidate classification only",
-      "observedRoles": [],
+      "observedRoles": [
+        "runtime_state"
+      ],
       "nativeConsumers": [],
       "nativeConsumerCount": 0,
       "nativeProducerAnchors": [],
@@ -21549,10 +23407,66 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.crossingCounterNodeInfluence",
+          "kind": "runtime_state",
+          "role": "runtime_state",
+          "status": "scoped_saved_state_verified",
+          "description": "actual_model_order_activation_predicate",
+          "scope": "Original needsModelOrderBasedOnParent actually called on imported parent; numeric weight1 activates model-order production vs absent/default0. Not weighted cost/geometry proof.",
+          "bindings": [
+            {
+              "path": "tests/fixtures/suites/next-native/model-order-producer-probe.cjs",
+              "sha256": "4f3efe0ca67f4165b49ff3d44630df9c0d849d1bfd7389d3d23fdd05fe3cdde7",
+              "storage": "repository",
+              "originalExecutionPath": "tests/fixtures/suites/next-native/model-order-producer-probe.cjs"
+            },
+            {
+              "path": "tests/fixtures/suites/next-native/model-order-producer-oracle.json",
+              "sha256": "4a59417c1e46673a73a03e7c8286a2937bd3d304a18083ca63ed6757e5ac877e",
+              "storage": "repository",
+              "originalExecutionPath": "test-runs/20261104-HOST-10/root/model-order-original-01/observation.json"
+            },
+            {
+              "path": "test-runs/20261104-HOST-10/root/model-order-native-01/comparison.json",
+              "sha256": "15c398ff066029e155067a5b6754a3943ce0dafa534cdebd7c175596cdcd9289",
+              "storage": "references/full-native-closure/advanced.zip",
+              "originalExecutionPath": "test-runs/20261104-HOST-10/root/model-order-native-01/comparison.json"
+            }
+          ],
+          "referencePointers": [
+            "/observation/predicates/0/needed",
+            "/observation/predicates/14/options",
+            "/observation/predicates/14/needed"
+          ],
+          "nativePointers": [
+            "/actual/predicates/0/needed",
+            "/actual/predicates/14/options",
+            "/actual/predicates/14/needed"
+          ],
+          "referenceValues": [
+            false,
+            {
+              "elk.layered.considerModelOrder.crossingCounterNodeInfluence": 1
+            },
+            true
+          ],
+          "actualValues": [
+            false,
+            {
+              "elk.layered.considerModelOrder.crossingCounterNodeInfluence": 1
+            },
+            true
+          ],
+          "passed": true,
+          "fullOptionSemanticsProven": false
+        }
+      ],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
-      "finiteWitnessStatus": "no_runtime_consumption_witness",
+      "finiteWitnessStatus": "scoped_effect_or_state_witness",
       "sourceRawFactoryUnavailable": false,
       "parserValueStatus": "value_verified",
       "publicInputOccurrenceCount": 0,
@@ -21583,7 +23497,7 @@
         }
       ],
       "minimalRemainingWitness": {
-        "requiredForUnwitnessedRole": true,
+        "requiredForUnwitnessedRole": false,
         "need": "First identify an applicable real caller or external/API-only contract; scanned literals/defaults do not establish consumption or prove the option unused.",
         "channel": "applicable public API or typed state consumer",
         "fullOptionSemanticsProven": false
@@ -21674,6 +23588,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -21778,6 +23693,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -21881,6 +23797,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "scoped_verified",
@@ -21958,6 +23875,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -22042,7 +23960,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy:ONLY_WITHIN_GROUP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/115",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy:MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/116",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cbGroupOrderStrategy:ENFORCED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/117",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -22117,6 +24058,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -22192,6 +24134,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -22276,7 +24219,30 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
-      "branchMatrixReferences": [],
+      "additionalRoleWitnesses": [],
+      "branchMatrixReferences": [
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy:ONLY_WITHIN_GROUP",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/118",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy:MODEL_ORDER",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/119",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        },
+        {
+          "rowId": "option:org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmGroupOrderStrategy:ENFORCED",
+          "status": "witnessed_scoped",
+          "pointer": "/supplementalRows/120",
+          "role": "branch selection/strategy scope only",
+          "effectPromotionInferred": false
+        }
+      ],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
       "finiteWitnessStatus": "no_runtime_consumption_witness",
@@ -22351,6 +24317,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -22460,6 +24427,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -22595,6 +24563,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -22713,6 +24682,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -22831,6 +24801,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -22949,6 +24920,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -23067,6 +25039,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -23185,6 +25158,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -23299,6 +25273,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -23435,6 +25410,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -23544,6 +25520,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -23670,6 +25647,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -23775,6 +25753,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -23884,6 +25863,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -23997,6 +25977,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -24114,6 +26095,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -24219,6 +26201,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -24336,6 +26319,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -24441,6 +26425,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -24566,6 +26551,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -24684,6 +26670,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -24789,6 +26776,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -24885,6 +26873,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -24981,6 +26970,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -25077,6 +27067,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -25186,6 +27177,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -25312,6 +27304,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -25430,6 +27423,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -25548,6 +27542,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -25653,6 +27648,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -25763,6 +27759,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -25864,6 +27861,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -25965,6 +27963,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26075,6 +28074,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26183,6 +28183,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26321,6 +28322,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -26438,6 +28440,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26555,6 +28558,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26687,6 +28691,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26786,6 +28791,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -26916,6 +28922,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -27042,6 +29049,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27159,6 +29167,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27276,6 +29285,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27393,6 +29403,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27501,6 +29512,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27609,6 +29621,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27726,6 +29739,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27843,6 +29857,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -27951,6 +29966,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28083,6 +30099,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28215,6 +30232,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28336,6 +30354,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -28453,6 +30472,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28578,6 +30598,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28695,6 +30716,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28803,6 +30825,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -28924,6 +30947,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",
@@ -29049,6 +31073,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -29157,6 +31182,7 @@
       ],
       "staticReferencesAreRuntimeProof": false,
       "runtimeWitnesses": [],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "unverified",
       "existingScopedState": "unverified",
@@ -29278,6 +31304,7 @@
           }
         }
       ],
+      "additionalRoleWitnesses": [],
       "branchMatrixReferences": [],
       "existingScopedGeometry": "scoped_verified",
       "existingScopedState": "unverified",

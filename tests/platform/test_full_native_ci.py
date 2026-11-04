@@ -53,7 +53,7 @@ class FullNativeCIPlanTests(unittest.TestCase):
         command=next(row['argv']for row in selection['commands']if row['id']=='option-effects-saved')
         self.assertNotIn('--capture',command);self.assertIn('tests/fixtures/suites/full-option-effects/protocol-saved/reference',command)
         names,selection=self.selected(['scripts/iteration/option_coverage.py','docs/option-coverage.json'])
-        self.assertEqual(names,{'option-coverage-structure','option-evidence-restore','option-evidence-strict'})
+        self.assertEqual(names,{'option-coverage-structure','option-evidence-restore','option-evidence-strict','migration-acceptance'})
         self.assertEqual(next(row['argv']for row in selection['commands']if row['id']=='option-coverage-structure'),[sys.executable,'scripts/iteration/option_coverage.py','--check-structure'])
 
     def test_frozen_reference_fallback_rechecks_exact_bytes_and_rejects_changed_bytes(self):

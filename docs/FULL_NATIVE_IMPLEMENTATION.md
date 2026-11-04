@@ -1,8 +1,8 @@
 # 完整实现与当前验收
 
-当前状态（2026-11-04）：功能已合入正式源码，统一校验进入定向修复和发行收口。冻结 37 步／917 测试保留其实际版本；性能、独立几何和选项效果证据另列各自范围。详见 [当前状态](RELEASE_STATUS.md)和 [任务账本](implementation-backlog.json)。
+当前状态（2026-11-04）：功能已合入正式源码，E01–E21 明示有限条件与独立发行已完成验收。冻结 37 步／917 测试保留其实际版本；当前修复、性能、独立几何和选项效果证据各按实际范围核对。详见 [最终审计](iterations/E20_E21_ACCEPTANCE.md)、[当前状态](RELEASE_STATUS.md)和 [任务账本](implementation-backlog.json)。
 
-`py-visactor-elk 0.1.0` 已正式发布，实际上传／PyPI 下载／Windows wheel 与 sdist／Linux wheel 均有独立证据，导入名仍为 `pyelk`。MrTree 第二次 Walker 的活动路径检测修复已包含在该包；合法重访及 1500 层树有受影响检查。详见 [发行说明](releases/0.1.0.md)和[实际发行](releases/evidence/published-0.1.0/publication.json)。未完成的是剩余有限分支与逐条件验收，不重复未变化的数学组。
+`py-visactor-elk 0.1.0` 已正式发布，实际上传／PyPI 下载／Windows wheel 与 sdist／Linux wheel 均有独立证据，导入名仍为 `pyelk`。MrTree 第二次 Walker 的活动路径检测修复已包含在该包；合法重访及 1500 层树有受影响检查。详见 [发行说明](releases/0.1.0.md)和[实际发行](releases/evidence/published-0.1.0/publication.json)。当前 208 运行字节与发布包一致，不为纯验收文档重发版本或重跑未变化的数学组。
 
 E16–E19 已按[独立算法清单](iterations/E16_E19_ACCEPTANCE.md)在实际范围内收口；Radial 私有目标数组的 11 个严格差异仍保留。[高级几何增量](ADVANCED_GEOMETRY.md)补充端口、标签、样条和 section 约束，部分评估保持原状。当前接续顺序见[新会话入口](NEW_SESSION.md)。
 

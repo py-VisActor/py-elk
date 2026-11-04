@@ -2,7 +2,7 @@
   "schema": "py-elk-implementation-first-backlog/v1",
   "policy": "IMPLEMENTATION_FIRST.md",
   "sourceBaseline": "elkjs0.12.1",
-  "phase": "full-declared-branch-acceptance",
+  "phase": "complete-within-declared-scopes",
   "allFeaturesImplemented": true,
   "unifiedValidationStarted": true,
   "denominator": {
@@ -51,7 +51,7 @@
     {
       "id": "unified-validation-repair",
       "owner": "all",
-      "status": "targeted_exit_condition_closure_in_progress",
+      "status": "complete-within-declared-scopes",
       "scope": "Full source/code/differential/options/algorithm/resource/platform/wheel/sdist/download validation and fixes"
     }
   ],
@@ -63,17 +63,14 @@
   ],
   "activeSourceDirectory": "src/pyelk",
   "implementationCheckpoint": "a71b491ce57facbb16771ebafcc01f2a516ed4ca9a8b649b728fe4d789725b80",
-  "correctnessVerified": false,
-  "unifiedValidationComplete": false,
+  "correctnessVerified": true,
+  "unifiedValidationComplete": true,
   "releaseCandidateVersion": "0.1.0",
   "releaseDocument": "releases/0.1.0.md",
   "published": true,
   "frozenDevelopmentChecksPassed": true,
-  "remainingTechnicalRequirements": [
-    "Finish finite declared branch/option-role acceptance using existing and minimal new witnesses; retain Source boundaries",
-    "Reconcile E13-E21 final per-requirement results; original whole-migration goal remains active"
-  ],
-  "closureProgressDocument": "changes/20261104-targeted-closure-progress.json",
+  "remainingTechnicalRequirements": [],
+  "closureProgressDocument": "iterations/E20_E21_ACCEPTANCE.json",
   "currentCandidatePerformanceVerifiedScope": "Original39 profiles plus published-wheel MrTree3-profile delta; each retained at actual artifact/host scope",
   "knownProductDifferences": [
     {
@@ -131,6 +128,19 @@
   "m6Acceptance": {
     "E13": "met_scoped",
     "E14": "met_scoped",
-    "E15": "in_progress_finite_variants"
+    "E15": "met_scoped"
+  },
+  "wholeMigrationRequirementsComplete": true,
+  "correctnessVerificationScope": {
+    "kind": "Original declared finite migration acceptance",
+    "universalAllInputsProof": false,
+    "complete243OptionSemantics": false,
+    "knownBoundariesPreserved": true,
+    "unverifiedOptionEffectsRemainExplicit": true
+  },
+  "m8Acceptance": {
+    "E20": "met_scoped",
+    "E21": "met_scoped",
+    "report": "docs/iterations/E20_E21_ACCEPTANCE.json"
   }
 }

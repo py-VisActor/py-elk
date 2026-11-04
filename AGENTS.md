@@ -8,7 +8,7 @@
 
 当前正式实现为 `src/pyelk`，包含 196 个 Python 模块、208 个打包运行文件，注册 12 个算法、243 个选项、8 个类别。实现完成与正确性验证分开记录。`.local/migration-next` 为冻结快照，不是当前产品源码。
 
-首个独立发行 `py-visactor-elk 0.1.0` 已完成 GitHub OIDC 发布、PyPI 实际下载及 wheel/sdist 安装；导入仍为 `pyelk`。发行源提交与 tag 为 `bfac8a0` / `v0.1.0`，原始证据见 [实际发行](docs/releases/evidence/published-0.1.0/publication.json)。当前继续 E20/E21 的全声明分支验收。MrTree 控制环已修复；旧 37 步／917 测试属于其冻结的 0.0.1a0 源码，不能认证后续修复，也不能替代所有退出条件。
+原生迁移及独立包交付的 E01–E21 已按原明示有限条件收口，见 [最终逐条件审计](docs/iterations/E20_E21_ACCEPTANCE.md)。`py-visactor-elk 0.1.0` 已完成 GitHub OIDC 发布、PyPI 实际下载及 wheel/sdist 安装；导入仍为 `pyelk`，当前 208 运行字节等于实际发布包。发行源提交／tag 为 `bfac8a0`／`v0.1.0`，见 [实际发行](docs/releases/evidence/published-0.1.0/publication.json)。MrTree 控制环修复另有影响证据；旧 37 步／917 测试只属于其冻结的 0.0.1a0 源码，不重绑执行身份。py-mermaid I0–I3 继续独立后置，不自动开始。
 
 依照 [并行协作规范](docs/PARALLEL_EXECUTION.md) 使用 root + A/B/V，最多三个 sub-agent。先确定接口与单文件 owner；共享文件仅一个写入者。实现、检查工具和独立审阅可并行，依赖的构建与发行必须顺序执行。每批留下实际交付、检查范围、首败与修复、复盘及下一步。
 

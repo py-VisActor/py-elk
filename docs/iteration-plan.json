@@ -1,8 +1,8 @@
 {
   "schema": "py-elk-iteration-plan/v1",
   "updatedOn": "2026-11-04",
-  "status": "in_progress",
-  "nextIteration": "E15",
+  "status": "complete",
+  "nextIteration": "E21",
   "detailsDocument": "ITERATION_PLAN.md",
   "strategyDocument": "IMPLEMENTATION_PLAN.md",
   "workPackagesDocument": "TASKS.md",
@@ -589,11 +589,11 @@
       "evidence": [
         {
           "path": "docs/iterations/E13_E15_ACCEPTANCE.json",
-          "sha256": "01a2442c477f683ce143ea9b20356e63949ba088fb6fc57eed4325cbabd90e3b"
+          "sha256": "be316bfa53eb3a2ffb0725997697aaf245dda986678df940069f248e38804382"
         },
         {
           "path": "references/full-native-closure/advanced.manifest.json",
-          "sha256": "ddd91fa952e157e1c8839bd8f06b5ca9dc39317800c8000378cd4980d92d9e99"
+          "sha256": "eca0eb7020f02bcdba990665e9397752937eed0e88120d06ae9a11ab5743e674"
         },
         {
           "path": "docs/changes/20261104-advanced-geometry-contracts.json",
@@ -626,11 +626,11 @@
       "evidence": [
         {
           "path": "docs/iterations/E13_E15_ACCEPTANCE.json",
-          "sha256": "01a2442c477f683ce143ea9b20356e63949ba088fb6fc57eed4325cbabd90e3b"
+          "sha256": "be316bfa53eb3a2ffb0725997697aaf245dda986678df940069f248e38804382"
         },
         {
           "path": "references/full-native-closure/advanced.manifest.json",
-          "sha256": "ddd91fa952e157e1c8839bd8f06b5ca9dc39317800c8000378cd4980d92d9e99"
+          "sha256": "eca0eb7020f02bcdba990665e9397752937eed0e88120d06ae9a11ab5743e674"
         },
         {
           "path": "docs/changes/20261104-advanced-geometry-contracts.json",
@@ -650,7 +650,7 @@
     {
       "id": "E15",
       "title": "Full layered strategies and routing",
-      "status": "in_progress",
+      "status": "complete",
       "dependsOn": [
         "E14"
       ],
@@ -663,23 +663,27 @@
       ],
       "evidence": [
         {
-          "path": "docs/releases/evidence/development-frozen/report.json",
-          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+          "path": "docs/iterations/E13_E15_ACCEPTANCE.json",
+          "sha256": "be316bfa53eb3a2ffb0725997697aaf245dda986678df940069f248e38804382"
         },
         {
-          "path": "references/full-native-closure/options.manifest.json",
-          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+          "path": "references/full-native-closure/advanced.manifest.json",
+          "sha256": "eca0eb7020f02bcdba990665e9397752937eed0e88120d06ae9a11ab5743e674"
         },
         {
-          "path": "docs/changes/20261104-full-performance.json",
-          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+          "path": "docs/changes/20261104-advanced-geometry-contracts.json",
+          "sha256": "3c3ac3b373bf305df4cf518e967b708dec936297f398061f68720cf3c5440c73"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
         }
       ],
       "parallelStrategy": "E15",
-      "retrospective": null,
+      "retrospective": "retrospectives/E15.md",
       "implementationStatus": "complete",
-      "acceptanceStatus": "targeted-closure-in-progress",
-      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
+      "acceptanceStatus": "met_scoped",
+      "evidenceScope": "Per-requirement actual public/owner-state and independent geometry contracts; partial/Source/host boundaries retained. No all-input or arbitrary option-combination claim."
     },
     {
       "id": "E16",
@@ -855,7 +859,7 @@
     {
       "id": "E20",
       "title": "Full coverage and reliability audit",
-      "status": "in_progress",
+      "status": "complete",
       "dependsOn": [
         "E15",
         "E16",
@@ -870,28 +874,27 @@
       ],
       "evidence": [
         {
-          "path": "docs/releases/evidence/development-frozen/report.json",
-          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+          "path": "docs/iterations/E20_E21_ACCEPTANCE.json",
+          "sha256": "1f8218e8ac571f036764c94ca02dcee0c752b250ce6c050d7a714c151913cf41"
         },
         {
-          "path": "references/full-native-closure/options.manifest.json",
-          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+          "path": "references/full-native-closure/platform.manifest.json",
+          "sha256": "eccf03eea2864b89ce55891efc00d571585da4708b2eef300d93ef065f0a68f2"
         },
         {
-          "path": "docs/changes/20261104-full-performance.json",
-          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
         }
       ],
       "parallelStrategy": "E20",
-      "retrospective": null,
-      "acceptanceStatus": "targeted-closure-in-progress",
-      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair.",
-      "preparationStatus": "tools-and-candidate-prepared-acceptance-not-complete"
+      "retrospective": "retrospectives/E20.md",
+      "acceptanceStatus": "met_scoped",
+      "evidenceScope": "Whole original requirement checklist, actual byte-bound saved comparisons, frozen full/platform/affected-repair proofs and actual published payload; known differences/partial/unverified scopes retained."
     },
     {
       "id": "E21",
       "title": "Full candidate and subsequent releases",
-      "status": "in_progress",
+      "status": "complete",
       "dependsOn": [
         "E20"
       ],
@@ -901,23 +904,22 @@
       ],
       "evidence": [
         {
-          "path": "docs/releases/evidence/development-frozen/report.json",
-          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+          "path": "docs/iterations/E20_E21_ACCEPTANCE.json",
+          "sha256": "1f8218e8ac571f036764c94ca02dcee0c752b250ce6c050d7a714c151913cf41"
         },
         {
-          "path": "references/full-native-closure/options.manifest.json",
-          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+          "path": "references/full-native-closure/platform.manifest.json",
+          "sha256": "eccf03eea2864b89ce55891efc00d571585da4708b2eef300d93ef065f0a68f2"
         },
         {
-          "path": "docs/changes/20261104-full-performance.json",
-          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
         }
       ],
       "parallelStrategy": "E21",
-      "retrospective": null,
-      "acceptanceStatus": "targeted-closure-in-progress",
-      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair.",
-      "preparationStatus": "tools-and-candidate-prepared-acceptance-not-complete"
+      "retrospective": "retrospectives/E21.md",
+      "acceptanceStatus": "met_scoped",
+      "evidenceScope": "Whole original requirement checklist, actual byte-bound saved comparisons, frozen full/platform/affected-repair proofs and actual published payload; known differences/partial/unverified scopes retained."
     }
   ],
   "integration": [
@@ -1030,12 +1032,12 @@
     ],
     "runtimeChecksDuringImplementation": false,
     "independentReviewRequiredBeforeImplementation": false,
-    "currentPhase": "post-publication-finite-branch-acceptance",
-    "unifiedTechnicalValidationComplete": false,
+    "currentPhase": "complete-within-declared-scopes",
+    "unifiedTechnicalValidationComplete": true,
     "frozenDevelopmentChecksPassed": true
   },
   "parallelPreparation": {
-    "status": "public-implementation-complete-targeted-validation-repair",
+    "status": "migration-complete-published",
     "historicalPrivatePreparation": "iterations/parallel-preparation-history-20261104.json",
     "publicAPIIntegrated": true,
     "activeSourceDirectory": "src/pyelk",
@@ -1045,12 +1047,13 @@
     "metadataCategories": 8,
     "wholeAlgorithmsUniversallyVerified": false,
     "activeWork": {
-      "root": "Machine acceptance state, affected-check selection, documentation and Git integration",
-      "A": "Saved enum/consumer-state integration and byte-preserving branch evidence archive",
-      "B": "Minimal genuinely missing owner/helper families; actual Source/native states only",
-      "V": "Independent E13-E15 requirement checklist and portable advanced evidence closure"
+      "root": "Complete; source and published artifact identities remain bound",
+      "A": "Complete; finite branch evidence and independent completion review",
+      "B": "Complete; missing consumer families and portable original platform/full logs",
+      "V": "Complete; M6/M7 and option-role acceptance within declared scopes"
     },
     "executionOrderOverride": "User implementation-first instruction allows E13-E19 development before E12 publication; historical dependency gates remain acceptance requirements."
   },
-  "distributionName": "py-visactor-elk"
+  "distributionName": "py-visactor-elk",
+  "nextIterationDisposition": "All migration iterations are complete. I0-I3 remain a separate deferred py-mermaid integration task."
 }

@@ -68,7 +68,7 @@ class Evidence:
             process = subprocess.run(['git', '-C', str(ROOT), 'ls-files', '-z'],
                                      capture_output=True, check=True)
             self.direct = {value.decode('utf-8') for value in process.stdout.split(b'\0') if value}
-        for kind in ('options', 'branches', 'advanced'):
+        for kind in ('options', 'branches', 'algorithms', 'advanced'):
             mp = f'references/full-native-closure/{kind}.manifest.json'
             if not (ROOT / mp).is_file():
                 if kind == 'advanced' and sealing:
@@ -82,6 +82,10 @@ class Evidence:
             elif kind == 'branches':
                 ap, expected = manifest['archive'], manifest['archiveSha256']
                 members = manifest['members']
+            elif kind == 'algorithms':
+                require(manifest['schema'] == 'pyelk-algorithm-acceptance-evidence/v1', 'Unknown algorithm archive schema')
+                ap, expected = manifest['archive']['path'], manifest['archive']['sha256']
+                members = {x['path']: x['sha256'] for x in manifest['members']}
             else:
                 require(manifest['schema'] == 'pyelk-advanced-acceptance-evidence/v1', 'Unknown advanced schema')
                 ap, expected = manifest['archive']['path'], manifest['archive']['sha256']
@@ -99,7 +103,7 @@ class Evidence:
             require(len(z.namelist()) == len(members) and set(z.namelist()) == members.keys(),
                     'Archive membership differs: ' + ap)
             self.archives.append((ap, z, members))
-            # These two reused archives remain ordinary tracked dependencies.
+            # Reused archives remain ordinary tracked dependencies.
             if kind != 'advanced':
                 self.files[mp] = dict(path=mp, sha256=sha(mraw), bytes=len(mraw), storage='repository')
                 self.files[ap] = dict(path=ap, sha256=sha(zraw), bytes=len(zraw), storage='repository')
@@ -294,9 +298,34 @@ def make(*, sealing=False):
     # The branch writer owns its specialized assertion and routing checks. This
     # acceptance map binds its entire raw witness closure, without converting
     # helper/state/alias/boundary statuses into geometric equivalence.
+    core_statuses = {'witnessed_scoped', 'shared_body_alias_verified', 'source_raw_unconstructible_boundary',
+                     'causal_consumer_chain_scoped'}
     for row in matrix['rows']:
-        require(row['status'] not in ('no_runtime_witness', 'configured_only'), 'Unaccounted core factory')
+        require(row['status'] in core_statuses, 'Unaccounted core factory or unknown core scope')
+    supplemental_statuses = {'witnessed_scoped', 'configuration_state_scoped', 'source_route_state_scoped',
+                             'scheduler_exclusion_scoped', 'identity_order_boundary_scoped', 'no_variant_witness'}
+    require(all(row['status'] in supplemental_statuses for row in matrix['supplementalRows']),
+            'Unknown supplemental acceptance scope')
+    require(matrix['summary']['supplementalStatuses'] == dict(Counter(row['status'] for row in matrix['supplementalRows']))
+            and matrix['summary']['coreStatuses'] == dict(Counter(row['status'] for row in matrix['rows'])),
+            'Finite branch status counts differ from actual rows')
+    require(all(row['witnesses'] and row['sourceEvidence'] and row['limitations']
+                for row in matrix['supplementalRows'] if row['status'] != 'no_variant_witness'),
+            'A scoped supplemental row lacks its witnesses, Source anchors or limitations')
+    core_accounted = (matrix['summary']['coreRowsAccountedForWithinStatedScope'] is True
+                      and matrix['summary']['unwitnessedCoreIds'] == [])
+    enums_accounted = not remaining and all(row['status'] in supplemental_statuses - {'no_variant_witness'}
+                                          for row in matrix['supplementalRows'])
+    if enums_accounted:
+        require(matrix['summary'].get('allDeclaredEnumRowsAccountedForWithinStatedScope') is True
+                and matrix['summary']['unwitnessedEnumIds'] == [], 'Finite branch accounting summary differs')
+    strong_enums_accepted = (matrix['summary']['allDeclaredEnumBranchesAccepted'] is True
+                            and all(row['status'] == 'witnessed_scoped' for row in matrix['supplementalRows']))
+    require(matrix['summary']['allDeclaredEnumBranchesAccepted'] is not True or strong_enums_accepted,
+            'Scoped configuration/exclusion/boundary promoted to unconditional direct branch acceptance')
     option_roles = e.json('docs/iterations/FULL_OPTION_ROLES.json')
+    for row in option_roles['rows']:
+        e.binding_objects(row.get('additionalRoleWitnesses', []))
     e.binding('docs/option-coverage.json')
     published_path = 'docs/releases/evidence/published-0.1.0/wheel-installed.json'
     published = e.json(published_path)
@@ -348,9 +377,10 @@ def make(*, sealing=False):
                   status='met_core_scoped'),
         condition('M6-04-M6-05-declared-branches', 'E15', 'Per-declared-branch Source/differential/geometry acceptance and applicable Layered options',
                   ['finiteBranches90', 'optionRoleMap', 'frozenOptionLedger'],
-                  'The current finite121-row supplemental enum map still contains explicitly unverified values, listed below. Static/default/parser/input mentions do not satisfy runtime consumption.',
+                  ('All121 supplemental rows are accounted at their actual scoped witness strength, including configuration/route state, scheduler exclusion and the retained identity-order boundary. Static/default/parser/input mentions are not runtime effects.'
+                   if enums_accounted else 'The finite121-row supplemental map still contains explicitly unverified values, listed below. Static/default/parser/input mentions do not satisfy runtime consumption.'),
                   ['Numeric values and graph combinations are not an infinite test denominator. Role/state/diagnostic/metadata/unconstructible options must be classified at their actual role.'],
-                  status='pending_finite_variant_witnesses'),
+                  status='met_scoped' if enums_accounted and core_accounted else 'pending_finite_variant_witnesses'),
         condition('M6-05-routing', 'E15', 'Polyline/spline/complex edges and sections',
                   ['public72', 'historical142', 'geometryDelta24', 'finiteBranches90'],
                   'Real orthogonal/polyline/spline and long/feedback/self-loop paths have separate differentials. Independent orthogonality, endpoint attachment and nonempty CONSERVATIVE3k+1 control-net predicates are observed.',
@@ -364,16 +394,19 @@ def make(*, sealing=False):
                   'Primitive/extended import and shared-port hyperedge processing are distinguished from unsupported multi-source/multi-target raw Layered edges.',
                   ['The compiled Source itself rejects raw multi-source/multi-target edges; declaring that boundary is not inventing missing successful hyperedge geometry.']),
     ]
+    e15_met = core_accounted and enums_accounted and all(row['status'] in ('met_scoped', 'met_core_scoped')
+                                                       for row in requirements if row['iteration'] == 'E15')
     e.closure()
     return {'schema': 'pyelk-e13-e15-acceptance/v1', 'authority': authority,
             'scope': 'Only explicit TASKS M6-01..05 and ITERATION_PLAN E13..15 finite exit conditions.',
             'iterations': [{'id': 'E13', 'status': 'met_scoped'}, {'id': 'E14', 'status': 'met_scoped'},
-                           {'id': 'E15', 'status': 'in_progress_finite_variants'}],
+                           {'id': 'E15', 'status': 'met_scoped' if e15_met else 'in_progress_finite_variants'}],
             'requirements': requirements,
             'finiteRemainingWork': {'denominator': len(matrix['supplementalRows']),
                                     'statusCounts': dict(Counter(x['status'] for x in matrix['supplementalRows'])),
                                     'unwitnessedCount': len(remaining), 'unwitnessedIds': remaining,
-                                    'nextAction': 'The branch single writer maps old actual helper/body/state/effect witnesses first. Only still-missing consumer families need small applicable DTOs; no old matrix rerun or infinite combinations.'},
+                                    'nextAction': ('No declared supplemental value remains unmapped. Preserve the scoped distinctions and all Source/error/identity boundaries; no additional layout or infinite-combination proof is implied.'
+                                                   if e15_met else 'Map still-missing consumer families at their actual role; no old matrix rerun or infinite combinations.')},
             'public72': {'summary': e.files[summary_path], 'normalMatched': 66, 'sourceErrors': 6,
                          'calls': calls, 'sourceErrorsAreGeometryPass': False},
             'historical142': {'report': e.files[old_path], 'historicalStatuses': old['statuses'],
@@ -402,8 +435,20 @@ def make(*, sealing=False):
                                    'Root external ports without parent: Source TypeError vs native ValueError is preserved; no exact error-name/message parity claim for that excluded Source-failure context.',
                                    'Native preserves caller input; Source mutation and generated hashes are separately retained under explicit existing rules.',
                                    'No universal OUTSIDE collision freedom, spline avoidance, optimal packing or infinite option cross-products are required by this closure.'],
+            'previousScopedBaseline': {
+                'documentSha256': '01a2442c477f683ce143ea9b20356e63949ba088fb6fc57eed4325cbabd90e3b',
+                'evidenceBindings': 931,
+                'storageCounts': {'repository': 366, 'advanced': 177, 'options': 50, 'branches': 338},
+                'retainedScopes': ['72 public cases:66 normal matches and6 Source-error observations',
+                                   '142 historical independent geometry:102PASS/40PARTIAL/188 not-assessed',
+                                   '24 sensitive JSON observations plus4 prepared LabelCell states',
+                                   '23 prepared identity-order differences remain raw false',
+                                   'Historical runtime versions are not relabelled as new published-package runs'],
+                'incrementScope': 'Final finite branch mapping and five saved-only role witnesses. Previous execution scopes and negative observations are retained; no product reruns.'},
             'newExecutions': dict(products=0, source=0, tests=0, installs=0),
-            'allE15BranchesAccepted': False, 'e20E21Complete': False,
+            'allE15RequirementsMetWithinDeclaredScope': e15_met,
+            'allE15BranchesAccepted': strong_enums_accepted,
+            'e20E21Complete': False,
             'evidenceStorage': getattr(e, 'managed_storage', None),
             'pathPolicy': {'explicitRootMap': {OLD_ROOT: '.'}, 'unlistedIgnoredEvidence': 'fail',
                            'implicitWorkspaceFallback': False},
@@ -432,7 +477,7 @@ def seal():
                 'members': members, 'explicitRootMap': {OLD_ROOT: '.'},
                 'repositoryDependencies': [x for x in d['evidence'] if x['storage'] == 'repository'],
                 'classification': 'Actual source-repository git ls-files index membership at seal; not inferred from directory prefixes or temporary force-add.',
-                'scope': 'Only additional non-index raw actually read; reuse options/branches archives without copying them or source snapshots.',
+                'scope': 'Only additional non-index raw actually read; reuse options/branches/algorithms archives without copying them or source snapshots.',
                 'productsExecuted': 0, 'sourceExecuted': 0}
     (ROOT / ARCHIVE).write_bytes(raw)
     (ROOT / MANIFEST).write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8', newline='\n')
@@ -440,7 +485,9 @@ def seal():
 
 def markdown(data):
     lines = ['# E13–E15 acceptance against explicit finite conditions', '',
-             'E13/E14 meet the stated capabilities within recorded applicable scopes. E15 remains in progress for its finite supplemental variant witnesses. No source/layout/test run is executed by this map.', '',
+             ('E13/E14/E15 meet the explicit finite conditions within their recorded scopes. All declared enum rows are accounted; configuration, route-state, scheduler-exclusion and identity-order boundaries are not promoted to full raw or geometry parity.'
+              if data['allE15RequirementsMetWithinDeclaredScope'] else 'E13/E14 meet the stated capabilities within recorded applicable scopes. E15 remains in progress for its finite supplemental variant witnesses.')
+             + ' No Source/layout/test run is executed by this map. E20/E21 completion is not asserted.', '',
              '| Condition | Status | Finding and boundary |', '| --- | --- | --- |']
     for row in data['requirements']:
         lines.append(f'| {row["id"]}: {row["explicitCondition"]} | {row["status"]} | {row["finding"]} ' + ' '.join(row['limitations']) + ' |')
@@ -448,7 +495,7 @@ def markdown(data):
     lines += ['', '## E15 remaining finite denominator', '',
               f'Core factories:90 accounted. Supplemental enum rows:{work["denominator"]}; unrecorded variants:{work["unwitnessedCount"]}.', '',
               'Status counts: `' + json.dumps(work['statusCounts'], sort_keys=True) + '`.', '',
-              'Unwitnessed rows:', '']
+              'Unwitnessed rows:' if work['unwitnessedIds'] else 'No unmapped declared row remains. Strong all-raw/direct-branch acceptance remains false.', '']
     lines.extend('- `' + x + '`' for x in work['unwitnessedIds'])
     lines += ['', 'Map existing actual consumer state/body/helper/effect at its stated strength first. Source/error/alias boundaries remain separate. This is not a demand for arbitrary graphs, every numeric value or an option Cartesian product.', '',
               '## Evidence boundaries', '',
@@ -457,9 +504,10 @@ def markdown(data):
               '- Missing text-only node/port/edge label sizes default0; no font measuring. The actual2section public chain is a positive continuity/reciprocity witness, not a synthetic positive.',
               '- Coordinate/container/endpoint and true compound witnesses satisfy distinct stated requirements; all coordinate modes x every routing x every hierarchy is not required.',
               '- Error observations, the23 prepared enum-identity ordering differences and unsupported raw callback/hyperedge boundaries are retained; no universal avoidance/optimality claim.', '',
+              '- The previous931-binding baseline and its366direct/177advanced/50options/338branches storage counts retain their original execution scopes; final branch and five role-state/causal findings are a pure saved-evidence increment.', '',
               '## Strict portable check', '',
               '`python scripts/iteration/e13_e15_acceptance.py --check --root-map C:/code/py-visactor/py-elk=.`', '',
-              'Tracked files are read directly; ignored raw must be an exact manifest member of options.zip, branches.zip or advanced.zip. No old checkout/test-runs fallback. `--seal-evidence` incrementally rebuilds only this additional closure, without changing the old archives.', '',
+              'Tracked files are read directly; ignored raw must be an exact manifest member of options.zip, branches.zip, algorithms.zip or advanced.zip. No old checkout/test-runs fallback. `--seal-evidence` incrementally rebuilds only this additional closure, without changing the old archives.', '',
               'This does not modify iteration-plan, option ledger, role table, Source or publication state. Full details and raw SHA/pointers are in [E13_E15_ACCEPTANCE.json](E13_E15_ACCEPTANCE.json).', '']
     return '\n'.join(lines)
 

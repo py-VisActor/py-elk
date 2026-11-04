@@ -2,7 +2,7 @@
 
 基线为 elkjs 0.12.1 / `624ae90aa37110033a8af59c5ccbb292708b4317`。完整原生实现已进入 `src/pyelk`，实际注册 12 个算法、243 个选项和 8 个类别；公共异步 API、持久 worker、递归布局及日志／计时已接通。独立发行 `py-visactor-elk 0.1.0` 已发布，导入名为 `pyelk`。实际发布与下载证据见[当前状态](docs/RELEASE_STATUS.md)。
 
-本文保留完整接口要求与 M 阶段分工。实现、运行见证、语义约束和坐标兼容分别登记：[选项账本](docs/iterations/FULL_OPTION_COVERAGE.md)、[有限分支矩阵](docs/iterations/FULL_DECLARED_BRANCH_MATRIX.md)、[高级几何](docs/ADVANCED_GEOMETRY.md)和[独立算法验收](docs/iterations/E16_E19_ACCEPTANCE.md)给出各自实际范围；未评估项不随发布变成通过。E13–E15／E20／E21 的剩余验收见[机器计划](docs/iteration-plan.json)。
+本文保留完整接口要求与 M 阶段分工。实现、运行见证、语义约束和坐标兼容分别登记：[选项账本](docs/iterations/FULL_OPTION_COVERAGE.md)、[有限分支矩阵](docs/iterations/FULL_DECLARED_BRANCH_MATRIX.md)、[高级几何](docs/ADVANCED_GEOMETRY.md)和[独立算法验收](docs/iterations/E16_E19_ACCEPTANCE.md)给出各自实际范围；未评估项不随发布变成通过。E01–E21 的明示有限条件已收口，见[最终审计](docs/iterations/E20_E21_ACCEPTANCE.md)与[机器计划](docs/iteration-plan.json)。
 
 E03–E09 手册和 `UPSTREAM.json` 中的早期切片声明保留其历史证据范围，不表示当前实现只有一个算法或九个选项。宿主合同及其差异依照 [ADR0001](docs/decisions/0001-native-contract.md)、[ADR0007](docs/decisions/0007-e08-api-lifecycle.md)和 [ADR0008](docs/decisions/0008-e09-diagnostics-coverage.md)分别解释；后续 MrTree 异常映射及 Radial 私有数值差异也单独记录，不改写旧原始结果。
 
