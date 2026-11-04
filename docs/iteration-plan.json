@@ -2,7 +2,7 @@
   "schema": "py-elk-iteration-plan/v1",
   "updatedOn": "2026-11-04",
   "status": "in_progress",
-  "nextIteration": "E13",
+  "nextIteration": "E15",
   "detailsDocument": "ITERATION_PLAN.md",
   "strategyDocument": "IMPLEMENTATION_PLAN.md",
   "workPackagesDocument": "TASKS.md",
@@ -64,9 +64,33 @@
         {
           "path": "references/e19-packing-sources.json",
           "sha256": "3f081e7a302bf7aebc7df64be7b7bfda07ff7ea558bbfc838ee0f78209bbd852"
+        },
+        {
+          "path": "references/e13-cell-sources.json",
+          "sha256": "058c00dd254e494dc6d8616182d1675363ae25044ddad9e0474cc9287e78d2ca"
+        },
+        {
+          "path": "references/e13-element-options-sources.json",
+          "sha256": "b100e7f69fb06dc101293cfb24753893a93c969d3e1a06f4a703bcf129039d9f"
+        },
+        {
+          "path": "references/e13-kernel-sources.json",
+          "sha256": "997d663043895e4b7ee747b56ce068c69c32e5deae02c81829c5f2a24c92e79a"
+        },
+        {
+          "path": "references/e13-label-sources.json",
+          "sha256": "228dfa6c1e18489af53c48a942781760caedebb3b2dcce6945c2f842c445bfea"
+        },
+        {
+          "path": "references/e13-option-type-sources.json",
+          "sha256": "b1add8de684b758c6894f01ba4841364826d2b6401818f4abe916199d45322f9"
+        },
+        {
+          "path": "references/e13-ports-sources.json",
+          "sha256": "12b2baa803a92a9708927ed0fa6b5c9443c35c6bd66f277c274c729b902b8f35"
         }
       ],
-      "currentExpansionScope": "Fixed generated elkjs0.12.1 Source inventories and byte-bound component spans for the accepted M7 providers. Historical E07 scope/evidence is retained; no exact external Java build claim."
+      "currentExpansionScope": "Fixed generated elkjs0.12.1 Source inventories and byte-bound component spans for M6 and accepted M7 providers. Historical E07 scope/evidence is retained; no exact external Java build claim."
     },
     {
       "id": "native-contract",
@@ -550,7 +574,7 @@
     {
       "id": "E13",
       "title": "Ports and given-size labels",
-      "status": "in_progress",
+      "status": "complete",
       "dependsOn": [
         "E12"
       ],
@@ -564,28 +588,32 @@
       ],
       "evidence": [
         {
-          "path": "docs/releases/evidence/development-frozen/report.json",
-          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+          "path": "docs/iterations/E13_E15_ACCEPTANCE.json",
+          "sha256": "01a2442c477f683ce143ea9b20356e63949ba088fb6fc57eed4325cbabd90e3b"
         },
         {
-          "path": "references/full-native-closure/options.manifest.json",
-          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+          "path": "references/full-native-closure/advanced.manifest.json",
+          "sha256": "ddd91fa952e157e1c8839bd8f06b5ca9dc39317800c8000378cd4980d92d9e99"
         },
         {
-          "path": "docs/changes/20261104-full-performance.json",
-          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+          "path": "docs/changes/20261104-advanced-geometry-contracts.json",
+          "sha256": "3c3ac3b373bf305df4cf518e967b708dec936297f398061f68720cf3c5440c73"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
         }
       ],
       "parallelStrategy": "E13",
-      "retrospective": null,
+      "retrospective": "retrospectives/E13.md",
       "implementationStatus": "complete",
-      "acceptanceStatus": "targeted-closure-in-progress",
-      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
+      "acceptanceStatus": "met_scoped",
+      "evidenceScope": "Per-requirement actual public/owner-state and independent geometry contracts; partial/Source/host boundaries retained. No all-input or arbitrary option-combination claim."
     },
     {
       "id": "E14",
       "title": "Hierarchy and coordinate containers",
-      "status": "in_progress",
+      "status": "complete",
       "dependsOn": [
         "E13"
       ],
@@ -597,23 +625,27 @@
       ],
       "evidence": [
         {
-          "path": "docs/releases/evidence/development-frozen/report.json",
-          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+          "path": "docs/iterations/E13_E15_ACCEPTANCE.json",
+          "sha256": "01a2442c477f683ce143ea9b20356e63949ba088fb6fc57eed4325cbabd90e3b"
         },
         {
-          "path": "references/full-native-closure/options.manifest.json",
-          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+          "path": "references/full-native-closure/advanced.manifest.json",
+          "sha256": "ddd91fa952e157e1c8839bd8f06b5ca9dc39317800c8000378cd4980d92d9e99"
         },
         {
-          "path": "docs/changes/20261104-full-performance.json",
-          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+          "path": "docs/changes/20261104-advanced-geometry-contracts.json",
+          "sha256": "3c3ac3b373bf305df4cf518e967b708dec936297f398061f68720cf3c5440c73"
+        },
+        {
+          "path": "docs/releases/evidence/published-0.1.0/publication.json",
+          "sha256": "7e46337a66e34a4648118f493721276f087b73e456a35ca541f174a0d72210d1"
         }
       ],
       "parallelStrategy": "E14",
-      "retrospective": null,
+      "retrospective": "retrospectives/E14.md",
       "implementationStatus": "complete",
-      "acceptanceStatus": "targeted-closure-in-progress",
-      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
+      "acceptanceStatus": "met_scoped",
+      "evidenceScope": "Per-requirement actual public/owner-state and independent geometry contracts; partial/Source/host boundaries retained. No all-input or arbitrary option-combination claim."
     },
     {
       "id": "E15",

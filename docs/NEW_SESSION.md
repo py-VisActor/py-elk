@@ -16,6 +16,8 @@
 
 E16–E19 已按 [逐条件清单](iterations/E16_E19_ACCEPTANCE.md)收口，E17 保留私有目标数组的 11 个严格浮点差异；这不阻止如实记录已观察最终几何，也不证明任意近似平局选择一致。[高级几何增量](ADVANCED_GEOMETRY.md)补齐固定端口、最小尺寸、样条、标签间距及真实 section 连接约束，部分评估仍保留。
 
+E13／E14 已按 [M6 逐条件清单](iterations/E13_E15_ACCEPTANCE.md)在实际适用范围内完成验收，下一迭代为 E15。清单的分支快照与后续矩阵修改存在 SHA 依赖，更新时需把矩阵和 M6 清单作为同一稳定批次；不要提交一个已无法严格复核的组合。
+
 可复用证据：冻结开发全量 37 步／917 测试、原 0.0.1a0 的八格 wheel 与两个 sdist 代表平台、当前候选的逐算法性能、独立几何谓词及选项效果账本。每项都只支持其执行版本、源码和适用范围。见 [完整实现](FULL_NATIVE_IMPLEMENTATION.md)、[性能报告](FULL_PERFORMANCE.md)、[选项覆盖](iterations/FULL_OPTION_COVERAGE.md)。
 
 便携选项证据的恢复与严格检查：

@@ -74,7 +74,8 @@ class FullNativeCIPlanTests(unittest.TestCase):
     def test_independent_evidence_archives_select_only_their_consumers(self):
         for stem, check in (('options', 'option-evidence-strict'),
                             ('branches', 'declared-branches'),
-                            ('algorithms', 'algorithm-acceptance')):
+                            ('algorithms', 'algorithm-acceptance'),
+                            ('advanced', 'advanced-acceptance')):
             for suffix in ('.zip', '.manifest.json'):
                 with self.subTest(archive=stem + suffix):
                     names,_ = self.selected(['references/full-native-closure/' + stem + suffix])
@@ -83,13 +84,14 @@ class FullNativeCIPlanTests(unittest.TestCase):
                         self.assertNotIn('option-evidence-restore', names)
                         self.assertNotIn('option-evidence-strict', names)
         names,_ = self.selected(['tests/fixtures/suites/full-option-effects/geometry-contracts/manifest.json'])
-        self.assertEqual(names, {'advanced-geometry'})
+        self.assertEqual(names, {'advanced-geometry', 'advanced-acceptance'})
 
-    def test_algorithm_manifest_direct_dependencies_are_really_in_git_index(self):
-        manifest=ci_selected.load(ROOT/'references/full-native-closure/algorithms.manifest.json')
+    def test_acceptance_manifest_direct_dependencies_are_really_in_git_index(self):
         tracked=set(subprocess.check_output(['git','ls-files','-z'],cwd=ROOT).decode('utf8').split('\0'))
-        missing=sorted(row['path'] for row in manifest['requiredRepositoryFiles'] if row['path'] not in tracked)
-        self.assertFalse(missing, 'Direct archive dependencies would be missing from a fresh checkout: '+repr(missing))
+        for name,field in (('algorithms','requiredRepositoryFiles'),('advanced','repositoryDependencies')):
+            manifest=ci_selected.load(ROOT/('references/full-native-closure/'+name+'.manifest.json'))
+            missing=sorted(row['path'] for row in manifest[field] if row['path'] not in tracked)
+            self.assertFalse(missing, 'Direct '+name+' dependencies would be missing from a fresh checkout: '+repr(missing))
 
     def test_unknown_code_stops_all_commands_and_docs_select_no_runtime(self):
         manifest=self.manifest()

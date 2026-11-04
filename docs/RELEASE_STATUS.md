@@ -13,7 +13,7 @@
 - 完成有限声明分支和 243 选项角色的证据映射，关闭确实缺失的见证；当前 73 项 scoped geometry／15 项 scoped state 和便携归档已收口。
 - 复用已归档的真实状态 DTO、旧枚举和 Source 边界；只为仍无证据的明确分支补最小见证，不重跑未变数学组。
 
-E16–E19 的明示条件已按 [独立算法清单](iterations/E16_E19_ACCEPTANCE.md)在实际证据范围内收口；E17 私有目标值的 11 个严格差异保留。新增[高级几何约束](ADVANCED_GEOMETRY.md)的 24 个公共结果及 4 个堆叠状态提供 154 项增量检查，无已适用失败，14 个公共结果仍为 PARTIAL。E13–E15／E20／E21 的未完验收继续明确列出。
+E13／E14 已按 [M6 清单](iterations/E13_E15_ACCEPTANCE.md)、E16–E19 已按 [独立算法清单](iterations/E16_E19_ACCEPTANCE.md)在实际证据范围内收口；E17 私有目标值的 11 个严格差异保留。新增[高级几何约束](ADVANCED_GEOMETRY.md)的 24 个公共结果及 4 个堆叠状态提供 154 项增量检查，无已适用失败，14 个公共结果仍为 PARTIAL。E15／E20／E21 的未完验收继续明确列出。
 
 当前选项覆盖和高级几何仅作其声明范围内的证明，未评估项继续保留；独立算法几何的 28 个观察另有双方各 10 PASS／4 NOT_ASSESSED，见 [独立算法几何](INDEPENDENT_ALGORITHM_GEOMETRY.md)。详见 [选项账本](iterations/FULL_OPTION_COVERAGE.md)、[性能边界](FULL_PERFORMANCE.md)及 [发行说明](releases/0.1.0.md)。
 

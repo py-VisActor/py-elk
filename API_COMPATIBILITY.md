@@ -1,17 +1,12 @@
 # elkjs 接口对齐要求
 
-当前活动状态见[完整实现与统一校验](docs/FULL_NATIVE_IMPLEMENTATION.md)：正式源码已接入全部 12 算法、243 选项和 8 类别，持久 worker 与完整公共 API 已整合。下方 E03–E09 切片说明保留历史验收边界，不代表当前入口只实现这些能力；完整发行验收尚未结束。
+基线为 elkjs 0.12.1 / `624ae90aa37110033a8af59c5ccbb292708b4317`。完整原生实现已进入 `src/pyelk`，实际注册 12 个算法、243 个选项和 8 个类别；公共异步 API、持久 worker、递归布局及日志／计时已接通。独立发行 `py-visactor-elk 0.1.0` 已发布，导入名为 `pyelk`。实际发布与下载证据见[当前状态](docs/RELEASE_STATUS.md)。
 
-状态：公开ELK/layout完整设计规范。E03实现[宿主基础](docs/HOST_FOUNDATIONS.md)，E04–E07实现[受限四方向/多组件切片](docs/E07_DIRECTIONS_COMPONENTS.md)，实际验收见状态页，不等于本文完整API验收。基线为 elkjs 0.12.1 / `624ae90aa37110033a8af59c5ccbb292708b4317`；未进入切片的签名/行为仍为设计。
+本文保留完整接口要求与 M 阶段分工。实现、运行见证、语义约束和坐标兼容分别登记：[选项账本](docs/iterations/FULL_OPTION_COVERAGE.md)、[有限分支矩阵](docs/iterations/FULL_DECLARED_BRANCH_MATRIX.md)、[高级几何](docs/ADVANCED_GEOMETRY.md)和[独立算法验收](docs/iterations/E16_E19_ACCEPTANCE.md)给出各自实际范围；未评估项不随发布变成通过。E13–E15／E20／E21 的剩余验收见[机器计划](docs/iteration-plan.json)。
 
-E08当前实现入口、实例隔离的九选项元数据及真实spawn异步/关闭/取消，精确宿主差异和边界见[ADR0007](docs/decisions/0007-e08-api-lifecycle.md)与[E08手册](docs/E08_API_LIFECYCLE.md)。官方全注册目录、FakeWorker关闭异常与Python原生策略分别保留；logging/time=true及完整算法/正式发布不因该实现提前验收。最终结果只读状态页及机器记录。
+E03–E09 手册和 `UPSTREAM.json` 中的早期切片声明保留其历史证据范围，不表示当前实现只有一个算法或九个选项。宿主合同及其差异依照 [ADR0001](docs/decisions/0001-native-contract.md)、[ADR0007](docs/decisions/0007-e08-api-lifecycle.md)和 [ADR0008](docs/decisions/0008-e09-diagnostics-coverage.md)分别解释；后续 MrTree 异常映射及 Radial 私有数值差异也单独记录，不改写旧原始结果。
 
-配套工作分解见[完整实施方案](docs/IMPLEMENTATION_PLAN.md)和[任务清单](docs/TASKS.md)。默认官方元数据已真实采集为 12 算法/243 选项/8 类别，Python 全部仍待实现。py-mermaid 后续直接采用 py-elk；不建立旧 ELK 版本兼容 profile。
-
-E09 以 [ADR0008](docs/decisions/0008-e09-diagnostics-coverage.md) 续接真实日志/计时，替代 E08 合同中 true 分支的拒绝；false/省略仍无新诊断树。参数只接受 bool，Python 的0/1不当作布尔值。根 logging 清理与嵌套业务字段保护、固定生成源的 wall-tick 标尺和专属比较规则分别验证，旧 profile 不放宽。当前元数据约束见 references/e09-metadata-schema.json，旧 E08 契约保留为历史；全部算法与正式发行仍待后续验收。
-这里“待实现”指算法/公开布局语义；九项内部解析schema和243规范ID诊断分类已有真实代码，后者不作为可用注册表。
-
-先交付并发布[独立基础正式包](docs/FIRST_RELEASE_SCOPE.md)，py-mermaid 集成后置单列。本文保留完整长期目标；基础 0.1.0 只声明已验证的单层 layered/核心选项，其他项留在分母并明确拒绝未支持输入。
+工作包和原退出条件见[实施方案](docs/IMPLEMENTATION_PLAN.md)及[任务清单](docs/TASKS.md)。py-mermaid 集成独立后置，不建立旧 ELK 版本兼容分支，也不作为本独立包交付的前置。
 
 ## 1. 兼容等级
 
@@ -35,7 +30,7 @@ E09 以 [ADR0008](docs/decisions/0008-e09-diagnostics-coverage.md) 续接真实�
 | `knownLayoutAlgorithms()` | `async knownLayoutAlgorithms()` | 返回实际已注册算法的描述列表 |
 | `knownLayoutOptions()` | `async knownLayoutOptions()` | 返回实现已识别的选项描述列表 |
 | `knownLayoutCategories()` | `async knownLayoutCategories()` | 返回已注册算法对应的类别描述 |
-| `terminateWorker()` | `terminateWorker()` | 同步释放资源；E02设计为重复关闭无害、关闭后拒绝新任务，运行时测试留待实现 |
+| `terminateWorker()` | `terminateWorker()` | 同步释放资源，重复关闭无害；关闭后拒绝新任务，真实执行见公共宿主验收 |
 
 Python 的 coroutine 对应 JavaScript Promise，不提供 `.then()` 模拟层。`layout_sync()`、snake_case 别名和上下文管理器可以后续增加，但不是首轮兼容的必要条件；同步扩展不得在已有事件循环中直接调用 `asyncio.run()`。
 
@@ -121,9 +116,9 @@ Python输入精确保留、参考新增形状`$H`的有限投影是两项明确�
 
 - 算法描述对齐 `id`、`name`、`description`、`category`、`knownOptions`、`supportedFeatures`；选项描述对齐 `id`、`name`、`description`、`group`、`type`、`targets`；类别描述对齐 `knownLayouters` 等字段。
 - 参考实现完整元数据保存为基线快照。Python 查询只返回已实现/已注册范围；结果中不能把参考快照直接当作可用功能列表。
-- 设计公共异常基类 `ELKError`；内部异常类型可区分错误类别，但当前差分profile严格比较公开name/message，不做泛化归一或消息裁剪，不比较工具错误stack。
-- 日志树和时间单位需要兼容；当前比较器严格比较result内日志/计时，没有已批准的差异屏蔽。其他宿主适配须后续独立决策。
-- E02冻结设计边界；Python `None`便利映射为省略，不宣称等同JS null。关闭/并发/取消设计见ADR；E03/E08实现后才能验收。
+- Python 公开错误见 `src/pyelk/_errors.py`：验证错误继承 ValueError，执行错误继承 RuntimeError；保留 code/path/message。Source 错误的 name/message、原生宿主错误映射和已声明差异分别保存，不泛化裁剪或将它们涂成异常完全一致。
+- 日志树与固定生成源的 wall-tick 换算依 ADR0008；strict 原始时长差异保留。专属诊断规则只处理真实诊断树内的计时叶，业务同名字段、日志名称／顺序仍精确比较，不声明两个宿主执行成本相等。
+- Python `None` 的省略便利映射不宣称等同 JS null。关闭／并发／取消／期限／恢复有真实进程见证，范围见公共宿主记录；不能由元数据通过推导生命周期通过。
 
 已观察到锁定 npm 发行物的 bundled/FakeWorker 模式 `terminateWorker()` 抛 `TypeError: this.worker.terminate is not a function`，采集清单保留该结果。不能把 Python 拟定的正常关闭语义写成 JS 已有行为；M1 分别核实 main、bundled、浏览器和真实 Worker，并记录 Python 的适配决策。
 
@@ -131,7 +126,7 @@ Python输入精确保留、参考新增形状`$H`的有限投影是两项明确�
 
 1. 参考工具固定 npm 依赖 `elkjs@0.12.1`，提交锁文件并在 CI 使用可重复安装；Node.js 仅用于开发和参考测试。
 2. 每个样例包含输入、调用参数、构造参数、参考输出、版本/环境及比较等级。保留原始参考 JSON，不覆盖；规范化产物另存。
-3. 对象键顺序不影响JSON语义，数组顺序严格保留。默认strict不适配副作用/私有字段；显式原生profile只采用E02两条冻结规则，并列出每次适配。日志耗时目前也严格比较。
+3. 对象键顺序不影响JSON语义，数组顺序严格保留。默认strict不适配副作用／私有字段；显式原生profile只采用E02两条冻结规则并列出每次适配。诊断计时另按ADR0008专属规则，原始strict时长差异保留。
 4. API/schema：字段、关联、选项覆盖、元数据范围与异常类别验证；支持清单中的测试必须全部通过。
 5. 语义：方向、节点不重叠、间距、端点归属、容器包围盒、正交边段与端口约束验证。允许重叠的选项/模型单独声明，不能套用错误的不变量。
 6. 坐标：对确定性样例比较所有节点、端口、标签、section 点位及尺寸；默认 `abs_tol=1e-6`、`rel_tol=1e-9`，更宽容差必须按算法给出理由和独立状态。

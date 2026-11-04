@@ -266,6 +266,15 @@
         "--root-map",
         "C:/code/py-visactor/py-elk=."
       ]
+    },
+    "advanced-acceptance": {
+      "kind": "python-script",
+      "path": "scripts/iteration/e13_e15_acceptance.py",
+      "arguments": [
+        "--check",
+        "--root-map",
+        "C:/code/py-visactor/py-elk=."
+      ]
     }
   },
   "rules": [
@@ -708,6 +717,25 @@
       "checks": [
         "algorithm-acceptance",
         "full-native-ci"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/e13_e15_acceptance.py",
+        "docs/iterations/E13_E15_ACCEPTANCE.json",
+        "references/full-native-closure/advanced.zip",
+        "references/full-native-closure/advanced.manifest.json",
+        "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json",
+        "references/full-native-closure/branches.zip",
+        "references/full-native-closure/branches.manifest.json",
+        "scripts/iteration/declared_branch_matrix.py",
+        "scripts/advanced_geometry.py",
+        "tests/fixtures/suites/full-option-effects/geometry-contracts/**",
+        "docs/changes/20261104-advanced-geometry-contracts.json",
+        "docs/iterations/FULL_OPTION_ROLES.json"
+      ],
+      "checks": [
+        "advanced-acceptance"
       ]
     }
   ],
