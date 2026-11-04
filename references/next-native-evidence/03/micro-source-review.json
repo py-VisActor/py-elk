@@ -1,0 +1,30 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "NM01-PIPELINE",
+    "NM02-ADAPTERS",
+    "NM03-MARGIN",
+    "NM04-GENERIC-SORT",
+    "NM05-RELATIONS",
+    "NM06-PROPERTY-STATE",
+    "NM07-EXTRA-SCHEMAS"
+  ],
+  "filesSha256": {
+    "references/next-node-micro-sources.json": "26f520fef5334384d6b16a161daa46db9c12c634049220a61730edadf8d2df7e",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "verifiedSpanCount": 23,
+  "notes": [
+    "NM02/05: generic adapter compound is children present OR insideSelfLoops.activate, not layered COMPOUND property. hasCompoundConnections uses strict descendant plus outgoing equal-owner only with insideSelfLoops.yo; incoming does not gain that equal-owner branch.",
+    "NM02/06: position/size getters copy values; generic setMargin/setPadding replace typed property copies unlike layered adapter padding coordinate-copy. OFFSET_PROXY supplies0 without inventing raw explicit presence; mutable cloneable defaults are cached per real owner, while immutable defaults are returned without storing.",
+    "NM04: order-fixed only FIXED_ORDER/FIXED_RATIO/FIXED_POS; generic equal explicit indices fall through to position comparator. Source full-array merge caller schedule may reuse P02S exactly, including nontransitive comparisons; do not substitute generic Python stable sort equivalence. Keep working list sort and preserved raw JSON export order separate.",
+    "NM05: direct-node adjacency then each current ordered port adjacency are concatenated, not deduplicated. Generic node margin additionally visits each port incidence before its node allIncoming/allOutgoing call; preserve repeated source visits/order.",
+    "NM03: all four include flags defaulttrue, edge TAIL outgoing and HEAD incoming are measured at source synthetic label boxes; labels have supplied dimensions, not measured text. Outside port-label required space is sum sizes+gaps starting at negative gap then max0; margins overwrite each side via bounding union.",
+    "NM07: margins Core default is cloneable zero ElkMargin; edgeLabels.placement defaultCENTER enum0/HEAD1/TAIL2 LABEL target; insideSelfLoops.activate NODE and yo EDGE both false. This adds four actual schemas, not243-option registration.",
+    "NM01: exact sorter -> node size process -> margin order; root must call real independently approved A P04A-F modules and persistent session state. Source acceptance is not implementation/provider acceptance.",
+    "Scoped ELK sources retain existing dual-license attribution; GWT merge runtime is reused only under prior P02S approval/Apache notice. Ecore/GWT machinery in relation/property snippets is observational support, not authorization to transplant unrelated runtime."
+  ],
+  "implementationReviewed": false,
+  "algorithmAccepted": false
+}

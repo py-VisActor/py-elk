@@ -1,0 +1,214 @@
+{
+  "schema": "py-elk-e05-independent-component-review/v1",
+  "iteration": "E05",
+  "reviewerLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "reviewedUtc": "2026-11-03T06:29:35.366862+00:00",
+  "reviewedFiles": [
+    {
+      "path": "references/e05-source-components-B.json",
+      "sha256": "f974755acfc694fcaae0fca99d70408d60abae1d8464a21cd095044221b963de"
+    }
+  ],
+  "approvedSourceComponents": [
+    "phase:LAYER_SWEEP_BARYCENTER",
+    "phase:LAYER_SWEEP_GREEDY_SWITCH"
+  ],
+  "approvedComponentSeals": {
+    "phase:LAYER_SWEEP_BARYCENTER": "8e6855856402ae8e18a1a6a71ccde0f3f344fa9262a6e19591e630da9486a8d8",
+    "phase:LAYER_SWEEP_GREEDY_SWITCH": "6ddf422d4178ae3fbe8b36f0066270ff992c4fd96945533ae0037e3a329bed0b"
+  },
+  "canonicalEncoding": {
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "ensure_ascii": true,
+    "encoding": "UTF-8"
+  },
+  "canonicalChecks": {
+    "sources": 2,
+    "spanOccurrences": 446,
+    "functionOffsetOccurrences": 432,
+    "staticCallEdges": 188,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "sourceReasoning": [
+    {
+      "id": "A-LS-STATE",
+      "sourceLines": [
+        53514,
+        53532,
+        53759,
+        53821
+      ],
+      "conclusion": "The flat proper state is a phase input guard. Original<=8 plus the separately accepted NS unit-tight-tree/balance lemma bounds layers<=8, internal nodes<=64, segments<=84, ports<=168. No in-layer, hierarchical, N/S or multi-edge-per-port branch can occur; this does not derive absence from trace membership."
+    },
+    {
+      "id": "A-LS-DISPATCH",
+      "sourceLines": [
+        52507,
+        52532,
+        52702,
+        52725,
+        52965,
+        52981,
+        53106,
+        53125,
+        53201,
+        53224,
+        53895,
+        53914,
+        54542,
+        54569
+      ],
+      "conclusion": "The new bounded prototype callback records anchor active array allocation, node/port IDs, layer IDs, Bary state/rank aliases, counter lists and empty methods. init_0 traversal/after-traversal order remains an implementation obligation. Source dynamic dispatch is explicitly distinguished from lexical callsite coverage."
+    },
+    {
+      "id": "A-LS-MUTABLE-DEFAULT",
+      "sourceLines": [
+        14207,
+        14221,
+        48661,
+        69356,
+        69492,
+        69494,
+        80736,
+        80748,
+        81724,
+        81744,
+        25432,
+        25441
+      ],
+      "conclusion": "ArrayList class13 implements Cloneable4; the exact registered lambda11 clone_2 constructs ArrayList_1 with independent backing array. Property_1 getDefault_0 delegates to $getDefault; $getProperty stores the fresh clone. LayoutOptionData getDefault is separately identified. Empty lists are objects and preserve presence; five observations independently confirm different nodes receive distinct objects and later reads retain identity."
+    },
+    {
+      "id": "A-LS-CONSTRAINTS",
+      "sourceLines": [
+        52818,
+        52955,
+        44088,
+        44108
+      ],
+      "conclusion": "Forster creates actual state/groups and visits successors, but the guarded default empty successors/null layout units/associates and absent N/S layout units yield no constraint edges, so merge bodies are unreachable. GS still reads/materializes successors on actual adjacent-pair decisions. Zero crossing terms are justified from proper edges and side/type guards."
+    },
+    {
+      "id": "A-BA-RANKS",
+      "sourceLines": [
+        53968,
+        54012,
+        54350,
+        54402
+      ],
+      "conclusion": "Both RNG-selected default distributors are required. NodeRelative increments consume one rank per node with source downward INPUT/upward OUTPUT fraction ordering; LayerTotal consumes actual port counts. Zero-rank comparator sentinel, side-specific clockwise ordering and stable ties cannot be replaced by a generic geometric sort."
+    },
+    {
+      "id": "A-BA-FLOAT-RNG",
+      "sourceLines": [
+        52556,
+        52601,
+        52615,
+        52658,
+        53390,
+        53424,
+        53587,
+        53614
+      ],
+      "conclusion": "Barycenter accumulation follows current port then actual edge iteration, applies generated next24 jitter constants before division, and treats nullable barycenter separately from0. First-layer nextDouble and unknown-node fill draws remain real. nextLong/distributor selector/reseed/direction and per-trial state order are retained. No float32 coercion or EPS replacement is authorized."
+    },
+    {
+      "id": "A-BA-TRIALS",
+      "sourceLines": [
+        53390,
+        53424,
+        53587,
+        53614,
+        53702,
+        53716
+      ],
+      "conclusion": "Source saves the currently best node/port order before the next sweep, returns the previous crossing count when improvement stops, and saves whole trial best only on strict improvement. Up to7 tries may retain current state between trials; it cannot assume the first attempt has zero crossings or restore an initial array each try."
+    },
+    {
+      "id": "A-LS-COUNTERS",
+      "sourceLines": [
+        43018,
+        43474,
+        43651,
+        43668
+      ],
+      "conclusion": "The guarded general between-layer count remains a real Fenwick algorithm with counterclockwise port enumeration and source remove/rank/add/end-stack order. GS builds neighbor port positions and ordered adjacency lists, then merges them using current-size/cardinality operations and a lazy matrix. Repeated pair crossings are not replaced by degree products or oracle orders."
+    },
+    {
+      "id": "A-GS-ZERO-TERMS",
+      "sourceLines": [
+        44000,
+        44066,
+        44088,
+        44108
+      ],
+      "conclusion": "NORMAL+LONG_EDGE still calls numberOfNorthSouthEdges; this returns0 because explicit N/S side ranges are empty. The normal/dummy helper is not universally unreachable. In-layer terms are0 from adjacent layers; parent terms are false from flat ownership. The remaining between-layer count is compared strictly, preserving ties."
+    },
+    {
+      "id": "A-GS-DRIVER",
+      "sourceLines": [
+        53545,
+        53556
+      ],
+      "conclusion": "Deterministic always-improves GS consumes saved nextLong and direction bit but neither reseeds nor reads the BARY distributor selector. With preceding NORMAL FIXED_ORDER/LONG_EDGE FIXED_POS, port exchange loops are skipped while actual node pair loops, notifications and swaps remain. Each strict swap lowers the nonnegative bounded global two-sided crossing count; no invented cutoff is needed."
+    },
+    {
+      "id": "A-LS-ORDER-WRITES",
+      "conclusion": "SweepCopy owns independent layer and port arrays retaining node/port identities; one flat graph makes changed-graph set ordering trivial without dropping the set write. Final writeback restores both orders and node IDs. NORMAL side-only constraints become FIXED_ORDER; already fixed dummy positions remain FIXED_POS. No public original JSON array is reordered."
+    },
+    {
+      "id": "A-LS-BOUNDARY",
+      "conclusion": "Approval is for explicit phase input guards and separately bound host semantics. Preceding splitter and subsequent NodeSize/BK/route/import/export remain separate components, and no whole Python DAG support follows from source acceptance. External Java build identity remains unresolved."
+    }
+  ],
+  "actualMutableDefaultChecks": [
+    {
+      "id": "e05-fork-default",
+      "requestSha256": "d930b6f5e3e4e0025aee909946ac3b1be37ae8e1745c97b17461e371e0331ddb",
+      "materializedNodes": 2,
+      "independentPerNodeIdentityAndStableReads": true
+    },
+    {
+      "id": "e05-join-default",
+      "requestSha256": "079f8b33580667c791fc44281ba3b047e4949c23fc092e0532c371a24e8558c8",
+      "materializedNodes": 2,
+      "independentPerNodeIdentityAndStableReads": true
+    },
+    {
+      "id": "e05-diamond-default",
+      "requestSha256": "e9c6058177154b833f04cfbbb53251799adcc49dac084712accc2f27f5813e5c",
+      "materializedNodes": 2,
+      "independentPerNodeIdentityAndStableReads": true
+    },
+    {
+      "id": "e05-skip-two-dummies",
+      "requestSha256": "a5633fb96e2745759fb4c59df01b577b9a131dc6ab34f2328a8a5493bf11fd32",
+      "materializedNodes": 4,
+      "independentPerNodeIdentityAndStableReads": true
+    },
+    {
+      "id": "control-chain",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "materializedNodes": 0,
+      "independentPerNodeIdentityAndStableReads": true
+    }
+  ],
+  "dependency": {
+    "componentId": "phase:NETWORK_SIMPLEX",
+    "canonicalComponentSha256": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292",
+    "basis": "Previously accepted A NS-G4/G6 source proof; direct phase state guards remain required."
+  },
+  "remainingBlockingFindings": [],
+  "runtimeAcceptanceAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "limitations": [
+    "Independent manual source/def-use review; static binding validation is not an automated mathematical equivalence proof.",
+    "Finite real observations corroborate mutable default and RNG/driver behavior and do not prove all proper DAGs.",
+    "Root alone authorizes mechanical port from this component acceptance."
+  ]
+}

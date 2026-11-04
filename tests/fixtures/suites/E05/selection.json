@@ -1,0 +1,516 @@
+{
+  "schema": "py-elk-slice-selection/v1",
+  "iteration": "E05",
+  "policy": "flat-right-connected-dag-inputs/proposed-v1",
+  "limits": {
+    "maxChildren": 8,
+    "maxGeometryValue": 1000000
+  },
+  "status": "INPUTS_PREPARED",
+  "supportStatus": "PROPOSED_SOURCE_GUARDS_PENDING",
+  "algorithmSourceGate": "unverified-for-E05-expansion",
+  "master": {
+    "path": "tests/fixtures/validation/cases.json",
+    "sha256": "73237f14b3753ff4feaff8866ea0cfbcdb39e5b269a31917486a16fda34875cc",
+    "caseCount": 25
+  },
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "masterCases": [
+    {
+      "id": "layered-empty",
+      "originalRequest": "requests/layered-empty.json",
+      "originalRequestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-empty.json"
+    },
+    {
+      "id": "layered-singleton",
+      "originalRequest": "requests/layered-singleton.json",
+      "originalRequestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-singleton.json"
+    },
+    {
+      "id": "layered-chain",
+      "originalRequest": "requests/layered-chain.json",
+      "originalRequestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-chain.json"
+    },
+    {
+      "id": "layered-fork",
+      "originalRequest": "requests/layered-fork.json",
+      "originalRequestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-fork.json"
+    },
+    {
+      "id": "layered-join",
+      "originalRequest": "requests/layered-join.json",
+      "originalRequestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-join.json"
+    },
+    {
+      "id": "layered-diamond-right",
+      "originalRequest": "requests/layered-diamond-right.json",
+      "originalRequestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-diamond-right.json"
+    },
+    {
+      "id": "layered-diamond-left",
+      "originalRequest": "requests/layered-diamond-left.json",
+      "originalRequestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "LEFT"
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-down",
+      "originalRequest": "requests/layered-diamond-down.json",
+      "originalRequestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "DOWN"
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-up",
+      "originalRequest": "requests/layered-diamond-up.json",
+      "originalRequestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "UP"
+        }
+      ]
+    },
+    {
+      "id": "layered-long-edge",
+      "originalRequest": "requests/layered-long-edge.json",
+      "originalRequestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-long-edge.json"
+    },
+    {
+      "id": "layered-cycle",
+      "originalRequest": "requests/layered-cycle.json",
+      "originalRequestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "cyclic-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-self-loop",
+      "originalRequest": "requests/layered-self-loop.json",
+      "originalRequestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "parallel-or-self-edge",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cyclic-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-parallel-edges",
+      "originalRequest": "requests/layered-parallel-edges.json",
+      "originalRequestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "parallel-or-self-edge",
+          "path": "/graph/edges",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-disconnected",
+      "originalRequest": "requests/layered-disconnected.json",
+      "originalRequestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "disconnected-topology",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "originalRequest": "requests/layered-unequal-sizes.json",
+      "originalRequestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-unequal-sizes.json"
+    },
+    {
+      "id": "layered-zero-size",
+      "originalRequest": "requests/layered-zero-size.json",
+      "originalRequestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-zero-size.json"
+    },
+    {
+      "id": "layered-custom-spacing",
+      "originalRequest": "requests/layered-custom-spacing.json",
+      "originalRequestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-custom-spacing.json"
+    },
+    {
+      "id": "layered-unseparated-components",
+      "originalRequest": "requests/layered-unseparated-components.json",
+      "originalRequestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "component-mode-outside-slice",
+          "path": "",
+          "detail": ""
+        },
+        {
+          "code": "disconnected-topology",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "options-constructor-default",
+      "originalRequest": "requests/options-constructor-default.json",
+      "originalRequestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "DOWN"
+        }
+      ]
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "originalRequest": "requests/options-explicit-empty-replaces-default.json",
+      "originalRequestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-explicit-empty-replaces-default.json"
+    },
+    {
+      "id": "options-call-replaces-default",
+      "originalRequest": "requests/options-call-replaces-default.json",
+      "originalRequestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "LEFT"
+        }
+      ]
+    },
+    {
+      "id": "options-full-ids",
+      "originalRequest": "requests/options-full-ids.json",
+      "originalRequestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-full-ids.json"
+    },
+    {
+      "id": "error-unknown-endpoint",
+      "originalRequest": "requests/error-unknown-endpoint.json",
+      "originalRequestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E05 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/edges/0/targets/0",
+          "detail": "UNKNOWN_ENDPOINT at /edges/0/targets/0: Referenced node or port does not exist"
+        }
+      ]
+    },
+    {
+      "id": "error-unknown-algorithm",
+      "originalRequest": "requests/error-unknown-algorithm.json",
+      "originalRequestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E05 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/local/elk.algorithm",
+          "detail": "UNSUPPORTED_OPTION at /local/elk.algorithm: This slice parses layered selection only"
+        }
+      ]
+    },
+    {
+      "id": "error-missing-graph",
+      "originalRequest": "requests/error-missing-graph.json",
+      "originalRequestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E05 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "",
+          "detail": "INVALID_GRAPH at /: Graph root must be a mapping"
+        }
+      ]
+    }
+  ],
+  "selectedMasterCases": 12,
+  "excludedMasterCases": 13,
+  "projectVariants": [
+    {
+      "id": "e05-fork-default",
+      "request": "requests/project/e05-fork-default.json",
+      "requestSha256": "d930b6f5e3e4e0025aee909946ac3b1be37ae8e1745c97b17461e371e0331ddb",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-join-default",
+      "request": "requests/project/e05-join-default.json",
+      "requestSha256": "079f8b33580667c791fc44281ba3b047e4949c23fc092e0532c371a24e8558c8",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-default",
+      "request": "requests/project/e05-diamond-default.json",
+      "requestSha256": "e9c6058177154b833f04cfbbb53251799adcc49dac084712accc2f27f5813e5c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-skip-one-dummy",
+      "request": "requests/project/e05-skip-one-dummy.json",
+      "requestSha256": "9681ebe9c74ad293cb2580b15971b741f9f1a093afe6ad37b2220e86a7e8674d",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-skip-two-dummies",
+      "request": "requests/project/e05-skip-two-dummies.json",
+      "requestSha256": "a5633fb96e2745759fb4c59df01b577b9a131dc6ab34f2328a8a5493bf11fd32",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-skip-four-dummies",
+      "request": "requests/project/e05-skip-four-dummies.json",
+      "requestSha256": "50608a3b18e0cffadf29d55dd1e8ac57a7e2aff3b09ff8fc29aca0c5e26f79ed",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-multiple-skip-six",
+      "request": "requests/project/e05-multiple-skip-six.json",
+      "requestSha256": "a621c4d6d505f4781b5c822b1b2db168e3a5bc125a6feaa7d583d0f3d1819d2e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-fanout-four",
+      "request": "requests/project/e05-fanout-four.json",
+      "requestSha256": "e3ab41a0caaabbc16ce2c39627873b1263338166912d1325d54fc494e0f3b9e9",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-fanin-four",
+      "request": "requests/project/e05-fanin-four.json",
+      "requestSha256": "20d11e5920b63225dacf0ddc8b0e2701e5d4423daab6348426f70607900ab772",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-two-source-five",
+      "request": "requests/project/e05-two-source-five.json",
+      "requestSha256": "96b80c67efa44e5cd1c8a952bc1583c99d9a0008a3902fa5ff0406b58557ee0e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-two-sink-five",
+      "request": "requests/project/e05-two-sink-five.json",
+      "requestSha256": "584ed9e8c8cb58193fa74352e3f0ee48374d10994b45608cde106011de5400b5",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-crossing-six",
+      "request": "requests/project/e05-crossing-six.json",
+      "requestSha256": "19269714c8a1ac4617eb75f53b5ab0f34526ac1423e0d907a44a4601662fa377",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-unequal",
+      "request": "requests/project/e05-diamond-unequal.json",
+      "requestSha256": "598ff5ad13a08cf59ac305eee5f96fcf6247bfcbc278d92f649e30c6b83a5753",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-fork-zero",
+      "request": "requests/project/e05-fork-zero.json",
+      "requestSha256": "6be8cd2d7d72581c4eb8d37e966bd86b2065ca8be3cd6110de77b502bb572a67",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-join-mixed-zero",
+      "request": "requests/project/e05-join-mixed-zero.json",
+      "requestSha256": "1de879e5845bfb53ca82cc66fdcda9007b1e9060ba443428d625f7a49668a8fa",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-decimal",
+      "request": "requests/project/e05-diamond-decimal.json",
+      "requestSha256": "9429bab0886f599f834df114bdc354aae0764e38f1a578fe74beeb0e5712b959",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-long-edge-decimal",
+      "request": "requests/project/e05-long-edge-decimal.json",
+      "requestSha256": "ceb2a109656ccd1edd27da284f24d0cc4af95a7799f5b27670801493d1ce623c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-node-order",
+      "request": "requests/project/e05-diamond-node-order.json",
+      "requestSha256": "6050981c99b18e04f4048f61190d08143251c4c80ab1c81e5da7e705645fd453",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-edge-order",
+      "request": "requests/project/e05-diamond-edge-order.json",
+      "requestSha256": "05d1b6c5867758369a09f382873d7d523ebd3341ba57905833991a53ac7d8f7f",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-multiskip-permuted-eight",
+      "request": "requests/project/e05-multiskip-permuted-eight.json",
+      "requestSha256": "5d8cd33d005828ee7141fd8dbe802d03858cfc5e67e83890da7713d3e5809f24",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-seed17",
+      "request": "requests/project/e05-diamond-seed17.json",
+      "requestSha256": "cc7724fe8048bb0d838c888d9c5515db98c57669aa3e9a9884260a6c083cf197",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-seed-negative17",
+      "request": "requests/project/e05-diamond-seed-negative17.json",
+      "requestSha256": "a2ed823d8cfd6547aa97760ccb9e9de0e58ec14d59676a7a9564d64df373617d",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-fork-custom-spacing",
+      "request": "requests/project/e05-fork-custom-spacing.json",
+      "requestSha256": "abb1ddbed2ccfee859e9ae9358e382758906522264474814e9e4d0433b9bd8af",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e05-diamond-option-precedence",
+      "request": "requests/project/e05-diamond-option-precedence.json",
+      "requestSha256": "ba793bf62539d9ad0348388884446f23537acfac5ad9dba0c3b61b8033d91e7d",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    }
+  ],
+  "projectVariantCount": 24,
+  "suiteCaseCount": 36,
+  "pythonAlgorithmsVerified": 0,
+  "oracleStatus": "CAPTURE_SEPARATELY",
+  "limitation": "Proposed input membership and bytes only; source guards are not frozen and no candidate, algorithm or geometry acceptance is established."
+}

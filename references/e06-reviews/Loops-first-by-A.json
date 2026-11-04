@@ -1,0 +1,134 @@
+{
+  "schema": "py-elk-e06-independent-source-review/v1",
+  "reviewerLane": "A",
+  "ownerLane": "B",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "sourceDocument": {
+    "path": "references/e06-source-components-B.json",
+    "sha256": "07e4c7a2b741fd005328da191d75865f8d63da609af7b214d960bfdee85ef8d8"
+  },
+  "components": [
+    {
+      "componentId": "intermediate:SelfLoopPreProcessor",
+      "canonicalComponentSha256": "31cad7907ecc44dab6d27a5fd6723f6642dd7ad02611527a4ad04a7e7412f383",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumRawEdges": 28,
+        "model": "flat single-component graph; NORMAL origin nodes; only default implicit one-edge-per-port; no public ports/labels/inside loops/compound hierarchy",
+        "defaultRouting": "ORTHOGONAL",
+        "defaultDistribution": "NORTH",
+        "defaultOrdering": "STACKED",
+        "defaultOriginalPortConstraints": "FREE",
+        "scopeStatus": "proposed guards; root public admission remains E05 until full E06 gate"
+      },
+      "independentChecks": [
+        "Read process49, NORMAL/outgoing self-loop predicate, holder initialization, identity-map port insertion, source-first BFS, one-edge HashSet and setter callbacks against canonical worker.",
+        "Distinct implicit source/target ports are an explicit component input guard. One-edge hyperloop follows because no two raw edges share a port; the importer/default-unmerged proof remains an external whole-pipeline prerequisite.",
+        "Initialization completes before source-null then target-null detach; hadOnlySelfLoops is evaluated before detach. hidePorts runs afterwards and removes same original ports only; private wrappers allocate no LNode/LPort.",
+        "Bounded prototype span now proves slLabels=null, holder hidden=false and port hidden=false. The no-label loop remains actually empty; no universal no-op label claim."
+      ]
+    },
+    {
+      "componentId": "intermediate:SelfLoopPostProcessor",
+      "canonicalComponentSha256": "7a2c04c94f760b60253d0a29f71d44bf1f195e23774581cf56e71e8a2549a629",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumRawEdges": 28,
+        "model": "flat single-component graph; NORMAL origin nodes; only default implicit one-edge-per-port; no public ports/labels/inside loops/compound hierarchy",
+        "defaultRouting": "ORTHOGONAL",
+        "defaultDistribution": "NORTH",
+        "defaultOrdering": "STACKED",
+        "defaultOriginalPortConstraints": "FREE",
+        "scopeStatus": "proposed guards; root public admission remains E05 until full E06 gate"
+      },
+      "independentChecks": [
+        "Read actual layered flatten/NORMAL/hasProperty filters and callbacks, then wrapper-order edge restoration. Source endpoint setter precedes target setter; original origin and port geometry stay unchanged.",
+        "offset_2 mutates each existing bend x then y by actual node.pos in traversal order, preserving f64 operations; neither junctions nor port geometry are reversed.",
+        "Prototype slLabels=null and no-label addSelfLoopEdge path close test54; missing holder is not guessed and LONG_EDGE nodes do not enter."
+      ]
+    },
+    {
+      "componentId": "intermediate:SelfLoopPortRestorer",
+      "canonicalComponentSha256": "697a4a18fb156c00093fb84f31d4e0ecbe2129bf37a89cb9da6070dfcd91cdf9",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumRawEdges": 28,
+        "model": "flat single-component graph; NORMAL origin nodes; only default implicit one-edge-per-port; no public ports/labels/inside loops/compound hierarchy",
+        "defaultRouting": "ORTHOGONAL",
+        "defaultDistribution": "NORTH",
+        "defaultOrdering": "STACKED",
+        "defaultOriginalPortConstraints": "FREE",
+        "scopeStatus": "proposed guards; root public admission remains E05 until full E06 gate"
+      },
+      "independentChecks": [
+        "Read process47/ordinal FREE fallthrough, default NORTH/STACKED values, port-side assignment and explicit-anchor default; side write resets real anchor to size.x/2,0 and has no owner/cache invalidation.",
+        "For one-edge hyperloop, exact flow source=-1,target=+1, stable sort and literal split-index return1; both reverse-copy halves have length1. Prepending source and appending target gives nested North block in original holder order.",
+        "Read complete side/area recompose, setNode append, hidden reset and temporary null cleanup. Old nonloop E/W order preserved, same original objects restored, outgoing/incoming loop edge pointers still detached.",
+        "Actual 5x3 fresh lists and ordered loop groups are per invocation; stale side-index cache and FIXED_SIDE/FIXED_ORDER remain untouched. No general shared-port/other-side/order support follows."
+      ]
+    }
+  ],
+  "canonicalBinding": {
+    "sources": 2,
+    "spanOccurrences": 378,
+    "functionOffsetOccurrences": 360,
+    "staticCallEdges": 141,
+    "claim": "Source identity/LF spans/UTF16 functions/static callsites checked over whole current document, not dynamic reachability or automatic mathematical equivalence."
+  },
+  "hostMappings": "All referenced artifact bytes match SHA and JSON pointers resolve. Ordered identity graph setters, per-call wrappers/lists/FIFO and one-element HashSet guard were independently checked; E05 DAG topology is not inherited.",
+  "license": {
+    "sourceSpdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "fixedGeneratedWorkerIsActualPortSource": true,
+    "exactExternalJavaBuildVerified": false,
+    "projectDistributionLicenseResolved": false
+  },
+  "findings": [
+    {
+      "id": "B-SOURCE-PROTOTYPE-NULL",
+      "severity": "source-binding-gap",
+      "status": "resolved",
+      "initialDocumentSha256": "642509c1c994e0f0626a5464bf8ede94d6c78d92544d4cb47edadd05a85a273c",
+      "description": "No initial span covered SelfHyperLoop.slLabels prototype null despite label branches depending on it. Current relevant components bind defineClass108/prototype44217-20; Restorer cache/anchor semantics corrected without changing admitted behavior."
+    }
+  ],
+  "externalPrerequisites": [
+    "Importer must prove per-original-edge two fresh implicit ports and original FREE constraint copy, via separately approved E06 source; this review does not authorize importer.",
+    "Root dispatch must place Pre before GREEDY, Restorer after both LayerSweeps, Router after NodeSize/margin and Post after ordinary ORTHO/LongEdgeJoiner. Router remains independently under review.",
+    "Only default FREE/NORTH/STACKED/ORTHOGONAL, no labels/public ports/merge/hierarchy, original nodes<=8 and total original edges<=28."
+  ],
+  "limits": {
+    "runtimeVerified": false,
+    "wholeE06SourceGateAccepted": false,
+    "fullAlgorithmAccepted": false,
+    "reviewDoesNotWriteProduction": true
+  },
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-prepost-02.command.json",
+      "sha256": "b99bdfa45f89c706ba9b5349e0fc487e192f599c958c6bbe2983655e49f8c12d"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-prepost-02.stdout.log",
+      "sha256": "d3178228112d2630958df18dea68a582ab35cc56fe99b99442eb114b7eb3e5a2"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-restorer-01.command.json",
+      "sha256": "f3be76a49d86e429de0b069b4bebae3c8c1d36d52a44a5e371e593b2c1cf75e6"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-restorer-01.stdout.log",
+      "sha256": "8934b9a45b153aa5aac65e8b78ade56473f9be9766508def4cb4a27ba3dd7e8a"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/B-loop-canonical-independent-02.command.json",
+      "sha256": "f2b7b4c1c1b2af622029793c063514348b4f3acb2e99ea8e421733cd32b5b0e5"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/B-loop-canonical-independent-02.stdout.log",
+      "sha256": "26e6ef33d70d4a5133ab66bf1e83c58f5d479f31b3bf49077c1a5c83ecbbb3be"
+    }
+  ]
+}

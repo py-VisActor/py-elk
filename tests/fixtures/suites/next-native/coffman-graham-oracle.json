@@ -1,0 +1,414 @@
+{
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "c4fa741d60cffd4045e882c25783b5948fee58760ba979247fc688adbecfc0af",
+  "requestSha256": "e6882df4b8eae45b659b8ad072af45e6d17ad6ac5dc8b25c5eee9bb5ff6b0d12",
+  "pid": 38736,
+  "parentPid": 42416,
+  "node": "v24.19.0",
+  "value": {
+    "comparators": [
+      {
+        "name": "empty",
+        "value": -1,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      },
+      {
+        "name": "empty-vs-nonempty",
+        "value": -1,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      },
+      {
+        "name": "shared-small127",
+        "value": 1,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      },
+      {
+        "name": "fresh-large128",
+        "value": 0,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      },
+      {
+        "name": "same-object-large128",
+        "value": 1,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      },
+      {
+        "name": "equal-last-prefix",
+        "value": 1,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      },
+      {
+        "name": "differing-payload",
+        "value": -1,
+        "scope": "Instrumented private inTopo objects, not an ordinary layout request."
+      }
+    ],
+    "cases": [
+      {
+        "width": 2,
+        "layers": [
+          [
+            "a",
+            "h"
+          ],
+          [
+            "c",
+            "b"
+          ],
+          [
+            "d",
+            "f"
+          ],
+          [
+            "e"
+          ],
+          [
+            "g"
+          ]
+        ],
+        "nodes": [
+          {
+            "name": "h",
+            "id": 0,
+            "layer": 0
+          },
+          {
+            "name": "e",
+            "id": 1,
+            "layer": 3
+          },
+          {
+            "name": "a",
+            "id": 2,
+            "layer": 0
+          },
+          {
+            "name": "d",
+            "id": 3,
+            "layer": 2
+          },
+          {
+            "name": "g",
+            "id": 4,
+            "layer": 4
+          },
+          {
+            "name": "b",
+            "id": 5,
+            "layer": 1
+          },
+          {
+            "name": "f",
+            "id": 6,
+            "layer": 2
+          },
+          {
+            "name": "c",
+            "id": 7,
+            "layer": 1
+          }
+        ],
+        "edgeIds": [
+          1,
+          2,
+          6,
+          9,
+          5,
+          7,
+          3,
+          10,
+          8,
+          0,
+          4
+        ],
+        "nodeMark": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true,
+          false
+        ],
+        "edgeMark": [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "inDegree": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outDegree": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "topologicalOrder": [
+          0,
+          6,
+          1,
+          5,
+          7,
+          2,
+          4,
+          3
+        ],
+        "sameLayers": true,
+        "sameLayerless": true,
+        "layerlessCount": 0,
+        "sameInTopoMap": true,
+        "monitor": {
+          "name": "Coffman-Graham Layering",
+          "running": false,
+          "closed": true
+        },
+        "rawConfiguration": [
+          [
+            {
+              "name": "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER",
+              "ordinal": 2
+            }
+          ],
+          [
+            {
+              "name": "LAYER_CONSTRAINT_PREPROCESSOR",
+              "ordinal": 7
+            }
+          ],
+          [
+            {
+              "name": "LAYER_CONSTRAINT_POSTPROCESSOR",
+              "ordinal": 11
+            }
+          ]
+        ],
+        "configurationByOrdinal": [
+          [
+            "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+          ],
+          [
+            "LAYER_CONSTRAINT_PREPROCESSOR"
+          ],
+          [
+            "LAYER_CONSTRAINT_POSTPROCESSOR"
+          ]
+        ]
+      },
+      {
+        "width": 0,
+        "layers": [
+          [
+            "h"
+          ],
+          [
+            "a"
+          ],
+          [
+            "b"
+          ],
+          [
+            "c"
+          ],
+          [
+            "f"
+          ],
+          [
+            "d"
+          ],
+          [
+            "e"
+          ],
+          [
+            "g"
+          ],
+          []
+        ],
+        "nodes": [
+          {
+            "name": "h",
+            "id": 0,
+            "layer": 0
+          },
+          {
+            "name": "e",
+            "id": 1,
+            "layer": 6
+          },
+          {
+            "name": "a",
+            "id": 2,
+            "layer": 1
+          },
+          {
+            "name": "d",
+            "id": 3,
+            "layer": 5
+          },
+          {
+            "name": "g",
+            "id": 4,
+            "layer": 7
+          },
+          {
+            "name": "b",
+            "id": 5,
+            "layer": 2
+          },
+          {
+            "name": "f",
+            "id": 6,
+            "layer": 4
+          },
+          {
+            "name": "c",
+            "id": 7,
+            "layer": 3
+          }
+        ],
+        "edgeIds": [
+          1,
+          2,
+          6,
+          9,
+          5,
+          7,
+          3,
+          10,
+          8,
+          0,
+          4
+        ],
+        "nodeMark": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true,
+          false
+        ],
+        "edgeMark": [
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false,
+          true,
+          false,
+          false,
+          false
+        ],
+        "inDegree": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "outDegree": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "topologicalOrder": [
+          0,
+          6,
+          1,
+          5,
+          7,
+          2,
+          4,
+          3
+        ],
+        "sameLayers": true,
+        "sameLayerless": true,
+        "layerlessCount": 0,
+        "sameInTopoMap": true,
+        "monitor": {
+          "name": "Coffman-Graham Layering",
+          "running": false,
+          "closed": true
+        },
+        "rawConfiguration": [
+          [
+            {
+              "name": "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER",
+              "ordinal": 2
+            }
+          ],
+          [
+            {
+              "name": "LAYER_CONSTRAINT_PREPROCESSOR",
+              "ordinal": 7
+            }
+          ],
+          [
+            {
+              "name": "LAYER_CONSTRAINT_POSTPROCESSOR",
+              "ordinal": 11
+            }
+          ]
+        ],
+        "configurationByOrdinal": [
+          [
+            "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+          ],
+          [
+            "LAYER_CONSTRAINT_PREPROCESSOR"
+          ],
+          [
+            "LAYER_CONSTRAINT_POSTPROCESSOR"
+          ]
+        ]
+      }
+    ],
+    "empty": {
+      "optionReads": 0,
+      "oldArraysRetained": true,
+      "sameInTopoMap": true,
+      "layerCount": 0,
+      "monitor": {
+        "name": "Coffman-Graham Layering",
+        "running": false,
+        "closed": true
+      },
+      "sameClassConfiguration": true
+    }
+  },
+  "ordinaryCasesScope": "Actual CoffmanGrahamLayerer.process DAG with two widths and sameownerempty; phase objects, no public caller.",
+  "comparatorScope": "Separately instrumented real private inTopo boxed identity boundaries; no ordinary graph limit or full Integer runtime claim.",
+  "layoutExecuted": false,
+  "nativeExecuted": false
+}

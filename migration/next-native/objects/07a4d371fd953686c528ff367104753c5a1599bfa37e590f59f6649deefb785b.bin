@@ -1,0 +1,78 @@
+"""Lossless JSON-value copies for internal model/configuration ownership."""
+from collections.abc import Mapping
+import math
+
+from ._errors import ValidationError
+
+
+def pointer(path: str, key: str | int) -> str:
+    """Append one escaped RFC 6901 component; the document root is ''."""
+    escaped = str(key).replace("~", "~0").replace("/", "~1")
+    return path + "/" + escaped
+
+
+def clone_json(value, *, path: str = "", error_type=ValidationError):
+    """Copy JSON-compatible mappings/lists without coercion or shared children.
+
+    Mapping is a host convenience. Tuples, arbitrary objects, non-string keys,
+    cycles and nonfinite floats are rejected, including inside business data.
+    Repeated references that do not form a cycle are copied independently.
+    """
+    active = set()
+
+    def visit(item, where):
+        if item is None or type(item) in (str, bool, int):
+            return item
+        if type(item) is float:
+            if not math.isfinite(item):
+                raise error_type("INVALID_JSON", where, "JSON numbers must be finite")
+            return item
+        if isinstance(item, Mapping) or type(item) is list:
+            identity = id(item)
+            if identity in active:
+                raise error_type("INVALID_JSON", where, "JSON cannot contain a cycle")
+            active.add(identity)
+            try:
+                if isinstance(item, Mapping):
+                    result = {}
+                    for key, child in item.items():
+                        if type(key) is not str:
+                            raise error_type("INVALID_JSON", where, "JSON object keys must be strings")
+                        result[key] = visit(child, pointer(where, key))
+                    return result
+                return [visit(child, pointer(where, index)) for index, child in enumerate(item)]
+            finally:
+                active.remove(identity)
+        raise error_type("INVALID_JSON", where, "Expected a JSON value")
+
+    return visit(value, path)
+
+
+def finite_number(value, *, path: str, nonnegative: bool = False, error_type=ValidationError):
+    """Check a geometry number without accepting bool or coercing strings."""
+    try:
+        finite = type(value) in (int, float) and math.isfinite(value)
+    except OverflowError:
+        finite = False
+    if not finite or (nonnegative and value < 0):
+        description = "finite nonnegative number" if nonnegative else "finite number"
+        raise error_type("INVALID_NUMBER", path, "Expected a " + description)
+    return value
+
+
+def json_wire(value):
+    """Clone final JSON output using the reference JSON.stringify number rule.
+
+    Original JSONNumber retains NaN/infinities internally. The reference wire
+    turns those generated numbers into null. Input validation and algorithm
+    arithmetic retain their separate rules; this helper never changes them.
+    """
+    if type(value) is float:
+        return value if math.isfinite(value) else None
+    if value is None or type(value) in (str,int,bool):
+        return value
+    if type(value) is list:
+        return [json_wire(item) for item in value]
+    if type(value) is dict:
+        return {key:json_wire(item) for key,item in value.items()}
+    raise ValueError('Non-JSON value at final output boundary')

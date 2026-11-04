@@ -1,0 +1,600 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "P3 costs, P4 numerical settings and routing effects; no effect is inferred merely from a whole-output match",
+  "cases": [
+    {
+      "id": "p4-bk-base",
+      "request": "requests/p4-bk-base.json",
+      "requestSha256": "b565f7a0062f3c5368da9c50470e2bc89f0369ba4ddfd9fa655e75d3e87c3218",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p4-bk-alignment",
+      "request": "requests/p4-bk-alignment.json",
+      "requestSha256": "7d6363c049d32e2edca0d5fc108e8bb150bf479756295e21c852cd11fd9092b2",
+      "baseline": "p4-bk-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "A controlled P4 setting changes computed node coordinates or dimensions on a mixed-size shared-port DAG"
+        }
+      ]
+    },
+    {
+      "id": "p4-bk-straightening",
+      "request": "requests/p4-bk-straightening.json",
+      "requestSha256": "2f4976daf9bed5a374cc482d997dd868de02a2ac42770b025ae69d322903a265",
+      "baseline": "p4-bk-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "A controlled P4 setting changes computed node coordinates or dimensions on a mixed-size shared-port DAG"
+        }
+      ]
+    },
+    {
+      "id": "p4-favor-straight",
+      "request": "requests/p4-favor-straight.json",
+      "requestSha256": "39a16a6e93cf590abebd612ed47bce4169f503df6088a556d910cd1e310efb17",
+      "baseline": "p4-bk-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.favorStraightEdges",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "A controlled P4 setting changes computed node coordinates or dimensions on a mixed-size shared-port DAG"
+        }
+      ]
+    },
+    {
+      "id": "p4-strategy",
+      "request": "requests/p4-strategy.json",
+      "requestSha256": "72cd2887760a0bca4768698df62fff0b8f74250c15ca928c0c59665aa504a056",
+      "baseline": "p4-bk-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "A controlled P4 setting changes computed node coordinates or dimensions on a mixed-size shared-port DAG"
+        }
+      ]
+    },
+    {
+      "id": "p4-linear-base",
+      "request": "requests/p4-linear-base.json",
+      "requestSha256": "52aa81d9c03e97997baa3db5e976f65130f4370fe16c029028dc93186c3929b0",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p4-linear-dampening",
+      "request": "requests/p4-linear-dampening.json",
+      "requestSha256": "b643cdbce77fdaf58bfcb775338d410afcfaa20b6e808e9050d94992deed592b",
+      "baseline": "p4-linear-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.linearSegments.deflectionDampening",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "Dampening changes the computed pendulum/segment placement"
+        }
+      ]
+    },
+    {
+      "id": "p4-ns-base",
+      "request": "requests/p4-ns-base.json",
+      "requestSha256": "a5aac7e9b67fee68b353902d0e1da78cb4e04527a7b33498c1d7246b5927ffd3",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p4-ns-default-flex",
+      "request": "requests/p4-ns-default-flex.json",
+      "requestSha256": "3a34e376461ea557c67d4408668184eba4b90e061ef54b77da53c4d5617a8b93",
+      "baseline": "p4-ns-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.default",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "Selected NS flexibility or a real replacement placement changes computed coordinates/dimensions"
+        }
+      ]
+    },
+    {
+      "id": "p4-ns-recompute",
+      "request": "requests/p4-ns-recompute.json",
+      "requestSha256": "927dc8a1974ec53be029ddab70d301edc2fe2df4dcdede3c1caba7745fd5e4c8",
+      "baseline": "p4-ns-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility.recomputeNodePlacement",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "Selected NS flexibility or a real replacement placement changes computed coordinates/dimensions"
+        }
+      ]
+    },
+    {
+      "id": "p4-ns-local-flex",
+      "request": "requests/p4-ns-local-flex.json",
+      "requestSha256": "7cb5ab7d7b02e3370c41f31f093d6fd68ded07a614f2b19e1fa090e57f9db0bf",
+      "baseline": "p4-ns-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.networkSimplex.nodeFlexibility",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height",
+            "/result/children/4/ports/0/y",
+            "/result/children/4/ports/1/y"
+          ],
+          "claim": "Node-local NODE_SIZE flexibility changes its actual WEST/EAST port y from25.5/25.5 to20/0; node boxes need not change"
+        }
+      ]
+    },
+    {
+      "id": "p3-node-cost-base",
+      "request": "requests/p3-node-cost-base.json",
+      "requestSha256": "a3de894188a7441943cae16b83192e076555a57a1fdaa62c08a56695fd6af232",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p3-node-influence",
+      "request": "requests/p3-node-influence.json",
+      "requestSha256": "c19b6ce619cb1d39b86e26e18da7152339574b5764313be9d4e3318961ba9cfd",
+      "baseline": "p3-node-cost-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.crossingCounterNodeInfluence",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y"
+          ],
+          "claim": "The model-order cost or forced-order policy changes actual sibling order, observed through coordinates"
+        }
+      ]
+    },
+    {
+      "id": "p3-force-order",
+      "request": "requests/p3-force-order.json",
+      "requestSha256": "c4f4305996e9be4b53379f7b28a66449cf275d9438010f00ae5e73a8f545a551",
+      "baseline": "p3-node-cost-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.crossingMinimization.forceNodeModelOrder",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y"
+          ],
+          "claim": "The model-order cost or forced-order policy changes actual sibling order, observed through coordinates"
+        }
+      ]
+    },
+    {
+      "id": "p3-port-cost-base",
+      "request": "requests/p3-port-cost-base.json",
+      "requestSha256": "6d6a485aca3a72be087db455919e0327ac49a0220e175354f8b7e1c154150de1",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p3-port-influence",
+      "request": "requests/p3-port-influence.json",
+      "requestSha256": "0997ffd60d51529f67bd102a3de4231553adfbf7c94947024479498fcbefbfc9",
+      "baseline": "p3-port-cost-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.crossingCounterPortInfluence",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/ports/0/x",
+            "/result/children/0/ports/0/y",
+            "/result/children/0/ports/1/x",
+            "/result/children/0/ports/1/y",
+            "/result/children/0/ports/2/x",
+            "/result/children/0/ports/2/y",
+            "/result/children/1/ports/0/x",
+            "/result/children/1/ports/0/y",
+            "/result/children/1/ports/1/x",
+            "/result/children/1/ports/1/y",
+            "/result/children/1/ports/2/x",
+            "/result/children/1/ports/2/y"
+          ],
+          "claim": "Port-order cost changes actual ordered port coordinates"
+        }
+      ]
+    },
+    {
+      "id": "spline-mode-base",
+      "request": "requests/spline-mode-base.json",
+      "requestSha256": "6624794dee7ec974d850efa3b9b4bb2b11b4d3208276bf1b7b82e65935c147a2",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "spline-conservative",
+      "request": "requests/spline-conservative.json",
+      "requestSha256": "627b76c5a0603498d72a0c4e570df3758fae19577965c302752159d99ef0036c",
+      "baseline": "spline-mode-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.edgeRouting.splines.mode",
+          "kind": "changed",
+          "pointers": [
+            "/result/edges/0/sections",
+            "/result/edges/1/sections",
+            "/result/edges/2/sections",
+            "/result/edges/3/sections",
+            "/result/edges/4/sections",
+            "/result/edges/5/sections",
+            "/result/edges/6/sections",
+            "/result/edges/7/sections",
+            "/result/edges/8/sections",
+            "/result/edges/9/sections",
+            "/result/edges/10/sections",
+            "/result/edges/11/sections"
+          ],
+          "claim": "The selected spline mode or sloppy spacing changes the actual computed control-point chain"
+        }
+      ]
+    },
+    {
+      "id": "spline-sloppy-spacing",
+      "request": "requests/spline-sloppy-spacing.json",
+      "requestSha256": "fc299375a8da613907bea82e9a6f1a44738b6135c65946085527ddc980004da3",
+      "baseline": "spline-mode-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.edgeRouting.splines.sloppy.layerSpacingFactor",
+          "kind": "changed",
+          "pointers": [
+            "/result/edges/0/sections",
+            "/result/edges/1/sections",
+            "/result/edges/2/sections",
+            "/result/edges/3/sections",
+            "/result/edges/4/sections",
+            "/result/edges/5/sections",
+            "/result/edges/6/sections",
+            "/result/edges/7/sections",
+            "/result/edges/8/sections",
+            "/result/edges/9/sections",
+            "/result/edges/10/sections",
+            "/result/edges/11/sections"
+          ],
+          "claim": "The selected spline mode or sloppy spacing changes the actual computed control-point chain"
+        }
+      ]
+    },
+    {
+      "id": "polyline-zone-base",
+      "request": "requests/polyline-zone-base.json",
+      "requestSha256": "158272740f5d5903f507fea59cda372a3032fc72fe88d62e872a6348c88b8c19",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "polyline-zone-width",
+      "request": "requests/polyline-zone-width.json",
+      "requestSha256": "23aa1455064681d52c734e9bc0ab0b5f913842b049c181506abc4c254724c21b",
+      "baseline": "polyline-zone-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.edgeRouting.polyline.slopedEdgeZoneWidth",
+          "kind": "changed",
+          "pointers": [
+            "/result/edges/0/sections",
+            "/result/edges/1/sections",
+            "/result/edges/2/sections",
+            "/result/edges/3/sections",
+            "/result/edges/4/sections",
+            "/result/edges/5/sections",
+            "/result/edges/6/sections",
+            "/result/edges/7/sections",
+            "/result/edges/8/sections",
+            "/result/edges/9/sections",
+            "/result/edges/10/sections",
+            "/result/edges/11/sections"
+          ],
+          "claim": "Sloped edge zone width changes actual polyline sections"
+        }
+      ]
+    }
+  ],
+  "assertionRevision": {
+    "originalSuite": "test-runs/full-native-closure/A/cases-03-first-executed.json",
+    "originalFailedReport": "test-runs/full-native-closure/A/option-effects-third.json",
+    "reason": "Pure saved Source review exposed local port movement omitted by the original node-only projection; no capture replay"
+  }
+}

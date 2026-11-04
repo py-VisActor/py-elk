@@ -1,0 +1,124 @@
+{
+  "schema": "py-elk-e06-validator-independent-review/v1",
+  "reviewerLane": "B",
+  "ownerLane": "V",
+  "status": "ACCEPTED_AFTER_DIRECTED_FIX",
+  "reviewedFiles": [
+    {
+      "path": "scripts/validate_e06_source_bindings.py",
+      "sha256": "4dbe0168754a1e9ff8061edfeb3c725edb4cd93fe87786c22fe3ba6aafa27553"
+    },
+    {
+      "path": "tests/audit/test_e06_source_bindings.py",
+      "sha256": "ff10ffcc297df4dcc089f954e4860d6bd84441c1e665163e6b99220afd044e3c"
+    }
+  ],
+  "controls": [
+    {
+      "id": "ns-omits-required-proofIds",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Required source dependency proof IDs are missing or differ"
+      ]
+    },
+    {
+      "id": "split-omits-required-proofIds",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Required source dependency proof IDs are missing or differ"
+      ]
+    },
+    {
+      "id": "import-omits-unmerged-proof",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Importer omits its exact default-unmerged proof closure"
+      ]
+    },
+    {
+      "id": "bary-inherits-unrelated-greedy-proof",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Inherited source role belongs to a different component"
+      ]
+    },
+    {
+      "id": "pipeline-loses-fixed-order-inheritance",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Pipeline omits its fixed default-order source inheritance"
+      ]
+    },
+    {
+      "id": "V-review-context-mismatch",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Independent review context seal differs"
+      ]
+    },
+    {
+      "id": "V-review-adds-unknown-component",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Independent reviewed component/seal differs"
+      ]
+    },
+    {
+      "id": "B-review-adds-unknown-component",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Independent review denominator/ownership differs"
+      ]
+    },
+    {
+      "id": "runtime-claim-negative-control",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Source-only metadata promotes runtime capability: nativeRuntimeAccepted"
+      ]
+    },
+    {
+      "id": "base22-full-review-missing-negative-control",
+      "normalFull27Passed": true,
+      "status": "FAIL",
+      "acceptedBadMetadata": false,
+      "errors": [
+        "Full E05 source/review inheritance failed: BK full-source approval history missing"
+      ]
+    }
+  ],
+  "canonicalDeclarationControl": {
+    "normalCanonicalPassed": true,
+    "falseSymbolAccepted": false,
+    "error": "Literal source symbol token is absent from its LF span"
+  },
+  "limitations": [
+    "All mutations use disposable full versioned evidence copies, each normal27 prerequisite passed before mutation. Checks do not run a layout engine.",
+    "A completely forged self-consistent source/review system cannot be authenticated by this offline metadata checker. These controls target declared required structural/identity guards, not automatic mathematical proof."
+  ],
+  "semanticLabelIndependentReview": {
+    "path": "test-runs/20261103-E06-01/B/review-V-semantic-labels-final.json",
+    "sha256": "9325c7a17e909eb9bce205879c837eef89b0c7a8878cf0a6a7f5cdc281dd0457",
+    "fixedLabelCount": 13,
+    "fixedFunctionAliasCount": 2,
+    "negativeControls": 28
+  }
+}

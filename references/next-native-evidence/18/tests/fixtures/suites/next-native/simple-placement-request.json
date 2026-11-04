@@ -1,0 +1,29 @@
+{
+  "cases": [
+    {
+      "name":"two-pass-types-individual",
+      "flags":["EXTERNAL_PORTS"],
+      "spacings":{"SPACING_NODE_NODE_0":12.75,"SPACING_EDGE_NODE":4.5,"SPACING_LABEL_PORT_VERTICAL":8.125},
+      "layers":[
+        {"width":99,"nodes":[
+          {"name":"a","type":"NORMAL","x":3,"width":20,"height":11.25,"margin":[1.5,2,3.75,4],"individual":{"SPACING_EDGE_NODE":7.25}},
+          {"name":"b","type":"LONG_EDGE","x":7,"width":0,"height":6.5,"margin":[2.25,0,0.75,0],"individual":{"SPACING_EDGE_NODE":9.5}},
+          {"name":"c","type":"NORMAL","x":11,"width":13,"height":21,"margin":[4,1,2.5,3],"individual":{"SPACING_EDGE_NODE":2.25}}
+        ]},
+        {"width":77,"nodes":[
+          {"name":"d","type":"LABEL","x":13,"width":7,"height":14.5,"margin":[1.25,0,2.75,0]},
+          {"name":"e","type":"EXTERNAL_PORT","x":17,"width":0,"height":0,"margin":[0.5,0,1,0],"individual":{"SPACING_LABEL_PORT_VERTICAL":10.5}}
+        ]},
+        {"width":55,"nodes":[]}
+      ]
+    },
+    {
+      "name":"null-spacings-singleton-empty",
+      "flags":[],
+      "layers":[
+        {"width":30,"nodes":[{"name":"single","type":"NORMAL","x":99,"width":10,"height":17.75,"margin":[2.25,0,3,0]}]},
+        {"width":20,"nodes":[]}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "schema": "py-elk-e06-runtime-audit/v1",
+  "iteration": "E06",
+  "status": "E06_EXPERIMENTAL_SLICE_VERIFIED",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "scope": {
+    "id": "E06-ADR0005-revision1",
+    "document": "docs/decisions/0005-e06-multigraph.md",
+    "topology": "flat-connected-directed-multigraph",
+    "minimumNodes": 0,
+    "maximumNodes": 8,
+    "maximumEdges": 28,
+    "maximumInternalNodes": 176,
+    "maximumInternalSegments": 196,
+    "maximumInternalPorts": 392,
+    "maximumRoutingSegmentsPerBoundary": 56,
+    "directions": [
+      "RIGHT",
+      "UNDEFINED"
+    ],
+    "edgeRouting": "ORTHOGONAL",
+    "numericMaximum": 1000000,
+    "nonzeroSigned32Seed": true,
+    "explicitPaddingType": "string",
+    "renewSourceApprovalBeforeExpansion": true
+  },
+  "runtimeClaims": {
+    "nativeLayoutImplemented": true,
+    "experimentalSliceAvailable": true,
+    "publicLayoutApiAccepted": false,
+    "fullAlgorithmAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false,
+    "releaseAccepted": false,
+    "packagePublished": false
+  },
+  "pythonAlgorithmsVerified": 0,
+  "availableExperimentalAlgorithms": [
+    "org.eclipse.elk.layered"
+  ],
+  "coverageDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25,
+    "selectedMasterCases": 15,
+    "excludedMasterCases": 10,
+    "projectVariants": 37,
+    "sliceCases": 52
+  },
+  "filesSha256": {
+    "docs/decisions/0005-e06-multigraph.md": "2343855ce1ce902eb4d45a273f799f16c6d92194a602f22bf07fb6b7c429f13c",
+    "references/e04-determinism-policy.json": "352897995c7833a13a5470cfb6a5d72312297605471114c2933370b97835aac3",
+    "references/e04-numeric-regressions.json": "e30c5ee1b1de06223b9df92f8d1e216ad713187c8784070aaa908f48dc553d79",
+    "references/e06-component-approvals.json": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e",
+    "references/e06-installed-check.json": "5fabf04c0ba34b02edd35a1be7ee4e6361ad83407e55a8c11459c351d34909b7",
+    "tests/fixtures/suites/E06/cases.json": "8c8f88fa783f3c0c734fdcb8b889b60a05e69d5a7f63a2ea11ca5b8d2264f1ef",
+    "tests/fixtures/suites/E06/selection.json": "7e673013c2dfcdb73d84cf6f5cb76d3016ebaefe0c535214536f255f29d6fef2"
+  },
+  "installedEvidence": "references/e06-installed-check.json",
+  "algorithmSourceGate": "verified-for-guarded-generated-source-slice-only",
+  "retrospective": "docs/retrospectives/E06.md",
+  "nextIteration": "E07",
+  "runDirectory": "test-runs/20261103-E06-01",
+  "limitation": "Only the explicit bounded E06 generated-source slice. Full algorithm/API/lifecycle, exact external Java build, release license and publication remain unaccepted. Offline receipts cannot authenticate historical execution."
+}

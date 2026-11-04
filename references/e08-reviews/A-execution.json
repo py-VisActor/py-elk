@@ -1,0 +1,124 @@
+{
+  "schema": "py-elk-e08-independent-review/v1",
+  "lane": "A",
+  "reviewedLane": "B",
+  "reviewedUtc": "2026-11-03T12:40:42.071871+00:00",
+  "status": "ACCEPTED_WITH_EXPLICIT_HOST_SCOPE_AND_PENDING_INTEGRATION",
+  "accepted": true,
+  "filesSha256": {
+    "src/pyelk/execution/lifecycle.py": "c98ab0d9e9ef811cdf3f783fc3b1adfaecafe61c1a6a55a5c38335a95960495c",
+    "src/pyelk/execution/worker.py": "29eee941c3633aa8eb03848e2a1043573e2c521f47169655d6498aad014e3e94",
+    "src/pyelk/execution/__init__.py": "41b825bccbafe56b8385555f8c44829c05682d6fab80e2dc647255fd6862c4b6",
+    "tests/execution/test_e08_lifecycle.py": "fe13e06718b5b7d0fd4927286f914ddb1ce80739b9c16d20c64b8c09669e9605",
+    "references/e08-execution-sources.json": "c2d4997e4a74961b8b2feebdb4dfd762d2687cbc0d18fbb43038ba5b0be84b6d"
+  },
+  "durationDeltaControls": {
+    "passed": true,
+    "controls": [
+      {
+        "kind": "progress",
+        "positivePassed": true,
+        "singleChangedField": "process_time",
+        "mutation": "positive integer10**1000",
+        "targetError": "WORKER_PROTOCOL_ERROR",
+        "errorType": "WorkerExecutionError"
+      },
+      {
+        "kind": "result",
+        "positivePassed": true,
+        "singleChangedField": "process_time",
+        "mutation": "positive integer10**1000",
+        "targetError": "WORKER_PROTOCOL_ERROR",
+        "errorType": "WorkerExecutionError"
+      }
+    ],
+    "limitation": "Direct protocol decoder controls, not additional CPU layout execution evidence"
+  },
+  "supersedes": "test-runs/20261103-E08-01/A/execution-review-03/review.json",
+  "sourceControls": [
+    {
+      "sourceId": "elkjs-api",
+      "canonicalSha256": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+      "localSha256": "c610f83a0c6e52d9a973f34ae87e7d51dad96757b528d241c29702405be2392c",
+      "rangesVerified": 2
+    },
+    {
+      "sourceId": "elkjs-node-entry",
+      "canonicalSha256": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+      "localSha256": "66acd27f38febf60ce12e43802c3f11b0c1209cba42ca1858ab99b3069ddc382",
+      "rangesVerified": 1
+    },
+    {
+      "sourceId": "elkjs-export-dispatch",
+      "canonicalSha256": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+      "localSha256": "1330df853777a75daabc99cac8aa1780b6fc7fef7ccb4d37cc3181e326ee44a5",
+      "rangesVerified": 1
+    },
+    {
+      "sourceId": "elkjs-api-types",
+      "canonicalSha256": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "localSha256": "46cf8bcbe6429ad1d140e30494ded1c67f5ba40fdbb0f341c49bf02551f630d3",
+      "rangesVerified": 1
+    },
+    {
+      "sourceId": "elkjs-release-api",
+      "canonicalSha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "localSha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "rangesVerified": 1
+    },
+    {
+      "sourceId": "elkjs-release-worker",
+      "canonicalSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "localSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "rangesVerified": 1
+    }
+  ],
+  "unchangedKernelVerified": 19,
+  "independentActualProtocolControls": {
+    "path": "test-runs/20261103-E08-01/A/protocol-review-first/report.json",
+    "sha256": "9ad7db30707ac3d7fbd95efac4b6b1495cc9fd095cd71dc08a713cb62e95600f",
+    "command": "test-runs/20261103-E08-01/A/protocol-review-first-command/command.json",
+    "controls": 2
+  },
+  "ownerTestsReviewed": {
+    "methods": 28,
+    "command": "test-runs/20261103-E08-01/B/lifecycle-tests-07/command.json",
+    "independentlyReexecutedByA": false
+  },
+  "checked": [
+    "Fixed readable git blobs verified by actual git show at the fixed commit; local CRLF and canonical LF not conflated; all recorded range SHAs verified",
+    "JS IDs/resolvers/Promise and synchronous Dispatcher/FakeWorker facts distinguished from new Python process/queue/cancel host design",
+    "Safe JSON clones before spawn; immutable constructor snapshot; real kernel/context/options unchanged",
+    "FIFO per-instance slot and total pending bound; fresh spawn per job; independent queues/RNG and idle loop rebinding",
+    "Input validation classes reconstructed through explicit whitelist; internal/import/protocol failures remain execution errors",
+    "Cancelled jobs stop/reap before cancellation propagates; cleanup shield handles repeated cancellation; queued cancel/timeout does not spawn",
+    "Process.start occurs outside event-loop state lock; separate reap lock coordinates start/close; close reclaims worker and dispatcher",
+    "Publication race checks owner cancellation count; already-published successful result wins subsequent cancel; close rejects unpublished data",
+    "Progress observes existing append boundaries without adding algorithm cancellation checkpoints",
+    "Actual positive19phase and empty0phase accepted before synthetic empty-proof/wrong-root mutations reject exactly WORKER_PROTOCOL_ERROR, with no surviving worker/thread"
+  ],
+  "resolvedFindings": [
+    "Nonempty request may not return with empty phase proof; root identity/type preserved in result envelope",
+    "Reviewer preliminary assumption that empty graph must have trace was corrected using the actual zero-node kernel branch; legal empty graph retained"
+  ],
+  "blockers": [],
+  "limitations": [
+    "Finite source/contract review and protocol controls do not prove mathematical layout equivalence or cryptographic execution authenticity",
+    "A did not independently reexecute B28 owner methods; V actual CPU/cancellation and root full/installed/cross-platform evidence remain required",
+    "JSON snapshot copying is synchronous; no hard OS RAM/CPU quota or universal cleanup-time bound is approved",
+    "No algorithm/domain, true logging/execution-time tree, release or publication approval"
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false,
+  "deltaConclusion": "Only execution source record changed to bind completed root installed-owner tests; production lifecycle/worker/init and test entry unchanged from review03.",
+  "installedLifecycleEvidenceReviewed": {
+    "methods": 28,
+    "skipped": 0,
+    "command": "test-runs/20261103-E08-01/installed-owner-tests-01/command.json",
+    "commandSha256": "4bb86c9501991b06f12654084921fcd7f1449635f2b2fcab93378bbc5de9fe4a",
+    "installedReceiptSha256": "92f022054d3c871583617bb0cd72096f0c11dac24dce6d438f332b96cd297a22",
+    "wheelSha256": "aeb7071779897bfbf09f2f85a80d29f8d07e6d9767d1b13b8cefe31fd3a522aa",
+    "independentlyReexecutedByA": false,
+    "scope": "Actual original root isolated installed test command/logs and installation receipt checked, not an A rerun or complete platform matrix"
+  }
+}

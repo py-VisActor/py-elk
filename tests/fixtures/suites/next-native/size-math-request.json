@@ -1,0 +1,196 @@
+{
+  "schema": "py-elk-next-size-math-request/v1",
+  "scope": "Prepared real source cells; no complete size/label pipeline claim",
+  "cases": [
+    {
+      "id": "free-outside-uniform-two",
+      "constraints": "FIXED_SIDE",
+      "sizeConstraints": [
+        "PORTS",
+        "PORT_LABELS"
+      ],
+      "options": [
+        "UNIFORM_PORT_SPACING"
+      ],
+      "labelPlacement": [
+        "OUTSIDE"
+      ],
+      "ports": [
+        {
+          "id": "n0",
+          "side": "NORTH",
+          "next": false,
+          "labels": [
+            [
+              20,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "n1",
+          "side": "NORTH",
+          "labels": [
+            [
+              14,
+              10
+            ]
+          ]
+        },
+        {
+          "id": "e0",
+          "side": "EAST",
+          "labels": [
+            [
+              10,
+              12
+            ],
+            [
+              6,
+              8
+            ]
+          ]
+        }
+      ],
+      "surrounding": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "ratio-fuzzy-boundaries",
+      "constraints": "FIXED_RATIO",
+      "sizeConstraints": [
+        "PORTS",
+        "PORT_LABELS"
+      ],
+      "labelPlacement": [
+        "INSIDE"
+      ],
+      "ports": [
+        {
+          "id": "n0",
+          "side": "NORTH",
+          "ratio": 0.005
+        },
+        {
+          "id": "n1",
+          "side": "NORTH",
+          "ratio": 0.5
+        },
+        {
+          "id": "n2",
+          "side": "NORTH",
+          "ratio": 0.995
+        },
+        {
+          "id": "e0",
+          "side": "EAST",
+          "ratio": 0.2,
+          "labels": [
+            [
+              8,
+              12
+            ],
+            [
+              10,
+              6
+            ]
+          ]
+        },
+        {
+          "id": "e1",
+          "side": "EAST",
+          "ratio": 0.7,
+          "labels": [
+            [
+              8,
+              15
+            ]
+          ]
+        }
+      ],
+      "treatAsGroup": false,
+      "surrounding": [
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "id": "fixed-position-empty-preserves",
+      "constraints": "FIXED_POS",
+      "sizeConstraints": [
+        "PORTS"
+      ],
+      "ports": [
+        {
+          "id": "w",
+          "side": "WEST",
+          "pos": [
+            3,
+            42
+          ],
+          "size": [
+            8,
+            12
+          ]
+        },
+        {
+          "id": "s",
+          "side": "SOUTH",
+          "pos": [
+            37,
+            2
+          ],
+          "size": [
+            13,
+            4
+          ]
+        }
+      ]
+    },
+    {
+      "id": "minimum-padding-default",
+      "constraints": "FIXED_SIDE",
+      "sizeConstraints": [
+        "MINIMUM_SIZE"
+      ],
+      "options": [
+        "MINIMUM_SIZE_ACCOUNTS_FOR_PADDING",
+        "DEFAULT_MINIMUM_SIZE"
+      ],
+      "minimum": "(-1,32)",
+      "ports": []
+    },
+    {
+      "id": "fixed-graph-distinct-rectangle",
+      "constraints": "FIXED_SIDE",
+      "sizeConstraints": [
+        "PORTS"
+      ],
+      "options": [],
+      "fixedGraph": true,
+      "nodeSize": [
+        200,
+        120
+      ],
+      "ports": []
+    },
+    {
+      "id": "only-port-labels-preserve-size",
+      "constraints": "FIXED_SIDE",
+      "sizeConstraints": [
+        "PORT_LABELS"
+      ],
+      "ports": [],
+      "nodeSize": [
+        37,
+        23
+      ]
+    }
+  ]
+}

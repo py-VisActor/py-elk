@@ -1,0 +1,42 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/options/schema.py": "366168b1541ad28a419330599db63d2a2a3a15e7c47c2ff04d78415a991d54f9",
+    ".local/migration-next/src/pyelk/options/resolution.py": "1dfb99cd7c52920109bcecb0ebbaa66b5e4fd55ce2b3c50978d2d466d2a1e5db",
+    ".local/migration-next/src/pyelk/options/element.py": "1c4a69329bacc5944aae78cde1e3510cddd93400adaa4c3a967d044c7c014381",
+    ".local/migration-next/src/pyelk/execution/context.py": "38083e81bfb634856d64eaac115ea4a26c2820ebb49286a3dae0605f4c1ee1b5",
+    "references/e13-option-type-sources.json": "b1add8de684b758c6894f01ba4841364826d2b6401818f4abe916199d45322f9"
+  },
+  "scope": "Native34 schema subset only: previous9+5port+20 NodeContext declarations and typed parser/element resolution. No full243metadata/parser or new public algorithm capability acceptance.",
+  "actualEvidence": [
+    {
+      "path": "test-runs/20261104-OPTIONS-01/V/parser-comparison-01/report.json",
+      "originalCases": 15,
+      "passedBeforeFix": 14,
+      "failed": [
+        "vector-java-trim"
+      ],
+      "executedElementVersion": "15e84a25 (full SHA and4 source copies in source-snapshot/report)"
+    },
+    {
+      "path": "test-runs/20261104-OPTIONS-01/V/parser-vector-fix-02/report.json",
+      "selectedCase": "vector-java-trim",
+      "passed": true,
+      "executedElementSha256": "1c4a69329bacc5944aae78cde1e3510cddd93400adaa4c3a967d044c7c014381"
+    }
+  ],
+  "sourceFacts": "b1add original extraction independently accepted by root5f92 including Spacing0 and split observations; no facts derived from candidate.",
+  "reviewedSemantics": [
+    "Core defaults separate from explicit Layered JUSTIFIED override. Typed schema factories preserve original ordinal order/target sets and deep immutable structured values. No universal algorithm defaults inferred.",
+    "Local scalar parsing versus global JSON serialization, exact selected constructor/call scope and local NO_OVERWRITE precedence preserved. Label raw resolver supports explicit empty-set presence; dedicated node-only individualSpacings merges before global fallback semantically.",
+    "Actual enumset delimiters use ECMAScript whitespace, Java.trim<=32 only where source calls it; Java trailing-empty split is narrowly scoped. Vector now trims eachtoken before source double syntax, preserving legal NUL/SOH control edges.",
+    "Given vector/insets/individual values use original syntax including semicolon/comma rules and exact literal individual delimiter ;,;. Repeated/unknown inset keys and firstsource parse side effects follow original.",
+    "Native finite/error/ambiguity/typed-ID policies remain explicitly stricter than original parseValue silent-null/nonfinite behavior. Three source-null/nonfinite controls are recorded as explicit host differences, not falsely called equal values.",
+    "Old bounded layout admission continues separate from parse-only34 property resolution; no whole algorithm/current release capability increase claimed."
+  ],
+  "limitations": [
+    "Four old root unit methods/ports23 not rerun. Only affected1 case executed after2token trim fix; old15 firstFAIL/source bytes retained.",
+    "No complete provider layout, installed candidate/package or full validation."
+  ]
+}

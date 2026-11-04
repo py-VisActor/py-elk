@@ -1,0 +1,189 @@
+{
+  "cases": [
+    {
+      "name": "conservative-three-chains-alternating",
+      "mode": "CONSERVATIVE",
+      "source": {
+        "side": "EAST",
+        "node": [
+          10,
+          20
+        ],
+        "port": [
+          20,
+          5
+        ],
+        "anchor": [
+          0.5,
+          0.25
+        ]
+      },
+      "target": {
+        "side": "WEST",
+        "node": [
+          180,
+          60
+        ],
+        "port": [
+          0,
+          4
+        ],
+        "anchor": [
+          0.5,
+          0.25
+        ]
+      },
+      "bends": [
+        [
+          [
+            40,
+            24
+          ],
+          [
+            70,
+            24
+          ]
+        ],
+        [
+          [
+            80,
+            40
+          ],
+          [
+            100,
+            42
+          ]
+        ],
+        [
+          [
+            130,
+            50
+          ],
+          [
+            160,
+            64
+          ]
+        ]
+      ],
+      "chain": [
+        0,
+        1,
+        2
+      ],
+      "survivor": null
+    },
+    {
+      "name": "external-survivor-retain-and-ns",
+      "mode": "SLOPPY",
+      "source": {
+        "side": "SOUTH",
+        "node": [
+          2,
+          3
+        ],
+        "port": [
+          10,
+          10
+        ],
+        "anchor": [
+          0.75,
+          0.25
+        ],
+        "ns": -50
+      },
+      "target": {
+        "side": "NORTH",
+        "node": [
+          120,
+          50
+        ],
+        "port": [
+          10,
+          0
+        ],
+        "anchor": [
+          -0.5,
+          0.5
+        ],
+        "ns": 110
+      },
+      "bends": [
+        [
+          [
+            20,
+            -50
+          ],
+          [
+            70,
+            80
+          ]
+        ],
+        [
+          [
+            90,
+            80
+          ],
+          [
+            120,
+            110
+          ]
+        ],
+        [
+          [
+            777,
+            888
+          ]
+        ]
+      ],
+      "chain": [
+        0,
+        1
+      ],
+      "survivor": 2
+    },
+    {
+      "name": "empty-chain-early",
+      "mode": "CONSERVATIVE",
+      "source": {
+        "side": "EAST",
+        "node": [
+          0,
+          0
+        ],
+        "port": [
+          10,
+          3
+        ],
+        "anchor": [
+          0,
+          0
+        ]
+      },
+      "target": {
+        "side": "WEST",
+        "node": [
+          50,
+          20
+        ],
+        "port": [
+          0,
+          3
+        ],
+        "anchor": [
+          0,
+          0
+        ]
+      },
+      "bends": [
+        [
+          [
+            7,
+            8
+          ]
+        ]
+      ],
+      "chain": [],
+      "survivor": 0
+    }
+  ]
+}

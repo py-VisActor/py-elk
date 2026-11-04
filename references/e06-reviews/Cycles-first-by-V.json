@@ -1,0 +1,144 @@
+{
+  "schema": "py-elk-e06-component-source-review/v1",
+  "iteration": "E06",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T07:26:55.555366+00:00",
+  "sourceDocument": {
+    "path": "references/e06-source-components-A.json",
+    "sha256": "d1981260d4600c3e78eac16dfe8aaaac397b79364da8c4b7f66048633e055c85"
+  },
+  "approvedComponents": [
+    "graph:edge-reversal",
+    "phase:GREEDY",
+    "intermediate:ReversedEdgeRestorer"
+  ],
+  "componentSeals": {
+    "graph:edge-reversal": "f565ff9b0e92fef8a541675f1738f39bd9d7a9012da55aff4e542a49a6d55913",
+    "phase:GREEDY": "7a029449006feb2b5c8b8b05a7e54f0e975bd35e8645fa9135e3afa2bac495d5",
+    "intermediate:ReversedEdgeRestorer": "3808ed1631500e267ffa1cfa2cc13083c9690577f5b30bc631703756336ef4f7"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "commonSourceContextSha256": "e9054c6ddfb15478df5676340a0237691b73daa450e564227b7147a67aa46a73",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 164,
+    "functionOffsetOccurrences": 159,
+    "staticCallEdges": 75,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E06-01/V/source-A-cycle-03/report.json",
+    "sha256": "33c8d4f5492312405913ab6457d3452a93090b12e0199bb981418de03c3b4863"
+  },
+  "checkedSemantics": [
+    {
+      "id": "REVERSE-ENDPOINTS",
+      "checked": "Actual detach source then target, append oldTarget as new source then oldSource as new target. Preserve exact ordered identity removals/appends and original origin. No port owner/side/geometry writes. adaptPorts true reads actual INPUT/OUTPUT_COLLECT defaultfalse; factory paths excluded by explicit default/merge guards. Real label loop is empty."
+    },
+    {
+      "id": "REVERSE-FLAGS-CHAIN",
+      "checked": "REVERSED scalar bool getter defaultfalse does not clone/store primitive default. Setter writes toggled bool including explicitfalse on restoration. CYCLIC is separate and not cleared. reverse_3 allocates NEW chain and NEW copied vectors in reverse order even for zero/one points; JUNCTION_POINTS untouched."
+    },
+    {
+      "id": "GREEDY-DEGREES-QUEUES",
+      "checked": "Every nonself edge contributes1 under priority0, including parallel instances. Work node IDs follow actual node order; port/incoming-before-outgoing iteration retained. Selfloops skipped by actual source owner tests and normally hidden by separate loop stage. Sink FIFO then source FIFO then residual fallback, with opposite-degree>0 enqueue guards, marks each node once."
+    },
+    {
+      "id": "GREEDY-FALLBACK-RNG",
+      "checked": "Enumerate all current mark0 nodes in order, reset max list only on strict larger outflow, keep every equal-max tie. Exact dynamic callback50536?38 always calls generated nextInt(count), including count1. Count1..8 and <=8 fallbacks; degrees/outflow[-28,28], marks[-8,8] then permutation1..n stay exact. No tie-only draw or Python RNG replacement."
+    },
+    {
+      "id": "GREEDY-REWIRE-CLEANUP",
+      "checked": "Source ordered nodes snapshot ports then each current outgoing list. Reverse(True) only when source mark>target mark, then set CYCLIC true. Reencountered swapped edge is forward and not reversed again. All retained nonself edges form DAG in marks, selfloops equal. Per-call private arrays disposed and queues reset; original public input/geometry unchanged."
+    },
+    {
+      "id": "RESTORER",
+      "checked": "Component final-stage guard, not common context early-phase summary, requires actual preceding join/loop restore. Visit ordered final layers/nodes/CURRENT ports and snapshot outgoing per port, reverse(False) only true flag. Later encounter sees explicitfalse. Preserve copied reversed bends and restored original endpoint/origin; no port geometry/side/JP order change or CYCLIC clear. Detached unused segments are not claimed reset/observed."
+    },
+    {
+      "id": "SIMPLE-RING",
+      "checked": "Connected directed ring n>=2, n nonself edges, each1in1out, no extras/parallel/loops/default priority and strategy: one fallback, then queues drain residual path. n2 other node may enqueue SOURCE or SINK once according to real port order, same shifted marks. Exactly predecessor-to-chosen edge reverses, leaving Hamiltonian path plus shortcut. Separate unit NS proof is needed for distinct ranks; arbitrary SCCs are not covered."
+    }
+  ],
+  "componentDependencies": {
+    "graph:edge-reversal": [],
+    "phase:GREEDY": [
+      {
+        "componentId": "graph:edge-reversal",
+        "canonicalComponentSha256": "f565ff9b0e92fef8a541675f1738f39bd9d7a9012da55aff4e542a49a6d55913",
+        "meaning": "Actual endpoint/bool/bend behavior, not a direction-only marker"
+      }
+    ],
+    "intermediate:ReversedEdgeRestorer": [
+      {
+        "componentId": "graph:edge-reversal",
+        "canonicalComponentSha256": "f565ff9b0e92fef8a541675f1738f39bd9d7a9012da55aff4e542a49a6d55913"
+      }
+    ]
+  },
+  "inheritedArtifacts": [
+    {
+      "path": "references/e04-source-components-A.json",
+      "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+    },
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+    }
+  ],
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E06-01/V/source-reverse-independent.command.json",
+      "sha256": "3f533a0743e2afc79cbe90930f8977f31af5bc92c1a541ec3667277baa6e63e3"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/source-GREEDY-independent.command.json",
+      "sha256": "fcfb30423ed1ab58eb08c07ff0e48ab99d98485a8e1b65d3c911d572fc6eaeb0"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/source-A-cycle-canonical-final.command.json",
+      "sha256": "fa3d3ffcdd47ace442437555435f7c11ca0cf3997e6e4fc2c65a1a419fe0160a"
+    }
+  ],
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E06-01/V/master-stage-layered-cycle-01/summary.json",
+      "sha256": "b081609c7344e9e9cd0f4100b0100e7414dccb03ff1ec99940db1e31de4d100f"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/degenerate-ring-stage-01/summary.json",
+      "sha256": "ab7a309e6395bc9a2e61623062f8597b68bb4177bd7cb3963037f43da1b93f6c"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/stress-source-observations.json",
+      "sha256": "25ba966768632e9ecfecd649c8dcf4746eb7730d8897d9f63860f6e2a3bd430d"
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "id": "V-A-GR-N2",
+      "originalDocumentSha256": "c2e1f87018af69bc73c57fa2aa28634b8ef6d0d9b65e29790c6401a21ae2f319",
+      "finding": "n2 remaining node was claimed always sink; outgoing-first enqueues source, incoming-first sink, both once and same final marks.",
+      "resolution": "A corrected exact source queue alternatives, revised GREEDY component seal."
+    },
+    {
+      "id": "V-A-GR-TOPSEAL",
+      "originalDocumentSha256": "0f2148ecded265eab1feab226207a4cd7b95b099c966a30ca64876ab9c472ffc",
+      "finding": "Top componentSeals retained old GREEDY hash after proof correction. Actual canonical verifier rejected.",
+      "resolution": "A synchronized topseal; independent complete byte/context/dependency recheck passed without relaxing verifier."
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "E06 NS/split/join/import/export, loop4 and root15 require their own independent approvals. Final restorer assumes real prior join/loop restoration; this review does not approve those by implication."
+  ],
+  "limitations": [
+    "Fixed Git/npm/LF/UTF16/lexical binding is separate from manually read actual guard/def-use proof. Finite observations corroborate, never prove whole branches.",
+    "Exact external Java build and overall release license remain unresolved."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE06SourceGateApproved": false
+}

@@ -1,0 +1,89 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "force",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.force.model": "EADES",
+      "org.eclipse.elk.force.iterations": 4,
+      "org.eclipse.elk.spacing.nodeNode": 23.5,
+      "org.eclipse.elk.padding": "[top=7,left=11,bottom=13,right=17]"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 0,
+        "y": 0,
+        "layoutOptions": {
+          "org.eclipse.elk.priority": 2
+        },
+        "ports": [
+          {
+            "id": "p",
+            "width": 2,
+            "height": 3,
+            "layoutOptions": {
+              "org.eclipse.elk.port.side": "EAST"
+            }
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 10,
+        "y": 20
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 30,
+        "y": 50
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "p"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.priority": 3,
+          "org.eclipse.elk.force.repulsivePower": 1
+        },
+        "labels": [
+          {
+            "text": "weighted",
+            "width": 9,
+            "height": 4
+          }
+        ]
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        }
+      }
+    ]
+  }
+}

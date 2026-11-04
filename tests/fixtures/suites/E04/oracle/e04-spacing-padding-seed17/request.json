@@ -1,0 +1,59 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "project-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "business-stack"
+      },
+      "null": null
+    },
+    "children": [
+      {
+        "id": "node-0",
+        "width": 17,
+        "height": 11
+      },
+      {
+        "id": "node-1",
+        "width": 31,
+        "height": 5
+      },
+      {
+        "id": "node-2",
+        "width": 7,
+        "height": 29
+      }
+    ],
+    "edges": [
+      {
+        "id": "link-0",
+        "sources": [
+          "node-0"
+        ],
+        "targets": [
+          "node-1"
+        ]
+      },
+      {
+        "id": "link-1",
+        "sources": [
+          "node-1"
+        ],
+        "targets": [
+          "node-2"
+        ]
+      }
+    ],
+    "layoutOptions": {
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": 17,
+      "elk.spacing.nodeNode": 37,
+      "elk.layered.spacing.nodeNodeBetweenLayers": 53,
+      "elk.padding": "[top=11,left=17,bottom=23,right=31]"
+    }
+  }
+}

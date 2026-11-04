@@ -1,0 +1,107 @@
+{
+  "schema": "py-elk-e08-independent-review/v1",
+  "lane": "B",
+  "reviewedLane": "V-reference-native-and-root-current-runtime",
+  "status": "ACCEPTED_WITH_EXPLICIT_FINITE_HOST_AND_RECEIPT_SCOPE",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "tools/reference/capture_e08_api.cjs": "00c4cb41fab8af85c6512c5047208b89a46b3fc7afab44a2080ce973ce17c3bd",
+    "scripts/validate_e08_api.py": "e284720fdc6cd8e9fe7550bf7c507722d89fad35ad0cb13ffacea2e7bb8bc95c",
+    "tests/conformance/test_e08_api_lifecycle.py": "6139497338470fc4dc15abe3b57106d7bfd0d00731ff1ab6259f6f35f85a5a68",
+    "scripts/validate_e08_runtime.py": "d3b9d3c06b14b4ff2dc9e8b677f26c5bf2bd46949e2d8bf230d4ccd577d310dc",
+    "scripts/export_e08_installed_evidence.py": "a64a06ef710a07d531dbad3a9327796441bbb0acb9915acc02daab48f1756f28"
+  },
+  "scope": "Read-only independent review of the fixed API collector/validator/native helper and current installed-package portable exporter/runtime validator. Real original observations drive fresh per-case recomputation; recorded booleans or compact view hashes never substitute for comparison, geometry, input preservation or determinism.",
+  "actualEvidence": [
+    {
+      "path": "test-runs/20261103-E08-01/B/reference-review-02/report.json",
+      "sha256": "2aad047c4a60075739c74effaea8774649333c19f242d4549cad142b6b2879a6"
+    },
+    {
+      "path": "test-runs/20261103-E08-01/B/reference-clock-review-02/report.json",
+      "sha256": "7d4f06d31ab7806bffa1de371af642d0cb751cae6af98c25ff3f4ac73972890b"
+    },
+    {
+      "path": "test-runs/20261103-E08-01/B/historical-review-02/report.json",
+      "sha256": "15cc6d81fb63b0798846e1a93165d14a5805c8c378bf82fb8709a01c6cefa5a7"
+    },
+    {
+      "path": "test-runs/20261103-E08-01/B/native-review-03/report.json",
+      "sha256": "058162010bf289e375b5b957a15f4348089c700f06aae955b126ee31964a479e"
+    },
+    {
+      "path": "test-runs/20261103-E08-01/B/native-provenance-review-01/report.json",
+      "sha256": "813863377ff157775946fd305ab90cda8f08918d028a4e479740ae7f70f91a61"
+    },
+    {
+      "path": "test-runs/20261103-E08-01/B/portable-review-01/report.json",
+      "sha256": "7448c34dcf1a524c3ca9daff4dbe81e14f2cfe792845a40451e15f3f8ea89a73"
+    }
+  ],
+  "currentReceipt": {
+    "path": "references/e08-installed-check.json",
+    "sha256": "a1d1be598323f8fb8cdc6bc74c19eac9a44bf9d562204199ee144ef5a7b3f260",
+    "currentWheelSha256": "aeb7071779897bfbf09f2f85a80d29f8d07e6d9767d1b13b8cefe31fd3a522aa",
+    "currentPackageFiles": 41,
+    "originalCases": 181,
+    "suiteCounts": {
+      "E04": 21,
+      "E05": 36,
+      "E06": 52,
+      "E07": 72
+    },
+    "uniqueRequests": 149,
+    "repeatPerRole": 3,
+    "engineEntryProcessReceipts": 894,
+    "nativeCaptureProcesses": 3,
+    "descendantWorkerCountIncludedInEngineEntryCount": false
+  },
+  "controls": {
+    "nativeTypedReplayAndLifecycleRejected": 30,
+    "portableFullyReboundRejected": 9,
+    "fixedReferenceLayoutAndClockRejected": 7,
+    "historicalPackageIsolationAndMutations": 3,
+    "differentCurrentSourceRootPortablePositive": true,
+    "originalWindowsArgvCwdAndRawFilesUnmodified": true,
+    "everyPortableMutationRestoredPositive": true
+  },
+  "portableFindingsClosed": [
+    "Wrong candidate coordinates or changed input side effects with rebound raw SHA and an unchanged PASS compact view fail independently recomputed original-case semantics.",
+    "Raw duplicate JSON keys fail strict decoding despite rebound raw SHA.",
+    "Actual object argv without -I fails even when original command bytes/SHA are rebound.",
+    "Forged identity query fails its exact role template after all894 context/object paths, command bytes and all181 case-view hashes are coherently rebound.",
+    "Forged reference collector fails after full context/object rebinding.",
+    "Wrong compact view digest and insufficient repeat denominator fail.",
+    "Native receipt internally rebound to another interpreter still fails the geometry/native cross-context identity check.",
+    "Current dependency bytes copied to a different root validate unchanged genuine Windows commands and original181case observations; no historical external binary path is executed."
+  ],
+  "nativeFindingsClosed": [
+    "Ordinary returned job exit23 and boolean job IDs fail typed native snapshot validation.",
+    "Environment policy requires exact boolean types.",
+    "Duplicate raw native bodies and semantically identical whitespace-only replay fail; real PID identity and nonoverlapping serial monotonic windows are checked.",
+    "Known original19-stage DAG progress, genuine CPU/event-loop process separation, finite clocks and CPU progress overlap, actual OS PID stop/reap, FIFO/capacity, error paths/messages, recovery, stale traces and geometry have independent negative controls."
+  ],
+  "sourceAndHistoricalReview": [
+    "Pinned canonical source facts are distinct from new Python spawn/queue/timeout/cancel/close host decisions.",
+    "Root current package bytes/metadata are independently checked and API/lifecycle and geometry share the same installed wheel and interpreter.",
+    "E07 frozen wheel/README/pyproject/raw METADATA use pinned historical bytes; changing current package sources does not make them certify current E08 bytes.",
+    "Approval source review requires accepted true, empty blockers, exact host file denominator and three independent lane coverage; current host ledgers/default registry and original reference denominators are explicitly checked. Full approval/AUDIT negative tests remain root/A integration work after this review is sealed."
+  ],
+  "firstFailureEvidence": {
+    "oldNativeFiveWrongPass": "test-runs/20261103-E08-01/B/native-review-02/report.json",
+    "oldReferenceClockWrongPass": "test-runs/20261103-E08-01/B/reference-clock-review-01/report.json",
+    "oldNativeValidatorSha256": "7e75ec709e3acda57ab64c9009393fda3d73ec2b709442b120005d09a427a66d",
+    "oldNativeValidatorFullBytesSaved": false,
+    "limitation": "Executed old control script/command/log/report and old raw receipt/code SHA are retained. No original complete old validator byte copy was saved; no later source or recreated text is represented as that old version. Final reviewed code bytes are preserved in B/native-review-03/source-snapshot and B/portable-review-01/source-snapshot."
+  },
+  "limitations": [
+    "Finite source and receipt consistency are not cryptographic historical execution authentication or mathematical algorithm equivalence.",
+    "No new runtime engine processes were executed by this read-only review; genuine runs are the independently produced132reference/3native/894engine receipts.",
+    "894 counts role/request engine-entry subprocess receipts; internal spawned CPU workers are additional descendants, independently observed in native lifecycle evidence.",
+    "Current root whole-check approval/ledger negative tests and cross-platform final checks are separate integration gates, not claimed completed here.",
+    "No hard OS RAM/CPU quota, universal cleanup bound, whole algorithm, true logging/timing tree, package publication or py-mermaid integration is accepted."
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false
+}

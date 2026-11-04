@@ -1,0 +1,123 @@
+{
+  "schema": "py-elk-e05-component-source-review/v1",
+  "iteration": "E05",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T06:02:16.236544+00:00",
+  "sourceDocument": {
+    "path": "references/e05-source-components-A.json",
+    "sha256": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493"
+  },
+  "approvedComponents": [
+    "graph:indexed-target",
+    "intermediate:LongEdgeSplitter",
+    "intermediate:LongEdgeJoiner"
+  ],
+  "componentSeals": {
+    "graph:indexed-target": "4f3ec287d696adb7aded8a9e599ab491a8a7aa8321dc1cceff35a5e57e188617",
+    "intermediate:LongEdgeSplitter": "0a38f1b8e775d08ccb1f843065176c3215fee9c68ac0ad97e76f6b55875988ec",
+    "intermediate:LongEdgeJoiner": "a2e58d0fe49407639d4f765d4ed1eb28931b8a6b1e0b284353d8db7fff08d962"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 272,
+    "functionOffsetOccurrences": 233,
+    "staticCallEdges": 78,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E05-01/V/source-A-partial-02/report.json",
+    "sha256": "0070166b6474b1ef2c051eaa2c8f3acc37e3b214ab23d9490553d599acce82b1"
+  },
+  "semanticFindings": [
+    {
+      "componentId": "graph:indexed-target",
+      "result": "ACCEPTED",
+      "checked": "Source32024?28 removes old target identity then inserts into destination incoming list at caller-provided original dropped index. joinAt40003?07 inserts before detaching dropped; its different old dummy target cannot shift destination index. Valid index guard explicit; host atomic invalid-index rejection is a declared host boundary, not JS exception compatibility."
+    },
+    {
+      "componentId": "intermediate:LongEdgeSplitter",
+      "result": "ACCEPTED",
+      "checked": "Source40040?66 literal <=2-layer return, ordered forward layer iteration and append-to-next-layer produce exactly rankGap-1 dummies for each long edge. Each new node is LONG_EDGE with ORIGIN=current segment and FIXED_POS. Source40110?37 retains thickness normalization/default1 and floor(1/2)=0 port positions, endpoint reattachment, independent shallow property map, copied public-edge origin role and JUNCTION key removal. Source40085?108 retains first NORMAL-neighbor property absence vs later LONG_EDGE explicit false propagation. No-label guard correctly empties moveHeadLabels; no independent persistent chain replaces actual adjacency."
+    },
+    {
+      "componentId": "intermediate:LongEdgeJoiner",
+      "result": "ACCEPTED",
+      "checked": "Source39973?89 removes LONG_EDGE through actual iterator without pretending node.layer pointer is cleared at that point. joinAt39994?40032 retains original surviving edge, detaches dropped links, copies bend/junction vectors in source order, respects original target incoming index, and reads/materializes both junction defaults even when empty. Source default unnecessaryBendpoints=false is scoped; actual anchor-sum source order still mapped. Open export/routing obligations are external and remain explicitly unapproved."
+    },
+    {
+      "componentId": "embedded host proof closure",
+      "result": "ACCEPTED",
+      "checked": "Each component seal covers actualPortSource, licenseRefs and all3 complete hostMappings. Property default dispatch is now bound through KVectorChain interface4/registered class69352/lambda3 clone69582/copy constructors plus getDefault69799?811 and holder25438?39. Empty default has independent chain instances and no vector sharing. Source property map copy is shallow; cross-call input cloning is a distinct host responsibility. Shared mutable proof/guard changes necessarily change component seals; top-level source role still requires fixed identity semantic guard."
+    }
+  ],
+  "resolvedReviewComments": [
+    "Default clone non-null dispatch proof enriched before approval",
+    "External export openness separated from component-own unresolved status"
+  ],
+  "sourceDerivedLemmaControls": [
+    {
+      "id": "floor-vs-center",
+      "passed": true,
+      "meaning": "Default thickness1 makes both implicit port y0; centering at.5 is a demonstrably different branch."
+    },
+    {
+      "id": "indexed-replace-not-append",
+      "passed": true,
+      "meaning": "Insert at dropped index before detach preserves target incoming original position; append then detach would put survivor after later.",
+      "sourceOperationResult": [
+        "earlier",
+        "survivor",
+        "later"
+      ],
+      "appendCounterexampleResult": [
+        "earlier",
+        "later",
+        "survivor"
+      ]
+    },
+    {
+      "id": "empty-junction-present",
+      "passed": true,
+      "meaning": "An empty Python list is false but represents a present source vector-chain object. Use presence and materialize each missing default independently."
+    }
+  ],
+  "actualObservationReceipts": [
+    {
+      "componentId": "graph:indexed-target",
+      "rawSha256": "8f8ac1e7faa1800fc4061c754d1919065fb10f86b397963490184e2ef69f4439",
+      "summarySha256": "871bce3f6598f838d4567756653e5ddc5cb78eb6e419004609ca5988ccf68af5",
+      "observationOnly": true
+    },
+    {
+      "componentId": "intermediate:LongEdgeSplitter",
+      "rawSha256": "8f8ac1e7faa1800fc4061c754d1919065fb10f86b397963490184e2ef69f4439",
+      "summarySha256": "871bce3f6598f838d4567756653e5ddc5cb78eb6e419004609ca5988ccf68af5",
+      "observationOnly": true
+    },
+    {
+      "componentId": "intermediate:LongEdgeJoiner",
+      "rawSha256": "8f8ac1e7faa1800fc4061c754d1919065fb10f86b397963490184e2ef69f4439",
+      "summarySha256": "871bce3f6598f838d4567756653e5ddc5cb78eb6e419004609ca5988ccf68af5",
+      "observationOnly": true
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "NETWORK_SIMPLEX generic DAG layerer and numeric bounds",
+    "General multiport NodeSize/Margin/import/export and source processor configuration",
+    "B general LayerSweep/BK/ORTHO internal scale and chain adjacency preservation",
+    "Root final supported scope, runtime same-suite installed wheel and complete gate"
+  ],
+  "limitations": [
+    "Only these3 source components are approved under their stated preconditions; this review does not approve an E05 whole slice or claim runtime acceptance.",
+    "Byte/span/UTF16/lexical call checks are not automatic mathematical proof. Manual source def-use and host mappings were independently reviewed.",
+    "Actual observations corroborate but do not prove the source domain; missing coverage is not no-op proof.",
+    "Exact external Java build provenance and project release license remain unresolved."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE05SourceGateApproved": false
+}

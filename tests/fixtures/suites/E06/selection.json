@@ -1,0 +1,588 @@
+{
+  "schema": "py-elk-slice-selection/v1",
+  "iteration": "E06",
+  "policy": "flat-right-connected-multigraph-inputs/proposed-v1",
+  "limits": {
+    "maxChildren": 8,
+    "maxTotalEdges": 28,
+    "maxGeometryValue": 1000000
+  },
+  "status": "INPUTS_PREPARED",
+  "supportStatus": "PROPOSED_SOURCE_GUARDS_PENDING",
+  "algorithmSourceGate": "unverified-for-E06-expansion",
+  "master": {
+    "path": "tests/fixtures/validation/cases.json",
+    "sha256": "73237f14b3753ff4feaff8866ea0cfbcdb39e5b269a31917486a16fda34875cc",
+    "caseCount": 25
+  },
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "masterCases": [
+    {
+      "id": "layered-empty",
+      "originalRequest": "requests/layered-empty.json",
+      "originalRequestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-empty.json"
+    },
+    {
+      "id": "layered-singleton",
+      "originalRequest": "requests/layered-singleton.json",
+      "originalRequestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-singleton.json"
+    },
+    {
+      "id": "layered-chain",
+      "originalRequest": "requests/layered-chain.json",
+      "originalRequestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-chain.json"
+    },
+    {
+      "id": "layered-fork",
+      "originalRequest": "requests/layered-fork.json",
+      "originalRequestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-fork.json"
+    },
+    {
+      "id": "layered-join",
+      "originalRequest": "requests/layered-join.json",
+      "originalRequestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-join.json"
+    },
+    {
+      "id": "layered-diamond-right",
+      "originalRequest": "requests/layered-diamond-right.json",
+      "originalRequestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-diamond-right.json"
+    },
+    {
+      "id": "layered-diamond-left",
+      "originalRequest": "requests/layered-diamond-left.json",
+      "originalRequestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "LEFT"
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-down",
+      "originalRequest": "requests/layered-diamond-down.json",
+      "originalRequestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "DOWN"
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-up",
+      "originalRequest": "requests/layered-diamond-up.json",
+      "originalRequestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "UP"
+        }
+      ]
+    },
+    {
+      "id": "layered-long-edge",
+      "originalRequest": "requests/layered-long-edge.json",
+      "originalRequestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-long-edge.json"
+    },
+    {
+      "id": "layered-cycle",
+      "originalRequest": "requests/layered-cycle.json",
+      "originalRequestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-cycle.json"
+    },
+    {
+      "id": "layered-self-loop",
+      "originalRequest": "requests/layered-self-loop.json",
+      "originalRequestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-self-loop.json"
+    },
+    {
+      "id": "layered-parallel-edges",
+      "originalRequest": "requests/layered-parallel-edges.json",
+      "originalRequestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-parallel-edges.json"
+    },
+    {
+      "id": "layered-disconnected",
+      "originalRequest": "requests/layered-disconnected.json",
+      "originalRequestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "disconnected-topology",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "originalRequest": "requests/layered-unequal-sizes.json",
+      "originalRequestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-unequal-sizes.json"
+    },
+    {
+      "id": "layered-zero-size",
+      "originalRequest": "requests/layered-zero-size.json",
+      "originalRequestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-zero-size.json"
+    },
+    {
+      "id": "layered-custom-spacing",
+      "originalRequest": "requests/layered-custom-spacing.json",
+      "originalRequestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-custom-spacing.json"
+    },
+    {
+      "id": "layered-unseparated-components",
+      "originalRequest": "requests/layered-unseparated-components.json",
+      "originalRequestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "component-mode-outside-slice",
+          "path": "",
+          "detail": ""
+        },
+        {
+          "code": "disconnected-topology",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "options-constructor-default",
+      "originalRequest": "requests/options-constructor-default.json",
+      "originalRequestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "DOWN"
+        }
+      ]
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "originalRequest": "requests/options-explicit-empty-replaces-default.json",
+      "originalRequestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-explicit-empty-replaces-default.json"
+    },
+    {
+      "id": "options-call-replaces-default",
+      "originalRequest": "requests/options-call-replaces-default.json",
+      "originalRequestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "LEFT"
+        }
+      ]
+    },
+    {
+      "id": "options-full-ids",
+      "originalRequest": "requests/options-full-ids.json",
+      "originalRequestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-full-ids.json"
+    },
+    {
+      "id": "error-unknown-endpoint",
+      "originalRequest": "requests/error-unknown-endpoint.json",
+      "originalRequestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E06 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/edges/0/targets/0",
+          "detail": "UNKNOWN_ENDPOINT at /edges/0/targets/0: Referenced node or port does not exist"
+        }
+      ]
+    },
+    {
+      "id": "error-unknown-algorithm",
+      "originalRequest": "requests/error-unknown-algorithm.json",
+      "originalRequestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E06 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/local/elk.algorithm",
+          "detail": "UNSUPPORTED_OPTION at /local/elk.algorithm: This slice parses layered selection only"
+        }
+      ]
+    },
+    {
+      "id": "error-missing-graph",
+      "originalRequest": "requests/error-missing-graph.json",
+      "originalRequestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E06 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "",
+          "detail": "INVALID_GRAPH at /: Graph root must be a mapping"
+        }
+      ]
+    }
+  ],
+  "selectedMasterCases": 15,
+  "excludedMasterCases": 10,
+  "projectVariants": [
+    {
+      "id": "e06-cycle-two",
+      "request": "requests/project/e06-cycle-two.json",
+      "requestSha256": "f4e005e54647a3a319f7a436ca8c4cc7b07829d9ab11de4e7ea53508b537efd5",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-dense-cyclic-eight",
+      "request": "requests/project/e06-dense-cyclic-eight.json",
+      "requestSha256": "659bc73831034f72dfd84203badf9dcbe5c3c3809d84e5aa31d5d1d9abb530f4",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-four-seed17",
+      "request": "requests/project/e06-cycle-four-seed17.json",
+      "requestSha256": "6a62a80aef3696a08856fba39896011433f5f95789fb37054e22f8506a0e827c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-five-decimal",
+      "request": "requests/project/e06-cycle-five-decimal.json",
+      "requestSha256": "e7b5f79d796b9d2f3275df51e98787e0f2d3db68aaf66a97a2cc3f8291610997",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-six-zero",
+      "request": "requests/project/e06-cycle-six-zero.json",
+      "requestSha256": "4a87a7a370f56738cc6d373ba5889c5a3256574dd56cad63db916cac8547c847",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-eight",
+      "request": "requests/project/e06-cycle-eight.json",
+      "requestSha256": "ac80bcc837ae8750ea032e668e7aed2501fcc492230c770857242c1c76e2fae1",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-chords",
+      "request": "requests/project/e06-cycle-chords.json",
+      "requestSha256": "e0f0d40e2bca7e62d82e7a84a6ad320810b78fc0e7c677b9e9c13eaac0967385",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-figure-eight",
+      "request": "requests/project/e06-figure-eight.json",
+      "requestSha256": "634815d2a37718e9228465b2d88e9286eb982b60b7bd528c2a7e24bfcd30be37",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-two-cycles-bridge",
+      "request": "requests/project/e06-two-cycles-bridge.json",
+      "requestSha256": "6d54fe16581b80f5d71386f5841f683c84a0865f3719a8ef6caad7674b9ac05e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-negative-seed",
+      "request": "requests/project/e06-cycle-negative-seed.json",
+      "requestSha256": "4aebaef08c8fe4b8e76c21df2470c3f0bde6b209ba02167435354ca2a34d3d26",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-node-order",
+      "request": "requests/project/e06-cycle-node-order.json",
+      "requestSha256": "462205caf8490518153345f5357a3574145ff033bb05c9d92d1e77f18286e85b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-edge-order",
+      "request": "requests/project/e06-cycle-edge-order.json",
+      "requestSha256": "a871ee60666597ec642d5600973ef46c4a12043efb01bcde5e0be6b24710be89",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-single",
+      "request": "requests/project/e06-selfloop-single.json",
+      "requestSha256": "6d4f779c51b0e8f9e3cc7ac6f3d71e88725f135a2957a3abec011f58f90896e6",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-zero",
+      "request": "requests/project/e06-selfloop-zero.json",
+      "requestSha256": "0df829750aa4f283d20ccb02badde63a5abf2ae78c4b1c03595a0ee2f49eb30a",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-decimal",
+      "request": "requests/project/e06-selfloop-decimal.json",
+      "requestSha256": "eba4ae29e73e5c7fff37f61a9fe39c5767a45519c07c9048a736bda593c8b4d0",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-tiny",
+      "request": "requests/project/e06-selfloop-tiny.json",
+      "requestSha256": "1fcdad588d6cf17e713a7263a79e7204237fada2eea38ccf9b14980eb775038e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-double",
+      "request": "requests/project/e06-selfloop-double.json",
+      "requestSha256": "30c7195757af21cca72e5c4fbfe9337f5986380a0a34eb3f1a122f87f3b05df1",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-twenty-eight",
+      "request": "requests/project/e06-selfloop-twenty-eight.json",
+      "requestSha256": "1e631e2bc9958a6390cd251d0fab1d9dc61bebf9c8e9919c2caaadfe21a4c7ff",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-path-middle",
+      "request": "requests/project/e06-selfloop-path-middle.json",
+      "requestSha256": "cfcfc982f9d675bdb7801f6b661e3bc7a189f948757213f15ce9db93f526fb34",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-selfloop-each-path",
+      "request": "requests/project/e06-selfloop-each-path.json",
+      "requestSha256": "d382d516bced3ec38de06e18c8e24fe7bf6de266f27550069c90ebece9fda30c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-reciprocal-twenty-eight",
+      "request": "requests/project/e06-reciprocal-twenty-eight.json",
+      "requestSha256": "0002912e951423eae4d61f842c8e54f8b769c26858c4f2c18b9e902c5cdd2a9b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-parallel-three",
+      "request": "requests/project/e06-parallel-three.json",
+      "requestSha256": "b2f257f2301817aaf54239b8b61a52dc0ecc8fb1334f97ae157e58ab663d12dd",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-parallel-twenty-eight-zero",
+      "request": "requests/project/e06-parallel-twenty-eight-zero.json",
+      "requestSha256": "afbc17f5ea607f9398418d487f99fb44f9d7a500b234dc8f5964f05963535157",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-parallel-chain",
+      "request": "requests/project/e06-parallel-chain.json",
+      "requestSha256": "997c8473e9a3174bd296ddf648edd84fda2528c44f32312e05397b46198e50f0",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-parallel-longedge",
+      "request": "requests/project/e06-parallel-longedge.json",
+      "requestSha256": "63339b84478c9ad36e53431fdb70d30dda0f93c137798e0809c95218ca26c3d4",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-reciprocal-parallel",
+      "request": "requests/project/e06-reciprocal-parallel.json",
+      "requestSha256": "288d1cdede2a885a0b4c5c91a30b766c56fe1a666a6457afc94bfdd8d2606b6d",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-cycle-parallel",
+      "request": "requests/project/e06-cycle-parallel.json",
+      "requestSha256": "cab36a51cd29d9e4719d3065af282970935c4c1f42f15c01acbd15584ec91ce2",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-cycle-loop-parallel",
+      "request": "requests/project/e06-mixed-cycle-loop-parallel.json",
+      "requestSha256": "403e88b734c7163d4c59dce11b189c40f4cea1285566d8576a25921c507a343e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-chain-loop-longedge",
+      "request": "requests/project/e06-mixed-chain-loop-longedge.json",
+      "requestSha256": "f66af9dd8c50d518f99895b06bcf3c5429b57be16923eacaf4f0469e5477bb43",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-eight",
+      "request": "requests/project/e06-mixed-eight.json",
+      "requestSha256": "4f1605ef0cb97dc759df38f322a66a25f2292cd58d2727f73ce47438f7958667",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-seed17",
+      "request": "requests/project/e06-mixed-seed17.json",
+      "requestSha256": "12e412a88c4a78a9c17a33249e5d5d8f567e4da5ee442c4bb53ace5a98b22f2c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-edge-permutation",
+      "request": "requests/project/e06-mixed-edge-permutation.json",
+      "requestSha256": "9c624c49e5259e91cd512b0ff6c0e4a66149dc4c42a85eaad73f98fe8b7d210a",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-node-permutation",
+      "request": "requests/project/e06-mixed-node-permutation.json",
+      "requestSha256": "7e58e22f7dd12a2ef564659bef7527fe754ea58bbcfc7ea9ddfca8022448bde4",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-max-longedge-eight",
+      "request": "requests/project/e06-max-longedge-eight.json",
+      "requestSha256": "99773ed3530f2ffcea04ba5987ff6f7e5b84946a52263eea3ba6b6be21dc6be7",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-dense-cyclic-eight-permuted",
+      "request": "requests/project/e06-dense-cyclic-eight-permuted.json",
+      "requestSha256": "325978debc921d40ac6d3e1e924f4d8136318e73904c506f160e42851b61d0cb",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-max-longedge-two-targets",
+      "request": "requests/project/e06-max-longedge-two-targets.json",
+      "requestSha256": "512a672426bdcecfb60a310cea34e6c2e01942f4dc669a101b9d6a195d5a4baf",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e06-mixed-eight-edge-limit",
+      "request": "requests/project/e06-mixed-eight-edge-limit.json",
+      "requestSha256": "1070be84b96105fd520de3fc0a3e8aeb26f85b6fb5f2c10733899d77f453c14c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    }
+  ],
+  "projectVariantCount": 37,
+  "suiteCaseCount": 52,
+  "pythonAlgorithmsVerified": 0,
+  "oracleStatus": "CAPTURE_SEPARATELY",
+  "limitation": "Proposed input membership and bytes only; source guards are not frozen and no candidate, algorithm or geometry acceptance is established."
+}

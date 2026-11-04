@@ -1,0 +1,656 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker D03-D09, independently reviewed E19 closure.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external Java/GWT build identity remains unresolved.
+"""Real DisCo shape/component data and cell recommendation arithmetic.
+
+Polyomino packing and graph transformation remain pending. Polygon predicates
+retain the source's open crossings and strict containment, including misses.
+"""
+from __future__ import annotations
+from dataclasses import dataclass
+import math
+from .layered.graph import Vec2
+from .layered.cell_layout import Rectangle
+from .radial import IdentitySet, _maximum
+from .fixed import _div
+from .spore import _fuzzy_compare
+from .triangulation import _scalar_hash
+from .polyomino import Polyomino, NORTH as POLY_NORTH, EAST as POLY_EAST, SOUTH as POLY_SOUTH, WEST as POLY_WEST
+
+
+def contains_point(rect, point):
+    return (point.x > rect.x and point.x < rect.x+rect.width
+            and point.y > rect.y and point.y < rect.y+rect.height)
+
+
+def contains_path(rect, path):
+    if len(path) < 2:
+        return False
+    first = previous = path[0]
+    for point in path[1:]:
+        if not (contains_point(rect, previous) and contains_point(rect, point)):
+            return False
+        previous = point
+    return contains_point(rect, previous) and contains_point(rect, first)
+
+
+def intersects_open_segments(first_start, first_end, second_start, second_end):
+    x00, y00 = first_start.x, first_start.y
+    x10, y10 = second_start.x, second_start.y
+    x01, y01 = first_end.x-x00, first_end.y-y00
+    x11, y11 = second_end.x-x10, second_end.y-y10
+    determinant = x11*y01-x01*y11
+    if _fuzzy_compare(0, determinant, 1e-5) == 0:
+        return False
+    reciprocal = _div(1, determinant)
+    s = reciprocal*((x00-x10)*y01-(y00-y10)*x01)
+    t = reciprocal*(-(-(x00-x10)*y11+(y00-y10)*x11))
+    return (_fuzzy_compare(0, s, 1e-5) < 0
+            and _fuzzy_compare(s, 1, 1e-5) < 0
+            and _fuzzy_compare(0, t, 1e-5) < 0
+            and _fuzzy_compare(t, 1, 1e-5) < 0)
+
+
+def intersects_segment(rect, first, second):
+    if contains_point(rect, first) and contains_point(rect, second):
+        return False
+    top_left = Vec2(rect.x, rect.y)
+    top_right = Vec2(rect.x+rect.width, rect.y)
+    bottom_right = Vec2(rect.x+rect.width, rect.y+rect.height)
+    bottom_left = Vec2(rect.x, rect.y+rect.height)
+    return (intersects_open_segments(top_left, top_right, first, second)
+            or intersects_open_segments(top_right, bottom_right, first, second)
+            or intersects_open_segments(bottom_right, bottom_left, first, second)
+            or intersects_open_segments(bottom_left, top_left, first, second))
+
+
+def intersects_path(rect, path):
+    if len(path) < 2:
+        return False
+    first = previous = path[0]
+    for point in path[1:]:
+        if intersects_segment(rect, previous, point):
+            return True
+        previous = point
+    return intersects_segment(rect, previous, first)
+
+
+def _minimum(first, second):
+    return -_maximum(-first, -second)
+
+
+@dataclass(frozen=True, eq=False)
+class DCDirection:
+    name: str
+    ordinal: int
+    horizontal: bool
+
+
+NORTH = DCDirection('NORTH', 0, False)
+EAST = DCDirection('EAST', 1, True)
+SOUTH = DCDirection('SOUTH', 2, False)
+WEST = DCDirection('WEST', 3, True)
+
+
+class DCElement:
+    def __init__(self, polygon_path):
+        self.extensions = []
+        self.shape = polygon_path
+        self.properties = {}
+        self.component = None
+        minx = miny = math.inf
+        maxx = maxy = -math.inf
+        for point in polygon_path:
+            minx, miny = _minimum(minx, point.x), _minimum(miny, point.y)
+            maxx, maxy = _maximum(maxx, point.x), _maximum(maxy, point.y)
+        self.bounds = Rectangle(minx, miny, maxx-minx, maxy-miny)
+
+
+class DCExtension:
+    def __init__(self, parent, direction, middle_position, width):
+        self.direction, self.width = direction, width
+        bounds = parent.bounds
+        self.offset = Vec2(-bounds.x, -bounds.y)
+        self.offset.x += middle_position.x
+        self.offset.y += middle_position.y
+        half_width = width/2
+        if direction.horizontal:
+            self.offset.y -= half_width
+        else:
+            self.offset.x -= half_width
+        parent.extensions.append(self)
+
+    def set_offset(self, offset):
+        self.offset = offset
+
+
+class DCComponent:
+    def __init__(self, state):
+        self.state = state
+        self.offset = Vec2(0, 0)
+        self.shapes = IdentitySet(state)
+        self.changed = True
+
+    def add_elements(self, elements):
+        for element in elements:
+            self.changed = True
+            self.shapes.add(element)
+            # Source does not detach it from a different component's set.
+            element.component = self
+
+    def set_offset(self, offset):
+        self.changed = True
+        self.offset = offset
+
+    def intersects(self, rect):
+        for element in self.shapes.values():
+            if intersects_path(rect, element.shape) or contains_path(rect, element.shape):
+                return True
+        return False
+
+    def _update(self):
+        self.changed = False
+        minx = miny = math.inf
+        maxx = maxy = -math.inf
+        for element in self.shapes.values():
+            bounds = element.bounds
+            minx = _minimum(minx, bounds.x)
+            maxx = _maximum(maxx, bounds.x+bounds.width)
+            miny = _minimum(miny, bounds.y)
+            maxy = _maximum(maxy, bounds.y+bounds.height)
+            for extension in element.extensions:
+                if extension.direction.horizontal:
+                    minimum = bounds.y+extension.offset.y
+                    maximum = minimum+extension.width
+                    miny, maxy = _minimum(miny, minimum), _maximum(maxy, maximum)
+                else:
+                    minimum = bounds.x+extension.offset.x
+                    maximum = minimum+extension.width
+                    minx, maxx = _minimum(minx, minimum), _maximum(maxx, maximum)
+        self.bounds = Vec2(maxx-minx, maxy-miny)
+        self.min_corner = Vec2(minx+self.offset.x, miny+self.offset.y)
+
+    def get_dimensions(self):
+        if self.changed: self._update()
+        return self.bounds
+
+    def get_min_corner(self):
+        if self.changed: self._update()
+        return self.min_corner
+
+
+class DCGraph:
+    def __init__(self, state, components, origin=None):
+        self.state, self.origin = state, origin
+        self.properties = {}
+        self.components = []
+        # Source LinkedHashSet retains global insertion order rather than hash
+        # bucket iteration. Components are freshly constructed, hence distinct.
+        self._component_keys = IdentitySet(state)
+        for elements in components:
+            component = DCComponent(state)
+            component.add_elements(elements)
+            self._component_keys.add(component)
+            self.components.append(component)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.state.option(self.origin, name, default) if self.origin is not None else default
+
+    def set_dimensions(self, dimensions):
+        self.dimensions = dimensions
+
+
+def compute_low_res_dimension(dimension, cell_size):
+    fit = _div(dimension, cell_size)
+    truncated = _scalar_hash(fit)
+    if fit > truncated:
+        truncated += 1
+    return truncated
+
+
+class DCPolyomino(Polyomino):
+    def __init__(self, component, cell_size_x, cell_size_y):
+        super().__init__([])
+        self.cell_size_x, self.cell_size_y = cell_size_x, cell_size_y
+        self.representee = component
+        dimensions = component.get_dimensions()
+        self.p_width = compute_low_res_dimension(dimensions.x, cell_size_x)
+        self.p_height = compute_low_res_dimension(dimensions.y, cell_size_y)
+        self.reinitialize(self.p_width, self.p_height)
+        self._fill_cells()
+        for element in component.shapes.values():
+            if element.extensions:
+                self._add_extensions(element)
+
+    def _base(self):
+        corner = self.representee.get_min_corner()
+        dimensions = self.representee.get_dimensions()
+        offset_x = (dimensions.x-self.p_width*self.cell_size_x)*-0.5
+        offset_y = (dimensions.y-self.p_height*self.cell_size_y)*-0.5
+        return corner.x-offset_x, corner.y-offset_y
+
+    def _fill_cells(self):
+        base_x, current_y = self._base()
+        for y in range(self.p_height):
+            current_x = base_x
+            for x in range(self.p_width):
+                if self.representee.intersects(Rectangle(current_x, current_y, self.cell_size_x, self.cell_size_y)):
+                    self.set(x, y, False, True)
+                current_x += self.cell_size_x
+            current_y += self.cell_size_y
+
+    def _add_extensions(self, element):
+        base_x, base_y = self._base()
+        base_x, base_y = element.bounds.x-base_x, element.bounds.y-base_y
+        for extension in element.extensions:
+            xe, ye = base_x+extension.offset.x, base_y+extension.offset.y
+            xp = _scalar_hash(_div(xe, self.cell_size_x))
+            yp = _scalar_hash(_div(ye, self.cell_size_y))
+            direction = extension.direction
+            poly_direction = (POLY_NORTH if direction.ordinal == 0 else POLY_EAST
+                              if direction.ordinal == 1 else POLY_SOUTH
+                              if direction.ordinal == 2 else POLY_WEST)
+            if direction.horizontal:
+                end = _scalar_hash(_div(ye+extension.width, self.cell_size_y))
+                self.polyomino_extensions.append((poly_direction, yp, end))
+                if direction is WEST:
+                    self.weakly_block_area(0, yp, xp, end)
+                else:
+                    self.weakly_block_area(xp, yp, self.p_width-1, end)
+            else:
+                end = _scalar_hash(_div(xe+extension.width, self.cell_size_x))
+                self.polyomino_extensions.append((poly_direction, xp, end))
+                if direction is NORTH:
+                    self.weakly_block_area(xp, 0, end, yp)
+                else:
+                    self.weakly_block_area(xp, yp, end, self.p_height-1)
+
+
+def compute_cell_size(graph):
+    sum_term = product_term = 0.0
+    count = len(graph.components)
+    for component in graph.components:
+        bounds = component.get_dimensions()
+        width, height = bounds.x, bounds.y
+        sum_term += width+height
+        product_term += width*height
+    radicand = 400*count*product_term-4*product_term+sum_term*sum_term
+    numerator = (math.sqrt(radicand) if radicand >= 0 else math.nan)+sum_term
+    denominator = 2*(100*count-1)
+    if denominator == 0:
+        return numerator
+    return _div(numerator, denominator)
+
+
+class _IdentityMap:
+    """Narrow source identity-key map with actual bucket-order iteration."""
+    def __init__(self, state):
+        self.keys = IdentitySet(state)
+        self.values_by_id = {}
+
+    def put(self, key, value):
+        self.keys.add(key)
+        self.values_by_id[id(key)] = value
+
+    def get(self, key):
+        if not self.keys.contains(key):
+            return None
+        return self.values_by_id[id(key)]
+
+    def items(self):
+        return [(key, self.values_by_id[id(key)]) for key in self.keys.values()]
+
+
+def _simple_edge(edge):
+    if len(edge.get('sources', [])) != 1 or len(edge.get('targets', [])) != 1:
+        raise ValueError("Passed edge is not 'simple'.")
+
+
+def _edge_node(state, edge, incoming=False):
+    _simple_edge(edge)
+    endpoint = state.endpoint(edge, incoming)
+    return state.owners[id(endpoint)]
+
+
+def _edge_port(state, edge, incoming=False):
+    _simple_edge(edge)
+    endpoint = state.endpoint(edge, incoming)
+    return None if state.owners[id(endpoint)] is endpoint else endpoint
+
+
+def _inner_neighbors_of_port(state, port):
+    parent = state.owners[id(port)]
+    result = IdentitySet(state)
+    for edge in [*state.incidence(port, True), *state.incidence(port, False)]:
+        source, target = _edge_node(state, edge), _edge_node(state, edge, True)
+        if state.parents[id(source)] is parent or state.parents[id(target)] is parent:
+            result.add(target if source is parent else source)
+    return result
+
+
+def split_components(state, graph):
+    incidence = _IdentityMap(state)
+    adjacent_inside_parent = _IdentityMap(state)
+    children = graph.get('children', [])
+    for node in children:
+        adjacent = IdentitySet(state)
+        incidence.put(node, adjacent)
+        for incoming in (True, False):
+            same_level, other_level = [], []
+            for edge in state.node_edges(node, incoming):
+                source, target = _edge_node(state, edge), _edge_node(state, edge, True)
+                (same_level if state.parents[id(source)] is state.parents[id(target)]
+                 else other_level).append(edge)
+            for edge in same_level:
+                adjacent.add(_edge_node(state, edge, not incoming))
+            for edge in other_level:
+                source, target = _edge_node(state, edge), _edge_node(state, edge, True)
+                if incoming:
+                    connected = source is state.parents[id(target)]
+                    port = _edge_port(state, edge) if connected else None
+                else:
+                    connected = target is state.parents[id(source)]
+                    port = _edge_port(state, edge, True) if connected else None
+                if port is not None:
+                    neighbors = adjacent_inside_parent.get(port)
+                    if neighbors is None:
+                        neighbors = _inner_neighbors_of_port(state, port)
+                        adjacent_inside_parent.put(port, neighbors)
+                    for neighbor in neighbors.values():
+                        adjacent.add(neighbor)
+    visited, components = [], []
+    for node in children:
+        if any(previous is node for previous in visited):
+            continue
+        component = []
+        components.append(component)
+        visited.append(node)
+        component.append(node)
+        neighbors = incidence.get(node)
+        stack = [iter(neighbors.values() if neighbors is not None else [])]
+        while stack:
+            try:
+                adjacent = next(stack[-1])
+            except StopIteration:
+                stack.pop()
+                continue
+            if any(previous is adjacent for previous in visited):
+                continue
+            visited.append(adjacent)
+            component.append(adjacent)
+            neighbors = incidence.get(adjacent)
+            stack.append(iter(neighbors.values() if neighbors is not None else []))
+    return components
+
+
+def compute_intersection(first, second, third, fourth):
+    x1, y1, x2, y2 = first.x, first.y, second.x, second.y
+    x3, y3, x4, y4 = third.x, third.y, fourth.x, fourth.y
+    factor1, factor2 = x1*y2-y1*x2, x3*y4-y3*x4
+    denominator = (x1-x2)*(y3-y4)-(y1-y2)*(x3-x4)
+    x = _div(factor1*(x3-x4)-factor2*(x1-x2), denominator)
+    y = _div(factor1*(y3-y4)-factor2*(y1-y2), denominator)
+    return Vec2(x, y)
+
+
+def orthogonal_points(current_x, current_y, next_x, next_y, radius):
+    angle = math.atan2(next_x-current_x, next_y-current_y)
+    ccw, cw = angle+1.5707963267948966, angle-1.5707963267948966
+    return [Vec2(radius*math.sin(ccw)+current_x, radius*math.cos(ccw)+current_y),
+            Vec2(radius*math.sin(cw)+current_x, radius*math.cos(cw)+current_y)]
+
+
+def get_contour(points, thickness):
+    ccw, cw = [], []
+    radius = thickness/2
+    current, successor = points[0], points[1]
+    orthogonal = orthogonal_points(current.x, current.y, successor.x, successor.y, radius)
+    ccw.append(orthogonal[0])
+    cw.append(orthogonal[1])
+    for index in range(2, len(points)):
+        predecessor, current, successor = current, successor, points[index]
+        orthogonal = orthogonal_points(current.x, current.y, predecessor.x, predecessor.y, radius)
+        ccw.append(orthogonal[1])
+        cw.append(orthogonal[0])
+        orthogonal = orthogonal_points(current.x, current.y, successor.x, successor.y, radius)
+        ccw.append(orthogonal[0])
+        cw.append(orthogonal[1])
+    orthogonal = orthogonal_points(successor.x, successor.y, current.x, current.y, radius)
+    ccw.append(orthogonal[1])
+    cw.append(orthogonal[0])
+    ccw_merged, cw_merged = [ccw[0]], [cw[0]]
+    for index in range(1, len(ccw)-2, 2):
+        current_point = ccw[index]
+        intersection = compute_intersection(ccw[index-1], current_point, ccw[index+1], ccw[index+2])
+        ccw_merged.append(intersection if math.isfinite(intersection.x) and math.isfinite(intersection.y)
+                          else current_point)
+    ccw_merged.append(ccw[-1])
+    for index in range(1, len(cw)-2, 2):
+        current_point = cw[index]
+        intersection = compute_intersection(cw[index-1], current_point, cw[index+1], cw[index+2])
+        cw_merged.append(intersection if math.isfinite(intersection.x) and math.isfinite(intersection.y)
+                         else current_point)
+    cw_merged.append(cw[-1])
+    ccw_merged.extend(reversed(cw_merged))
+    return ccw_merged
+
+
+def first_edge_section(edge):
+    """The actual false/false caller: create missing, retain all extra sections."""
+    sections = edge.setdefault('sections', [])
+    if not sections:
+        sections.append({'startPoint': {'x': 0, 'y': 0}, 'endPoint': {'x': 0, 'y': 0}})
+    return sections[0]
+
+
+def create_vector_chain(section):
+    start, end = section.setdefault('startPoint', {'x': 0, 'y': 0}), section.setdefault('endPoint', {'x': 0, 'y': 0})
+    result = [Vec2(start.get('x', 0), start.get('y', 0))]
+    result.extend(Vec2(point.get('x', 0), point.get('y', 0)) for point in section.setdefault('bendPoints', []))
+    result.append(Vec2(end.get('x', 0), end.get('y', 0)))
+    return result
+
+
+def apply_vector_chain(points, section):
+    if len(points) < 2:
+        raise ValueError('The vector chain must contain at least a source and a target point.')
+    start = section.setdefault('startPoint', {})
+    start['x'], start['y'] = points[0].x, points[0].y
+    bends = section.setdefault('bendPoints', [])
+    for index, point in enumerate(points[1:-1]):
+        if index >= len(bends):
+            bends.append({})
+        bends[index]['x'], bends[index]['y'] = point.x, point.y
+    del bends[len(points)-2:]
+    end = section.setdefault('endPoint', {})
+    end['x'], end['y'] = points[-1].x, points[-1].y
+
+
+def nearest_side(point, node):
+    result = NORTH
+    shortest = abs(point.y)
+    distance = abs(node.get('height', 0)-point.y)
+    if distance < shortest:
+        shortest, result = distance, SOUTH
+    distance = abs(point.x)
+    if distance < shortest:
+        shortest, result = distance, WEST
+    distance = abs(node.get('width', 0)-point.x)
+    if distance < shortest:
+        shortest, result = distance, EAST
+    return result
+
+
+def adjust_first_segment(source, chain, direction):
+    first = chain.pop(0)
+    if direction.ordinal == 0:
+        first.y = 0
+    elif direction.ordinal == 2:
+        first.y = source.get('height', 0)
+    elif direction.ordinal == 3:
+        first.x = 0
+    else:
+        first.x = source.get('width', 0)
+    chain.insert(0, first)
+    return chain
+
+
+def adjust_related_port(port, edge_point, direction):
+    if direction.horizontal:
+        port['y'] = edge_point.y-port.get('height', 0)/2
+    else:
+        port['x'] = edge_point.x-port.get('width', 0)/2
+
+
+class ElkGraphTransformer:
+    def __init__(self, state, component_spacing):
+        self.state, self.component_spacing = state, component_spacing
+        self.element_mapping = _IdentityMap(state)
+        self.incoming_extensions_mapping = _IdentityMap(state)
+        self.outgoing_extensions_mapping = _IdentityMap(state)
+
+    def _copy_properties(self, target, original):
+        target.snapshot = self.state.property_snapshot(original)
+        target.properties = target.snapshot.values
+
+    def import_shape(self, element, consider_offset, offset_x, offset_y):
+        if self.state.kinds.get(id(element)) not in ('node', 'label', 'port'):
+            raise ValueError('Method only works for ElkNode-, ElkLabel and ElkPort-objects.')
+        half_spacing = self.component_spacing/2
+        x0, y0 = element.get('x', 0)+offset_x-half_spacing, element.get('y', 0)+offset_y-half_spacing
+        x1, y1 = x0+element.get('width', 0)+self.component_spacing, y0+element.get('height', 0)+self.component_spacing
+        shape = DCElement([Vec2(x0, y0), Vec2(x0, y1), Vec2(x1, y1), Vec2(x1, y0)])
+        self._copy_properties(shape, element)
+        if consider_offset:
+            self.element_mapping.put(element, shape)
+        return shape
+
+    def import_edge(self, edge, component):
+        points = create_vector_chain(first_edge_section(edge))
+        thickness = self.state.option(edge, 'edge.thickness', 1)
+        shape = DCElement(get_contour(points, thickness+self.component_spacing))
+        self._copy_properties(shape, edge)
+        self.element_mapping.put(edge, shape)
+        component.append(shape)
+        for label in edge.get('labels', []):
+            component.append(self.import_shape(label, True, 0, 0))
+        return shape
+
+    def import_extension(self, edge, component, outgoing):
+        points = create_vector_chain(first_edge_section(edge))
+        if outgoing:
+            points.reverse()
+        thickness = self.state.option(edge, 'edge.thickness', 1)
+        outer, inner = points[0], points[1]
+        if len(points) > 2:
+            shape = DCElement(get_contour(points[1:], thickness+self.component_spacing))
+            self._copy_properties(shape, edge)
+            component.append(shape)
+        else:
+            shape = self.element_mapping.get(_edge_node(self.state, edge, not outgoing))
+        parent = _edge_node(self.state, edge, outgoing)
+        direction = nearest_side(outer, parent)
+        extension_width = thickness+self.component_spacing
+        if direction.horizontal:
+            extension_width += abs(outer.y-inner.y)
+            middle = Vec2(inner.x, (inner.y+outer.y)/2)
+        else:
+            extension_width += abs(outer.x-inner.x)
+            middle = Vec2((inner.x+outer.x)/2, inner.y)
+        extension = DCExtension(shape, direction, middle, extension_width)
+        (self.outgoing_extensions_mapping if outgoing else self.incoming_extensions_mapping).put(edge, extension)
+        self.element_mapping.put(edge, shape)
+        for label in edge.get('labels', []):
+            component.append(self.import_shape(label, True, 0, 0))
+
+    def import_edges(self, edges, component):
+        for edge in edges.values():
+            if self.element_mapping.get(edge) is not None:
+                continue
+            source, target = _edge_node(self.state, edge), _edge_node(self.state, edge, True)
+            if self.state.parents[id(source)] is self.state.parents[id(target)]:
+                self.import_edge(edge, component)
+            elif source is self.state.parents[id(target)]:
+                if (self.incoming_extensions_mapping.get(edge) is None
+                        and self.element_mapping.get(target) is not None):
+                    self.import_extension(edge, component, False)
+            elif (self.outgoing_extensions_mapping.get(edge) is None
+                    and self.element_mapping.get(source) is not None):
+                self.import_extension(edge, component, True)
+
+    def import_graph(self, graph):
+        self.parent = graph
+        result = []
+        for component in split_components(self.state, graph):
+            sub_result = []
+            result.append(sub_result)
+            edges = IdentitySet(self.state)
+            for node in component:
+                sub_result.append(self.import_shape(node, True, 0, 0))
+                node_x, node_y = node.get('x', 0), node.get('y', 0)
+                for label in node.get('labels', []):
+                    sub_result.append(self.import_shape(label, False, node_x, node_y))
+                for port in node.get('ports', []):
+                    sub_result.append(self.import_shape(port, False, node_x, node_y))
+                    port_x, port_y = port.get('x', 0)+node_x, port.get('y', 0)+node_y
+                    for label in port.get('labels', []):
+                        sub_result.append(self.import_shape(label, False, port_x, port_y))
+                at_node = IdentitySet(self.state, [*self.state.node_edges(node), *self.state.node_edges(node, True)])
+                for edge in at_node.values():
+                    edges.add(edge)
+            self.import_edges(edges, sub_result)
+        self.transformed_graph = DCGraph(self.state, result, graph)
+        self._copy_properties(self.transformed_graph, graph)
+        return self.transformed_graph
+
+    def _apply_offset(self, element, shape):
+        offset = shape.component.offset
+        if self.state.kinds.get(id(element)) == 'edge':
+            section = first_edge_section(element)
+            points = create_vector_chain(section)
+            for point in points:
+                point.x += offset.x
+                point.y += offset.y
+            apply_vector_chain(points, section)
+            junctions = self.state.get_native_property(element, 'junctionPoints')
+            if junctions is not None:
+                for point in junctions:
+                    point.x += offset.x
+                    point.y += offset.y
+        else:
+            element['x'] = element.get('x', 0)+offset.x
+            element['y'] = element.get('y', 0)+offset.y
+
+    def apply_layout(self):
+        dimensions = self.transformed_graph.dimensions
+        old_width, old_height = self.parent.get('width', 0), self.parent.get('height', 0)
+        self.parent['width'], self.parent['height'] = dimensions.x, dimensions.y
+        x_factor, y_factor = _div(dimensions.x, old_width), _div(dimensions.y, old_height)
+        for label in self.parent.get('labels', []):
+            label['x'], label['y'] = label.get('x', 0)*x_factor, label.get('y', 0)*y_factor
+        for port in self.parent.get('ports', []):
+            px, py = port.get('x', 0), port.get('y', 0)
+            if px > 0:
+                port['x'] = px*x_factor
+            if py > 0:
+                port['y'] = py*y_factor
+        for element, shape in self.element_mapping.items():
+            self._apply_offset(element, shape)
+        adjusted_ports = []
+        for mapping, outgoing in ((self.incoming_extensions_mapping, False), (self.outgoing_extensions_mapping, True)):
+            for edge, extension in mapping.items():
+                direction = extension.direction
+                section = first_edge_section(edge)
+                points = create_vector_chain(section)
+                if outgoing:
+                    points.reverse()
+                points = adjust_first_segment(_edge_node(self.state, edge, outgoing), points, direction)
+                if outgoing:
+                    points.reverse()
+                apply_vector_chain(points, section)
+                port = _edge_port(self.state, edge, outgoing)
+                if port is not None and not any(previous is port for previous in adjusted_ports):
+                    adjusted_ports.append(port)
+                    adjust_related_port(port, points[-1] if outgoing else points[0], direction)

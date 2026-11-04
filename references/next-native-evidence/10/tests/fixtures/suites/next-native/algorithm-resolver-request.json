@@ -1,0 +1,15 @@
+{"lookups":["box","elk.box","org.eclipse.elk.box","ox","","missing","layered"],"cases":[
+ {"id":"absent-leaf","graph":{"id":"r"}},
+ {"id":"known-leaf","graph":{"id":"r","layoutOptions":{"elk.algorithm":"box"}}},
+ {"id":"absent-parent","graph":{"id":"r","children":[{"id":"n"}]}},
+ {"id":"unknown-leaf","graph":{"id":"r","layoutOptions":{"elk.algorithm":"missing"}}},
+ {"id":"unknown-parent","graph":{"id":"r","layoutOptions":{"elk.algorithm":"missing"},"children":[{"id":"n"}]}},
+ {"id":"java-blank-parent","graph":{"id":"r","layoutOptions":{"elk.algorithm":" \t "},"children":[{"id":"n"}]}},
+ {"id":"nbsp-parent","graph":{"id":"r","layoutOptions":{"elk.algorithm":" "},"children":[{"id":"n"}]}},
+ {"id":"skipped-parent","graph":{"id":"r","layoutOptions":{"elk.algorithm":"missing","elk.noLayout":true},"children":[{"id":"n"}]}},
+ {"id":"inside-loop-trigger","graph":{"id":"r","layoutOptions":{"elk.insideSelfLoops.activate":true}}},
+ {"id":"old-resolved-unknown","presetResolved":"fixed","graph":{"id":"r","layoutOptions":{"elk.algorithm":"missing"},"children":[{"id":"n"}]}},
+ {"id":"known-overwrites-old","presetResolved":"fixed","graph":{"id":"r","layoutOptions":{"elk.algorithm":"box"},"children":[{"id":"n"}]}},
+ {"id":"nested-error-path","select":[0],"graph":{"id":"r","children":[{"id":"group","layoutOptions":{"elk.algorithm":"missing"},"children":[{"id":"n"}]}]}},
+ {"id":"parent-algorithm-not-default","select":[0],"graph":{"id":"r","layoutOptions":{"elk.algorithm":"box"},"children":[{"id":"group","children":[{"id":"n"}]}]}}
+]}

@@ -1,0 +1,109 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "6adcf18039c40aa180b04c859c2d78323c6652468bb6884e872ee92a27aa7c83",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "business": "selected-global-presence",
+    "layoutOptions": {
+      "elk.algorithm": "box"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 10,
+        "$H": 277,
+        "x": 5,
+        "y": 2
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 20,
+        "$H": 279,
+        "x": 5,
+        "y": 49
+      },
+      {
+        "id": "c",
+        "width": 10,
+        "height": 40,
+        "$H": 281,
+        "x": 32,
+        "y": 2
+      }
+    ],
+    "edges": [],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 58,
+    "height": 73
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "business": "selected-global-presence",
+    "layoutOptions": {
+      "elk.algorithm": "box"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 10,
+        "$H": 277,
+        "x": 5,
+        "y": 2
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 20,
+        "$H": 279,
+        "x": 5,
+        "y": 49
+      },
+      {
+        "id": "c",
+        "width": 10,
+        "height": 40,
+        "$H": 281,
+        "x": 32,
+        "y": 2
+      }
+    ],
+    "edges": [],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 58,
+    "height": 73
+  },
+  "constructorAfter": {
+    "defaultLayoutOptions": {
+      "elk.spacing.nodeNode": 99
+    }
+  },
+  "argumentsAfter": {
+    "layoutOptions": {
+      "elk.spacing.nodeNode": 7,
+      "elk.padding": "[top=2,right=3,bottom=4,left=5]",
+      "elk.nodeSize.fixedGraphSize": "false"
+    }
+  },
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

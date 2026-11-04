@@ -1,0 +1,30 @@
+{
+  "status": "ACCEPTED_HISTORICAL_CURRENT_SEPARATION_WITH_SEMANTIC_CHECKS",
+  "controls": [
+    {
+      "control": "changed-current-source-does-not-change-or-certify-archived-E05",
+      "passed": true
+    },
+    {
+      "control": "historical-package-still-runs-native-public-semantic-guard",
+      "rejected": true,
+      "reason": "Installed case check failed: nativePublicExact"
+    },
+    {
+      "control": "historical-mode-still-requires-full-source-review-inheritance",
+      "rejected": true
+    },
+    {
+      "control": "self-rehashed-frozen-declaration-rejected",
+      "rejected": true
+    }
+  ],
+  "runtimeReexecuted": false,
+  "currentE06PackageCertifiedByE05": false,
+  "files": {
+    "scripts/validate_e05_runtime.py": "e9a0042cbe9ad05967f688a69b88814b5aa7325f0345245109c7fb49ed3948a1",
+    "scripts/validate_e04_runtime.py": "2eccc3d480b34dc4f9015b920b25402b4957cf10cff93daa9d827d2841478542",
+    "references/history/E05/material.json": "4ec10050afbb66a346445de0efe34110f6637af764a4bede207c30410dbfbdac",
+    "references/history/E05/py_elk-0.0.1a0-py3-none-any.whl": "13d677684eabe65fdc9c9f003178c775a16b2e26f08372fd76043f3d5e810b03"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "schema": "py-elk-e05-component-source-review/v1",
+  "iteration": "E05",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T06:19:31.781817+00:00",
+  "sourceDocument": {
+    "path": "references/e05-source-components-A.json",
+    "sha256": "ebc8c5b2d8f354df666183ad1660f6b8634cbac99a3f4a2b10fa3ebd34c11927"
+  },
+  "approvedComponents": [
+    "phase:NETWORK_SIMPLEX"
+  ],
+  "componentSeals": {
+    "phase:NETWORK_SIMPLEX": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 577,
+    "functionOffsetOccurrences": 534,
+    "staticCallEdges": 235,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E05-01/V/source-A-NS-01/report.json",
+    "sha256": "6e6776a7bf270bc03e21ed080c0dc78f8e8b87612bb56d1d6e6765100db630c6"
+  },
+  "checkedSemantics": [
+    {
+      "id": "NS-ENTRY-ORDER",
+      "checked": "process73 assigns work-order LNode IDs, repeats actual port incoming-before-outgoing DFS, creates private NNodes in that component order and private edges via actual source-port outgoing flattening. Connected single-component scope keeps previousLayeringNodeCounts null. Caller explicitly enables balancing, takes default7*4 and source round(sqrt(n)) for28/56/84 iteration limits. Source layers attach by remove/append and layerless nodes clear; raw public IDs/JSON arrays and geometry/RNG remain unwritten."
+    },
+    {
+      "id": "NS-PRIVATE-MODEL",
+      "checked": "NGraph/Node/Edge identities and origin links are separate from LGraph. Private connected-edge cache is private incoming then outgoing, not raw JSON edge order or original LPort interleaving. Build completes before querying cache; admitted path never rewires private adjacency, so one stable cache is a stated host reduction, not a general mutable-cache implementation. FIFO, insertion-ordered identity tree set and remove-leave/append-enter order remain effective algorithm semantics."
+    },
+    {
+      "id": "NS-TIGHT-TREE",
+      "checked": "Topological FIFO ranks are feasible integer ranks for delta1. Tight DFS is rooted at the FIRST private node, even if not a source; tree edges and edgeVisited/treeNode state avoid cycles. Weak connectivity gives a crossing candidate and strict-min signed slack shifts current tree to add a tight edge. At mostn-1 growth shifts connect all nodes. Directed unit gaps on a tight spanning tree imply rank range<=n-1 and occupancy of every intervening integer rank."
+    },
+    {
+      "id": "NS-CUT-EXCHANGE",
+      "checked": "Actual leaf-propagated cutvalues, postorder/lowest intervals and literal isInHead determine head component. leaveEdge uses first insertion-ordered negative cut<-1e-10, enterEdge first strict-min head-to-outside slack, and exchange uses the OLD cut intervals before recomputation. Removing leave/adding enter retains a tree; source outside shift makes entering edge tight without violating any forward edge. Degenerate exchanges still stop at exact source iteration limit rather than continuing to textbook optimality."
+    },
+    {
+      "id": "NS-NORMALIZE-BALANCE",
+      "checked": "Normalize subtracts minimum and counts occupied integer layers. The literal minimalSpan ternary is deliberately preserved: a non-minimal incoming span can also reduce the outgoing bound. Thus candidate range is conservative and feasible, not a standard formula substitution. Equal-degree balance moves only to strictly lower filling; an old sole node cannot move while all current layers are occupied, and moving from count>=2 cannot empty its layer. The isolated singleton has(-1,-1) span and an empty balance range. Layers remain nonempty and at mostn."
+    },
+    {
+      "id": "NS-NUMERIC-SCALE",
+      "checked": "BEFORE splitting n<=8,m<=28,weights=delta=1. >=40 subtree optimization remains guarded out at the actual phase, not after expansion. Initial ranks0..7; seven feasible shifts with Rnext<=2R+1 give range<=1023, and84 later exchanges with slack<=6 keep absolute ranks<4096; conservative cutvalue bound7168 is far below signed32/binary64 exact integer limits. Source intern_0=2147483647/intern_44=-2147483648 at worker19 match scalar sentinel mapping. Dimensions, coordinates and RNG are not read. Source sqrt/round inputs1..8 stay far from half boundaries."
+    },
+    {
+      "id": "NS-DUMMY-BOUND",
+      "checked": "Feasible unit ranks and occupancy prove each edge gap-1<=j-i-1 in rank-stable topological node order. Distinct directed edges sum to at mostC(n,3), attaining56 dummies at n8; therefore64 internal nodes,84 segments and168 ports. This is a later-phase bound; it does NOT prove those phases remain below40 or inherit E04 degeneracies."
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff",
+      "purpose": "NS-HOST-COLLECTIONS immutableSupportEvidence; helper/scalar host infrastructure only, no E04 path algorithm reduction"
+    }
+  ],
+  "independentLemmaEvidence": {
+    "path": "test-runs/20261103-E05-01/V/NS-lemma-controls.json",
+    "sha256": "f3d722a6297e52f1201ca9ecbfe68872c582bae239ac570bca29aad3df36b3e2",
+    "scope": "Finite controls support manual source arguments, not a second candidate algorithm or exhaustive mathematical proof"
+  },
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E05-01/V/NS-entry.command.json",
+      "sha256": "17023bbd5ab01769e500521078983fd70062dce60f6163e045272fb605e7dbba"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/NS-feasible.command.json",
+      "sha256": "d8b99d12dbc1a769da16e1bda77dcb4be7a663e7296cef83110ee02f7f7324ce"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/NS-cut.command.json",
+      "sha256": "e84effba443198a8233367f9caf9246cbb342ed9bf592aedbad09f3baac4dff3"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/NS-balance.command.json",
+      "sha256": "fab314a3de6c4561d2468299b65ba33fe8f455f8ee0d867687d85607554f90a2"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/NS-model.command.json",
+      "sha256": "7100bb11a0a8eaab95f76e8a490bf460de9155d424726f5c09e1c8cb1f1c140c"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/NS-lemma-controls.command.json",
+      "sha256": "a3f98102a905d18d7a8a9732cc4bab11be0dd1ba2e9dda3c4fa838599fda2624"
+    }
+  ],
+  "actualObservationReceipts": [
+    {
+      "path": "test-runs/20261103-E05-01/B/dag-exploration-v2.json",
+      "sha256": "321b1363d129a95ed8283313de09a98a5f118cc6141a7b59da64a57aea0772c1",
+      "observationOnly": true
+    },
+    {
+      "path": "test-runs/20261103-E05-01/A/longedge-v3-01/instrumented.json",
+      "sha256": "8f8ac1e7faa1800fc4061c754d1919065fb10f86b397963490184e2ef69f4439",
+      "observationOnly": true
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "General LayerConstraintPostprocessor/NodeSize/port/margin/export and B later phases require their separate E05 source approvals."
+  ],
+  "limitations": [
+    "Only the source-reviewed before-split NETWORK_SIMPLEX branch is approved; no whole E05/runtime/public API/release acceptance.",
+    "Fixed source and helper bytes were independently checked, and the actual algorithm/def-use was manually read. Span checks do not automatically prove algebra or every graph execution.",
+    "Exact Java build provenance and overall project release license remain unresolved."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE05SourceGateApproved": false
+}

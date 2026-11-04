@@ -1,0 +1,502 @@
+{
+  "schema": "py-elk-e07-component-source-review/v1",
+  "iteration": "E07",
+  "reviewer": "V",
+  "reviewedLane": "R",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T09:39:35.161064+00:00",
+  "sourceDocument": {
+    "path": "references/e07-source-components-R.json",
+    "sha256": "7d16a4b3dcae1141a4d9965a1b6078990630b283393815b643214c216e3139c2"
+  },
+  "approvedComponents": [
+    "intermediate:LabelAndNodeSizeProcessor",
+    "intermediate:InnermostNodeMarginCalculator",
+    "intermediate:LayerSizeAndGraphHeightCalculator",
+    "phase:LAYER_SWEEP_BARYCENTER",
+    "phase:LAYER_SWEEP_GREEDY_SWITCH",
+    "phase:BRANDES_KOEPF",
+    "phase:ORTHOGONAL",
+    "import:json-to-layered",
+    "export:layered-to-json",
+    "pipeline:default-processor-configuration"
+  ],
+  "componentSeals": {
+    "intermediate:LabelAndNodeSizeProcessor": "a15ce43f28ccef9bc89de5974ef1a53f19ba53d3578838428762b13e9b270711",
+    "intermediate:InnermostNodeMarginCalculator": "9aae67f8c8d1bcfd26ca35a6b5f1ca24ebef415b2b547844f268531544cd4059",
+    "intermediate:LayerSizeAndGraphHeightCalculator": "25a199ae7555985a241503703c92b4919fbc0ec8632004f34ca92934239be643",
+    "phase:LAYER_SWEEP_BARYCENTER": "748c80774ba3f60f6cb59b522c4ae1d9d749269f3cc7f2324360f5b8a4048755",
+    "phase:LAYER_SWEEP_GREEDY_SWITCH": "49bce9ce9fc0a07b1a98fe0d4c933f0f32a48e59a502993c07946df8a8386264",
+    "phase:BRANDES_KOEPF": "71958d44100d4b014fe5022f4ebd502988dbee481fe7a0d87b98692c504a224c",
+    "phase:ORTHOGONAL": "ddcefe8112dc94f77eb89395d71d5f24f984660e7dc7a439437b894b53c848be",
+    "import:json-to-layered": "d4d2edfb05c83b2f2e1078bad7380dfcc7fb3fd62139ddc9ce28f0ab76a0ddad",
+    "export:layered-to-json": "12e1e938d8fc642a1b9fa99e9dafee8e2ab0a4f24f7864bf7fde305e21e588f1",
+    "pipeline:default-processor-configuration": "e4845180122fd3dd713364a30418763edf66222d0da04b8a2bd3051655bc0916"
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "sourceContextSha256": "e0ba4fa63dc3a2e2ba4e3ec55ac8771d669423bf56c8b822b8811c44de3a3669",
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 1188,
+    "functionOffsetOccurrences": 1188,
+    "staticCallEdges": 787,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "literalSymbolOccurrences": 1188,
+  "newSemanticLabelExceptions": 0,
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E07-01/V/R-ten-independent-02/report.json",
+    "sha256": "eda10eb61685a67703ecd1071a07d9c36284418754f9eaea10130687408ca60d"
+  },
+  "componentDependencies": {
+    "intermediate:LabelAndNodeSizeProcessor": [
+      {
+        "componentId": "direction:transpose",
+        "canonicalComponentSha256": "7ca05a2541d0284e3699a8ce5f9d289736291295f5bc77d2ac96034c4bb1ce92",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:SelfLoopPortRestorer",
+        "canonicalComponentSha256": "b4ed254b46baf814707673a77ba86bd0849f4f3c703ab6752281bfb34fccce70",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:PortListSorter",
+        "canonicalComponentSha256": "6db635f5ba1364374a15aa54a5cc5f941f73e79f67bceda70e6a63c9c9c96798",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:InnermostNodeMarginCalculator": [],
+    "intermediate:LayerSizeAndGraphHeightCalculator": [],
+    "phase:LAYER_SWEEP_BARYCENTER": [
+      {
+        "componentId": "phase:NETWORK_SIMPLEX",
+        "canonicalComponentSha256": "f4203ca3a42f25321dbb386e49a1003be2997c5f15837d72379a15dc861b8c4c",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:LongEdgeSplitter",
+        "canonicalComponentSha256": "15476658ab6d636f560e9a01965ef5041f8052054d15fc9073fd674b5fa87c2f",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:SelfLoopPreProcessor",
+        "canonicalComponentSha256": "cef4a8f7fd8fcc3773bdb23897a9d0c01432da3a27ee3cad9e24147aedaa47fa",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:PortListSorter",
+        "canonicalComponentSha256": "6db635f5ba1364374a15aa54a5cc5f941f73e79f67bceda70e6a63c9c9c96798",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "phase:LAYER_SWEEP_GREEDY_SWITCH": [
+      {
+        "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+        "canonicalComponentSha256": "748c80774ba3f60f6cb59b522c4ae1d9d749269f3cc7f2324360f5b8a4048755",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "phase:BRANDES_KOEPF": [
+      {
+        "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+        "canonicalComponentSha256": "49bce9ce9fc0a07b1a98fe0d4c933f0f32a48e59a502993c07946df8a8386264",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:SelfLoopRouter",
+        "canonicalComponentSha256": "4b764b2d5c76112afbcc2f24d15842a842fb7079c45113bd7ad6aac4d4c873bb",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:LabelAndNodeSizeProcessor",
+        "canonicalComponentSha256": "a15ce43f28ccef9bc89de5974ef1a53f19ba53d3578838428762b13e9b270711",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:InnermostNodeMarginCalculator",
+        "canonicalComponentSha256": "9aae67f8c8d1bcfd26ca35a6b5f1ca24ebef415b2b547844f268531544cd4059",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "phase:ORTHOGONAL": [
+      {
+        "componentId": "phase:BRANDES_KOEPF",
+        "canonicalComponentSha256": "71958d44100d4b014fe5022f4ebd502988dbee481fe7a0d87b98692c504a224c",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:LayerSizeAndGraphHeightCalculator",
+        "canonicalComponentSha256": "25a199ae7555985a241503703c92b4919fbc0ec8632004f34ca92934239be643",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "import:json-to-layered": [
+      {
+        "componentId": "direction:transpose",
+        "canonicalComponentSha256": "7ca05a2541d0284e3699a8ce5f9d289736291295f5bc77d2ac96034c4bb1ce92",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "components:split",
+        "canonicalComponentSha256": "4d130819d010e1ef4405c17c5245abfed9e1c8835b5b6ffd89ab4fa7a8bb77bd",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:LabelAndNodeSizeProcessor",
+        "canonicalComponentSha256": "a15ce43f28ccef9bc89de5974ef1a53f19ba53d3578838428762b13e9b270711",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "export:layered-to-json": [
+      {
+        "componentId": "components:layout-finalization",
+        "canonicalComponentSha256": "cab226eb9545a2e88f9561803f8962c028b9e0a7ec2bebb5c646ba2361d45064",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "components:simple-row-combine",
+        "canonicalComponentSha256": "a1710aa1d900ea3f1c29c929d27f5889d66dbb1821505b77a620d57a459f7c8e",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:LongEdgeJoiner",
+        "canonicalComponentSha256": "779ac8efe9d46c7711033571451612e3b63adadd0f9a887d1f8b2ed8528eade6",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:SelfLoopPostProcessor",
+        "canonicalComponentSha256": "e1dc876e306a275344945742f8ff60cc4a57c49376266d70ba5f9cee057a01ea",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:ReversedEdgeRestorer",
+        "canonicalComponentSha256": "98dfbcc14a32b6554b5c413e9caa80c35a8aa435124417059ef52bcd70710f60",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "pipeline:default-processor-configuration": [
+      {
+        "componentId": "import:json-to-layered",
+        "canonicalComponentSha256": "d4d2edfb05c83b2f2e1078bad7380dfcc7fb3fd62139ddc9ce28f0ab76a0ddad",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "export:layered-to-json",
+        "canonicalComponentSha256": "12e1e938d8fc642a1b9fa99e9dafee8e2ab0a4f24f7864bf7fde305e21e588f1",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "direction:mirror-x",
+        "canonicalComponentSha256": "1ba3d08e0f80ac52d499e118a75625582d3737479b97cacd03875135abd37284",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "direction:mirror-y",
+        "canonicalComponentSha256": "2ae0587b0dbec0a9674da10c8c7692ee41f7b1b3d11f68f0be9720af94c1cf75",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "direction:transpose",
+        "canonicalComponentSha256": "7ca05a2541d0284e3699a8ce5f9d289736291295f5bc77d2ac96034c4bb1ce92",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "components:split",
+        "canonicalComponentSha256": "4d130819d010e1ef4405c17c5245abfed9e1c8835b5b6ffd89ab4fa7a8bb77bd",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "components:layout-finalization",
+        "canonicalComponentSha256": "cab226eb9545a2e88f9561803f8962c028b9e0a7ec2bebb5c646ba2361d45064",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "components:simple-row-combine",
+        "canonicalComponentSha256": "a1710aa1d900ea3f1c29c929d27f5889d66dbb1821505b77a620d57a459f7c8e",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "phase:GREEDY",
+        "canonicalComponentSha256": "f7f7bf9ca94787cfaac364bb1381f7f4d88e2a03c3f3e46eef82659dc6782eec",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "phase:NETWORK_SIMPLEX",
+        "canonicalComponentSha256": "f4203ca3a42f25321dbb386e49a1003be2997c5f15837d72379a15dc861b8c4c",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+        "canonicalComponentSha256": "748c80774ba3f60f6cb59b522c4ae1d9d749269f3cc7f2324360f5b8a4048755",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+        "canonicalComponentSha256": "49bce9ce9fc0a07b1a98fe0d4c933f0f32a48e59a502993c07946df8a8386264",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "phase:BRANDES_KOEPF",
+        "canonicalComponentSha256": "71958d44100d4b014fe5022f4ebd502988dbee481fe7a0d87b98692c504a224c",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "phase:ORTHOGONAL",
+        "canonicalComponentSha256": "ddcefe8112dc94f77eb89395d71d5f24f984660e7dc7a439437b894b53c848be",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ]
+  },
+  "inheritedComponents": {
+    "intermediate:LabelAndNodeSizeProcessor": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/0",
+      "canonicalComponentSha256": "c3ba052bc35627dfa18e4cb00574e015f3e6068a8c7554e38dcefa8234d2749b",
+      "requiredProofIds": [
+        "NS6-CONTEXT",
+        "NS6-HORIZONTAL",
+        "NS6-CELLS",
+        "NS6-LABEL-CALLS",
+        "NS6-ORIGINAL-WRITES"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:InnermostNodeMarginCalculator": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/7",
+      "canonicalComponentSha256": "d5e56ab0fa60d9ab0ff1c1b424411b352e9dd2922d7fc5323ae039e87c5bc566",
+      "requiredProofIds": [
+        "SCAN6-InnermostNodeMarginCalculator",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:LayerSizeAndGraphHeightCalculator": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/8",
+      "canonicalComponentSha256": "6291a4ef226d91ef159043cdd302c257ac07632009710e8aa42b40a58c8f1643",
+      "requiredProofIds": [
+        "SCAN6-LayerSizeAndGraphHeightCalculator",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "phase:LAYER_SWEEP_BARYCENTER": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/10",
+      "canonicalComponentSha256": "7d40671d099eade005901eb6532eff9b2dbb992cff8639df57c0356d55865b61",
+      "requiredProofIds": [
+        "PH6-PROPER",
+        "PH6-SCALE",
+        "PH6-LS-HIDDEN"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "phase:LAYER_SWEEP_GREEDY_SWITCH": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/11",
+      "canonicalComponentSha256": "5a3c05b794c6576bb7636506acf192be24e9abfcc37bc328a6fb7afa0e6bdbb3",
+      "requiredProofIds": [
+        "PH6-PROPER",
+        "PH6-SCALE",
+        "PH6-LS-HIDDEN"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "phase:BRANDES_KOEPF": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/12",
+      "canonicalComponentSha256": "fd62dca75afd6bdcfd31530c734a2d92772883dd7f89b51e5a3c6fd37920ec0f",
+      "requiredProofIds": [
+        "PH6-PROPER",
+        "PH6-SCALE",
+        "PH6-BK-LATE-NORTH"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "phase:ORTHOGONAL": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/13",
+      "canonicalComponentSha256": "55ab233d06c8b009d419e4b7e0689ddd543410981628cb4772c9c11262452572",
+      "requiredProofIds": [
+        "PH6-PROPER",
+        "PH6-SCALE",
+        "PH6-ORTHO-LATE-NORTH"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "import:json-to-layered": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/6",
+      "canonicalComponentSha256": "8c2e2f74070b2fcf149721ba36d75d02f0603906553b8e3f586d9cf7e3df35bc",
+      "requiredProofIds": [
+        "IMP-G1-ORDER-AND-IDENTITY",
+        "IMP-G2-CONFIG-AND-COMPONENT-DFS",
+        "IMP-G3-CARDINALITY",
+        "IMP6-G4-DEFAULT-UNMERGED-AND-SELF-FLAG"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "export:layered-to-json": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/7",
+      "canonicalComponentSha256": "2fdee2d7ba38c8a1b64189e88a809de34f1213adec382b717a5ae0bbdda384f9",
+      "requiredProofIds": [
+        "EXP-G1-LAYER-CLEANUP-COMBINE",
+        "EXP-G2-EDGE-CHAIN-AND-JUNCTION",
+        "EXP-G3-ORIGINAL-JSON-ORDER",
+        "EXP-G4-MODEL-DENOMINATOR",
+        "EXP6-G5-SELF-LOOP-DESCENDANT-AND-RESTORED-DIRECTION"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "pipeline:default-processor-configuration": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/14",
+      "canonicalComponentSha256": "2cddf4e8a96d9713b55fa222b749689c17ffa6e858464ff539781cce424872d4",
+      "requiredProofIds": [
+        "CFG6-FLAGS",
+        "CFG6-ORDER"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    }
+  },
+  "checkedSemantics": [
+    {
+      "id": "R7-NODESIZE-REAL-GETTERS",
+      "checked": "Read process25 and complete inherited NodeContext22679..22713/calculateLabelAndNodeSizes adapters/cells. Given NORMAL size and empty constraints retain dimensions; graph NODE_LABELS_PADDING is real Cloneable Insets and uses approved direction getter; SPACING_PORTS_SURROUNDING is distinct zero Insets clone. Transpose minimum does not activate growth. EnumSet defaults lack type4 and remain absent."
+    },
+    {
+      "id": "R7-CHILD-PADDING-DEF-USE",
+      "checked": "transformNode34386..34419 copies properties/given sizes, creates no leaf LGraph; compound predicate requires children or inside-loop option, excluded. NodeContext reads NODE_LABELS_PADDING/SPACING_PORTS_SURROUNDING, not ordinary PADDING. createLGraph33981..98 consumes root PADDING; topdown/hierarchy branches excluded. Direction node.padding container is separate from copied ordinary PADDING property. Under flat leaf/no-label/empty constraints, child ordinary padding retained but no geometry consumer; not generalized to other child options."
+    },
+    {
+      "id": "R7-NORMALIZED-FRAME",
+      "checked": "Margin/layer size consume normalized sizes/port margins. BK internal orientations and ORTHO generator0 use internal LTR independently of graph DIRECTION. router58101..40 constructs OrthogonalRoutingGenerator(0,edgeSpacing); all false-branch layers processed together. LabelDummySwitcher direction width helper is unselected; label-preprocessor distinct from EndLabelSorter, labels absent."
+    },
+    {
+      "id": "R7-CROSSING-DISCONNECTED",
+      "checked": "Both actual LayerSweep instances use proper shared-layer adjacency without kernel connectivity predicate. Isolates/different components are real members and actual undefined-barycenter branches. RNG draws/reset remain source ordered; true split shares RNG, false one sweep. Side caches/default constraints/reciprocal adjacency/bounds remain guarded."
+    },
+    {
+      "id": "R7-RAW-IMPORT-PREPARE",
+      "checked": "Read createPort/transformNode/createLGraph/prepareGraphForLayout28450..72 plus complete E06 default-unmerged proof. Original source port side derives resolved original direction, target opposite; no E/W shortcut for vertical/LEFT. Global RANDOM/flags/PROCESSORS/SPACINGS once before split. Public uses raw input; retained E06 wrappers are stage entry helpers only."
+    },
+    {
+      "id": "R7-INSTANCE-REUSE-TRANSIENT-RESET",
+      "checked": "Source shares actual processor instances across components. GREEDY50392..50490 replaces degree/mark arrays, reads current shared RANDOM, drains/reset queues. NS resets per-call scratch and each private solver independently. LayerSweep53616..31 returns early for singleton without reading stale scratch; otherwise initialize5 at53514..31 replaces graphInfoHolders, obtains same shared RNG, performs actualnextLong, replaces randomSeed and changed-graphs set, constructs fresh currentGraphInfoHolder/cross minimizer/order arrays. Both source strategies are still distinct configurations. BK57564 replaces current graph/buildFor/currentlayouts; routingGenerator58107 is a fresh per-call local. Thus transient state can map to call locals while persistent strategy tuple/config and shared RNG remain exact; this is not complete processor-class API equivalence."
+    },
+    {
+      "id": "R7-REAL-CALLER-PROTOCOL",
+      "checked": "Actual layout1 prepares/splits/executes each shared selected sequence then cleans layers/combines/resizes. Any global selfloop selects loop4 for all components. NonRIGHT factories PRE TO_INPUT_DIRECTION first/POST TO_INTERNAL_LTR last give21/25 calls. False original graph uses NS actual internal driver and no outer packing. Empty leaf root bypasses processors. Shared PROCESSORS is a guarded host tuple of source-selected entries/strategies; RANDOM field+property same object, SPACINGS read-only projection admitted only without individual/category/base overrides and retaining source default edge/node class values."
+    },
+    {
+      "id": "R7-RESTORATION-EXPORT",
+      "checked": "All original NORMAL nodes/edges survive once, endpoints restored, dummies gone, actual POST completed. Approved B finalization/combine/resize exactly once before pure geometry transfer reads original-frame anchors/bends/JP plus root offset/pad. Strict original arrays/order/business preserved. Source approval does not grant fullAPI/lifecycle."
+    }
+  ],
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E07-01/V/false-mixed-greedy-stage/summary.json",
+      "sha256": "1613f3dbcbaaedc27065436b1319b0250b66f4390bfa4ae5efc1988b45a3c379"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/false-mixed-greedy-stage/instrumented.json",
+      "sha256": "04b15684094da2e5c0a218f75e959025541c4693405140af2c0268c5c85ef678"
+    }
+  ],
+  "actualFiniteControl": {
+    "meaning": "Existing actual3engine false-mixed and direction5-component traces corroborate source order; no Python runtime acceptance."
+  },
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E07-01/V/source-R-ten-independent-canonical-02.command.json",
+      "sha256": "e08eee9e031120b737d05037d390fb46671eb90344790aeaf4c1e3da91e4ec47"
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "Remaining14 R components need independent B approvals before full33 source gate.",
+    "Exact Python stages/native/installed same72 and metadata audits remain separate."
+  ],
+  "limitations": [
+    "Exact complete E06 source inheritance, no old RIGHT/connected outer guard inference.",
+    "Canonical identity/lexical calls do not automatically prove math equivalence or runtime.",
+    "Full algorithm/API/lifecycle/release and exact Java build remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE07SourceGateApproved": false,
+  "requiredProofIds": {
+    "intermediate:LabelAndNodeSizeProcessor": [
+      "E07-intermediate-LabelAndNodeSizeProcessor"
+    ],
+    "intermediate:InnermostNodeMarginCalculator": [
+      "E07-intermediate-InnermostNodeMarginCalculator"
+    ],
+    "intermediate:LayerSizeAndGraphHeightCalculator": [
+      "E07-intermediate-LayerSizeAndGraphHeightCalculator"
+    ],
+    "phase:LAYER_SWEEP_BARYCENTER": [
+      "E07-phase-LAYER-SWEEP-BARYCENTER"
+    ],
+    "phase:LAYER_SWEEP_GREEDY_SWITCH": [
+      "E07-phase-LAYER-SWEEP-GREEDY-SWITCH"
+    ],
+    "phase:BRANDES_KOEPF": [
+      "E07-phase-BRANDES-KOEPF"
+    ],
+    "phase:ORTHOGONAL": [
+      "E07-phase-ORTHOGONAL"
+    ],
+    "import:json-to-layered": [
+      "E07-import-json-to-layered"
+    ],
+    "export:layered-to-json": [
+      "E07-export-layered-to-json"
+    ],
+    "pipeline:default-processor-configuration": [
+      "E07-pipeline-default-processor-configuration"
+    ]
+  },
+  "resolvedFindings": [
+    {
+      "id": "R7-COMPLETE-INHERITED-PROOFS",
+      "status": "resolved",
+      "firstSourceDocumentSha256": "d634a1a8654d219c6c5030d80b8cab89ea812a0979b8a0976920c3f35e7e9e71",
+      "resolution": "Old R uses sourceDerivation rather than guardProofs; complete proof-ID arrays now copied and downstream seals propagated. First failed canonical receipt retained."
+    }
+  ]
+}

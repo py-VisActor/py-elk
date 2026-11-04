@@ -1,0 +1,506 @@
+{
+  "scope": "Private persistent-State entry extraction; mathbody unchanged, only3 representative calls",
+  "filesSha256": {
+    "fixed": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    "box": "c1188f8dd443182aacce7f46bbda0295a4d7feebca6c5a114aa6828807236df8",
+    "random": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d"
+  },
+  "bodyAstChecks": [
+    {
+      "module": "box",
+      "mathematicalBodyNormalizedAstSha256": "65c650621d0906e2b6fa87011a1dd14957e3f09a44017bed27b564bb4c4b0c64",
+      "unchanged": true
+    },
+    {
+      "module": "random",
+      "mathematicalBodyNormalizedAstSha256": "0961eb88fda973bc115787d1ef4abd3fb9efd535d2f4403d1b78bd94a1400022",
+      "unchanged": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "fixed-positioned",
+      "requestSha256": "523323141a189fb3ceba7487ac84f685b404f6de53b0f7653ff44cadbc69c488",
+      "referenceObservationSha256": "38f248ada613f2647846b60dfa2cfeea91903a68504543a7ace4f8884bfe933b",
+      "actualResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.randomSeed": 7
+        },
+        "children": [
+          {
+            "id": "a",
+            "x": 10,
+            "y": 20,
+            "width": 30,
+            "height": 20
+          },
+          {
+            "id": "b",
+            "x": 100,
+            "y": 40,
+            "width": 20,
+            "height": 30
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 150.0,
+        "height": 100.0
+      },
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "523323141a189fb3ceba7487ac84f685b404f6de53b0f7653ff44cadbc69c488",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "a",
+              "x": 10,
+              "y": 20,
+              "width": 30,
+              "height": 20,
+              "$H": 277
+            },
+            {
+              "id": "b",
+              "x": 100,
+              "y": 40,
+              "width": 20,
+              "height": 30,
+              "$H": 279
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 150,
+          "height": 100
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "a",
+              "x": 10,
+              "y": 20,
+              "width": 30,
+              "height": 20,
+              "$H": 277
+            },
+            {
+              "id": "b",
+              "x": 100,
+              "y": 40,
+              "width": 20,
+              "height": 30,
+              "$H": 279
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 150,
+          "height": 100
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-three",
+      "requestSha256": "7cac55c4c0cf879f683189b283cfe17b7c94bf525c8222312b924f1673960e08",
+      "referenceObservationSha256": "0934b72f168a216b995b9d7de16e4a7429c97ad2ca177464df87d76f005c5954",
+      "actualResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.randomSeed": 7
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10,
+            "x": 15.0,
+            "y": 15.0
+          },
+          {
+            "id": "b",
+            "width": 50,
+            "height": 20,
+            "x": 15.0,
+            "y": 70.0
+          },
+          {
+            "id": "c",
+            "width": 10,
+            "height": 40,
+            "x": 50.0,
+            "y": 15.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 80.0,
+        "height": 105.0
+      },
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "7cac55c4c0cf879f683189b283cfe17b7c94bf525c8222312b924f1673960e08",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "$H": 277,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "$H": 279,
+              "x": 15,
+              "y": 70
+            },
+            {
+              "id": "c",
+              "width": 10,
+              "height": 40,
+              "$H": 281,
+              "x": 50,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 105
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "$H": 277,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "$H": 279,
+              "x": 15,
+              "y": 70
+            },
+            {
+              "id": "c",
+              "width": 10,
+              "height": 40,
+              "$H": 281,
+              "x": 50,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 80,
+          "height": 105
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "random-seed-seven",
+      "requestSha256": "ef0aab63e4ab5c86d6be0904031d474fac6a0e45e7d1a629dafd0c86bf6580a8",
+      "referenceObservationSha256": "1b7932426312effef43e741ce845b76e1251f23e9cd5342cdd52277b80ab6e33",
+      "actualResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "random",
+          "elk.randomSeed": 7
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10,
+            "x": 63.885406497241846,
+            "y": 37.475088094008996
+          },
+          {
+            "id": "b",
+            "width": 50,
+            "height": 20,
+            "x": 27.853410075348265,
+            "y": 32.945542854842095
+          },
+          {
+            "id": "c",
+            "width": 10,
+            "height": 40,
+            "x": 69.46041344977331,
+            "y": 15.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 146.90224522454608,
+        "height": 100.0
+      },
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "ef0aab63e4ab5c86d6be0904031d474fac6a0e45e7d1a629dafd0c86bf6580a8",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "$H": 277,
+              "x": 63.885406497241846,
+              "y": 37.475088094008996
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "$H": 279,
+              "x": 27.853410075348265,
+              "y": 32.945542854842095
+            },
+            {
+              "id": "c",
+              "width": 10,
+              "height": 40,
+              "$H": 281,
+              "x": 69.46041344977331,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 146.90224522454608,
+          "height": 100
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "$H": 277,
+              "x": 63.885406497241846,
+              "y": 37.475088094008996
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "$H": 279,
+              "x": 27.853410075348265,
+              "y": 32.945542854842095
+            },
+            {
+              "id": "c",
+              "width": 10,
+              "height": 40,
+              "$H": 281,
+              "x": 69.46041344977331,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 146.90224522454608,
+          "height": 100
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    }
+  ],
+  "fullValidation": false,
+  "fullPublicEquivalenceClaimed": false
+}

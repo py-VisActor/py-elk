@@ -1,0 +1,141 @@
+{
+  "schema": "py-elk-e05-independent-component-review/v1",
+  "iteration": "E05",
+  "reviewerLane": "A",
+  "reviewedUtc": "2026-11-03T06:40:02.454335+00:00",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "reviewedFiles": [
+    {
+      "path": "references/e05-source-components-B.json",
+      "sha256": "19f2ad313e9aef80181fc38331984e06f730f09c492b9110a668de2c710f0499"
+    }
+  ],
+  "approvedSourceComponents": [
+    "phase:BRANDES_KOEPF"
+  ],
+  "approvedComponentSeals": {
+    "phase:BRANDES_KOEPF": "5182ee6ba518e97caf6ce2809c74dfe2d73a78f7c2f832340852d22fd5725e28"
+  },
+  "canonicalEncoding": {
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "ensure_ascii": true,
+    "encoding": "UTF-8"
+  },
+  "canonicalChecks": {
+    "sources": 2,
+    "spanOccurrences": 624,
+    "functionOffsetOccurrences": 601,
+    "staticCallEdges": 274,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "sourceReasoning": [
+    {
+      "id": "A-BK-DEFAULTS",
+      "sourceLines": [
+        57564,
+        57659
+      ],
+      "conclusion": "favorStraightEdges true and FixedAlignment.NONE disable balanced averaging; IMPROVE_STRAIGHTNESS selects active SimpleThresholdStrategy. Preserve exact list/evaluation order right-down,right-up,left-down,left-up. Generated allocation statements create left-down,left-up,right-down,right-up before that list order; this allocation detail must not be confused with chosen-layout tie order. Logging branches remain out of scope."
+    },
+    {
+      "id": "A-BK-NEIGHBOR-ORDER",
+      "sourceLines": [
+        57742,
+        57836
+      ],
+      "conclusion": "Actual final layer/node order assigns global node IDs and layer IDs, then ordered incoming/outgoing edge traversal produces max-priority neighbor pairs with stable local-index sort. Source default priority0 does not make neighbors a set. Keep connecting edge identity as well as neighbor node; source inner-segment conflict detection is real for LONG_EDGE chains."
+    },
+    {
+      "id": "A-BK-CONFLICTS",
+      "sourceLines": [
+        57510,
+        57562
+      ],
+      "conclusion": "The sweep starts with layers index2 and scans actual interior predecessors. It tracks literal k0/k1/l boundaries and marks concrete edge identities outside the current inner-segment interval. Diamonds/multiple inner chains cannot inherit E04 no-conflict reduction; only source numberOfLayers<3 is an early return."
+    },
+    {
+      "id": "A-BK-ALIGNMENT",
+      "sourceLines": [
+        57185,
+        57247
+      ],
+      "conclusion": "For all four layouts, initialize actual root/align/innerShift, traverse layers/nodes by direction, inspect floor/ceil median neighbors in the source direction, and honor marked edges plus strict r comparisons. Root-alignment cycle writes and od booleans remain real; no generic barycenter or topology placement can replace this family."
+    },
+    {
+      "id": "A-BK-INNER-SHIFTS",
+      "sourceLines": [
+        57154,
+        57183,
+        57666,
+        57717
+      ],
+      "conclusion": "LinkedHashMap getBlocks uses first source layer traversal insertion order and actual root identities. Each block follows align cycle and first ordered connecting edge; portPosDiff uses the literal four operand add/sub expression, then inner shifts accumulate and spaceAbove/Below include real margins. Tiny positive NORMAL margin and dummy height1/port.y0 must survive; port center and margin0 shortcuts are invalid."
+    },
+    {
+      "id": "A-BK-COMPACTION",
+      "sourceLines": [
+        57267,
+        57372
+      ],
+      "conclusion": "y[root]=0 is a memoization write before recursive neighbor placement. calculateThreshold occurs after neighbor recursion, or directly if no neighbor. Sink first-assignment, UP/DOWN required-space association and min/max preserve source order. Different sink classes use graph nodeNode spacing, not pair-type spacing. Subsequent layers/root positions and sink class shifts are actually propagated."
+    },
+    {
+      "id": "A-BK-CLASS-ORDER",
+      "sourceLines": [
+        57374,
+        57395,
+        16018,
+        16035,
+        16059,
+        16102,
+        19742,
+        19744
+      ],
+      "conclusion": "The fixed worker HashMap backing is ECMAScript Map; private LNode identity hash values are unique within bounded work objects. No deletion or string-key insertion happens in sinkNodes. Map entry iteration followed by collision chain therefore yields insertion order, justifying host identity-key dict rather than importing a generic Java HashMap assumption. Class indegrees include every actual outgoing constraint, initial indegree0 sinks use that order, and propagation is FIFO."
+    },
+    {
+      "id": "A-BK-THRESHOLD",
+      "sourceLines": [
+        57910,
+        58026
+      ],
+      "conclusion": "Active threshold reads blockFinished and searches first eligible finished-other-root edge in actual incoming/outgoing order; preserve the duplicated same-root su predicate literally. Root/last eligibility and isNaN/isFinite gates apply to infinities, with no added EPS. Unfinished work uses queue FIFO, then unsuccessful first tries use stack LIFO and retry process83. Its delta test uses strict positive/negative and Double.MAX_VALUE, followed by actual checkSpaceAbove/Below and shiftBlock."
+    },
+    {
+      "id": "A-BK-SPACING",
+      "sourceLines": [
+        49915,
+        49990,
+        56984,
+        57018
+      ],
+      "conclusion": "NORMAL/NORMAL uses effective nodeNode, NORMAL/LONG_EDGE uses edgeNode10, LONG_EDGE/LONG_EDGE uses edgeEdge10 under default individual-spacing absence. Port scalar positions and anchor values enter block/threshold formulas directly. Class propagation graph spacing remains separate. Empty business nested keys do not become option overrides."
+    },
+    {
+      "id": "A-BK-SELECTION",
+      "sourceLines": [
+        57435,
+        57462,
+        57564,
+        57659
+      ],
+      "conclusion": "Strict top>previousBottom AND bottom>previousBottom feasibility is retained even for zero size/zero spacing. First strictly smaller feasible layout wins fixed list order; if none is feasible, source falls back to first right-down instead of raising an invented error or changing comparisons. layoutSize uses y plus root blockSize; final node.y is chosen y+innerShift without translation. Scratch disposal is per call."
+    },
+    {
+      "id": "A-BK-NUMERIC-AND-DOMAIN",
+      "conclusion": "Phase checks flat proper8layers/64nodes/84segments/168ports, ordered NORMAL/LONG_EDGE, real finite coordinates/margins and reviewed default choices. Integer indexes/counts are safely bounded; coordinates remain IEEE64 in source association, with explicit infinity/MAX_VALUE sentinels and signed-zero min/max semantics. No RNG entry occurs in this retained helper family. Original8→internal64 depends on separately accepted NS-G4/G6 and splitter, and unapproved NodeSize/export remain external dependencies rather than being silently accepted."
+    }
+  ],
+  "remainingBlockingFindings": [],
+  "runtimeAcceptanceAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "limitations": [
+    "Manual source and guard review plus reproducible lexical binding checks; this is not automatic proof of mathematical equivalence or runtime correctness.",
+    "No production placement.py implementation was assessed; root alone can authorize port of this accepted component.",
+    "Exact external Java build remains unresolved; the fixed generated worker is the actual port source."
+  ]
+}

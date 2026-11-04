@@ -1,0 +1,263 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Monitor semantics: fixed elkjs 0.12.1 generated lib/elk-worker.js,
+# BasicProgressMonitor 71989-72152; collectLogs 81766-81800.
+# Commit 624ae90aa37110033a8af59c5ccbb292708b4317; worker SHA256
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+"""Explicit per-call monitors for ADR0008 source-observed diagnostics.
+
+The fixed generated worker scales integer wall milliseconds by 1000 and then
+multiplies the difference by 1e-9. These values are deliberately not ordinary
+seconds. Geometry and randomness never depend on this module.
+"""
+from __future__ import annotations
+
+import time
+import math
+
+
+# Names are the fixed generated processor begin calls and class metadata.
+_PHASE_NAMES = {
+    'EdgeAndLayerConstraintEdgeReverser': 'Edge and layer constraint edge reversal',
+    'GreedyCycleBreaker': 'Greedy cycle removal',
+    'LayerConstraintPreprocessor': 'Layer constraint preprocessing',
+    'NetworkSimplexLayerer': 'Network simplex layering',
+    'LayerConstraintPostprocessor': 'Layer constraint postprocessing',
+    'LongEdgeSplitter': 'Edge splitting', 'PortSideProcessor': 'Port side processing',
+    'PortListSorter': 'Port order processing',
+    'InLayerConstraintProcessor': 'Layer constraint edge reversal',
+    'LabelAndNodeSizeProcessor': 'Node and Port Label Placement and Node Sizing',
+    'InnermostNodeMarginCalculator': 'Node margin calculation',
+    'BKNodePlacer': 'Brandes & Koepf node placement',
+    'LayerSizeAndGraphHeightCalculator': 'Layer size calculation',
+    'OrthogonalEdgeRouter': 'Orthogonal edge routing', 'LongEdgeJoiner': 'Edge joining',
+    'EndLabelSorter': 'Sort end labels', 'ReversedEdgeRestorer': 'Restoring reversed edges',
+    'SelfLoopPreProcessor': 'Self-Loop pre-processing', 'SelfLoopPortRestorer': 'Self-Loop ordering',
+    'SelfLoopRouter': 'Self-Loop routing', 'SelfLoopPostProcessor': 'Self-Loop post-processing',
+    'GraphTransformer:PRE': 'Graph transformation (TO_INPUT_DIRECTION)',
+    'GraphTransformer:POST': 'Graph transformation (TO_INTERNAL_LTR)',
+}
+_MAIN_PACKAGES = {'GreedyCycleBreaker': 'p1cycles', 'NetworkSimplexLayerer': 'p2layers',
+                  'LayerSweepCrossingMinimizer': 'p3order', 'BKNodePlacer': 'p4nodes.bk',
+                  'OrthogonalEdgeRouter': 'p5edges'}
+
+
+def phase_name(processor, strategy=None):
+    return ('Minimize Crossings ' + strategy if processor == 'LayerSweepCrossingMinimizer'
+            else _PHASE_NAMES[processor])
+
+
+def log_modules(monitor, processors):
+    if monitor.record_logs:
+        monitor.log('ELK Layered uses the following ' + str(len(processors)) + ' modules:')
+        for index, processor in enumerate(processors):
+            name = processor.split(':', 1)[0]
+            package = _MAIN_PACKAGES.get(name, 'intermediate')
+            monitor.log('   Slot ' + str(index).zfill(2) + ': org.eclipse.elk.alg.layered.' + package + '.' + name)
+
+
+def number_text(value):
+    """Original host adapter for ECMAScript Number's decimal presentation.
+
+    Python supplies the shortest round-trip coefficient. We apply the JS
+    fixed/exponential cutoffs and exponent spelling; this is not a source port.
+    """
+    value = float(value)
+    if math.isnan(value):
+        return 'NaN'
+    if math.isinf(value):
+        return '-Infinity' if value < 0 else 'Infinity'
+    if value == 0:
+        return '0'
+    sign = '-' if value < 0 else ''
+    coefficient, _, exponent = repr(abs(value)).lower().partition('e')
+    whole, _, fraction = coefficient.partition('.')
+    digits = (whole + fraction).lstrip('0')
+    position = len(whole) + (int(exponent) if exponent else 0)
+    leading = len(whole + fraction) - len((whole + fraction).lstrip('0'))
+    position -= leading
+    digits = digits.rstrip('0')
+    if 0 < position <= 21:
+        text = (digits + '0' * max(0, position - len(digits)) if position >= len(digits)
+                else digits[:position] + '.' + digits[position:])
+    elif -6 < position <= 0:
+        text = '0.' + '0' * (-position) + digits
+    else:
+        exp = position - 1
+        text = digits[0] + ('.' + digits[1:] if len(digits) > 1 else '') + 'e' + ('+' if exp >= 0 else '') + str(exp)
+    return sign + text
+
+
+def _origin_identifier(origin):
+    from ..model import Node
+    if origin is None:
+        return None
+    identifier = origin.id if type(origin.id) is str else number_text(origin.id)
+    if not identifier:
+        return None
+    container = origin.parent if isinstance(origin, Node) else origin.owner
+    if isinstance(container, Node):
+        parent = _origin_identifier(container)
+        if parent is not None:
+            return parent + '.' + identifier
+    return identifier
+
+
+def _designation(element):
+    origin = element.origin
+    if origin is not None:
+        labels = origin.to_json().get('labels', [])
+        if labels and labels[0].get('text'):
+            return labels[0]['text']
+    return _origin_identifier(origin)
+
+
+def node_text(node):
+    if node is None:
+        return 'null'
+    designation = _designation(node)
+    if designation is None:
+        designation = str(-1 if node.layer is None else node.layer.nodes.index(node))
+    return 'n' + ('' if node.type == 'NORMAL' else '(' + node.type.lower() + ')') + '_' + designation
+
+
+def _port_text(port):
+    designation = _designation(port)
+    return designation if designation is not None else str(-1 if port.owner is None else port.owner.ports.index(port))
+
+
+def edge_text(edge):
+    designation = _designation(edge)
+    text = 'e_' + ('' if designation is None else designation)
+    if edge.source is not None and edge.target is not None:
+        text += (' ' + _port_text(edge.source) + '[' + node_text(edge.source.owner) + '] -> '
+                 + _port_text(edge.target) + '[' + node_text(edge.target.owner) + ']')
+    return text
+
+
+def layout_name(layout):
+    return 'BALANCED' if layout.vertical is None else layout.horizontal + layout.vertical
+
+
+def _node_map_text(groups):
+    return '{' + ', '.join(node_text(key) + '=[' + ', '.join(node_text(node) for node in values) + ']'
+                           for key, values in groups.items()) + '}'
+
+
+def log_bk_choice(monitor, layout, marked_order):
+    """Render live chosen-state before the caller releases its private arrays."""
+    if not monitor.record_logs:
+        return
+    monitor.log('Chosen node placement: ' + layout_name(layout))
+    blocks = {}
+    for layer in layout.graph.layers:
+        for node in layer.nodes:
+            blocks.setdefault(layout.root[node], []).append(node)
+    monitor.log('Blocks: ' + _node_map_text(blocks))
+    classes = {}
+    roots = dict.fromkeys(layout.root.values())
+    for root in roots:
+        if root is None:
+            monitor.log('There are no classes in a balanced layout.')
+            break
+        classes.setdefault(layout.sink[root], []).append(root)
+    monitor.log('Classes: ' + _node_map_text(classes))
+    monitor.log('Marked edges: [' + ', '.join(edge_text(edge) for edge in marked_order) + ']')
+
+
+def _wall_milliseconds():
+    return time.time_ns() // 1_000_000
+
+
+class BasicProgressMonitor:
+    """Ordered source monitor tree; clocks and state belong to this instance."""
+
+    def __init__(self, logging=False, measure_execution_time=False, clock_ms=None):
+        self.record_logs = logging
+        self.record_execution_time = measure_execution_time
+        self._clock_ms = _wall_milliseconds if clock_ms is None else clock_ms
+        self.task_name = None
+        self.total_time = 0.0
+        self._start_ms = 0
+        self._closed = False
+        self._total_work = 0
+        self._completed_work = 0
+        self._current_child_work = -1
+        self._max_levels = -1
+        self._parent = None
+        self._children = []
+        self._messages = [] if logging else None
+
+    def _tick(self):
+        tick = self._clock_ms()
+        if type(tick) is not int:
+            raise TypeError("The diagnostics clock must return integer wall milliseconds")
+        return tick
+
+    def begin(self, name, total_work):
+        if self._closed:
+            raise RuntimeError("The task is already done.")
+        if self.task_name is not None:
+            return False
+        self.task_name = name
+        self._total_work = total_work
+        if self.record_execution_time:
+            self._start_ms = self._tick()
+        return True
+
+    def is_running(self):
+        return self.task_name is not None and not self._closed
+
+    def is_canceled(self):
+        """Actual BasicProgressMonitor contract; external cancellation is separate."""
+        return False
+
+    def sub_task(self, work):
+        if self._closed:
+            return None
+        child = BasicProgressMonitor(self.record_logs, self.record_execution_time, self._clock_ms)
+        child._max_levels = self._max_levels - 1 if self._max_levels > 0 else self._max_levels
+        child._parent = self
+        self._children.append(child)
+        self._current_child_work = work
+        return child
+
+    def log(self, message):
+        if self.record_logs:
+            self._messages.append(message)
+
+    def _internal_worked(self, work):
+        if self._total_work > 0 and self._completed_work < self._total_work:
+            self._completed_work += work
+            if self._parent is not None and self._parent._current_child_work > 0 and self._max_levels != 0:
+                self._parent._internal_worked(work / self._total_work * self._parent._current_child_work)
+
+    def worked(self, work):
+        if work > 0 and not self._closed:
+            self._internal_worked(work)
+
+    def done(self):
+        if self.task_name is None:
+            raise RuntimeError("The task has not begun yet.")
+        if not self._closed:
+            if self.record_execution_time:
+                end_ms = self._tick()
+                self.total_time = float((end_ms - self._start_ms) * 1000) * 1e-9
+            if self._completed_work < self._total_work:
+                self._internal_worked(self._total_work - self._completed_work)
+            self._closed = True
+
+    def collect(self):
+        """Source collectLogs fields, returning independent dictionaries/lists."""
+        # The source JSONString constructor also rejects a missing task name.
+        if type(self.task_name) is not str:
+            raise TypeError("The diagnostics task name must be a string")
+        result = {"name": self.task_name}
+        if self.record_logs and self._messages:
+            if any(type(message) is not str for message in self._messages):
+                raise TypeError("The diagnostics log message must be a string")
+            result["logs"] = list(self._messages)
+        if self.record_execution_time:
+            result["executionTime"] = self.total_time
+        if self._children:
+            result["children"] = [child.collect() for child in self._children]
+        return result

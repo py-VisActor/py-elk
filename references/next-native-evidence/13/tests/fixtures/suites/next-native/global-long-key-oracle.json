@@ -1,0 +1,89 @@
+{
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "54f06ea5755f4f377e1ae9b5af2c49e099eae9c886e9b7e896250c2914c1d694",
+  "requestSha256": "f9d7ac59f07d5ba802dcdf66b3b9dc46507d3331d303d97e08a192af62e25e3a",
+  "pid": 19968,
+  "parentPid": 36364,
+  "node": "v24.19.0",
+  "selectedCase": null,
+  "observation": [
+    {
+      "name": "unknown-long-numeric-key",
+      "serialized": [
+        {
+          "key": "elk.randomSeed",
+          "text": "17"
+        }
+      ],
+      "before": [
+        {
+          "id": "a",
+          "properties": [
+            {
+              "id": "org.eclipse.elk.randomSeed",
+              "has": false,
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "properties": [
+            {
+              "id": "org.eclipse.elk.randomSeed",
+              "has": false,
+              "value": null
+            }
+          ]
+        },
+        {
+          "id": "r",
+          "properties": [
+            {
+              "id": "org.eclipse.elk.randomSeed",
+              "has": false,
+              "value": null
+            }
+          ]
+        }
+      ],
+      "after": [
+        {
+          "id": "a",
+          "properties": [
+            {
+              "id": "org.eclipse.elk.randomSeed",
+              "has": true,
+              "value": 17
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "properties": [
+            {
+              "id": "org.eclipse.elk.randomSeed",
+              "has": true,
+              "value": 17
+            }
+          ]
+        },
+        {
+          "id": "r",
+          "properties": [
+            {
+              "id": "org.eclipse.elk.randomSeed",
+              "has": true,
+              "value": 17
+            }
+          ]
+        }
+      ],
+      "configuredVectorCopiesDistinct": null,
+      "configuredEnumSetsShared": null
+    }
+  ],
+  "layoutExecuted": false,
+  "candidateExecuted": false,
+  "fullValidation": false
+}

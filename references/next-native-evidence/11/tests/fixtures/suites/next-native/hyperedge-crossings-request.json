@@ -1,0 +1,4 @@
+{"cases":[
+  {"id":"parallel-bundles-with-unused-and-inlayer-ports","layers":[["a","b"],["r","s"]],"nodes":[{"id":"a","ports":[["unused","WEST"],["ae","EAST"]]},{"id":"b","ports":[["be","EAST"]]},{"id":"r","ports":[["rw","WEST"]]},{"id":"s","ports":[["sw","WEST"]]}],"edges":[["ae","sw"],["ae","sw"],["be","rw"],["ae","unused"]]},
+  {"id":"late-source-bundle-survives-union-and-north-prefix","layers":[["a","b","c","d"],["r"]],"nodes":[{"id":"a","ports":[["ae","EAST"]]},{"id":"b","ports":[["be","EAST"]]},{"id":"c","ports":[["ce","EAST"]]},{"id":"d","ports":[["de","EAST"]]},{"id":"r","ports":[["n1","NORTH"],["n2","NORTH"],["w1","WEST"],["w2","WEST"]]}],"edges":[["ae","n1"],["be","w2"],["be","n1"],["ce","n2"],["de","w1"]]}
+]}

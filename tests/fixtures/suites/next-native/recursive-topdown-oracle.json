@@ -1,0 +1,226 @@
+{
+  "schema": "py-elk-next-recursive-topdown-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "b4075a35b92fbd8a53e942a1d382c7b72dd71b9370a4f2fd10b163054ac73d66",
+  "requestSha256": "128c7a9f0dc8b8a59221b28495264afb112fff3c7594b3eeb5a6d72020755a9b",
+  "pid": 38544,
+  "parentPid": 34736,
+  "node": "v24.19.0",
+  "observation": {
+    "result": {
+      "id": "r",
+      "width": 184,
+      "height": 137.08203677510608,
+      "layoutOptions": {
+        "elk.algorithm": "fixed",
+        "elk.topdownLayout": true,
+        "elk.topdown.nodeType": "ROOT_NODE",
+        "elk.padding": "[top=2,left=3,bottom=5,right=7]"
+      },
+      "children": [
+        {
+          "id": "c",
+          "x": 11,
+          "y": 13,
+          "width": 59,
+          "height": 50,
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.topdownLayout": true,
+            "elk.topdown.nodeType": "HIERARCHICAL_NODE",
+            "elk.padding": "0"
+          },
+          "children": [
+            {
+              "id": "g",
+              "x": 5,
+              "y": 6,
+              "width": 30,
+              "height": 20,
+              "$H": 279
+            }
+          ],
+          "$H": 277
+        }
+      ],
+      "$H": 13,
+      "x": 0,
+      "y": 0
+    },
+    "events": [
+      {
+        "kind": "enter",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 300
+        }
+      },
+      {
+        "kind": "fetch",
+        "node": "r",
+        "execution": null,
+        "before": 0,
+        "after": 0,
+        "provider": 1
+      },
+      {
+        "kind": "execute",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 400,
+          "height": 300
+        }
+      },
+      {
+        "kind": "fetch",
+        "node": "r",
+        "execution": "r",
+        "before": 0,
+        "after": 0,
+        "provider": 2
+      },
+      {
+        "kind": "release",
+        "execution": "r",
+        "before": 0,
+        "after": 1,
+        "provider": 2
+      },
+      {
+        "kind": "enter",
+        "node": "c",
+        "geometry": {
+          "id": "c",
+          "x": 11,
+          "y": 13,
+          "width": 174,
+          "height": 130.08203677510608
+        }
+      },
+      {
+        "kind": "execute",
+        "node": "c",
+        "geometry": {
+          "id": "c",
+          "x": 11,
+          "y": 13,
+          "width": 174,
+          "height": 130.08203677510608
+        }
+      },
+      {
+        "kind": "fetch",
+        "node": "c",
+        "execution": "c",
+        "before": 1,
+        "after": 0,
+        "provider": 2
+      },
+      {
+        "kind": "release",
+        "execution": "c",
+        "before": 0,
+        "after": 1,
+        "provider": 2
+      },
+      {
+        "kind": "enter",
+        "node": "g",
+        "geometry": {
+          "id": "g",
+          "x": 5,
+          "y": 6,
+          "width": 30,
+          "height": 20
+        }
+      },
+      {
+        "kind": "leave",
+        "node": "g",
+        "geometry": {
+          "id": "g",
+          "x": 5,
+          "y": 6,
+          "width": 30,
+          "height": 20
+        }
+      },
+      {
+        "kind": "leave",
+        "node": "c",
+        "geometry": {
+          "id": "c",
+          "x": 11,
+          "y": 13,
+          "width": 59,
+          "height": 50
+        }
+      },
+      {
+        "kind": "leave",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 184,
+          "height": 137.08203677510608
+        }
+      }
+    ],
+    "providerCount": 2,
+    "queuedProviders": [
+      2
+    ],
+    "geometry": [
+      {
+        "id": "r",
+        "x": 0,
+        "y": 0,
+        "width": 184,
+        "height": 137.08203677510608
+      },
+      {
+        "id": "c",
+        "x": 11,
+        "y": 13,
+        "width": 59,
+        "height": 50
+      },
+      {
+        "id": "g",
+        "x": 5,
+        "y": 6,
+        "width": 30,
+        "height": 20
+      }
+    ],
+    "scaleFactors": [
+      [
+        "r",
+        1
+      ],
+      [
+        "c",
+        1
+      ],
+      [
+        "g",
+        1
+      ]
+    ],
+    "monitor": {
+      "name": "Recursive Graph Layout",
+      "closed": true
+    },
+    "layoutExecuted": true
+  },
+  "candidateExecuted": false
+}

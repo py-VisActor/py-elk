@@ -1,0 +1,13 @@
+# 10批复盘
+
+固定104文件`e41ac8821aca65ce50215904ffc0a08a228916df8632f99123ca313a1e9e1bc5`与170份原始证据，8份范围限定的独立代码复审；12个当前源码绑定核验通过，source-only检查0.072696秒，未执行产品或全量。
+
+Root把真实MODEL_ORDER producer接入native值与Integer token：16个启用条件、节点/端口/边过滤次序及非空CB去重计数新原控严格0差异。A独立审真实Layered两owner声明，生成232条静态记录，明确选owner的scalar入口保留缺省无presence与用户值优先。B独立审root算法resolver，13个节点场景和7个suffix查询严格0差异；全图visitor和递归仍未接。
+
+DisCo新增完整私有provider请求进入真实components/raster/packer/transfer，有限几何和必要业务比较通过；四个仅原版生成的$H差异原样保留。同会话dispatcher只新增一个真实路由，复用原观察，实际检验同root/marker/子monitor与保存的direct-native结果一致。首次控制错把session的owned export副本当外部输入不可变，保存失败与旧probe，仅修输入断言并重此单项；产品未修改。
+
+V交Local、Type、DisCo、Block及producer的独审；Local原Pair盒与Type原大Number的首差异均保留，只对声明的DTO字段做明确语义解码，不改产品数学或容差。A本轮完整Bary sweep的后续原控与修正发生在固定104之外：weighted score先读属性/成本再触All，不能提前调用有副作用的counter。该修正另保首稿/首失败与目标控制，属于11的后续交付，不回绑104。
+
+并行瓶颈通过对等短审缓解：A等待flow源批时审root默认表和薄入口，B等待packing源批时审root resolver，root分担RP28及RP24短源叶，V集中处理完整阶段原控与剩余数学。审核者不批准自己写的产品，源码文件仍单owner。记录中局部耗时不支持声称整体提升比例。
+
+11优先真实递归协调、注册feature/池与visitor依赖、Layered真实导入和其余策略；B继续完整RectPacking。普通标量不能替代结构默认，静态观察标签不是Python身份；源码束和单样本不等于整算法验收。持续goal保持完整范围，开发只做变更校验，全部功能完成后再统一全量。

@@ -1,0 +1,155 @@
+{
+  "schema": "py-elk-next-greedy-phase-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "cd3a51222f6e05ceb481b277958ccb87029d24493a855f4df2205d79650bfd19",
+  "requestSha256": "78f6da2f2f446ff25aa44b5af87501f026ebadaba4c3a656bf34e65df5d5ae0f",
+  "pid": 26052,
+  "parentPid": 41476,
+  "node": "v24.19.0",
+  "observation": {
+    "order": [
+      [
+        "a",
+        "b",
+        "c"
+      ],
+      [
+        "y",
+        "z",
+        "x"
+      ]
+    ],
+    "current": [
+      [
+        "a",
+        "b",
+        "c"
+      ],
+      [
+        "y",
+        "z",
+        "x"
+      ]
+    ],
+    "ports": [
+      {
+        "id": "a",
+        "ports": [
+          "ap"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "b",
+        "ports": [
+          "bp"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "c",
+        "ports": [
+          "cp"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "x",
+        "ports": [
+          "xp"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "y",
+        "ports": [
+          "yp"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "z",
+        "ports": [
+          "zp"
+        ],
+        "constraint": "FIXED_ORDER"
+      }
+    ],
+    "best": null,
+    "currentlyBest": {
+      "nodes": [
+        [
+          "a",
+          "b",
+          "c"
+        ],
+        [
+          "y",
+          "z",
+          "x"
+        ]
+      ],
+      "ports": [
+        [
+          [
+            "ap"
+          ],
+          [
+            "bp"
+          ],
+          [
+            "cp"
+          ]
+        ],
+        [
+          [
+            "yp"
+          ],
+          [
+            "zp"
+          ],
+          [
+            "xp"
+          ]
+        ]
+      ]
+    },
+    "bits": [
+      32,
+      32,
+      1
+    ],
+    "counts": [],
+    "sweeps": [
+      {
+        "forward": false,
+        "first": false,
+        "returned": 0
+      },
+      {
+        "forward": true,
+        "first": false,
+        "returned": 0
+      }
+    ],
+    "rngState": [
+      6590332,
+      11571159
+    ],
+    "monitor": {
+      "name": "Minimize Crossings TWO_SIDED_GREEDY_SWITCH",
+      "closed": true
+    },
+    "strategy": "TWO_SIDED_GREEDY_SWITCH",
+    "alwaysImproves": true,
+    "deterministic": true,
+    "flags": {
+      "first": false,
+      "second": false
+    },
+    "layoutExecuted": false,
+    "crossingPhaseExecuted": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

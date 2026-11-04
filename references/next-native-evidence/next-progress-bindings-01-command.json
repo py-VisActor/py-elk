@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+    "-c",
+    "from pathlib import Path\nimport hashlib,json\nroot=Path('.')\nd=json.loads((root/'docs/changes/20261104-next-native-02.json').read_bytes())\nfor entry in d['evidence'].values():\n assert hashlib.sha256((root/entry['path']).read_bytes()).hexdigest()==entry['sha256'],entry['path']\nc=d['checkpoint'];raw=(root/c['path']).read_bytes();assert hashlib.sha256(raw).hexdigest()==c['sha256']\nm=json.loads(raw);assert m['sourceFiles']==len(m['sourceTreeSha256'])==62\nassert m['sourceTreeSha256']['execution/json_transfer.py']==d['jsonHost']['implementationSourceSha256']\nassert m['sourceTreeSha256']['algorithms/mrtree.py']==d['mrtree']['implementedSourceSha256']\np=json.loads((root/'docs/iteration-plan.json').read_bytes());states={row['id']:row['status'] for row in p['iterations']}\nassert all(states[x]=='planned' for x in ['E13','E16','E17'])\nassert p['validationPolicy']['featureImplementationComplete'] is False\nassert p['parallelPreparation']['codeCheckpoint']['sha256']==c['sha256']\nassert d['fullValidation'] is False and d['wholeAlgorithmsAccepted']==0 and d['publicAPIIntegrated'] is False\nprint(json.dumps({'passed':True,'evidenceByteBindings':len(d['evidence']),'sourceFiles':62,'fullValidation':False,'runtimeReexecuted':False}))\n"
+  ],
+  "cwd": "C:\\code\\py-visactor\\py-elk",
+  "exitCode": 0,
+  "timedOut": false,
+  "elapsedSeconds": 0.047286,
+  "stdoutSha256": "ab3c2a981326e15de74ea9ba9e296e3405671883cb81b27510b109118c263a11",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

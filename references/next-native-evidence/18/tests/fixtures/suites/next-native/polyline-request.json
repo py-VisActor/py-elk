@@ -1,0 +1,34 @@
+{
+  "cases": [
+    {
+      "name": "mixed-same-layer-junction-ns",
+      "flags": ["NORTH_SOUTH_PORTS", "SELF_LOOPS", "CENTER_LABELS", "END_LABELS"],
+      "layers": [
+        {"width": 60, "nodes": [{"name": "a", "y": 10, "width": 20}, {"name": "b", "y": 70, "width": 25}, {"name": "d", "type": "LONG_EDGE", "y": 40, "width": 0}]},
+        {"width": 50, "nodes": [{"name": "c", "y": 30, "width": 30}, {"name": "s", "type": "NORTH_SOUTH_PORT", "y": 100, "width": 0, "origin": "b:EAST"}, {"name": "l", "type": "LABEL", "y": 50, "width": 12}]},
+        {"width": 0, "nodes": [{"name": "x", "type": "EXTERNAL_PORT", "externalSide": "WEST", "y": 30, "width": 0}]}
+      ],
+      "edges": [
+        {"source": "a:EAST", "target": "c:WEST", "bends": [[1.25, -2.5]], "junctions": [[9, 8]]},
+        {"source": "a:EAST", "target": "l:WEST"},
+        {"source": "a:EAST", "target": "b:WEST"},
+        {"source": "b:WEST", "target": "a:EAST"},
+        {"source": "d:WEST", "target": "b:EAST"},
+        {"source": "s:WEST", "target": "a:EAST"},
+        {"source": "a:WEST", "target": "a:EAST"},
+        {"source": "c:EAST", "target": "x:WEST"}
+      ]
+    },
+    {
+      "name": "empty-layer-and-external-offset",
+      "flags": [],
+      "zone": 200,
+      "layers": [
+        {"width": 0, "nodes": []},
+        {"width": 20, "nodes": [{"name": "q", "y": 5, "width": 10}]},
+        {"width": 0, "nodes": [{"name": "z", "type": "EXTERNAL_PORT", "externalSide": "EAST", "y": 85, "width": 0}]}
+      ],
+      "edges": [{"source": "q:EAST", "target": "z:WEST"}]
+    }
+  ]
+}

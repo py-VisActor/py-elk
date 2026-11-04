@@ -1,0 +1,142 @@
+{
+  "schema": "py-elk-e03-audit/v1",
+  "iteration": "E03",
+  "status": "FOUNDATIONS_VALIDATED",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "scope": "Internal host graph/options/per-call-data foundations only; not layout or public API",
+  "runtimeClaims": {
+    "internalModelAvailable": true,
+    "optionResolverAvailable": true,
+    "perCallContextAvailable": true,
+    "nativeLayoutImplemented": false,
+    "publicLayoutApiAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false,
+    "randomSequenceAccepted": false
+  },
+  "pythonAlgorithmsVerified": 0,
+  "algorithmSourceGate": "unverified",
+  "filesSha256": {
+    "references/e03-model-sources.json": "9e2dceff64e33542bb430ff5849467c1105c93a7dba441bcd9401fa5fec608bb",
+    "references/e03-option-sources.json": "39b3ddb05f671559b406c4785d72f67c3ad405924af7595c77f367e8008bcaa8",
+    "docs/decisions/0002-model-options-context.md": "cdeca56c5a39f8334867cca2fe733ad64f0b2bb04dab0df11a8fb35dad5e2e01"
+  },
+  "components": [
+    {
+      "id": "json-copy",
+      "module": "pyelk._json",
+      "symbol": "clone_json",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "host-errors",
+      "module": "pyelk._errors",
+      "symbol": "ValidationError",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "typed-id",
+      "module": "pyelk.model",
+      "symbol": "TypedId",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "ordered-graph",
+      "module": "pyelk.model",
+      "symbol": "Graph",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "node",
+      "module": "pyelk.model",
+      "symbol": "Node",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "port",
+      "module": "pyelk.model",
+      "symbol": "Port",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "edge",
+      "module": "pyelk.model",
+      "symbol": "Edge",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "anchor",
+      "module": "pyelk.model",
+      "symbol": "Anchor",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "margin",
+      "module": "pyelk.model",
+      "symbol": "Margin",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "option-schema",
+      "module": "pyelk.options",
+      "symbol": "OPTION_SPECS",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "option-resolution",
+      "module": "pyelk.options",
+      "symbol": "resolve_options",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    },
+    {
+      "id": "per-call-context",
+      "module": "pyelk.execution",
+      "symbol": "ExecutionContext",
+      "kind": "host-data-foundation",
+      "implemented": true,
+      "layoutAlgorithm": false
+    }
+  ],
+  "policy": {
+    "typedStringAndIntegerIds": true,
+    "booleanOrFloatIds": false,
+    "nodesIncludeRoot": true,
+    "inputAndExportCopies": "deep-exact",
+    "coreOptionCount": 9,
+    "diagnosticOptionCount": 243,
+    "optionReplacement": "call presence replaces constructor; local overrides selected global",
+    "directionDefault": "UNDEFINED",
+    "runtimeReadsReferences": false,
+    "geometryAndLayoutAccepted": false,
+    "rawStrictContractPreserved": true
+  },
+  "retrospective": "docs/retrospectives/E03.md",
+  "nextIteration": "E04",
+  "runDirectory": "test-runs/20261103-E03-01"
+}

@@ -1,0 +1,51 @@
+{
+  "schema": "py-elk-e08-00-independent-request-environment-review/v1",
+  "batch": "E08-00",
+  "reviewerLane": "B",
+  "ownerLane": "V",
+  "status": "ACCEPTED_FOR_FINAL_ACTUAL_PAIRED_RUN",
+  "reviewedUtc": "2026-11-03T12:05:03.165444+00:00",
+  "filesSha256": {
+    "scripts/plan_suite_execution.py": "b3bd6d652acc2ea26fdbbb40fd89f68eef30b57acb7525edd9394a4668b9ad14",
+    "tests/validation/test_suite_execution_plan.py": "f2a32ec706a74081e8dad455beccdee490084035974a6fb9a5663f3b614d5dbe"
+  },
+  "reviewedFix": "Separate recorded actual child-environment identity from the later read-only verifier caller environment. Actual create/every layout launch/end still compare real child env against the recorded opaque digest and clean policy.",
+  "priorImplementationReview": {
+    "path": "test-runs\\20261103-E08-00-01\\B\\review-request-runner-final.json",
+    "sha256": "be0e89d2825c3032a75f2c8a5151b72cf8ba93346397538b9cd38cbc9feb3761",
+    "meaning": "Retained original tool-version implementation review; not rebound to this revision."
+  },
+  "independentControls": {
+    "negativeControlsRejected": 13,
+    "report": {
+      "path": "test-runs\\20261103-E08-00-01\\B\\environment-fix-independent\\report.json",
+      "sha256": "f46b888c108ce603186a00c93f67c8676f9eb1bfb99d5d1952d08ebd3a618cea"
+    },
+    "command": {
+      "path": "test-runs\\20261103-E08-00-01\\B\\environment-fix-independent-command\\command.json",
+      "sha256": "f7a18480600a02d977178a6d206d5c11ccaa7f4d7d2a776dca4cb069506bbf10"
+    }
+  },
+  "checkedInvariants": [
+    "Recorded env evidence schema/role/opaque digest, exact bool policy fields and expected candidate-empty-PATH/reference-override policy remain strict.",
+    "Execution_key includes the complete context and environment evidence/digest; rebinding both digest and proof leaves old object context keys invalid.",
+    "Actual runtime launch still validates the complete supplied child env; candidate PATH, Node/Python overrides and actual env-value changes are rejected.",
+    "New read-only verifier process may have harmless transient variables or unrelated Node/Python overrides; it launches no engines and verifies the unchanged original context/raw provenance.",
+    "Actual -I command isolation cannot be removed by changing context argv or by rebinding the raw candidate command, object command receipt and manifest hashes.",
+    "Each role/repetition has an independent process slot. Repeat<3 and falsifying one actual small case as181 cases both reject; ordinary CLI still requires the full fixed181-case plan.",
+    "All original actual small-fixture file bytes remain unchanged. The prior1086/894-process source-version data was not changed or rebound."
+  ],
+  "actualEvidenceScope": {
+    "smallFixtureOnly": true,
+    "originalActualLayoutProcesses": 6,
+    "separateIdentityCommands": 3,
+    "independentLaterCallerProcessVerified": true,
+    "standardCLIRejectsSmallFixture": true
+  },
+  "blockers": [],
+  "versionedFilesChangedByReviewer": false,
+  "historicalEnvironmentAuthenticated": false,
+  "historicalExecutionAuthenticated": false,
+  "finalFullPairedRunExecutedByReviewer": false,
+  "limitation": "This is an independent implementation and small actual-provenance fixture review, not final181-case execution evidence. Root must run a fresh final-source no-reuse/reuse pair after barrier02. Recorded environment policy/digest and timing consistency cannot authenticate wholly forged historical execution or reconstruct secret environment values."
+}

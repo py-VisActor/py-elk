@@ -1,0 +1,58 @@
+{
+  "schema": "py-elk-iteration-preparation/v1",
+  "iteration": "E11",
+  "batch": "E11-00",
+  "status": "preparation-complete-candidate-pending",
+  "createdUtc": "2026-11-03T15:59:39.115487+00:00",
+  "fullValidation": false,
+  "selectedTargetedMethods": 7,
+  "formalCandidateBuilt": false,
+  "packagePublished": false,
+  "projectLicenseSelected": false,
+  "projectLicenseDecision": {
+    "path": "docs/decisions/0009-project-license.json",
+    "sha256": "fc93eb6111809057a9c187accf2927fb6dcaedc7cc825c909e0deb624c45fc87"
+  },
+  "licenseInventory": {
+    "path": "docs/iterations/E11-license-inventory.json",
+    "sha256": "baf30dbab7030dd5c5cd119193e39aca9e513483fa1fe8d2a6d5bac1921f8fba"
+  },
+  "sourceGate": {
+    "path": "scripts/iteration/e11_package.py",
+    "sha256": "980c4f8cddff75e5d7dd591d8b2e911d42d2a526e417fbe2dcf999834a2c92a0"
+  },
+  "sourceRuntimeAstUnchangedModules": 35,
+  "sourceRuntimeVersion": "0.0.1a0",
+  "expectedRuntimePackageFilesAfterLicenseCorrection": 45,
+  "apacheLicenseSha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+  "apacheIndependentReview": {
+    "path": "test-runs/20261103-E11-01/V/apache-license-review-01.json",
+    "sha256": "bae2a338e081114ec3cc902c7b72c874696430902ff4898d2bb3acfe1e856047"
+  },
+  "packageGateIndependentReview": {
+    "path": "test-runs/20261103-E11-01/A/package-gate-review-01.json",
+    "sha256": "f541bb1f1c0e8ac89f842e21bb79240fa01dc77fa613448ff83e11cf9f24e5b7"
+  },
+  "ciIndependentReview": {
+    "path": "test-runs/20261103-E11-01/V/ci-source-review-01.json",
+    "sha256": "3bd050747daa756603cf6de3be470e5caa7c0276909ef29792174be6e98cb676"
+  },
+  "historyManifest": {
+    "path": "references/history/E09/manifest.json",
+    "sha256": "4e5f6b3b56de907eed3680a1a47fb3cebc721d6191b2de9dc0afceca0bede625"
+  },
+  "historyPackageExecuted": false,
+  "layoutRecaptured": false,
+  "remoteCIExecuted": false,
+  "targetedManifest": {
+    "path": "docs/iterations/E11-preparation-validation.json",
+    "sha256": "2ea25a8c0eac81d658485a6993fd3c0c3caec4b77885d63de4d32ef8e9bc8a90"
+  },
+  "pending": [
+    "Project license choice, stable version and README/metadata freeze.",
+    "Build and verify the actual final wheel/sdist, then selected isolated installed runs.",
+    "PyPI publishing identity and download verification; GitHub admin alone does not establish PyPI authority."
+  ],
+  "goalStatus": "active",
+  "mermaidIntegrationPerformed": false
+}

@@ -1,0 +1,3908 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "id": "regular-shared-mixed-orthogonal",
+      "actual": {
+        "pre": {
+          "layer": [
+            "a",
+            "d0",
+            "d1",
+            "d2",
+            "c",
+            "d3",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "d2.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "d0.p0",
+              "bends": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "d0.p1",
+              "target": "bW",
+              "bends": [
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "d1.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "d3.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "d3.p1",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "post": {
+          "layer": [
+            "a",
+            "c",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "nIn",
+              "bends": [
+                [
+                  73.0,
+                  222
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "nMix",
+              "bends": [
+                [
+                  73.0,
+                  200
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73.0,
+                  200
+                ]
+              ],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "nMix",
+              "target": "bW",
+              "bends": [
+                [
+                  73.0,
+                  200
+                ],
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73.0,
+                  200
+                ]
+              ],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "nOut",
+              "target": "bW",
+              "bends": [
+                [
+                  73.0,
+                  211
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "sMix",
+              "bends": [
+                [
+                  73.0,
+                  233
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73.0,
+                  233
+                ]
+              ],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "sMix",
+              "target": "bW",
+              "bends": [
+                [
+                  73.0,
+                  233
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73.0,
+                  233
+                ]
+              ],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "dummyCoordinatesSupplied": true
+      },
+      "expected": {
+        "pre": {
+          "layer": [
+            "a",
+            "d0",
+            "d1",
+            "d2",
+            "c",
+            "d3",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "d2.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "d0.p0",
+              "bends": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "d0.p1",
+              "target": "bW",
+              "bends": [
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "d1.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "d3.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "d3.p1",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "post": {
+          "layer": [
+            "a",
+            "c",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "nIn",
+              "bends": [
+                [
+                  73,
+                  222
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "nMix",
+              "bends": [
+                [
+                  73,
+                  200
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73,
+                  200
+                ]
+              ],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "nMix",
+              "target": "bW",
+              "bends": [
+                [
+                  73,
+                  200
+                ],
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73,
+                  200
+                ]
+              ],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "nOut",
+              "target": "bW",
+              "bends": [
+                [
+                  73,
+                  211
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "sMix",
+              "bends": [
+                [
+                  73,
+                  233
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73,
+                  233
+                ]
+              ],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "sMix",
+              "target": "bW",
+              "bends": [
+                [
+                  73,
+                  233
+                ]
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  73,
+                  233
+                ]
+              ],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "dummyCoordinatesSupplied": true
+      },
+      "differences": []
+    },
+    {
+      "id": "same-side-and-north-south-selfloops",
+      "actual": {
+        "pre": {
+          "layer": [
+            "d0",
+            "d1",
+            "d2",
+            "c",
+            "d3",
+            "d4",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3",
+                "d4"
+              ],
+              "associates": [
+                "d0",
+                "d4"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "l0",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "l1",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "np",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sp",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "so",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d4",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "no",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "south",
+                    "north"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "EAST",
+                  "origin": "no",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "north"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "loop",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "origin": "l1",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "origin": "l0",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "EAST",
+                  "origin": "np",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "pair"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "EAST",
+                  "origin": "sp",
+                  "dummy": null,
+                  "incoming": [
+                    "pair"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d4",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d4.p0",
+                  "side": "EAST",
+                  "origin": "so",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "south"
+                  ],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "loop",
+              "source": null,
+              "target": null,
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "pair",
+              "source": "d2.p0",
+              "target": "d3.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "south",
+              "source": "d4.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "north",
+              "source": "d0.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "post": {
+          "layer": [
+            "c",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3",
+                "d4"
+              ],
+              "associates": [
+                "d0",
+                "d4"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "l0",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [
+                    "loop"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "l1",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [
+                    "loop"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "np",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [
+                    "pair"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "sp",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [
+                    "pair"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "so",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d4",
+                  "incoming": [],
+                  "outgoing": [
+                    "south"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "no",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [
+                    "north"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "south",
+                    "north"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "EAST",
+                  "origin": "no",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "loop",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "origin": "l1",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "origin": "l0",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "EAST",
+                  "origin": "np",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "EAST",
+                  "origin": "sp",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d4",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d4.p0",
+                  "side": "EAST",
+                  "origin": "so",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "loop",
+              "source": "l0",
+              "target": "l1",
+              "bends": [
+                [
+                  20.0,
+                  153
+                ],
+                [
+                  20.0,
+                  153
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "pair",
+              "source": "np",
+              "target": "sp",
+              "bends": [
+                [
+                  20.0,
+                  166
+                ],
+                [
+                  20.0,
+                  179
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "south",
+              "source": "so",
+              "target": "bW",
+              "bends": [
+                [
+                  20.0,
+                  192
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "north",
+              "source": "no",
+              "target": "bW",
+              "bends": [
+                [
+                  20.0,
+                  140
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "dummyCoordinatesSupplied": true
+      },
+      "expected": {
+        "pre": {
+          "layer": [
+            "d0",
+            "d1",
+            "d2",
+            "c",
+            "d3",
+            "d4",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3",
+                "d4"
+              ],
+              "associates": [
+                "d0",
+                "d4"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "l0",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "l1",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "np",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sp",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "so",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d4",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "no",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "south",
+                    "north"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "EAST",
+                  "origin": "no",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "north"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "loop",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "origin": "l1",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "origin": "l0",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "EAST",
+                  "origin": "np",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "pair"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "EAST",
+                  "origin": "sp",
+                  "dummy": null,
+                  "incoming": [
+                    "pair"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d4",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d4.p0",
+                  "side": "EAST",
+                  "origin": "so",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "south"
+                  ],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "loop",
+              "source": null,
+              "target": null,
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "pair",
+              "source": "d2.p0",
+              "target": "d3.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "south",
+              "source": "d4.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "north",
+              "source": "d0.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "post": {
+          "layer": [
+            "c",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3",
+                "d4"
+              ],
+              "associates": [
+                "d0",
+                "d4"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "l0",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [
+                    "loop"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "l1",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [
+                    "loop"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "np",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [
+                    "pair"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "sp",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [
+                    "pair"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "so",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d4",
+                  "incoming": [],
+                  "outgoing": [
+                    "south"
+                  ],
+                  "splineY": null
+                },
+                {
+                  "id": "no",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [
+                    "north"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "south",
+                    "north"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "EAST",
+                  "origin": "no",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "loop",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "origin": "l1",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "origin": "l0",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "EAST",
+                  "origin": "np",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "EAST",
+                  "origin": "sp",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d4",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d4.p0",
+                  "side": "EAST",
+                  "origin": "so",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "loop",
+              "source": "l0",
+              "target": "l1",
+              "bends": [
+                [
+                  20,
+                  153
+                ],
+                [
+                  20,
+                  153
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "pair",
+              "source": "np",
+              "target": "sp",
+              "bends": [
+                [
+                  20,
+                  166
+                ],
+                [
+                  20,
+                  179
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "south",
+              "source": "so",
+              "target": "bW",
+              "bends": [
+                [
+                  20,
+                  192
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "north",
+              "source": "no",
+              "target": "bW",
+              "bends": [
+                [
+                  20,
+                  140
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "dummyCoordinatesSupplied": true
+      },
+      "differences": []
+    },
+    {
+      "id": "regular-shared-mixed-spline-leaves",
+      "actual": {
+        "pre": {
+          "layer": [
+            "a",
+            "d0",
+            "d1",
+            "d2",
+            "c",
+            "d3",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "d2.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "d0.p0",
+              "bends": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "d0.p1",
+              "target": "bW",
+              "bends": [
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "d1.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "d3.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "d3.p1",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "post": {
+          "layer": [
+            "a",
+            "c",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": 222
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": 200
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": 211
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": 233
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "nIn",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "nMix",
+              "bends": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "nMix",
+              "target": "bW",
+              "bends": [
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "nOut",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "sMix",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "sMix",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "dummyCoordinatesSupplied": true
+      },
+      "expected": {
+        "pre": {
+          "layer": [
+            "a",
+            "d0",
+            "d1",
+            "d2",
+            "c",
+            "d3",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "d2.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "d0.p0",
+              "bends": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "d0.p1",
+              "target": "bW",
+              "bends": [
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "d1.p0",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "d3.p0",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "d3.p1",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "post": {
+          "layer": [
+            "a",
+            "c",
+            "b"
+          ],
+          "nodes": [
+            {
+              "id": "a",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "a",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "aE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [
+                    "e0",
+                    "e1",
+                    "e4"
+                  ],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "c",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "c",
+              "successors": [
+                "d3"
+              ],
+              "associates": [
+                "d2",
+                "d1",
+                "d0",
+                "d3"
+              ],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "nIn",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d2",
+                  "incoming": [
+                    "e0"
+                  ],
+                  "outgoing": [],
+                  "splineY": 222
+                },
+                {
+                  "id": "idle",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "nMix",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d0",
+                  "incoming": [
+                    "e1"
+                  ],
+                  "outgoing": [
+                    "e2"
+                  ],
+                  "splineY": 200
+                },
+                {
+                  "id": "nOut",
+                  "side": "NORTH",
+                  "origin": null,
+                  "dummy": "d1",
+                  "incoming": [],
+                  "outgoing": [
+                    "e3"
+                  ],
+                  "splineY": 211
+                },
+                {
+                  "id": "cE",
+                  "side": "EAST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "sMix",
+                  "side": "SOUTH",
+                  "origin": null,
+                  "dummy": "d3",
+                  "incoming": [
+                    "e4"
+                  ],
+                  "outgoing": [
+                    "e5"
+                  ],
+                  "splineY": 233
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "type": "NORMAL",
+              "origin": null,
+              "hint": null,
+              "layoutUnit": "b",
+              "successors": [],
+              "associates": [],
+              "inLayer": true,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "bW",
+                  "side": "WEST",
+                  "origin": null,
+                  "dummy": null,
+                  "incoming": [
+                    "e2",
+                    "e3",
+                    "e5"
+                  ],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d0",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "origin": "nMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d1",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "EAST",
+                  "origin": "nOut",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d2",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 1,
+              "layoutUnit": "c",
+              "successors": [
+                "c"
+              ],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d2.p0",
+                  "side": "WEST",
+                  "origin": "nIn",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            },
+            {
+              "id": "d3",
+              "type": "NORTH_SOUTH_PORT",
+              "origin": "c",
+              "hint": 2,
+              "layoutUnit": "c",
+              "successors": [],
+              "associates": [],
+              "inLayer": false,
+              "graphRetained": true,
+              "ports": [
+                {
+                  "id": "d3.p0",
+                  "side": "WEST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                },
+                {
+                  "id": "d3.p1",
+                  "side": "EAST",
+                  "origin": "sMix",
+                  "dummy": null,
+                  "incoming": [],
+                  "outgoing": [],
+                  "splineY": null
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "aE",
+              "target": "nIn",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e1",
+              "source": "aE",
+              "target": "nMix",
+              "bends": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": true
+            },
+            {
+              "id": "e2",
+              "source": "nMix",
+              "target": "bW",
+              "bends": [
+                [
+                  -7,
+                  8
+                ]
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e3",
+              "source": "nOut",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e4",
+              "source": "aE",
+              "target": "sMix",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            },
+            {
+              "id": "e5",
+              "source": "sMix",
+              "target": "bW",
+              "bends": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "initialJunctionIdentityPreserved": null
+            }
+          ]
+        },
+        "dummyCoordinatesSupplied": true
+      },
+      "differences": []
+    }
+  ],
+  "importedSourcesSha256": {
+    "pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    "pyelk/metadata/_data.py": "3bbce9e12096f25f7b5cd2477ed86112b6a18284d3677564985c959f2db90020",
+    "pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "pyelk/algorithms/layered/ports.py": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18",
+    "pyelk/algorithms/layered/north_south_ports.py": "9b373d8ac41d7b0c2f7b65058f4bfe671bc4d6712c433d176bdde76856fce2a2",
+    "pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "pyelk/algorithms/layered/cell_layout.py": "5722e8c129f4bd0d90c32b25ec7eab071e424c8874e4dbad86c0950a015d8790",
+    "pyelk/__init__.py": "b316c306c0dfcb8f882befc4ed98f2182ed92bbd9b5898c29d3975b19d70d98d",
+    "pyelk/_errors.py": "f58aca6c430a46e54b43ff1686259e1fe848710dda97fb7f7d6775efc810f53e",
+    "pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "pyelk/algorithms/layered/scope.py": "06726d1c824d74e3cf9ef253f455842433f219dcc1877c0c702837701bc132f9",
+    "pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "pyelk/algorithms/layered/import_export.py": "26a9e28c25ad740a13d5846e31d7b2adc6b766ec447a76d148d230cf213279c4",
+    "pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "pyelk/algorithms/layered/directions.py": "ee5eaf63aa95309f1cfad9a35b1aac38c0ea3932904cf6dc72a2ac04bfef9d49",
+    "pyelk/_json.py": "07a4d371fd953686c528ff367104753c5a1599bfa37e590f59f6649deefb785b",
+    "pyelk/metadata/__init__.py": "6d5986ed402bb071012fd0a9f625083c7e5d7b13dd95ef564ea81c2e35da699b",
+    "pyelk/api.py": "d2de3ef7b62a75289a94598fd9bb1098a18ee09a79550d6e0165fcfcc734d594",
+    "pyelk/algorithms/layered/long_edges.py": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+    "pyelk/options/schema.py": "1a1a94eb82ad8e92fee674bf2e5a6ba407c8fd621addee0e784e0ec8f08c900a",
+    "pyelk/options/resolution.py": "1dfb99cd7c52920109bcecb0ebbaa66b5e4fd55ce2b3c50978d2d466d2a1e5db"
+  },
+  "sourceTreeUnchanged": true,
+  "inputsSha256": {
+    "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\next-native\\compare_ns_helpers.py": "a4c046e6745d0850f93ddecdf7ed5f7797c6748638ebfc9a71cfdf867abb7a02",
+    "tests\\fixtures\\suites\\next-native\\ns-helpers-request.json": "cc30ed6b991f261a0f6cfcf77f31a5a7ecadd691086df83ee4c59e0e9c8a028b",
+    "tests\\fixtures\\suites\\next-native\\ns-helpers-oracle.json": "074bb4b0c707dae93e82e09af6eb46e018e4d2f6811b670d6ec1fc57a5f368f6"
+  },
+  "scope": "Actual NS pre/post local objects with explicit supplied dummy coordinates, no layout/crossing/public pipeline claim",
+  "fullLayoutValidated": false,
+  "dummyCoordinatesSupplied": true
+}

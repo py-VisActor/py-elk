@@ -1,0 +1,77 @@
+{
+  "schema": "py-elk-e07-runtime-audit/v1",
+  "iteration": "E07",
+  "status": "E07_EXPERIMENTAL_SLICE_VERIFIED",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "scope": {
+    "id": "E07-ADR0006-revision1",
+    "document": "docs/decisions/0006-e07-directions-components.md",
+    "topology": "flat-directed-multigraph-with-weak-components",
+    "minimumNodes": 0,
+    "maximumNodes": 8,
+    "maximumEdges": 28,
+    "maximumInternalNodes": 176,
+    "maximumInternalSegments": 196,
+    "maximumInternalPorts": 392,
+    "maximumRoutingSegmentsPerBoundary": 56,
+    "directions": [
+      "RIGHT",
+      "LEFT",
+      "DOWN",
+      "UP",
+      "UNDEFINED"
+    ],
+    "separateConnectedComponents": [
+      true,
+      false
+    ],
+    "edgeRouting": "ORTHOGONAL",
+    "numericMaximum": 1000000,
+    "nonzeroSigned32Seed": true,
+    "explicitPaddingType": "string",
+    "renewSourceApprovalBeforeExpansion": true
+  },
+  "runtimeClaims": {
+    "nativeLayoutImplemented": true,
+    "experimentalSliceAvailable": true,
+    "publicLayoutApiAccepted": false,
+    "fullAlgorithmAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false,
+    "releaseAccepted": false,
+    "packagePublished": false
+  },
+  "pythonAlgorithmsVerified": 0,
+  "availableExperimentalAlgorithms": [
+    "org.eclipse.elk.layered"
+  ],
+  "coverageDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25,
+    "selectedMasterCases": 22,
+    "excludedMasterCases": 3,
+    "projectVariants": 50,
+    "sliceCases": 72
+  },
+  "filesSha256": {
+    "docs/decisions/0006-e07-directions-components.md": "dde5c604a022ad4f25c97dc5a5d13db469d8fbddd041c2d0c9bdb6ebaba60d85",
+    "references/e04-determinism-policy.json": "352897995c7833a13a5470cfb6a5d72312297605471114c2933370b97835aac3",
+    "references/e04-numeric-regressions.json": "e30c5ee1b1de06223b9df92f8d1e216ad713187c8784070aaa908f48dc553d79",
+    "references/e07-component-approvals.json": "d2263aa531b33a80bdd7055e116a65eeb077b341ceea7ee33209e0fc684c5711",
+    "references/e07-installed-check.json": "65fbd33e74e1c1e5eb8cc0eedab1f99c7b9d935607609097794f3d24f674d5d0",
+    "tests/fixtures/suites/E07/cases.json": "4123df378a4f629e0d5b1bf61beaf70281fea8bc0c77490e8fae1c48caba29a2",
+    "tests/fixtures/suites/E07/selection.json": "a48040da85bc5b4e909aac203d6827dd2dbb53879f0a8ab1d263c81d1a131c16"
+  },
+  "installedEvidence": "references/e07-installed-check.json",
+  "algorithmSourceGate": "verified-for-guarded-generated-source-slice-only",
+  "retrospective": "docs/retrospectives/E07.md",
+  "nextIteration": "E08",
+  "runDirectory": "test-runs/20261103-E07-01",
+  "limitation": "Only the explicit bounded E07 generated-source slice; full algorithm/API/lifecycle, exact external Java build, release license and publication remain open. Offline receipts do not authenticate historical execution."
+}

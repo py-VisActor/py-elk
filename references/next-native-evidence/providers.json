@@ -1,0 +1,534 @@
+{
+  "schema": "py-elk-e16-provider-handoff/v1",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    ".local/migration-next/src/pyelk/algorithms/box.py": "388dfc61d0a5e7171f7978095b669eee8f26df259818a2643db567f9eb3998b6",
+    ".local/migration-next/src/pyelk/algorithms/random.py": "ea98ff9f6dc18828a059bf81fd8e42ae77f6053fe23e80ee801248d48c45cb1f",
+    "references/e16-basic-sources.json": "dea904c7f118bd69de9d17a9f1f317383c80d966739d0c6871f9bf7d22b8736e",
+    "docs/iterations/E16-preparation.md": "136992eaf088b6247107461ab8b471bf039b31e85d17859330c8282e3cb5753a"
+  },
+  "sourceReviews": {
+    "test-runs/20261104-E16-01/V/fixed-source-review-01.json": "a68ae4149ac4b8061e71358967ae7514e7da1ad41b505a0d01c24d763bd31d16",
+    "test-runs/20261104-E16-01/V/box-simple-source-review-01.json": "afa955478ef47d27ed064b55c9fe006683052c28bab3b07c2e59cd9cd0c652dc",
+    "test-runs/20261104-E16-01/V/random-source-review-01.json": "371f1bd14c416d5075b676f126992e7be2b1a58d5120d2765304eb02560d3281",
+    "test-runs/20261104-E16-01/V/box-group-source-review-01.json": "af97492c5533fe3e168e79de7c88f4c3b5f8de1cff74058ba58b848ec15ad79a"
+  },
+  "existingHelperAstChecks": [
+    {
+      "module": "algorithms/layered/phases.py",
+      "symbol": "JavaRandom",
+      "normalizedAstSha256": "ffe372a27c4dd7d6e5569ba26bfbb417d52958b8abbb49830a60f0b644635c6a",
+      "sameAsUnmodifiedMainSource": true
+    },
+    {
+      "module": "algorithms/layered/components.py",
+      "symbol": "_double_compare",
+      "normalizedAstSha256": "9eb77715c0f6503eb6a3ac521a56d2932c9fa18524236ee57b765bd394e424f7",
+      "sameAsUnmodifiedMainSource": true
+    }
+  ],
+  "actualTargetedCases": {
+    "fixed": 6,
+    "box": 7,
+    "randomExplicit": 3,
+    "randomSeedZeroActualClock": 1,
+    "total": 17
+  },
+  "evidence": {
+    "test-runs/20261104-E16-01/B/fixed-branches-03/report.json": "d49aef51d9d451df10b5349450d6e6cf1e113ac985b0224c60418d8af2d8189d",
+    "test-runs/20261104-E16-01/B/fixed-branches-command-03/command.json": "74c969e6d928e879571456de5c0d9c8975884e5084a664c40cad79705fdfb7ab",
+    "test-runs/20261104-E16-01/B/box-random-branches-01/report.json": "bd0925591445d37b957d427d4f919d12ec825ad763e35c2b6af68386f18b30e0",
+    "test-runs/20261104-E16-01/B/box-random-command-01/command.json": "fcc45b560cb70ea15d72f5f596471030223ee6d546998aee2285928c8544dfdc",
+    "test-runs/20261104-E16-01/B/random-unseeded-01/report.json": "0fa60438bffd4c425b488bf8528585ecb3872148725d1d2332f5a9531f52eb3b",
+    "test-runs/20261104-E16-01/B/random-unseeded-command-01/command.json": "033681c8a25aee5e72f0082a4133e4d481ef3542fac8535b1912ded15d2cf198"
+  },
+  "providerNumericAndBusinessDifferences": [],
+  "originalStrictDifferenceLists": [
+    {
+      "id": "fixed-position-minimum",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        }
+      ]
+    },
+    {
+      "id": "fixed-port-label-size",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        }
+      ]
+    },
+    {
+      "id": "fixed-bend-option",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/edges/0/container",
+          "kind": "missing",
+          "expected": "root"
+        },
+        {
+          "path": "/edges/0/sections/0/id",
+          "kind": "missing",
+          "expected": "e_s0"
+        }
+      ]
+    },
+    {
+      "id": "fixed-shared-port-junction",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 283
+        },
+        {
+          "path": "/edges/0/container",
+          "kind": "missing",
+          "expected": "root"
+        },
+        {
+          "path": "/edges/0/sections/0/incomingShape",
+          "kind": "missing",
+          "expected": "p"
+        },
+        {
+          "path": "/edges/0/sections/0/outgoingShape",
+          "kind": "missing",
+          "expected": "b"
+        },
+        {
+          "path": "/edges/1/container",
+          "kind": "missing",
+          "expected": "root"
+        },
+        {
+          "path": "/edges/1/sections/0/incomingShape",
+          "kind": "missing",
+          "expected": "p"
+        },
+        {
+          "path": "/edges/1/sections/0/outgoingShape",
+          "kind": "missing",
+          "expected": "c"
+        }
+      ]
+    },
+    {
+      "id": "fixed-preserve-root-size",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        }
+      ]
+    },
+    {
+      "id": "box-group_dec",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/3/$H",
+          "kind": "missing",
+          "expected": 283
+        },
+        {
+          "path": "/children/4/$H",
+          "kind": "missing",
+          "expected": 285
+        },
+        {
+          "path": "/children/5/$H",
+          "kind": "missing",
+          "expected": 287
+        }
+      ]
+    },
+    {
+      "id": "box-group_inc",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/3/$H",
+          "kind": "missing",
+          "expected": 283
+        },
+        {
+          "path": "/children/4/$H",
+          "kind": "missing",
+          "expected": 285
+        },
+        {
+          "path": "/children/5/$H",
+          "kind": "missing",
+          "expected": 287
+        }
+      ]
+    },
+    {
+      "id": "box-group_mixed",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/3/$H",
+          "kind": "missing",
+          "expected": 283
+        },
+        {
+          "path": "/children/4/$H",
+          "kind": "missing",
+          "expected": 285
+        },
+        {
+          "path": "/children/5/$H",
+          "kind": "missing",
+          "expected": 287
+        }
+      ]
+    },
+    {
+      "id": "box-priority-interactive",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/3/$H",
+          "kind": "missing",
+          "expected": 283
+        }
+      ]
+    },
+    {
+      "id": "box-simple-expand-minimum",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/0/children/0/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/1/children/0/$H",
+          "kind": "missing",
+          "expected": 283
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 285
+        },
+        {
+          "path": "/children/2/children/0/$H",
+          "kind": "missing",
+          "expected": 287
+        }
+      ]
+    },
+    {
+      "id": "box-mixed-expand-minimum",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/0/children/0/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/children/1/children/0/$H",
+          "kind": "missing",
+          "expected": 283
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 285
+        },
+        {
+          "path": "/children/2/children/0/$H",
+          "kind": "missing",
+          "expected": 287
+        }
+      ]
+    },
+    {
+      "id": "box-noninteger-options",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/children/2/$H",
+          "kind": "missing",
+          "expected": 281
+        }
+      ]
+    },
+    {
+      "id": "random-edge-asymmetric",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        },
+        {
+          "path": "/edges/0/container",
+          "kind": "missing",
+          "expected": "root"
+        },
+        {
+          "path": "/edges/0/sections/0/id",
+          "kind": "missing",
+          "expected": "e_s0"
+        }
+      ]
+    },
+    {
+      "id": "random-port-source",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 281
+        },
+        {
+          "path": "/edges/0/container",
+          "kind": "missing",
+          "expected": "root"
+        },
+        {
+          "path": "/edges/0/sections/0/id",
+          "kind": "missing",
+          "expected": "e_s0"
+        }
+      ]
+    },
+    {
+      "id": "random-negative-seed",
+      "strictDifferences": [
+        {
+          "path": "/$H",
+          "kind": "missing",
+          "expected": 13
+        },
+        {
+          "path": "/children/0/$H",
+          "kind": "missing",
+          "expected": 277
+        },
+        {
+          "path": "/children/1/$H",
+          "kind": "missing",
+          "expected": 279
+        }
+      ]
+    }
+  ],
+  "publicFullEquivalenceClaimed": false,
+  "fullValidation": false,
+  "runtimeBackend": "native Python; no JS/JVM/other layout engine in candidate provider execution",
+  "centralHostPending": [
+    "Cross-provider internal-property state persists cleared nodeSize.constraints and inferred port.side.",
+    "Full canonical option parser/global application and recursive engine scheduling.",
+    "Original export $H/container/section IDs and shape references; original strict data retained.",
+    "Public exception class/category and lifecycle integration.",
+    "Package NOTICE additions for GWT PriorityQueue and unseeded Random before distribution."
+  ],
+  "limitations": [
+    "17 actual related private-provider calls are not exhaustive input/branch evidence or complete E16 acceptance.",
+    "seed0 dimensions/ranges/actual clock and counter were observed; random positions are not golden-equal.",
+    "Archived original worker terminate TypeError is retained; private provider comparisons do not certify host lifecycle."
+  ],
+  "independentImplementationReviewPending": true
+}

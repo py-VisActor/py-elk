@@ -1,0 +1,27 @@
+{
+  "schema": "py-elk-independent-source-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "P08-hyperedge-dummy-merger"
+  ],
+  "filesSha256": {
+    "test-runs/20261104-E13-01/A/hyperedge-dummy-merger-source-proposal-02.json": "447a435ca8619146cea0b28e7d57b3d994eaa864f3342dd7e9b5e38c3a8291a9",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "scope": "Actual all-layer port-component identification and physically adjacent LONG_EDGE merge only",
+  "facts": [
+    "All19 source/support spans SHA/base64 exact to fixed worker. Stream flatten layer->nodes->ports preserves encounter order; initialize only gathered ports toid-1; do not invent initialization of other reachable objects.",
+    "DFS assigns port id on entering. External neighbors incoming sources then outgoing targets; recurse full each before next; LONG_EDGE then other owned ports. Explicit iterator-frame stack mapping preserves recursive continuation and removes Python depth cap, not source semantics.",
+    "No label dummies: allowMerge uses firstport component-id equality even when both endpoint markers differ. sameSource/Target require current marker nonnull and exact native identity. Empty invalid port arrays not silently repaired.",
+    "Label dummy cases separately gate source sides by BEFORE and target sides by notBEFORE, with no-label exemptions; then allow via sameSource eligible or sameTarget eligible.",
+    "Only adjacent physical LONG_EDGE nodes within same layer considered. Successful removal retains previous as current and rechecks next neighbor using updated marker state. NORMAL/LABEL/NS break adjacency.",
+    "Move each source port incoming/outgoing by taking current first repeatedly and real detach+append setters into retained first WEST/EAST ports; preserve identities and adjacency order.",
+    "Remove marker using null setter only if keep flagfalse. Layer array splice does NOT null removed node.layer or destroy empty ports. This intentionally differs from generic node deletion.",
+    "Existing property defaults false/null and native identity graph helpers reused; only ordered collection/iterator mapping, no Guava/GWT stream runtime copy."
+  ],
+  "limitations": [
+    "Not full hyperedge graph admission, default scheduler activation, crossing counters, long-edge or label-dummy creation, routing or complete layered implementation.",
+    "No original/native execution by this source review; only enables actual helper implementation followed by independent small object oracle."
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "passed": false,
+  "rows": [
+    {
+      "id": "parent-local-does-not-leak-edge",
+      "actual": {
+        "rootDesiredHas": true,
+        "rootDesired": 77,
+        "edgeDesiredHasBefore": false,
+        "edgeDesired": 100,
+        "edgeDesiredHasAfter": false,
+        "rootFixedHas": false,
+        "rootFixed": false,
+        "childFixedHas": false,
+        "childFixed": false,
+        "edgeFixedHas": false,
+        "portFixedHas": false,
+        "labelFixedHas": false,
+        "rootRepulsiveHas": false,
+        "edgeRepulsiveHas": false,
+        "edgeRepulsive": 0
+      },
+      "expected": {
+        "rootDesiredHas": true,
+        "rootDesired": 77,
+        "edgeDesiredHasBefore": false,
+        "edgeDesired": 100,
+        "edgeDesiredHasAfter": false,
+        "rootFixedHas": false,
+        "rootFixed": false,
+        "childFixedHas": false,
+        "childFixed": false,
+        "edgeFixedHas": false,
+        "portFixedHas": false,
+        "labelFixedHas": false,
+        "rootRepulsiveHas": false,
+        "edgeRepulsiveHas": false,
+        "edgeRepulsive": {
+          "value_0": 0
+        }
+      },
+      "differences": [
+        {
+          "path": "/edgeRepulsive",
+          "kind": "type",
+          "expected": {
+            "value_0": 0
+          },
+          "actual": 0
+        }
+      ]
+    },
+    {
+      "id": "selected-global-targets-false-zero",
+      "actual": {
+        "rootDesiredHas": true,
+        "rootDesired": 77,
+        "edgeDesiredHasBefore": true,
+        "edgeDesired": 9,
+        "edgeDesiredHasAfter": true,
+        "rootFixedHas": true,
+        "rootFixed": false,
+        "childFixedHas": true,
+        "childFixed": false,
+        "edgeFixedHas": false,
+        "portFixedHas": false,
+        "labelFixedHas": false,
+        "rootRepulsiveHas": false,
+        "edgeRepulsiveHas": true,
+        "edgeRepulsive": 0
+      },
+      "expected": {
+        "rootDesiredHas": true,
+        "rootDesired": 77,
+        "edgeDesiredHasBefore": true,
+        "edgeDesired": 9,
+        "edgeDesiredHasAfter": true,
+        "rootFixedHas": true,
+        "rootFixed": false,
+        "childFixedHas": true,
+        "childFixed": false,
+        "edgeFixedHas": false,
+        "portFixedHas": false,
+        "labelFixedHas": false,
+        "rootRepulsiveHas": false,
+        "edgeRepulsiveHas": true,
+        "edgeRepulsive": {
+          "value_0": 0
+        }
+      },
+      "differences": [
+        {
+          "path": "/edgeRepulsive",
+          "kind": "type",
+          "expected": {
+            "value_0": 0
+          },
+          "actual": 0
+        }
+      ]
+    }
+  ],
+  "importedSourcesSha256": {
+    "pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    "pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "pyelk/execution/node_micro.py": "fe8b1f130fc8d5d54282e2720c79b6603169e483d8ba9d16421526f799992217",
+    "pyelk/options/schema.py": "1a1a94eb82ad8e92fee674bf2e5a6ba407c8fd621addee0e784e0ec8f08c900a",
+    "pyelk/execution/__init__.py": "41b825bccbafe56b8385555f8c44829c05682d6fab80e2dc647255fd6862c4b6",
+    "pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "pyelk/execution/context.py": "38083e81bfb634856d64eaac115ea4a26c2820ebb49286a3dae0605f4c1ee1b5",
+    "pyelk/metadata/__init__.py": "6d5986ed402bb071012fd0a9f625083c7e5d7b13dd95ef564ea81c2e35da699b",
+    "pyelk/options/resolution.py": "1dfb99cd7c52920109bcecb0ebbaa66b5e4fd55ce2b3c50978d2d466d2a1e5db",
+    "pyelk/metadata/_data.py": "3bbce9e12096f25f7b5cd2477ed86112b6a18284d3677564985c959f2db90020",
+    "pyelk/_json.py": "07a4d371fd953686c528ff367104753c5a1599bfa37e590f59f6649deefb785b",
+    "pyelk/api.py": "d2de3ef7b62a75289a94598fd9bb1098a18ee09a79550d6e0165fcfcc734d594",
+    "pyelk/execution/worker.py": "8df60ed13477d8167207005a109d143b38d989aef78dc4413565aaca6c2ddbce",
+    "pyelk/__init__.py": "b316c306c0dfcb8f882befc4ed98f2182ed92bbd9b5898c29d3975b19d70d98d",
+    "pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "pyelk/_errors.py": "f58aca6c430a46e54b43ff1686259e1fe848710dda97fb7f7d6775efc810f53e",
+    "pyelk/options/element.py": "09d81c8895b54d40bf3a428dc941faf9ba23b9e5d61cb32b514fc94c4dd4c125",
+    "pyelk/algorithms/fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    "pyelk/algorithms/layered/cell_layout.py": "5722e8c129f4bd0d90c32b25ec7eab071e424c8874e4dbad86c0950a015d8790",
+    "pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "pyelk/algorithms/layered/ports.py": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18",
+    "pyelk/execution/json_transfer.py": "b43289112cd9341563bc70433d6fd35f481d497e7abd967fedf96ca6e5ee8742",
+    "pyelk/execution/lifecycle.py": "c98ab0d9e9ef811cdf3f783fc3b1adfaecafe61c1a6a55a5c38335a95960495c"
+  },
+  "sourceTreeUnchanged": true,
+  "inputsSha256": {
+    "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\next-native\\compare_property_presence.py": "8ec0c955c03ad46dd585a19dbcad0c246d4d01c8aeb8651b8c9854d87d7ab037",
+    "tests\\fixtures\\suites\\next-native\\property-presence-request.json": "2ead71d7b4f3428c288cb98962ada69264a4bae39d485eae4bd792c16c56e1cb",
+    "tests\\fixtures\\suites\\next-native\\property-presence-oracle.json": "83b267e50e8894eddaf212b71f2686ef4bb8aee2dc53f0a8074d4fd2ad354302"
+  },
+  "scope": "Actual imported property presence and selected-global target witness, no layout/provider execution",
+  "layoutExecuted": false
+}

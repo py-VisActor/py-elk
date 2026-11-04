@@ -11,18 +11,21 @@ import json
 import math
 from pathlib import Path
 import re
+from source_read_cache import read_digest, read_json
 
 ROOT = Path(__file__).resolve().parents[1]
 ABS_TOL = 1e-6
 REL_TOL = 1e-9
 SCHEMA = "py-elk-layout-observation/v1"
+NATIVE_PROFILE = "native-basic-layered-v1"
+PROFILES = ("strict", NATIVE_PROFILE)
 
 
 def sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    return read_digest(path)
 
 
-def load(path: Path):
+def _parse_json(text):
     def pairs(items):
         result = {}
         for key, value in items:
@@ -31,10 +34,14 @@ def load(path: Path):
             result[key] = value
         return result
 
-    value = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=pairs,
+    value = json.loads(text, object_pairs_hook=pairs,
                        parse_constant=lambda token: (_ for _ in ()).throw(ValueError("Nonfinite JSON: " + token)))
     validate_json(value)
     return value
+
+
+def load(path: Path):
+    return read_json(path, _parse_json)
 
 
 def validate_json(value):
@@ -153,11 +160,265 @@ def contract(observation):
     return {key: observation[key] for key in sorted(required)}
 
 
-def compare_observations(expected, actual):
+def _raw_comparison(expected, actual):
     a, b = contract(expected), contract(actual)
     return {"exact": diff(a, b), "coordinateTolerance": diff(a, b, tolerant=True),
             "lifecycleObservations": {"reference": expected.get("termination"), "candidate": actual.get("termination"),
                                       "acceptance": "NOT_ASSESSED"}}
+
+
+def _native_request_context(request, expected, actual):
+    """Only original bytes establish an observation's request identity."""
+    if isinstance(request, Path):
+        raw = request.read_bytes()
+    elif isinstance(request, bytes):
+        raw = request
+    else:
+        raise ValueError("Native profile requires the original request Path or bytes")
+    def pairs(items):
+        value = {}
+        for key, item in items:
+            if key in value:
+                raise ValueError("Duplicate JSON key: " + key)
+            value[key] = item
+        return value
+    context = json.loads(raw.decode("utf-8"), object_pairs_hook=pairs,
+                         parse_constant=lambda token: (_ for _ in ()).throw(ValueError("Nonfinite JSON: " + token)))
+    validate_json(context)
+    if (not isinstance(context, dict) or context.get("schema") != "py-elk-layout-request/v1"
+            or not {"constructor", "graph", "layoutArguments"} <= context.keys()):
+        raise ValueError("Invalid native request context schema")
+    digest = hashlib.sha256(raw).hexdigest()
+    if any(observation["requestSha256"] != digest for observation in (expected, actual)):
+        raise ValueError("Native request fingerprint differs from original bytes")
+    lock = load(ROOT / "UPSTREAM.json")
+    reference_engine, candidate_engine = expected.get("engine", {}), actual.get("engine", {})
+    if (not isinstance(reference_engine, dict) or reference_engine.get("name") != "elkjs"
+            or reference_engine.get("version") != lock["javascript"]["version"]
+            or reference_engine.get("entrypoint") != "lib/elk.bundled.js"
+            or reference_engine.get("entrypointSha256") != lock["distribution"]["sha256Files"]["lib/elk.bundled.js"]):
+        raise ValueError("Native profile reference engine identity differs")
+    if not isinstance(candidate_engine, dict) or candidate_engine.get("name") != "pyelk":
+        raise ValueError("Native profile requires a pyelk candidate observation")
+    if not isinstance(context["constructor"], dict) or not isinstance(context["layoutArguments"], dict):
+        raise ValueError("Native profile constructor and arguments must be mappings")
+    if any(key in context["constructor"] for key in ("workerUrl", "workerFactory")):
+        raise ValueError("Explicit worker parameters are outside native profile scope")
+    return context, digest, lock
+
+
+def _native_definition(lock):
+    path = ROOT / "references/native-contract.json"
+    definition = load(path)
+    expected_baseline = {"upstreamVersion": lock["javascript"]["version"],
+                         "upstreamCommit": lock["javascript"]["commit"],
+                         "entrypoint": "lib/elk.bundled.js",
+                         "entrypointSha256": lock["distribution"]["sha256Files"]["lib/elk.bundled.js"]}
+    if (definition.get("schema") != "py-elk-native-contract/v1" or definition.get("profileId") != NATIVE_PROFILE
+            or definition.get("status") != "frozen-design" or type(definition.get("revision")) is not int
+            or definition["revision"] != 1 or definition.get("baseline") != expected_baseline):
+        raise ValueError("Native profile definition identity differs")
+    return {"path": "references/native-contract.json", "sha256": sha256(path), "revision": 1}
+
+
+def _native_success_scope(request):
+    """Conservative v1 scope, selected by key presence rather than truthiness."""
+    graph, constructor, arguments = request["graph"], request["constructor"], request["layoutArguments"]
+    if not isinstance(graph, dict):
+        raise ValueError("Successful native profile requires a flat graph mapping")
+    if "algorithms" in constructor:
+        algorithms = constructor["algorithms"]
+        if not isinstance(algorithms, list) or any(not isinstance(value, str) for value in algorithms) or "layered" not in algorithms:
+            raise ValueError("Successful native profile requires layered to be registered")
+    for flag in ("logging", "measureExecutionTime"):
+        if flag in arguments and type(arguments[flag]) is not bool:
+            raise ValueError("Native profile logging/timing flags must be booleans")
+    option_sets = []
+    for owner, key in ((constructor, "defaultLayoutOptions"), (arguments, "layoutOptions"), (graph, "layoutOptions")):
+        options = owner[key] if key in owner else {}
+        if not isinstance(options, dict):
+            raise ValueError("Native profile option containers must be mappings or absent")
+        option_sets.append(options)
+    for options in option_sets:
+        for selector in ("algorithm", "edgeRouting"):
+            keys = ("org.eclipse.elk." + selector, "elk." + selector)
+            found = [key for key in keys if key in options]
+            if len(found) > 1 or selector in options:
+                raise ValueError("Ambiguous or bare selector is outside native profile scope")
+            if any(key.endswith("." + selector) and key not in keys for key in options):
+                raise ValueError("Unknown selector form is outside native profile scope")
+        for key, value in options.items():
+            if key.endswith(("shapeCoords", "edgeCoords")) and value != "INHERIT":
+                raise ValueError("Alternate coordinate frame is outside native profile scope")
+            if key.endswith("hierarchyHandling") and value == "INCLUDE_CHILDREN":
+                raise ValueError("Hierarchy-aware execution is outside native profile scope")
+    global_options = option_sets[1] if "layoutOptions" in arguments else option_sets[0]
+    for selector, accepted in (("algorithm", ("layered", "org.eclipse.elk.layered")), ("edgeRouting", ("ORTHOGONAL",))):
+        present, value = False, None
+        for options in (option_sets[2], global_options):
+            keys = [key for key in ("org.eclipse.elk." + selector, "elk." + selector) if key in options]
+            if keys:
+                present, value = True, options[keys[0]]
+                break
+        if present and (not isinstance(value, str) or value not in accepted):
+            raise ValueError("Successful selector is outside native profile scope: " + selector)
+    _native_flat_graph_scope(graph)
+
+
+def _native_flat_graph_scope(graph):
+    """Check model scope for input and each result without resolving selectors."""
+    if not isinstance(graph, dict):
+        raise ValueError("Native profile requires a flat graph mapping")
+    children = graph["children"] if "children" in graph else []
+    edges = graph["edges"] if "edges" in graph else []
+    if not isinstance(children, list) or not isinstance(edges, list):
+        raise ValueError("Native profile child and edge collections must be arrays")
+    identities = set()
+    for shape in (graph, *children):
+        if not isinstance(shape, dict) or not isinstance(shape.get("id"), str) or not shape["id"] or shape["id"] in identities:
+            raise ValueError("Native profile shapes require unique string identities")
+        identities.add(shape["id"])
+        for key in ("ports", "labels"):
+            if key in shape and (not isinstance(shape[key], list) or shape[key]):
+                raise ValueError("Ports/labels are outside native profile scope")
+        if "layoutOptions" in shape:
+            shape_options = shape["layoutOptions"]
+            if not isinstance(shape_options, dict):
+                raise ValueError("Native profile shape option containers must be mappings or absent")
+            for key, value in shape_options.items():
+                if key.endswith(("shapeCoords", "edgeCoords")) and value != "INHERIT":
+                    raise ValueError("Alternate shape coordinate frame is outside native profile scope")
+                if key.endswith("hierarchyHandling") and value == "INCLUDE_CHILDREN":
+                    raise ValueError("Hierarchy-aware shape execution is outside native profile scope")
+        if shape is not graph:
+            for key in ("children", "edges"):
+                if key in shape and (not isinstance(shape[key], list) or shape[key]):
+                    raise ValueError("Nested graphs are outside native profile scope")
+            if any(not number(shape.get(key)) or shape[key] < 0 for key in ("width", "height")):
+                raise ValueError("Native profile requires given finite nonnegative node dimensions")
+    node_ids = {node["id"] for node in children}
+    for edge in edges:
+        if (not isinstance(edge, dict) or not isinstance(edge.get("id"), str) or not edge["id"] or edge["id"] in identities
+                or any(key in edge for key in ("source", "target"))):
+            raise ValueError("Native profile requires unique extended edge identities")
+        identities.add(edge["id"])
+        if any(not isinstance(edge.get(key), list) or len(edge[key]) != 1
+               or not isinstance(edge[key][0], str) or edge[key][0] not in node_ids for key in ("sources", "targets")):
+            raise ValueError("Native profile requires one known source and target per edge")
+        if "labels" in edge and (not isinstance(edge["labels"], list) or edge["labels"]):
+            raise ValueError("Edge labels are outside native profile scope")
+
+
+def _project_reference_shape_hashes(original, reference, candidate, *, prefix, adaptations, violations):
+    """Project only a reference-generated shape field at identity-preserving paths."""
+    if not isinstance(original, dict):
+        return
+    if not isinstance(reference, dict) or not isinstance(candidate, dict):
+        violations.append({"path": prefix, "reason": "Shape mappings are required for identity-preserving projection"})
+        return
+    def visit(before, after, native, path):
+        if not isinstance(before, dict):
+            return
+        if not isinstance(after, dict) or not isinstance(native, dict):
+            violations.append({"path": path, "reason": "Shape mapping differs"})
+            return
+        if any(not diff(before.get("id"), value.get("id"))["passed"] for value in (after, native)):
+            violations.append({"path": path, "reason": "Shape identity differs; generated-field projection is forbidden"})
+            return
+        if "$H" in before:
+            for label, shape in (("reference", after), ("candidate", native)):
+                if "$H" not in shape or not diff(before["$H"], shape["$H"])["passed"]:
+                    violations.append({"path": path + "/$H", "reason": "User-provided shape field changed", "side": label})
+            return
+        if "$H" in native:
+            violations.append({"path": path + "/$H", "reason": "Candidate supplied an unrequested shape field"})
+            return
+        if "$H" in after:
+            if "id" not in before or "id" not in after or "id" not in native:
+                violations.append({"path": path, "reason": "A generated shape field requires explicit matching identities"})
+                return
+            value = after["$H"]
+            try:
+                finite_integer = number(value) and value == math.trunc(value)
+            except OverflowError:
+                finite_integer = False
+            if not finite_integer:
+                violations.append({"path": path + "/$H", "reason": "Reference-generated shape field is not a finite integer"})
+                return
+            del after["$H"]
+            adaptations.append({"rule": "GWT-SHAPE-HASH-01", "path": path + "/$H", "referenceValue": value,
+                                "action": "omit_reference_added_shape_field", "candidateRequirement": "absent"})
+    visit(original, reference, candidate, prefix)
+    old_nodes = original.get("children", [])
+    ref_nodes, candidate_nodes = reference.get("children", []), candidate.get("children", [])
+    if not all(isinstance(value, list) for value in (old_nodes, ref_nodes, candidate_nodes)):
+        violations.append({"path": prefix + "/children", "reason": "Child collections are not matching arrays"})
+        return
+    if len(old_nodes) != len(ref_nodes) or len(old_nodes) != len(candidate_nodes):
+        violations.append({"path": prefix + "/children", "reason": "Child count differs; generated-field projection is forbidden"})
+        return
+    for i, (before, after, native) in enumerate(zip(old_nodes, ref_nodes, candidate_nodes)):
+        visit(before, after, native, prefix + f"/children/{i}")
+
+
+def compare_observations(expected, actual, *, profile="strict", request=None):
+    if profile not in PROFILES:
+        raise ValueError("Unknown comparison profile: " + str(profile))
+    raw = _raw_comparison(expected, actual)
+    raw_strict = {"exact": raw["exact"], "coordinateTolerance": raw["coordinateTolerance"],
+                  "passed": raw["coordinateTolerance"]["passed"]}
+    report = {**raw, "profile": profile, "rawStrict": raw_strict, "adaptations": [],
+              "inputPreservation": {"preserved": None, "acceptance": "NOT_ASSESSED"},
+              "publicContract": {**raw_strict, "violations": []}, "passed": raw_strict["passed"]}
+    if profile == "strict":
+        return report
+    context, digest, lock = _native_request_context(request, expected, actual)
+    report["profileDefinition"] = _native_definition(lock)
+    report["requestSha256"] = digest
+    if expected["outcome"] == "returned":
+        _native_success_scope(context)
+    preservation = input_preservation(context, actual)
+    preservation["acceptance"] = "REQUIRED_BY_PROFILE"
+    report["inputPreservation"] = preservation
+    public_expected, public_actual = copy.deepcopy(contract(expected)), contract(actual)
+    violations, adaptations = [], []
+    for key, after in (("constructor", "constructorAfter"), ("layoutArguments", "argumentsAfter")):
+        if not diff(context[key], expected[after])["passed"]:
+            violations.append({"path": "/" + after, "reason": "Reference mutated a non-adaptable call input"})
+    matched_outcomes = expected["outcome"] == actual["outcome"]
+    if not matched_outcomes:
+        violations.append({"path": "/outcome", "reason": "Observation outcomes differ"})
+    elif expected["outcome"] == "returned":
+        for side, observation in (("reference", expected), ("candidate", actual)):
+            try:
+                _native_flat_graph_scope(observation["result"])
+            except ValueError as error:
+                violations.append({"path": "/result", "reason": str(error), "side": side})
+        if not diff(expected["inputAfter"], expected["result"])["passed"]:
+            violations.append({"path": "/inputAfter", "reason": "Successful reference inputAfter does not exactly equal result"})
+        _project_reference_shape_hashes(context["graph"], public_expected["result"], actual["result"],
+                                        prefix="/result", adaptations=adaptations, violations=violations)
+    else:
+        reduced_input = copy.deepcopy(expected["inputAfter"])
+        _project_reference_shape_hashes(context["graph"], reduced_input, actual["inputAfter"],
+                                        prefix="/inputAfter", adaptations=adaptations, violations=violations)
+        if not diff(context["graph"], reduced_input)["passed"]:
+            violations.append({"path": "/inputAfter", "reason": "Reference error changed fields beyond verified shape hashes"})
+    if matched_outcomes and not violations:
+        for change in diff(context["graph"], expected["inputAfter"])["differences"]:
+            adaptations.append({"rule": "NATIVE-INPUT-01", "path": "/inputAfter" + change["path"],
+                                "action": "compare_candidate_to_original_request", "referenceChange": change})
+        public_expected["inputAfter"] = copy.deepcopy(context["graph"])
+    else:
+        # No partially satisfied rule can make an unsupported reference contract pass.
+        public_expected = copy.deepcopy(contract(expected))
+        adaptations = []
+    exact, tolerant = diff(public_expected, public_actual), diff(public_expected, public_actual, tolerant=True)
+    report["adaptations"] = adaptations
+    report["publicContract"] = {"exact": exact, "coordinateTolerance": tolerant, "violations": violations,
+                                "passed": tolerant["passed"] and preservation["preserved"] and not violations}
+    report["passed"] = report["publicContract"]["passed"]
+    return report
 
 
 def input_preservation(request, observation):
@@ -166,6 +427,69 @@ def input_preservation(request, observation):
               (("graph", "inputAfter"), ("constructor", "constructorAfter"), ("layoutArguments", "argumentsAfter"))}
     return {"preserved": all(item["passed"] for item in checks.values()), "comparisons": checks,
             "acceptance": "OBSERVATION_ONLY; explicit cross-engine side-effect policy remains an M1 decision"}
+
+
+def is_default_simple_ring(request):
+    """Original-input-only premise for the reviewed GREEDY/NS ring lemma.
+
+    A connected directed simple ring becomes a Hamiltonian chain plus one
+    shortcut after default GREEDY. Unit-minimum NETWORK_SIMPLEX ranks are
+    distinct. This says nothing about arbitrary strongly connected graphs.
+    Advanced strategies and local options deliberately fail closed.
+    """
+    try:
+        original = request["graph"]
+        nodes, edges = original["children"], original["edges"]
+        if not 2 <= len(nodes) <= 8 or len(edges) != len(nodes):
+            return False
+        if any(item.get(key) for item in [original, *nodes, *edges]
+               for key in ("ports", "labels", "properties")):
+            return False
+        if any(node.get(key) for node in nodes for key in ("children", "edges", "layoutOptions")):
+            return False
+        if any(edge.get("layoutOptions") for edge in edges):
+            return False
+        allowed = {"algorithm", "direction", "edgeRouting", "randomSeed", "padding",
+                   "separateConnectedComponents", "spacing.nodeNode", "spacing.componentComponent",
+                   "layered.spacing.nodeNodeBetweenLayers"}
+        constructor, arguments = request.get("constructor", {}), request.get("layoutArguments", {})
+        if set(constructor) - {"defaultLayoutOptions", "algorithms"} or set(arguments) - {"layoutOptions", "logging", "measureExecutionTime"}:
+            return False
+        if "algorithms" in constructor and constructor["algorithms"] != ["layered"]:
+            return False
+        effective = {}
+        defaults = arguments.get("layoutOptions", constructor.get("defaultLayoutOptions", {}))
+        for container in (defaults, original.get("layoutOptions", {})):
+            normalized = {}
+            for key, value in container.items():
+                name = key.removeprefix("org.eclipse.elk.").removeprefix("elk.")
+                if name not in allowed or (name in normalized and normalized[name] != value):
+                    return False
+                normalized[name] = value
+            effective.update(normalized)
+        if effective.get("algorithm", "layered") not in ("layered", "elk.layered", "org.eclipse.elk.layered"):
+            return False
+        if effective.get("direction", "UNDEFINED") not in ("UNDEFINED", "RIGHT") or effective.get("edgeRouting", "ORTHOGONAL") != "ORTHOGONAL":
+            return False
+        identities = [node["id"] for node in nodes]
+        if any(type(identity) is not str or not identity for identity in identities) or len(set(identities)) != len(nodes):
+            return False
+        successor, predecessors = {}, set()
+        for edge in edges:
+            if len(edge["sources"]) != 1 or len(edge["targets"]) != 1:
+                return False
+            source, target = edge["sources"][0], edge["targets"][0]
+            if source not in identities or target not in identities or source == target or source in successor or target in predecessors:
+                return False
+            successor[source] = target
+            predecessors.add(target)
+        visited, current = set(), identities[0]
+        while current not in visited:
+            visited.add(current)
+            current = successor[current]
+        return current == identities[0] and len(visited) == len(nodes)
+    except (KeyError, TypeError, ValueError, AttributeError):
+        return False
 
 
 def geometry(request, observation, policy):
@@ -187,6 +511,34 @@ def geometry(request, observation, policy):
     if policy.get("profile") != "basic-flat-orthogonal":
         raise ValueError("Unknown geometry profile")
     original, graph = request.get("graph"), observation.get("result")
+    ring_layers = False
+    component_premise = None
+    independent_frames = "layerFrame" in policy
+    rank_v2 = policy.get("rankSeparation") == "default-layered-components-v2"
+    rank_v3 = policy.get("rankSeparation") == "default-layered-adjacent-edge-v3"
+    if independent_frames or rank_v2 or rank_v3:
+        if rank_v3:
+            from e09_geometry_premise import premises
+        else:
+            from e07_geometry_premise import premises
+        component_premise = premises(request)
+        frame_valid = (policy.get("layerFrame") == "independent-components-v1" and component_premise is not None
+                       and component_premise["options"]["separateConnectedComponents"] is True)
+        if independent_frames and not frame_valid:
+            return {"status": "FAIL", "passed": False, "errors": [{"path": "/graph", "code": "layer_frame_premise"}]}
+        if component_premise is None or policy.get("direction") != component_premise["options"]["direction"]:
+            return {"status": "FAIL", "passed": False, "errors": [{"path": "/graph", "code": "rank_separation_premise"}]}
+        selected = component_premise["options"]
+        if (policy.get("padding") != selected["padding"] or policy.get("nodeNode") != selected["spacing.nodeNode"]
+                or policy.get("betweenLayers") != selected["layered.spacing.nodeNodeBetweenLayers"]
+                or ("componentRectangleGap" in policy and policy["componentRectangleGap"] != selected["spacing.componentComponent"])):
+            return {"status": "FAIL", "passed": False, "errors": [{"path": "/graph", "code": "geometry_option_premise"}]}
+    if "rankSeparation" in policy:
+        if policy["rankSeparation"] not in ("default-greedy-simple-ring-v1", "default-layered-components-v2", "default-layered-adjacent-edge-v3"):
+            raise ValueError("Unknown rank separation policy")
+        if not (rank_v2 or rank_v3) and not is_default_simple_ring(request):
+            return {"status": "FAIL", "passed": False, "errors": [{"path": "/graph", "code": "rank_separation_premise"}]}
+        ring_layers = not (rank_v2 or rank_v3)
     if not isinstance(original, dict) or not isinstance(graph, dict):
         return {"status": "FAIL", "passed": False, "errors": [{"path": "/result", "code": "graph_type"}]}
     nodes, edges = graph.get("children", []), graph.get("edges", [])
@@ -246,6 +598,9 @@ def geometry(request, observation, policy):
     source_nodes = original.get("children", [])
     if [n.get("id") for n in source_nodes] != [n.get("id") for n in nodes] or [e.get("id") for e in original.get("edges", [])] != [e.get("id") for e in edges]:
         error("/result", "model_identity_or_order")
+    for index, (before, after) in enumerate(zip(original.get("edges", []), edges)):
+        if any(before.get(key) != after.get(key) for key in ("sources", "targets")):
+            error("/result/edges/" + str(index), "original_endpoint_identity")
     for n in source_nodes:
         if n.get("id") in by_id:
             _, _, w, h, p = by_id[n["id"]]
@@ -253,16 +608,66 @@ def geometry(request, observation, policy):
                 error(p, "given_node_dimensions")
 
     horizontal = direction in ("LEFT", "RIGHT")
-    boxes = list(by_id.values())
-    for i, (x, y, w, h, p) in enumerate(boxes):
-        for xx, yy, ww, hh, pp in boxes[i + 1:]:
+    # Equal axis coordinates do not prove equal layers: zero-width/height
+    # nodes and zero layer spacing can put distinct DAG layers at one x/y.
+    # Only the original input's acyclic reachability may disprove that guess;
+    # never trust a candidate's rewritten edge endpoints to waive spacing.
+    reaches = {}
+    if policy.get("forwardEdges") is True:
+        adjacency = {identity: set() for identity in by_id}
+        valid_dag = True
+        for edge in original.get("edges", []):
+            sources, targets = edge.get("sources"), edge.get("targets")
+            if (not isinstance(sources, list) or not isinstance(targets, list) or len(sources) != 1 or len(targets) != 1
+                    or not isinstance(sources[0], str) or not isinstance(targets[0], str)
+                    or sources[0] not in adjacency or targets[0] not in adjacency):
+                valid_dag = False
+                break
+            adjacency[sources[0]].add(targets[0])
+        indegrees = {identity: 0 for identity in adjacency}
+        for targets in adjacency.values():
+            for target in targets:
+                indegrees[target] += 1
+        ready = [identity for identity, degree in indegrees.items() if degree == 0]
+        visited = 0
+        while ready:
+            identity = ready.pop()
+            visited += 1
+            for target in adjacency[identity]:
+                indegrees[target] -= 1
+                if indegrees[target] == 0:
+                    ready.append(target)
+        if valid_dag and visited == len(adjacency):
+            for identity in adjacency:
+                descendants, pending = set(), list(adjacency[identity])
+                while pending:
+                    target = pending.pop()
+                    if target not in descendants:
+                        descendants.add(target)
+                        pending.extend(adjacency[target])
+                reaches[identity] = descendants
+    boxes = list(by_id.items())
+    for i, (identity, (x, y, w, h, p)) in enumerate(boxes):
+        for other, (xx, yy, ww, hh, pp) in boxes[i + 1:]:
             if min(x + w, xx + ww) - max(x, xx) > ABS_TOL and min(y + h, yy + hh) - max(y, yy) > ABS_TOL:
                 error(p, "node_overlap", pp)
             same_layer = close(x, xx) if horizontal else close(y, yy)
             gap = max(yy - y - h, y - yy - hh) if horizontal else max(xx - x - w, x - xx - ww)
-            if same_layer and gap < policy["nodeNode"] - ABS_TOL:
+            different_dag_layers = other in reaches.get(identity, ()) or identity in reaches.get(other, ())
+            distinct_source_ranks = (rank_v2 or rank_v3) and frozenset((identity, other)) in component_premise["distinctRanks"]
+            separate_frames = (independent_frames and identity in component_premise["membership"] and other in component_premise["membership"]
+                               and component_premise["membership"][identity] != component_premise["membership"][other])
+            if same_layer and not different_dag_layers and not ring_layers and not distinct_source_ranks and not separate_frames and gap < policy["nodeNode"] - ABS_TOL:
                 error(p, "same_layer_spacing", pp)
     checked.extend(["model identity/order", "given dimensions", "sibling overlap", "same layer spacing"])
+    if ring_layers:
+        checked.append("explicit original simple-ring distinct-rank source lemma")
+    if rank_v2:
+        checked.append("original per-component DAG/simple-ring distinct-rank source lemmas")
+    if rank_v3:
+        checked.append("original guarded adjacent-nonself-edge plus DAG/simple-ring distinct-rank source lemmas")
+    if independent_frames:
+        checked.append("original independent component frames; other geometry checks remain active")
 
     def on_border(point, box):
         x, y, w, h, _ = box
@@ -452,15 +857,88 @@ def seed_of(request):
     return None
 
 
-def determinism(observations, request):
-    if len(observations) < 2 or seed_of(request) is None:
-        return {"passed": False, "status": "NOT_ESTABLISHED", "reason": "Need >=2 fresh runs and an explicit nonzero seed"}
+DETERMINISM_POLICIES = ("explicit-nonzero-seed", "elkjs-0.12.1-default-seed-v1")
+
+
+def _default_seed_evidence():
+    policy = load(ROOT / "references/e04-determinism-policy.json")
+    lock = load(ROOT / "UPSTREAM.json")
+    baseline = {"version": lock["javascript"]["version"], "commit": lock["javascript"]["commit"],
+                "entrypointSha256": lock["distribution"]["sha256Files"]["lib/elk.bundled.js"]}
+    evidence = policy["sourceEvidence"]
+    if (policy["schema"] != "py-elk-determinism-policy/v1" or policy["id"] != DETERMINISM_POLICIES[1]
+            or policy["status"] != "source-reviewed" or type(policy["defaultSeed"]) is not int or policy["defaultSeed"] != 1
+            or not diff(policy["baseline"], baseline)["passed"]
+            or evidence["path"] != "references/e03-option-sources.json" or evidence["optionId"] != "org.eclipse.elk.randomSeed"
+            or sha256(contained(ROOT, evidence["path"])) != evidence["sha256"]):
+        raise ValueError("Default seed policy is not bound to the fixed source evidence")
+    options = load(contained(ROOT, evidence["path"]))["options"]
+    default = next(item["declaredDefault"] for item in options if item["id"] == evidence["optionId"])
+    if type(default) is not int or default != 1:
+        raise ValueError("Fixed reference default seed differs")
+    return policy
+
+
+def _seed_is_omitted(request):
+    constructor, arguments = request["constructor"], request["layoutArguments"]
+    graph = request.get("graph")
+    if not isinstance(constructor, dict) or not isinstance(arguments, dict) or not isinstance(graph, dict):
+        return False
+    local = graph.get("layoutOptions", {})
+    selected = arguments.get("layoutOptions", constructor.get("defaultLayoutOptions", {}))
+    return (isinstance(local, dict) and isinstance(selected, dict)
+            and not any(key in values for values in (local, selected)
+                        for key in ("org.eclipse.elk.randomSeed", "elk.randomSeed", "randomSeed")))
+
+
+def _seed_alias_conflict(request):
+    graph, constructor, arguments = request.get("graph"), request.get("constructor"), request.get("layoutArguments")
+    if not isinstance(graph, dict) or not isinstance(constructor, dict) or not isinstance(arguments, dict):
+        return False
+    selected = arguments.get("layoutOptions", constructor.get("defaultLayoutOptions", {}))
+    return any(isinstance(values, dict) and sum(key in values for key in
+               ("org.eclipse.elk.randomSeed", "elk.randomSeed", "randomSeed")) > 1
+               for values in (graph.get("layoutOptions", {}), selected))
+
+
+def determinism(observations, request, *, policy="explicit-nonzero-seed"):
+    if policy not in DETERMINISM_POLICIES:
+        raise ValueError("Unknown determinism policy")
+    seed = seed_of(request)
+    default_evidence = None
+    if policy == DETERMINISM_POLICIES[1]:
+        default_evidence = _default_seed_evidence()
+        for observed in observations:
+            engine = observed.get("engine", {})
+            if engine.get("name") not in ("elkjs", "pyelk"):
+                raise ValueError("Default seed policy requires a known reference/native engine")
+            if engine["name"] == "elkjs" and (engine.get("version") != default_evidence["baseline"]["version"]
+                    or engine.get("entrypointSha256") != default_evidence["baseline"]["entrypointSha256"]):
+                raise ValueError("Default seed policy reference entrypoint differs")
+        if _seed_alias_conflict(request):
+            seed = None
+        elif seed is None and _seed_is_omitted(request):
+            seed = default_evidence["defaultSeed"]
+    if len(observations) < 2 or seed is None:
+        reason = ("Need >=2 fresh runs and an explicit nonzero seed" if policy == DETERMINISM_POLICIES[0]
+                  else "Need >=2 fresh runs and an unambiguous nonzero seed, explicit or source-proven omitted default")
+        return {"passed": False, "status": "NOT_ESTABLISHED", "reason": reason}
     differences = [diff(contract(observations[0]), contract(other)) for other in observations[1:]]
-    return {"passed": all(d["passed"] for d in differences), "status": "CHECKED", "repeats": len(observations), "comparisons": differences,
-            "limitation": "Fresh processes only; same-instance lifecycle/concurrency not assessed."}
+    report = {"passed": all(d["passed"] for d in differences), "status": "CHECKED", "repeats": len(observations), "comparisons": differences,
+              "limitation": "Fresh processes only; same-instance lifecycle/concurrency not assessed."}
+    if default_evidence:
+        report.update(policy=policy, seed=seed, seedSource="fixed-source-default" if _seed_is_omitted(request) else "explicit-request",
+                      sourceEvidence=default_evidence["sourceEvidence"])
+    return report
 
 
-def compare_captures(reference_dir: Path, candidate_dir: Path, *, replay=False):
+def compare_captures(reference_dir: Path, candidate_dir: Path, *, replay=False, profile="strict", determinism_policy="explicit-nonzero-seed"):
+    if determinism_policy not in DETERMINISM_POLICIES:
+        raise ValueError("Unknown determinism policy")
+    if profile not in PROFILES:
+        raise ValueError("Unknown comparison profile: " + str(profile))
+    if replay and profile != "strict":
+        raise ValueError("Reference replay requires the strict profile")
     reference, candidate = verify_capture(reference_dir), verify_capture(candidate_dir)
     if reference["role"] != "reference" or candidate["role"] != ("reference" if replay else "candidate"):
         raise ValueError("Expected reference and candidate roles; use selftest for reference-only checks")
@@ -477,20 +955,23 @@ def compare_captures(reference_dir: Path, candidate_dir: Path, *, replay=False):
         actual = [load(candidate_dir / name) for name in c["observations"]]
         request = load(reference_dir / r["request"])
         policy = r["definition"].get("geometry")
-        comparisons = [compare_observations(expected[0], obs) for obs in actual]
+        comparisons = [compare_observations(expected[0], obs, profile=profile,
+                                            request=reference_dir / r["request"] if profile != "strict" else None)
+                       for obs in actual]
         geometries = [geometry(request, obs, policy) for obs in actual]
         reference_geometry = [geometry(request, obs, policy) for obs in expected]
-        rd, cd = determinism(expected, request), determinism(actual, request)
+        rd, cd = determinism(expected, request, policy=determinism_policy), determinism(actual, request, policy=determinism_policy)
         outcome = all(obs["outcome"] == r["definition"]["expectedOutcome"] for obs in expected + actual)
         geometry_pass = all(g["passed"] is True for g in geometries + reference_geometry) if policy and outcome and actual[0]["outcome"] == "returned" else True
-        passed = outcome and geometry_pass and rd["passed"] and cd["passed"] and all(d["coordinateTolerance"]["passed"] for d in comparisons)
+        passed = outcome and geometry_pass and rd["passed"] and cd["passed"] and all(d["passed"] for d in comparisons)
         reports.append({"id": r["id"], "passed": passed, "expectedOutcomeMatched": outcome,
                         "comparison": comparisons, "geometry": geometries, "referenceGeometry": reference_geometry,
                         "referenceInputPreservation": [input_preservation(request, obs) for obs in expected],
                         "candidateInputPreservation": [input_preservation(request, obs) for obs in actual],
                         "referenceDeterminism": rd, "candidateDeterminism": cd,
                         "semanticConstraintsPassed": geometry_pass if policy else None})
-    return {"schema": "py-elk-layout-comparison/v1", "status": ("REFERENCE_REPRODUCED" if replay else "SCOPED_CASES_MATCH") if all(r["passed"] for r in reports) else "FAIL",
+    return {"schema": "py-elk-layout-comparison/v1", "profile": profile, "determinismPolicy": determinism_policy,
+            "status": ("REFERENCE_REPRODUCED" if replay else "SCOPED_CASES_MATCH") if all(r["passed"] for r in reports) else "FAIL",
             "passed": all(r["passed"] for r in reports), "caseCount": len(reports), "cases": reports,
             "tolerance": {"absolute": ABS_TOL, "relative": REL_TOL, "appliesTo": "geometry numeric paths only"},
             "referenceIndexSha256": sha256(reference_dir / "index.json"), "candidateIndexSha256": sha256(candidate_dir / "index.json"),

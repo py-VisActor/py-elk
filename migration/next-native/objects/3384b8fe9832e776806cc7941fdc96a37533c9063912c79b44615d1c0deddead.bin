@@ -1,0 +1,1340 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker RP03-RP33, independently reviewed source closures.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external build identity remains unresolved.
+"""Real private RectPacking provider and source-specific mutable packing model.
+
+Public registry, recursive coordinator and installed acceptance are separate.
+The source's optional tryBox branch invokes the real same-session Box body.
+"""
+from dataclasses import dataclass
+from collections.abc import Mapping
+import math
+from .fixed import _minimum, _div, _owner_padding, _resize, _enum_set
+from .radial import _maximum
+from .layered.graph import Vec2, Insets
+from .box import _translate_alignment, _translate
+from .layered.ports import _source_sort
+from .layered.components import _double_compare
+from .layered.integer_box_tokens import value_of_integer_box
+
+
+@dataclass(frozen=True, eq=False)
+class DrawingDataDescriptor:
+    name: str
+    ordinal: int
+
+
+CANDIDATE_POSITION_LAST_PLACED_RIGHT = DrawingDataDescriptor('CANDIDATE_POSITION_LAST_PLACED_RIGHT', 0)
+CANDIDATE_POSITION_LAST_PLACED_BELOW = DrawingDataDescriptor('CANDIDATE_POSITION_LAST_PLACED_BELOW', 1)
+CANDIDATE_POSITION_WHOLE_DRAWING_RIGHT = DrawingDataDescriptor('CANDIDATE_POSITION_WHOLE_DRAWING_RIGHT', 2)
+CANDIDATE_POSITION_WHOLE_DRAWING_BELOW = DrawingDataDescriptor('CANDIDATE_POSITION_WHOLE_DRAWING_BELOW', 3)
+WHOLE_DRAWING = DrawingDataDescriptor('WHOLE_DRAWING', 4)
+
+
+def compute_scale_measure(width, height, aspect_ratio):
+    # The min operation retains the observed JS NaN and signed-zero semantics.
+    first, second = _div(aspect_ratio, width), _div(1, height)
+    return -_maximum(-first, -second)
+
+
+class DrawingData:
+    def __init__(self, aspect_ratio, drawing_width, drawing_height,
+                 placement_option, next_x_coordinate=0, next_y_coordinate=0):
+        self.dar = aspect_ratio
+        self.drawing_width, self.drawing_height = drawing_width, drawing_height
+        self.placement_option = placement_option
+        self.next_x_coordinate, self.next_y_coordinate = next_x_coordinate, next_y_coordinate
+        self.scale_measure = 0
+        self._update_scale_measure()
+
+    def _update_scale_measure(self):
+        if self.drawing_width > 0 and self.drawing_height > 0:
+            self.scale_measure = compute_scale_measure(self.drawing_width, self.drawing_height, self.dar)
+
+    def set_drawing_height(self, height):
+        self.drawing_height = height
+        self._update_scale_measure()
+
+    def set_drawing_width(self, width):
+        self.drawing_width = width
+        self._update_scale_measure()
+
+    def set_placement_option(self, option):
+        self.placement_option = option
+
+
+def calculate_dimensions(rectangles):
+    """Dimensions of the actual owned JSON node records used by the session."""
+    width = height = 0
+    for node in rectangles:
+        width = _maximum(node.get('width', 0)+node.get('x', 0), width)
+        height = _maximum(node.get('height', 0)+node.get('y', 0), height)
+    return Vec2(width, height)
+
+
+def calculate_row_dimensions(rows, spacing):
+    width = height = 0
+    for index, row in enumerate(rows):
+        width = _maximum(width, row.width)
+        height += row.height+(spacing if index > 0 else 0)
+    return Vec2(width, height)
+
+
+def reset_coordinates(nodes):
+    for node in nodes:
+        node['x'] = 0
+        node['y'] = 0
+
+
+class BlockRow:
+    def __init__(self, state, x, y, spacing):
+        self.state = state
+        self.rects = []
+        self.x, self.y = x, y
+        self.node_node_spacing = spacing
+        self.width = self.height = 0
+
+    def add_rectangle(self, rect):
+        rect['x'] = self.x+self.width+(0 if not self.rects else self.node_node_spacing)
+        rect['y'] = self.y
+        self.height = _maximum(self.height, rect.get('height', 0))
+        self.width += rect.get('width', 0)+(0 if not self.rects else self.node_node_spacing)
+        self.rects.append(rect)
+        return True
+
+    def expand(self, width_for_row, additional_height_for_row, index):
+        additional_width = _div(width_for_row-self.width, len(self.rects))
+        self.height += additional_height_for_row
+        self.width = width_for_row
+        for i, rect in enumerate(self.rects):
+            old_width, old_height = rect.get('width', 0), rect.get('height', 0)
+            rect['x'] += i*additional_width
+            rect['y'] += index*additional_height_for_row
+            rect['width'] = old_width+additional_width
+            rect['height'] = self.height
+            _translate_alignment(self.state, rect, old_width, old_height)
+
+    def set_x(self, value):
+        # These setters update the row alone. The Block caller moves children.
+        self.x = value
+
+    def set_y(self, value):
+        self.y = value
+
+    def update_row(self):
+        width = height = 0
+        for rect in self.rects:
+            rect['x'], rect['y'] = self.x+width, self.y
+            width += rect.get('width', 0)+self.node_node_spacing
+            height = _maximum(height, rect.get('height', 0)+self.node_node_spacing)
+        self.width = width-self.node_node_spacing
+        self.height = height-self.node_node_spacing
+
+
+class RectRow:
+    """Actual mutable RectPacking row, including stack-dependent expansion."""
+    def __init__(self, y, spacing):
+        self.children, self.stacks = [], []
+        self.y, self.node_node_spacing = y, spacing
+        self.width = self.height = 0
+
+    def add_block(self, block):
+        self.height = _maximum(self.height, block.height)
+        self.width += block.width+(0 if not self.children else self.node_node_spacing)
+        self.children.append(block)
+
+    def notify_about_node_change(self):
+        total_width, height = 0, -math.inf
+        for index, child in enumerate(self.children):
+            total_width += child.width+(self.node_node_spacing if index > 0 else 0)
+            height = _maximum(height, child.height)
+        self.width, self.height = total_width, height
+
+    def remove_block(self, block):
+        for index, child in enumerate(self.children):
+            if child is block:
+                del self.children[index]
+                break
+        self.width -= block.width+(0 if not self.children else self.node_node_spacing)
+        height = 5e-324
+        for child in self.children:
+            height = _maximum(height, child.height)
+        self.height = height
+
+    def expand(self, width, additional_height):
+        additional_width_per_stack = _div(width-self.width, len(self.stacks))
+        for index, stack in enumerate(self.stacks):
+            height_for_stack = self.height-stack.height+additional_height
+            stack.set_location(stack.x+index*additional_width_per_stack, stack.y)
+            stack.expand(additional_width_per_stack, height_for_stack)
+
+    def set_y(self, y):
+        change = y-self.y
+        for stack in self.stacks:
+            stack.set_location(stack.x, stack.y+change)
+        self.y = y
+
+
+@dataclass(eq=False)
+class RectangleBounds:
+    x: float
+    y: float
+    width: float
+    height: float
+
+
+def _remove_identity(items, value):
+    # ElkNode records compare by source object identity, not JSON dict equality.
+    for index, item in enumerate(items):
+        if item is value:
+            del items[index]
+            return True
+    return False
+
+
+class Block:
+    """Source mutable block geometry, placement and bisection search."""
+    def __init__(self, state, x, y, parent_row, spacing):
+        self.state = state
+        self.children, self.rows = [], []
+        self.node_node_spacing = spacing
+        self.parent_row = parent_row
+        self.x, self.y = x, y
+        self.width = self.height = 0
+        self.average_height = 0
+        self.fixed = self.position_fixed = False
+        self.max_height = self.min_height = self.min_width = 0
+        self.smallest_rect_height = self.smallest_rect_width = math.inf
+
+    def add_child(self, rect):
+        if not self.rows:
+            self.rows.append(BlockRow(self.state, self.x, self.y, self.node_node_spacing))
+        self.children.append(rect)
+        self.rows[-1].add_rectangle(rect)
+        self.adjust_size_add(rect)
+
+    def adjust_size_add(self, rect):
+        spacing = self.node_node_spacing
+        self.smallest_rect_width = _minimum_number(self.smallest_rect_width, rect.get('width', 0))
+        self.width = _maximum(self.width, self.rows[-1].width)
+        self.min_width = _maximum(self.min_width, rect.get('width', 0)+(0 if len(self.children) == 1 else spacing))
+        self.smallest_rect_height = _minimum_number(self.smallest_rect_height, rect.get('height', 0))
+        self.max_height += rect.get('height', 0)+(0 if len(self.children) == 1 else spacing)
+        self.min_height = _maximum(self.min_height, rect.get('height', 0))
+        total_height = (len(self.rows)-1)*spacing if self.rows else 0
+        for row in self.rows:
+            total_height += row.height
+        self.height = total_height
+        count = len(self.children)
+        self.average_height = _div(self.max_height, count)-spacing*_div(count-1, count)
+        self.parent_row.notify_about_node_change()
+
+    def adjust_size_after_remove(self):
+        width = height = 0
+        rows_to_delete = []
+        for index, row in enumerate(self.rows):
+            if not row.rects:
+                rows_to_delete.append(row)
+            else:
+                width = _maximum(width, row.width)
+                height += row.height+(self.node_node_spacing if index > 0 else 0)
+        for row in rows_to_delete:
+            _remove_identity(self.rows, row)
+        self.height, self.width = height, width
+        self.min_width = self.min_height = self.max_height = 0
+        self.smallest_rect_height = self.smallest_rect_width = math.inf
+        for rect in self.children:
+            self.smallest_rect_width = _minimum_number(self.smallest_rect_width, rect.get('width', 0))
+            # The remove path deliberately omits the add path's spacing here.
+            self.min_width = _maximum(self.min_width, rect.get('width', 0))
+            self.min_height = _maximum(self.min_height, rect.get('height', 0))
+            self.smallest_rect_height = _minimum_number(self.smallest_rect_height, rect.get('height', 0))
+            self.max_height += rect.get('height', 0)+self.node_node_spacing
+        count = len(self.children)
+        self.average_height = (_div(self.max_height, count)
+                               -self.node_node_spacing*_div(count-1, count))
+        self.parent_row.notify_about_node_change()
+
+    def expand(self, additional_width, additional_height):
+        width_for_row = self.width+additional_width
+        self.width += additional_width
+        self.height += additional_height
+        height_for_row = _div(additional_height, len(self.rows))
+        for index, row in enumerate(self.rows):
+            row.expand(width_for_row, height_for_row, index)
+
+    def get_width_for_target_height(self, height):
+        if self.max_height <= height:
+            return self.min_width
+        if self.fits_in(self.min_width, height):
+            return self.min_width
+        upper, lower, viable = self.width, self.min_width, self.width
+        width = (upper-lower)/2+lower
+        while lower+1 < upper:
+            bounds = self.place_rects_in(width, False)
+            if bounds.width <= width and bounds.height <= height:
+                viable, upper = width, width
+            else:
+                lower = width
+            width = (upper-lower)/2+lower
+        return viable
+
+    def place(self, width):
+        old_width, old_height = self.width, self.height
+        bounds = self.place_rects_in(width, True)
+        return bounds.width != old_width or bounds.height != old_height
+
+    def fits_in(self, width, height):
+        bounds = self.place_rects_in(width, False)
+        return bounds.width <= width and bounds.height <= height
+
+    def place_rects_in(self, width, place_rects):
+        current_x, current_y = 0, self.y
+        current_width = current_height = max_height_in_row = width_in_row = 0
+        row_index = 0
+        if place_rects:
+            self.rows.clear()
+            self.rows.append(BlockRow(self.state, self.x, self.y, self.node_node_spacing))
+        index = 0
+        for rect in self.children:
+            if (current_x+rect.get('width', 0)+(self.node_node_spacing if index > 0 else 0) > width
+                    and max_height_in_row > 0):
+                current_x = 0
+                current_y += max_height_in_row+self.node_node_spacing
+                current_width = _maximum(current_width, width_in_row)
+                current_height += max_height_in_row+self.node_node_spacing
+                max_height_in_row = width_in_row = 0
+                if place_rects:
+                    row_index += 1
+                    self.rows.append(BlockRow(self.state, self.x, current_y, self.node_node_spacing))
+                index = 0
+            width_in_row += rect.get('width', 0)+(self.node_node_spacing if index > 0 else 0)
+            max_height_in_row = _maximum(max_height_in_row, rect.get('height', 0))
+            if place_rects:
+                self.rows[row_index].add_rectangle(rect)
+            current_x += rect.get('width', 0)+(self.node_node_spacing if index > 0 else 0)
+            index += 1
+        current_width = _maximum(current_width, width_in_row)
+        current_height += max_height_in_row
+        if place_rects:
+            self.width, self.height = current_width, current_height
+            self.parent_row.notify_about_node_change()
+        return RectangleBounds(self.x, self.y, current_width, current_height)
+
+    def remove_child(self, rect):
+        _remove_identity(self.children, rect)
+        for row in self.rows:
+            if any(item is rect for item in row.rects):
+                _remove_identity(row.rects, rect)
+                row.update_row()
+                if not row.rects:
+                    _remove_identity(self.rows, row)
+                break
+        self.adjust_size_after_remove()
+
+    def adjust_children_coordinates(self, dx, dy):
+        for rect in self.children:
+            rect['x'] += dx
+            rect['y'] += dy
+
+    def set_location(self, x, y):
+        self.adjust_children_coordinates(x-self.x, y-self.y)
+        for row in self.rows:
+            row.set_x(row.x+x-self.x)
+            row.set_y(row.y+y-self.y)
+        self.x, self.y = x, y
+
+
+class BlockStack:
+    """Source stack data, actual block search, placement and expansion."""
+    def __init__(self, x, y, spacing):
+        self.blocks = []
+        self.x, self.y = x, y
+        self.node_node_spacing = spacing
+        self.width = self.height = 0
+
+    def add_block(self, block):
+        block.stack = self
+        self.width = _maximum(self.width, block.width)
+        self.height += block.height+(0 if not self.blocks else self.node_node_spacing)
+        self.blocks.append(block)
+
+    def get_minimum_width(self):
+        width = 0
+        for block in self.blocks:
+            width = _maximum(width, block.min_width)
+        return width
+
+    def update_dimension(self):
+        width = height = 0
+        for index, block in enumerate(self.blocks):
+            width = _maximum(width, block.width)
+            height += block.height+(self.node_node_spacing if index > 0 else 0)
+        self.height, self.width = height, width
+
+    def expand(self, additional_width, additional_height):
+        per_block = _div(additional_height, len(self.blocks))
+        for index, block in enumerate(self.blocks):
+            block.set_location(block.x, block.y+index*per_block)
+            block.expand(self.width-block.width+additional_width, per_block)
+
+    def get_width_for_fixed_height(self, height):
+        if len(self.blocks) == 1:
+            return self.blocks[0].get_width_for_target_height(height)
+        upper, lower, viable = self.width, self.get_minimum_width(), self.width
+        width = (upper-lower)/2+lower
+        while lower+1 < upper:
+            total_height = 0
+            for block in self.blocks:
+                total_height += block.place_rects_in(width, False).height
+            # Source is strictly less, and does not add inter-block spacing.
+            if total_height < height:
+                viable, upper = width, width
+            else:
+                lower = width
+            width = (upper-lower)/2+lower
+        return viable
+
+    def place_rects_in(self, target_width):
+        current_y = self.y
+        current_height = current_width = 0
+        for block in self.blocks:
+            block.set_location(self.x, current_y)
+            block.place(target_width)
+            current_width = _maximum(current_width, block.width)
+            current_y += block.height+self.node_node_spacing
+            # Deliberately absolute Y, including the trailing spacing.
+            current_height = current_y
+        self.width, self.height = current_width, current_height
+
+    def set_location(self, x, y):
+        dx, dy = x-self.x, y-self.y
+        for block in self.blocks:
+            block.set_location(block.x+dx, block.y+dy)
+        self.x, self.y = x, y
+
+
+def place_below(rows, row, block, next_block, was_from_next_row,
+                bounding_width, next_row_index, spacing):
+    remaining_width = bounding_width-block.x
+    current_min_height = block.y-row.y+block.place_rects_in(remaining_width, False).height
+    if next_block.min_width+spacing > remaining_width:
+        return False
+    next_min_height = next_block.place_rects_in(remaining_width, False).height
+    if current_min_height+spacing+next_min_height <= row.height:
+        block.place(bounding_width-block.x)
+        block.fixed = True
+        next_block.place(bounding_width-block.x)
+        next_block.set_location(block.x, block.y+block.height+spacing)
+        next_block.position_fixed = True
+        block.stack.add_block(next_block)
+        if was_from_next_row:
+            row.add_block(next_block)
+            next_block.parent_row = row
+            if len(rows) > next_row_index:
+                rows[next_row_index].remove_block(next_block)
+                if not rows[next_row_index].children:
+                    del rows[next_row_index]
+        return True
+    return False
+
+
+def place_beside(rows, row, block, next_block, bounding_width,
+                 next_row_index, spacing, row_height_reevaluation):
+    current_min_width = block.stack.get_width_for_fixed_height(row.y+row.height-block.stack.y)
+    reevaluate = next_block.min_height > row.height and row_height_reevaluation
+    target_width = bounding_width-(block.stack.x+current_min_width-spacing)
+    next_height = next_block.place_rects_in(target_width, False).height
+    if reevaluate and next_height > next_block.min_height:
+        return False
+    if reevaluate:
+        potential_width = 0
+        for stack in row.stacks:
+            potential_width += stack.get_width_for_fixed_height(next_block.min_height)+spacing
+        # The source deliberately does not recompute next_height after this.
+        target_width = bounding_width-potential_width
+    if target_width < next_block.min_width:
+        return False
+    last_row = next_row_index == len(rows)-1 and target_width >= rows[next_row_index].width
+    if not reevaluate and next_height > row.height and not last_row:
+        return False
+    if last_row or reevaluate or next_height <= row.height:
+        if last_row and next_height > row.height:
+            block.height = next_height
+            block.place(block.get_width_for_target_height(next_height))
+        else:
+            block.stack.place_rects_in(current_min_width)
+            block.fixed = True
+        next_block.place(bounding_width-(block.x+block.width))
+        next_block.set_location(block.stack.x+block.stack.width, row.y)
+        row.add_block(next_block)
+        if len(rows) > next_row_index:
+            rows[next_row_index].remove_block(next_block)
+            if not rows[next_row_index].children:
+                del rows[next_row_index]
+        # Unlike place_below, this function does not update parent_row.
+        return True
+    return False
+
+
+def use_row_height(row, block):
+    previous_width = block.stack.width
+    if block.height < row.height:
+        target_width = block.stack.get_width_for_fixed_height(row.height)
+        if block.stack.width > target_width:
+            block.stack.place_rects_in(target_width)
+            return previous_width != block.stack.width
+    return False
+
+
+def initial_place(state, rectangles, bounding_width, spacing):
+    rows = []
+    row = RectRow(0, spacing)
+    drawing_height = 0
+    row.add_block(Block(state, 0, 0, row, spacing))
+    current_width = 0
+    for rect in rectangles:
+        block = row.children[-1]
+        potential_width = current_width+rect.get('width', 0)+(0 if not row.children[0].children else spacing)
+        if potential_width > bounding_width or state.option(rect, 'rectpacking.inNewRow', False):
+            current_width = 0
+            drawing_height += row.height+spacing
+            rows.append(row)
+            row = RectRow(drawing_height, spacing)
+            block = Block(state, 0, row.y, row, spacing)
+            row.add_block(block)
+            current_width = 0
+        rect_height = rect.get('height', 0)
+        if (not block.children
+                or not state.option(state.parents[id(rect)],
+                                    'rectpacking.packing.compaction.rowHeightReevaluation', False)
+                and (rect_height >= block.smallest_rect_height and rect_height <= block.min_height
+                     or block.average_height*0.5 <= rect_height and block.average_height*1.5 >= rect_height)):
+            block.add_child(rect)
+        else:
+            new_block = Block(state, block.x+block.width+spacing, row.y, row, spacing)
+            row.add_block(new_block)
+            new_block.add_child(rect)
+        current_width = rect['x']+rect.get('width', 0)
+    rows.append(row)
+    return rows
+
+
+def place_rect_in_block(row, block, rect, bounding_width, spacing):
+    height = rect.get('height', 0)
+    if (height >= block.smallest_rect_height and height <= block.min_height
+            or block.average_height*0.5 <= height and block.average_height*1.5 >= height):
+        last_row = block.rows[-1]
+        if (last_row.x+last_row.width+rect.get('width', 0)+spacing <= bounding_width
+                and (last_row.y-row.y+height <= row.height or len(row.children) == 1)):
+            block.add_child(rect)
+            return True
+        elif (block.x+rect.get('width', 0) <= bounding_width
+                and block.y+block.height+height+spacing <= row.y+row.height):
+            block.children.append(rect)
+            block.rows.append(BlockRow(block.state, block.x,
+                                       last_row.y+last_row.height+block.node_node_spacing,
+                                       block.node_node_spacing))
+            block.rows[-1].add_rectangle(rect)
+            block.adjust_size_add(rect)
+            return True
+    return False
+
+
+def no_placement_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('No Compaction', 1)
+    padding = _owner_padding(state, node, 15)
+    rectangles = node.get('children', [])
+    size = calculate_dimensions(rectangles)
+    properties = _properties(state, node)
+    # Internal bare Property defaults are null. Preprocessing must really write
+    # these values; absence is not an implicit zero minimum or empty rows list.
+    width = _maximum(size.x, properties['minWidth']-(padding['left']+padding['right']))
+    height = _maximum(size.y, properties['minHeight']-(padding['top']+padding['bottom']))
+    additional_height = height-size.y
+    properties['additionalHeight'] = additional_height
+    properties['drawingWidth'] = width
+    properties['drawingHeight'] = height+additional_height
+    if monitor is not None:
+        monitor.done()
+
+
+def simple_placement_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('No Compaction', 1)
+    properties = _properties(state, node)
+    target_width = properties['targetWidth']
+    spacing = state.option(node, 'spacing.nodeNode', 15)
+    padding = _owner_padding(state, node, 15)
+    rectangles = node.get('children', [])
+    reset_coordinates(rectangles)
+    rows = initial_place(state, rectangles, target_width, spacing)
+    for row in rows:
+        for block in row.children:
+            stack = BlockStack(block.x, block.y, state.option(node, 'spacing.nodeNode', 15))
+            stack.add_block(block)
+            row.stacks.append(stack)
+    size = calculate_row_dimensions(rows, spacing)
+    width = _maximum(size.x, properties['minWidth']-(padding['left']+padding['right']))
+    height = _maximum(size.y, properties['minHeight']-(padding['top']+padding['bottom']))
+    additional_height = height-size.y
+    properties['additionalHeight'] = additional_height
+    properties['drawingWidth'] = width
+    properties['drawingHeight'] = height+additional_height
+    properties['rows'] = rows
+    if monitor is not None:
+        monitor.done()
+
+
+def expand_rows(rows, drawing_width, additional_height):
+    height_per_row = _div(additional_height, len(rows))
+    for index, row in enumerate(rows):
+        row.set_y(row.y+height_per_row*index)
+        row.expand(drawing_width, height_per_row)
+
+
+def equal_whitespace_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('Equal Whitespace Eliminator', 1)
+    properties = _properties(state, node)
+    if 'rows' in properties:
+        rows = properties['rows']
+        width = properties['drawingWidth']
+        additional_height = properties['additionalHeight']
+        # Source evaluates this scalar getter in a comma expression even though
+        # expand's final argument is additionalHeight, not node-node spacing.
+        state.option(node, 'spacing.nodeNode', 15)
+        expand_rows(rows, width, additional_height)
+    else:
+        raise ValueError('The graph does not contain rows.')
+    if monitor is not None:
+        monitor.done()
+
+
+def to_aspect_ratio_whitespace_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('To Aspect Ratio Whitesapce Eliminator', 1)
+    properties = _properties(state, node)
+    width, height = properties['drawingWidth'], properties['drawingHeight']
+    desired_ratio = state.option(node, 'aspectRatio', 1.3)
+    additional_height = properties['additionalHeight']
+    aspect_ratio = _div(width, height)
+    if aspect_ratio < desired_ratio:
+        width = height*desired_ratio
+        properties['drawingWidth'] = width
+    else:
+        additional_height += _div(width, desired_ratio)-height
+        properties['additionalHeight'] = additional_height
+        properties['drawingHeight'] = height+additional_height
+    # Keep the exact same monitor, with the superclass's second begin/done.
+    equal_whitespace_phase(state, node, monitor)
+    if monitor is not None:
+        monitor.done()
+
+
+def whitespace_phase(strategy):
+    ordinal = {'EQUAL_BETWEEN_STRUCTURES': 0, 'TO_ASPECT_RATIO': 1, 'NONE': 2}.get(strategy, strategy)
+    if ordinal == 0:
+        return equal_whitespace_phase
+    if ordinal == 1:
+        return to_aspect_ratio_whitespace_phase
+    if ordinal == 2:
+        return None
+    raise ValueError('Unknown whitespace elimination strategy')
+
+
+def absorb_blocks(row, block, next_block, bounding_width, spacing):
+    changed = False
+    rect = next_block.children[0]
+    while place_rect_in_block(row, block, rect, bounding_width, spacing):
+        changed = True
+        next_block.remove_child(rect)
+        if not next_block.children:
+            break
+        rect = next_block.children[0]
+    if not next_block.children:
+        next_block.parent_row.remove_block(next_block)
+    if changed:
+        block.stack.update_dimension()
+    return changed
+
+
+def compact_row(state, row_index, rows, bounding_width, spacing, row_height_reevaluation):
+    changed = repeat_row = False
+    next_row_index = row_index+1
+    row = rows[row_index]
+    blocks = row.children
+    current_stack = None
+    block_index = 0
+    while block_index < len(row.children):
+        block = blocks[block_index]
+        if block.fixed:
+            block_index += 1
+            continue
+        if not block.children:
+            row.remove_block(block)
+            changed = True
+            continue
+        if not block.position_fixed:
+            if current_stack is not None:
+                current_stack.update_dimension()
+            x = 0 if current_stack is None else current_stack.x+current_stack.width+spacing
+            current_stack = BlockStack(x, row.y, spacing)
+            block.set_location(current_stack.x+current_stack.width, row.y)
+            row.stacks.append(current_stack)
+            current_stack.add_block(block)
+            block.position_fixed = True
+        next_block = None
+        if block_index < len(row.children)-1:
+            next_block = row.children[block_index+1]
+        elif next_row_index < len(rows) and rows[next_row_index].children:
+            next_block = rows[next_row_index].children[0]
+        from_next_row = next_block is not None and next_block.parent_row is not row
+        if next_block is not None:
+            if next_block.children and not state.option(next_block.children[0], 'rectpacking.inNewRow', False):
+                block.place(bounding_width-block.x)
+                block.stack.update_dimension()
+                absorbed = absorb_blocks(row, block, next_block, bounding_width, spacing)
+                changed = bool(changed | absorbed)  # Source bitwise OR evaluates both sides.
+            else:
+                # The source removes from *this* row even when nextBlock came
+                # from the next row. Its absent-remove width effect is retained.
+                row.remove_block(next_block)
+                break
+            if not next_block.children:
+                if len(rows) > next_row_index:
+                    rows[next_row_index].remove_block(next_block)
+                next_block = None
+                while len(rows) > next_row_index and not rows[next_row_index].children:
+                    del rows[next_row_index]
+            if next_block is None:
+                # Original --blockId followed by for-loop ++ revisits this id.
+                continue
+            if (not state.option(next_block.children[0], 'rectpacking.inNewRow', False)
+                    and place_below(rows, row, block, next_block, from_next_row,
+                                    bounding_width, next_row_index, spacing)):
+                changed = True
+                block_index += 1
+                continue
+            if from_next_row:
+                old_row_height = row.height
+                next_min_height = next_block.min_height
+                if (not state.option(next_block.children[0], 'rectpacking.inNewRow', False)
+                        and place_beside(rows, row, block, next_block, bounding_width,
+                                         next_row_index, spacing, row_height_reevaluation)):
+                    changed = True
+                    if old_row_height < next_min_height:
+                        repeat_row = True
+                        next_block.parent_row = row
+                        break
+                    block_index += 1
+                    continue
+                elif use_row_height(row, block):
+                    block.fixed = True
+                    changed = True
+                    block_index += 1
+                    continue
+            elif use_row_height(row, block):
+                block.fixed = True
+                changed = True
+                block_index += 1
+                continue
+            if changed:
+                block_index += 1
+                continue
+        if use_row_height(row, block):
+            block.fixed = True
+            changed = True
+            if next_block is not None:
+                next_block.position_fixed = False
+        else:
+            block.stack.update_dimension()
+        block_index += 1
+    return changed, repeat_row
+
+
+class RowFillingAndCompaction:
+    def __init__(self, aspect_ratio, spacing):
+        self.aspect_ratio, self.node_node_spacing = aspect_ratio, spacing
+        self.potential_row_width_decrease_max = self.potential_row_width_increase_max = 0
+        self.potential_row_width_decrease_min = self.potential_row_width_increase_min = math.inf
+
+    def adjust_width_and_height(self, row):
+        height = width = 0
+        for index, stack in enumerate(row.stacks):
+            stack.update_dimension()
+            height = _maximum(height, stack.height)
+            width += stack.width+(self.node_node_spacing if index > 0 else 0)
+        row.height, row.width = height, width
+
+    def start(self, state, node, padding):
+        properties = _properties(state, node)
+        target_width, min_width, min_height = (properties['targetWidth'], properties['minWidth'],
+                                               properties['minHeight'])
+        rectangles = node.get('children', [])
+        reset_coordinates(rectangles)
+        rows = initial_place(state, rectangles, target_width, self.node_node_spacing)
+        index = 0
+        while index < len(rows):
+            current = rows[index]
+            if index != 0:
+                previous = rows[index-1]
+                current.set_y(previous.y+previous.height+self.node_node_spacing)
+            _, repeat = compact_row(state, index, rows, target_width, self.node_node_spacing,
+                                    state.option(node, 'rectpacking.packing.compaction.rowHeightReevaluation', False))
+            if repeat:
+                for block in current.children:
+                    block.fixed = block.position_fixed = False
+                    block.adjust_size_after_remove()
+                current.stacks = []  # Source assignment replaces this list.
+                current.width = target_width
+                continue
+            self.adjust_width_and_height(current)
+            if index+1 < len(rows):
+                amount = current.width+self.node_node_spacing+rows[index+1].children[0].width-target_width
+                # These cross-variable assignments are literal source behavior.
+                self.potential_row_width_increase_max = _maximum(amount, self.potential_row_width_decrease_max)
+                self.potential_row_width_increase_min = _minimum_number(amount, self.potential_row_width_decrease_min)
+                if current.stacks:
+                    amount = current.stacks[-1].width+(0 if len(current.stacks) <= 1 else self.node_node_spacing)
+                    self.potential_row_width_decrease_max = _maximum(self.potential_row_width_decrease_max, amount)
+                    self.potential_row_width_decrease_min = _minimum_number(self.potential_row_width_decrease_max, amount)
+            if len(rows) == 1:
+                last_block = current.stacks[-1].blocks[-1]
+                for block_row in last_block.rows:
+                    decrease = last_block.width-block_row.width
+                    self.potential_row_width_decrease_max = _maximum(self.potential_row_width_decrease_max, decrease)
+                    self.potential_row_width_decrease_min = _minimum_number(self.potential_row_width_decrease_min, decrease)
+                    increase = block_row.width+self.node_node_spacing
+                    self.potential_row_width_increase_max = _maximum(self.potential_row_width_increase_max, increase)
+                    self.potential_row_width_increase_min = _minimum_number(self.potential_row_width_increase_min, increase)
+            index += 1
+        size = calculate_row_dimensions(rows, self.node_node_spacing)
+        total_width = _maximum(size.x, min_width-(padding['left']+padding['right']))
+        height = _maximum(size.y, min_height-(padding['top']+padding['bottom']))
+        additional_height = height-size.y
+        properties['additionalHeight'] = additional_height
+        properties['rows'] = rows
+        return DrawingData(self.aspect_ratio, total_width, size.y+additional_height, WHOLE_DRAWING)
+
+
+class _PaddingReference(Mapping):
+    """Read the original native Insets object at each source field access."""
+    def __init__(self, insets):
+        self.insets = insets
+
+    def __getitem__(self, name):
+        if name not in ('top', 'right', 'bottom', 'left'):
+            raise KeyError(name)
+        return getattr(self.insets, name)
+
+    def __iter__(self):
+        return iter(('top', 'right', 'bottom', 'left'))
+
+    def __len__(self):
+        return 4
+
+
+def _padding_reference(state, node):
+    if hasattr(state, 'read_native_property'):
+        return _PaddingReference(state.read_native_property(node, 'padding', Insets(15, 15, 15, 15)))
+    return _owner_padding(state, node, 15)
+
+
+def copy_row_width_change_values(state, node, compaction):
+    properties = _properties(state, node)
+    properties['minRowIncrease'] = compaction.potential_row_width_increase_min
+    properties['maxRowIncrease'] = compaction.potential_row_width_increase_max
+    properties['minRowDecrease'] = compaction.potential_row_width_decrease_min
+    properties['maxRowDecrease'] = compaction.potential_row_width_decrease_max
+
+
+def compaction_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('Compaction', 1)
+    aspect_ratio = state.option(node, 'aspectRatio', 1.3)
+    spacing = state.option(node, 'spacing.nodeNode', 15)
+    padding = _padding_reference(state, node)
+    compaction = RowFillingAndCompaction(aspect_ratio, spacing)
+    drawing = compaction.start(state, node, padding)
+    copy_row_width_change_values(state, node, compaction)
+    iterations = state.option(node, 'rectpacking.packing.compaction.iterations', 1)
+    properties = _properties(state, node)
+    while iterations > 1:
+        # Each attempt clones the original, never the previous candidate.
+        clone_state = clone_packing_graph(state, node)
+        clone = clone_state.graph
+        old_scale = drawing.scale_measure
+        current_padding = _owner_padding(state, node, 15)
+        current_aspect = state.option(node, 'aspectRatio', 1.3)
+        if (len(node.get('children', [])) > 1 and properties['minRowIncrease'] != math.inf
+                and _div(drawing.drawing_width+(current_padding['left']+current_padding['right']),
+                         drawing.drawing_height+(current_padding['top']+current_padding['bottom'])) < current_aspect):
+            _properties(clone_state, clone)['targetWidth'] = properties['targetWidth']+properties['minRowIncrease']
+        elif (len(node.get('children', [])) > 1 and properties['minRowDecrease'] != math.inf
+                and _div(drawing.drawing_width+(current_padding['left']+current_padding['right']),
+                         drawing.drawing_height+(current_padding['top']+current_padding['bottom'])) > current_aspect):
+            cloned_properties = _properties(clone_state, clone)
+            cloned_properties['targetWidth'] = _maximum(properties['minWidth'],
+                                                        cloned_properties['targetWidth']-properties['minRowDecrease'])
+        compaction = RowFillingAndCompaction(aspect_ratio, spacing)
+        new_drawing = compaction.start(clone_state, clone, padding)
+        new_scale = new_drawing.scale_measure
+        if new_scale >= old_scale and new_scale == new_scale:
+            for index, child in enumerate(clone.get('children', [])):
+                copy_position(child, node.get('children', [])[index])
+            copy_row_width_change_values(state, node, compaction)
+            drawing.set_drawing_width(new_drawing.drawing_width)
+            drawing.set_drawing_height(new_drawing.drawing_height)
+        iterations -= 1
+    properties['drawingHeight'] = drawing.drawing_height
+    properties['drawingWidth'] = drawing.drawing_width
+    if monitor is not None:
+        monitor.done()
+
+
+def _minimum_number(first, second):
+    return -_maximum(-first, -second)
+
+
+def _area_filter(candidates, aspect_ratio, padding):
+    minimum = math.inf
+    for item in candidates:
+        area = ((item.drawing_width+(padding['left']+padding['right']))
+                * (item.drawing_height+(padding['top']+padding['bottom'])))
+        minimum = _minimum_number(minimum, area)
+    return [item for item in candidates
+            if ((item.drawing_width+(padding['left']+padding['right']))
+                * (item.drawing_height+(padding['top']+padding['bottom']))) == minimum]
+
+
+def _aspect_ratio_filter(candidates, aspect_ratio, padding):
+    minimum = math.inf
+    for item in candidates:
+        deviation = abs(_div(item.drawing_width+(padding['left']+padding['right']),
+                             item.drawing_height+(padding['top']+padding['bottom']))-aspect_ratio)
+        minimum = _minimum_number(minimum, deviation)
+    return [item for item in candidates
+            if abs(_div(item.drawing_width+(padding['left']+padding['right']),
+                        item.drawing_height+(padding['top']+padding['bottom']))-aspect_ratio) == minimum]
+
+
+def _scale_measure_filter(candidates, aspect_ratio, padding):
+    maximum = -math.inf
+    for item in candidates:
+        maximum = _maximum(maximum, compute_scale_measure(
+            item.drawing_width+(padding['left']+padding['right']),
+            item.drawing_height+(padding['top']+padding['bottom']), item.dar))
+    return [item for item in candidates
+            if compute_scale_measure(item.drawing_width+(padding['left']+padding['right']),
+                                     item.drawing_height+(padding['top']+padding['bottom']), item.dar) == maximum]
+
+
+def calculate_x_for_last_placed_below(y, placed, last, spacing):
+    closest = None
+    closest_right = 0
+    for node in placed:
+        right = node.get('x', 0)+node.get('width', 0)
+        if y < node.get('y', 0)+node.get('height', 0)+spacing:
+            if closest is None:
+                closest = node
+            elif last.get('x', 0)-right < last.get('x', 0)-closest_right:
+                closest = node
+            closest_right = closest.get('x', 0)+closest.get('width', 0)
+    return 0 if closest is None else closest_right+spacing
+
+
+def calculate_y_for_last_placed_right(x, placed, last, spacing):
+    closest = None
+    closest_bottom = 0
+    for node in placed:
+        bottom = node.get('y', 0)+node.get('height', 0)
+        if x < node.get('x', 0)+node.get('width', 0)+spacing:
+            if closest is None:
+                closest = node
+            elif last.get('y', 0)-bottom < last.get('y', 0)-closest_bottom:
+                closest = node
+            closest_bottom = closest.get('y', 0)+closest.get('height', 0)
+    return 0 if closest is None else closest_bottom+spacing
+
+
+def check_special_candidates(first, second, last, to_place):
+    first_option, second_option = first.placement_option, second.placement_option
+    below = (CANDIDATE_POSITION_LAST_PLACED_BELOW, CANDIDATE_POSITION_WHOLE_DRAWING_BELOW)
+    right = (CANDIDATE_POSITION_LAST_PLACED_RIGHT, CANDIDATE_POSITION_WHOLE_DRAWING_RIGHT)
+    last_only = (CANDIDATE_POSITION_LAST_PLACED_RIGHT, CANDIDATE_POSITION_LAST_PLACED_BELOW)
+    if first_option in below and second_option in below:
+        return first if first_option is CANDIDATE_POSITION_WHOLE_DRAWING_BELOW else second
+    if first_option in right and second_option in right:
+        return first if first_option is CANDIDATE_POSITION_WHOLE_DRAWING_RIGHT else second
+    if first_option in last_only and second_option in last_only:
+        lpr, lpb = ((first, second) if first_option is CANDIDATE_POSITION_LAST_PLACED_RIGHT
+                    else (second, first))
+        max_y = _maximum(last.get('y', 0)+last.get('height', 0),
+                         lpr.next_y_coordinate+to_place.get('height', 0))
+        height_lpr = max_y-_minimum_number(last.get('y', 0), lpr.next_y_coordinate)
+        width_lpr = lpr.next_x_coordinate+to_place.get('width', 0)-last.get('x', 0)
+        area_lpr = width_lpr*height_lpr
+        max_x = _maximum(last.get('x', 0)+last.get('width', 0),
+                         lpb.next_x_coordinate+to_place.get('width', 0))
+        width_lpb = max_x-_minimum_number(last.get('x', 0), lpb.next_x_coordinate)
+        height_lpb = lpb.next_y_coordinate+to_place.get('height', 0)-last.get('y', 0)
+        area_lpb = width_lpb*height_lpb
+        if area_lpr <= area_lpb:
+            return first if first_option is CANDIDATE_POSITION_LAST_PLACED_RIGHT else second
+        return first if first_option is CANDIDATE_POSITION_LAST_PLACED_BELOW else second
+    return first
+
+
+class AreaApproximation:
+    def __init__(self, aspect_ratio, goal, last_place_shift):
+        self.aspect_ratio, self.goal, self.last_place_shift = aspect_ratio, goal, last_place_shift
+
+    def calc_values_for_option(self, option, to_place, last, drawing, placed, spacing):
+        x = y = 0
+        drawing_width, drawing_height = drawing.drawing_width, drawing.drawing_height
+        to_width, to_height = to_place.get('width', 0), to_place.get('height', 0)
+        if option.ordinal == 0:
+            x = last.get('x', 0)+last.get('width', 0)+spacing
+            y = (calculate_y_for_last_placed_right(x, placed, last, spacing)
+                 if self.last_place_shift else last.get('y', 0))
+            width, height = _maximum(drawing_width, x+to_width), _maximum(drawing_height, y+to_height)
+        elif option.ordinal == 1:
+            y = last.get('y', 0)+last.get('height', 0)+spacing
+            x = (calculate_x_for_last_placed_below(y, placed, last, spacing)
+                 if self.last_place_shift else last.get('x', 0))
+            width, height = _maximum(drawing_width, x+to_width), _maximum(drawing_height, y+to_height)
+        elif option.ordinal == 2:
+            x = drawing_width+spacing
+            width, height = drawing_width+spacing+to_width, _maximum(drawing_height, to_height)
+        elif option.ordinal == 3:
+            y = drawing_height+spacing
+            width, height = _maximum(drawing_width, to_width), drawing_height+spacing+to_height
+        else:
+            raise ValueError('IllegalPlacementOption.')
+        return DrawingData(self.aspect_ratio, width, height, option, x, y)
+
+    def find_best_candidate(self, first, second, third, fourth, to_place, last, padding):
+        candidates = [first, second, third, fourth]
+        goal = {'ASPECT_RATIO_DRIVEN': 0, 'MAX_SCALE_DRIVEN': 1, 'AREA_DRIVEN': 2}.get(self.goal, self.goal)
+        if goal == 1:
+            filters = (_scale_measure_filter, _area_filter, _aspect_ratio_filter)
+        elif goal == 0:
+            filters = (_aspect_ratio_filter, _area_filter, _scale_measure_filter)
+        elif goal == 2:
+            filters = (_area_filter, _scale_measure_filter, _aspect_ratio_filter)
+        else:
+            raise ValueError('Unknown width approximation goal')
+        for filter_function in filters:
+            if len(candidates) > 1:
+                candidates = filter_function(candidates, self.aspect_ratio, padding)
+        if len(candidates) == 1:
+            return candidates[-1]
+        if len(candidates) == 2:
+            return check_special_candidates(candidates[0], candidates[1], last, to_place)
+        return None
+
+    def approx_bounding_box(self, rectangles, spacing, padding):
+        first = rectangles[0]
+        first['x'] = first['y'] = 0
+        placed, last = [first], first
+        drawing = DrawingData(self.aspect_ratio, first.get('width', 0), first.get('height', 0), WHOLE_DRAWING)
+        for to_place in rectangles[1:]:
+            options = [self.calc_values_for_option(option, to_place, last, drawing, placed, spacing)
+                       for option in (CANDIDATE_POSITION_LAST_PLACED_RIGHT, CANDIDATE_POSITION_LAST_PLACED_BELOW,
+                                      CANDIDATE_POSITION_WHOLE_DRAWING_RIGHT, CANDIDATE_POSITION_WHOLE_DRAWING_BELOW)]
+            best = self.find_best_candidate(*options, to_place, last, padding)
+            # Source dereferences null if no permitted survivor count remains.
+            to_place['x'], to_place['y'] = best.next_x_coordinate, best.next_y_coordinate
+            best.set_placement_option(WHOLE_DRAWING)
+            drawing, last = best, to_place
+            placed.append(to_place)
+        return drawing
+
+
+def target_width_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('Target Width Setter', 1)
+    if state.has_option(node, 'rectpacking.widthApproximation.targetWidth'):
+        _properties(state, node)['targetWidth'] = state.option(node, 'rectpacking.widthApproximation.targetWidth')
+    else:
+        raise ValueError('A target width has to be set if the TargetWidthWidthApproximator should be used.')
+    if monitor is not None:
+        monitor.done()
+
+
+def greedy_width_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('Greedy Width Approximator', 1)
+    aspect_ratio = state.option(node, 'aspectRatio', 1.3)
+    padding = _owner_padding(state, node, 15)
+    goal = state.option(node, 'rectpacking.widthApproximation.optimizationGoal', 'MAX_SCALE_DRIVEN')
+    last_place_shift = state.option(node, 'rectpacking.widthApproximation.lastPlaceShift', True)
+    spacing = state.option(node, 'spacing.nodeNode', 15)
+    rectangles = node.get('children', [])
+    reset_coordinates(rectangles)
+    drawing = AreaApproximation(aspect_ratio, goal, last_place_shift).approx_bounding_box(rectangles, spacing, padding)
+    _properties(state, node)['targetWidth'] = drawing.drawing_width
+    if monitor is not None:
+        monitor.done()
+
+
+@dataclass(eq=False)
+class ProviderParameters:
+    padding: object
+    fixed_graph_size: bool
+    spacing: float
+    try_box: bool
+    rectangles: list
+
+
+def prepare_provider(state, node, monitor=None):
+    """Only the reviewed provider prefix; packing/dispatch remain separate.
+
+    Retain the actual first padding object across Micro, rather than re-reading
+    the holder later or freezing a scalar dictionary before the call.
+    """
+    if monitor is not None:
+        monitor.begin('Rectangle Packing', 1)
+    padding = state.read_native_property(node, 'padding', factory=lambda: Insets(15, 15, 15, 15))
+    fixed = state.option(node, 'nodeSize.fixedGraphSize', False)
+    spacing = state.option(node, 'spacing.nodeNode', 15)
+    try_box = state.option(node, 'rectpacking.trybox', False)
+    rectangles = node.setdefault('children', [])
+    if not state.option(node, 'omitNodeMicroLayout', False):
+        state.node_micro_layout(node)
+    return ProviderParameters(padding, fixed, spacing, try_box, rectangles)
+
+
+def reorder_by_size_phase(state, node, monitor=None):
+    # Source NodeSizeReorderer creates no task and does not call done.
+    _source_sort(node.get('children', []),
+                 lambda first, second: _double_compare(second.get('height', 0), first.get('height', 0)))
+
+
+def interactive_reorder_phase(state, node, monitor=None):
+    if monitor is not None:
+        monitor.begin('Interactive Node Reorderer', 1)
+    rectangles = node.setdefault('children', [])
+    fixed_nodes = [rect for rect in rectangles if state.has_option(rect, 'rectpacking.desiredPosition')]
+    for rect in fixed_nodes:
+        _remove_identity(rectangles, rect)
+    def compare(first, second):
+        left = state.option(first, 'rectpacking.desiredPosition', -1)
+        right = state.option(second, 'rectpacking.desiredPosition', -1)
+        # The actual source comparator returns -1 for equal positions.
+        return -1 if left == right or left < right else 1 if left > right else 0
+    _source_sort(fixed_nodes, compare)
+    for rect in fixed_nodes:
+        position = min(state.option(rect, 'rectpacking.desiredPosition', -1), len(rectangles))
+        if position < 0:
+            raise IndexError('Negative desired position')
+        rectangles.insert(position, rect)
+    for index, rect in enumerate(rectangles):
+        state.set_option(rect, 'rectpacking.currentPosition', index,
+                         integer_box=value_of_integer_box(index))
+    if monitor is not None:
+        monitor.done()
+
+
+def _align_to_drawing(state, node, width, height, real_width, real_height):
+    """Source F14 translate_1 using explicit new/old sizes, not root WH."""
+    alignment = _enum_set(state.get_native_property(node, 'contentAlignment'))
+    dx = dy = 0
+    if width > real_width:
+        if 'H_CENTER' in alignment:
+            dx = (width-real_width)/2
+        elif 'H_RIGHT' in alignment:
+            dx = width-real_width
+    if height > real_height:
+        if 'V_CENTER' in alignment:
+            dy = (height-real_height)/2
+        elif 'V_BOTTOM' in alignment:
+            dy = height-real_height
+    _translate(node, dx, dy, state)
+
+
+def _layout(state, node, monitor=None):
+    from ..execution.diagnostics import BasicProgressMonitor
+    if monitor is None:
+        monitor = BasicProgressMonitor(False, False)
+    parameters = prepare_provider(state, node, monitor)
+    rectangles = parameters.rectangles
+    stackable = False
+    if parameters.try_box and len(rectangles) >= 3:
+        second, third = rectangles[0], rectangles[1]
+        counter = 0
+        while counter+2 < len(rectangles):
+            first, second, third = second, third, rectangles[counter+2]
+            if (first.get('height', 0) >= second.get('height', 0)+third.get('height', 0)+parameters.spacing
+                    or third.get('height', 0) >= first.get('height', 0)+second.get('height', 0)+parameters.spacing):
+                stackable = True
+                break
+            counter += 1
+    else:
+        stackable = True
+    if not stackable:
+        priority = len(rectangles)
+        for rect in rectangles:
+            state.set_option(rect, 'priority', priority, integer_box=value_of_integer_box(priority))
+            priority -= 1
+        from .box import _layout as box_layout
+        box_layout(state, node, BasicProgressMonitor(False, False))
+        monitor.done()
+        return node
+    # Source intermediate factories are ordinal-sorted within each actual slot.
+    processors = []
+    if state.option(node, 'rectpacking.orderBySize', False):
+        processors.append(reorder_by_size_phase)
+    if state.option(node, 'interactive', False):
+        processors.append(interactive_reorder_phase)
+    processors.append(minimum_preprocess)
+    width_strategy = state.option(node, 'rectpacking.widthApproximation.strategy', 'GREEDY')
+    if width_strategy == 'GREEDY':
+        processors.append(greedy_width_phase)
+    elif width_strategy == 'TARGET_WIDTH':
+        processors.append(target_width_phase)
+    else:
+        raise ValueError('Unknown width approximation strategy')
+    processors.append(minimum_postprocess)
+    packing = state.option(node, 'rectpacking.packing.strategy', 'COMPACTION')
+    packing_processor = {'COMPACTION': compaction_phase, 'SIMPLE': simple_placement_phase,
+                         'NONE': no_placement_phase}.get(packing)
+    if packing_processor is None:
+        raise ValueError('Unknown packing strategy')
+    processors.append(packing_processor)
+    white = whitespace_phase(state.option(node, 'rectpacking.whiteSpaceElimination.strategy', 'NONE'))
+    if white is not None:
+        processors.append(white)
+    progress = _div(1, len(processors))
+    for processor in processors:
+        if monitor.is_canceled():
+            return node
+        processor(state, node, monitor.sub_task(progress))
+    real_width = real_height = 0
+    for rect in rectangles:
+        real_width = _maximum(real_width, rect.get('x', 0)+rect.get('width', 0))
+        real_height = _maximum(real_height, rect.get('y', 0)+rect.get('height', 0))
+    properties = _properties(state, node)
+    _align_to_drawing(state, node, properties['drawingWidth'], properties['drawingHeight'],
+                     real_width, real_height)
+    for rect in rectangles:
+        rect['x'] += parameters.padding.left
+        rect['y'] += parameters.padding.top
+    if not parameters.fixed_graph_size:
+        _resize(state, node, properties['drawingWidth']+(parameters.padding.left+parameters.padding.right),
+                properties['drawingHeight']+(parameters.padding.top+parameters.padding.bottom), False, True)
+    if not state.option(node, 'omitNodeMicroLayout', False):
+        state.node_micro_layout(node)
+    monitor.done()
+    return node
+
+
+def layout_rectpacking(graph, options=None, *, monitor=None):
+    from ..execution.json_transfer import JsonLayoutSession
+    state = JsonLayoutSession(graph, options)
+    _layout(state, state.graph, monitor)
+    return state.export()
+
+
+class PackingView:
+    """Source internal clone holders, not a new JSON import/session/parser.
+
+    Geometry and parent links belong to the new objects. Property maps are
+    independent snapshots whose actual typed values remain shallow shared.
+    These clone identifiers never enter the original endpoint index.
+    """
+    def __init__(self, source_state):
+        self.source_state = source_state
+        self.snapshots = {}
+        self.computed_options = {}
+        self.parents = {}
+
+    def _add_holder(self, original, clone, parent):
+        snapshot = self.source_state.property_snapshot(original).copy()
+        self.snapshots[id(clone)] = snapshot
+        self.computed_options[id(clone)] = snapshot.values
+        self.parents[id(clone)] = parent
+
+    def option(self, element, name, default=None):
+        return self.snapshots[id(element)].get(name, default)
+
+    def has_option(self, element, name):
+        return self.snapshots[id(element)].has(name)
+
+    def set_option(self, element, name, value, *, integer_box=None):
+        self.snapshots[id(element)].set(name, value, integer_box=integer_box)
+
+    def remove_option(self, element, name):
+        self.snapshots[id(element)].remove(name)
+
+    def property_snapshot(self, element):
+        return self.snapshots[id(element)].copy()
+
+    def read_native_property(self, element, name, *caller_default, **default_options):
+        return self.snapshots[id(element)].read_native(name, *caller_default, **default_options)
+
+    def identifier_text(self, element):
+        return self.source_state.identifier_text(element)
+
+    def identity_hash(self, element):
+        return self.source_state.identity_hash(element)
+
+
+def clone_packing_graph(state, node):
+    view = PackingView(state)
+    clone = {'x': 0, 'y': 0, 'width': 0, 'height': 0, 'children': []}
+    view.graph = clone
+    view._add_holder(node, clone, None)
+    for child in node.get('children', []):
+        new_child = {'id': state.identifier_text(child),
+                     'width': child.get('width', 0), 'height': child.get('height', 0),
+                     'x': child.get('x', 0), 'y': child.get('y', 0)}
+        clone['children'].append(new_child)
+        view._add_holder(child, new_child, clone)
+    return view
+
+
+def copy_position(source, target):
+    def apply_geometry(first, second):
+        second['width'], second['height'] = first.get('width', 0), first.get('height', 0)
+        second['x'], second['y'] = first.get('x', 0), first.get('y', 0)
+    apply_geometry(source, target)
+    # Preserve recursive encounter/error order without a Python recursion cap.
+    stack = [[source, target, 0]]
+    while stack:
+        first, second, index = stack[-1]
+        children = first.get('children', [])
+        if index >= len(children):
+            stack.pop()
+            continue
+        stack[-1][2] += 1
+        first_child = children[index]
+        second_child = second.get('children', [])[index]
+        apply_geometry(first_child, second_child)
+        stack.append([first_child, second_child, 0])
+
+
+def _properties(state, node):
+    return state.computed_options.setdefault(id(node), {})
+
+
+def minimum_preprocess(state, node, monitor=None):
+    if monitor is not None: monitor.begin('Min Size Preprocessing', 1)
+    width, height = _minimum(state, node)
+    if state.parents[id(node)] is not None:
+        additional = state.label_node_minimum(node)
+        width = _maximum(width, additional.x)
+        height = _maximum(height, additional.y)
+    properties = _properties(state, node)
+    properties['minWidth'], properties['minHeight'] = width, height
+    if monitor is not None: monitor.done()
+
+
+def minimum_postprocess(state, node, monitor=None):
+    if monitor is not None: monitor.begin('Min Size Postprocessing', 1)
+    properties = _properties(state, node)
+    properties['targetWidth'] = _maximum(properties['targetWidth'], properties['minWidth'])
+    if monitor is not None: monitor.done()

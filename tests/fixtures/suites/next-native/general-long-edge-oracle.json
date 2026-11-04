@@ -1,0 +1,630 @@
+{
+  "schema": "py-elk-next-general-long-edges/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "56ec842ae34d0d2a183a23fe64ec1ff83ba13537d264dc531201e97c3f929e98",
+  "requestSha256": "09c5dae973c2924ff17357b0365f97a6644fb7d3fbdc20a79180b8a75513ed9a",
+  "pid": 37828,
+  "parentPid": 14740,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "negative-thickness-with-extra-bends",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Edge splitting",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Edge joining",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "split": {
+          "layers": [
+            [
+              "n0"
+            ],
+            [
+              "n1",
+              "d0"
+            ],
+            [
+              "n2",
+              "d1"
+            ],
+            [
+              "n3"
+            ]
+          ],
+          "edges": [
+            {
+              "id": "edge",
+              "source": "p0",
+              "target": "d0.p0",
+              "labels": [
+                "tail",
+                "center"
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  1,
+                  2
+                ]
+              ],
+              "bends": []
+            },
+            {
+              "id": "adjacent",
+              "source": "p2",
+              "target": "p3",
+              "labels": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            },
+            {
+              "id": "generated0",
+              "source": "d0.p1",
+              "target": "d1.p0",
+              "labels": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            },
+            {
+              "id": "generated1",
+              "source": "d1.p1",
+              "target": "p3",
+              "labels": [
+                "head",
+                "keptHead"
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            }
+          ],
+          "dummies": [
+            {
+              "id": "d0",
+              "height": 0,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "y": 0
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "y": 0
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "edge",
+              "labelDummies": false
+            },
+            {
+              "id": "d1",
+              "height": 0,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "y": 0
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "y": 0
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "generated0",
+              "labelDummies": false
+            }
+          ],
+          "headMarkers": [
+            {
+              "label": "head",
+              "edge": "edge"
+            },
+            {
+              "label": "keptHead",
+              "edge": "adjacent"
+            }
+          ],
+          "targetIncoming": [
+            "adjacent",
+            "generated1"
+          ],
+          "originalJunctionIdentity": true
+        },
+        "joined": {
+          "layers": [
+            [
+              "n0"
+            ],
+            [
+              "n1"
+            ],
+            [
+              "n2"
+            ],
+            [
+              "n3"
+            ]
+          ],
+          "edges": [
+            {
+              "id": "edge",
+              "source": "p0",
+              "target": "p3",
+              "labels": [
+                "tail",
+                "center",
+                "head",
+                "keptHead"
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  9,
+                  8
+                ]
+              ],
+              "bends": [
+                [
+                  10,
+                  20
+                ],
+                [
+                  11,
+                  22
+                ],
+                [
+                  30,
+                  40
+                ],
+                [
+                  31,
+                  42
+                ]
+              ]
+            },
+            {
+              "id": "adjacent",
+              "source": "p2",
+              "target": "p3",
+              "labels": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            },
+            {
+              "id": "generated0",
+              "source": null,
+              "target": null,
+              "labels": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "bends": [
+                [
+                  11,
+                  22
+                ]
+              ]
+            },
+            {
+              "id": "generated1",
+              "source": null,
+              "target": null,
+              "labels": [
+                "head",
+                "keptHead"
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  9,
+                  8
+                ]
+              ],
+              "bends": [
+                [
+                  31,
+                  42
+                ]
+              ]
+            }
+          ],
+          "dummies": [
+            {
+              "id": "d0",
+              "height": 0,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "y": 0
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "y": 0
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "edge",
+              "labelDummies": false
+            },
+            {
+              "id": "d1",
+              "height": 0,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "y": 0
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "y": 0
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "generated0",
+              "labelDummies": false
+            }
+          ],
+          "headMarkers": [
+            {
+              "label": "head",
+              "edge": "edge"
+            },
+            {
+              "label": "keptHead",
+              "edge": "adjacent"
+            }
+          ],
+          "targetIncoming": [
+            "adjacent",
+            "edge"
+          ],
+          "originalJunctionIdentity": true
+        },
+        "removedDummiesRetainLayer": true,
+        "droppedEdgesDetached": true,
+        "copiedPointsFresh": true,
+        "dummyCoordinatesSupplied": true,
+        "segmentGeometrySupplied": true,
+        "layoutExecuted": false
+      },
+      {
+        "id": "fractional-thickness-no-extra-bends",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Edge splitting",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Edge joining",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "split": {
+          "layers": [
+            [
+              "n0"
+            ],
+            [
+              "n1",
+              "d0"
+            ],
+            [
+              "n2",
+              "d1"
+            ],
+            [
+              "n3"
+            ]
+          ],
+          "edges": [
+            {
+              "id": "edge",
+              "source": "p0",
+              "target": "d0.p0",
+              "labels": [
+                "tail",
+                "center"
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  1,
+                  2
+                ]
+              ],
+              "bends": []
+            },
+            {
+              "id": "adjacent",
+              "source": "p2",
+              "target": "p3",
+              "labels": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            },
+            {
+              "id": "generated0",
+              "source": "d0.p1",
+              "target": "d1.p0",
+              "labels": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            },
+            {
+              "id": "generated1",
+              "source": "d1.p1",
+              "target": "p3",
+              "labels": [
+                "head",
+                "keptHead"
+              ],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            }
+          ],
+          "dummies": [
+            {
+              "id": "d0",
+              "height": 5.5,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "y": 2
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "y": 2
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "edge",
+              "labelDummies": false
+            },
+            {
+              "id": "d1",
+              "height": 5.5,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "y": 2
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "y": 2
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "generated0",
+              "labelDummies": false
+            }
+          ],
+          "headMarkers": [
+            {
+              "label": "head",
+              "edge": "edge"
+            },
+            {
+              "label": "keptHead",
+              "edge": "adjacent"
+            }
+          ],
+          "targetIncoming": [
+            "adjacent",
+            "generated1"
+          ],
+          "originalJunctionIdentity": true
+        },
+        "joined": {
+          "layers": [
+            [
+              "n0"
+            ],
+            [
+              "n1"
+            ],
+            [
+              "n2"
+            ],
+            [
+              "n3"
+            ]
+          ],
+          "edges": [
+            {
+              "id": "edge",
+              "source": "p0",
+              "target": "p3",
+              "labels": [
+                "tail",
+                "center",
+                "head",
+                "keptHead"
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  9,
+                  8
+                ]
+              ],
+              "bends": [
+                [
+                  11,
+                  22
+                ],
+                [
+                  31,
+                  42
+                ]
+              ]
+            },
+            {
+              "id": "adjacent",
+              "source": "p2",
+              "target": "p3",
+              "labels": [],
+              "junctionPresent": false,
+              "junctions": [],
+              "bends": []
+            },
+            {
+              "id": "generated0",
+              "source": null,
+              "target": null,
+              "labels": [],
+              "junctionPresent": true,
+              "junctions": [],
+              "bends": [
+                [
+                  11,
+                  22
+                ]
+              ]
+            },
+            {
+              "id": "generated1",
+              "source": null,
+              "target": null,
+              "labels": [
+                "head",
+                "keptHead"
+              ],
+              "junctionPresent": true,
+              "junctions": [
+                [
+                  9,
+                  8
+                ]
+              ],
+              "bends": [
+                [
+                  31,
+                  42
+                ]
+              ]
+            }
+          ],
+          "dummies": [
+            {
+              "id": "d0",
+              "height": 5.5,
+              "ports": [
+                {
+                  "id": "d0.p0",
+                  "side": "WEST",
+                  "y": 2
+                },
+                {
+                  "id": "d0.p1",
+                  "side": "EAST",
+                  "y": 2
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "edge",
+              "labelDummies": false
+            },
+            {
+              "id": "d1",
+              "height": 5.5,
+              "ports": [
+                {
+                  "id": "d1.p0",
+                  "side": "WEST",
+                  "y": 2
+                },
+                {
+                  "id": "d1.p1",
+                  "side": "EAST",
+                  "y": 2
+                }
+              ],
+              "source": "p0",
+              "target": "p3",
+              "origin": "generated0",
+              "labelDummies": false
+            }
+          ],
+          "headMarkers": [
+            {
+              "label": "head",
+              "edge": "edge"
+            },
+            {
+              "label": "keptHead",
+              "edge": "adjacent"
+            }
+          ],
+          "targetIncoming": [
+            "adjacent",
+            "edge"
+          ],
+          "originalJunctionIdentity": true
+        },
+        "removedDummiesRetainLayer": true,
+        "droppedEdgesDetached": true,
+        "copiedPointsFresh": true,
+        "dummyCoordinatesSupplied": true,
+        "segmentGeometrySupplied": true,
+        "layoutExecuted": false
+      }
+    ],
+    "layoutExecuted": false
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

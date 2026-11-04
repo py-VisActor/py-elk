@@ -1,0 +1,230 @@
+{
+  "schema": "py-elk-next-tree-routing-request/v1",
+  "cases": [
+    {
+      "id": "compaction-down-branch",
+      "direction": "DOWN",
+      "mode": "AVOID_OVERLAP",
+      "compaction": true,
+      "nodes": [
+        {
+          "pos": [
+            10,
+            10
+          ],
+          "size": [
+            18,
+            12
+          ],
+          "level": 0
+        },
+        {
+          "pos": [
+            10,
+            80
+          ],
+          "size": [
+            16,
+            10
+          ],
+          "level": 1
+        },
+        {
+          "pos": [
+            55,
+            140
+          ],
+          "size": [
+            22,
+            14
+          ],
+          "level": 2
+        },
+        {
+          "pos": [
+            90,
+            80
+          ],
+          "size": [
+            12,
+            16
+          ],
+          "level": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "up-cycle-and-long-gap",
+      "direction": "UP",
+      "mode": "AVOID_OVERLAP",
+      "compaction": false,
+      "nodes": [
+        {
+          "pos": [
+            10,
+            150
+          ],
+          "size": [
+            18,
+            12
+          ],
+          "level": 0
+        },
+        {
+          "pos": [
+            10,
+            80
+          ],
+          "size": [
+            16,
+            10
+          ],
+          "level": 1
+        },
+        {
+          "pos": [
+            55,
+            20
+          ],
+          "size": [
+            22,
+            14
+          ],
+          "level": 2
+        },
+        {
+          "pos": [
+            90,
+            80
+          ],
+          "size": [
+            12,
+            16
+          ],
+          "level": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "id": "middle-left-keeps-supplied-bend",
+      "direction": "LEFT",
+      "mode": "MIDDLE_TO_MIDDLE",
+      "compaction": true,
+      "nodes": [
+        {
+          "pos": [
+            170,
+            10
+          ],
+          "size": [
+            18,
+            12
+          ],
+          "level": 0
+        },
+        {
+          "pos": [
+            100,
+            10
+          ],
+          "size": [
+            16,
+            10
+          ],
+          "level": 1
+        },
+        {
+          "pos": [
+            40,
+            55
+          ],
+          "size": [
+            22,
+            14
+          ],
+          "level": 2
+        },
+        {
+          "pos": [
+            100,
+            90
+          ],
+          "size": [
+            12,
+            16
+          ],
+          "level": 1
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1,
+          [
+            [
+              112,
+              24
+            ]
+          ]
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    }
+  ],
+  "boxed": [
+    127,
+    128
+  ],
+  "mean": [
+    0.1,
+    0.2,
+    0.3
+  ]
+}

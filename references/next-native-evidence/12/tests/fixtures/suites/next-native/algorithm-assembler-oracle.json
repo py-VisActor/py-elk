@@ -1,0 +1,151 @@
+{
+  "schema": "py-elk-next-algorithm-assembler-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "4275c1da9a06d27defa7bae9e60e983cac87156ce66df7db11955662dcf4a110",
+  "requestSha256": "00d3c95749ee86953d868da84f17fbcd413c72554d26dfd93a1e03f7e51f3b4f",
+  "pid": 42932,
+  "parentPid": 30396,
+  "node": "v24.19.0",
+  "observation": {
+    "first": {
+      "events": [
+        {
+          "kind": "create",
+          "name": "M0"
+        },
+        {
+          "kind": "create",
+          "name": "M1"
+        },
+        {
+          "kind": "create",
+          "name": "M3"
+        },
+        {
+          "kind": "create",
+          "name": "NULL"
+        },
+        {
+          "kind": "config",
+          "name": "M0",
+          "graphIdentity": true
+        },
+        {
+          "kind": "config",
+          "name": "M1",
+          "graphIdentity": true
+        },
+        {
+          "kind": "config",
+          "name": "M3",
+          "graphIdentity": true
+        },
+        {
+          "kind": "create",
+          "name": "I0"
+        },
+        {
+          "kind": "create",
+          "name": "I1"
+        },
+        {
+          "kind": "create",
+          "name": "I2"
+        }
+      ],
+      "algorithm": [
+        "I0#1",
+        "I1#1",
+        "I2#1",
+        "M0#1",
+        "M1#1",
+        "I1#1",
+        "I0#1",
+        "M3#1",
+        "I0#1",
+        "I1#1"
+      ]
+    },
+    "second": {
+      "events": [
+        {
+          "kind": "config",
+          "name": "M0",
+          "graphIdentity": true
+        },
+        {
+          "kind": "config",
+          "name": "M1",
+          "graphIdentity": true
+        },
+        {
+          "kind": "config",
+          "name": "M3",
+          "graphIdentity": true
+        }
+      ],
+      "algorithm": [
+        "I0#1",
+        "I1#1",
+        "I2#1",
+        "M0#1",
+        "M1#1",
+        "I1#1",
+        "I0#1",
+        "M3#1",
+        "I0#1",
+        "I1#1"
+      ]
+    },
+    "resetState": {
+      "returnSelf": true,
+      "listIdentity": true,
+      "cacheIdentity": true,
+      "additionalIdentity": true,
+      "configured": 0,
+      "listLength": 0,
+      "additionalLength": 0
+    },
+    "afterReset": {
+      "events": [
+        {
+          "kind": "config",
+          "name": "M0",
+          "graphIdentity": true
+        }
+      ],
+      "algorithm": [
+        "I0#1",
+        "I2#1",
+        "M0#1",
+        "I1#1"
+      ]
+    },
+    "uncached": {
+      "events": [
+        {
+          "kind": "create",
+          "name": "I0"
+        },
+        {
+          "kind": "create",
+          "name": "I0"
+        }
+      ],
+      "bodies": [
+        "I0#2",
+        "I0#3"
+      ],
+      "distinct": true,
+      "oldCacheRestored": true
+    },
+    "cachedNull": true,
+    "nullCreates": 1,
+    "missingRejected": true,
+    "missingCreatesNothing": true,
+    "layoutExecuted": false,
+    "suppliedFactoryCallbacks": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

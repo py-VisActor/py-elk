@@ -1,0 +1,23 @@
+{
+  "seed": 11,
+  "spacing": {"nodeNode": 30, "edgeEdge": 6, "edgeNode": 10},
+  "layers": [{"width": 0, "nodes": ["w"]}, {"width": 30, "nodes": ["a", "b", "c"]}, {"width": 28, "nodes": ["x", "y", "z"]}, {"width": 0, "nodes": ["e"]}],
+  "nodes": [
+    {"id": "w", "type": "EXTERNAL_PORT", "externalSide": "WEST", "y": -2, "width": 0, "alignment": "LEFT"},
+    {"id": "a", "type": "NORMAL", "y": -2, "width": 10, "alignment": "LEFT"},
+    {"id": "b", "type": "NORMAL", "y": 8, "width": 20, "alignment": "RIGHT"},
+    {"id": "c", "type": "NORMAL", "y": 18, "width": 15, "alignment": "CENTER"},
+    {"id": "x", "type": "NORMAL", "y": 8, "width": 12, "alignment": "AUTOMATIC"},
+    {"id": "y", "type": "NORMAL", "y": 18, "width": 16, "alignment": "TOP"},
+    {"id": "z", "type": "NORMAL", "y": -2, "width": 18, "alignment": "BOTTOM"},
+    {"id": "e", "type": "EXTERNAL_PORT", "externalSide": "EAST", "y": -2, "width": 0, "alignment": "RIGHT"}
+  ],
+  "ports": [
+    ["wo", "w", "EAST", 1, 1], ["ai", "a", "WEST", 1, 1],
+    ["ao", "a", "EAST", 1, 1], ["bo", "b", "EAST", 1, 1], ["co", "c", "EAST", 1, 1],
+    ["xi", "x", "WEST", 2, 0], ["yi", "y", "WEST", 2, 0], ["zi", "z", "WEST", 2, 0],
+    ["zo", "z", "EAST", 1, 1], ["ei", "e", "WEST", 1, 1]
+  ],
+  "edges": [["boundary-in", "wo", "ai"], ["ax", "ao", "xi"], ["by", "bo", "yi"], ["cz", "co", "zi"], ["boundary-out", "zo", "ei"]],
+  "preexistingJunction": {"edge": "ax", "x": 9.5, "y": -3.25}
+}

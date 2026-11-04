@@ -1,0 +1,435 @@
+{
+  "schema": "py-elk-next-cell-request/v1",
+  "cases": [
+    {
+      "id": "zero-atomic-padding-flags",
+      "cell": {
+        "kind": "atomic",
+        "minimum": [
+          0,
+          0
+        ],
+        "padding": [
+          2,
+          3,
+          5,
+          7
+        ],
+        "contributes": false
+      }
+    },
+    {
+      "id": "grid-tabular-shared-buffer",
+      "cell": {
+        "kind": "grid",
+        "tabular": true,
+        "gap": 3,
+        "rect": [
+          10,
+          20,
+          100,
+          80
+        ],
+        "padding": [
+          2,
+          4,
+          6,
+          8
+        ],
+        "children": [
+          {
+            "row": 0,
+            "col": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                10,
+                8
+              ]
+            }
+          },
+          {
+            "row": 0,
+            "col": 1,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                20,
+                6
+              ]
+            }
+          },
+          {
+            "row": 0,
+            "col": 2,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                15,
+                10
+              ]
+            }
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                30,
+                12
+              ]
+            }
+          },
+          {
+            "row": 2,
+            "col": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                8,
+                5
+              ]
+            }
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                12,
+                7
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "grid-nontabular-begin-zero",
+      "cell": {
+        "kind": "grid",
+        "gap": 2,
+        "rect": [
+          1,
+          2,
+          75,
+          40
+        ],
+        "children": [
+          {
+            "row": 0,
+            "col": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                10,
+                5
+              ]
+            }
+          },
+          {
+            "row": 0,
+            "col": 1,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                20,
+                4
+              ]
+            }
+          },
+          {
+            "row": 1,
+            "col": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                30,
+                8
+              ]
+            }
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                6,
+                7
+              ]
+            }
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                15,
+                3
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "grid-undersized-only-center",
+      "cell": {
+        "kind": "grid",
+        "tabular": true,
+        "onlyCenter": true,
+        "centerMinimum": [
+          45,
+          35
+        ],
+        "gap": 4,
+        "rect": [
+          3,
+          5,
+          30,
+          20
+        ],
+        "children": [
+          {
+            "row": 0,
+            "col": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                20,
+                6
+              ]
+            }
+          },
+          {
+            "row": 1,
+            "col": 1,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                40,
+                30
+              ]
+            }
+          },
+          {
+            "row": 2,
+            "col": 2,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                12,
+                8
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "nested-strip-grid",
+      "cell": {
+        "kind": "strip",
+        "mode": 0,
+        "gap": 3,
+        "rect": [
+          5,
+          8,
+          100,
+          90
+        ],
+        "padding": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "children": [
+          {
+            "area": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                20,
+                10
+              ]
+            }
+          },
+          {
+            "area": 1,
+            "cell": {
+              "kind": "grid",
+              "tabular": true,
+              "gap": 2,
+              "children": [
+                {
+                  "row": 1,
+                  "col": 0,
+                  "cell": {
+                    "kind": "atomic",
+                    "minimum": [
+                      10,
+                      5
+                    ]
+                  }
+                },
+                {
+                  "row": 1,
+                  "col": 1,
+                  "cell": {
+                    "kind": "atomic",
+                    "minimum": [
+                      20,
+                      7
+                    ]
+                  }
+                },
+                {
+                  "row": 1,
+                  "col": 2,
+                  "cell": {
+                    "kind": "atomic",
+                    "minimum": [
+                      8,
+                      6
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "area": 2,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                30,
+                15
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "strip-symmetric-cross-axis-zero",
+      "cell": {
+        "kind": "strip",
+        "mode": 1,
+        "symmetrical": true,
+        "gap": 4,
+        "rect": [
+          0,
+          0,
+          80,
+          30
+        ],
+        "children": [
+          {
+            "area": 0,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                10,
+                0
+              ],
+              "padding": [
+                5,
+                0,
+                7,
+                0
+              ]
+            }
+          },
+          {
+            "area": 1,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                20,
+                9
+              ],
+              "contributes": false
+            }
+          },
+          {
+            "area": 2,
+            "cell": {
+              "kind": "atomic",
+              "minimum": [
+                6,
+                12
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "label-horizontalMode-vertical-stack",
+      "cell": {
+        "kind": "label",
+        "horizontalMode": true,
+        "gap": 3,
+        "rect": [
+          10,
+          20,
+          100,
+          60
+        ],
+        "padding": [
+          2,
+          5,
+          7,
+          11
+        ],
+        "labels": [
+          [
+            20,
+            8
+          ],
+          [
+            40,
+            12
+          ]
+        ]
+      }
+    },
+    {
+      "id": "label-verticalMode-horizontal-stack",
+      "cell": {
+        "kind": "label",
+        "horizontalMode": false,
+        "horizontalAlignment": 2,
+        "verticalAlignment": 0,
+        "gap": 2,
+        "rect": [
+          7,
+          13,
+          80,
+          50
+        ],
+        "padding": [
+          3,
+          5,
+          7,
+          11
+        ],
+        "labels": [
+          [
+            15,
+            9
+          ],
+          [
+            25,
+            11
+          ]
+        ]
+      }
+    }
+  ]
+}

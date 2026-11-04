@@ -1,0 +1,633 @@
+{
+  "schema": "py-elk-slice-selection/v1",
+  "iteration": "E04",
+  "policy": "flat-right-simple-chain-inputs/v1",
+  "limits": {
+    "maxChildren": 4,
+    "maxGeometryValue": 1000000
+  },
+  "status": "INPUTS_PREPARED",
+  "master": {
+    "path": "tests/fixtures/validation/cases.json",
+    "sha256": "73237f14b3753ff4feaff8866ea0cfbcdb39e5b269a31917486a16fda34875cc",
+    "caseCount": 25
+  },
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "masterCases": [
+    {
+      "id": "layered-empty",
+      "originalRequest": "requests/layered-empty.json",
+      "originalRequestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-empty.json"
+    },
+    {
+      "id": "layered-singleton",
+      "originalRequest": "requests/layered-singleton.json",
+      "originalRequestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-singleton.json"
+    },
+    {
+      "id": "layered-chain",
+      "originalRequest": "requests/layered-chain.json",
+      "originalRequestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-chain.json"
+    },
+    {
+      "id": "layered-fork",
+      "originalRequest": "requests/layered-fork.json",
+      "originalRequestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-join",
+      "originalRequest": "requests/layered-join.json",
+      "originalRequestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-right",
+      "originalRequest": "requests/layered-diamond-right.json",
+      "originalRequestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-left",
+      "originalRequest": "requests/layered-diamond-left.json",
+      "originalRequestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "LEFT"
+        },
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-down",
+      "originalRequest": "requests/layered-diamond-down.json",
+      "originalRequestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "DOWN"
+        },
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-diamond-up",
+      "originalRequest": "requests/layered-diamond-up.json",
+      "originalRequestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "UP"
+        },
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-long-edge",
+      "originalRequest": "requests/layered-long-edge.json",
+      "originalRequestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-cycle",
+      "originalRequest": "requests/layered-cycle.json",
+      "originalRequestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-self-loop",
+      "originalRequest": "requests/layered-self-loop.json",
+      "originalRequestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "parallel-or-self-edge",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-parallel-edges",
+      "originalRequest": "requests/layered-parallel-edges.json",
+      "originalRequestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "parallel-or-self-edge",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-disconnected",
+      "originalRequest": "requests/layered-disconnected.json",
+      "originalRequestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "originalRequest": "requests/layered-unequal-sizes.json",
+      "originalRequestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-zero-size",
+      "originalRequest": "requests/layered-zero-size.json",
+      "originalRequestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-zero-size.json"
+    },
+    {
+      "id": "layered-custom-spacing",
+      "originalRequest": "requests/layered-custom-spacing.json",
+      "originalRequestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "layered-unseparated-components",
+      "originalRequest": "requests/layered-unseparated-components.json",
+      "originalRequestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "component-mode-outside-slice",
+          "path": "",
+          "detail": ""
+        },
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "options-constructor-default",
+      "originalRequest": "requests/options-constructor-default.json",
+      "originalRequestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "DOWN"
+        }
+      ]
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "originalRequest": "requests/options-explicit-empty-replaces-default.json",
+      "originalRequestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-explicit-empty-replaces-default.json"
+    },
+    {
+      "id": "options-call-replaces-default",
+      "originalRequest": "requests/options-call-replaces-default.json",
+      "originalRequestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "direction-outside-slice",
+          "path": "/graph/layoutOptions",
+          "detail": "LEFT"
+        }
+      ]
+    },
+    {
+      "id": "options-full-ids",
+      "originalRequest": "requests/options-full-ids.json",
+      "originalRequestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "expectedOutcome": "returned",
+      "included": false,
+      "reasons": [
+        {
+          "code": "not-simple-path-edge-count",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "branching-topology",
+          "path": "/graph/edges",
+          "detail": ""
+        },
+        {
+          "code": "cycle-or-disconnected",
+          "path": "/graph",
+          "detail": ""
+        }
+      ]
+    },
+    {
+      "id": "error-unknown-endpoint",
+      "originalRequest": "requests/error-unknown-endpoint.json",
+      "originalRequestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E04 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/edges/0/targets/0",
+          "detail": "UNKNOWN_ENDPOINT at /edges/0/targets/0: Referenced node or port does not exist"
+        }
+      ]
+    },
+    {
+      "id": "error-unknown-algorithm",
+      "originalRequest": "requests/error-unknown-algorithm.json",
+      "originalRequestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E04 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/local/elk.algorithm",
+          "detail": "UNSUPPORTED_OPTION at /local/elk.algorithm: This slice parses layered selection only"
+        }
+      ]
+    },
+    {
+      "id": "error-missing-graph",
+      "originalRequest": "requests/error-missing-graph.json",
+      "originalRequestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E04 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "",
+          "detail": "INVALID_GRAPH at /: Graph root must be a mapping"
+        }
+      ]
+    }
+  ],
+  "selectedMasterCases": 5,
+  "excludedMasterCases": 20,
+  "projectVariants": [
+    {
+      "id": "e04-default-empty",
+      "request": "requests/project/e04-default-empty.json",
+      "requestSha256": "6c727b7779f53f15efb0a12a22cbc478028df38205b0ed98d305a21641c0879e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-default-singleton-positive",
+      "request": "requests/project/e04-default-singleton-positive.json",
+      "requestSha256": "a79e9900363c1c98698772f4ac814cf7b8f0b023ceb197ec339ee6dc58af6e0b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-default-singleton-zero",
+      "request": "requests/project/e04-default-singleton-zero.json",
+      "requestSha256": "5349d97e439ac7a4b98c57a6009042ba6657267f6a322e5f07cb63a099e2cb30",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-default-two-positive",
+      "request": "requests/project/e04-default-two-positive.json",
+      "requestSha256": "972c2dc3fc9ecbfbe24711c034be03afeaba48fca38a108ae81d2fdee6a7828a",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-default-two-zero",
+      "request": "requests/project/e04-default-two-zero.json",
+      "requestSha256": "f2434d1bec0c4fc49a6781376ce930128c450badd00a8203e91d936c4d546669",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-default-chain-unequal",
+      "request": "requests/project/e04-default-chain-unequal.json",
+      "requestSha256": "33e7331d86b345a2db011cdbcefb6a56d586fd2eeb0798ddc21cf248db95a436",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-order-reversed-nodes",
+      "request": "requests/project/e04-order-reversed-nodes.json",
+      "requestSha256": "d7a081f4e9098d93a03b0617657822b6f188d82066056ee30f92792fa37fb843",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-order-reversed-edges",
+      "request": "requests/project/e04-order-reversed-edges.json",
+      "requestSha256": "91d9d046c247ad50b1cac94d2edf929def796c972739dee2f65426954263800c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-order-both-permuted",
+      "request": "requests/project/e04-order-both-permuted.json",
+      "requestSha256": "a10f4719abae8b134165b184145e68c381423ceee86144bae5fd47d9eb9db0fe",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-spacing-padding-seed17",
+      "request": "requests/project/e04-spacing-padding-seed17.json",
+      "requestSha256": "28e31ed147cbdbee12124cb1d3e7ac18164701c2532ce19d588404e4e88fcc4f",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-full-ids-seed7",
+      "request": "requests/project/e04-full-ids-seed7.json",
+      "requestSha256": "1da6c6f3507be6ed9eec9a9088832095892dded78cc42146347660c7bcb137cc",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-zero-spacing-padding",
+      "request": "requests/project/e04-zero-spacing-padding.json",
+      "requestSha256": "db6ecf40f701c72f902a8fd3541d3428b90190937ac0c1018bb1a487787d41f5",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-constructor-direction-right",
+      "request": "requests/project/e04-constructor-direction-right.json",
+      "requestSha256": "e5b289d8e9f18fc6e52932c1a49646f32939a5c51540e2e0eeadb441e0d82cf4",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-call-empty-replaces-constructor",
+      "request": "requests/project/e04-call-empty-replaces-constructor.json",
+      "requestSha256": "315135c3b960332ce6ae49824a1f975e634759f679562c8f4a00b4db6cd950c7",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-local-overrides-selected-call",
+      "request": "requests/project/e04-local-overrides-selected-call.json",
+      "requestSha256": "7b0f401d7867da03b3da39b675782238bc55b4f69b729e81589b2a58ef93f2d1",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e04-seed-negative-fixed",
+      "request": "requests/project/e04-seed-negative-fixed.json",
+      "requestSha256": "7a15193c0757c8f7ef18c0a9d68d5b155728ef7ca6bb6c7568ddb43afb293e86",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    }
+  ],
+  "projectVariantCount": 16,
+  "suiteCaseCount": 21,
+  "pythonAlgorithmsVerified": 0,
+  "oracleStatus": "CAPTURE_SEPARATELY",
+  "limitation": "Input membership and bytes only; no candidate, algorithm or geometry acceptance."
+}

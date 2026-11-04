@@ -1,0 +1,56 @@
+{
+  "schema": "py-elk-e09-source-subset-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "test-runs/20261103-E09-01/A/source-components-proposal.json": "af3f7f3834564d9c80fdf0646de6f830924ad3925a61659aba0424f16a00ee7e",
+    "test-runs/20261103-E09-01/A/source-material/E09-D01-CLOCK.txt": "78cafc11589ae67ecf2eda16c799635da44f9826193a367c860ab5435fc9e4f6",
+    "test-runs/20261103-E09-01/A/source-material/E09-D02-LONG-ARITHMETIC.txt": "3e463b8566a77063c20dc73c65938e58114eb9f940210a094105ce095b9bf96d",
+    "test-runs/20261103-E09-01/A/source-material/E09-D03-JSON-ROOT-CLEANUP.txt": "4c58c18b43a80c853acaaddddcc8d51587762529a1614728dc526da4aea5ed84",
+    "test-runs/20261103-E09-01/A/source-material/E09-D04-BASIC-MONITOR.txt": "41c2ba5f21895eb6913d39a38078122d9fbe66decb59963eb104ad42f09c593b",
+    "test-runs/20261103-E09-01/A/source-material/E09-D05-COLLECT.txt": "74fef78716d68c0ca11221deafaa74cd8ae845e8a1c1641b3c6d20777348d0a5",
+    "test-runs/20261103-E09-01/A/source-material/E09-D06-LAYOUT-ENTRY.txt": "27c8aa28cb11d404ea24819dc223a2e94c8cf1caf4cb712bf3f4e9e8638f646d",
+    "test-runs/20261103-E09-01/A/source-material/E09-D07-RECURSIVE-ROOT.txt": "ff81bd5a69655c73a651c50c14fcf42fd7027871ea213e563d8037e5fe4daedd",
+    "test-runs/20261103-E09-01/A/source-material/E09-D08-RECURSIVE-DISPATCH.txt": "c3c91bbf90b5cae2d2b1a8c6c5f1553a478f6f21c6ad8de1c15345587073dbf8",
+    "test-runs/20261103-E09-01/A/source-material/E09-D09-LAYERED-COMPONENTS.txt": "50d6df531c7de3116de5e97d00501694cfd43e1fcd894c830ccf636830f177ce",
+    "test-runs/20261103-E09-01/A/source-material/E09-D10-LAYERED-PHASES.txt": "81aa69a4705ca8d2833a3a3fd8bf4a11ebf5fffbc3b0cb1106fe438c61d0450a",
+    "test-runs/20261103-E09-01/A/source-material/E09-D11-NETWORK-SIMPLEX-MONITORS.txt": "9374ccc601ee23121af9752aa8ab624cd32f2196e6a434451c6b12f20ab69d36",
+    "test-runs/20261103-E09-01/A/source-material/E09-D12-NETWORK-SIMPLEX-LEAF.txt": "efaa27cc6d609f8c955aa6e10f5d948f18e4fc2a021e5ed76cf1800220f25c2e",
+    "test-runs/20261103-E09-01/V/logging-first-wave-01/report.json": "0b49ffa54026c1ec32478434c0d911e0fe309b632b020f75f98fb0cd48914e03",
+    "test-runs/20261103-E09-01/V/logging-matrix-01/report.json": "ba1007b63a4fcb0f70e24d43e973ce8c9a1d7cd3fe1820b35571a8d6e79fd19d"
+  },
+  "acceptedComponentIds": [
+    "E09-D01-CLOCK",
+    "E09-D02-LONG-ARITHMETIC",
+    "E09-D03-JSON-ROOT-CLEANUP",
+    "E09-D04-BASIC-MONITOR",
+    "E09-D05-COLLECT",
+    "E09-D06-LAYOUT-ENTRY",
+    "E09-D07-RECURSIVE-ROOT",
+    "E09-D08-RECURSIVE-DISPATCH",
+    "E09-D09-LAYERED-COMPONENTS",
+    "E09-D10-LAYERED-PHASES",
+    "E09-D11-NETWORK-SIMPLEX-MONITORS",
+    "E09-D12-NETWORK-SIMPLEX-LEAF"
+  ],
+  "sourceIdentity": {
+    "path": "lib/elk-worker.js",
+    "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "reviewBasis": [
+    "Each of12 real source spans and original material bytes independently recomputed against locked full worker; actual functions manually read, not only hashes.",
+    "BasicProgressMonitor begin/running/closed/done/subTask flag inheritance and recursive collect optional-key/order inspected.",
+    "Date.now integer wall-ms -> long multiply1000 -> long subtraction -> double*1e-9; no clamp/CPU-clock substitution approved.",
+    "Flat RecursiveGraphLayoutEngine eligible-node guard, empty-root monitor, Layered single-component running-monitor reuse and multi-component Component Layout wrappers inspected.",
+    "NetworkSimplexLayerer private connected components and each actual Network simplex solver monitor inspected; no mathematical/strategy changes approved.",
+    "Crosschecked64 independently executed official requests, including4flag combinations, root-only cleanup, exact nested business preservation, direction/components and error path facts."
+  ],
+  "scope": "Only D01..D12 diagnostics tree/clock/actual call-boundary hooks within existing ADR0006 flat8node28edge/default strategy scope; no algorithm/source-domain expansion.",
+  "pendingSeparate": [
+    "D13..D23 BK dynamic formatting and other labels reviewed separately; not approved by this subset record."
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false
+}

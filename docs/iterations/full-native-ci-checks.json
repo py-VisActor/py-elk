@@ -1,0 +1,686 @@
+{
+  "schema": "py-elk-ci-selected/v1",
+  "policy": "Explicit current full-native affected checks. Unknown or changed unplanned inputs fail closed without executing a partial plan or falling back to full validation. This human impact plan does not prove exhaustive impact.",
+  "releaseSourceScope": "All current native modules are syntax/import checked. API, host and selected conformance checks exercise current src. The historical E11 runtime_unchanged 35-module restriction is not a gate for new implementations. Archive and same-wheel history remain separate; current wheel/sdist payloads and final platform acceptance use the final validation workflow.",
+  "usage": "python scripts/iteration/ci_selected.py --manifest docs/iterations/full-native-ci-checks.json --out test-runs/ci-selected; explicit local selection uses --paths-file JSON_ARRAY or --base COMMIT.",
+  "savedEvidence": {
+    "path": "docs/releases/evidence/development-frozen/report.json",
+    "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5",
+    "additionalFrozenFilesSha256": {
+      "docs/changes/20261103-E10-final-validation.json": "da0c5bdf36900aaaaddfe992e60464faf6f57cd3a23abdaf16dff95f1635faf0"
+    },
+    "meaning": "Unmatched files are accepted only after exact current-byte comparison with the actual unchanged-input frozen full-validation fingerprints. Rules take priority, so current runtime changes select actual checks even when baseline bytes match. This is a byte recheck, not cached PASS or rebinding0.0.1a0 execution to0.1.0. Changed or new unplanned bytes fail closed."
+  },
+  "documentationOnly": [
+    "docs/*.md",
+    "docs/**/*.md",
+    "AGENTS.md",
+    "API_COMPATIBILITY.md",
+    "DEVELOPMENT_PLAN.md",
+    "benchmarks/README.md",
+    "examples/README.md",
+    "tests/README.md",
+    "tools/reference/README.md",
+    "references/README.md",
+    "docs/history/AGENTS-before-closure-20261104.txt",
+    "tests/fixtures/suites/next-native/README.md"
+  ],
+  "checks": {
+    "ci-selector": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_ci_selected.py"
+    },
+    "full-native-ci": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_full_native_ci.py"
+    },
+    "release-readiness": {
+      "kind": "python-script",
+      "path": "scripts/iteration/release_readiness.py",
+      "arguments": [
+        "--source-only"
+      ]
+    },
+    "advanced-geometry": {
+      "kind": "unittest-file",
+      "path": "tests/validation/test_advanced_geometry.py"
+    },
+    "performance-plan": {
+      "kind": "python-script",
+      "path": "scripts/validate_full_performance.py",
+      "arguments": [
+        "--plan-only"
+      ]
+    },
+    "performance-owner": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_full_performance.py"
+    },
+    "option-coverage-structure": {
+      "kind": "python-script",
+      "path": "scripts/iteration/option_coverage.py",
+      "arguments": [
+        "--check-structure"
+      ]
+    },
+    "option-effects-saved": {
+      "kind": "python-script",
+      "path": "scripts/validate_option_effects.py",
+      "arguments": [
+        "--suite",
+        "tests/fixtures/suites/full-option-effects/protocol-saved/cases.json",
+        "--reference",
+        "tests/fixtures/suites/full-option-effects/protocol-saved/reference",
+        "--candidate",
+        "tests/fixtures/suites/full-option-effects/protocol-saved/candidate",
+        "--out",
+        "test-runs/ci-selected/option-effects.json"
+      ]
+    },
+    "native-imports": {
+      "kind": "python-script",
+      "path": "scripts/iteration/implementation_interfaces.py",
+      "arguments": [
+        "--source-dir",
+        "src",
+        "--out",
+        "test-runs/ci-selected/native-imports.json"
+      ]
+    },
+    "native-host": {
+      "kind": "python-script",
+      "path": "scripts/validate_full_host.py",
+      "arguments": [
+        "--out",
+        "test-runs/ci-selected/native-host"
+      ]
+    },
+    "api-metadata": {
+      "kind": "unittest-file",
+      "path": "tests/api/test_e08_metadata.py"
+    },
+    "api-errors": {
+      "kind": "unittest-file",
+      "path": "tests/api/test_e08_errors.py"
+    },
+    "api-layout": {
+      "kind": "unittest-file",
+      "path": "tests/api/test_e04_api.py"
+    },
+    "native-conformance": {
+      "kind": "unittest-file",
+      "path": "tests/conformance/test_e04_native.py"
+    },
+    "model-json": {
+      "kind": "unittest-file",
+      "path": "tests/model/test_model_cases.py"
+    },
+    "option-resolution": {
+      "kind": "unittest-file",
+      "path": "tests/options/test_resolution.py"
+    },
+    "package-metadata": {
+      "kind": "python-script",
+      "path": "scripts/validate_bootstrap.py"
+    },
+    "history-owner": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_e11_history.py"
+    },
+    "historical-package-owner": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_e11_package.py"
+    },
+    "historical-e09": {
+      "kind": "python-script",
+      "path": "scripts/validate_e09_runtime.py",
+      "arguments": [
+        "--historical"
+      ]
+    },
+    "historical-platform-owner": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_e10_validation.py"
+    },
+    "historical-benchmark-owner": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_e10_benchmark_receipt.py"
+    },
+    "historical-source-owner": {
+      "kind": "unittest-file",
+      "path": "tests/audit/test_e09_sources.py"
+    },
+    "historical-runtime-owner": {
+      "kind": "unittest-file",
+      "path": "tests/audit/test_e09_runtime.py"
+    },
+    "historical-coverage-owner": {
+      "kind": "unittest-file",
+      "path": "tests/audit/test_e09_coverage_validation.py"
+    },
+    "historical-branch-owner": {
+      "kind": "unittest-file",
+      "path": "tests/audit/test_e09_branch_evidence.py"
+    },
+    "completion-metadata": {
+      "kind": "python-script",
+      "path": "scripts/validate_e01_audit.py"
+    },
+    "pypi-download-plan": {
+      "kind": "python-script",
+      "path": "scripts/iteration/pypi_release.py",
+      "arguments": [
+        "--plan-only"
+      ]
+    },
+    "pypi-download-controls": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_pypi_release.py"
+    },
+    "release-repair-controls": {
+      "kind": "unittest-file",
+      "path": "tests/platform/test_release_runtime_repair.py"
+    },
+    "option-evidence-restore": {
+      "kind": "python-script",
+      "path": "scripts/iteration/option_evidence.py",
+      "arguments": [
+        "--restore"
+      ]
+    },
+    "option-evidence-strict": {
+      "kind": "python-script",
+      "path": "scripts/iteration/option_coverage.py",
+      "arguments": [
+        "--check",
+        "--evidence-manifest",
+        "references/full-native-closure/options.manifest.json",
+        "--root-map",
+        "C:/code/py-visactor/py-elk=."
+      ]
+    },
+    "nonlayered-effects-interface": {
+      "kind": "python-script",
+      "path": "scripts/validate_nonlayered_option_effects.py",
+      "arguments": [
+        "--help"
+      ]
+    },
+    "mrtree-repair-regression": {
+      "kind": "python-script",
+      "path": "tests/fixtures/suites/full-option-effects-nonlayered/check_mrtree_repair.py",
+      "arguments": [
+        "--before",
+        "docs/releases/evidence/runtime-repair/mrtree-before.py",
+        "--source",
+        "src",
+        "--out",
+        "test-runs/ci-selected/mrtree-repair"
+      ]
+    },
+    "full-layered-inputs": {
+      "kind": "python-script",
+      "path": "scripts/validate_full_layered.py",
+      "arguments": [
+        "--check-inputs"
+      ]
+    },
+    "algorithm-geometry-saved": {
+      "kind": "python-script",
+      "path": "scripts/algorithm_geometry.py",
+      "arguments": [
+        "--out",
+        "test-runs/ci-selected/algorithm-geometry.json"
+      ]
+    },
+    "algorithm-geometry-controls": {
+      "kind": "unittest-file",
+      "path": "tests/validation/test_algorithm_geometry.py"
+    },
+    "option-roles": {
+      "kind": "python-script",
+      "path": "scripts/iteration/option_roles.py",
+      "arguments": [
+        "--check"
+      ]
+    },
+    "declared-branches": {
+      "kind": "python-script",
+      "path": "scripts/iteration/declared_branch_matrix.py",
+      "arguments": [
+        "--check"
+      ]
+    },
+    "p1p2-capture-interface": {
+      "kind": "python-script",
+      "path": "scripts/iteration/capture_missing_p1_p2.py",
+      "arguments": [
+        "--help"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "paths": [
+        ".github/workflows/validate.yml",
+        ".github/workflows/final-validation.yml",
+        "scripts/iteration/ci_selected.py",
+        "tests/platform/test_ci_selected.py",
+        "docs/iterations/full-native-ci-checks.json",
+        "docs/iterations/E11-ci-checks.json"
+      ],
+      "checks": [
+        "ci-selector",
+        "full-native-ci"
+      ]
+    },
+    {
+      "paths": [
+        "tests/platform/test_full_native_ci.py"
+      ],
+      "checks": [
+        "full-native-ci"
+      ]
+    },
+    {
+      "paths": [
+        ".gitattributes",
+        ".github/workflows/publish-pypi.yml",
+        "docs/releases/0.1.0-readiness.json",
+        "docs/releases/evidence/**",
+        "scripts/iteration/release_readiness.py"
+      ],
+      "checks": [
+        "release-readiness",
+        "full-native-ci"
+      ]
+    },
+    {
+      "paths": [
+        "docs/changes/20261104-next-native-19-validation.json",
+        "docs/implementation-backlog.json"
+      ],
+      "checks": [
+        "release-readiness",
+        "completion-metadata"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/advanced_geometry.py",
+        "tests/validation/test_advanced_geometry.py",
+        "tests/fixtures/suites/full-option-effects/geometry-saved/**",
+        "tests/fixtures/suites/full-option-effects/geometry-frames/**"
+      ],
+      "checks": [
+        "advanced-geometry"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_full_performance.py",
+        "tests/platform/test_full_performance.py"
+      ],
+      "checks": [
+        "performance-plan",
+        "performance-owner"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/option_coverage.py",
+        "docs/option-coverage.json"
+      ],
+      "checks": [
+        "option-coverage-structure"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_option_effects.py",
+        "tests/fixtures/suites/full-option-effects/**"
+      ],
+      "checks": [
+        "option-effects-saved",
+        "advanced-geometry"
+      ]
+    },
+    {
+      "paths": [
+        "src/pyelk/**/*.py",
+        "src/pyelk/*.py",
+        "src/pyelk/py.typed"
+      ],
+      "checks": [
+        "native-imports",
+        "native-host"
+      ]
+    },
+    {
+      "paths": [
+        "src/pyelk/algorithms/**",
+        "src/pyelk/execution/phase_factories.py",
+        "tests/conformance/native_worker_controls.py",
+        "tests/conformance/full_trace_observer.py",
+        "tests/conformance/test_e04_native.py"
+      ],
+      "checks": [
+        "native-conformance",
+        "api-layout"
+      ]
+    },
+    {
+      "paths": [
+        "src/pyelk/api.py",
+        "src/pyelk/_errors.py",
+        "src/pyelk/__init__.py",
+        "src/pyelk/execution/full_*.py",
+        "src/pyelk/execution/lifecycle.py",
+        "src/pyelk/execution/worker.py",
+        "src/pyelk/execution/metadata_service.py",
+        "src/pyelk/metadata/**",
+        "scripts/validate_full_host.py",
+        "tests/api/test_e08_metadata.py",
+        "tests/api/test_e08_errors.py",
+        "tests/api/test_e04_api.py"
+      ],
+      "checks": [
+        "native-imports",
+        "native-host",
+        "api-metadata",
+        "api-errors",
+        "api-layout"
+      ]
+    },
+    {
+      "paths": [
+        "src/pyelk/_json.py",
+        "src/pyelk/model/**",
+        "src/pyelk/options/**",
+        "src/pyelk/execution/json_transfer.py",
+        "src/pyelk/execution/local_properties.py",
+        "src/pyelk/execution/node_micro.py",
+        "src/pyelk/execution/recursive*.py",
+        "src/pyelk/execution/inside_self_loops.py",
+        "src/pyelk/execution/wire_codec.py",
+        "tests/model/test_model_cases.py",
+        "tests/options/test_resolution.py"
+      ],
+      "checks": [
+        "native-imports",
+        "native-host",
+        "api-errors",
+        "api-layout",
+        "model-json",
+        "option-resolution",
+        "native-conformance"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/implementation_interfaces.py"
+      ],
+      "checks": [
+        "native-imports"
+      ]
+    },
+    {
+      "paths": [
+        "pyproject.toml",
+        "README.md",
+        "README.en.md",
+        "LICENSE",
+        "NOTICE",
+        "THIRD_PARTY_NOTICES.md",
+        "src/pyelk/_licenses/**",
+        "scripts/validate_bootstrap.py",
+        "scripts/validate_full_package.py",
+        "docs/decisions/0009-project-license.json"
+      ],
+      "checks": [
+        "package-metadata",
+        "native-imports"
+      ]
+    },
+    {
+      "paths": [
+        "references/history/E09/**",
+        "scripts/iteration/e11_history.py",
+        "tests/platform/test_e11_history.py"
+      ],
+      "checks": [
+        "history-owner"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/e11_package.py",
+        "tests/platform/test_e11_package.py"
+      ],
+      "checks": [
+        "historical-package-owner"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_e09_runtime.py",
+        "scripts/validate_e09_coverage.py"
+      ],
+      "checks": [
+        "historical-e09"
+      ]
+    },
+    {
+      "paths": [
+        "tests/platform/test_e10_validation.py"
+      ],
+      "checks": [
+        "historical-platform-owner"
+      ]
+    },
+    {
+      "paths": [
+        "tests/platform/test_e10_benchmark_receipt.py"
+      ],
+      "checks": [
+        "historical-benchmark-owner"
+      ]
+    },
+    {
+      "paths": [
+        "tests/audit/test_e09_sources.py"
+      ],
+      "checks": [
+        "historical-source-owner"
+      ]
+    },
+    {
+      "paths": [
+        "tests/audit/test_e09_runtime.py"
+      ],
+      "checks": [
+        "historical-runtime-owner"
+      ]
+    },
+    {
+      "paths": [
+        "tests/audit/test_e09_coverage_validation.py"
+      ],
+      "checks": [
+        "historical-coverage-owner"
+      ]
+    },
+    {
+      "paths": [
+        "tests/audit/test_e09_branch_evidence.py"
+      ],
+      "checks": [
+        "historical-branch-owner"
+      ]
+    },
+    {
+      "paths": [
+        "tests/audit/audit_fixture_support.py"
+      ],
+      "checks": [
+        "historical-source-owner",
+        "historical-runtime-owner",
+        "historical-coverage-owner",
+        "historical-branch-owner",
+        "historical-platform-owner",
+        "historical-benchmark-owner"
+      ]
+    },
+    {
+      "paths": [
+        "docs/iteration-plan.json"
+      ],
+      "checks": [
+        "completion-metadata"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/pypi_release.py",
+        "tests/platform/test_pypi_release.py"
+      ],
+      "checks": [
+        "pypi-download-plan",
+        "pypi-download-controls"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/release_readiness.py",
+        "tests/platform/test_release_runtime_repair.py",
+        "docs/releases/evidence/runtime-repair/**"
+      ],
+      "checks": [
+        "release-repair-controls",
+        "release-readiness"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/option_evidence.py",
+        "scripts/iteration/option_coverage.py",
+        "docs/option-coverage.json",
+        "references/full-native-closure/**"
+      ],
+      "checks": [
+        "option-evidence-restore",
+        "option-evidence-strict",
+        "option-coverage-structure"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_nonlayered_option_effects.py",
+        "tests/fixtures/suites/full-option-effects-nonlayered/**"
+      ],
+      "checks": [
+        "nonlayered-effects-interface",
+        "option-evidence-restore",
+        "option-evidence-strict"
+      ]
+    },
+    {
+      "paths": [
+        "src/pyelk/algorithms/mrtree.py",
+        "tests/fixtures/suites/full-option-effects-nonlayered/check_mrtree_repair.py"
+      ],
+      "checks": [
+        "mrtree-repair-regression"
+      ]
+    },
+    {
+      "paths": [
+        "docs/changes/20261104-full-performance.json"
+      ],
+      "checks": [
+        "performance-plan",
+        "performance-owner"
+      ]
+    },
+    {
+      "paths": [
+        "docs/changes/20261104-targeted-closure-progress.json",
+        "docs/iterations/parallel-preparation-history-20261104.json"
+      ],
+      "checks": [
+        "completion-metadata",
+        "release-readiness",
+        "option-coverage-structure"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/validate_full_layered.py"
+      ],
+      "checks": [
+        "full-layered-inputs",
+        "option-effects-saved",
+        "advanced-geometry",
+        "option-evidence-restore",
+        "option-evidence-strict"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/algorithm_geometry.py",
+        "tests/validation/test_algorithm_geometry.py",
+        "docs/changes/20261104-independent-algorithm-geometry.json"
+      ],
+      "checks": [
+        "algorithm-geometry-saved",
+        "algorithm-geometry-controls"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/option_roles.py",
+        "docs/iterations/FULL_OPTION_ROLES.json"
+      ],
+      "checks": [
+        "option-roles"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/declared_branch_matrix.py",
+        "docs/iterations/FULL_DECLARED_BRANCH_MATRIX.json",
+        "references/full-native-closure/branches.zip",
+        "references/full-native-closure/branches.manifest.json"
+      ],
+      "checks": [
+        "declared-branches"
+      ]
+    },
+    {
+      "paths": [
+        "docs/compatibility.json"
+      ],
+      "checks": [
+        "package-metadata",
+        "option-roles"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/iteration/capture_missing_p1_p2.py",
+        "tests/fixtures/suites/missing-p1-p2-runtime/**"
+      ],
+      "checks": [
+        "p1p2-capture-interface",
+        "declared-branches"
+      ]
+    }
+  ],
+  "limitations": [
+    "No automatic proof of exhaustive change impact.",
+    "No Node recapture, 151-case algorithm replay, all-audit discovery, package build or full-validation fallback in default CI.",
+    "Changes to validators, probes, arbitrary fixtures or other unplanned code require an explicit rule; documentation-only matching is restricted to the listed documentation paths.",
+    "Current selected tests are regression samples, not certification of all algorithms or all option combinations."
+  ],
+  "fullValidation": false
+}

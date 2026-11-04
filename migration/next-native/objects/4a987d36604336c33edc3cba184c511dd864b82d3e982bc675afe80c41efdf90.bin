@@ -1,0 +1,268 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright Kiel University and others. Fixed elkjs0.12.1 worker275e6caf.
+# Source: HOST14 Root SL03 and V SL01/02/04-07/12-14 source approvals.
+"""Source-general native self-loop data and independently reviewed leaves.
+
+The historical bounded loops module is read-only. Four processor integration,
+port restoration and routing are separate source blocks, not no-op fallbacks.
+"""
+from collections import deque
+from collections.abc import Mapping
+
+from .graph import Vec2,set_source,set_target,set_port_owner
+from ...execution.diagnostics import BasicProgressMonitor
+from .cell_layout import _maximum
+from .property_access import read_layered_scalar
+from .native_adapters import _read_property,_has_property
+from .brandes_koepf_general import _LinkedIdentityMap
+from .ports import _source_sort,set_side
+from ..radial import IdentitySet
+
+_SIDES=('UNDEFINED','NORTH','EAST','SOUTH','WEST')
+
+
+def _graph(node):
+    if node.graph is None and node.layer is not None:return node.layer.graph
+    return node.graph
+
+
+def _is_self_loop(edge):
+    if edge.source is None or edge.target is None:return False
+    return edge.source.owner is not None and edge.source.owner is edge.target.owner
+
+
+def _outgoing_edges(node):
+    # Capture the actual adjacency-list objects before walking their contents.
+    return (edge for edges in [port.outgoing_edges for port in node.ports]for edge in edges)
+
+
+def _incoming_edges(node):
+    return (edge for edges in [port.incoming_edges for port in node.ports]for edge in edges)
+
+
+def needs_self_loop_processing(node):
+    return node.type=='NORMAL'and any(_is_self_loop(edge)for edge in _outgoing_edges(node))
+
+
+def _label_spacing(node):
+    result=None
+    if _has_property(node,'SPACING_INDIVIDUAL'):
+        individual=_read_property(node,'SPACING_INDIVIDUAL')
+        if not isinstance(individual,Mapping):raise TypeError('An actual individual spacing holder is required')
+        key='org.eclipse.elk.spacing.labelLabel'
+        if key in individual:result=individual[key]
+    graph=_graph(node)
+    if result is None and graph is not None:
+        result=read_layered_scalar(graph,'SPACING_LABEL_LABEL','SPACING_LABEL_LABEL')
+    return result
+
+
+class SelfLoopEdge:
+    def __init__(self,l_edge,sl_source,sl_target):
+        self.l_edge=l_edge;self.sl_source=sl_source;self.sl_target=sl_target
+        self.sl_hyper_loop=None
+        sl_source.outgoing_sl_edges.append(self)
+        sl_target.incoming_sl_edges.append(self)
+    def is_inline(self):
+        return any(read_layered_scalar(label,'EDGE_LABELS_INLINE','EDGE_LABELS_INLINE_0')
+                   for label in self.l_edge.labels)
+
+
+class SelfLoopPort:
+    def __init__(self,l_port):
+        self.incoming_sl_edges=[];self.outgoing_sl_edges=[];self.l_port=l_port
+        self.had_only_self_loops=all(_is_self_loop(edge)for edge in
+                                    (*l_port.incoming_edges,*l_port.outgoing_edges))
+        self.is_hidden=False
+    def get_sl_net_flow(self):return len(self.incoming_sl_edges)-len(self.outgoing_sl_edges)
+
+
+class SelfHyperLoopLabels:
+    def __init__(self,sl_loop):
+        self.l_labels=[];self.size=Vec2();self.position=Vec2();self.id=0
+        node=sl_loop.sl_holder.l_node;graph=_graph(node)
+        if graph is None:raise TypeError('The actual self-loop label graph is null')
+        self.layout_direction=read_layered_scalar(graph,'DIRECTION','DIRECTION')
+        self.label_label_spacing=_label_spacing(node)
+        if self.label_label_spacing is None:raise TypeError('The actual label spacing is null')
+        self.alignment=None;self.side=None
+    def add_labels(self,labels):
+        for label in labels:
+            self.l_labels.append(label);self._update_size(label)
+    def _update_size(self,label):
+        if self.layout_direction in('LEFT','RIGHT'):
+            self.size.x=_maximum(self.size.x,label.size.x)
+            self.size.y+=label.size.y
+            if len(self.l_labels)>1:self.size.y+=self.label_label_spacing
+        else:
+            self.size.x+=label.size.x
+            self.size.y=_maximum(self.size.y,label.size.y)
+            if len(self.l_labels)>1:self.size.x+=self.label_label_spacing
+    def apply_placement(self,offset):
+        x=self.position.x;y=self.position.y
+        if self.layout_direction in('LEFT','RIGHT'):
+            for label in self.l_labels:
+                if self.alignment=='LEFT'or self.side=='EAST':label.pos.x=x
+                elif self.alignment=='RIGHT'or self.side=='WEST':label.pos.x=x+self.size.x-label.size.x
+                else:label.pos.x=x+(self.size.x-label.size.x)/2
+                label.pos.y=y;label.pos.x+=offset.x;label.pos.y+=offset.y
+                y+=label.size.y+self.label_label_spacing
+        else:
+            for label in self.l_labels:
+                label.pos.x=x
+                label.pos.y=y+self.size.y-label.size.y if self.side=='NORTH'else y
+                label.pos.x+=offset.x;label.pos.y+=offset.y
+                x+=label.size.x+self.label_label_spacing
+
+
+def _loop_type(sides):
+    if 'UNDEFINED'in sides:raise ValueError('Port sides must not contain UNDEFINED')
+    count=len(sides)
+    if count==1:return 'ONE_SIDE'
+    if count==2:
+        return 'TWO_SIDES_OPPOSING'if('EAST'in sides and'WEST'in sides or
+                                     'NORTH'in sides and'SOUTH'in sides)else'TWO_SIDES_CORNER'
+    if count==3:return 'THREE_SIDES'
+    if count==4:return 'FOUR_SIDES'
+    return None
+
+
+class SelfHyperLoop:
+    def __init__(self,sl_holder):
+        self.sl_ports=[];self.sl_edges=IdentitySet(_graph(sl_holder.l_node))
+        self.occupied_port_sides=set();self.routing_slot=[0]*5
+        self.sl_holder=sl_holder;self.leftmost_port=None;self.rightmost_port=None
+        self.sl_labels=None;self.sl_ports_by_side=None;self.self_loop_type=None
+    def add_edge(self,edge):
+        if self.sl_edges.contains(edge):return
+        self.sl_edges.add(edge);edge.sl_hyper_loop=self
+        if not any(old is edge.sl_source for old in self.sl_ports):self.sl_ports.append(edge.sl_source)
+        if not any(old is edge.sl_target for old in self.sl_ports):self.sl_ports.append(edge.sl_target)
+        if edge.l_edge.labels:
+            if self.sl_labels is None:self.sl_labels=SelfHyperLoopLabels(self)
+            self.sl_labels.add_labels(edge.l_edge.labels)
+    def compute_ports_per_side(self):
+        # Only per-key ordered lists and key membership/count are consumed in
+        # this approved leaf. A future key-set iterator has its own caller.
+        self.sl_ports_by_side={}
+        for port in self.sl_ports:self.sl_ports_by_side.setdefault(port.l_port.side,[]).append(port)
+        self.self_loop_type=_loop_type(self.sl_ports_by_side)
+    def set_routing_slot(self,side,slot):
+        index=_SIDES.index(side);self.routing_slot[index]=slot
+        self.sl_holder.routing_slot_count[index]=_maximum(self.sl_holder.routing_slot_count[index],slot+1)
+
+
+class SelfLoopHolder:
+    def __init__(self,node):
+        self.sl_hyper_loops=[];self.sl_ports=_LinkedIdentityMap(_graph(node))
+        self.routing_slot_count=[0]*5;self.l_node=node;self.are_ports_hidden=False
+    def port_for(self,port):
+        # LinkedHashMap contains -> conditional put -> get, including real
+        # shared allocator requests even for a previously mapped native port.
+        if self.sl_ports.get(port)is None:self.sl_ports.put(port,SelfLoopPort(port))
+        return self.sl_ports.get(port)
+    def initialize(self):
+        sl_edges=[]
+        for edge in _outgoing_edges(self.l_node):
+            if _is_self_loop(edge):
+                sl_edges.append(SelfLoopEdge(edge,self.port_for(edge.source),self.port_for(edge.target)))
+        for _,port in self.sl_ports.items():port.l_port.id=0
+        for _,port in self.sl_ports.items():
+            if port.l_port.id==0:self.sl_hyper_loops.append(self._initialize_hyper_loop(port))
+    def _initialize_hyper_loop(self,port):
+        loop=SelfHyperLoop(self);queue=deque([port])
+        while queue:
+            current=queue.popleft();current.l_port.id=1
+            for edge in current.outgoing_sl_edges:
+                loop.add_edge(edge)
+                if edge.sl_target.l_port.id==0:queue.append(edge.sl_target)
+            for edge in current.incoming_sl_edges:
+                loop.add_edge(edge)
+                if edge.sl_source.l_port.id==0:queue.append(edge.sl_source)
+        return loop
+
+
+def self_loop_postprocessor(graph,*,monitor=None):
+    """Actual source post phase: restore all edges before applying labels."""
+    monitor=BasicProgressMonitor(False,False)if monitor is None else monitor
+    monitor.begin('Self-Loop post-processing',1)
+    for layer in graph.layers:
+        for node in layer.nodes:
+            if node.type!='NORMAL'or not _has_property(node,'SELF_LOOP_HOLDER'):continue
+            holder=_read_property(node,'SELF_LOOP_HOLDER')
+            for loop in holder.sl_hyper_loops:
+                for edge in loop.sl_edges.values():
+                    native=edge.l_edge
+                    set_source(native,edge.sl_source.l_port)
+                    set_target(native,edge.sl_target.l_port)
+                    for point in native.bend_points:
+                        point.x+=node.pos.x;point.y+=node.pos.y
+            for loop in holder.sl_hyper_loops:
+                if loop.sl_labels is not None:loop.sl_labels.apply_placement(node.pos)
+    monitor.done()
+
+
+def assign_port_sides(holder):
+    """Actual three distribution strategies; only hidden ports change side."""
+    strategy=read_layered_scalar(holder.l_node,'EDGE_ROUTING_SELF_LOOP_DISTRIBUTION',
+                                'EDGE_ROUTING_SELF_LOOP_DISTRIBUTION_0')
+    if strategy=='NORTH':
+        for loop in holder.sl_hyper_loops:
+            for port in loop.sl_ports:
+                if port.is_hidden:set_side(port.l_port,'NORTH')
+    elif strategy=='NORTH_SOUTH':
+        north=south=0
+        for loop in holder.sl_hyper_loops:
+            hidden=[port for port in loop.sl_ports if port.is_hidden]
+            if north<=south:side='NORTH';north+=len(hidden)
+            else:side='SOUTH';south+=len(hidden)
+            for port in hidden:set_side(port.l_port,side)
+    elif strategy=='EQUALLY':
+        loops=list(holder.sl_hyper_loops)
+        def compare(first,second):
+            a=len(second.sl_ports);b=len(first.sl_ports)
+            return -1 if a<b else 0 if a==b else 1
+        _source_sort(loops,compare)
+        targets=(('NORTH','NORTH'),('SOUTH','SOUTH'),('EAST','EAST'),('WEST','WEST'),
+                 ('WEST','NORTH'),('NORTH','EAST'),('SOUTH','WEST'),('EAST','SOUTH'))
+        for index,loop in enumerate(loops):_assign_to_target(loop,*targets[index%len(targets)])
+
+
+def _assign_to_target(loop,first,second):
+    if first!=second:
+        def compare(left,right):
+            a=len(left.l_port.incoming_edges)-len(left.l_port.outgoing_edges)
+            b=len(right.l_port.incoming_edges)-len(right.l_port.outgoing_edges)
+            return -1 if a<b else 0 if a==b else 1
+        _source_sort(loop.sl_ports,compare)
+    split=len(loop.sl_ports)//2
+    for port in loop.sl_ports[:split]:
+        if port.is_hidden:set_side(port.l_port,first)
+    for port in loop.sl_ports[split:]:
+        if port.is_hidden:set_side(port.l_port,second)
+
+
+def _hide_ports(holder):
+    node=holder.l_node;nested=getattr(node,'nested_graph',None)
+    order_fixed=_read_property(node,'PORT_CONSTRAINTS')in('FIXED_ORDER','FIXED_RATIO','FIXED_POS')
+    # Preserve both source reads before the OR, even with fixed order true.
+    hierarchy_mode=(nested is not None and'EXTERNAL_PORTS'in _read_property(nested,'GRAPH_PROPERTIES'))
+    if order_fixed or hierarchy_mode:return
+    for _,port in holder.sl_ports.items():
+        if port.had_only_self_loops:
+            set_port_owner(port.l_port,None);port.is_hidden=True;holder.are_ports_hidden=True
+
+
+def self_loop_preprocessor(graph,*,monitor=None):
+    monitor=BasicProgressMonitor(False,False)if monitor is None else monitor
+    monitor.begin('Self-Loop pre-processing',1)
+    for node in graph.layerless_nodes:
+        if needs_self_loop_processing(node):
+            holder=SelfLoopHolder(node)
+            node.properties['SELF_LOOP_HOLDER']=holder
+            holder.initialize()
+            for loop in holder.sl_hyper_loops:
+                for edge in loop.sl_edges.values():
+                    set_source(edge.l_edge,None);set_target(edge.l_edge,None)
+            _hide_ports(holder)
+    monitor.done()

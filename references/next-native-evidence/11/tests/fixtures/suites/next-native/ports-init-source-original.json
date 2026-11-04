@@ -1,0 +1,229 @@
+{
+  "schema": "py-elk-e13-ports-sources/v1",
+  "status": "preparation-source-proposal",
+  "sourceApproved": false,
+  "runtimeValidation": "not-run",
+  "published": false,
+  "fixedSource": {
+    "package": "elkjs",
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "path": "lib/elk-worker.js",
+    "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "license": "EPL-2.0 OR GPL-3.0-or-later",
+    "licenseFile": "references/licenses/elkjs-LICENSE.md",
+    "licenseSha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "exactExternalJavaBuild": "unresolved"
+  },
+  "reviewedPriorInputs": {
+    "references/e04-source-components-A.json": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b",
+    "references/e04-source-components-B.json": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff",
+    "references/e07-component-approvals.json": "d2263aa531b33a80bdd7055e116a65eeb077b341ceea7ee33209e0fc684c5711",
+    "references/e09-diagnostics-sources.json": "440a72f3d6df209ff02c0061d15a4c244d13f37b544d8d5a916585b94493692f",
+    "references/licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9"
+  },
+  "components": [
+    {
+      "componentId": "E13-P01-PORT-INITIALIZATION",
+      "sourceApproved": false,
+      "reviewStatus": "pending-independent-V-review",
+      "scope": "All six native port-constraint values and all five side values for initializePort/calcPortSide/calcPortOffset/setSide; no artificial node/port-count bound. Source and native validation remain separate. Full import/processor/size/export capability is pending later components.",
+      "spans": [
+        {
+          "symbol": "calcPortOffset",
+          "startLine": 32475,
+          "endLine": 32489,
+          "role": "implementation",
+          "sha256": "2c6adac611cc109d7c6889292c21311c67fd462e674391785bc012e55854004c",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gY2FsY1BvcnRPZmZzZXQocG9ydCwgc2lkZSl7CiAgdmFyIG5vZGU7CiAgbm9kZSA9IHBvcnQub3duZXI7CiAgc3dpdGNoIChzaWRlLm9yZGluYWwpIHsKICAgIGNhc2UgMToKICAgICAgcmV0dXJuIC0ocG9ydC5wb3MueV8wICsgcG9ydC5zaXplXzAueV8wKTsKICAgIGNhc2UgMjoKICAgICAgcmV0dXJuIHBvcnQucG9zLnhfMCAtIG5vZGUuc2l6ZV8wLnhfMDsKICAgIGNhc2UgMzoKICAgICAgcmV0dXJuIHBvcnQucG9zLnlfMCAtIG5vZGUuc2l6ZV8wLnlfMDsKICAgIGNhc2UgNDoKICAgICAgcmV0dXJuIC0ocG9ydC5wb3MueF8wICsgcG9ydC5zaXplXzAueF8wKTsKICB9CiAgcmV0dXJuIDA7Cn0K"
+        },
+        {
+          "symbol": "calcPortSide",
+          "startLine": 32491,
+          "endLine": 32527,
+          "role": "implementation",
+          "sha256": "13e9b779e91f0fb8fd7ac800d1d22eadab5ea6cb0bd4686cdcb505c583c55e66",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gY2FsY1BvcnRTaWRlKHBvcnQsIGRpcmVjdGlvbil7CiAgdmFyIGhlaWdodCwgaGVpZ2h0UGVyY2VudCwgbm9kZSwgbm9kZUhlaWdodCwgbm9kZVdpZHRoLCB3aWR0aF8wLCB3aWR0aFBlcmNlbnQsIHhwb3MsIHlwb3M7CiAgbm9kZSA9IHBvcnQub3duZXI7CiAgbm9kZVdpZHRoID0gbm9kZS5zaXplXzAueF8wOwogIG5vZGVIZWlnaHQgPSBub2RlLnNpemVfMC55XzA7CiAgaWYgKG5vZGVXaWR0aCA8PSAwICYmIG5vZGVIZWlnaHQgPD0gMCkgewogICAgcmV0dXJuICRjbGluaXRfUG9ydFNpZGUoKSAsIFVOREVGSU5FRF81OwogIH0KICB4cG9zID0gcG9ydC5wb3MueF8wOwogIHlwb3MgPSBwb3J0LnBvcy55XzA7CiAgd2lkdGhfMCA9IHBvcnQuc2l6ZV8wLnhfMDsKICBoZWlnaHQgPSBwb3J0LnNpemVfMC55XzA7CiAgc3dpdGNoIChkaXJlY3Rpb24ub3JkaW5hbCkgewogICAgY2FzZSAyOgogICAgY2FzZSAxOgogICAgICBpZiAoeHBvcyA8IDApIHsKICAgICAgICByZXR1cm4gJGNsaW5pdF9Qb3J0U2lkZSgpICwgV0VTVF8yOwogICAgICB9CiAgICAgICBlbHNlIGlmICh4cG9zICsgd2lkdGhfMCA+IG5vZGVXaWR0aCkgewogICAgICAgIHJldHVybiAkY2xpbml0X1BvcnRTaWRlKCkgLCBFQVNUXzI7CiAgICAgIH0KCiAgICAgIGJyZWFrOwogICAgY2FzZSA0OgogICAgY2FzZSAzOgogICAgICBpZiAoeXBvcyA8IDApIHsKICAgICAgICByZXR1cm4gJGNsaW5pdF9Qb3J0U2lkZSgpICwgTk9SVEhfMzsKICAgICAgfQogICAgICAgZWxzZSBpZiAoeXBvcyArIGhlaWdodCA+IG5vZGVIZWlnaHQpIHsKICAgICAgICByZXR1cm4gJGNsaW5pdF9Qb3J0U2lkZSgpICwgU09VVEhfMjsKICAgICAgfQoKICB9CiAgd2lkdGhQZXJjZW50ID0gKHhwb3MgKyB3aWR0aF8wIC8gMikgLyBub2RlV2lkdGg7CiAgaGVpZ2h0UGVyY2VudCA9ICh5cG9zICsgaGVpZ2h0IC8gMikgLyBub2RlSGVpZ2h0OwogIHJldHVybiB3aWR0aFBlcmNlbnQgKyBoZWlnaHRQZXJjZW50IDw9IDEgJiYgd2lkdGhQZXJjZW50IC0gaGVpZ2h0UGVyY2VudCA8PSAwPygkY2xpbml0X1BvcnRTaWRlKCkgLCBXRVNUXzIpOndpZHRoUGVyY2VudCArIGhlaWdodFBlcmNlbnQgPj0gMSAmJiB3aWR0aFBlcmNlbnQgLSBoZWlnaHRQZXJjZW50ID49IDA/KCRjbGluaXRfUG9ydFNpZGUoKSAsIEVBU1RfMik6aGVpZ2h0UGVyY2VudCA8IDAuNT8oJGNsaW5pdF9Qb3J0U2lkZSgpICwgTk9SVEhfMyk6KCRjbGluaXRfUG9ydFNpZGUoKSAsIFNPVVRIXzIpOwp9Cg=="
+        },
+        {
+          "symbol": "initializePort",
+          "startLine": 32788,
+          "endLine": 32839,
+          "role": "implementation",
+          "sha256": "ec599a0a68f7b54eaf94a291a3758f12bbfc80e410088d6bb7e2cbb25448462c",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gaW5pdGlhbGl6ZVBvcnQocG9ydCwgcG9ydENvbnN0cmFpbnRzLCBkaXJlY3Rpb24sIGFuY2hvclBvcyl7CiAgdmFyIG5vZGVIZWlnaHQsIG5vZGVXaWR0aCwgcG9ydEFuY2hvciwgcG9ydFNpZGUsIHBvcnRTaXplLCByYXRpbzsKICBwb3J0U2lkZSA9IHBvcnQuc2lkZTsKICBpZiAocG9ydFNpZGUgPT0gKCRjbGluaXRfUG9ydFNpZGUoKSAsIFVOREVGSU5FRF81KSAmJiBwb3J0Q29uc3RyYWludHMgIT0gKCRjbGluaXRfUG9ydENvbnN0cmFpbnRzKCkgLCBGUkVFKSAmJiBwb3J0Q29uc3RyYWludHMgIT0gKCRjbGluaXRfUG9ydENvbnN0cmFpbnRzKCkgLCBVTkRFRklORURfNCkpIHsKICAgIHBvcnRTaWRlID0gY2FsY1BvcnRTaWRlKHBvcnQsIGRpcmVjdGlvbik7CiAgICAkc2V0U2lkZShwb3J0LCBwb3J0U2lkZSk7CiAgICAhKCFwb3J0LnByb3BlcnR5TWFwPygkY2xpbml0X0NvbGxlY3Rpb25zKCkgLCAkY2xpbml0X0NvbGxlY3Rpb25zKCkgLCBFTVBUWV9NQVApOnBvcnQucHJvcGVydHlNYXApLmNvbnRhaW5zS2V5KCgkY2xpbml0X0xheWVyZWRPcHRpb25zKCkgLCBQT1JUX0JPUkRFUl9PRkZTRVQpKSAmJiBwb3J0U2lkZSAhPSBVTkRFRklORURfNSAmJiAocG9ydC5wb3MueF8wICE9IDAgfHwgcG9ydC5wb3MueV8wICE9IDApICYmICRzZXRQcm9wZXJ0eV8wKHBvcnQsIFBPUlRfQk9SREVSX09GRlNFVCwgY2FsY1BvcnRPZmZzZXQocG9ydCwgcG9ydFNpZGUpKTsKICB9CiAgaWYgKHBvcnRDb25zdHJhaW50cyA9PSAoJGNsaW5pdF9Qb3J0Q29uc3RyYWludHMoKSAsIEZJWEVEX1JBVElPKSkgewogICAgcmF0aW8gPSAwOwogICAgc3dpdGNoIChwb3J0U2lkZS5vcmRpbmFsKSB7CiAgICAgIGNhc2UgMToKICAgICAgY2FzZSAzOgogICAgICAgIG5vZGVXaWR0aCA9IHBvcnQub3duZXIuc2l6ZV8wLnhfMDsKICAgICAgICBub2RlV2lkdGggPiAwICYmIChyYXRpbyA9IHBvcnQucG9zLnhfMCAvIG5vZGVXaWR0aCk7CiAgICAgICAgYnJlYWs7CiAgICAgIGNhc2UgMjoKICAgICAgY2FzZSA0OgogICAgICAgIG5vZGVIZWlnaHQgPSBwb3J0Lm93bmVyLnNpemVfMC55XzA7CiAgICAgICAgbm9kZUhlaWdodCA+IDAgJiYgKHJhdGlvID0gcG9ydC5wb3MueV8wIC8gbm9kZUhlaWdodCk7CiAgICB9CiAgICAkc2V0UHJvcGVydHlfMChwb3J0LCAoJGNsaW5pdF9JbnRlcm5hbFByb3BlcnRpZXNfMSgpICwgUE9SVF9SQVRJT19PUl9QT1NJVElPTl8wKSwgcmF0aW8pOwogIH0KICBwb3J0U2l6ZSA9IHBvcnQuc2l6ZV8wOwogIHBvcnRBbmNob3IgPSBwb3J0LmFuY2hvcjsKICBpZiAoYW5jaG9yUG9zKSB7CiAgICBwb3J0QW5jaG9yLnhfMCA9IGFuY2hvclBvcy54XzA7CiAgICBwb3J0QW5jaG9yLnlfMCA9IGFuY2hvclBvcy55XzA7CiAgICBwb3J0LmV4cGxpY2l0bHlTdXBwbGllZFBvcnRBbmNob3IgPSB0cnVlOwogIH0KICAgZWxzZSBpZiAocG9ydENvbnN0cmFpbnRzICE9IEZSRUUgJiYgcG9ydENvbnN0cmFpbnRzICE9IFVOREVGSU5FRF80ICYmIHBvcnRTaWRlICE9IFVOREVGSU5FRF81KSB7CiAgICBzd2l0Y2ggKHBvcnRTaWRlLm9yZGluYWwpIHsKICAgICAgY2FzZSAxOgogICAgICAgIHBvcnRBbmNob3IueF8wID0gcG9ydFNpemUueF8wIC8gMjsKICAgICAgICBicmVhazsKICAgICAgY2FzZSAyOgogICAgICAgIHBvcnRBbmNob3IueF8wID0gcG9ydFNpemUueF8wOwogICAgICAgIHBvcnRBbmNob3IueV8wID0gcG9ydFNpemUueV8wIC8gMjsKICAgICAgICBicmVhazsKICAgICAgY2FzZSAzOgogICAgICAgIHBvcnRBbmNob3IueF8wID0gcG9ydFNpemUueF8wIC8gMjsKICAgICAgICBwb3J0QW5jaG9yLnlfMCA9IHBvcnRTaXplLnlfMDsKICAgICAgICBicmVhazsKICAgICAgY2FzZSA0OgogICAgICAgIHBvcnRBbmNob3IueV8wID0gcG9ydFNpemUueV8wIC8gMjsKICAgIH0KICB9CiAgIGVsc2UgewogICAgcG9ydEFuY2hvci54XzAgPSBwb3J0U2l6ZS54XzAgLyAyOwogICAgcG9ydEFuY2hvci55XzAgPSBwb3J0U2l6ZS55XzAgLyAyOwogIH0KfQo="
+        },
+        {
+          "symbol": "$setSide",
+          "startLine": 33503,
+          "endLine": 33527,
+          "role": "implementation",
+          "sha256": "ae3f67185d1d55b50a2e94dc721b72dbeafa33673b9940af3b2cf46b72e1e5aa",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJHNldFNpZGUodGhpcyRzdGF0aWMsIHRoZXNpZGUpewogIGlmICghdGhlc2lkZSkgewogICAgdGhyb3cgdG9KcyhuZXcgTnVsbFBvaW50ZXJFeGNlcHRpb24pOwogIH0KICB0aGlzJHN0YXRpYy5zaWRlID0gdGhlc2lkZTsKICBpZiAoIXRoaXMkc3RhdGljLmV4cGxpY2l0bHlTdXBwbGllZFBvcnRBbmNob3IpIHsKICAgIHN3aXRjaCAodGhpcyRzdGF0aWMuc2lkZS5vcmRpbmFsKSB7CiAgICAgIGNhc2UgMToKICAgICAgICB0aGlzJHN0YXRpYy5hbmNob3IueF8wID0gdGhpcyRzdGF0aWMuc2l6ZV8wLnhfMCAvIDI7CiAgICAgICAgdGhpcyRzdGF0aWMuYW5jaG9yLnlfMCA9IDA7CiAgICAgICAgYnJlYWs7CiAgICAgIGNhc2UgMjoKICAgICAgICB0aGlzJHN0YXRpYy5hbmNob3IueF8wID0gdGhpcyRzdGF0aWMuc2l6ZV8wLnhfMDsKICAgICAgICB0aGlzJHN0YXRpYy5hbmNob3IueV8wID0gdGhpcyRzdGF0aWMuc2l6ZV8wLnlfMCAvIDI7CiAgICAgICAgYnJlYWs7CiAgICAgIGNhc2UgMzoKICAgICAgICB0aGlzJHN0YXRpYy5hbmNob3IueF8wID0gdGhpcyRzdGF0aWMuc2l6ZV8wLnhfMCAvIDI7CiAgICAgICAgdGhpcyRzdGF0aWMuYW5jaG9yLnlfMCA9IHRoaXMkc3RhdGljLnNpemVfMC55XzA7CiAgICAgICAgYnJlYWs7CiAgICAgIGNhc2UgNDoKICAgICAgICB0aGlzJHN0YXRpYy5hbmNob3IueF8wID0gMDsKICAgICAgICB0aGlzJHN0YXRpYy5hbmNob3IueV8wID0gdGhpcyRzdGF0aWMuc2l6ZV8wLnlfMCAvIDI7CiAgICB9CiAgfQp9Cg=="
+        },
+        {
+          "symbol": "$setNode",
+          "startLine": 33497,
+          "endLine": 33501,
+          "role": "implementation",
+          "sha256": "d9b038e7b723517a08d44ac38ab4e73b23dc7af9285dc85c41b3372cfcd9f18b",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJHNldE5vZGUodGhpcyRzdGF0aWMsIG5vZGUpewogICEhdGhpcyRzdGF0aWMub3duZXIgJiYgJHJlbW92ZV8xMih0aGlzJHN0YXRpYy5vd25lci5wb3J0cywgdGhpcyRzdGF0aWMpOwogIHRoaXMkc3RhdGljLm93bmVyID0gbm9kZTsKICAhIXRoaXMkc3RhdGljLm93bmVyICYmICRhZGRfMyh0aGlzJHN0YXRpYy5vd25lci5wb3J0cywgdGhpcyRzdGF0aWMpOwp9Cg=="
+        },
+        {
+          "symbol": "$clinit_PortConstraints",
+          "startLine": 71409,
+          "endLine": 71417,
+          "role": "implementation",
+          "sha256": "d180bd24bb2dd10c8864c5647fe41a7c51c0a324fd4e7b301f788582b92570be",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9Qb3J0Q29uc3RyYWludHMoKXsKICAkY2xpbml0X1BvcnRDb25zdHJhaW50cyA9IGVtcHR5TWV0aG9kOwogIFVOREVGSU5FRF80ID0gbmV3IFBvcnRDb25zdHJhaW50cygnVU5ERUZJTkVEJywgMCk7CiAgRlJFRSA9IG5ldyBQb3J0Q29uc3RyYWludHMoJ0ZSRUUnLCAxKTsKICBGSVhFRF9TSURFID0gbmV3IFBvcnRDb25zdHJhaW50cygnRklYRURfU0lERScsIDIpOwogIEZJWEVEX09SREVSID0gbmV3IFBvcnRDb25zdHJhaW50cygnRklYRURfT1JERVInLCAzKTsKICBGSVhFRF9SQVRJTyA9IG5ldyBQb3J0Q29uc3RyYWludHMoJ0ZJWEVEX1JBVElPJywgNCk7CiAgRklYRURfUE9TID0gbmV3IFBvcnRDb25zdHJhaW50cygnRklYRURfUE9TJywgNSk7Cn0K"
+        },
+        {
+          "symbol": "$isOrderFixed",
+          "startLine": 71419,
+          "endLine": 71421,
+          "role": "implementation",
+          "sha256": "67b53b015955ad22f4b0c2e07e93712b17c3dc5f7b6009d73f07d4bd1a8110ad",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJGlzT3JkZXJGaXhlZCh0aGlzJHN0YXRpYyl7CiAgcmV0dXJuIHRoaXMkc3RhdGljID09IEZJWEVEX09SREVSIHx8IHRoaXMkc3RhdGljID09IEZJWEVEX1JBVElPIHx8IHRoaXMkc3RhdGljID09IEZJWEVEX1BPUzsKfQo="
+        },
+        {
+          "symbol": "$isSideFixed",
+          "startLine": 71423,
+          "endLine": 71425,
+          "role": "implementation",
+          "sha256": "2e848e389de11d57c6e432ab6854dd2309bd5e6c427cf107657d6a997da879a3",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJGlzU2lkZUZpeGVkKHRoaXMkc3RhdGljKXsKICByZXR1cm4gdGhpcyRzdGF0aWMgIT0gRlJFRSAmJiB0aGlzJHN0YXRpYyAhPSBVTkRFRklORURfNDsKfQo="
+        },
+        {
+          "symbol": "PortSide declarations",
+          "startLine": 71502,
+          "endLine": 71510,
+          "role": "implementation",
+          "sha256": "ffbbfcbeb18f11a795ed8e89334954418ff6d7eb55cb535909aaead179ad0ee4",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9Qb3J0U2lkZSgpewogICRjbGluaXRfUG9ydFNpZGUgPSBlbXB0eU1ldGhvZDsKICB2YXIgYWxsOwogIFVOREVGSU5FRF81ID0gbmV3IFBvcnRTaWRlKCdVTkRFRklORUQnLCAwKTsKICBOT1JUSF8zID0gbmV3IFBvcnRTaWRlKCdOT1JUSCcsIDEpOwogIEVBU1RfMiA9IG5ldyBQb3J0U2lkZSgnRUFTVCcsIDIpOwogIFNPVVRIXzIgPSBuZXcgUG9ydFNpZGUoJ1NPVVRIJywgMyk7CiAgV0VTVF8yID0gbmV3IFBvcnRTaWRlKCdXRVNUJywgNCk7CiAgU0lERVNfTk9ORSA9ICgkY2xpbml0X0NvbGxlY3Rpb25zKCkgLCBuZXcgQ29sbGVjdGlvbnMkVW5tb2RpZmlhYmxlU2V0KChhbGwgPSBjYXN0VG8oJGdldEVudW1Db25zdGFudHMoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX29wdGlvbnNfUG9ydFNpZGVfMl9jbGFzc0xpdCksIDEwKSAsIG5ldyBFbnVtU2V0JEVudW1TZXRJbXBsKGFsbCwgY2FzdFRvKGNyZWF0ZUZyb20oYWxsLCBhbGwubGVuZ3RoKSwgMTApLCAwKSkpKTsK"
+        },
+        {
+          "symbol": "LPort explicitlySuppliedPortAnchor default",
+          "startLine": 33561,
+          "endLine": 33561,
+          "role": "field-default",
+          "sha256": "4e90fffee4627ed2cb946bfcdd4861ad203c3edfd0fa0d8f1a0887a1b44bb77b",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "Xy5leHBsaWNpdGx5U3VwcGxpZWRQb3J0QW5jaG9yID0gZmFsc2U7Cg=="
+        },
+        {
+          "symbol": "$transformPort",
+          "startLine": 34422,
+          "endLine": 34455,
+          "role": "caller-context-only",
+          "sha256": "ce0331c444a3d78341ea6668bb7b99bb0521a5f1a13c7729ac6415dad58cf51d",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJHRyYW5zZm9ybVBvcnQodGhpcyRzdGF0aWMsIGVsa3BvcnQsIHBhcmVudExOb2RlLCBncmFwaFByb3BlcnRpZXMsIGxheW91dERpcmVjdGlvbiwgcG9ydENvbnN0cmFpbnRzKXsKICB2YXIgY29ubmVjdGlvbnNUb0Rlc2NlbmRhbnRzLCBlbGtsYWJlbCwgZWxrbGFiZWwkaXRlcmF0b3IsIGxwb3J0LCBwb3J0UG9zLCBwb3J0U2l6ZTsKICBscG9ydCA9IG5ldyBMUG9ydDsKICAkY29weVByb3BlcnRpZXMobHBvcnQsIGVsa3BvcnQpOwogICRzZXRTaWRlKGxwb3J0LCBjYXN0VG8oJGdldFByb3BlcnR5XzAoZWxrcG9ydCwgKCRjbGluaXRfTGF5ZXJlZE9wdGlvbnMoKSAsIFBPUlRfU0lERSkpLCA2NikpOwogICRzZXRQcm9wZXJ0eV8wKGxwb3J0LCAoJGNsaW5pdF9JbnRlcm5hbFByb3BlcnRpZXNfMSgpICwgT1JJR0lOXzApLCBlbGtwb3J0KTsKICAkc2V0Tm9kZShscG9ydCwgcGFyZW50TE5vZGUpOwogIHBvcnRTaXplID0gbHBvcnQuc2l6ZV8wOwogIHBvcnRTaXplLnhfMCA9IGVsa3BvcnQud2lkdGhfMDsKICBwb3J0U2l6ZS55XzAgPSBlbGtwb3J0LmhlaWdodDsKICBwb3J0UG9zID0gbHBvcnQucG9zOwogIHBvcnRQb3MueF8wID0gZWxrcG9ydC54XzA7CiAgcG9ydFBvcy55XzAgPSBlbGtwb3J0LnlfMDsKICAkcHV0XzYodGhpcyRzdGF0aWMubm9kZUFuZFBvcnRNYXAsIGVsa3BvcnQsIGxwb3J0KTsKICBjb25uZWN0aW9uc1RvRGVzY2VuZGFudHMgPSAkYW55TWF0Y2goJG1hcCgkZmxhdE1hcChuZXcgU3RyZWFtSW1wbChudWxsLCAoIWVsa3BvcnQub3V0Z29pbmdFZGdlcyAmJiAoZWxrcG9ydC5vdXRnb2luZ0VkZ2VzID0gbmV3IEVPYmplY3RXaXRoSW52ZXJzZVJlc29sdmluZ0VMaXN0JE1hbnlJbnZlcnNlKExvcmdfZWNsaXBzZV9lbGtfZ3JhcGhfRWxrRWRnZV8yX2NsYXNzTGl0LCBlbGtwb3J0LCA3LCA0KSkgLCBuZXcgU3BsaXRlcmF0b3JzJEl0ZXJhdG9yU3BsaXRlcmF0b3IoZWxrcG9ydC5vdXRnb2luZ0VkZ2VzLCAxNikpKSwgbmV3IEVsa0dyYXBoSW1wb3J0ZXIkbGFtYmRhJDIkVHlwZSksIG5ldyBFbGtHcmFwaEltcG9ydGVyJDBtZXRob2RyZWYkY29ubmVjdGFibGVTaGFwZVRvTm9kZSRUeXBlKSwgbmV3IEVsa0dyYXBoSW1wb3J0ZXIkbGFtYmRhJDQkVHlwZShlbGtwb3J0KSk7CiAgY29ubmVjdGlvbnNUb0Rlc2NlbmRhbnRzIHx8IChjb25uZWN0aW9uc1RvRGVzY2VuZGFudHMgPSAkYW55TWF0Y2goJG1hcCgkZmxhdE1hcChuZXcgU3RyZWFtSW1wbChudWxsLCAoIWVsa3BvcnQuaW5jb21pbmdFZGdlcyAmJiAoZWxrcG9ydC5pbmNvbWluZ0VkZ2VzID0gbmV3IEVPYmplY3RXaXRoSW52ZXJzZVJlc29sdmluZ0VMaXN0JE1hbnlJbnZlcnNlKExvcmdfZWNsaXBzZV9lbGtfZ3JhcGhfRWxrRWRnZV8yX2NsYXNzTGl0LCBlbGtwb3J0LCA4LCA1KSkgLCBuZXcgU3BsaXRlcmF0b3JzJEl0ZXJhdG9yU3BsaXRlcmF0b3IoZWxrcG9ydC5pbmNvbWluZ0VkZ2VzLCAxNikpKSwgbmV3IEVsa0dyYXBoSW1wb3J0ZXIkbGFtYmRhJDUkVHlwZSksIG5ldyBFbGtHcmFwaEltcG9ydGVyJDFtZXRob2RyZWYkY29ubmVjdGFibGVTaGFwZVRvTm9kZSRUeXBlKSwgbmV3IEVsa0dyYXBoSW1wb3J0ZXIkbGFtYmRhJDckVHlwZShlbGtwb3J0KSkpOwogIGNvbm5lY3Rpb25zVG9EZXNjZW5kYW50cyB8fCAoY29ubmVjdGlvbnNUb0Rlc2NlbmRhbnRzID0gJGFueU1hdGNoKG5ldyBTdHJlYW1JbXBsKG51bGwsICghZWxrcG9ydC5vdXRnb2luZ0VkZ2VzICYmIChlbGtwb3J0Lm91dGdvaW5nRWRnZXMgPSBuZXcgRU9iamVjdFdpdGhJbnZlcnNlUmVzb2x2aW5nRUxpc3QkTWFueUludmVyc2UoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtFZGdlXzJfY2xhc3NMaXQsIGVsa3BvcnQsIDcsIDQpKSAsIG5ldyBTcGxpdGVyYXRvcnMkSXRlcmF0b3JTcGxpdGVyYXRvcihlbGtwb3J0Lm91dGdvaW5nRWRnZXMsIDE2KSkpLCBuZXcgRWxrR3JhcGhJbXBvcnRlciRsYW1iZGEkOCRUeXBlKSk7CiAgJHNldFByb3BlcnR5XzAobHBvcnQsIElOU0lERV9DT05ORUNUSU9OUywgKCRjbGluaXRfQm9vbGVhbigpICwgY29ubmVjdGlvbnNUb0Rlc2NlbmRhbnRzP3RydWU6ZmFsc2UpKTsKICBpbml0aWFsaXplUG9ydChscG9ydCwgcG9ydENvbnN0cmFpbnRzLCBsYXlvdXREaXJlY3Rpb24sIGNhc3RUbygkZ2V0UHJvcGVydHlfMChlbGtwb3J0LCBQT1JUX0FOQ0hPUiksIDgpKTsKICBmb3IgKGVsa2xhYmVsJGl0ZXJhdG9yID0gbmV3IEFic3RyYWN0RUxpc3QkRUl0ZXJhdG9yKCghZWxrcG9ydC5sYWJlbHMgJiYgKGVsa3BvcnQubGFiZWxzID0gbmV3IEVPYmplY3RDb250YWlubWVudFdpdGhJbnZlcnNlRUxpc3QoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtMYWJlbF8yX2NsYXNzTGl0LCBlbGtwb3J0LCAxLCA3KSkgLCBlbGtwb3J0LmxhYmVscykpOyBlbGtsYWJlbCRpdGVyYXRvci5jdXJzb3IgIT0gZWxrbGFiZWwkaXRlcmF0b3IudGhpcyQwMV8yLnNpemVfMSgpOykgewogICAgZWxrbGFiZWwgPSBjYXN0VG8oJGRvTmV4dChlbGtsYWJlbCRpdGVyYXRvciksIDEzNSk7CiAgICAhJGJvb2xlYW5WYWx1ZShjYXN0VG9Cb29sZWFuKCRnZXRQcm9wZXJ0eV8wKGVsa2xhYmVsLCBOT19MQVlPVVQpKSkgJiYgISFlbGtsYWJlbC50ZXh0XzAgJiYgJGFkZF8zKGxwb3J0LmxhYmVscywgJHRyYW5zZm9ybUxhYmVsKGVsa2xhYmVsKSk7CiAgfQogIHN3aXRjaCAobGF5b3V0RGlyZWN0aW9uLm9yZGluYWwpIHsKICAgIGNhc2UgMjoKICAgIGNhc2UgMToKICAgICAgKGxwb3J0LnNpZGUgPT0gKCRjbGluaXRfUG9ydFNpZGUoKSAsIE5PUlRIXzMpIHx8IGxwb3J0LnNpZGUgPT0gU09VVEhfMikgJiYgZ3JhcGhQcm9wZXJ0aWVzLmFkZF8yKCgkY2xpbml0X0dyYXBoUHJvcGVydGllcygpICwgTk9SVEhfU09VVEhfUE9SVFMpKTsKICAgICAgYnJlYWs7CiAgICBjYXNlIDQ6CiAgICBjYXNlIDM6CiAgICAgIChscG9ydC5zaWRlID09ICgkY2xpbml0X1BvcnRTaWRlKCkgLCBFQVNUXzIpIHx8IGxwb3J0LnNpZGUgPT0gV0VTVF8yKSAmJiBncmFwaFByb3BlcnRpZXMuYWRkXzIoKCRjbGluaXRfR3JhcGhQcm9wZXJ0aWVzKCkgLCBOT1JUSF9TT1VUSF9QT1JUUykpOwogIH0KICByZXR1cm4gbHBvcnQ7Cn0K"
+        },
+        {
+          "symbol": "$transformNode",
+          "startLine": 34386,
+          "endLine": 34420,
+          "role": "caller-context-only",
+          "sha256": "df3794fcb6da4e930e6d6427d4af91247a6ae10f30511b012b4aaef836c64582",
+          "encoding": "UTF-8 LF inclusive lines with final newline",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJHRyYW5zZm9ybU5vZGUodGhpcyRzdGF0aWMsIGVsa25vZGUsIGxncmFwaCl7CiAgdmFyIGRpcmVjdGlvbiwgZWxrZ3JhcGgsIGVsa2xhYmVsLCBlbGtsYWJlbCRpdGVyYXRvciwgZWxrcG9ydCwgZWxrcG9ydCRpdGVyYXRvciwgZ3JhcGhQcm9wZXJ0aWVzLCBsbm9kZSwgcG9ydENvbnN0cmFpbnRzLCBwb3J0TW9kZWxPcmRlcjsKICBsbm9kZSA9IG5ldyBMTm9kZShsZ3JhcGgpOwogICRjb3B5UHJvcGVydGllcyhsbm9kZSwgZWxrbm9kZSk7CiAgJHNldFByb3BlcnR5XzAobG5vZGUsICgkY2xpbml0X0ludGVybmFsUHJvcGVydGllc18xKCkgLCBPUklHSU5fMCksIGVsa25vZGUpOwogIGxub2RlLnNpemVfMC54XzAgPSBlbGtub2RlLndpZHRoXzA7CiAgbG5vZGUuc2l6ZV8wLnlfMCA9IGVsa25vZGUuaGVpZ2h0OwogIGxub2RlLnBvcy54XzAgPSBlbGtub2RlLnhfMDsKICBsbm9kZS5wb3MueV8wID0gZWxrbm9kZS55XzA7CiAgJGFkZF8zKGxncmFwaC5sYXllcmxlc3NOb2RlcywgbG5vZGUpOwogICRwdXRfNih0aGlzJHN0YXRpYy5ub2RlQW5kUG9ydE1hcCwgZWxrbm9kZSwgbG5vZGUpOwogICgoIWVsa25vZGUuY2hpbGRyZW4gJiYgKGVsa25vZGUuY2hpbGRyZW4gPSBuZXcgRU9iamVjdENvbnRhaW5tZW50V2l0aEludmVyc2VFTGlzdChMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa05vZGVfMl9jbGFzc0xpdCwgZWxrbm9kZSwgMTAsIDExKSkgLCBlbGtub2RlLmNoaWxkcmVuKS5zaXplXzAgIT0gMCB8fCAkYm9vbGVhblZhbHVlKGNhc3RUb0Jvb2xlYW4oJGdldFByb3BlcnR5XzAoZWxrbm9kZSwgKCRjbGluaXRfTGF5ZXJlZE9wdGlvbnMoKSAsIElOU0lERV9TRUxGX0xPT1BTX0FDVElWQVRFKSkpKSkgJiYgJHNldFByb3BlcnR5XzAobG5vZGUsIENPTVBPVU5EX05PREUsICgkY2xpbml0X0Jvb2xlYW4oKSAsIHRydWUpKTsKICBncmFwaFByb3BlcnRpZXMgPSBjYXN0VG8oJGdldFByb3BlcnR5KGxncmFwaCwgR1JBUEhfUFJPUEVSVElFUyksIDIwKTsKICBwb3J0Q29uc3RyYWludHMgPSBjYXN0VG8oJGdldFByb3BlcnR5KGxub2RlLCAoJGNsaW5pdF9MYXllcmVkT3B0aW9ucygpICwgUE9SVF9DT05TVFJBSU5UU18wKSksIDEwNik7CiAgcG9ydENvbnN0cmFpbnRzID09ICgkY2xpbml0X1BvcnRDb25zdHJhaW50cygpICwgVU5ERUZJTkVEXzQpPyRzZXRQcm9wZXJ0eV8wKGxub2RlLCBQT1JUX0NPTlNUUkFJTlRTXzAsIEZSRUUpOnBvcnRDb25zdHJhaW50cyAhPSBGUkVFICYmIGdyYXBoUHJvcGVydGllcy5hZGRfMigoJGNsaW5pdF9HcmFwaFByb3BlcnRpZXMoKSAsIE5PTl9GUkVFX1BPUlRTKSk7CiAgcG9ydE1vZGVsT3JkZXIgPSAwOwogIGRpcmVjdGlvbiA9IGNhc3RUbygkZ2V0UHJvcGVydHkobGdyYXBoLCBESVJFQ1RJT04pLCA4OCk7CiAgZm9yIChlbGtwb3J0JGl0ZXJhdG9yID0gbmV3IEFic3RyYWN0RUxpc3QkRUl0ZXJhdG9yKCghZWxrbm9kZS5wb3J0cyAmJiAoZWxrbm9kZS5wb3J0cyA9IG5ldyBFT2JqZWN0Q29udGFpbm1lbnRXaXRoSW52ZXJzZUVMaXN0KExvcmdfZWNsaXBzZV9lbGtfZ3JhcGhfRWxrUG9ydF8yX2NsYXNzTGl0LCBlbGtub2RlLCA5LCA5KSkgLCBlbGtub2RlLnBvcnRzKSk7IGVsa3BvcnQkaXRlcmF0b3IuY3Vyc29yICE9IGVsa3BvcnQkaXRlcmF0b3IudGhpcyQwMV8yLnNpemVfMSgpOykgewogICAgZWxrcG9ydCA9IGNhc3RUbygkZG9OZXh0KGVsa3BvcnQkaXRlcmF0b3IpLCAxMjEpOwogICAgZWxrZ3JhcGggPSAkZ2V0UGFyZW50XzIoZWxrbm9kZSk7CiAgICAkbmVlZHNNb2RlbE9yZGVyQmFzZWRPblBhcmVudChlbGtncmFwaCkgJiYgISRib29sZWFuVmFsdWUoY2FzdFRvQm9vbGVhbigkZ2V0UHJvcGVydHlfMChlbGtub2RlLCBDT05TSURFUl9NT0RFTF9PUkRFUl9OT19NT0RFTF9PUkRFUl8wKSkpICYmICRzZXRQcm9wZXJ0eV8xKGVsa3BvcnQsIE1PREVMX09SREVSXzIsIHZhbHVlT2ZfMyhwb3J0TW9kZWxPcmRlcisrKSk7CiAgICAkYm9vbGVhblZhbHVlKGNhc3RUb0Jvb2xlYW4oJGdldFByb3BlcnR5XzAoZWxrcG9ydCwgTk9fTEFZT1VUKSkpIHx8ICR0cmFuc2Zvcm1Qb3J0KHRoaXMkc3RhdGljLCBlbGtwb3J0LCBsbm9kZSwgZ3JhcGhQcm9wZXJ0aWVzLCBkaXJlY3Rpb24sIHBvcnRDb25zdHJhaW50cyk7CiAgfQogIGZvciAoZWxrbGFiZWwkaXRlcmF0b3IgPSBuZXcgQWJzdHJhY3RFTGlzdCRFSXRlcmF0b3IoKCFlbGtub2RlLmxhYmVscyAmJiAoZWxrbm9kZS5sYWJlbHMgPSBuZXcgRU9iamVjdENvbnRhaW5tZW50V2l0aEludmVyc2VFTGlzdChMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa0xhYmVsXzJfY2xhc3NMaXQsIGVsa25vZGUsIDEsIDcpKSAsIGVsa25vZGUubGFiZWxzKSk7IGVsa2xhYmVsJGl0ZXJhdG9yLmN1cnNvciAhPSBlbGtsYWJlbCRpdGVyYXRvci50aGlzJDAxXzIuc2l6ZV8xKCk7KSB7CiAgICBlbGtsYWJlbCA9IGNhc3RUbygkZG9OZXh0KGVsa2xhYmVsJGl0ZXJhdG9yKSwgMTM1KTsKICAgICEkYm9vbGVhblZhbHVlKGNhc3RUb0Jvb2xlYW4oJGdldFByb3BlcnR5XzAoZWxrbGFiZWwsIE5PX0xBWU9VVCkpKSAmJiAhIWVsa2xhYmVsLnRleHRfMCAmJiAkYWRkXzMobG5vZGUubGFiZWxzLCAkdHJhbnNmb3JtTGFiZWwoZWxrbGFiZWwpKTsKICB9CiAgJGJvb2xlYW5WYWx1ZShjYXN0VG9Cb29sZWFuKCRnZXRQcm9wZXJ0eShsbm9kZSwgQ09NTUVOVF9CT1gpKSkgJiYgZ3JhcGhQcm9wZXJ0aWVzLmFkZF8yKCgkY2xpbml0X0dyYXBoUHJvcGVydGllcygpICwgQ09NTUVOVFMpKTsKICBpZiAoJGJvb2xlYW5WYWx1ZShjYXN0VG9Cb29sZWFuKCRnZXRQcm9wZXJ0eShsbm9kZSwgSFlQRVJOT0RFKSkpKSB7CiAgICBncmFwaFByb3BlcnRpZXMuYWRkXzIoKCRjbGluaXRfR3JhcGhQcm9wZXJ0aWVzKCkgLCBIWVBFUk5PREVTKSk7CiAgICBncmFwaFByb3BlcnRpZXMuYWRkXzIoSFlQRVJFREdFUyk7CiAgICAkc2V0UHJvcGVydHlfMChsbm9kZSwgUE9SVF9DT05TVFJBSU5UU18wLCBGUkVFKTsKICB9CiAgcmV0dXJuIGxub2RlOwp9Cg=="
+        }
+      ],
+      "actualCaller": "ElkGraphImporter.transformNode iterates original explicit ports, calls transformPort after node constraint normalization; transformPort copies properties, installs side/origin/owner, writes dimensions and position and registers identity, then calls initializePort with graph direction and optional PORT_ANCHOR. Caller spans are context only, not approval for their hierarchy/label/stream branches.",
+      "reads": [
+        "port.side",
+        "port.pos",
+        "port.size",
+        "port.owner.size",
+        "node PORT_CONSTRAINTS",
+        "graph DIRECTION",
+        "presence of PORT_BORDER_OFFSET",
+        "optional explicit PORT_ANCHOR"
+      ],
+      "writes": [
+        "inferred side and derived anchor through setSide",
+        "PORT_BORDER_OFFSET only when absent and inferred side nonundefined with nonzero position",
+        "PORT_RATIO_OR_POSITION for FIXED_RATIO",
+        "port.anchor",
+        "explicitlySuppliedPortAnchor when explicit anchor supplied"
+      ],
+      "branchFacts": [
+        "UNDEFINED side is inferred only for constraints other than FREE/UNDEFINED; already selected side is retained.",
+        "When both node dimensions are <=0 side inference returns UNDEFINED. For horizontal directions outside-x takes precedence; vertical directions use outside-y precedence. Otherwise diagonal percentage comparisons choose WEST/EAST then NORTH/SOUTH.",
+        "One zero node dimension can produce JS Infinity/NaN during percentage inference. Preserve IEEE comparisons instead of adding positive-dimension restrictions or raising Python ZeroDivisionError.",
+        "Border offsets are signed formulas for NORTH/EAST/SOUTH/WEST; presence of an explicit zero offset still blocks inference.",
+        "FIXED_RATIO uses port top-left x/node width on NORTH/SOUTH and y/node height on EAST/WEST, guarded by dimension>0; default ratio0.",
+        "Explicit anchor copies both coordinates and permanently marks it supplied; later setSide must preserve it. Default fixed-side anchors lie on the side boundary; FREE/UNDEFINED constraints use the center.",
+        "Owner assignment removes then appends even for the same owner; reuse existing reviewed identity/order operation rather than sorting port IDs."
+      ],
+      "hostMappings": [
+        "Property presence/default distinction reuses existing reviewed source mapping; no new Guava/GWT runtime implementation.",
+        "LPort already has origin, pos, size, anchor and adjacency; add explicit supplied-anchor boolean default false in isolated graph copy.",
+        "Use native IEEE-compatible division adapter for zero denominator, not a new bounded-domain guard."
+      ],
+      "notYetApproved": [
+        "Full transformPort hierarchy/inside-connections/labels branches",
+        "port comparator/order/index and graph direction transformations",
+        "node-size context/constraint/alignment placement",
+        "north/south dummy routing and long/in-layer edge handling",
+        "public option resolution/import/export/admission expansion"
+      ]
+    }
+  ],
+  "implementationLocation": ".local/migration-next/src/pyelk/algorithms/layered/ (not written yet)",
+  "sharedInterfaceProposal": [
+    {
+      "path": "graph.py",
+      "requestedOwner": "root",
+      "changes": [
+        "add LPort.explicitly_supplied_port_anchor bool=False",
+        "reuse existing LPort origin/geometry/ordered adjacency; no new bounded object-ID policy"
+      ]
+    },
+    {
+      "path": "import_export.py",
+      "requestedOwner": "root",
+      "changes": [
+        "create all explicit LPorts in source input order before resolving edges",
+        "map typed Port and Node endpoint identity separately; preserve node fallback implicit ports",
+        "transfer final port local x/y and side plus source-conditioned node final size and edge absolute anchors"
+      ]
+    },
+    {
+      "path": "options/context/model",
+      "requestedOwner": "root",
+      "changes": [
+        "node-local portConstraints; port-local port.side/index/anchor/borderOffset with alias/type/presence semantics",
+        "resolve endpoints through existing Graph.connectable rather than Graph.node-only",
+        "retain original JSON and selected option scopes"
+      ]
+    },
+    {
+      "path": "new ports module in independent copy",
+      "requestedOwner": "A after source approval",
+      "changes": [
+        "initialize_port/calc_port_side/calc_port_offset/set_side and later comparator/placement calls",
+        "no writes to existing release src/README/pyproject"
+      ]
+    },
+    {
+      "path": "processors.py/directions.py/pipeline.py",
+      "requestedOwner": "root to assign",
+      "changes": [
+        "delegate port side/order and size routines to approved isolated modules",
+        "preserve explicit anchor flag and PORT_INDEX mutations across pre/post direction transform",
+        "schedule actual north/south/inside port branch processors rather than suppressing their flags"
+      ]
+    }
+  ],
+  "preparationBoundary": "E13 remains planned; this proposal is not production source approval, current package compatibility or release evidence."
+}

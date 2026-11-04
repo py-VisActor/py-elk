@@ -1,0 +1,161 @@
+{
+  "schema": "py-elk-next-recursive-ordinary-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "3af2252d0724e928983140d2417514ffd91f0b46b5c12b5e8d1362a4b4b5ea84",
+  "requestSha256": "1955057de06956a1524a81820ce23cc73650f0cf0a235b1c9ba5e38497a1999f",
+  "pid": 42844,
+  "parentPid": 33056,
+  "node": "v24.19.0",
+  "observation": {
+    "result": {
+      "id": "r",
+      "layoutOptions": {
+        "elk.algorithm": "box",
+        "elk.padding": "[top=5,left=5,bottom=5,right=5]"
+      },
+      "children": [
+        {
+          "id": "leaf",
+          "x": 9,
+          "y": 7,
+          "width": 20,
+          "height": 10,
+          "layoutOptions": {
+            "elk.algorithm": "unknown-provider"
+          },
+          "$H": 277
+        }
+      ],
+      "$H": 13,
+      "x": 0,
+      "y": 0,
+      "width": 39,
+      "height": 27
+    },
+    "nativeOnlySetup": {
+      "rootResolvedAlgorithm": "org.eclipse.elk.fixed"
+    },
+    "descriptors": [
+      {
+        "id": "r",
+        "present": true,
+        "algorithm": "org.eclipse.elk.fixed",
+        "hierarchy": "SEPARATE_CHILDREN"
+      },
+      {
+        "id": "leaf",
+        "present": false,
+        "algorithm": null,
+        "hierarchy": "INHERIT"
+      }
+    ],
+    "events": [
+      {
+        "kind": "enter",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "kind": "enter",
+        "node": "leaf",
+        "geometry": {
+          "id": "leaf",
+          "x": 9,
+          "y": 7,
+          "width": 20,
+          "height": 10
+        }
+      },
+      {
+        "kind": "leave",
+        "node": "leaf",
+        "geometry": {
+          "id": "leaf",
+          "x": 9,
+          "y": 7,
+          "width": 20,
+          "height": 10
+        }
+      },
+      {
+        "kind": "execute",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "kind": "fetch",
+        "node": "r",
+        "execution": "r",
+        "before": 0,
+        "after": 0,
+        "provider": 1
+      },
+      {
+        "kind": "release",
+        "execution": "r",
+        "before": 0,
+        "after": 1,
+        "provider": 1
+      },
+      {
+        "kind": "leave",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 39,
+          "height": 27
+        }
+      }
+    ],
+    "providerCount": 1,
+    "queuedProviders": [
+      1
+    ],
+    "geometry": [
+      {
+        "id": "r",
+        "x": 0,
+        "y": 0,
+        "width": 39,
+        "height": 27
+      },
+      {
+        "id": "leaf",
+        "x": 9,
+        "y": 7,
+        "width": 20,
+        "height": 10
+      }
+    ],
+    "scaleFactors": [
+      [
+        "r",
+        1
+      ],
+      [
+        "leaf",
+        1
+      ]
+    ],
+    "monitor": {
+      "name": "Recursive Graph Layout",
+      "closed": true
+    },
+    "layoutExecuted": true
+  },
+  "candidateExecuted": false
+}

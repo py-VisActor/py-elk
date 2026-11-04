@@ -1,0 +1,72 @@
+{
+  "schema": "py-elk-e06-source-to-code-review/v1",
+  "iteration": "E06",
+  "reviewerLane": "V",
+  "ownerLane": "A",
+  "status": "ACCEPTED_UNDER_E06_SOURCE_AND_PUBLIC_SCOPE",
+  "createdUtc": "2026-11-03T08:07:26.842203+00:00",
+  "sourceDocument": {
+    "path": "references/e06-source-components-A.json",
+    "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+  },
+  "productionFiles": [
+    {
+      "path": "src/pyelk/algorithms/layered/cycles.py",
+      "sha256": "9c8cd1eb4350a06f5be24c7e7599b592f135231e9e3b647c310140be9d6bd1fa"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/layering.py",
+      "sha256": "801493c18dca7449577a8e40ff22f454166eba066f420825adf91b98f1dc734a"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/long_edges.py",
+      "sha256": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/import_export.py",
+      "sha256": "0ec93bbb0ee2998310cddc1ed6982344a51704758fdc4198bba1f529e6754c83"
+    }
+  ],
+  "sourceComponentCount": 8,
+  "checks": [
+    "GREEDY follows ordered incoming/outgoing multiplicity, source/sink FIFO, real residual chooseMax nextInt even for one candidate, shift-negative marks, snapshot reversal and CYCLIC write. New given-dimension host guard rejects bool/nonfinite/negative/>1e6; it does not alter source scoring.",
+    "Endpoint reversal detaches source then target, reattaches swapped same original ports, toggles actual REVERSED bool and replaces reversed bend chain with fresh copied vectors. It preserves original model direction, port geometry and JUNCTION_POINTS identity; final restorer snapshots current outgoing edges, true->false once.",
+    "NS retains private ordered per-edge graph, literal minimalSpan ternary, unit priorities, tight-tree/cut/order arithmetic and source bounded balancing. Early scope8/28 and real loop skip precede dummy allocation; later176 bound never selects early>=40 subtree branch.",
+    "Long-edge split creates a real dummy for each intermediate rank, two independent ports with thickness1/floor0, shallow inherited REVERSED/ORIGIN, exact first/later dummy property presence. Join keeps original incoming segment and inserts it at old final target index before dropped detach; copies ordered bends and materializes independent empty mutable junction chains.",
+    "Import creates a separate edge and two implicit ports for every raw edge including loops/repeats, writes SELF_LOOPS only for same owner and ORIGINAL_PORT_CONSTRAINTS FREE for every node before actual incoming-before-outgoing component DFS. Public arrays/business data are unchanged.",
+    "Export requires all original typed nodes/edges exactly once and restored original endpoints independent of coincident geometry. Flat same-owner selfloop is not a descendant; source absolute anchors and ZERO_OFFSET applied in literal addition order. Real cleanup/combine/resize and mutable-junction writes retained, JSON section IDs/order/endpoints and arbitrary original fields preserved."
+  ],
+  "independentExecutableControls": {
+    "path": "test-runs/20261103-E06-01/V/review-A-code-controls.json",
+    "sha256": "945f46b0e9e77c6042c5b2eedf6fea21a47bf520e18c06ded4297c38ec2f27b7"
+  },
+  "commands": [
+    {
+      "path": "test-runs/20261103-E06-01/V/source-to-code-A-controls.command.json",
+      "sha256": "10718822724eb3fcb051d5a7ff9e53612cbb0b7d1f658c3cafa99d4df5f175c9"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/native52-owner-final-current.command.json",
+      "sha256": "85b8dff15f2a2812deb32250fde17ed6976b6ce9a4a354f90fefbd6be5a85591"
+    }
+  ],
+  "nativeConformance": {
+    "caseCount": 52,
+    "testMethods": 9,
+    "tests": {
+      "path": "tests/conformance/test_e06_native.py",
+      "sha256": "61f6ecd15f15ef6b548d1728c40a23243ece0bcad18d6499cac87a6180b01e7a"
+    },
+    "expectedData": "genuine independent fixed-JS oracle only",
+    "stageChecks": "original ID/edge/port identity incl hidden holders, all19/23 default processors, exact two repeats, 134 internal nodes stress, variable dummy counts and final full restoration"
+  },
+  "blockingFindings": [],
+  "fullAlgorithmAccepted": false,
+  "fullApiAccepted": false,
+  "lifecycleAccepted": false,
+  "installedWheelReviewedHere": false,
+  "limitations": [
+    "Actual wheel and cross-environment evidence are separate root acceptance, not inferred from source tests.",
+    "Finite suite success and selected literal source review do not prove arbitrary ELK algorithms/options/hierarchy or all default multigraphs. Exact Java provenance/full release license decisions remain open."
+  ]
+}

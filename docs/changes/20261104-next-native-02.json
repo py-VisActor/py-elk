@@ -1,0 +1,311 @@
+{
+  "schema": "py-elk-next-native-preparation/v1",
+  "createdUtc": "2026-11-03T17:14:18.343783+00:00",
+  "status": "private-implementation-in-progress",
+  "previousProgressRecord": "20261104-next-native-01.json",
+  "officialIterationsRemainPlanned": [
+    "E13",
+    "E16",
+    "E17"
+  ],
+  "checkpoint": {
+    "path": "migration/next-native/checkpoints/028dd38052e1b6c68e533f79d2108e33c58c8919c5d2877e6b79a9ba330e5632.json",
+    "sha256": "028dd38052e1b6c68e533f79d2108e33c58c8919c5d2877e6b79a9ba330e5632",
+    "sourceFiles": 62
+  },
+  "jsonHost": {
+    "implementationSourceSha256": "129631bdd897b216186724e0179395c6e49c832951d715c7e676ecfac03ae9d1",
+    "sourceComponents": 6,
+    "sourceSpans": 87,
+    "independentOriginalCases": {
+      "existingCoordinateCases": 4,
+      "newDetachedCase": 1
+    },
+    "geometryAndBusinessDifferences": 0,
+    "strictDifferencesRetained": {
+      "coordinateCases": 16,
+      "detachedCase": 1,
+      "kind": "GWT $H"
+    },
+    "targetedNativeMethodExecutions": [
+      {
+        "stage": "initial",
+        "count": 4,
+        "command": {
+          "path": "references/next-native-evidence/json-unit-initial-command.json",
+          "sha256": "170f12d52863238e6ab2113037fed1798de93b2cb03228c0e3704916c1d39812",
+          "originalRunFile": "test-runs/20261104-JSON-01/root/unit-01/command.json"
+        }
+      },
+      {
+        "stage": "enum-parser-change-only",
+        "count": 1,
+        "command": {
+          "path": "references/next-native-evidence/json-unit-modes-command.json",
+          "sha256": "3a7c588804858d4568cc0c1c1524427f88b72890f527987ff217272b6f490309",
+          "originalRunFile": "test-runs/20261104-JSON-01/root/mode-unit-02/command.json"
+        }
+      },
+      {
+        "stage": "detached-branch-fix-only",
+        "count": 1,
+        "command": {
+          "path": "references/next-native-evidence/json-unit-detached-command.json",
+          "sha256": "d1657b02b827a49094627c294053e1d556771fc6f32a3507968f2b14aa3fc9d6",
+          "originalRunFile": "test-runs/20261104-JSON-01/root/detached-unit-03/command.json"
+        }
+      }
+    ],
+    "evidenceNotRebound": true,
+    "oldSuccessfulCasesRepeatedAfterUnrelatedChange": false,
+    "missingIntegration": [
+      "full typed options/global targets",
+      "full recursive engine",
+      "node micro layout",
+      "public API/package"
+    ]
+  },
+  "portsComparator": {
+    "initialChangedRunnerTargetedPrimitives": 23,
+    "referenceReexecuted": false,
+    "graphLayoutExecuted": false,
+    "sourceSha256": "dd692b8c419983e033616c5284635b78ef0dafeefe4351500c037143b7f47043"
+  },
+  "mrtree": {
+    "implementedSourceSha256": "e4ddb290febfdc87e8962ceb45e0ff93265c4a032a9f910bdede4d50ecbd6d2e",
+    "scope": "import/treeify/root/order/Walker placement stages only",
+    "ownerControlsAreIndependentOracle": false,
+    "routingCompactionAndMicroLayoutPending": true,
+    "independentOriginalStageCases": 9,
+    "independentOriginalRoundingCases": 12,
+    "stageTypedDifferences": 0,
+    "stageIndependentCodeReviewAccepted": true
+  },
+  "evidence": {
+    "json-host-source-review-01.json": {
+      "path": "references/next-native-evidence/json-host-source-review-01.json",
+      "sha256": "acd15a07243f93c940ed05a491ca88e8cf64de2d6cb4cade3af86e814b7bc254",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/source-review-01.json"
+    },
+    "json-host-code-review-01.json": {
+      "path": "references/next-native-evidence/json-host-code-review-01.json",
+      "sha256": "dd538ae40690436a940d94db25a7b5ad1d2915a5ad76a69132e2a4e93801106e",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/json-transfer-code-review-01.json"
+    },
+    "json-host-four-originals-01.json": {
+      "path": "references/next-native-evidence/json-host-four-originals-01.json",
+      "sha256": "eff52a62d0b026f749fefeb3aae15263ddd59be35d3d01ff153c8d56cad08875",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/four-reference-comparison-01/report.json"
+    },
+    "json-host-detached-first-failure.json": {
+      "path": "references/next-native-evidence/json-host-detached-first-failure.json",
+      "sha256": "5251893cc0e20aeedb85ee28148df102901da52b6f71e7c2e7bd1d9d39814752",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/detached-reference-01/first-comparison.json"
+    },
+    "json-host-detached-fixed-02.json": {
+      "path": "references/next-native-evidence/json-host-detached-fixed-02.json",
+      "sha256": "f4aff56a812fabdeb42ab60fbc7b437c89af912c0673009782da377ea63a220b",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/detached-comparison-02/report.json"
+    },
+    "ports-final-handoff-01.json": {
+      "path": "references/next-native-evidence/ports-final-handoff-01.json",
+      "sha256": "eae0f566306d26cb70e57fc0924f458d630b8fa0659806ff18e3fef2644f12d8",
+      "originalRunFile": "test-runs/20261104-E13-01/A/checkpoint-handoff-01.json"
+    },
+    "node-context-code-review-02.json": {
+      "path": "references/next-native-evidence/node-context-code-review-02.json",
+      "sha256": "c50aad82258aff6245f6e4401a1c302f80e5cbe9484a3326196f6be3da5543fc",
+      "originalRunFile": "test-runs/20261104-E13-01/V/node-context-code-review-02.json"
+    },
+    "ports-comparator-initial-01.json": {
+      "path": "references/next-native-evidence/ports-comparator-initial-01.json",
+      "sha256": "46d64002eaca59eb464c560e60c54949b68a0cd846b74f216133ba0c00e90d28",
+      "originalRunFile": "test-runs/20261104-E13-01/A/compare-next-ports-01/comparison.json"
+    },
+    "ports-comparator-review-01.json": {
+      "path": "references/next-native-evidence/ports-comparator-review-01.json",
+      "sha256": "5f5c542fff73cc31d1e81e32adeeeb860367fa9f5d87adb10c362c38c715a6df",
+      "originalRunFile": "test-runs/20261104-E13-01/root/ports-comparator-review-01.json"
+    },
+    "mrtree-placement-source-review-01.json": {
+      "path": "references/next-native-evidence/mrtree-placement-source-review-01.json",
+      "sha256": "ef4edb6c62082d994b28df84fbbd172dc753a1ee619a07f3ecddcb96ced08494",
+      "originalRunFile": "test-runs/20261104-E17-01/root/placement-source-review-01.json"
+    },
+    "mrtree-placement-source-proposal-02.json": {
+      "path": "references/next-native-evidence/mrtree-placement-source-proposal-02.json",
+      "sha256": "8206febe374827e822089459436a36622229d5dbf618ec64c96e82166a8ce0ba",
+      "originalRunFile": "test-runs/20261104-E17-01/B/second-source-proposal-02.json"
+    },
+    "mrtree-placement-owner-01.json": {
+      "path": "references/next-native-evidence/mrtree-placement-owner-01.json",
+      "sha256": "57350718a1cc85b862cb4dd8331da64290f2b3c72b1439b34a634d8b32eabb81",
+      "originalRunFile": "test-runs/20261104-E17-01/B/placement-smoke-01.json"
+    },
+    "json-four-originals-command.json": {
+      "path": "references/next-native-evidence/json-four-originals-command.json",
+      "sha256": "67820e06ab97c5279bfc1cb07ee0ee03e8e4d615ab2643b9340d1e60f4a48071",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/four-reference-comparison-01/command.json"
+    },
+    "json-four-originals-stdout.log": {
+      "path": "references/next-native-evidence/json-four-originals-stdout.log",
+      "sha256": "4152b914ac617a1fe63e92ee5507a6d6877f043471338a0fd5e40b7c63a01ea2",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/four-reference-comparison-01/stdout.log"
+    },
+    "json-four-originals-stderr.log": {
+      "path": "references/next-native-evidence/json-four-originals-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/four-reference-comparison-01/stderr.log"
+    },
+    "json-detached-fixed-command.json": {
+      "path": "references/next-native-evidence/json-detached-fixed-command.json",
+      "sha256": "b78ac2f84835ca0969076deb6843ad1b050593b7f94f72b2e72fae541caefae3",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/detached-comparison-02/command.json"
+    },
+    "json-detached-fixed-stdout.log": {
+      "path": "references/next-native-evidence/json-detached-fixed-stdout.log",
+      "sha256": "79acc11471395177ac5d9731e2f6d36bb63fbe5dc8a259cf777d767c842fa658",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/detached-comparison-02/stdout.log"
+    },
+    "json-detached-fixed-stderr.log": {
+      "path": "references/next-native-evidence/json-detached-fixed-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/detached-comparison-02/stderr.log"
+    },
+    "json-unit-initial-command.json": {
+      "path": "references/next-native-evidence/json-unit-initial-command.json",
+      "sha256": "170f12d52863238e6ab2113037fed1798de93b2cb03228c0e3704916c1d39812",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/unit-01/command.json"
+    },
+    "json-unit-initial-stdout.log": {
+      "path": "references/next-native-evidence/json-unit-initial-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/unit-01/stdout.log"
+    },
+    "json-unit-initial-stderr.log": {
+      "path": "references/next-native-evidence/json-unit-initial-stderr.log",
+      "sha256": "05897dbfa550b0f69d38d73486000daf60b6da357353f9c22f43ee068a493c0c",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/unit-01/stderr.log"
+    },
+    "json-unit-modes-command.json": {
+      "path": "references/next-native-evidence/json-unit-modes-command.json",
+      "sha256": "3a7c588804858d4568cc0c1c1524427f88b72890f527987ff217272b6f490309",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/mode-unit-02/command.json"
+    },
+    "json-unit-modes-stdout.log": {
+      "path": "references/next-native-evidence/json-unit-modes-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/mode-unit-02/stdout.log"
+    },
+    "json-unit-modes-stderr.log": {
+      "path": "references/next-native-evidence/json-unit-modes-stderr.log",
+      "sha256": "46916b838f2fa4e20ed2c0fd9d1b9b4641216d2e3ab9d9f49dc238328b424510",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/mode-unit-02/stderr.log"
+    },
+    "json-unit-detached-command.json": {
+      "path": "references/next-native-evidence/json-unit-detached-command.json",
+      "sha256": "d1657b02b827a49094627c294053e1d556771fc6f32a3507968f2b14aa3fc9d6",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/detached-unit-03/command.json"
+    },
+    "json-unit-detached-stdout.log": {
+      "path": "references/next-native-evidence/json-unit-detached-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/detached-unit-03/stdout.log"
+    },
+    "json-unit-detached-stderr.log": {
+      "path": "references/next-native-evidence/json-unit-detached-stderr.log",
+      "sha256": "289a1f0bc347e610d6b80259504123468a8bc71e3f2687337bfdafdaa82f44f5",
+      "originalRunFile": "test-runs/20261104-JSON-01/root/detached-unit-03/stderr.log"
+    },
+    "ports-comparator-initial-command.json": {
+      "path": "references/next-native-evidence/ports-comparator-initial-command.json",
+      "sha256": "99e8094b38c7164c4c2098e3b99c48fd7070a277d61477c67ed3e2d4b10de61c",
+      "originalRunFile": "test-runs/20261104-E13-01/A/compare-next-ports-01/command.json"
+    },
+    "ports-comparator-initial-stdout.log": {
+      "path": "references/next-native-evidence/ports-comparator-initial-stdout.log",
+      "sha256": "b0c619bfbd66a50e60ee1776ed4e275807c19bbe6fd80c29e6615a2433ffba09",
+      "originalRunFile": "test-runs/20261104-E13-01/A/compare-next-ports-01/stdout.log"
+    },
+    "ports-comparator-initial-stderr.log": {
+      "path": "references/next-native-evidence/ports-comparator-initial-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E13-01/A/compare-next-ports-01/stderr.log"
+    },
+    "json-host-harness-original.bin": {
+      "path": "references/next-native-evidence/json-host-harness-original.bin",
+      "sha256": "193790105d5ede7d96c0894ed4e51549dab90d604f466b52149f11c58acfd226",
+      "originalRunFile": "tests/fixtures/suites/next-native/compare_json_transfer.py"
+    },
+    "node-context-type-source-review-01.json": {
+      "path": "references/next-native-evidence/node-context-type-source-review-01.json",
+      "sha256": "5f92e10db8df1a16ef4d2446b097bbb06839998357d01d9da2bcb3adca5635c8",
+      "originalRunFile": "test-runs/20261104-E13-01/root/node-context-types-source-review-01.json"
+    },
+    "mrtree-stage-comparison-01.json": {
+      "path": "references/next-native-evidence/mrtree-stage-comparison-01.json",
+      "sha256": "d5bdf52afeec9ee79d16963e731d53b911d8c3746a316aa1552dab688ffcefca",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-comparison-01/report.json"
+    },
+    "mrtree-stage-code-review-01.json": {
+      "path": "references/next-native-evidence/mrtree-stage-code-review-01.json",
+      "sha256": "391369650590f2ea653976399128b2b29548c80c4010f843605946ae4f3f889d",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-code-review-01.json"
+    },
+    "mrtree-stage-handoff-01.json": {
+      "path": "references/next-native-evidence/mrtree-stage-handoff-01.json",
+      "sha256": "be276e532421cdc1e26956639c3e1269917a5b633eee7024a1f8c27c3cb410ad",
+      "originalRunFile": "test-runs/20261104-E17-01/B/handoff-stages-01.json"
+    },
+    "mrtree-stage-command.json": {
+      "path": "references/next-native-evidence/mrtree-stage-command.json",
+      "sha256": "26292a6fb7cbeb351d9d92a8358af8809e85cd76f43fb857207a9416af9ce987",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-comparison-01/command.json"
+    },
+    "mrtree-stage-stdout.log": {
+      "path": "references/next-native-evidence/mrtree-stage-stdout.log",
+      "sha256": "bb1a15cc888d05379fffc9280a5d460b0b9afebc43931f2e25cd91843e7561ab",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-comparison-01/stdout.log"
+    },
+    "mrtree-stage-stderr.log": {
+      "path": "references/next-native-evidence/mrtree-stage-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-comparison-01/stderr.log"
+    },
+    "mrtree-oracle-command.json": {
+      "path": "references/next-native-evidence/mrtree-oracle-command.json",
+      "sha256": "8ba8927693fc618c9f6ca5415bd91404d16cbea62cff4f2726f21ed54743fec5",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-oracle-02/command.json"
+    },
+    "mrtree-oracle-stdout.log": {
+      "path": "references/next-native-evidence/mrtree-oracle-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-oracle-02/stdout.log"
+    },
+    "mrtree-oracle-stderr.log": {
+      "path": "references/next-native-evidence/mrtree-oracle-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E17-01/V/stage-oracle-02/stderr.log"
+    }
+  },
+  "fullValidation": false,
+  "publicAPIIntegrated": false,
+  "installedPackageValidated": false,
+  "packagePublished": false,
+  "wholeAlgorithmsAccepted": 0,
+  "nextWork": [
+    "Implement20 source-bound NodeContext typed options; preserve Core/algorithm override distinction and source split semantics",
+    "Complete A node-size contribution math and actual adapters",
+    "Complete E17 routing/compaction/radial and independent stage oracles",
+    "E11 final license choice/candidate delivery remains pending, continue independent migration"
+  ],
+  "nextTypedOptions": {
+    "sourceReviewAccepted": true,
+    "options": 20,
+    "sourceSpans": 118,
+    "additionalRuntimeObservationAndZeroDefaultSpans": 2,
+    "implementationPending": true,
+    "sourceProposal": "references/e13-option-type-sources.json",
+    "sourceProposalSha256": "b1add8de684b758c6894f01ba4841364826d2b6401818f4abe916199d45322f9"
+  }
+}

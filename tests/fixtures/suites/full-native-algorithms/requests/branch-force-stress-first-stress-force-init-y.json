@@ -1,0 +1,85 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.randomSeed": 13,
+      "org.eclipse.elk.force.iterations": 5,
+      "org.eclipse.elk.stress.dimension": "Y",
+      "org.eclipse.elk.stress.iterationLimit": 3,
+      "org.eclipse.elk.stress.epsilon": 0,
+      "org.eclipse.elk.stress.desiredEdgeLength": 40
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 3,
+        "y": 6
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 40,
+        "y": 25
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 5,
+        "y": 80
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        }
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        }
+      },
+      {
+        "id": "ca",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "a"
+        ],
+        "business": {
+          "edge": "ca"
+        },
+        "labels": [
+          {
+            "text": "cycle",
+            "width": 6,
+            "height": 3
+          }
+        ]
+      }
+    ]
+  }
+}

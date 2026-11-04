@@ -1,0 +1,2741 @@
+{
+  "schema": "py-elk-e06-nodesize-source-states/v1",
+  "nativeRuntimeAccepted": false,
+  "caseCount": 3,
+  "cases": [
+    {
+      "id": "two-loops",
+      "schema": "py-elk-e06-extracted-phases/v1",
+      "stage": "LabelAndNodeSizeProcessor",
+      "requestSha256": "d04da694b6f9ff3c48a6c308b7b4a2e4f93a10f2f1318f776b1d75b6e0711bb2",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInIiLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDEKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiYSIsCiAgICAgICAgIndpZHRoIjogNDAsCiAgICAgICAgImhlaWdodCI6IDMwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibDAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgImEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJhIgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJsMSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAiYSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgImEiCiAgICAgICAgXQogICAgICB9CiAgICBdCiAgfQp9Cg==",
+      "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "toolSha256": "fea6a362319d66f46def77e04c86add3532d70f5436ec7574cb1e1dc07db56f0",
+      "producerFilesSha256": {
+        "summary.json": "b8aa81d93e3913818f5bb576c57feeee996fc44cc101f76c423d784a16245858",
+        "bundled.json": "e424633e8a64104ad64b4cfede137b3e058fc297e9f209a95717ec71549ec27c",
+        "pretty.json": "ee760d0ba5d2c68a9abb536310f70b1a2d27a934ed17dbfb2e44d17c4322cd7d",
+        "instrumented.json": "684c46aa6f99144fea54c4cf1389250827f7c56a400f6f728b6fe44dcb8f772a"
+      },
+      "calls": [
+        {
+          "index": 13,
+          "name": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+          "strategy": null,
+          "before": {
+            "facts": {
+              "originIdentifier": "r",
+              "sourceProperties": {
+                "ORIGIN": {
+                  "identity": "o0"
+                }
+              }
+            },
+            "layerless": [],
+            "layers": [
+              {
+                "nodes": [
+                  "o1"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "identity": "o1",
+                "facts": {
+                  "originIdentifier": "a",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o2"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 40,
+                  "y": 30
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_SIDE",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "NORTH",
+                    "first": 0,
+                    "last": 0
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o11",
+                  "node": "o1",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o12",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o3",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o13"
+                      ]
+                    },
+                    {
+                      "identity": "o14",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o6",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o13"
+                      ],
+                      "outgoingSLEdges": []
+                    },
+                    {
+                      "identity": "o15",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o7",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o16"
+                      ]
+                    },
+                    {
+                      "identity": "o17",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o10",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o16"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o18",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o12",
+                        "o14"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o13",
+                          "slSource": "o12",
+                          "slTarget": "o14",
+                          "edge": {
+                            "identity": "o4",
+                            "facts": {
+                              "originIdentifier": "l0",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o5"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "identity": "o19",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o15",
+                        "o17"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o16",
+                          "slSource": "o15",
+                          "slTarget": "o17",
+                          "edge": {
+                            "identity": "o8",
+                            "facts": {
+                              "originIdentifier": "l1",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o9"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o7",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o3",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o6",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o10",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  }
+                ]
+              }
+            ],
+            "size": {
+              "x": 0,
+              "y": 0
+            },
+            "offset": {
+              "x": 0,
+              "y": 0
+            },
+            "padding": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "random": {
+              "seedhi": 1502,
+              "seedlo": 15525484
+            }
+          },
+          "after": {
+            "facts": {
+              "originIdentifier": "r",
+              "sourceProperties": {
+                "ORIGIN": {
+                  "identity": "o0"
+                }
+              }
+            },
+            "layerless": [],
+            "layers": [
+              {
+                "nodes": [
+                  "o1"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "identity": "o1",
+                "facts": {
+                  "originIdentifier": "a",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o2"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 40,
+                  "y": 30
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_SIDE",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "NORTH",
+                    "first": 0,
+                    "last": 0
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o11",
+                  "node": "o1",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o12",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o3",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 16,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o13"
+                      ]
+                    },
+                    {
+                      "identity": "o14",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o6",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 2,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 24,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o13"
+                      ],
+                      "outgoingSLEdges": []
+                    },
+                    {
+                      "identity": "o15",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o7",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 0,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 8,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o16"
+                      ]
+                    },
+                    {
+                      "identity": "o17",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o10",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 3,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 32,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o16"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o18",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o12",
+                        "o14"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o13",
+                          "slSource": "o12",
+                          "slTarget": "o14",
+                          "edge": {
+                            "identity": "o4",
+                            "facts": {
+                              "originIdentifier": "l0",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o5"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "identity": "o19",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o15",
+                        "o17"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o16",
+                          "slSource": "o15",
+                          "slTarget": "o17",
+                          "edge": {
+                            "identity": "o8",
+                            "facts": {
+                              "originIdentifier": "l1",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o9"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o7",
+                    "id": 0,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 8,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o3",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 16,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o6",
+                    "id": 2,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 24,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o10",
+                    "id": 3,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 32,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  }
+                ]
+              }
+            ],
+            "size": {
+              "x": 0,
+              "y": 0
+            },
+            "offset": {
+              "x": 0,
+              "y": 0
+            },
+            "padding": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "random": {
+              "seedhi": 1502,
+              "seedlo": 15525484
+            }
+          },
+          "rng": []
+        }
+      ],
+      "pythonAlgorithmsVerified": 0,
+      "runtimeAccepted": false,
+      "limitation": "Actual private source states only. Repeated strategy calls stay separate; V8 missing entries do not prove non-execution. No candidate values are used."
+    },
+    {
+      "id": "mixed-loop-parallel",
+      "schema": "py-elk-e06-extracted-phases/v1",
+      "stage": "LabelAndNodeSizeProcessor",
+      "requestSha256": "3995e6806b553443191f4c18cd6f95a6fab4f3cafde2bbadc58bf1736aa6cd08",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInIiLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDEKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiYSIsCiAgICAgICAgIndpZHRoIjogNDAsCiAgICAgICAgImhlaWdodCI6IDMwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogMzAsCiAgICAgICAgImhlaWdodCI6IDIwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibDAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgImEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJhIgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAiYSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgImIiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUxIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJhIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAiYiIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibDEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgImIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJiIgogICAgICAgIF0KICAgICAgfQogICAgXQogIH0KfQo=",
+      "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "toolSha256": "fea6a362319d66f46def77e04c86add3532d70f5436ec7574cb1e1dc07db56f0",
+      "producerFilesSha256": {
+        "summary.json": "4965d1c9c6cde350b1709ad6ab0cf4d39ba23cfd06f842b310766a83cc23224e",
+        "bundled.json": "40d0c8ab4233c0700a05eec6bc78fbf48aaa1b307781c81a5091895b359eb4a2",
+        "pretty.json": "54d0d2498d811d2c0e38b15b221dda173373f23883e663630a90bbe825452ec0",
+        "instrumented.json": "4c657c0882b1b0b0b7c59af317c3759b15ab04b39438a06a2f1a052f0a225da9"
+      },
+      "calls": [
+        {
+          "index": 13,
+          "name": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+          "strategy": null,
+          "before": {
+            "facts": {
+              "originIdentifier": "r",
+              "sourceProperties": {
+                "ORIGIN": {
+                  "identity": "o0"
+                }
+              }
+            },
+            "layerless": [],
+            "layers": [
+              {
+                "nodes": [
+                  "o1"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "nodes": [
+                  "o2"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "identity": "o1",
+                "facts": {
+                  "originIdentifier": "a",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o3"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 40,
+                  "y": 30
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_ORDER",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "EAST",
+                    "first": 0,
+                    "last": 2
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o21",
+                  "node": "o1",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o22",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o4",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o23"
+                      ]
+                    },
+                    {
+                      "identity": "o24",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o7",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o23"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o25",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o22",
+                        "o24"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o23",
+                          "slSource": "o22",
+                          "slTarget": "o24",
+                          "edge": {
+                            "identity": "o5",
+                            "facts": {
+                              "originIdentifier": "l0",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o6"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o4",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o7",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o12",
+                    "id": 0,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "EAST",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": [
+                      {
+                        "identity": "o13",
+                        "facts": {
+                          "originIdentifier": "e1",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o14"
+                            }
+                          }
+                        },
+                        "source": "o12",
+                        "target": "o15",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ]
+                  },
+                  {
+                    "identity": "o8",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "EAST",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": [
+                      {
+                        "identity": "o9",
+                        "facts": {
+                          "originIdentifier": "e0",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o10"
+                            }
+                          }
+                        },
+                        "source": "o8",
+                        "target": "o11",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "identity": "o2",
+                "facts": {
+                  "originIdentifier": "b",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o16"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 30,
+                  "y": 20
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_ORDER",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "WEST",
+                    "first": 0,
+                    "last": 2
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o26",
+                  "node": "o2",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o27",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o17",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o2",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o28"
+                      ]
+                    },
+                    {
+                      "identity": "o29",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o20",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o2",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o28"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o30",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o27",
+                        "o29"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o28",
+                          "slSource": "o27",
+                          "slTarget": "o29",
+                          "edge": {
+                            "identity": "o18",
+                            "facts": {
+                              "originIdentifier": "l1",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o19"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o17",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o20",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o11",
+                    "id": 2,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "WEST",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [
+                      {
+                        "identity": "o9",
+                        "facts": {
+                          "originIdentifier": "e0",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o10"
+                            }
+                          }
+                        },
+                        "source": "o8",
+                        "target": "o11",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o15",
+                    "id": 3,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "WEST",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [
+                      {
+                        "identity": "o13",
+                        "facts": {
+                          "originIdentifier": "e1",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o14"
+                            }
+                          }
+                        },
+                        "source": "o12",
+                        "target": "o15",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ],
+                    "outgoing": []
+                  }
+                ]
+              }
+            ],
+            "size": {
+              "x": 0,
+              "y": 0
+            },
+            "offset": {
+              "x": 0,
+              "y": 0
+            },
+            "padding": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "random": {
+              "seedhi": 12222700,
+              "seedlo": 16415130
+            }
+          },
+          "after": {
+            "facts": {
+              "originIdentifier": "r",
+              "sourceProperties": {
+                "ORIGIN": {
+                  "identity": "o0"
+                }
+              }
+            },
+            "layerless": [],
+            "layers": [
+              {
+                "nodes": [
+                  "o1"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              },
+              {
+                "nodes": [
+                  "o2"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "identity": "o1",
+                "facts": {
+                  "originIdentifier": "a",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o3"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 40,
+                  "y": 30
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_ORDER",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "EAST",
+                    "first": 0,
+                    "last": 2
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o21",
+                  "node": "o1",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o22",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o4",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 0,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 13.333333333333334,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o23"
+                      ]
+                    },
+                    {
+                      "identity": "o24",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o7",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 26.666666666666668,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o23"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o25",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o22",
+                        "o24"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o23",
+                          "slSource": "o22",
+                          "slTarget": "o24",
+                          "edge": {
+                            "identity": "o5",
+                            "facts": {
+                              "originIdentifier": "l0",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o6"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o4",
+                    "id": 0,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 13.333333333333334,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o7",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 26.666666666666668,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o12",
+                    "id": 2,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "EAST",
+                    "position": {
+                      "x": 40,
+                      "y": 10
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": [
+                      {
+                        "identity": "o13",
+                        "facts": {
+                          "originIdentifier": "e1",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o14"
+                            }
+                          }
+                        },
+                        "source": "o12",
+                        "target": "o15",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ]
+                  },
+                  {
+                    "identity": "o8",
+                    "id": 3,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "EAST",
+                    "position": {
+                      "x": 40,
+                      "y": 20
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": [
+                      {
+                        "identity": "o9",
+                        "facts": {
+                          "originIdentifier": "e0",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o10"
+                            }
+                          }
+                        },
+                        "source": "o8",
+                        "target": "o11",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "identity": "o2",
+                "facts": {
+                  "originIdentifier": "b",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o16"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 30,
+                  "y": 20
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_ORDER",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "WEST",
+                    "first": 0,
+                    "last": 2
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o26",
+                  "node": "o2",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o27",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o17",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 0,
+                        "owner": "o2",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 10,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o28"
+                      ]
+                    },
+                    {
+                      "identity": "o29",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o20",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o2",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 20,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o28"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o30",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o27",
+                        "o29"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o28",
+                          "slSource": "o27",
+                          "slTarget": "o29",
+                          "edge": {
+                            "identity": "o18",
+                            "facts": {
+                              "originIdentifier": "l1",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o19"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o17",
+                    "id": 0,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 10,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o20",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 20,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o11",
+                    "id": 2,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "WEST",
+                    "position": {
+                      "x": 0,
+                      "y": 13.333333333333332
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [
+                      {
+                        "identity": "o9",
+                        "facts": {
+                          "originIdentifier": "e0",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o10"
+                            }
+                          }
+                        },
+                        "source": "o8",
+                        "target": "o11",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o15",
+                    "id": 3,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "WEST",
+                    "position": {
+                      "x": 0,
+                      "y": 6.666666666666666
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [
+                      {
+                        "identity": "o13",
+                        "facts": {
+                          "originIdentifier": "e1",
+                          "sourceProperties": {
+                            "ORIGIN": {
+                              "identity": "o14"
+                            }
+                          }
+                        },
+                        "source": "o12",
+                        "target": "o15",
+                        "properties": {},
+                        "bendPoints": []
+                      }
+                    ],
+                    "outgoing": []
+                  }
+                ]
+              }
+            ],
+            "size": {
+              "x": 0,
+              "y": 0
+            },
+            "offset": {
+              "x": 0,
+              "y": 0
+            },
+            "padding": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "random": {
+              "seedhi": 12222700,
+              "seedlo": 16415130
+            }
+          },
+          "rng": []
+        }
+      ],
+      "pythonAlgorithmsVerified": 0,
+      "runtimeAccepted": false,
+      "limitation": "Actual private source states only. Repeated strategy calls stay separate; V8 missing entries do not prove non-execution. No candidate values are used."
+    },
+    {
+      "id": "tiny-NORTH",
+      "schema": "py-elk-e06-extracted-phases/v1",
+      "stage": "LabelAndNodeSizeProcessor",
+      "requestSha256": "1fcdad588d6cf17e713a7263a79e7204237fada2eea38ccf9b14980eb775038e",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogImUwNi1yb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicm9vdC1idXNpbmVzcy1zdGFjayIKICAgICAgfQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJncmFwaC1ub2RlLTAiLAogICAgICAgICJ3aWR0aCI6IDFlLTE0LAogICAgICAgICJoZWlnaHQiOiAxZS0xNCwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAiJEgiOiAwLAogICAgICAgICAgIm51bGwiOiBudWxsCiAgICAgICAgfQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImdyYXBoLWVkZ2UtMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAiZ3JhcGgtbm9kZS0wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAiZ3JhcGgtbm9kZS0wIgogICAgICAgIF0sCiAgICAgICAgImJ1c2luZXNzIjogewogICAgICAgICAgImVycm9yIjogewogICAgICAgICAgICAic3RhY2siOiAiZWRnZS1idXNpbmVzcy1zdGFjayIKICAgICAgICAgIH0sCiAgICAgICAgICAiZmFsc2UiOiBmYWxzZQogICAgICAgIH0KICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNwogICAgfQogIH0KfQo=",
+      "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "toolSha256": "fea6a362319d66f46def77e04c86add3532d70f5436ec7574cb1e1dc07db56f0",
+      "producerFilesSha256": {
+        "summary.json": "38cd6c05b1291ace2848d3d95d62c63cd883669ee9b1b439037bc6144d76140f",
+        "bundled.json": "0c9ea2131066377276a0a7a8b9879e0f94dbda413b059efb0f1b0b832d17bd1a",
+        "pretty.json": "50d86945c8901490ff6784944cef6a7fbfadaa73052bba456876245e59cd365e",
+        "instrumented.json": "abe38e180dce2876a6111f859f9bb7ee45fb0159100d6c75ce911321c63e3a37"
+      },
+      "calls": [
+        {
+          "index": 13,
+          "name": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+          "strategy": null,
+          "before": {
+            "facts": {
+              "originIdentifier": "e06-root",
+              "sourceProperties": {
+                "ORIGIN": {
+                  "identity": "o0"
+                }
+              }
+            },
+            "layerless": [],
+            "layers": [
+              {
+                "nodes": [
+                  "o1"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "identity": "o1",
+                "facts": {
+                  "originIdentifier": "graph-node-0",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o2"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 1e-14,
+                  "y": 1e-14
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_SIDE",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "NORTH",
+                    "first": 0,
+                    "last": 0
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o7",
+                  "node": "o1",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o8",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o3",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o9"
+                      ]
+                    },
+                    {
+                      "identity": "o10",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o6",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o9"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o11",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o8",
+                        "o10"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o9",
+                          "slSource": "o8",
+                          "slTarget": "o10",
+                          "edge": {
+                            "identity": "o4",
+                            "facts": {
+                              "originIdentifier": "graph-edge-0",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o5"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o3",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o6",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  }
+                ]
+              }
+            ],
+            "size": {
+              "x": 0,
+              "y": 0
+            },
+            "offset": {
+              "x": 0,
+              "y": 0
+            },
+            "padding": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "random": {
+              "seedhi": 1502,
+              "seedlo": 15525500
+            }
+          },
+          "after": {
+            "facts": {
+              "originIdentifier": "e06-root",
+              "sourceProperties": {
+                "ORIGIN": {
+                  "identity": "o0"
+                }
+              }
+            },
+            "layerless": [],
+            "layers": [
+              {
+                "nodes": [
+                  "o1"
+                ],
+                "size": {
+                  "x": 0,
+                  "y": 0
+                }
+              }
+            ],
+            "nodes": [
+              {
+                "identity": "o1",
+                "facts": {
+                  "originIdentifier": "graph-node-0",
+                  "sourceProperties": {
+                    "ORIGIN": {
+                      "identity": "o2"
+                    }
+                  }
+                },
+                "id": 0,
+                "type": "NORMAL",
+                "position": {
+                  "x": 0,
+                  "y": 0
+                },
+                "size": {
+                  "x": 1e-14,
+                  "y": 1e-14
+                },
+                "margin": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "padding": {
+                  "top": 0,
+                  "right": 0,
+                  "bottom": 0,
+                  "left": 0
+                },
+                "properties": {
+                  "PORT_CONSTRAINTS": "FIXED_SIDE",
+                  "ORIGINAL_PORT_CONSTRAINTS": "FREE"
+                },
+                "portSideIndices": [
+                  {
+                    "side": "NORTH",
+                    "first": 0,
+                    "last": 0
+                  }
+                ],
+                "selfLoopHolder": {
+                  "identity": "o7",
+                  "node": "o1",
+                  "arePortsHidden": false,
+                  "routingSlotCount": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  ],
+                  "ports": [
+                    {
+                      "identity": "o8",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o3",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 0,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 3.552713678800501e-15,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [],
+                      "outgoingSLEdges": [
+                        "o9"
+                      ]
+                    },
+                    {
+                      "identity": "o10",
+                      "isHidden": false,
+                      "hadOnlySelfLoops": true,
+                      "port": {
+                        "identity": "o6",
+                        "facts": {
+                          "originIdentifier": null,
+                          "sourceProperties": {}
+                        },
+                        "id": 1,
+                        "owner": "o1",
+                        "side": "NORTH",
+                        "position": {
+                          "x": 7.105427357601002e-15,
+                          "y": 0
+                        },
+                        "size": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "anchor": {
+                          "x": 0,
+                          "y": 0
+                        },
+                        "properties": {},
+                        "incoming": [],
+                        "outgoing": []
+                      },
+                      "incomingSLEdges": [
+                        "o9"
+                      ],
+                      "outgoingSLEdges": []
+                    }
+                  ],
+                  "loops": [
+                    {
+                      "identity": "o11",
+                      "selfLoopType": "ONE_SIDE",
+                      "leftmostPort": null,
+                      "rightmostPort": null,
+                      "routingSlot": [
+                        0,
+                        0,
+                        0,
+                        0,
+                        0
+                      ],
+                      "portOrder": [
+                        "o8",
+                        "o10"
+                      ],
+                      "labelsPresent": false,
+                      "edges": [
+                        {
+                          "identity": "o9",
+                          "slSource": "o8",
+                          "slTarget": "o10",
+                          "edge": {
+                            "identity": "o4",
+                            "facts": {
+                              "originIdentifier": "graph-edge-0",
+                              "sourceProperties": {
+                                "ORIGIN": {
+                                  "identity": "o5"
+                                }
+                              }
+                            },
+                            "id": 0,
+                            "source": null,
+                            "target": null,
+                            "properties": {},
+                            "bendPoints": []
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                "ports": [
+                  {
+                    "identity": "o3",
+                    "id": 0,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 3.552713678800501e-15,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  },
+                  {
+                    "identity": "o6",
+                    "id": 1,
+                    "facts": {
+                      "originIdentifier": null,
+                      "sourceProperties": {}
+                    },
+                    "side": "NORTH",
+                    "position": {
+                      "x": 7.105427357601002e-15,
+                      "y": 0
+                    },
+                    "size": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "anchor": {
+                      "x": 0,
+                      "y": 0
+                    },
+                    "properties": {},
+                    "incoming": [],
+                    "outgoing": []
+                  }
+                ]
+              }
+            ],
+            "size": {
+              "x": 0,
+              "y": 0
+            },
+            "offset": {
+              "x": 0,
+              "y": 0
+            },
+            "padding": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "random": {
+              "seedhi": 1502,
+              "seedlo": 15525500
+            }
+          },
+          "rng": []
+        }
+      ],
+      "pythonAlgorithmsVerified": 0,
+      "runtimeAccepted": false,
+      "limitation": "Actual private source states only. Repeated strategy calls stay separate; V8 missing entries do not prove non-execution. No candidate values are used."
+    }
+  ]
+}

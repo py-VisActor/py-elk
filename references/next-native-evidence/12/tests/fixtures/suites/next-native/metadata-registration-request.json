@@ -1,0 +1,17 @@
+{
+  "groups": [
+    {"name": "core", "algorithms": []},
+    {"name": "layered", "algorithms": ["layered"]},
+    {"name": "force", "algorithms": ["force"]},
+    {"name": "stress", "algorithms": ["stress"]},
+    {"name": "mrtree", "algorithms": ["mrtree"]},
+    {"name": "radial", "algorithms": ["radial"]},
+    {"name": "disco", "algorithms": ["disco"]},
+    {"name": "spore", "algorithms": ["sporeOverlap"]},
+    {"name": "rectpacking", "algorithms": ["rectpacking"]},
+    {"name": "default", "algorithms": ["layered", "stress", "mrtree", "radial", "force", "disco", "sporeOverlap", "sporeCompaction", "rectpacking"]},
+    {"name": "unrecognized-selectors", "algorithms": ["org.eclipse.elk.layered", "unknown", "fixed", "box", "random"]}
+  ],
+  "queries": ["direction", "elk.direction", "priority.direction", "northOrSouthPort", "elk.layered.northOrSouthPort", "org.eclipse.elk.layered.northOrSouthPort", "allowNonFlowPortsToSwitchSides", "nonexistent"],
+  "warmSequence": [[], ["layered"], ["force"]]
+}

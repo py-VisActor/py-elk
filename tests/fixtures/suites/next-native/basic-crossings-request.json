@@ -1,0 +1,10 @@
+{
+  "layers":[["a","b"],["c","d"]],
+  "nodes":[{"id":"a","ports":[["a1","EAST"],["a2","EAST"]]},{"id":"b","ports":[["b1","EAST"]]},{"id":"c","ports":[["c1","WEST"],["c2","WEST"]]},{"id":"d","ports":[["d1","WEST"],["d2","WEST"]]}],
+  "edges":[["a1","d1"],["a1","d1"],["b1","c1"],["d2","c2"],["c1","c2"],["a2","d2"],["c2","a2"]],
+  "cases":[
+    {"id":"fenwick-multiplicity-exclusive-prefix-and-fresh-clear","operation":"bit","max":6,"steps":[["add",3],["add",3],["add",0],["rank",3],["rank",4],["remove",3],["remove",3],["rank",4],["clear"],["rank",6]]},
+    {"id":"between-with-parallel-mixed-and-inlayer-incidences","operation":"between"},
+    {"id":"inlayer-open-arcs-times-between-degree","operation":"inlayer"}
+  ]
+}

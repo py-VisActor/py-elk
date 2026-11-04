@@ -1,0 +1,219 @@
+{
+  "schema": "py-elk-e06-export-controls/v1",
+  "status": "E06_EXPORT_CONTROLS_PASS",
+  "inputs": [
+    {
+      "path": "test-runs/20261103-E06-01/installed-e06-01/report.json",
+      "sha256": "c267fccecaee98491038c2012813be7118d424b41901be5d9ff3dbd48707c50c"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/installed-e06-01/comparison.json",
+      "sha256": "db81d58c460744c76cb28c68ecdf9370021f8649d4ec8f4d91cdf82e28aebac9"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/installed-e06-01/installed-wheel.json",
+      "sha256": "72fecaf356f2be63ec416bc1c5f8c15132168619bf34928471ba9de10c63c13b"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/installed-e06-01/reference/index.json",
+      "sha256": "e275d8b6429ce0b1304ea79ecb977af5fbdf980e52420583f699fcabb56ee13c"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/installed-e06-01/candidate/index.json",
+      "sha256": "5c36ccbc54dc79383aa490d9f36b89a29df84849c56c97e58145fa60635f0bd5"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/v1-loop-two/capture/summary.json",
+      "sha256": "b8aa81d93e3913818f5bb576c57feeee996fc44cc101f76c423d784a16245858"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/v1-loop-two/capture/bundled.json",
+      "sha256": "e424633e8a64104ad64b4cfede137b3e058fc297e9f209a95717ec71549ec27c"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/v1-loop-two/capture/pretty.json",
+      "sha256": "ee760d0ba5d2c68a9abb536310f70b1a2d27a934ed17dbfb2e44d17c4322cd7d"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/v1-loop-two/capture/instrumented.json",
+      "sha256": "684c46aa6f99144fea54c4cf1389250827f7c56a400f6f728b6fe44dcb8f772a"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/v1-loop-two/capture/request.json",
+      "sha256": "d04da694b6f9ff3c48a6c308b7b4a2e4f93a10f2f1318f776b1d75b6e0711bb2"
+    }
+  ],
+  "sourceFiles": [
+    {
+      "path": "tools/reference/check_e05_export_controls.py",
+      "sha256": "2b274b3ffa6c4f10bcd25853b925fa3e1db5f6ab758f43df54fff1fc4e6a1cd8"
+    },
+    {
+      "path": "scripts/export_e05_installed_evidence.py",
+      "sha256": "f56196aeeb66744533085e302d53659bc1599741067717a1594c507f834049f2"
+    },
+    {
+      "path": "scripts/export_e05_phase_observations.py",
+      "sha256": "5fd7aee6c9147ee649ff35a06d108af98f71dfe7918eb1078e8f933b40951c2a"
+    },
+    {
+      "path": "scripts/validate_e04_runtime.py",
+      "sha256": "2eccc3d480b34dc4f9015b920b25402b4957cf10cff93daa9d827d2841478542"
+    },
+    {
+      "path": "scripts/layout_checks.py",
+      "sha256": "6c33428224565931344691ffb08c02563213bb48377de4b77042cfc8e4e76529"
+    }
+  ],
+  "runtimeReexecuted": false,
+  "installationReexecuted": false,
+  "engineLaunched": false,
+  "pythonAlgorithmsVerified": 0,
+  "fullAlgorithmAccepted": false,
+  "packagePublished": false,
+  "limitation": "Offline exporter/receipt self-consistency controls only. They cannot authenticate an entirely forged historical chain or prove mathematical equivalence/layout/API/lifecycle/release acceptance.",
+  "positiveControls": {
+    "installed": {
+      "passed": true,
+      "cases": 52,
+      "repeat": 3,
+      "wheelSha256": "83861c32ededc634e511a2ff9c0b197208ead612df1782697c3d96dee7e4eff1"
+    },
+    "phase": {
+      "passed": true,
+      "stage": "LayerSweepCrossingMinimizer",
+      "calls": 2,
+      "strategies": [
+        "BARYCENTER",
+        "TWO_SIDED_GREEDY_SWITCH"
+      ]
+    },
+    "classification": "Real original captures revalidated offline; no new execution or installation."
+  },
+  "installedNegativeControls": [
+    {
+      "name": "empty-candidate-geometry",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "empty-reference-geometry",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "empty-input-preservation",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "failed-selected-profile-row",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-selected-profile-row",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-reference-index-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-candidate-index-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "partial-determinism-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-candidate-capture-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Reference baseline differs from UPSTREAM lock"
+    }
+  ],
+  "phaseNegativeControls": [
+    {
+      "name": "bundle-result",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual three-engine result differs"
+    },
+    {
+      "name": "pretty-input",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual three-engine inputAfter differs"
+    },
+    {
+      "name": "trace-outcome",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual producer identity/outcome differs: instrumented"
+    },
+    {
+      "name": "bundle-schema",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual producer identity/outcome differs: bundled"
+    },
+    {
+      "name": "pretty-kind",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual producer identity/outcome differs: pretty"
+    },
+    {
+      "name": "trace-worker",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual producer identity/outcome differs: instrumented"
+    },
+    {
+      "name": "bundle-tool",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual producer identity/outcome differs: bundled"
+    },
+    {
+      "name": "trace-request",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual producer identity/outcome differs: instrumented"
+    },
+    {
+      "name": "trace-arguments",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Producer changed original layout arguments"
+    },
+    {
+      "name": "trace-strategy",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual processor call order differs from summary"
+    },
+    {
+      "name": "summary-boolean-one",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Instrumented/original observations differ: prettyResultExactToBundled"
+    }
+  ],
+  "originalInputsAndSourcesUnchanged": true,
+  "negativeControlsRejected": 20
+}

@@ -4,11 +4,12 @@
 唯一行为基线保持elkjs0.12.1；不维护旧ELK兼容分支。当前仍无布局实现或已发布包。
 
 实现采用可追溯的语义移植：保留默认策略/处理顺序/排序/随机/数值行为，用Python组织模块与有序模型，逐轮通过固定参考差分和独立几何验收。
-当前下一轮为E01来源与默认执行路径审计；先E01–E03来源/合同/模型，再E04首条真实路径，按E05–E12扩展、收口并正式发布。
+E07已实现有序模型/配置/context之上的真实ELK四方向、多组件、多重图/长边切片，下一轮按[E08 brief](docs/iterations/E08.md)处理API/错误/生命周期，再按E09–E12收口并正式发布。来源gate仅对ADR0006的33组件固定生成源切片verified，精确外部Java构建仍unresolved；完成状态以机器索引为准。
 
 - [完整实施方案](docs/IMPLEMENTATION_PLAN.md)：架构、来源缺口、全范围与阶段门禁。
 - [Python实现策略](docs/IMPLEMENTATION_PLAN.md#2a-python实现策略)、[具体迭代执行计划](docs/ITERATION_PLAN.md)：每轮任务、代码落点、前置与验收。
-- [机器进度索引](docs/iteration-plan.json)：E01–E21与I0–I3的状态、依赖、门禁和M工作包对应；当前全部planned。
+- [机器进度索引](docs/iteration-plan.json)：E01–E21与I0–I3的实际状态、依赖、门禁和M工作包对应。
+- [每轮并行协作规范](docs/PARALLEL_EXECUTION.md)：root+A/B/V分工、文件归属、交接/反审、稳定验收与逐轮复盘。
 - [首个正式包范围](docs/FIRST_RELEASE_SCOPE.md)：基础0.1.0的能力、限制和发行验收。
 - [逐项任务](docs/TASKS.md)：M0–M8主线及独立I0–I3。
 - [接口契约](API_COMPATIBILITY.md)、[当前状态](docs/RELEASE_STATUS.md)、[启动入口](docs/NEW_SESSION.md)。

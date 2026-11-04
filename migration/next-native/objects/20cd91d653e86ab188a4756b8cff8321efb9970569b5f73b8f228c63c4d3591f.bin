@@ -1,0 +1,155 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs 0.12.1 worker F01/F02, references/e18-force-stress-sources.json.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external Java build identity remains unresolved.
+"""Native Force particles and their ordered, source-specific graph.
+
+Only independently reviewed closures are implemented. This model is shared by
+Force and Stress; it does not substitute a layered or tree layout backend.
+"""
+from __future__ import annotations
+
+from .layered.graph import Vec2
+from .radial import clip_vector
+
+
+class _Properties:
+    def __init__(self, state=None, origin=None):
+        self.state = state
+        self.origin = origin
+        self.properties = {}
+
+    def option(self, name, default=None):
+        if name in self.properties:
+            return self.properties[name]
+        if self.origin is not None:
+            return self.state.option(self.origin, name, default)
+        return default
+
+    def has_option(self, name):
+        return (name in self.properties or
+                (self.origin is not None and self.state.has_option(self.origin, name)))
+
+
+class FParticle(_Properties):
+    def __init__(self, state=None, origin=None):
+        super().__init__(state, origin)
+        self.displacement = Vec2()
+        self.position = Vec2()
+        self.size = Vec2()
+
+
+class FNode(FParticle):
+    def __init__(self, label='', state=None, origin=None):
+        super().__init__(state, origin)
+        self.label = label
+        self.id = 0
+
+    def __str__(self):
+        return 'n_' + (self.label if self.label else str(self.id))
+
+
+class FEdge(_Properties):
+    def __init__(self, state=None, origin=None):
+        super().__init__(state, origin)
+        self.source = None
+        self.target = None
+        self.bendpoints = []
+        self.labels = []
+
+    def distribute_bendpoints(self):
+        count = len(self.bendpoints)
+        if count:
+            source, target = self.source.position, self.target.position
+            # Source scales by the reciprocal, rather than dividing each axis.
+            scale = 1 / (count + 1)
+            dx, dy = (target.x-source.x)*scale, (target.y-source.y)*scale
+            x, y = source.x, source.y
+            for bendpoint in self.bendpoints:
+                bendpoint.position.x, bendpoint.position.y = x+dx, y+dy
+                x += dx
+                y += dy
+
+    def source_point(self):
+        source, target = self.source.position, self.target.position
+        result = clip_vector(Vec2(target.x-source.x, target.y-source.y),
+                             self.source.size.x, self.source.size.y)
+        result.x += source.x
+        result.y += source.y
+        return result
+
+    def target_point(self):
+        source, target = self.source.position, self.target.position
+        result = clip_vector(Vec2(source.x-target.x, source.y-target.y),
+                             self.target.size.x, self.target.size.y)
+        result.x += target.x
+        result.y += target.y
+        return result
+
+    def __str__(self):
+        return str(self.source) + '->' + str(self.target)
+
+
+class FBendpoint(FParticle):
+    def __init__(self, edge):
+        super().__init__(edge.state)
+        self.edge = edge
+        edge.bendpoints.append(self)
+
+
+class FLabel(FParticle):
+    def __init__(self, edge, text='', origin=None):
+        super().__init__(edge.state, origin)
+        self.edge = edge
+        self.text = text
+        edge.labels.append(self)
+
+    def refresh_position(self):
+        source, target = self.edge.source.position, self.edge.target.position
+        pos = self.position
+        if self.option('edgeLabels.inline', False):
+            pos.x = source.x + (target.x-source.x)*0.5 - self.size.x*0.5
+            pos.y = source.y + (target.y-source.y)*0.5 - self.size.y*0.5
+        else:
+            spacing = self.edge.option('spacing.edgeLabel', 5)
+            if source.x >= target.x:
+                pos.x = target.x + (source.x-target.x)/2 + spacing
+                if source.y >= target.y:
+                    pos.y = target.y + (source.y-target.y)/2 - spacing - self.size.y
+                else:
+                    pos.y = source.y + (target.y-source.y)/2 + spacing
+            else:
+                pos.x = source.x + (target.x-source.x)/2 + spacing
+                if source.y >= target.y:
+                    pos.y = target.y + (source.y-target.y)/2 - spacing - self.size.y
+                else:
+                    pos.y = source.y + (target.y-source.y)/2 - spacing - self.size.y
+
+
+class FGraph(_Properties):
+    def __init__(self, state=None, origin=None):
+        super().__init__(state, origin)
+        self.nodes = []
+        self.edges = []
+        self.labels = []
+        self.bend_points = []
+        self.adjacency = None
+
+    def particles(self):
+        yield from self.nodes
+        yield from self.labels
+        yield from self.bend_points
+
+    def calc_adjacency(self):
+        count = len(self.nodes)
+        self.adjacency = [[0 for _ in range(count)] for _ in range(count)]
+        for edge in self.edges:
+            self.adjacency[edge.source.id][edge.target.id] += edge.option('priority', 1)
+
+    def get_connection(self, first, second):
+        if isinstance(first, FNode) and isinstance(second, FNode):
+            return self.adjacency[first.id][second.id] + self.adjacency[second.id][first.id]
+        if isinstance(first, FBendpoint) and isinstance(second, FBendpoint):
+            if first.edge is second.edge:
+                return second.edge.option('priority', 1)
+        return 0

@@ -1,0 +1,430 @@
+{
+  "schema": "py-elk-next-native-preparation/v1",
+  "createdUtc": "2026-11-03T18:18:02.677475+00:00",
+  "status": "private-implementation-in-progress",
+  "previousProgressRecord": "20261104-next-native-02.json",
+  "checkpoint": {
+    "path": "migration/next-native/checkpoints/2a902884cd6c57dbf5eba2d6c774604d896eb4f12451ce0ec3dbf44e8c27b694.json",
+    "sha256": "2a902884cd6c57dbf5eba2d6c774604d896eb4f12451ce0ec3dbf44e8c27b694",
+    "sourceFiles": 70
+  },
+  "officialIterationsRemainPlanned": [
+    "E13",
+    "E16",
+    "E17",
+    "E18"
+  ],
+  "privateSchemas": 39,
+  "publicMainSchemasUnchanged": 9,
+  "typedOptions": {
+    "addedNodeContext": 20,
+    "addedMicro": 5,
+    "originalParserCases": 15,
+    "sourceValueCases": 12,
+    "explicitHostPolicyCases": 3,
+    "initialFailures": [
+      "vector-java-trim"
+    ],
+    "selectedFixCaseReexecuted": 1
+  },
+  "micro": {
+    "realPipeline": "sortPortLists -> full process_node_size -> NodeMarginCalculator",
+    "genericOriginalCases": 2,
+    "initialFailure": "incoming-same-owner-yo-is-not-compound",
+    "selectedFixCaseReexecuted": 1
+  },
+  "mrtree": {
+    "firstDefaultProviderCases": 4,
+    "actualDefaultMicroCalls": 4,
+    "maximumCoordinateError": 0,
+    "strictNonHashDifferences": 0,
+    "strictGwtHashDifferencesRetained": 25,
+    "additionalChangedWrapperWitnessCases": 1,
+    "wholeAlgorithmAccepted": false
+  },
+  "radial": {
+    "newOriginalCases": 3,
+    "validFiniteGeometryCount": 2,
+    "sourceWireParityCaseCount": 3,
+    "upstreamNonfiniteGeometryCount": 1,
+    "maximumFiniteCoordinateError": 1.4210854715202004e-14,
+    "oldSuccessfulCasesReexecutedAfterWireChange": false
+  },
+  "newIndependentSizeMathCases": 6,
+  "newIndependentFullStandaloneSizeProcessCases": 3,
+  "rootTargetedMethodExecutions": {
+    "typedStage": [
+      4,
+      1,
+      2
+    ],
+    "stateFactoryWireStage": [
+      2,
+      1,
+      1
+    ]
+  },
+  "sourceBytePreservation": {
+    "changedGitRules": true,
+    "actualGitBlobChecks": 9,
+    "fullValidation": false
+  },
+  "knownUnfinished": [
+    "Complete per-algorithm typed/global/presence and binary64 number layer",
+    "Generic recursive hierarchy/algorithm scheduling/public registration",
+    "Full advanced diagnostics and source null-task failure parity",
+    "Layered NS/pre/post/crossing/routing actual consumer chain",
+    "Remaining force/stress/disco/rectpacking/spore algorithm migration",
+    "Independent basic/stable package publication with project license decision",
+    "Final full validation after every feature complete"
+  ],
+  "evidence": {
+    "typed-options-review.json": {
+      "path": "references/next-native-evidence/03/typed-options-review.json",
+      "sha256": "2161cc9a2ad3640a6bb544f545220a00d2d6139818c34d7fb668a3abad071869",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/V/typed-options-code-review-01.json"
+    },
+    "typed-parser-first.json": {
+      "path": "references/next-native-evidence/03/typed-parser-first.json",
+      "sha256": "70d486f7a8d24e81d178c238c487bb46102dc89d3d749b3b8925723c902014d3",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/V/parser-comparison-01/report.json"
+    },
+    "typed-parser-vector-fixed.json": {
+      "path": "references/next-native-evidence/03/typed-parser-vector-fixed.json",
+      "sha256": "89b11c2336b0ad17bdbfe967dcaddce01192acc857e43cf5a49cb8c3fe3ff4aa",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/V/parser-vector-fix-02/report.json"
+    },
+    "micro-source-review.json": {
+      "path": "references/next-native-evidence/03/micro-source-review.json",
+      "sha256": "8be4040a71d3b4e53ce3a60d84aff046b29764f3a27e678a5fb34803ac633354",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/node-micro-source-review-01.json"
+    },
+    "micro-topdown-source-review.json": {
+      "path": "references/next-native-evidence/03/micro-topdown-source-review.json",
+      "sha256": "19018f00b699c470795ce2c3bfabf634071d0a8ffe10e0c618a5a84175e4ec9b",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/node-micro-topdown-source-review-01.json"
+    },
+    "micro-code-review.json": {
+      "path": "references/next-native-evidence/03/micro-code-review.json",
+      "sha256": "2ad658afad25d0840cfbc6d283894734d4543e7724e6a8ffe298dbda66fd5925",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-micro-code-review-01.json"
+    },
+    "generic-first.json": {
+      "path": "references/next-native-evidence/03/generic-first.json",
+      "sha256": "e9418d3f25d7ef47c56e2f6185c8377ade4c0998107278321ec1d66062ac3571",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-01/report.json"
+    },
+    "generic-incoming-fixed.json": {
+      "path": "references/next-native-evidence/03/generic-incoming-fixed.json",
+      "sha256": "4eb96161396a1367a34310812a6041ed3989e1308b31eba8129f92725454ad08",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-02/report.json"
+    },
+    "mrtree-default-four.json": {
+      "path": "references/next-native-evidence/03/mrtree-default-four.json",
+      "sha256": "b7a64811e03a5b1d11e3c62083e24bb5a85d66d35f156700f149cf708d107925",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/mrtree-first-01/report.json"
+    },
+    "session-wrapper-delta-review.json": {
+      "path": "references/next-native-evidence/03/session-wrapper-delta-review.json",
+      "sha256": "cd21e65d4333ec2c466efc5d32c180ebbdf46fd0d2ec97a93d682670efb4f0de",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/session-wrapper-delta-review-01.json"
+    },
+    "mrtree-routing-review.json": {
+      "path": "references/next-native-evidence/03/mrtree-routing-review.json",
+      "sha256": "d02651811af5924d2f522101f8fee6cb3e580fa6e031652b1885c877fef04661",
+      "originalRunFile": "test-runs/20261104-E17-01/V/routing-code-review-02.json"
+    },
+    "mrtree-routing-new.json": {
+      "path": "references/next-native-evidence/03/mrtree-routing-new.json",
+      "sha256": "c1317ef654d049d6033680e4ba81e89cda4c079ba66902d4e05cc72981786f16",
+      "originalRunFile": "test-runs/20261104-E17-01/V/routing-comparison-01/report.json"
+    },
+    "radial-original-three-summary.json": {
+      "path": "references/next-native-evidence/03/radial-original-three-summary.json",
+      "sha256": "e98ffed7fe5fbab3c1b5647a61eb3aa61a672f5b12fb7c8f1765e27d2652af5c",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-targeted-summary-02.json"
+    },
+    "radial-first.json": {
+      "path": "references/next-native-evidence/03/radial-first.json",
+      "sha256": "69b9477a0e324585932eb113582cf203b95849aa4a612be9ed8c4d738eb0023a",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-first-comparison-01/report.json"
+    },
+    "radial-default-profile-fixed.json": {
+      "path": "references/next-native-evidence/03/radial-default-profile-fixed.json",
+      "sha256": "571aff6c0987fb4270c3e8ed92fabdf076af203251891df57dec5ec265f4b4b7",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-default-comparison-02/report.json"
+    },
+    "radial-generated-null-wire.json": {
+      "path": "references/next-native-evidence/03/radial-generated-null-wire.json",
+      "sha256": "a9b6ef86150120350068efe593af98ab38e891844ea7c60e6b278b721140e276",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-wire-comparison-03/report.json"
+    },
+    "radial-nonfinite-diagnosis.json": {
+      "path": "references/next-native-evidence/03/radial-nonfinite-diagnosis.json",
+      "sha256": "7d17e3d5f9f4854609c3256057fde052c6c235a58f7882f550376aa8fc6ceb02",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-nonfinite-diagnosis-01.json"
+    },
+    "wire-source-review.json": {
+      "path": "references/next-native-evidence/03/wire-source-review.json",
+      "sha256": "a8f54457ea99c9a053634988270172e71d7688334b61ac4ad132822a9340e489",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/json-wire-source-review-01.json"
+    },
+    "wire-code-review.json": {
+      "path": "references/next-native-evidence/03/wire-code-review.json",
+      "sha256": "b992bdec5be1b2c40caa00d790393e23e589f10eb9a90af9d8f828660ef0666a",
+      "originalRunFile": "test-runs/20261104-JSON-01/V/json-wire-code-review-01.json"
+    },
+    "size-math-six.json": {
+      "path": "references/next-native-evidence/03/size-math-six.json",
+      "sha256": "0fb5c717ba4b7db4b4a406a6b18ee20c77fcb708c36ae7fd292b8c19fba5fcd1",
+      "originalRunFile": "test-runs/20261104-E13-01/V/size-math-comparison-03/report.json"
+    },
+    "size-process-three.json": {
+      "path": "references/next-native-evidence/03/size-process-three.json",
+      "sha256": "55ab2ed64cd63526360428156ea454cce9fdf7d868a3f04630ea6ea3c06d1524",
+      "originalRunFile": "test-runs/20261104-E13-01/V/size-process-comparison-02/report.json"
+    },
+    "size-code-review.json": {
+      "path": "references/next-native-evidence/03/size-code-review.json",
+      "sha256": "ad34e0ff5e861fcbb280605b0ee66898ae0f6098ff38550984f72d569fb2bcbf",
+      "originalRunFile": "test-runs/20261104-E13-01/V/size-code-review-01.json"
+    },
+    "ports-strict-review.json": {
+      "path": "references/next-native-evidence/03/ports-strict-review.json",
+      "sha256": "4f315af03ca570410ff45bb6b741606fa2484dadd2e81534b08908da5c917b36",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/ports-strict-comparator-review-01.json"
+    },
+    "bounded-admission-review.json": {
+      "path": "references/next-native-evidence/03/bounded-admission-review.json",
+      "sha256": "b8231fad9e30252f4d0262781d427bd39139e5c3064d264e616c53c07777b3e1",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/bounded-schema-admission-review-01.json"
+    },
+    "A-size-handoff.json": {
+      "path": "references/next-native-evidence/03/A-size-handoff.json",
+      "sha256": "ad563fe47953e83ca34fec7a7ef46a968302ad06445b869477f899a9d337e549",
+      "originalRunFile": "test-runs/20261104-E13-01/A/checkpoint-handoff-04.json"
+    },
+    "A-kernel-handoff.json": {
+      "path": "references/next-native-evidence/03/A-kernel-handoff.json",
+      "sha256": "8b6e5379dc3424f128a03b0ad4d87cd7f787c2e8c086b0a35dc1d8c13259ebf7",
+      "originalRunFile": "test-runs/20261104-E13-01/A/kernel-handoff-01.json"
+    },
+    "B-provider-handoff.json": {
+      "path": "references/next-native-evidence/03/B-provider-handoff.json",
+      "sha256": "031efc8d7be335ef343a1f060f5516919543b12b829dcd6279c007386ca810e6",
+      "originalRunFile": "test-runs/20261104-E17-01/B/handoff-cores-02.json"
+    },
+    "B-wrapper-witness.json": {
+      "path": "references/next-native-evidence/03/B-wrapper-witness.json",
+      "sha256": "d038a30044a8daeb27c346347613d08eaca458b80cd95ff81095564955ab1e08",
+      "originalRunFile": "test-runs/20261104-E17-01/B/session-wrapper-owner-01.json"
+    },
+    "typed-unit-first-command.json": {
+      "path": "references/next-native-evidence/03/typed-unit-first-command.json",
+      "sha256": "2fde186fbe9dbfdab6b33fef1ffbbb63c826c9850da3d76e0dec8171b3fb120d",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/typed-unit-01/command.json"
+    },
+    "typed-unit-first-stdout.log": {
+      "path": "references/next-native-evidence/03/typed-unit-first-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/typed-unit-01/stdout.log"
+    },
+    "typed-unit-first-stderr.log": {
+      "path": "references/next-native-evidence/03/typed-unit-first-stderr.log",
+      "sha256": "f0b6f24c0f4db11bfea12b3d468b6a861729e3014ea84f1be3fcd809a0db3354",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/typed-unit-01/stderr.log"
+    },
+    "typed-whitespace-command.json": {
+      "path": "references/next-native-evidence/03/typed-whitespace-command.json",
+      "sha256": "8042dad6bc16bdbe026592f9ccf4d317ce45c2f4f7a95bbb432f87590d45b8d8",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/whitespace-unit-02/command.json"
+    },
+    "typed-whitespace-stdout.log": {
+      "path": "references/next-native-evidence/03/typed-whitespace-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/whitespace-unit-02/stdout.log"
+    },
+    "typed-whitespace-stderr.log": {
+      "path": "references/next-native-evidence/03/typed-whitespace-stderr.log",
+      "sha256": "de57d1aac6feab3789aa3fc409f1ca222c652962c8f8386af7bd401df8ffb9c9",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/whitespace-unit-02/stderr.log"
+    },
+    "typed-affected-command.json": {
+      "path": "references/next-native-evidence/03/typed-affected-command.json",
+      "sha256": "5739815d67057dea3d5f796ef5a65b7ffb75d20f3dedb928c2d02a4d26355366",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/affected-unit-03/command.json"
+    },
+    "typed-affected-stdout.log": {
+      "path": "references/next-native-evidence/03/typed-affected-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/affected-unit-03/stdout.log"
+    },
+    "typed-affected-stderr.log": {
+      "path": "references/next-native-evidence/03/typed-affected-stderr.log",
+      "sha256": "c7dee5885498eb060a342d71891c221a3efb4a50cc5a8ac62cfdecceef8d8939",
+      "originalRunFile": "test-runs/20261104-OPTIONS-01/root/affected-unit-03/stderr.log"
+    },
+    "mrtree-default-four-command.json": {
+      "path": "references/next-native-evidence/03/mrtree-default-four-command.json",
+      "sha256": "17d9c485e5909a25115b5719e1b25ca557df5d1e70182941c2f85f4d9d8f4cbf",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/mrtree-first-01/command.json"
+    },
+    "mrtree-default-four-stdout.log": {
+      "path": "references/next-native-evidence/03/mrtree-default-four-stdout.log",
+      "sha256": "4364378bf16f404bc96010df7e7c31ad57f3e179aeda608d4db4e3a613d27d3d",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/mrtree-first-01/stdout.log"
+    },
+    "mrtree-default-four-stderr.log": {
+      "path": "references/next-native-evidence/03/mrtree-default-four-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/mrtree-first-01/stderr.log"
+    },
+    "micro-state-unit-command.json": {
+      "path": "references/next-native-evidence/03/micro-state-unit-command.json",
+      "sha256": "e43084468d7f3d2cf2fad80c49cfcb09860f6bba7a6e41c2edbb9670e5693f28",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/state-unit-01/command.json"
+    },
+    "micro-state-unit-stdout.log": {
+      "path": "references/next-native-evidence/03/micro-state-unit-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/state-unit-01/stdout.log"
+    },
+    "micro-state-unit-stderr.log": {
+      "path": "references/next-native-evidence/03/micro-state-unit-stderr.log",
+      "sha256": "af1f3346695a73e66ea4022418a4fa8cdbcb06db363faf2f200784c505fc75c7",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/state-unit-01/stderr.log"
+    },
+    "factory-unit-command.json": {
+      "path": "references/next-native-evidence/03/factory-unit-command.json",
+      "sha256": "711b2787684977cc3bfa341d81782aadb4cc3a54e658e0c1127da234d06331e8",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/factory-unit-02/command.json"
+    },
+    "factory-unit-stdout.log": {
+      "path": "references/next-native-evidence/03/factory-unit-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/factory-unit-02/stdout.log"
+    },
+    "factory-unit-stderr.log": {
+      "path": "references/next-native-evidence/03/factory-unit-stderr.log",
+      "sha256": "1da16fb17899d987fa3dbe540b86db2f18cd4b26589b2c9c0df02b285964dc9e",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/factory-unit-02/stderr.log"
+    },
+    "wire-unit-command.json": {
+      "path": "references/next-native-evidence/03/wire-unit-command.json",
+      "sha256": "ef4c6a64d2b500583f129d96920bf69469d1f2dfbf3bb1a404ba9be33522629d",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/wire-unit-03/command.json"
+    },
+    "wire-unit-stdout.log": {
+      "path": "references/next-native-evidence/03/wire-unit-stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/wire-unit-03/stdout.log"
+    },
+    "wire-unit-stderr.log": {
+      "path": "references/next-native-evidence/03/wire-unit-stderr.log",
+      "sha256": "686c0927ad848380dd736721c0a3795d5591dcd653ef28f3b8f267e50d7eacc2",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/wire-unit-03/stderr.log"
+    },
+    "git-byte-policy-command.json": {
+      "path": "references/next-native-evidence/03/git-byte-policy-command.json",
+      "sha256": "803df890d1a465fca1329858f3b4e8bdcf481f8e0de8d7437dfb6f7af4901d39",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/git-byte-policy-01/command.json"
+    },
+    "git-byte-policy-stdout.log": {
+      "path": "references/next-native-evidence/03/git-byte-policy-stdout.log",
+      "sha256": "e098de4ca45053af7b09db98f88a62e3c92ff680f7955192765e1768882edd72",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/git-byte-policy-01/stdout.log"
+    },
+    "git-byte-policy-stderr.log": {
+      "path": "references/next-native-evidence/03/git-byte-policy-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/root/git-byte-policy-01/stderr.log"
+    },
+    "generic-first-command.json": {
+      "path": "references/next-native-evidence/03/generic-first-command.json",
+      "sha256": "826986ff7a03300546e97cee4999a378edce8a0d206afce26e29f21e0591b68b",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-01/command.json"
+    },
+    "generic-first-stdout.log": {
+      "path": "references/next-native-evidence/03/generic-first-stdout.log",
+      "sha256": "31e26d3af6f9754c3265a38d53657423423a6868b0a372d7ef1279c36b9c3911",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-01/stdout.log"
+    },
+    "generic-first-stderr.log": {
+      "path": "references/next-native-evidence/03/generic-first-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-01/stderr.log"
+    },
+    "generic-incoming-fixed-command.json": {
+      "path": "references/next-native-evidence/03/generic-incoming-fixed-command.json",
+      "sha256": "12f46951941f3be2fead28290c16ff319d5b2475d6b504c436a478ce966acb3f",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-02/command.json"
+    },
+    "generic-incoming-fixed-stdout.log": {
+      "path": "references/next-native-evidence/03/generic-incoming-fixed-stdout.log",
+      "sha256": "2dfbc88614db12834be7c9b0e473644b7ac6d98bd625eec0747b4782e5f00caf",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-02/stdout.log"
+    },
+    "generic-incoming-fixed-stderr.log": {
+      "path": "references/next-native-evidence/03/generic-incoming-fixed-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-MICRO-01/V/generic-comparison-02/stderr.log"
+    },
+    "radial-first-command.json": {
+      "path": "references/next-native-evidence/03/radial-first-command.json",
+      "sha256": "c8a07588434b20eacb2abdc7734197c0160f00aa38a03a28dcad8687cc720144",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-first-comparison-01/command.json"
+    },
+    "radial-first-stdout.log": {
+      "path": "references/next-native-evidence/03/radial-first-stdout.log",
+      "sha256": "9878d46b677601b7cdb1a87c6ff99c3f766a4e3de25646533c982f76d954b722",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-first-comparison-01/stdout.log"
+    },
+    "radial-first-stderr.log": {
+      "path": "references/next-native-evidence/03/radial-first-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-first-comparison-01/stderr.log"
+    },
+    "radial-default-fixed-command.json": {
+      "path": "references/next-native-evidence/03/radial-default-fixed-command.json",
+      "sha256": "519a61a3b5cf73deb27d54e4063348ff081deb2fbe68bf0a5cc46c545ce614b4",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-default-comparison-02/command.json"
+    },
+    "radial-default-fixed-stdout.log": {
+      "path": "references/next-native-evidence/03/radial-default-fixed-stdout.log",
+      "sha256": "2dfbc88614db12834be7c9b0e473644b7ac6d98bd625eec0747b4782e5f00caf",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-default-comparison-02/stdout.log"
+    },
+    "radial-default-fixed-stderr.log": {
+      "path": "references/next-native-evidence/03/radial-default-fixed-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-default-comparison-02/stderr.log"
+    },
+    "radial-wire-command.json": {
+      "path": "references/next-native-evidence/03/radial-wire-command.json",
+      "sha256": "93bfa583b56a8548cea78d536d1a6816ecbc0118eba609b1788d0c5a652ec55a",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-wire-comparison-03/command.json"
+    },
+    "radial-wire-stdout.log": {
+      "path": "references/next-native-evidence/03/radial-wire-stdout.log",
+      "sha256": "96373415f05608d50e227be74ddad0ba02db6f7269ade5b318a002e13f9684e5",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-wire-comparison-03/stdout.log"
+    },
+    "radial-wire-stderr.log": {
+      "path": "references/next-native-evidence/03/radial-wire-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "originalRunFile": "test-runs/20261104-E17-01/V/radial-wire-comparison-03/stderr.log"
+    }
+  },
+  "fullValidation": false,
+  "publicAPIIntegrated": false,
+  "installedPackageValidated": false,
+  "packagePublished": false,
+  "wholeAlgorithmsAccepted": 0,
+  "nsLeafProgress": {
+    "sourceFile": "algorithms/layered/north_south_ports.py",
+    "sourceSha256": "9b373d8ac41d7b0c2f7b65058f4bfe671bc4d6712c433d176bdde76856fce2a2",
+    "ownerNewTargetedGroups": 6,
+    "independentOriginalOraclePending": true,
+    "schedulerAndCrossingIntegrationPending": true
+  }
+}

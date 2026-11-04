@@ -1,0 +1,61 @@
+{
+  "schema": "py-elk-iteration-change-manifest/v1",
+  "iteration": "E11-preparation",
+  "fullValidation": false,
+  "checks": [
+    {
+      "id": "historical-evidence",
+      "directory": "test-runs/20261103-E11-01/V/history-targeted-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_e11_history.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 2,
+      "scope": "E11 preparation only; not formal candidate acceptance"
+    },
+    {
+      "id": "selected-ci",
+      "directory": "test-runs/20261103-E11-01/B/ci-owner-03",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_ci_selected.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 3,
+      "scope": "E11 preparation only; not formal candidate acceptance"
+    },
+    {
+      "id": "unchanged-runtime-ast",
+      "directory": "test-runs/20261103-E11-01/root-source-tests-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_e11_package.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 2,
+      "scope": "E11 preparation only; not formal candidate acceptance"
+    }
+  ]
+}

@@ -1,0 +1,1915 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "id": "inverted-two-layers-head-asymmetry",
+      "actual": {
+        "layers": [
+          [
+            "a",
+            "d0"
+          ],
+          [
+            "b",
+            "d1"
+          ]
+        ],
+        "nodes": [
+          {
+            "id": "a",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "aw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "ew"
+                ]
+              },
+              {
+                "id": "ae",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "ee"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "bw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "x0"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "be",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "x1"
+                ],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "d0",
+            "type": "LONG_EDGE",
+            "pos": [
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.0,
+              0.0
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": "ew",
+            "sourceMarker": "aw",
+            "targetMarker": "bw",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d0.p0",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "ew"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d0.p1",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "x0"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d1",
+            "type": "LONG_EDGE",
+            "pos": [
+              0.0,
+              0.0
+            ],
+            "size": [
+              0.0,
+              0.0
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": "ee",
+            "sourceMarker": "ae",
+            "targetMarker": "be",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d1.p0",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "ee"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d1.p1",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "x1"
+                ]
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "ew",
+            "source": "aw",
+            "target": "d0.p0",
+            "originRawId": "ew",
+            "junctionPresent": true,
+            "originalJunctionIdentity": true,
+            "labels": []
+          },
+          {
+            "id": "ee",
+            "source": "ae",
+            "target": "d1.p0",
+            "originRawId": "ee",
+            "junctionPresent": true,
+            "originalJunctionIdentity": true,
+            "labels": []
+          },
+          {
+            "id": "x0",
+            "source": "d0.p1",
+            "target": "bw",
+            "originRawId": "ew",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": [
+              "lw"
+            ]
+          },
+          {
+            "id": "x1",
+            "source": "d1.p1",
+            "target": "be",
+            "originRawId": "ee",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": [
+              "le"
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": "lw",
+            "endLabelEdge": "ew"
+          },
+          {
+            "id": "le",
+            "endLabelEdge": "ew"
+          }
+        ],
+        "fullLayoutValidated": false
+      },
+      "expected": {
+        "layers": [
+          [
+            "a",
+            "d0"
+          ],
+          [
+            "b",
+            "d1"
+          ]
+        ],
+        "nodes": [
+          {
+            "id": "a",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "aw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "ew"
+                ]
+              },
+              {
+                "id": "ae",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "ee"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "bw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "x0"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "be",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "x1"
+                ],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "d0",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              0,
+              0
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": "ew",
+            "sourceMarker": "aw",
+            "targetMarker": "bw",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d0.p0",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "ew"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d0.p1",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "x0"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d1",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              0,
+              0
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": "ee",
+            "sourceMarker": "ae",
+            "targetMarker": "be",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d1.p0",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "ee"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d1.p1",
+                "scratchId": 0,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "x1"
+                ]
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "ew",
+            "source": "aw",
+            "target": "d0.p0",
+            "originRawId": "ew",
+            "junctionPresent": true,
+            "originalJunctionIdentity": true,
+            "labels": []
+          },
+          {
+            "id": "ee",
+            "source": "ae",
+            "target": "d1.p0",
+            "originRawId": "ee",
+            "junctionPresent": true,
+            "originalJunctionIdentity": true,
+            "labels": []
+          },
+          {
+            "id": "x0",
+            "source": "d0.p1",
+            "target": "bw",
+            "originRawId": "ew",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": [
+              "lw"
+            ]
+          },
+          {
+            "id": "x1",
+            "source": "d1.p1",
+            "target": "be",
+            "originRawId": "ee",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": [
+              "le"
+            ]
+          }
+        ],
+        "labels": [
+          {
+            "id": "lw",
+            "endLabelEdge": "ew"
+          },
+          {
+            "id": "le",
+            "endLabelEdge": "ew"
+          }
+        ],
+        "fullLayoutValidated": false
+      },
+      "differences": []
+    },
+    {
+      "id": "merger-component-only-clears-both-markers",
+      "actual": {
+        "layers": [
+          [
+            "s"
+          ],
+          [
+            "d1"
+          ],
+          [
+            "t1",
+            "t2"
+          ]
+        ],
+        "nodes": [
+          {
+            "id": "s",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "sw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "se",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d1",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "d1w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "a",
+                  "b"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d1e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d2",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": false,
+            "origin": null,
+            "sourceMarker": "sw",
+            "targetMarker": "t2w",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d2w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "d2e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "t1",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 2,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "t1w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "c"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "t1e",
+                "scratchId": 2,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 2,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "t2w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "d"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "t2e",
+                "scratchId": 3,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "a",
+            "source": "se",
+            "target": "d1w",
+            "originRawId": "a",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "b",
+            "source": "se",
+            "target": "d1w",
+            "originRawId": "b",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "c",
+            "source": "d1e",
+            "target": "t1w",
+            "originRawId": "c",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "d",
+            "source": "d1e",
+            "target": "t2w",
+            "originRawId": "d",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          }
+        ],
+        "labels": [],
+        "fullLayoutValidated": false
+      },
+      "expected": {
+        "layers": [
+          [
+            "s"
+          ],
+          [
+            "d1"
+          ],
+          [
+            "t1",
+            "t2"
+          ]
+        ],
+        "nodes": [
+          {
+            "id": "s",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "sw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "se",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "a",
+                  "b"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d1",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "d1w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "a",
+                  "b"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d1e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "c",
+                  "d"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d2",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": false,
+            "origin": null,
+            "sourceMarker": "sw",
+            "targetMarker": "t2w",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d2w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "d2e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "t1",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 2,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "t1w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "c"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "t1e",
+                "scratchId": 2,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 2,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "t2w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "d"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "t2e",
+                "scratchId": 3,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "a",
+            "source": "se",
+            "target": "d1w",
+            "originRawId": "a",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "b",
+            "source": "se",
+            "target": "d1w",
+            "originRawId": "b",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "c",
+            "source": "d1e",
+            "target": "t1w",
+            "originRawId": "c",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "d",
+            "source": "d1e",
+            "target": "t2w",
+            "originRawId": "d",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          }
+        ],
+        "labels": [],
+        "fullLayoutValidated": false
+      },
+      "differences": []
+    },
+    {
+      "id": "merger-label-eligibility-and-normal-barrier",
+      "actual": {
+        "layers": [
+          [
+            "s"
+          ],
+          [
+            "d1",
+            "d2",
+            "barrier",
+            "d3"
+          ],
+          [
+            "t"
+          ]
+        ],
+        "nodes": [
+          {
+            "id": "s",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "sw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "se",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "in1",
+                  "in2",
+                  "in3",
+                  "in4"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d1",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": "tw",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d1w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "in1"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d1e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "out1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d2",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": "tw",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d2w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "in2"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d2e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "out2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "barrier",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": []
+          },
+          {
+            "id": "d3",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": null,
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "d3w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "in3",
+                  "in4"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d3e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "out3",
+                  "out4"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d4",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": false,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": "te",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d4w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "d4e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "t",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 2,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "tw",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [
+                  "out1",
+                  "out2",
+                  "out3",
+                  "out4"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "te",
+                "scratchId": 2,
+                "side": "EAST",
+                "size": [
+                  0.0,
+                  0.0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "in1",
+            "source": "se",
+            "target": "d1w",
+            "originRawId": "in1",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out1",
+            "source": "d1e",
+            "target": "tw",
+            "originRawId": "out1",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "in2",
+            "source": "se",
+            "target": "d2w",
+            "originRawId": "in2",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out2",
+            "source": "d2e",
+            "target": "tw",
+            "originRawId": "out2",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "in3",
+            "source": "se",
+            "target": "d3w",
+            "originRawId": "in3",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out3",
+            "source": "d3e",
+            "target": "tw",
+            "originRawId": "out3",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "in4",
+            "source": "se",
+            "target": "d3w",
+            "originRawId": "in4",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out4",
+            "source": "d3e",
+            "target": "tw",
+            "originRawId": "out4",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          }
+        ],
+        "labels": [],
+        "fullLayoutValidated": false
+      },
+      "expected": {
+        "layers": [
+          [
+            "s"
+          ],
+          [
+            "d1",
+            "d2",
+            "barrier",
+            "d3"
+          ],
+          [
+            "t"
+          ]
+        ],
+        "nodes": [
+          {
+            "id": "s",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 0,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "sw",
+                "scratchId": 0,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "se",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "in1",
+                  "in2",
+                  "in3",
+                  "in4"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d1",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": "tw",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d1w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "in1"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d1e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "out1"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d2",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": "tw",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d2w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "in2"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d2e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "out2"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "barrier",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": []
+          },
+          {
+            "id": "d3",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": null,
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "d3w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "in3",
+                  "in4"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "d3e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": [
+                  "out3",
+                  "out4"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "d4",
+            "type": "LONG_EDGE",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 1,
+            "physicallyInLayer": false,
+            "origin": null,
+            "sourceMarker": "se",
+            "targetMarker": "te",
+            "sourceMarkerPresent": true,
+            "targetMarkerPresent": true,
+            "ports": [
+              {
+                "id": "d4w",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              },
+              {
+                "id": "d4e",
+                "scratchId": 1,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          },
+          {
+            "id": "t",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              12
+            ],
+            "layerPointer": 2,
+            "physicallyInLayer": true,
+            "origin": null,
+            "sourceMarker": null,
+            "targetMarker": null,
+            "sourceMarkerPresent": false,
+            "targetMarkerPresent": false,
+            "ports": [
+              {
+                "id": "tw",
+                "scratchId": 1,
+                "side": "WEST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [
+                  "out1",
+                  "out2",
+                  "out3",
+                  "out4"
+                ],
+                "outgoing": []
+              },
+              {
+                "id": "te",
+                "scratchId": 2,
+                "side": "EAST",
+                "size": [
+                  0,
+                  0
+                ],
+                "incoming": [],
+                "outgoing": []
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "in1",
+            "source": "se",
+            "target": "d1w",
+            "originRawId": "in1",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out1",
+            "source": "d1e",
+            "target": "tw",
+            "originRawId": "out1",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "in2",
+            "source": "se",
+            "target": "d2w",
+            "originRawId": "in2",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out2",
+            "source": "d2e",
+            "target": "tw",
+            "originRawId": "out2",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "in3",
+            "source": "se",
+            "target": "d3w",
+            "originRawId": "in3",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out3",
+            "source": "d3e",
+            "target": "tw",
+            "originRawId": "out3",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "in4",
+            "source": "se",
+            "target": "d3w",
+            "originRawId": "in4",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          },
+          {
+            "id": "out4",
+            "source": "d3e",
+            "target": "tw",
+            "originRawId": "out4",
+            "junctionPresent": false,
+            "originalJunctionIdentity": null,
+            "labels": []
+          }
+        ],
+        "labels": [],
+        "fullLayoutValidated": false
+      },
+      "differences": []
+    }
+  ],
+  "importedSourcesSha256": {
+    "pyelk/_errors.py": "f58aca6c430a46e54b43ff1686259e1fe848710dda97fb7f7d6775efc810f53e",
+    "pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "pyelk/_json.py": "07a4d371fd953686c528ff367104753c5a1599bfa37e590f59f6649deefb785b",
+    "pyelk/algorithms/layered/inverted_ports.py": "2dd2e0363e69b78dd3ec0e3a84cf6e60d6486ff2bd7037a385c60f41f72b7627",
+    "pyelk/options/schema.py": "6ffb8da13ff1940301dcfe6a2980fdfa703dfeab2d4f337b816a92527badebdc",
+    "pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "pyelk/algorithms/layered/hyperedge_merger.py": "f06c8cef5fc294f05319fc46547c8aace7579b6ba4b6f760ae121afd7ba36958",
+    "pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    "pyelk/algorithms/layered/ports.py": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18",
+    "pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "pyelk/api.py": "d2de3ef7b62a75289a94598fd9bb1098a18ee09a79550d6e0165fcfcc734d594",
+    "pyelk/options/resolution.py": "1dfb99cd7c52920109bcecb0ebbaa66b5e4fd55ce2b3c50978d2d466d2a1e5db",
+    "pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "pyelk/metadata/_data.py": "3bbce9e12096f25f7b5cd2477ed86112b6a18284d3677564985c959f2db90020",
+    "pyelk/__init__.py": "b316c306c0dfcb8f882befc4ed98f2182ed92bbd9b5898c29d3975b19d70d98d",
+    "pyelk/metadata/__init__.py": "6d5986ed402bb071012fd0a9f625083c7e5d7b13dd95ef564ea81c2e35da699b",
+    "pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9"
+  },
+  "sourceTreeUnchanged": true,
+  "inputsSha256": {
+    "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\next-native\\compare_port_dummy_kernels.py": "afb3a93802f7a94efff0ab9b1252460c821ffcf0727c1a777a98389748133334",
+    "tests\\fixtures\\suites\\next-native\\port-dummy-kernels-request.json": "af9ba42e6c4ed142444bd27e0f5de7339af312dd598e4aa88f0c63f70b9b21a5",
+    "tests\\fixtures\\suites\\next-native\\port-dummy-kernels-oracle.json": "f00a0c8f0a630bc64671925e94c07d74e78473f0dbfefb3b7e7ba9381aabb28f"
+  },
+  "scope": "Actual two source processors on supplied intermediate objects; no layout, scheduler, crossing or public admission",
+  "fullLayoutValidated": false
+}

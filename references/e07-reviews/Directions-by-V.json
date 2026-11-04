@@ -1,0 +1,141 @@
+{
+  "schema": "py-elk-e07-component-source-review/v1",
+  "iteration": "E07",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T09:20:31.424539+00:00",
+  "sourceDocument": {
+    "path": "references/e07-source-components-A.json",
+    "sha256": "7663334da2b47f4c52142d85615d2c1bf038469ee3f60216d7f2707a2db9ffc3"
+  },
+  "approvedComponents": [
+    "direction:mirror-x",
+    "direction:mirror-y",
+    "direction:transpose"
+  ],
+  "componentSeals": {
+    "direction:mirror-x": "1ba3d08e0f80ac52d499e118a75625582d3737479b97cacd03875135abd37284",
+    "direction:mirror-y": "2ae0587b0dbec0a9674da10c8c7692ee41f7b1b3d11f68f0be9720af94c1cf75",
+    "direction:transpose": "7ca05a2541d0284e3699a8ce5f9d289736291295f5bc77d2ac96034c4bb1ce92"
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "sourceContextSha256": "9f62efadb94027c15791504dc745e62c1078bed439cfdc827aec55636b4087b5",
+  "componentEncoding": {
+    "encoding": "UTF-8 JSON sort_keys=True ensure_ascii=True separators=(comma,colon), no final newline",
+    "binding": "Each component embeds exact shared context/proofs and referenced immutable typed evidence; adding NS does not silently mutate already sealed directions."
+  },
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 433,
+    "functionOffsetOccurrences": 376,
+    "staticCallEdges": 137,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "literalSymbolOccurrences": 433,
+  "newSemanticLabelExceptions": 0,
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E07-01/V/A-directions-first/report.json",
+    "sha256": "dd2cd6e43c87d8d21d31f04f22898e4a0f193adb8c65546827d8423f878ac40e"
+  },
+  "checkedSemantics": [
+    {
+      "id": "REAL-FACTORY-READING-MODES",
+      "checked": "Actual processor enum factorycase0 constructs TO_INPUT_DIRECTION whilecase58 constructs TO_INTERNAL_LTR. With actual defaultREADING_DIRECTION, LEFT usesX both times, DOWN usesT both times, UP usesY thenT PRE andT thenY POST. RIGHT/UNDEFINED->RIGHT has no GraphTransformer calls. Enum sorted positions makePRE first beforeP1 andPOST last after LongJoin/LoopPost/Restorer; no mode-name inference or final-output-only reflection."
+    },
+    {
+      "id": "MIRROR-LITERAL-DATAFLOW",
+      "checked": "Source size-axis==0 scans max starting0 of ((node.pos+node.size)+margin.right/bottom); nonzero path computes size-offset then ALWAYS subtracts offset again. Literal node/port/bend/JP subtraction order retained; node/graph padding swapped in place and graphNODE_LABELS_PADDING getter is a real clone/store on absence. No algebraic size-2offset simplification or double-reflection identity proof. Node.margin, layer order/size, graph size/offset, model endpoints and RNG are not reflected."
+    },
+    {
+      "id": "TRANSPOSE-LITERAL-DATAFLOW",
+      "checked": "Actual temporary swaps nodepos/size/padding, portpos/anchor/size then setSide; actual outgoing bend/JP vector order unchanged. Graph side-selection SMART_DOWN/UP scalar is read and written, graphoffset/size/padding/NLPadding swap, node margin/layer sizes remain. transposeProperties really gets/materializes NodeSizeMinimum and ALWAYS replaces it with a NEW swapped vector, includingzero numeric values. Guarded labels/external-port/alignment/position/index branches are not silently generalized."
+    },
+    {
+      "id": "DEFAULT-CLONE-DISPATCH",
+      "checked": "Concrete type4 tags and exact runtime registration read: KVector->lambda1->$clone_1->newKVector_1; ElkPadding105 uses actualintern111={3,4,105,215,429}, registrylambda7->clone9->newElkPadding_1->Spacing_0. Property.getDefault clones and PropertyHolder.getProperty stores nonnull clone; shared static default objects are not mutated. Headerline19 already bounded in each shared proof supports concrete cast tag. OrdinaryEnumSet mutable intuition is explicitly not reused."
+    },
+    {
+      "id": "PORT-SIDE-ANCHOR-ORDER",
+      "checked": "Default implicit ports initially come from actual original direction (DOWN sourceSOUTH independently observed). Every source setSide writes side then resets anchor using CURRENT portsize and explicitAnchor=false, even if sideunchanged. Source scalar anchor mutation precedes this reset. PRE happens before hidden loop detach; POST sees original ports/loops restored, so no detached-object omission or rebuilt adjacency."
+    },
+    {
+      "id": "SCALE-AND-COMPOSITION-BOUNDARY",
+      "checked": "Direction entry gathers layerless then current layers in order. PRE has at most8 original NORMAL nodes/28edges/56ports, POST afterrealJoin/LoopPost/Restorer has the same original objects; intermediate176 scale is not used as early branch selector. Both root common context and component-specific source context are sealed into each component. B split treatsRNG/PROCESSORS/flags as opaque shallowreferences; full dispatcher/falseNSdriver/import/finalization need their own distinct approvals, without cyclic semantic seals."
+    }
+  ],
+  "componentDependencies": {
+    "direction:mirror-x": [],
+    "direction:mirror-y": [],
+    "direction:transpose": []
+  },
+  "requiredSharedProofIds": [
+    "DIR-CFG-REAL-MODES-AND-ORDER",
+    "DIR-HOST-MUTABLE-DEFAULTS",
+    "DIR-HOST-SIDE-ANCHOR",
+    "DIR-GUARDED-LABELS-EXTERNAL-OPTIONS"
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e06-component-approvals.json",
+      "sha256": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e"
+    },
+    {
+      "path": "references/e06-source-components-A.json",
+      "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+    },
+    {
+      "path": "references/e06-source-components-B.json",
+      "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+    },
+    {
+      "path": "references/e06-source-components-R.json",
+      "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+    }
+  ],
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E07-01/V/source-A-directions-canonical-first.command.json",
+      "sha256": "320c8fc75416a9f04701b306ed4572e26ffd7e103a52f145220d832674e3255c"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/source-A-direction-context.command.json",
+      "sha256": "e7906550891c02064e52872168a40a4b23e86ad9a79391fbea5412621d2efee9"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/source-direction-dispatch-independent.command.json",
+      "sha256": "25296c0892241e0f811e5c4d1d4ff50bc418b457a4bd44653ba474a9fc2b2d97"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/source-direction-transforms-independent.command.json",
+      "sha256": "f72bb19fa92482631a6aad9d109f5f61e1f0cf6c6d1785895efd368edb49d170"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/source-direction-factory-clone-independent.command.json",
+      "sha256": "e69af85d129b3c86dda59e8e02b9f2ed3c016f49119586bef3cfac7b5f937d56"
+    }
+  ],
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E07-01/V/direction-components-stage/summary.json",
+      "sha256": "0ab6be0a765ac80b77c4ebb0ac6b820b643eb0f87be517eb9c2f2d98c9c2ecdf"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/prepared64-analysis.json",
+      "sha256": "630a23a5668f0ddabfa713981995578877d274f4a3392f776ffb18681f87b8c2"
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "RenewedNETWORK_SIMPLEXdisconnecteddriver, B3split/combine/finalization and allR26input domains/pipeline must be independently approved beforeE07runtime admission.",
+    "Childpadding apparent geometric equality is only finite official evidence; input field retention/effect needs separate source def-use closure before publicelement support."
+  ],
+  "limitations": [
+    "Canonical433LF/376UTF16/137lexicalcalls prove bindings, not automatic math equivalence. Every newspan uses literal source symbols; no new semantic-label exception was introduced.",
+    "Three-engine DOWN5-component125calls and64x3official inputs corroborate source but do not prove all combinations orPython implementation. Source-proved helper semantics do not grant a full-direction pipeline runtime pass.",
+    "Exact Java build/release license/fullAPI remain unresolved oroutsideE07."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE07SourceGateApproved": false
+}

@@ -1,0 +1,110 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Worker275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# P18B in references/e13-kernel-sources.json; native ordered graph views.
+"""Actual edge/layer-constraint reversal, including fixed opposite ports."""
+from ...execution.diagnostics import BasicProgressMonitor
+from .cycles import _boolean, reverse_edge
+from .ports import is_side_fixed
+from .property_access import read_layered_scalar
+
+
+def _layer_constraint(node):
+    return read_layered_scalar(node, 'LAYERING_LAYER_CONSTRAINT', 'LAYERING_LAYER_CONSTRAINT_0')
+
+
+def can_reverse_incoming_edge(target_constraint, edge):
+    if _boolean(edge.properties, 'REVERSED'):
+        return False
+    source = edge.source.owner
+    if target_constraint == 'FIRST' and source.type == 'LABEL':
+        return False
+    return _layer_constraint(source) != 'FIRST_SEPARATE'
+
+
+def can_reverse_outgoing_edge(source_constraint, edge):
+    if _boolean(edge.properties, 'REVERSED'):
+        return False
+    target = edge.target.owner
+    if source_constraint == 'LAST' and target.type == 'LABEL':
+        return False
+    return _layer_constraint(target) != 'LAST_SEPARATE'
+
+
+def reverse_edges(node, node_constraint, target_port_type):
+    for port in list(node.ports):
+        if target_port_type in ('INPUT', 'UNDEFINED'):
+            for edge in list(port.outgoing_edges):
+                if can_reverse_outgoing_edge(node_constraint, edge):
+                    reverse_edge(edge, adapt_ports=True)
+        if target_port_type in ('OUTPUT', 'UNDEFINED'):
+            # The source takes this snapshot after outgoing reversals, not at
+            # the start of the port iteration.
+            for edge in list(port.incoming_edges):
+                if can_reverse_incoming_edge(node_constraint, edge):
+                    reverse_edge(edge, adapt_ports=True)
+
+
+def _selected_edge_constraint(layer_constraint):
+    if layer_constraint in ('FIRST', 'FIRST_SEPARATE'):
+        return 'OUTGOING_ONLY'
+    if layer_constraint in ('LAST', 'LAST_SEPARATE'):
+        return 'INCOMING_ONLY'
+    return None
+
+
+def _apply_outer_constraint(node, layer_constraint, edge_constraint):
+    # Fixed worker literally writes OUTGOING_ONLY in the INCOMING_ONLY case
+    # too. The local variable still chooses which adjacency to reverse.
+    node.properties['EDGE_CONSTRAINT'] = 'OUTGOING_ONLY'
+    if edge_constraint == 'INCOMING_ONLY':
+        reverse_edges(node, layer_constraint, 'INPUT')
+    elif edge_constraint == 'OUTGOING_ONLY':
+        reverse_edges(node, layer_constraint, 'OUTPUT')
+
+
+def handle_outer_nodes(graph):
+    remaining = []
+    for node in graph.layerless_nodes:
+        constraint = _layer_constraint(node)
+        edge_constraint = _selected_edge_constraint(constraint)
+        if edge_constraint is not None:
+            _apply_outer_constraint(node, constraint, edge_constraint)
+        else:
+            remaining.append(node)
+    return remaining
+
+
+def handle_inner_nodes(remaining):
+    for node in remaining:
+        constraint = _layer_constraint(node)
+        edge_constraint = _selected_edge_constraint(constraint)
+        if edge_constraint is not None:
+            _apply_outer_constraint(node, constraint, edge_constraint)
+        elif is_side_fixed(read_layered_scalar(node, 'PORT_CONSTRAINTS', 'PORT_CONSTRAINTS_0')) and node.ports:
+            all_reversed = True
+            for port in node.ports:
+                if not (port.side == 'EAST' and len(port.incoming_edges) - len(port.outgoing_edges) > 0
+                        or port.side == 'WEST' and len(port.incoming_edges) - len(port.outgoing_edges) < 0):
+                    all_reversed = False
+                    break
+                for edge in port.outgoing_edges:
+                    if _layer_constraint(edge.target.owner) in ('LAST', 'LAST_SEPARATE'):
+                        all_reversed = False
+                        break
+                # A false flag does not skip this read, or subsequent ports.
+                for edge in port.incoming_edges:
+                    if _layer_constraint(edge.source.owner) in ('FIRST', 'FIRST_SEPARATE'):
+                        all_reversed = False
+                        break
+            if all_reversed:
+                reverse_edges(node, constraint, 'UNDEFINED')
+
+
+def edge_and_layer_constraint_edge_reverser(graph, *, monitor=None):
+    if monitor is None:
+        monitor = BasicProgressMonitor()
+    monitor.begin('Edge and layer constraint edge reversal', 1)
+    remaining = handle_outer_nodes(graph)
+    handle_inner_nodes(remaining)
+    monitor.done()

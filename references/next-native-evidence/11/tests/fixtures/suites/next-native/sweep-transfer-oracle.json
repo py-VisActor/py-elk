@@ -1,0 +1,163 @@
+{
+  "schema": "py-elk-next-sweep-transfer-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "6d655ac64047db7de3f780ee28b5108c2d7fc0ec688967484346f9bbc21c6754",
+  "requestSha256": "62c43b3c53211033108df60b05494dcc6abac2eaabb99ec855ea14014e22b9c3",
+  "pid": 8236,
+  "parentPid": 31900,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "north-explicit-anchor-to-south-retains-fixed-ratio",
+      "value": {
+        "order": [
+          "owner",
+          "dummy"
+        ],
+        "owner": {
+          "name": "owner",
+          "id": 0,
+          "constraint": "FIXED_RATIO",
+          "ports": [
+            {
+              "name": "other",
+              "side": "EAST",
+              "anchor": [
+                0,
+                0
+              ]
+            },
+            {
+              "name": "active",
+              "side": "SOUTH",
+              "anchor": [
+                3,
+                8
+              ]
+            }
+          ],
+          "cached": true,
+          "ranges": {
+            "EAST": [
+              0,
+              1
+            ],
+            "SOUTH": [
+              1,
+              2
+            ]
+          },
+          "graphRetained": true,
+          "layerRetained": true
+        },
+        "dummy": {
+          "name": "dummy",
+          "id": 1,
+          "constraint": "FIXED_ORDER",
+          "ports": [
+            {
+              "name": "dummyPort",
+              "side": "EAST",
+              "anchor": [
+                0,
+                0
+              ]
+            }
+          ],
+          "cached": true,
+          "ranges": {
+            "EAST": [
+              0,
+              1
+            ]
+          },
+          "graphRetained": true,
+          "layerRetained": true
+        },
+        "layerListIdentity": true,
+        "ownerPortListIdentity": true,
+        "dummyPortListIdentity": true,
+        "orderSupplied": true,
+        "counterExecuted": false,
+        "layoutExecuted": false
+      }
+    },
+    {
+      "id": "south-explicit-anchor-to-north-negative-formula",
+      "value": {
+        "order": [
+          "dummy",
+          "owner"
+        ],
+        "owner": {
+          "name": "owner",
+          "id": 1,
+          "constraint": "FIXED_ORDER",
+          "ports": [
+            {
+              "name": "active",
+              "side": "NORTH",
+              "anchor": [
+                3,
+                -8
+              ]
+            },
+            {
+              "name": "other",
+              "side": "EAST",
+              "anchor": [
+                0,
+                0
+              ]
+            }
+          ],
+          "cached": true,
+          "ranges": {
+            "NORTH": [
+              0,
+              1
+            ],
+            "EAST": [
+              1,
+              2
+            ]
+          },
+          "graphRetained": true,
+          "layerRetained": true
+        },
+        "dummy": {
+          "name": "dummy",
+          "id": 0,
+          "constraint": "FIXED_ORDER",
+          "ports": [
+            {
+              "name": "dummyPort",
+              "side": "EAST",
+              "anchor": [
+                0,
+                0
+              ]
+            }
+          ],
+          "cached": true,
+          "ranges": {
+            "EAST": [
+              0,
+              1
+            ]
+          },
+          "graphRetained": true,
+          "layerRetained": true
+        },
+        "layerListIdentity": true,
+        "ownerPortListIdentity": true,
+        "dummyPortListIdentity": true,
+        "orderSupplied": true,
+        "counterExecuted": false,
+        "layoutExecuted": false
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

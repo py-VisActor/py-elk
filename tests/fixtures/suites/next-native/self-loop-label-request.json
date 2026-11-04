@@ -1,0 +1,130 @@
+{
+  "cases": [
+    {
+      "name": "all-five-types",
+      "ordering": "STACKED",
+      "loops": [
+        {
+          "name": "east-top",
+          "sides": [
+            "EAST",
+            "EAST"
+          ],
+          "inline": true,
+          "occupied": [
+            "EAST",
+            "EAST"
+          ]
+        },
+        {
+          "name": "corner-nw",
+          "sides": [
+            "WEST",
+            "NORTH"
+          ],
+          "inline": true,
+          "occupied": [
+            "WEST",
+            "NORTH"
+          ]
+        },
+        {
+          "name": "opposing-ew",
+          "sides": [
+            "EAST",
+            "WEST"
+          ],
+          "inline": true,
+          "occupied": [
+            "EAST",
+            "WEST"
+          ]
+        },
+        {
+          "name": "opposing-ns-inline",
+          "sides": [
+            "NORTH",
+            "SOUTH"
+          ],
+          "inline": true,
+          "occupied": [
+            "NORTH",
+            "SOUTH"
+          ]
+        },
+        {
+          "name": "three-west-noinline",
+          "sides": [
+            "NORTH",
+            "WEST",
+            "SOUTH"
+          ],
+          "inline": false,
+          "occupied": [
+            "NORTH",
+            "WEST",
+            "SOUTH"
+          ]
+        },
+        {
+          "name": "four-leftwest",
+          "sides": [
+            "WEST",
+            "NORTH",
+            "EAST",
+            "SOUTH"
+          ],
+          "inline": true,
+          "occupied": [
+            "WEST",
+            "NORTH",
+            "EAST",
+            "SOUTH"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "south-only-sequenced",
+      "ordering": "SEQUENCED",
+      "loops": [
+        {
+          "name": "s0",
+          "sides": [
+            "SOUTH",
+            "SOUTH"
+          ],
+          "inline": true,
+          "occupied": [
+            "SOUTH",
+            "SOUTH"
+          ]
+        },
+        {
+          "name": "s1",
+          "sides": [
+            "SOUTH",
+            "SOUTH"
+          ],
+          "inline": false,
+          "occupied": [
+            "SOUTH",
+            "SOUTH"
+          ]
+        },
+        {
+          "name": "s2",
+          "sides": [
+            "SOUTH",
+            "SOUTH"
+          ],
+          "inline": false,
+          "occupied": [
+            "SOUTH",
+            "SOUTH"
+          ]
+        }
+      ]
+    }
+  ]
+}

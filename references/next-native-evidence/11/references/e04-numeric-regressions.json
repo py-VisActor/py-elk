@@ -1,0 +1,836 @@
+{
+  "schema": "py-elk-e04-numeric-regressions/v1",
+  "iteration": "E04",
+  "sealedUtc": "2026-11-03T05:15:39.523150+00:00",
+  "purpose": "???????????????? IEEE ??????/?????????????? padding ????????? V21???????????",
+  "baseline": {
+    "package": "elkjs",
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "bundledSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "sources": [
+    {
+      "sourceId": "elkjs-generated-worker",
+      "path": "lib/elk-worker.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "role": "approved bounded-slice port source; not an exact external Java build claim"
+    },
+    {
+      "sourceId": "elkjs-bundled-oracle",
+      "path": "lib/elk.bundled.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "role": "actual capture entrypoint recorded in every engine identity"
+    }
+  ],
+  "counts": {
+    "positive": 12,
+    "domainNegative": 1,
+    "total": 13
+  },
+  "usage": {
+    "offlineCommand": [
+      "python",
+      "-X",
+      "utf8",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/layered",
+      "-p",
+      "test_numeric_regressions.py",
+      "-v"
+    ],
+    "freshReferenceCommand": [
+      "node",
+      "tools/reference/capture_layout.cjs",
+      ".local/npm-elkjs/package",
+      "DECODED_REQUEST_PATH",
+      "NEW_OBSERVATION_PATH"
+    ],
+    "requestRule": "Decode requestBytesBase64 directly, verify SHA, write bytes unchanged. Never reconstruct request bytes by JSON serialization.",
+    "observationRule": "rawObservationBytesBase64 is the complete actual archived capture including termination and diagnostics. Fresh diagnostic stacks may differ with checkout path; never rewrite the archived bytes to hide this.",
+    "acceptanceRule": "12 real Python executions use native-basic-layered-v1, retain rawStrict differences, require exact public result plus independent geometry and input preservation. The Mapping case only requires explicit E04 admission rejection."
+  },
+  "limitations": [
+    "Project-authored regression inputs are not the complete upstream assertion set, a larger algorithm proof, a master denominator or a runtime dispatch table.",
+    "The exact external Java build remains unresolved; source identity here is the fixed generated elkjs artifact.",
+    "All archived captures actually report FakeWorker terminate TypeError; this is preserved evidence and is not worker/lifecycle success.",
+    "No production source fingerprints are frozen here. Run handoffs bind the actual implementation reviewed and executed in this iteration.",
+    "Geometry policies are authored independent input constraints; layout coordinates and section IDs are the real archived JS observations."
+  ],
+  "cases": [
+    {
+      "id": "original-one-tenth",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMS4wCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAwLjEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDIwLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xMixyaWdodD0xMixib3R0b209MTIsbGVmdD0xMl0iCiAgICB9CiAgfQp9Cg==",
+      "requestSha256": "cc41e82587e241f5228f177b44e1e43aff4e910d572d48729a6e9562533d13d7",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiY2M0MWU4MjU4N2UyNDFmNTIyOGYxNzdiNDRlMWU0M2FmZjRlOTEwZDU3MmQ0ODcyOWE2ZTk1NjI1MzNkMTNkNyIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMTIsCiAgICAgICAgInkiOiAxMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDQyLAogICAgICAgICJ5IjogMTIuNDUKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAyMiwKICAgICAgICAgICAgICAieSI6IDEyLjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNDIsCiAgICAgICAgICAgICAgInkiOiAxMi41CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDIwLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xMixyaWdodD0xMixib3R0b209MTIsbGVmdD0xMl0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiA2NCwKICAgICJoZWlnaHQiOiAyNQogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMSwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAxMiwKICAgICAgICAieSI6IDEyCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAwLjEsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogNDIsCiAgICAgICAgInkiOiAxMi40NQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDIyLAogICAgICAgICAgICAgICJ5IjogMTIuNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiA0MiwKICAgICAgICAgICAgICAieSI6IDEyLjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjAiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMSIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMjAsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTEyLHJpZ2h0PTEyLGJvdHRvbT0xMixsZWZ0PTEyXSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDY0LAogICAgImhlaWdodCI6IDI1CiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "rawObservationSha256": "2880774cbe4d75bda7a9e6689cbc1f9e54f29c2e2ed22d6286a5b064010cc784",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\original-one-tenth\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\original-one-tenth\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:54.487642+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/original-one-tenth/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/original-one-tenth/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/original-one-tenth/command.json",
+        "commandSha256": "439b1731b1f2d868345b29c708c998e69eca1e60b8002d4483b9b9a4f4327123",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/original-one-tenth/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/original-one-tenth/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 12.0,
+          "right": 12.0,
+          "bottom": 12.0,
+          "left": 12.0
+        },
+        "nodeNode": 20,
+        "betweenLayers": 20,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "reverse-one-tenth",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMS4wCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjAiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAwLjEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogLTE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAyMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MTIscmlnaHQ9MTIsYm90dG9tPTEyLGxlZnQ9MTJdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "535ae7e6b5d4727bef3af53ebf1565e4e40a402c3c56693579240814a75b1e5b",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNTM1YWU3ZTZiNWQ0NzI3YmVmM2FmNTNlYmYxNTY1ZTRlNDBhNDAyYzNjNTY2OTM1NzkyNDA4MTRhNzViMWU1YiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogNDIsCiAgICAgICAgInkiOiAxMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDEyLAogICAgICAgICJ5IjogMTIuNDUKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAyMiwKICAgICAgICAgICAgICAieSI6IDEyLjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNDIsCiAgICAgICAgICAgICAgInkiOiAxMi41CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogLTE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAyMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MTIscmlnaHQ9MTIsYm90dG9tPTEyLGxlZnQ9MTJdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogNjQsCiAgICAiaGVpZ2h0IjogMjUKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogNDIsCiAgICAgICAgInkiOiAxMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDEyLAogICAgICAgICJ5IjogMTIuNDUKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAyMiwKICAgICAgICAgICAgICAieSI6IDEyLjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNDIsCiAgICAgICAgICAgICAgInkiOiAxMi41CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogLTE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAyMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MTIscmlnaHQ9MTIsYm90dG9tPTEyLGxlZnQ9MTJdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogNjQsCiAgICAiaGVpZ2h0IjogMjUKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "rawObservationSha256": "969e049e272c6a0b547a73998a9e0c0c75f3dfeb48537e192dbe25ec6447993a",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\reverse-one-tenth\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\reverse-one-tenth\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:54.660501+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-one-tenth/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-one-tenth/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-one-tenth/command.json",
+        "commandSha256": "c76e73acb0f366be514c39286e323eade88f8babd4361df1d6368e19f10abb2b",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-one-tenth/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-one-tenth/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 12.0,
+          "right": 12.0,
+          "bottom": 12.0,
+          "left": 12.0
+        },
+        "nodeNode": 20,
+        "betweenLayers": 20,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "four-decimals",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLjEsCiAgICAgICAgImhlaWdodCI6IDAuMwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjIsCiAgICAgICAgImhlaWdodCI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLjMsCiAgICAgICAgImhlaWdodCI6IDAuMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4zIiwKICAgICAgICAid2lkdGgiOiAwLjQsCiAgICAgICAgImhlaWdodCI6IDAKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0KICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMC4xLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0wLjEscmlnaHQ9MC4yLGJvdHRvbT0wLjMsbGVmdD0wLjRdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "146a84c71b8907b0be7f9db80e3fcb184bb58c2f92d9d7c7777f2047ffc665af",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMTQ2YTg0YzcxYjg5MDdiMGJlN2Y5ZGI4MGUzZmNiMTg0YmI1OGMyZjkyZDlkN2M3Nzc3ZjIwNDdmZmM2NjVhZiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMC4xLAogICAgICAgICJoZWlnaHQiOiAwLjMsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMC40LAogICAgICAgICJ5IjogMC4xCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAuMiwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDAuNjAwMDAwMDAwMDAwMDAwMSwKICAgICAgICAieSI6IDAuMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLjMsCiAgICAgICAgImhlaWdodCI6IDAuMiwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAwLjksCiAgICAgICAgInkiOiAwLjE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDAuNCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxLjMsCiAgICAgICAgInkiOiAwLjI1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4yMDAwMDAwMDAwMDAwMDAyLAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjMsCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC44LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjksCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4xIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjIiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMF9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC41LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjYwMDAwMDAwMDAwMDAwMDEsCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAuMSwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDEuOTAwMDAwMDAwMDAwMDAwMSwKICAgICJoZWlnaHQiOiAwLjcKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMC4xLAogICAgICAgICJoZWlnaHQiOiAwLjMsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMC40LAogICAgICAgICJ5IjogMC4xCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAuMiwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDAuNjAwMDAwMDAwMDAwMDAwMSwKICAgICAgICAieSI6IDAuMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLjMsCiAgICAgICAgImhlaWdodCI6IDAuMiwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAwLjksCiAgICAgICAgInkiOiAwLjE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDAuNCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxLjMsCiAgICAgICAgInkiOiAwLjI1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4yMDAwMDAwMDAwMDAwMDAyLAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjMsCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC44LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjksCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4xIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjIiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMF9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC41LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjYwMDAwMDAwMDAwMDAwMDEsCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAuMSwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDEuOTAwMDAwMDAwMDAwMDAwMSwKICAgICJoZWlnaHQiOiAwLjcKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "rawObservationSha256": "8af32cc4cfc7a3d30d418562271eeb52807daa27d93bb97f3f435c42d44f9bef",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\four-decimals\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\four-decimals\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:54.845316+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/four-decimals/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/four-decimals/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/four-decimals/command.json",
+        "commandSha256": "90c2b97ff5c553e07e0bb268e26cb71e54465beb16acdb3507832cee27bac4ad",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/four-decimals/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/four-decimals/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.1,
+          "right": 0.2,
+          "bottom": 0.3,
+          "left": 0.4
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0.1,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "reverse-four-decimals",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4zIiwKICAgICAgICAid2lkdGgiOiAwLjQsCiAgICAgICAgImhlaWdodCI6IDAuMwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLjMsCiAgICAgICAgImhlaWdodCI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjIsCiAgICAgICAgImhlaWdodCI6IDAuMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLjEsCiAgICAgICAgImhlaWdodCI6IDAKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUyIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4zIgogICAgICAgIF0KICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAtMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAuMSwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0KICB9Cn0K",
+      "requestSha256": "d933ef8bf2e699e5f8fbc21be0738866aaa0711a536c3c0bb8b87578a009a1ea",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiZDkzM2VmOGJmMmU2OTllNWY4ZmJjMjFiZTA3Mzg4NjZhYWEwNzExYTUzNmMzYzBiYjhiODc1NzhhMDA5YTFlYSIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogMC40LAogICAgICAgICJoZWlnaHQiOiAwLjMsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMS4zLAogICAgICAgICJ5IjogMC4xCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjIiLAogICAgICAgICJ3aWR0aCI6IDAuMywKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDAuOSwKICAgICAgICAieSI6IDAuMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjIsCiAgICAgICAgImhlaWdodCI6IDAuMiwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAwLjYwMDAwMDAwMDAwMDAwMDEsCiAgICAgICAgInkiOiAwLjE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjAiLAogICAgICAgICJ3aWR0aCI6IDAuMSwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjI1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMF9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC41LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjYwMDAwMDAwMDAwMDAwMDEsCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC44LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjksCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4xIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjIiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4yMDAwMDAwMDAwMDAwMDAyLAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjMsCiAgICAgICAgICAgICAgInkiOiAwLjI1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogLTE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAwLjEsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAuMSxyaWdodD0wLjIsYm90dG9tPTAuMyxsZWZ0PTAuNF0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxLjkwMDAwMDAwMDAwMDAwMDEsCiAgICAiaGVpZ2h0IjogMC43CiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAiYnVzaW5lc3MiOiB7CiAgICAgICIkSCI6IGZhbHNlLAogICAgICAiZXJyb3IiOiB7CiAgICAgICAgInN0YWNrIjogInJldGFpbiIKICAgICAgfSwKICAgICAgIm51bWVyaWMiOiAwLjEKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDAuNCwKICAgICAgICAiaGVpZ2h0IjogMC4zLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDEuMywKICAgICAgICAieSI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLjMsCiAgICAgICAgImhlaWdodCI6IDAuMSwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAwLjksCiAgICAgICAgInkiOiAwLjIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMC4yLAogICAgICAgICJoZWlnaHQiOiAwLjIsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMC42MDAwMDAwMDAwMDAwMDAxLAogICAgICAgICJ5IjogMC4xNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLjEsCiAgICAgICAgImhlaWdodCI6IDAsCiAgICAgICAgIiRIIjogMjgzLAogICAgICAgICJ4IjogMC40LAogICAgICAgICJ5IjogMC4yNQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuNSwKICAgICAgICAgICAgICAieSI6IDAuMjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC42MDAwMDAwMDAwMDAwMDAxLAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUxIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTFfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuOCwKICAgICAgICAgICAgICAieSI6IDAuMjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC45LAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMSIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4yIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUyIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4zIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTJfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDEuMjAwMDAwMDAwMDAwMDAwMiwKICAgICAgICAgICAgICAieSI6IDAuMjUKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4zLAogICAgICAgICAgICAgICJ5IjogMC4yNQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMiIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4zIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMC4xLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0wLjEscmlnaHQ9MC4yLGJvdHRvbT0wLjMsbGVmdD0wLjRdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMS45MDAwMDAwMDAwMDAwMDAxLAogICAgImhlaWdodCI6IDAuNwogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "rawObservationSha256": "2e933058733320d56703e382617952c0362a7cbf31a8989d5915fb3f5bfafd59",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\reverse-four-decimals\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\reverse-four-decimals\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:55.033821+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-four-decimals/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-four-decimals/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-four-decimals/command.json",
+        "commandSha256": "d2d8ec72a523ed644417cd811a988ba6d5c9612fa3c41e4b55ae2512a547b121",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-four-decimals/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/reverse-four-decimals/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.1,
+          "right": 0.2,
+          "bottom": 0.3,
+          "left": 0.4
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0.1,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "tiny-four",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxZS0xMCwKICAgICAgICAiaGVpZ2h0IjogMWUtMTIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMWUtMTIsCiAgICAgICAgImhlaWdodCI6IDAKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMWUtMTQsCiAgICAgICAgImhlaWdodCI6IDFlLTEwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDFlLTE0CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUxIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDFlLTEzLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0wLHJpZ2h0PTAsYm90dG9tPTAsbGVmdD0wXSIKICAgIH0KICB9Cn0K",
+      "requestSha256": "835d24a9c13d53b5e4c9fd63f97e4074b972c8780ec955f8e49a17362aca2ced",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiODM1ZDI0YTljMTNkNTNiNWU0YzlmZDYzZjk3ZTQwNzRiOTcyYzg3ODBlYzk1NWY4ZTQ5YTE3MzYyYWNhMmNlZCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMWUtMTAsCiAgICAgICAgImhlaWdodCI6IDFlLTEyLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDAsCiAgICAgICAgInkiOiA0Ljk1MDAwMDAwMDAwMDAwMDRlLTExCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDFlLTEyLAogICAgICAgICJoZWlnaHQiOiAwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDEuMDAxMDAwMDAwMDAwMDAwMWUtMTAsCiAgICAgICAgInkiOiA1ZS0xMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAxZS0xNCwKICAgICAgICAiaGVpZ2h0IjogMWUtMTAsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMS4wMTIwMDAwMDAwMDAwMDAxZS0xMCwKICAgICAgICAieSI6IDAKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMWUtMTQsCiAgICAgICAgIiRIIjogMjgzLAogICAgICAgICJ4IjogMS4wMTMxMDAwMDAwMDAwMDAxZS0xMCwKICAgICAgICAieSI6IDQuOTk5NTAwMDAwMDAwMDAwNGUtMTEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUyX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjAxMjFlLTEwLAogICAgICAgICAgICAgICJ5IjogNWUtMTEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4wMTMxMDAwMDAwMDAwMDAxZS0xMCwKICAgICAgICAgICAgICAieSI6IDVlLTExCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4wMTFlLTEwLAogICAgICAgICAgICAgICJ5IjogNWUtMTEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMS4wMTIwMDAwMDAwMDAwMDAxZS0xMCwKICAgICAgICAgICAgICAieSI6IDVlLTExCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4xIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjIiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMF9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMWUtMTAsCiAgICAgICAgICAgICAgInkiOiA1ZS0xMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjAwMTAwMDAwMDAwMDAwMDFlLTEwLAogICAgICAgICAgICAgICJ5IjogNWUtMTEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjAiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMSIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMWUtMTMsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAscmlnaHQ9MCxib3R0b209MCxsZWZ0PTBdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMS4wMTMxMDAwMDAwMDAwMDAxZS0xMCwKICAgICJoZWlnaHQiOiAxZS0xMAogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxZS0xMCwKICAgICAgICAiaGVpZ2h0IjogMWUtMTIsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMCwKICAgICAgICAieSI6IDQuOTUwMDAwMDAwMDAwMDAwNGUtMTEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMWUtMTIsCiAgICAgICAgImhlaWdodCI6IDAsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMS4wMDEwMDAwMDAwMDAwMDAxZS0xMCwKICAgICAgICAieSI6IDVlLTExCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjIiLAogICAgICAgICJ3aWR0aCI6IDFlLTE0LAogICAgICAgICJoZWlnaHQiOiAxZS0xMCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAxLjAxMjAwMDAwMDAwMDAwMDFlLTEwLAogICAgICAgICJ5IjogMAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4zIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAxZS0xNCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxLjAxMzEwMDAwMDAwMDAwMDFlLTEwLAogICAgICAgICJ5IjogNC45OTk1MDAwMDAwMDAwMDA0ZS0xMQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUyIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4zIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTJfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDEuMDEyMWUtMTAsCiAgICAgICAgICAgICAgInkiOiA1ZS0xMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjAxMzEwMDAwMDAwMDAwMDFlLTEwLAogICAgICAgICAgICAgICJ5IjogNWUtMTEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjIiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMyIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUxX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjAxMWUtMTAsCiAgICAgICAgICAgICAgInkiOiA1ZS0xMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxLjAxMjAwMDAwMDAwMDAwMDFlLTEwLAogICAgICAgICAgICAgICJ5IjogNWUtMTEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjEiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxZS0xMCwKICAgICAgICAgICAgICAieSI6IDVlLTExCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDEuMDAxMDAwMDAwMDAwMDAwMWUtMTAsCiAgICAgICAgICAgICAgInkiOiA1ZS0xMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAxZS0xMywKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MCxyaWdodD0wLGJvdHRvbT0wLGxlZnQ9MF0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxLjAxMzEwMDAwMDAwMDAwMDFlLTEwLAogICAgImhlaWdodCI6IDFlLTEwCiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "rawObservationSha256": "5464fffaa66a58e9f1f5d2b69385b43f726ef02ad9ce0ee0d7477121783c161c",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\tiny-four\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\tiny-four\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:55.204997+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/tiny-four/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/tiny-four/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/tiny-four/command.json",
+        "commandSha256": "2ed61f8e4b8995946de3d18615dfcaa66e949d3bc792826c7c805ad56fd38432",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/tiny-four/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/tiny-four/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0,
+          "left": 0.0
+        },
+        "nodeNode": 20,
+        "betweenLayers": 1e-13,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "large-mixed",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4zIiwKICAgICAgICAid2lkdGgiOiA5OTk5OTkuOTk5OTk5OTksCiAgICAgICAgImhlaWdodCI6IDMKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMWUtMTAsCiAgICAgICAgImhlaWdodCI6IDFlLTEwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDEwMDAwMDAuMAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMDAwMDAwLjAsCiAgICAgICAgImhlaWdodCI6IDAuMQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUyIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4zIgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXQogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMTAwMDAwMC4wLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xMDAwMDAwLjAscmlnaHQ9MTAwMDAwMC4wLGJvdHRvbT0xMDAwMDAwLjAsbGVmdD0xMDAwMDAwLjBdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "8a9ad68ef651ab250bfd42ed49942f6170384f9373cc47126e4d7c2ad10ae3ac",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiOGE5YWQ2OGVmNjUxYWIyNTBiZmQ0MmVkNDk5NDJmNjE3MDM4NGY5MzczY2M0NzEyNmU0ZDdjMmFkMTBhZTNhYyIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogOTk5OTk5Ljk5OTk5OTk5LAogICAgICAgICJoZWlnaHQiOiAzLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDUwMDAwMDAsCiAgICAgICAgInkiOiAxNDk5OTk4LjUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMWUtMTAsCiAgICAgICAgImhlaWdodCI6IDFlLTEwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDQwMDAwMDAsCiAgICAgICAgInkiOiAxNTAwMDAwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDEwMDAwMDAsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMzAwMDAwMCwKICAgICAgICAieSI6IDEwMDAwMDAKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMTAwMDAwMCwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI4MywKICAgICAgICAieCI6IDEwMDAwMDAsCiAgICAgICAgInkiOiAxNDk5OTk5Ljk1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNDAwMDAwMCwKICAgICAgICAgICAgICAieSI6IDE1MDAwMDAKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNTAwMDAwMCwKICAgICAgICAgICAgICAieSI6IDE1MDAwMDAKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjIiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMyIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUxX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAzMDAwMDAwLAogICAgICAgICAgICAgICJ5IjogMTUwMDAwMAogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiA0MDAwMDAwLAogICAgICAgICAgICAgICJ5IjogMTUwMDAwMAogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMSIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4yIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDIwMDAwMDAsCiAgICAgICAgICAgICAgInkiOiAxNTAwMDAwCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDMwMDAwMDAsCiAgICAgICAgICAgICAgInkiOiAxNTAwMDAwCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogLTE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAxMDAwMDAwLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xMDAwMDAwLjAscmlnaHQ9MTAwMDAwMC4wLGJvdHRvbT0xMDAwMDAwLjAsbGVmdD0xMDAwMDAwLjBdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogNjk5OTk5OS45OTk5OTk5OSwKICAgICJoZWlnaHQiOiAzMDAwMDAwCiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAiYnVzaW5lc3MiOiB7CiAgICAgICIkSCI6IGZhbHNlLAogICAgICAiZXJyb3IiOiB7CiAgICAgICAgInN0YWNrIjogInJldGFpbiIKICAgICAgfSwKICAgICAgIm51bWVyaWMiOiAwLjEKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDk5OTk5OS45OTk5OTk5OSwKICAgICAgICAiaGVpZ2h0IjogMywKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiA1MDAwMDAwLAogICAgICAgICJ5IjogMTQ5OTk5OC41CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjIiLAogICAgICAgICJ3aWR0aCI6IDFlLTEwLAogICAgICAgICJoZWlnaHQiOiAxZS0xMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiA0MDAwMDAwLAogICAgICAgICJ5IjogMTUwMDAwMAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAxMDAwMDAwLAogICAgICAgICIkSCI6IDI4MSwKICAgICAgICAieCI6IDMwMDAwMDAsCiAgICAgICAgInkiOiAxMDAwMDAwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjAiLAogICAgICAgICJ3aWR0aCI6IDEwMDAwMDAsCiAgICAgICAgImhlaWdodCI6IDAuMSwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxMDAwMDAwLAogICAgICAgICJ5IjogMTQ5OTk5OS45NQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUyIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4zIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTJfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDQwMDAwMDAsCiAgICAgICAgICAgICAgInkiOiAxNTAwMDAwCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDUwMDAwMDAsCiAgICAgICAgICAgICAgInkiOiAxNTAwMDAwCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMzAwMDAwMCwKICAgICAgICAgICAgICAieSI6IDE1MDAwMDAKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNDAwMDAwMCwKICAgICAgICAgICAgICAieSI6IDE1MDAwMDAKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjEiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAyMDAwMDAwLAogICAgICAgICAgICAgICJ5IjogMTUwMDAwMAogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAzMDAwMDAwLAogICAgICAgICAgICAgICJ5IjogMTUwMDAwMAogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMTAwMDAwMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MTAwMDAwMC4wLHJpZ2h0PTEwMDAwMDAuMCxib3R0b209MTAwMDAwMC4wLGxlZnQ9MTAwMDAwMC4wXSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDY5OTk5OTkuOTk5OTk5OTksCiAgICAiaGVpZ2h0IjogMzAwMDAwMAogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "rawObservationSha256": "481895dfa71b89ac8208c6fba78c81035f5ca1a0205d6864a4d444291d7e01bb",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\large-mixed\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\large-mixed\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:55.375531+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/large-mixed/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/large-mixed/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/large-mixed/command.json",
+        "commandSha256": "af9768bf407af67239cee82eca0bae7c45553bdaaff06abe36349032746b7b26",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/large-mixed/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/large-mixed/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 1000000.0,
+          "right": 1000000.0,
+          "bottom": 1000000.0,
+          "left": 1000000.0
+        },
+        "nodeNode": 20,
+        "betweenLayers": 1000000.0,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "near-max-four",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiA5OTk5OTkuOTk5OTk5OSwKICAgICAgICAiaGVpZ2h0IjogOTk5OTk5Ljk5OTk5OTkKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogOTk5OTk5Ljk5OTk5OTksCiAgICAgICAgImhlaWdodCI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiA5OTk5OTkuOTk5OTk5OSwKICAgICAgICAiaGVpZ2h0IjogOTk5OTk5Ljk5OTk5OTk5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDk5OTk5OS45OTk5OTk5LAogICAgICAgICJoZWlnaHQiOiAwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUxIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAuMSwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0KICB9Cn0K",
+      "requestSha256": "2bf6633daa35062f2fa4fd5db8cdb773f19e0a49c98aee1e660cdd5514401aa3",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMmJmNjYzM2RhYTM1MDYyZjJmYTRmZDVkYjhjZGI3NzNmMTllMGE0OWM5OGFlZTFlNjYwY2RkNTUxNDQwMWFhMyIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogOTk5OTk5Ljk5OTk5OTksCiAgICAgICAgImhlaWdodCI6IDk5OTk5OS45OTk5OTk5LAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDAuNCwKICAgICAgICAieSI6IDAuMTAwMDAwMDQ0OTk0NTIxODkKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogOTk5OTk5Ljk5OTk5OTksCiAgICAgICAgImhlaWdodCI6IDAuMSwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAxMDAwMDAwLjQ5OTk5OTksCiAgICAgICAgInkiOiA1MDAwMDAuMDQ5OTk5OTk1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjIiLAogICAgICAgICJ3aWR0aCI6IDk5OTk5OS45OTk5OTk5LAogICAgICAgICJoZWlnaHQiOiA5OTk5OTkuOTk5OTk5OTksCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMjAwMDAwMC41OTk5OTk3OTk5LAogICAgICAgICJ5IjogMC4xCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDk5OTk5OS45OTk5OTk5LAogICAgICAgICJoZWlnaHQiOiAwLAogICAgICAgICIkSCI6IDI4MywKICAgICAgICAieCI6IDMwMDAwMDAuNjk5OTk5NywKICAgICAgICAieSI6IDUwMDAwMC4wOTk5OTk5OTQ5NwogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDEwMDAwMDAuMzk5OTk5OSwKICAgICAgICAgICAgICAieSI6IDUwMDAwMC4wOTk5OTk5OTQ5NwogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxMDAwMDAwLjQ5OTk5OTksCiAgICAgICAgICAgICAgInkiOiA1MDAwMDAuMDk5OTk5OTk0OTcKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjAiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMSIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUxX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAyMDAwMDAwLjQ5OTk5OTc5OTgsCiAgICAgICAgICAgICAgInkiOiA1MDAwMDAuMDk5OTk5OTk0OTcKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMjAwMDAwMC41OTk5OTk3OTk5LAogICAgICAgICAgICAgICJ5IjogNTAwMDAwLjA5OTk5OTk5NDk3CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4xIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjIiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMzAwMDAwMC41OTk5OTk2OTk3LAogICAgICAgICAgICAgICJ5IjogNTAwMDAwLjA5OTk5OTk5NDk3CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDMwMDAwMDAuNjk5OTk5NywKICAgICAgICAgICAgICAieSI6IDUwMDAwMC4wOTk5OTk5OTQ5NwogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMiIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4zIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAwLjEsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAuMSxyaWdodD0wLjIsYm90dG9tPTAuMyxsZWZ0PTAuNF0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiA0MDAwMDAwLjg5OTk5OTYsCiAgICAiaGVpZ2h0IjogMTAwMDAwMC4zOTk5OTk5OQogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiA5OTk5OTkuOTk5OTk5OSwKICAgICAgICAiaGVpZ2h0IjogOTk5OTk5Ljk5OTk5OTksCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMC40LAogICAgICAgICJ5IjogMC4xMDAwMDAwNDQ5OTQ1MjE4OQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiA5OTk5OTkuOTk5OTk5OSwKICAgICAgICAiaGVpZ2h0IjogMC4xLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDEwMDAwMDAuNDk5OTk5OSwKICAgICAgICAieSI6IDUwMDAwMC4wNDk5OTk5OTUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogOTk5OTk5Ljk5OTk5OTksCiAgICAgICAgImhlaWdodCI6IDk5OTk5OS45OTk5OTk5OSwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAyMDAwMDAwLjU5OTk5OTc5OTksCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogOTk5OTk5Ljk5OTk5OTksCiAgICAgICAgImhlaWdodCI6IDAsCiAgICAgICAgIiRIIjogMjgzLAogICAgICAgICJ4IjogMzAwMDAwMC42OTk5OTk3LAogICAgICAgICJ5IjogNTAwMDAwLjA5OTk5OTk5NDk3CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMF9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMTAwMDAwMC4zOTk5OTk5LAogICAgICAgICAgICAgICJ5IjogNTAwMDAwLjA5OTk5OTk5NDk3CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDEwMDAwMDAuNDk5OTk5OSwKICAgICAgICAgICAgICAieSI6IDUwMDAwMC4wOTk5OTk5OTQ5NwogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUxIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTFfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDIwMDAwMDAuNDk5OTk5Nzk5OCwKICAgICAgICAgICAgICAieSI6IDUwMDAwMC4wOTk5OTk5OTQ5NwogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAyMDAwMDAwLjU5OTk5OTc5OTksCiAgICAgICAgICAgICAgInkiOiA1MDAwMDAuMDk5OTk5OTk0OTcKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjEiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUyX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAzMDAwMDAwLjU5OTk5OTY5OTcsCiAgICAgICAgICAgICAgInkiOiA1MDAwMDAuMDk5OTk5OTk0OTcKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMzAwMDAwMC42OTk5OTk3LAogICAgICAgICAgICAgICJ5IjogNTAwMDAwLjA5OTk5OTk5NDk3CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAuMSwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDQwMDAwMDAuODk5OTk5NiwKICAgICJoZWlnaHQiOiAxMDAwMDAwLjM5OTk5OTk5CiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "rawObservationSha256": "49de3943532a5200b9924729bcb934fc0ac50f72cd9eb4bd49c7de985d6d65ab",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\near-max-four\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\near-max-four\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:55.548265+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/near-max-four/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/near-max-four/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/near-max-four/command.json",
+        "commandSha256": "d900d901f9cc859453e1430fb53a4c0fe03166ab3cf671558aa5c91c8b4fa388",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/near-max-four/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/near-max-four/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.1,
+          "right": 0.2,
+          "bottom": 0.3,
+          "left": 0.4
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0.1,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "subnormal-two",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAxZS0zMjAsCiAgICAgICAgImhlaWdodCI6IDFlLTMyMAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxZS0zMDAsCiAgICAgICAgImhlaWdodCI6IDFlLTMwMAogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0KICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAtMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAscmlnaHQ9MCxib3R0b209MCxsZWZ0PTBdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "68159a4c550292ff600ec4356c6479da2a0d8b12dd4481a821e1569197479bef",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNjgxNTlhNGM1NTAyOTJmZjYwMGVjNDM1NmM2NDc5ZGEyYTBkOGIxMmRkNDQ4MWE4MjFlMTU2OTE5NzQ3OWJlZiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMWUtMzIwLAogICAgICAgICJoZWlnaHQiOiAxZS0zMjAsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMWUtMzAwLAogICAgICAgICJ5IjogNWUtMzAxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjAiLAogICAgICAgICJ3aWR0aCI6IDFlLTMwMCwKICAgICAgICAiaGVpZ2h0IjogMWUtMzAwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDAsCiAgICAgICAgInkiOiAwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMF9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMWUtMzAwLAogICAgICAgICAgICAgICJ5IjogNWUtMzAxCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDFlLTMwMCwKICAgICAgICAgICAgICAieSI6IDVlLTMwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MCxyaWdodD0wLGJvdHRvbT0wLGxlZnQ9MF0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxZS0zMDAsCiAgICAiaGVpZ2h0IjogMWUtMzAwCiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAiYnVzaW5lc3MiOiB7CiAgICAgICIkSCI6IGZhbHNlLAogICAgICAiZXJyb3IiOiB7CiAgICAgICAgInN0YWNrIjogInJldGFpbiIKICAgICAgfSwKICAgICAgIm51bWVyaWMiOiAwLjEKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDFlLTMyMCwKICAgICAgICAiaGVpZ2h0IjogMWUtMzIwLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDFlLTMwMCwKICAgICAgICAieSI6IDVlLTMwMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxZS0zMDAsCiAgICAgICAgImhlaWdodCI6IDFlLTMwMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAwLAogICAgICAgICJ5IjogMAogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDFlLTMwMCwKICAgICAgICAgICAgICAieSI6IDVlLTMwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxZS0zMDAsCiAgICAgICAgICAgICAgInkiOiA1ZS0zMDEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjAiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMSIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAtMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAscmlnaHQ9MCxib3R0b209MCxsZWZ0PTBdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMWUtMzAwLAogICAgImhlaWdodCI6IDFlLTMwMAogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "rawObservationSha256": "2cfc7d8d12e69166d0203853722cd8ca537c1211b75d6e7794e05d6f1183f68e",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\subnormal-two\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\subnormal-two\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:55.719913+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/subnormal-two/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/subnormal-two/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/subnormal-two/command.json",
+        "commandSha256": "e8736d6d26a238233fbe91f9962464cc5aa2c1c445674cb6baadf6b568be7faa",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/subnormal-two/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/subnormal-two/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.0,
+          "right": 0.0,
+          "bottom": 0.0,
+          "left": 0.0
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "zero-and-decimal",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0KICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAsYm90dG9tPTAuMixsZWZ0PTBdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "4a1a529ef954b8036f83903bc75297b2be09786fd92933a5083d603af32c5a13",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNGExYTUyOWVmOTU0YjgwMzZmODM5MDNiYzc1Mjk3YjJiZTA5Nzg2ZmQ5MjkzM2E1MDgzZDYwM2FmMzJjNWExMyIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAwLAogICAgICAgICJ5IjogMC4xNTAwMDAwMDAwMDAwMDAwMgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwLjEsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMCwKICAgICAgICAieSI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwLAogICAgICAgICIkSCI6IDI4MSwKICAgICAgICAieCI6IDAsCiAgICAgICAgInkiOiAwLjE1MDAwMDAwMDAwMDAwMDAyCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICAgICAieSI6IDAuMTUwMDAwMDAwMDAwMDAwMDIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMCwKICAgICAgICAgICAgICAieSI6IDAuMTUwMDAwMDAwMDAwMDAwMDIKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjEiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLAogICAgICAgICAgICAgICJ5IjogMC4xNTAwMDAwMDAwMDAwMDAwMgogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLAogICAgICAgICAgICAgICJ5IjogMC4xNTAwMDAwMDAwMDAwMDAwMgogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAwLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0wLjEscmlnaHQ9MCxib3R0b209MC4yLGxlZnQ9MF0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAwLAogICAgImhlaWdodCI6IDAuNAogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDAsCiAgICAgICAgInkiOiAwLjE1MDAwMDAwMDAwMDAwMDAyCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDAuMSwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAwLAogICAgICAgICJ5IjogMC4xCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjIiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDAsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMCwKICAgICAgICAieSI6IDAuMTUwMDAwMDAwMDAwMDAwMDIKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMiIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUxX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLAogICAgICAgICAgICAgICJ5IjogMC4xNTAwMDAwMDAwMDAwMDAwMgogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLAogICAgICAgICAgICAgICJ5IjogMC4xNTAwMDAwMDAwMDAwMDAwMgogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMSIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4yIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAsCiAgICAgICAgICAgICAgInkiOiAwLjE1MDAwMDAwMDAwMDAwMDAyCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAsCiAgICAgICAgICAgICAgInkiOiAwLjE1MDAwMDAwMDAwMDAwMDAyCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAuMSxyaWdodD0wLGJvdHRvbT0wLjIsbGVmdD0wXSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDAsCiAgICAiaGVpZ2h0IjogMC40CiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "rawObservationSha256": "aad3df42153335d35c087e0ae3961a05729a9f5b1d42800e9a15c7c7449d4222",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\zero-and-decimal\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\zero-and-decimal\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:55.906108+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/zero-and-decimal/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/zero-and-decimal/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/zero-and-decimal/command.json",
+        "commandSha256": "6f2c42a5ddf850ce317e45b3840163765056acc053017a1e64e754e0b0c7184a",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/zero-and-decimal/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/zero-and-decimal/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.1,
+          "right": 0.0,
+          "bottom": 0.2,
+          "left": 0.0
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "binary-neighbor",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjEsCiAgICAgICAgImhlaWdodCI6IDEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMC4xLAogICAgICAgICJoZWlnaHQiOiAwLjQ5OTk5OTk5OTk5OTk5OTk0CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXQogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMC4xLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0wLjEscmlnaHQ9MC4xLGJvdHRvbT0wLjEsbGVmdD0wLjFdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "8ddb18d16096b79126ecabc5ceb571f2a48a27797fd0eab99fb5391b01dec436",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiOGRkYjE4ZDE2MDk2Yjc5MTI2ZWNhYmM1Y2ViNTcxZjJhNDhhMjc3OTdmZDBlYWI5OWZiNTM5MWIwMWRlYzQzNiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMC4xLAogICAgICAgICJoZWlnaHQiOiAxLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDAuMzAwMDAwMDAwMDAwMDAwMDQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMC4xLAogICAgICAgICJoZWlnaHQiOiAwLjQ5OTk5OTk5OTk5OTk5OTk0LAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDAuMSwKICAgICAgICAieSI6IDAuMzUKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjIsCiAgICAgICAgICAgICAgInkiOiAwLjYKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC4zMDAwMDAwMDAwMDAwMDAwNCwKICAgICAgICAgICAgICAieSI6IDAuNgogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMC4xLAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0wLjEscmlnaHQ9MC4xLGJvdHRvbT0wLjEsbGVmdD0wLjFdIgogICAgfSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMC41LAogICAgImhlaWdodCI6IDEuMjAwMDAwMDAwMDAwMDAwMgogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjEsCiAgICAgICAgImhlaWdodCI6IDEsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMC4zMDAwMDAwMDAwMDAwMDAwNCwKICAgICAgICAieSI6IDAuMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLjEsCiAgICAgICAgImhlaWdodCI6IDAuNDk5OTk5OTk5OTk5OTk5OTQsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMC4xLAogICAgICAgICJ5IjogMC4zNQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuMiwKICAgICAgICAgICAgICAieSI6IDAuNgogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjMwMDAwMDAwMDAwMDAwMDA0LAogICAgICAgICAgICAgICJ5IjogMC42CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4wIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjEiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogLTE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAwLjEsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAuMSxyaWdodD0wLjEsYm90dG9tPTAuMSxsZWZ0PTAuMV0iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAwLjUsCiAgICAiaGVpZ2h0IjogMS4yMDAwMDAwMDAwMDAwMDAyCiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "rawObservationSha256": "38e75e19077a17b4973db38dcdf6b610a8fd9fe6656257804b6b1a70269c769f",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\binary-neighbor\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\binary-neighbor\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:56.079606+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/binary-neighbor/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/binary-neighbor/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/binary-neighbor/command.json",
+        "commandSha256": "0c274eab5dd4bc8a2662b4c588cb6b82546b8640b51e73e2bbf14a259b3a1979",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/binary-neighbor/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/binary-neighbor/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.1,
+          "right": 0.1,
+          "bottom": 0.1,
+          "left": 0.1
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0.1,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "all-zero-four",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDAsCiAgICAgICAgImhlaWdodCI6IDAKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4zIiwKICAgICAgICAid2lkdGgiOiAwLAogICAgICAgICJoZWlnaHQiOiAwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUxIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0KICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDAsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTAuMSxyaWdodD0wLjIsYm90dG9tPTAuMyxsZWZ0PTAuNF0iCiAgICB9CiAgfQp9Cg==",
+      "requestSha256": "b805f3849d43f45d06e335b1da0677df33ac3308401c53bb1857bde236bbcca2",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiYjgwNWYzODQ5ZDQzZjQ1ZDA2ZTMzNWIxZGEwNjc3ZGYzM2FjMzMwODQwMWM1M2JiMTg1N2JkZTIzNmJiY2NhMiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUyX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjQsCiAgICAgICAgICAgICAgInkiOiAwLjEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC40LAogICAgICAgICAgICAgICJ5IjogMC4xCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC40LAogICAgICAgICAgICAgICJ5IjogMC4xCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuNCwKICAgICAgICAgICAgICAieSI6IDAuMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMSIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4yIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuNCwKICAgICAgICAgICAgICAieSI6IDAuMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjQsCiAgICAgICAgICAgICAgInkiOiAwLjEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjAiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMSIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDAuNjAwMDAwMDAwMDAwMDAwMSwKICAgICJoZWlnaHQiOiAwLjQKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMSIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogMCwKICAgICAgICAiaGVpZ2h0IjogMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAwLjQsCiAgICAgICAgInkiOiAwLjEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUyX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjQsCiAgICAgICAgICAgICAgInkiOiAwLjEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC40LAogICAgICAgICAgICAgICJ5IjogMC4xCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC40LAogICAgICAgICAgICAgICJ5IjogMC4xCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuNCwKICAgICAgICAgICAgICAieSI6IDAuMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMSIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4yIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZTBfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDAuNCwKICAgICAgICAgICAgICAieSI6IDAuMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjQsCiAgICAgICAgICAgICAgInkiOiAwLjEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjAiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMSIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMCwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MC4xLHJpZ2h0PTAuMixib3R0b209MC4zLGxlZnQ9MC40XSIKICAgIH0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDAuNjAwMDAwMDAwMDAwMDAwMSwKICAgICJoZWlnaHQiOiAwLjQKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "rawObservationSha256": "b045fee7057de43919cdebc128b0e8a4d702b7ba464b52e44dc331febb41e10c",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\all-zero-four\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\all-zero-four\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:56.265626+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/all-zero-four/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/all-zero-four/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/all-zero-four/command.json",
+        "commandSha256": "c42cd7c525d3c7a884f8dd16d0b6fe002011604ad74ee7f45ef558d4a94403c6",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/all-zero-four/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/all-zero-four/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 0.1,
+          "right": 0.2,
+          "bottom": 0.3,
+          "left": 0.4
+        },
+        "nodeNode": 20,
+        "betweenLayers": 0,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "mixed-small-large",
+      "kind": "positive",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4zIiwKICAgICAgICAid2lkdGgiOiAxMDAwMDAwLAogICAgICAgICJoZWlnaHQiOiA5OTk5OTkuOTk5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjIiLAogICAgICAgICJ3aWR0aCI6IDk5Ljk5LAogICAgICAgICJoZWlnaHQiOiAwLjAwMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjAxLAogICAgICAgICJoZWlnaHQiOiAwLjEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMWUtMDgsCiAgICAgICAgImhlaWdodCI6IDEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMiIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMyIKICAgICAgICBdCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImUwIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJuMCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0KICAgICAgfQogICAgXSwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAtMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDFlLTA2LAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xZS0wNixyaWdodD0wLjEsYm90dG9tPTAsbGVmdD0wLjNdIgogICAgfQogIH0KfQo=",
+      "requestSha256": "2e7e368180f218e07201054b31cf483d10f84bd21a12cdc5173f4b881f9259f4",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMmU3ZTM2ODE4MGYyMThlMDcyMDEwNTRiMzFjZjQ4M2QxMGY4NGJkMjFhMTJjZGM1MTczZjRiODgxZjkyNTlmNCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogMTAwMDAwMCwKICAgICAgICAiaGVpZ2h0IjogOTk5OTk5Ljk5OSwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAxMDAuMzAwMDAzMDA5OTk5OTgsCiAgICAgICAgInkiOiAwLjAwMDAwMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiA5OS45OSwKICAgICAgICAiaGVpZ2h0IjogMC4wMDEsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMC4zMTAwMDIwMSwKICAgICAgICAieSI6IDQ5OTk5OS45OTkwMDA5OTk5NgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjAxLAogICAgICAgICJoZWlnaHQiOiAwLjEsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMC4zMDAwMDEwMSwKICAgICAgICAieSI6IDQ5OTk5OS45NDk1MDEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMWUtOCwKICAgICAgICAiaGVpZ2h0IjogMSwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAwLjMsCiAgICAgICAgInkiOiA0OTk5OTkuNDk5NTAxCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMTAwLjMwMDAwMjAwOTk5OTk5LAogICAgICAgICAgICAgICJ5IjogNDk5OTk5Ljk5OTUwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxMDAuMzAwMDAzMDA5OTk5OTgsCiAgICAgICAgICAgICAgInkiOiA0OTk5OTkuOTk5NTAxCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC4zMTAwMDEwMDk5OTk5OTk5NywKICAgICAgICAgICAgICAieSI6IDQ5OTk5OS45OTk1MDEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC4zMTAwMDIwMSwKICAgICAgICAgICAgICAieSI6IDQ5OTk5OS45OTk1MDEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjEiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjMwMDAwMDAxLAogICAgICAgICAgICAgICJ5IjogNDk5OTk5Ljk5OTUwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjMwMDAwMTAxLAogICAgICAgICAgICAgICJ5IjogNDk5OTk5Ljk5OTUwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMC4wMDAwMDEsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTFlLTA2LHJpZ2h0PTAuMSxib3R0b209MCxsZWZ0PTAuM10iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxMDAwMTAwLjQwMDAwMzAxLAogICAgImhlaWdodCI6IDk5OTk5OS45OTkwMDEKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJidXNpbmVzcyI6IHsKICAgICAgIiRIIjogZmFsc2UsCiAgICAgICJlcnJvciI6IHsKICAgICAgICAic3RhY2siOiAicmV0YWluIgogICAgICB9LAogICAgICAibnVtZXJpYyI6IDAuMQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJuMyIsCiAgICAgICAgIndpZHRoIjogMTAwMDAwMCwKICAgICAgICAiaGVpZ2h0IjogOTk5OTk5Ljk5OSwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAxMDAuMzAwMDAzMDA5OTk5OTgsCiAgICAgICAgInkiOiAwLjAwMDAwMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4yIiwKICAgICAgICAid2lkdGgiOiA5OS45OSwKICAgICAgICAiaGVpZ2h0IjogMC4wMDEsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMC4zMTAwMDIwMSwKICAgICAgICAieSI6IDQ5OTk5OS45OTkwMDA5OTk5NgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAwLjAxLAogICAgICAgICJoZWlnaHQiOiAwLjEsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMC4zMDAwMDEwMSwKICAgICAgICAieSI6IDQ5OTk5OS45NDk1MDEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMCIsCiAgICAgICAgIndpZHRoIjogMWUtOCwKICAgICAgICAiaGVpZ2h0IjogMSwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAwLjMsCiAgICAgICAgInkiOiA0OTk5OTkuNDk5NTAxCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMl9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMTAwLjMwMDAwMjAwOTk5OTk5LAogICAgICAgICAgICAgICJ5IjogNDk5OTk5Ljk5OTUwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxMDAuMzAwMDAzMDA5OTk5OTgsCiAgICAgICAgICAgICAgInkiOiA0OTk5OTkuOTk5NTAxCiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogIm4yIiwKICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAibjMiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlMV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC4zMTAwMDEwMDk5OTk5OTk5NywKICAgICAgICAgICAgICAieSI6IDQ5OTk5OS45OTk1MDEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMC4zMTAwMDIwMSwKICAgICAgICAgICAgICAieSI6IDQ5OTk5OS45OTk1MDEKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAibjEiLAogICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJuMiIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImUwX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjMwMDAwMDAxLAogICAgICAgICAgICAgICJ5IjogNDk5OTk5Ljk5OTUwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAwLjMwMDAwMTAxLAogICAgICAgICAgICAgICJ5IjogNDk5OTk5Ljk5OTUwMQogICAgICAgICAgICB9LAogICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJuMCIsCiAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogIm4xIgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IC0xNywKICAgICAgImVsay5sYXllcmVkLnNwYWNpbmcubm9kZU5vZGVCZXR3ZWVuTGF5ZXJzIjogMC4wMDAwMDEsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTFlLTA2LHJpZ2h0PTAuMSxib3R0b209MCxsZWZ0PTAuM10iCiAgICB9LAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxMDAwMTAwLjQwMDAwMzAxLAogICAgImhlaWdodCI6IDk5OTk5OS45OTkwMDEKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "rawObservationSha256": "fd7617186e29bdc45035eb524a86de911fd2febc442bd4c1b487eafdc8c84c7b",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "returned",
+      "nativeExpectation": "public-contract-exact-and-independent-geometry",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\mixed-small-large\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-02\\mixed-small-large\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:56.436676+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-02/mixed-small-large/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-02/mixed-small-large/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-02/mixed-small-large/command.json",
+        "commandSha256": "ba70ac2230820753c6088e8b27e1227c07c262275821fe77e29a05946fbbcb13",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-02/mixed-small-large/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-02/mixed-small-large/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "geometryPolicy": {
+        "profile": "basic-flat-orthogonal",
+        "direction": "RIGHT",
+        "padding": {
+          "top": 1e-06,
+          "right": 0.1,
+          "bottom": 0.0,
+          "left": 0.3
+        },
+        "nodeNode": 20,
+        "betweenLayers": 1e-06,
+        "forwardEdges": true
+      }
+    },
+    {
+      "id": "mapping-padding-importer-error",
+      "kind": "domain-negative",
+      "provenance": "project-authored-numeric-regression; real fixed-elkjs capture",
+      "requestBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1yZXF1ZXN0L3YxIiwKICAiY29uc3RydWN0b3IiOiB7fSwKICAibGF5b3V0QXJndW1lbnRzIjoge30sCiAgImdyYXBoIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMS4wCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjEiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAwLjEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlMCIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAibjAiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJuMSIKICAgICAgICBdCiAgICAgIH0KICAgIF0sCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5yYW5kb21TZWVkIjogMTcsCiAgICAgICJlbGsubGF5ZXJlZC5zcGFjaW5nLm5vZGVOb2RlQmV0d2VlbkxheWVycyI6IDIwLAogICAgICAiZWxrLnBhZGRpbmciOiB7CiAgICAgICAgInRvcCI6IDEyLAogICAgICAgICJyaWdodCI6IDEyLAogICAgICAgICJib3R0b20iOiAxMiwKICAgICAgICAibGVmdCI6IDEyCiAgICAgIH0KICAgIH0KICB9Cn0K",
+      "requestSha256": "35c9467f2797d48b228be1b6caed4852246b54fbd8a5bc8febbd02303d456575",
+      "rawObservationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMzVjOTQ2N2YyNzk3ZDQ4YjIyOGJlMWI2Y2FlZDQ4NTIyNDZiNTRmYmQ4YTViYzhmZWJiZDAyMzAzZDQ1NjU3NSIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgIm91dGNvbWUiOiAidGhyZXciLAogICJlcnJvciI6IHsKICAgICJuYW1lIjogIkVycm9yIiwKICAgICJtZXNzYWdlIjogImphdmEubGFuZy5FcnJvcjogU2V2ZXJlIGltcGxlbWVudGF0aW9uIGVycm9yIGluIHRoZSBKc29uIHRvIEVsa0dyYXBoIGltcG9ydGVyLiIKICB9LAogICJkaWFnbm9zdGljcyI6IHsKICAgICJlcnJvclN0YWNrIjogIkVycm9yOiBqYXZhLmxhbmcuRXJyb3I6IFNldmVyZSBpbXBsZW1lbnRhdGlvbiBlcnJvciBpbiB0aGUgSnNvbiB0byBFbGtHcmFwaCBpbXBvcnRlci5cbiAgICBhdCBRZWIucHogW2FzIGVlXSAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjY2ODQ6OTMzOTcpXG4gICAgYXQgUWViLnZ6IFthcyBqZV0gKEM6XFxjb2RlXFxweS12aXNhY3RvclxccHktZWxrXFwubG9jYWxcXG5wbS1lbGtqc1xccGFja2FnZVxcbGliXFxlbGsuYnVuZGxlZC5qczo2Njg0OjkzNzA1KVxuICAgIGF0IFFlYi5ueiAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjI4NTU6NDgpXG4gICAgYXQgbmV3IFFlYiAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjE0ODM6MjApXG4gICAgYXQgeUhkIChDOlxcY29kZVxccHktdmlzYWN0b3JcXHB5LWVsa1xcLmxvY2FsXFxucG0tZWxranNcXHBhY2thZ2VcXGxpYlxcZWxrLmJ1bmRsZWQuanM6NTQ1NToxODQpXG4gICAgYXQgaklkIChDOlxcY29kZVxccHktdmlzYWN0b3JcXHB5LWVsa1xcLmxvY2FsXFxucG0tZWxranNcXHBhY2thZ2VcXGxpYlxcZWxrLmJ1bmRsZWQuanM6MzgxOTo1NilcbiAgICBhdCBKSmQuS0pkIFthcyBDZF0gKEM6XFxjb2RlXFxweS12aXNhY3RvclxccHktZWxrXFwubG9jYWxcXG5wbS1lbGtqc1xccGFja2FnZVxcbGliXFxlbGsuYnVuZGxlZC5qczo2Njg0OjQ0Mzg2MylcbiAgICBhdCBNZ2IgKEM6XFxjb2RlXFxweS12aXNhY3RvclxccHktZWxrXFwubG9jYWxcXG5wbS1lbGtqc1xccGFja2FnZVxcbGliXFxlbGsuYnVuZGxlZC5qczozNjQwOjY3KVxuICAgIGF0IFVJZCAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjUyOTY6MTcxKVxuICAgIGF0IFJJZCAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjU1NjM6MTA2KSIKICB9LAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImJ1c2luZXNzIjogewogICAgICAiJEgiOiBmYWxzZSwKICAgICAgImVycm9yIjogewogICAgICAgICJzdGFjayI6ICJyZXRhaW4iCiAgICAgIH0sCiAgICAgICJudW1lcmljIjogMC4xCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIm4wIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMC4xCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXQogICAgICB9CiAgICBdLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDE3LAogICAgICAiZWxrLmxheWVyZWQuc3BhY2luZy5ub2RlTm9kZUJldHdlZW5MYXllcnMiOiAyMCwKICAgICAgImVsay5wYWRkaW5nIjogewogICAgICAgICJ0b3AiOiAxMiwKICAgICAgICAicmlnaHQiOiAxMiwKICAgICAgICAiYm90dG9tIjogMTIsCiAgICAgICAgImxlZnQiOiAxMgogICAgICB9CiAgICB9LAogICAgIiRIIjogMTMKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "rawObservationSha256": "35f166bf9479068e4376e69f3646d3d7b2d9bf80547d526f3601be8d70dca62c",
+      "engine": {
+        "name": "elkjs",
+        "version": "0.12.1",
+        "node": "v24.19.0",
+        "platform": "win32",
+        "arch": "x64",
+        "entrypoint": "lib/elk.bundled.js",
+        "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+      },
+      "expectedReferenceOutcome": "threw",
+      "nativeExpectation": "reject-outside-E04-domain",
+      "sourceIds": [
+        "elkjs-generated-worker",
+        "elkjs-bundled-oracle"
+      ],
+      "capture": {
+        "argv": [
+          "node",
+          "tools/reference/capture_layout.cjs",
+          ".local/npm-elkjs/package",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-01\\original-one-tenth\\request.json",
+          "test-runs\\20261103-E04-01\\A\\fractional-cases-01\\original-one-tenth\\reference.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "capturedUtc": "2026-11-03T05:09:11.678929+00:00",
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "rawEvidence": {
+        "requestPath": "test-runs/20261103-E04-01/A/fractional-cases-01/original-one-tenth/request.json",
+        "rawObservationPath": "test-runs/20261103-E04-01/A/fractional-cases-01/original-one-tenth/reference.json",
+        "commandPath": "test-runs/20261103-E04-01/A/fractional-cases-01/original-one-tenth/command.json",
+        "commandSha256": "958925908e49040b4e1ab4cc0902b14b2b5539be4d716042504df0c41db61685",
+        "stdoutPath": "test-runs/20261103-E04-01/A/fractional-cases-01/original-one-tenth/stdout.log",
+        "stderrPath": "test-runs/20261103-E04-01/A/fractional-cases-01/original-one-tenth/stderr.log",
+        "availability": "historical ignored run paths; all original request/observation bytes and command data are embedded above for a fresh clone"
+      },
+      "limitation": "This is an admission regression, not JS/Python error-name/message or worker-close compatibility. E03 Mapping parsing is a host convenience and stays available; E04 rejects the active Mapping option before layout."
+    }
+  ]
+}

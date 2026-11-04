@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "project": "py-elk",
-  "status": "bootstrap-structure-and-planning",
+  "status": "experimental-native-layered-slice",
   "baselineVerifiedOn": "2026-11-02",
   "javascript": {
     "repository": "https://github.com/kieler/elkjs",
@@ -19,10 +19,57 @@
     "minimumVersionPlanned": "3.11",
     "distributionNamePlanned": "py-elk",
     "importNamePlanned": "pyelk",
-    "runtimeImplemented": false,
+    "runtimeImplemented": true,
     "implementedAlgorithms": [],
     "packagePublished": false,
-    "scaffoldVersion": "0.0.1a0"
+    "scaffoldVersion": "0.0.1a0",
+    "experimentalAlgorithms": [
+      {
+        "id": "org.eclipse.elk.layered",
+        "scope": "E07-ADR0006-revision1",
+        "evidence": {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      }
+    ],
+    "fullAlgorithmAccepted": false,
+    "runtimeEvidence": "references/e09-runtime-audit.json",
+    "nativeHost": {
+      "scope": "E09-ADR0008-revision1",
+      "layoutScope": "E07-ADR0006-revision1",
+      "status": "bounded-native-host-and-diagnostics-verified",
+      "defaultRegistryCounts": {
+        "algorithms": 1,
+        "options": 9,
+        "categories": 1
+      },
+      "loggingTrueSupported": true,
+      "measureExecutionTimeTrueSupported": true,
+      "verifiedCapabilities": [
+        "bounded layered geometry",
+        "instance-local async metadata",
+        "FIFO cancellation/close/recovery",
+        "real source monitor tree/live BK logs",
+        "source generated clock scaling",
+        "current installed finite behavior witnesses"
+      ],
+      "maxPendingDefault": 16,
+      "maxPendingRange": [
+        1,
+        64
+      ],
+      "timeoutDefault": null,
+      "hardMemoryQuota": false,
+      "requiredDeclarationCount": 38,
+      "verifiedBehaviorItems": 219,
+      "evidence": {
+        "path": "references/e09-runtime-audit.json",
+        "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+      },
+      "fullAlgorithmAccepted": false,
+      "packagePublished": false
+    }
   },
   "referenceFixtures": {
     "captured": true,
@@ -92,8 +139,15 @@
   },
   "javaImplementationSource": {
     "status": "unresolved",
-    "reason": "elkjs build.gradle reads an external ../elk checkout; the pinned upstream CI selects master. Its exact Java implementation commit is not established by the elkjs tag.",
-    "requiredBefore": "Mechanical algorithm-source port; behavioral oracle remains the locked npm artifact."
+    "reason": "The fixed npm files equal tracked elkjs Git blobs and parsed publication provenance binds only the elkjs commit. The pre-generated worker build does not establish the exact external Java checkout, despite the declared ELK 0.12.1 release basis.",
+    "requiredBefore": "Exact external Java-source port; E04 instead directly ports the separately reviewed locked generated-worker slice.",
+    "readableCandidate": {
+      "repository": "https://github.com/eclipse-elk/elk",
+      "tag": "v0.12.1",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "status": "candidate-not-proven-worker-build-source"
+    },
+    "audit": "references/e01-source-lineage.json"
   },
   "integrationPolicy": {
     "consumer": "py-mermaid",

@@ -1,0 +1,214 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker PG01-PG05/PG13, source reviewed independently.
+# Native integer words implement the observed bit semantics; no GWT runtime copy.
+"""Real two-bit planar grid foundation for the common Polyomino algorithm.
+
+Traversal and packing remain separate pending closures. This module does not
+substitute rectangle packing for Polyomino math.
+"""
+from __future__ import annotations
+import math
+from dataclasses import dataclass
+from .triangulation import _fold32, _scalar_hash
+from .fixed import _div
+
+
+@dataclass(frozen=True, eq=False)
+class Direction:
+    name: str
+    ordinal: int
+    horizontal: bool
+
+
+# This is the common Polyomino enum, distinct from DisCo and Core Direction.
+NORTH = Direction('NORTH', 0, False)
+EAST = Direction('EAST', 1, True)
+SOUTH = Direction('SOUTH', 2, False)
+WEST = Direction('WEST', 3, True)
+
+
+class TwoBitGrid:
+    def _error_message(self, x, y):
+        return (f'Grid is only of size {self.x_size}*{self.y_size}. '
+                f'Requested point ({x}, {y}) is out of bounds.')
+
+    def _word_position(self, x, y):
+        # Source retrieve addresses allocated words rather than logical width.
+        # In particular, padding cells of the final word are observable zeros.
+        word = _fold32(x) >> 5
+        if y < 0 or y >= len(self.grid) or word < 0 or word >= len(self.grid[y]):
+            raise TypeError('Undefined two-bit grid word access')
+        return word, (_fold32(x) & 31)*2
+
+    def retrieve(self, x, y):
+        word, shift = self._word_position(x, y)
+        return (self.grid[y][word] >> shift) & 3
+
+    def is_blocked(self, x, y):
+        return self.retrieve(x, y) == 1
+
+    def is_empty(self, x, y):
+        return self.retrieve(x, y) == 0
+
+    def is_weakly_blocked(self, x, y):
+        return self.retrieve(x, y) == 2
+
+    def set(self, x, y, msb, lsb):
+        if x >= self.x_size:
+            raise IndexError(self._error_message(x, y))
+        word, shift = self._word_position(x, y)
+        low_mask = 1 << shift
+        self.grid[y][word] = ((self.grid[y][word] | low_mask) if lsb
+                              else (self.grid[y][word] & ~low_mask))
+        high_mask = low_mask << 1
+        self.grid[y][word] = ((self.grid[y][word] | high_mask) if msb
+                              else (self.grid[y][word] & ~high_mask))
+        self.grid[y][word] &= (1 << 64)-1
+
+    def __str__(self):
+        output = ' '+''.join(str(x % 10) for x in range(self.x_size))+'\n'
+        for y in range(self.y_size):
+            output += str(y % 10)
+            for x in range(self.x_size):
+                value = self.retrieve(x, y)
+                output += '_' if value == 0 else 'X' if value == 1 else '0'
+            output += '\n'
+        return output[:-1]
+
+
+class PlanarGrid(TwoBitGrid):
+    def __init__(self, width, height):
+        self.reinitialize(width, height)
+
+    def reinitialize(self, width, height):
+        columns = _scalar_hash(math.ceil(_div(width, 32)))
+        if height < 0 or columns < 0:
+            raise ValueError('Negative array size')
+        self.grid = [[0]*columns for _ in range(height)]
+        self.x_size, self.y_size = width, height
+        self.x_center = _fold32(width-1) >> 1
+        self.y_center = _fold32(height-1) >> 1
+
+    def add_filled_cells_from(self, other, x_offset, y_offset):
+        for x in range(other.x_size):
+            translated_x = x-other.x_center+x_offset
+            for y in range(other.y_size):
+                translated_y = y-other.y_center+y_offset
+                if other.is_blocked(x, y):
+                    if not self.is_weakly_blocked_center_based(translated_x, translated_y):
+                        self.set_blocked_center_based(translated_x, translated_y)
+                elif other.is_weakly_blocked(x, y):
+                    if not self.is_blocked_center_based(translated_x, translated_y):
+                        self.set_weakly_blocked_center_based(translated_x, translated_y)
+
+    def add_polyomino(self, other, x_offset, y_offset):
+        self.add_filled_cells_from(other, x_offset, y_offset)
+        other.set_x(self.x_center-other.x_center+x_offset)
+        other.set_y(self.y_center-other.y_center+y_offset)
+        for direction, start, end in other.polyomino_extensions:
+            if direction.ordinal == 0:
+                self.weakly_block_area(other.x+start, 0, other.x+end, other.y-1)
+            elif direction.ordinal == 1:
+                self.weakly_block_area(other.x+other.x_size, other.y+start, self.x_size-1, other.y+end)
+            elif direction.ordinal == 2:
+                self.weakly_block_area(other.x+start, other.y+other.y_size, other.x+end, self.y_size-1)
+            else:
+                self.weakly_block_area(0, other.y+start, other.x-1, other.y+end)
+
+    def get_filled_bounds(self):
+        min_x = min_y = 2147483647
+        max_x = max_y = -2147483648
+        for x in range(self.x_size):
+            for y in range(self.y_size):
+                if self.is_blocked(x, y):
+                    min_x, max_x = min(min_x, x), max(max_x, x)
+                    min_y, max_y = min(min_y, y), max(max_y, y)
+        return min_x, min_y, max_x-min_x+1, max_y-min_y+1
+
+    def intersects_with_center_based(self, other, x_offset, y_offset):
+        for x in range(other.x_size):
+            translated_x = x-other.x_center+x_offset
+            for y in range(other.y_size):
+                translated_y = y-other.y_center+y_offset
+                actual_x, actual_y = translated_x+self.x_center, translated_y+self.y_center
+                if (actual_x >= 0 and actual_y >= 0
+                        and actual_x < self.x_size and actual_y < self.y_size):
+                    if ((not other.is_empty(x, y)
+                         and self.is_blocked_center_based(translated_x, translated_y))
+                            or (other.is_blocked(x, y)
+                                and not self.is_empty_center_based(translated_x, translated_y))):
+                        return True
+        return False
+
+    def intersects_polyomino(self, other, x_offset, y_offset):
+        if self.intersects_with_center_based(other, x_offset, y_offset):
+            return True
+        for direction, start, end in other.polyomino_extensions:
+            left = self.x_center-other.x_center+x_offset
+            right = left+other.x_size
+            top = self.y_center-other.y_center+y_offset
+            bottom = top+other.y_size
+            if direction.ordinal == 0:
+                intersects = self.weakly_intersects_area(left+start, 0, left+end, top-1)
+            elif direction.ordinal == 1:
+                intersects = self.weakly_intersects_area(right, top+start, self.x_size-1, top+end)
+            elif direction.ordinal == 2:
+                intersects = self.weakly_intersects_area(left+start, bottom, left+end, self.y_size-1)
+            else:
+                intersects = self.weakly_intersects_area(0, top+start, left-1, top+end)
+            if intersects:
+                return True
+        return False
+
+    def _center_get(self, method, x, y):
+        try:
+            return method(x+self.x_center, y+self.y_center)
+        except IndexError as error:
+            raise IndexError(f'{error} Given center based coordinates were ({x}, {y}).') from error
+
+    def is_blocked_center_based(self, x, y):
+        return self._center_get(self.is_blocked, x, y)
+
+    def is_empty_center_based(self, x, y):
+        return self._center_get(self.is_empty, x, y)
+
+    def is_weakly_blocked_center_based(self, x, y):
+        return self._center_get(self.is_weakly_blocked, x, y)
+
+    def _center_set(self, x, y, msb, lsb):
+        try:
+            self.set(x+self.x_center, y+self.y_center, msb, lsb)
+        except IndexError as error:
+            raise IndexError(f'{error} Given center based coordinates were ({x}, {y}).') from error
+
+    def set_blocked_center_based(self, x, y):
+        self._center_set(x, y, False, True)
+
+    def set_weakly_blocked_center_based(self, x, y):
+        self._center_set(x, y, True, False)
+
+    def weakly_block_area(self, left, top, right, bottom):
+        for y in range(top, bottom+1):
+            for x in range(left, right+1):
+                if not self.is_blocked(x, y):
+                    self.set(x, y, True, False)
+
+    def weakly_intersects_area(self, left, top, right, bottom):
+        for y in range(top, bottom+1):
+            for x in range(left, right+1):
+                if self.is_blocked(x, y):
+                    return True
+        return False
+
+
+class Polyomino(PlanarGrid):
+    def __init__(self, extensions):
+        super().__init__(0, 0)
+        self.polyomino_extensions = extensions
+        self.x = self.y = 0
+
+    def set_x(self, value):
+        self.x = value
+
+    def set_y(self, value):
+        self.y = value

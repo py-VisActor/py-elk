@@ -1,0 +1,404 @@
+{
+  "schema": "py-elk-next-general-constraints/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "eb17c178130d154027d139b455d40dba68ba55731c75471d9922d9a32955b57a",
+  "requestSha256": "46eee75eefdfbbda8f40e356ea53ffbe7c4d2823dbdd6001989483e775773e43",
+  "pid": 30928,
+  "parentPid": 17912,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "outer-and-fixed-reversal",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Edge and layer constraint edge reversal",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "beforePost": null,
+        "after": {
+          "layerless": [
+            "F",
+            "L",
+            "M",
+            "Q",
+            "R"
+          ],
+          "layers": [],
+          "nodes": [
+            {
+              "id": "F",
+              "hasConstraint": true,
+              "constraint": "FIRST",
+              "edgeConstraint": "OUTGOING_ONLY",
+              "connection": null,
+              "incoming": [
+                "QF",
+                "guard"
+              ],
+              "outgoing": [
+                "MF"
+              ]
+            },
+            {
+              "id": "L",
+              "hasConstraint": true,
+              "constraint": "LAST",
+              "edgeConstraint": "OUTGOING_ONLY",
+              "connection": null,
+              "incoming": [
+                "LM"
+              ],
+              "outgoing": [
+                "LQ"
+              ]
+            },
+            {
+              "id": "M",
+              "hasConstraint": false,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [
+                "MF",
+                "MR"
+              ],
+              "outgoing": [
+                "guard",
+                "LM"
+              ]
+            },
+            {
+              "id": "Q",
+              "hasConstraint": false,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [
+                "LQ"
+              ],
+              "outgoing": [
+                "QF"
+              ]
+            },
+            {
+              "id": "R",
+              "hasConstraint": false,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [],
+              "outgoing": [
+                "MR"
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "MF",
+              "source": "F:p",
+              "target": "M:p",
+              "reversed": true,
+              "originalOpposite": null
+            },
+            {
+              "id": "LM",
+              "source": "M:p",
+              "target": "L:p",
+              "reversed": true,
+              "originalOpposite": null
+            },
+            {
+              "id": "QF",
+              "source": "Q:p",
+              "target": "F:p",
+              "reversed": null,
+              "originalOpposite": null
+            },
+            {
+              "id": "LQ",
+              "source": "L:p",
+              "target": "Q:p",
+              "reversed": null,
+              "originalOpposite": null
+            },
+            {
+              "id": "MR",
+              "source": "R:p",
+              "target": "M:p",
+              "reversed": true,
+              "originalOpposite": null
+            },
+            {
+              "id": "guard",
+              "source": "M:p",
+              "target": "F:p",
+              "reversed": true,
+              "originalOpposite": null
+            }
+          ],
+          "hidden": null
+        },
+        "visits": [],
+        "suppliedPostLayers": false,
+        "preparedHiddenNodes": false
+      },
+      {
+        "id": "separate-hide-and-restore",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Layer constraint preprocessing",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Layer constraint postprocessing",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "beforePost": {
+          "layerless": [
+            "M",
+            "N"
+          ],
+          "layers": [],
+          "nodes": [
+            {
+              "id": "F",
+              "hasConstraint": true,
+              "constraint": "FIRST_SEPARATE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [],
+              "outgoing": [
+                "FM",
+                "FN"
+              ]
+            },
+            {
+              "id": "M",
+              "hasConstraint": false,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": "BOTH",
+              "incoming": [],
+              "outgoing": []
+            },
+            {
+              "id": "N",
+              "hasConstraint": true,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [],
+              "outgoing": []
+            },
+            {
+              "id": "L",
+              "hasConstraint": true,
+              "constraint": "LAST_SEPARATE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [
+                "ML"
+              ],
+              "outgoing": []
+            }
+          ],
+          "edges": [
+            {
+              "id": "FM",
+              "source": "F:p",
+              "target": null,
+              "reversed": null,
+              "originalOpposite": "M:p"
+            },
+            {
+              "id": "FN",
+              "source": "F:p",
+              "target": null,
+              "reversed": null,
+              "originalOpposite": "N:p"
+            },
+            {
+              "id": "ML",
+              "source": null,
+              "target": "L:p",
+              "reversed": null,
+              "originalOpposite": "M:p"
+            }
+          ],
+          "hidden": [
+            "F",
+            "L"
+          ]
+        },
+        "after": {
+          "layerless": [],
+          "layers": [
+            [
+              "F"
+            ],
+            [
+              "M",
+              "N"
+            ],
+            [
+              "L"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "F",
+              "hasConstraint": true,
+              "constraint": "FIRST_SEPARATE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [],
+              "outgoing": [
+                "FM",
+                "FN"
+              ]
+            },
+            {
+              "id": "M",
+              "hasConstraint": false,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": "BOTH",
+              "incoming": [
+                "FM"
+              ],
+              "outgoing": [
+                "ML"
+              ]
+            },
+            {
+              "id": "N",
+              "hasConstraint": true,
+              "constraint": "NONE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [
+                "FN"
+              ],
+              "outgoing": []
+            },
+            {
+              "id": "L",
+              "hasConstraint": true,
+              "constraint": "LAST_SEPARATE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [
+                "ML"
+              ],
+              "outgoing": []
+            }
+          ],
+          "edges": [
+            {
+              "id": "FM",
+              "source": "F:p",
+              "target": "M:p",
+              "reversed": null,
+              "originalOpposite": "M:p"
+            },
+            {
+              "id": "FN",
+              "source": "F:p",
+              "target": "N:p",
+              "reversed": null,
+              "originalOpposite": "N:p"
+            },
+            {
+              "id": "ML",
+              "source": "M:p",
+              "target": "L:p",
+              "reversed": null,
+              "originalOpposite": "M:p"
+            }
+          ],
+          "hidden": [
+            "F",
+            "L"
+          ]
+        },
+        "visits": [],
+        "suppliedPostLayers": true,
+        "preparedHiddenNodes": false
+      },
+      {
+        "id": "incoming-cursor-revives",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Layer constraint postprocessing",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "beforePost": null,
+        "after": {
+          "layerless": [],
+          "layers": [
+            [
+              "F"
+            ]
+          ],
+          "nodes": [
+            {
+              "id": "F",
+              "hasConstraint": true,
+              "constraint": "FIRST_SEPARATE",
+              "edgeConstraint": null,
+              "connection": null,
+              "incoming": [
+                "loop"
+              ],
+              "outgoing": [
+                "loop"
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "loop",
+              "source": "F:p",
+              "target": "F:p",
+              "reversed": null,
+              "originalOpposite": "F:p"
+            }
+          ],
+          "hidden": [
+            "F"
+          ]
+        },
+        "visits": [
+          "loop",
+          "loop"
+        ],
+        "suppliedPostLayers": false,
+        "preparedHiddenNodes": true
+      }
+    ],
+    "layoutExecuted": false,
+    "workingGraphHelpersExecuted": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

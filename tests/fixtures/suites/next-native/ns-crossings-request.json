@@ -1,0 +1,6 @@
+{
+  "cases":[
+    {"id":"weighted-targets-zero-degree-queue-and-duplicate-long-port","order":["n","l","o","s"],"nodes":[{"id":"n","type":"NORTH_SOUTH_PORT","unit":"o","ports":[["nw","WEST"],["ne","EAST"]]},{"id":"l","type":"LONG_EDGE","ports":[["lw","WEST"],["le1","EAST"],["le2","EAST"]]},{"id":"o","type":"NORMAL","ports":[["on","NORTH"],["os","SOUTH"]]},{"id":"s","type":"NORTH_SOUTH_PORT","unit":"o","ports":[["sw","WEST"],["se","EAST"]]}],"dummies":{"on":"n","os":"s"},"origins":{"nw":"on","ne":"on","sw":"os","se":"os"},"edges":[["nw","lw"],["lw","le1"],["lw","le1"],["sw","se"]]},
+    {"id":"label-preserves-last-layout-unit-before-new-unit-flush","order":["n1","label","n2","q","o"],"nodes":[{"id":"n1","type":"NORTH_SOUTH_PORT","unit":"o","ports":[["w1","WEST"],["e1","EAST"]]},{"id":"label","type":"LABEL","ports":[]},{"id":"n2","type":"NORTH_SOUTH_PORT","unit":"q","ports":[["w2","WEST"],["e2","EAST"]]},{"id":"q","type":"NORMAL","ports":[["qn","NORTH"]]},{"id":"o","type":"NORMAL","ports":[["on","NORTH"]]}],"dummies":{"on":"n1","qn":"n2"},"origins":{"w1":"on","e1":"on","w2":"qn","e2":"qn"},"edges":[["w1","e1"],["w2","e2"]]}
+  ]
+}

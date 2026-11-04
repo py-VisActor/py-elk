@@ -1,0 +1,67 @@
+{
+  "schema": "py-elk-e04-runtime-audit/v1",
+  "iteration": "E04",
+  "status": "E04_EXPERIMENTAL_SLICE_VERIFIED",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "scope": {
+    "id": "E04-ADR0003-revision4",
+    "document": "docs/decisions/0003-e04-generated-source-slice.md",
+    "topology": "flat-connected-directed-simple-path",
+    "minimumNodes": 0,
+    "maximumNodes": 4,
+    "directions": [
+      "RIGHT",
+      "UNDEFINED"
+    ],
+    "edgeRouting": "ORTHOGONAL",
+    "numericMaximum": 1000000,
+    "nonzeroSigned32Seed": true,
+    "explicitPaddingType": "string",
+    "renewSourceApprovalBeforeExpansion": true
+  },
+  "runtimeClaims": {
+    "nativeLayoutImplemented": true,
+    "experimentalSliceAvailable": true,
+    "publicLayoutApiAccepted": false,
+    "fullAlgorithmAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false,
+    "releaseAccepted": false,
+    "packagePublished": false
+  },
+  "pythonAlgorithmsVerified": 0,
+  "availableExperimentalAlgorithms": [
+    "org.eclipse.elk.layered"
+  ],
+  "coverageDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25,
+    "selectedMasterCases": 5,
+    "excludedMasterCases": 20,
+    "projectVariants": 16,
+    "sliceCases": 21,
+    "numericPositiveCases": 12,
+    "numericNegativeCases": 1
+  },
+  "filesSha256": {
+    "references/e04-component-approvals.json": "b2937786f11af7bf9bce76d7c87855c3a5b31aa4aae2f2eca2264b71e7c40bdd",
+    "docs/decisions/0003-e04-generated-source-slice.md": "fa41da203cba02b83636c402ac907cb7bbaf3d967f5ac4cffcd45638ac50bbd0",
+    "tests/fixtures/suites/E04/cases.json": "42209981b60008e15a96e9634ef5f850cc76d1fa96bdbbd0f2e4fca03a16cf7b",
+    "tests/fixtures/suites/E04/selection.json": "7f1b0444db86ee805a42280e5e2bf9cb27482ac0c46115f2841e072e76f11a22",
+    "references/e04-installed-check.json": "36be49220d99099f195338de990153ba35fc690f1a91fca3ec0bb131efe4a227",
+    "references/e04-numeric-regressions.json": "e30c5ee1b1de06223b9df92f8d1e216ad713187c8784070aaa908f48dc553d79",
+    "references/e04-determinism-policy.json": "352897995c7833a13a5470cfb6a5d72312297605471114c2933370b97835aac3"
+  },
+  "installedEvidence": "references/e04-installed-check.json",
+  "algorithmSourceGate": "verified-for-guarded-generated-source-slice-only",
+  "retrospective": "docs/retrospectives/E04.md",
+  "nextIteration": "E05",
+  "runDirectory": "test-runs/20261103-E04-01",
+  "limitation": "Only the explicitly guarded experimental slice. Java build provenance and project release license remain unresolved; no full algorithm/API/lifecycle or formal publication acceptance."
+}

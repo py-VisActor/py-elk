@@ -1,0 +1,480 @@
+{
+  "schema": "py-elk-e07-component-source-review/v1",
+  "iteration": "E07",
+  "reviewer": "B",
+  "reviewedLane": "R",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T09:38:39.097004+00:00",
+  "sourceDocument": {
+    "path": "references/e07-source-components-R.json",
+    "sha256": "c5707c061896f413625bcfd720e41cacbd1d45cb73874f400b87212591c48d57"
+  },
+  "approvedComponents": [
+    "intermediate:SelfLoopPreProcessor",
+    "intermediate:SelfLoopPortRestorer",
+    "intermediate:SelfLoopRouter",
+    "intermediate:SelfLoopPostProcessor",
+    "intermediate:ReversedEdgeRestorer",
+    "intermediate:LongEdgeSplitter",
+    "intermediate:LongEdgeJoiner",
+    "intermediate:EdgeAndLayerConstraintEdgeReverser",
+    "intermediate:LayerConstraintPreprocessor",
+    "intermediate:LayerConstraintPostprocessor",
+    "intermediate:PortSideProcessor",
+    "intermediate:PortListSorter",
+    "intermediate:InLayerConstraintProcessor",
+    "intermediate:EndLabelSorter"
+  ],
+  "componentSeals": {
+    "intermediate:SelfLoopPreProcessor": "cef4a8f7fd8fcc3773bdb23897a9d0c01432da3a27ee3cad9e24147aedaa47fa",
+    "intermediate:SelfLoopPortRestorer": "b4ed254b46baf814707673a77ba86bd0849f4f3c703ab6752281bfb34fccce70",
+    "intermediate:SelfLoopRouter": "4b764b2d5c76112afbcc2f24d15842a842fb7079c45113bd7ad6aac4d4c873bb",
+    "intermediate:SelfLoopPostProcessor": "e1dc876e306a275344945742f8ff60cc4a57c49376266d70ba5f9cee057a01ea",
+    "intermediate:ReversedEdgeRestorer": "98dfbcc14a32b6554b5c413e9caa80c35a8aa435124417059ef52bcd70710f60",
+    "intermediate:LongEdgeSplitter": "15476658ab6d636f560e9a01965ef5041f8052054d15fc9073fd674b5fa87c2f",
+    "intermediate:LongEdgeJoiner": "779ac8efe9d46c7711033571451612e3b63adadd0f9a887d1f8b2ed8528eade6",
+    "intermediate:EdgeAndLayerConstraintEdgeReverser": "2ee0720f3d0535a242ce30d23a879cfd569f7ff26ec5284ef1cb61009933ebc8",
+    "intermediate:LayerConstraintPreprocessor": "46ab38cc2a593fb1f026c321a34f346e23ef0b2c2debc2b60c71537e23222182",
+    "intermediate:LayerConstraintPostprocessor": "a60302e7adf2fbecf744ff5000e5d3f0c0ac4ef55cc444a23d92324e6ce474dc",
+    "intermediate:PortSideProcessor": "007bd0024420d11177ec5ebef22ca8112e963daa9d401c78ad3c7777a0e1f2ea",
+    "intermediate:PortListSorter": "6db635f5ba1364374a15aa54a5cc5f941f73e79f67bceda70e6a63c9c9c96798",
+    "intermediate:InLayerConstraintProcessor": "4b93afc6c533a10d4d7596ab61c490b96f933a0018a79b0f70760e364c17a055",
+    "intermediate:EndLabelSorter": "4c02a84d0672c170e9de343816d6f2dc307c76b2e174e0ed7a103977c321804a"
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "sourceContextSha256": "e0ba4fa63dc3a2e2ba4e3ec55ac8771d669423bf56c8b822b8811c44de3a3669",
+  "canonicalBindings": {
+    "selectedComponents": 14,
+    "spanOccurrences": 374,
+    "functionOffsetOccurrences": 374,
+    "staticCallEdges": 255,
+    "newSemanticLabelExceptions": 0,
+    "wholeDocumentCanonicalCheck": {
+      "sources": 3,
+      "spanOccurrences": 1188,
+      "functionOffsetOccurrences": 1188,
+      "staticCallEdges": 787,
+      "classification": "lexical source binding, not dynamic reachability/equivalence"
+    },
+    "classification": "Canonical Git/LF/UTF16/token/lexical and typed bindings; mathematical reasoning is the separate manual review"
+  },
+  "componentDependencies": {
+    "intermediate:SelfLoopPreProcessor": [],
+    "intermediate:SelfLoopPortRestorer": [
+      {
+        "componentId": "intermediate:SelfLoopPreProcessor",
+        "canonicalComponentSha256": "cef4a8f7fd8fcc3773bdb23897a9d0c01432da3a27ee3cad9e24147aedaa47fa",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:SelfLoopRouter": [
+      {
+        "componentId": "intermediate:SelfLoopPreProcessor",
+        "canonicalComponentSha256": "cef4a8f7fd8fcc3773bdb23897a9d0c01432da3a27ee3cad9e24147aedaa47fa",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:SelfLoopPostProcessor": [
+      {
+        "componentId": "intermediate:SelfLoopPreProcessor",
+        "canonicalComponentSha256": "cef4a8f7fd8fcc3773bdb23897a9d0c01432da3a27ee3cad9e24147aedaa47fa",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:ReversedEdgeRestorer": [
+      {
+        "componentId": "graph:edge-reversal",
+        "canonicalComponentSha256": "5d562429ef59bb79593773b6bf7435e0a4b16a521f1b3a3cb2cafe85750f9cc5",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:LongEdgeSplitter": [
+      {
+        "componentId": "phase:NETWORK_SIMPLEX",
+        "canonicalComponentSha256": "f4203ca3a42f25321dbb386e49a1003be2997c5f15837d72379a15dc861b8c4c",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "graph:edge-reversal",
+        "canonicalComponentSha256": "5d562429ef59bb79593773b6bf7435e0a4b16a521f1b3a3cb2cafe85750f9cc5",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:LongEdgeJoiner": [
+      {
+        "componentId": "intermediate:LongEdgeSplitter",
+        "canonicalComponentSha256": "15476658ab6d636f560e9a01965ef5041f8052054d15fc9073fd674b5fa87c2f",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      },
+      {
+        "componentId": "intermediate:ReversedEdgeRestorer",
+        "canonicalComponentSha256": "98dfbcc14a32b6554b5c413e9caa80c35a8aa435124417059ef52bcd70710f60",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:EdgeAndLayerConstraintEdgeReverser": [],
+    "intermediate:LayerConstraintPreprocessor": [],
+    "intermediate:LayerConstraintPostprocessor": [],
+    "intermediate:PortSideProcessor": [
+      {
+        "componentId": "intermediate:LongEdgeSplitter",
+        "canonicalComponentSha256": "15476658ab6d636f560e9a01965ef5041f8052054d15fc9073fd674b5fa87c2f",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:PortListSorter": [
+      {
+        "componentId": "intermediate:PortSideProcessor",
+        "canonicalComponentSha256": "007bd0024420d11177ec5ebef22ca8112e963daa9d401c78ad3c7777a0e1f2ea",
+        "meaning": "Exact renewed source operation under its declared E07 caller contract"
+      }
+    ],
+    "intermediate:InLayerConstraintProcessor": [],
+    "intermediate:EndLabelSorter": []
+  },
+  "inheritedComponents": {
+    "intermediate:SelfLoopPreProcessor": {
+      "artifact": {
+        "path": "references/e06-source-components-B.json",
+        "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+      },
+      "jsonPointer": "/components/0",
+      "canonicalComponentSha256": "31cad7907ecc44dab6d27a5fd6723f6642dd7ad02611527a4ad04a7e7412f383",
+      "requiredProofIds": [
+        "SL-PRE-1-eligible",
+        "SL-PRE-2-one-edge-hyperloop",
+        "SL-PRE-3-detach-hide",
+        "SL-PRE-4-isolation"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:SelfLoopPortRestorer": {
+      "artifact": {
+        "path": "references/e06-source-components-B.json",
+        "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+      },
+      "jsonPointer": "/components/2",
+      "canonicalComponentSha256": "697a4a18fb156c00093fb84f31d4e0ecbe2129bf37a89cb9da6070dfcd91cdf9",
+      "requiredProofIds": [
+        "SL-REST-1-filter-dispatch",
+        "SL-REST-2-stacked-order",
+        "SL-REST-3-literal-recompose",
+        "SL-REST-4-cache-presence",
+        "SL-REST-5-source-defaults"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:SelfLoopRouter": {
+      "artifact": {
+        "path": "references/e06-source-components-B.json",
+        "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+      },
+      "jsonPointer": "/components/3",
+      "canonicalComponentSha256": "93fcb6400d069159956c90f338295cce846334bbb73cc83046c6b4b746622f52",
+      "requiredProofIds": [
+        "SL-ROUTE-1-input-preparation",
+        "SL-ROUTE-2-no-label-branches",
+        "SL-ROUTE-3-nested-interval-dependencies",
+        "SL-ROUTE-4-cycle-detector-real-effects",
+        "SL-ROUTE-5-source-slots",
+        "SL-ROUTE-6-orthogonal-bends-and-margins",
+        "SL-ROUTE-7-size-scratch-bound",
+        "SL-ROUTE-8-prototype-and-dispatch-binding"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:SelfLoopPostProcessor": {
+      "artifact": {
+        "path": "references/e06-source-components-B.json",
+        "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+      },
+      "jsonPointer": "/components/1",
+      "canonicalComponentSha256": "7a2c04c94f760b60253d0a29f71d44bf1f195e23774581cf56e71e8a2549a629",
+      "requiredProofIds": [
+        "SL-POST-1-filter",
+        "SL-POST-2-restore",
+        "SL-POST-3-no-label-callback"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:ReversedEdgeRestorer": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/2",
+      "canonicalComponentSha256": "3808ed1631500e267ffa1cfa2cc13083c9690577f5b30bc631703756336ef4f7",
+      "requiredProofIds": [
+        "RR-G1-ACTUAL-SCAN",
+        "RR-G2-FLAGS-AND-NO-PUBLIC-LEAK"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:LongEdgeSplitter": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/4",
+      "canonicalComponentSha256": "1e3c976fb7b26388f0c0d85b0ef2be1f0a032c3b32dc382a61387b2952005f89",
+      "requiredProofIds": [
+        "LE-SPLIT-G1",
+        "LE-SPLIT-G2",
+        "LE-SPLIT-G3",
+        "LE6-SPLIT-G4-REVERSED-MULTIPLICITY"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:LongEdgeJoiner": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/5",
+      "canonicalComponentSha256": "97cfc24335078777db63b1628916f99640354c9a9b6522724b66233e159f41f4",
+      "requiredProofIds": [
+        "LE-JOIN-G1",
+        "LE-JOIN-G2",
+        "LE6-JOIN-G3-ORIGINAL-DIRECTION-AND-FLAGS"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:EdgeAndLayerConstraintEdgeReverser": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/1",
+      "canonicalComponentSha256": "1ad2163bc3d721a52b61320f3b4793f1f481509775773e45c0a241d03c114ae8",
+      "requiredProofIds": [
+        "SCAN6-EdgeAndLayerConstraintEdgeReverser",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:LayerConstraintPreprocessor": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/2",
+      "canonicalComponentSha256": "c66866369183ebc9557684d604bf8331f391b08a611a288ff483231895b837e1",
+      "requiredProofIds": [
+        "SCAN6-LayerConstraintPreprocessor",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:LayerConstraintPostprocessor": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/3",
+      "canonicalComponentSha256": "9dc9171993a6f1442020f055ee7a2d87ff808d4ba2b41626df47dc9c6bf2b30b",
+      "requiredProofIds": [
+        "SCAN6-LayerConstraintPostprocessor",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:PortSideProcessor": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/4",
+      "canonicalComponentSha256": "8daeb1bff199bb830cd3bb059bd8593ec887253cebd75428280c691fbd74f9ac",
+      "requiredProofIds": [
+        "SCAN6-PortSideProcessor",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:PortListSorter": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/5",
+      "canonicalComponentSha256": "dc667f25c66af51806f1e7e4c264b7ba7a1c2b5cd6850cea86797b7230f611e5",
+      "requiredProofIds": [
+        "SCAN6-PortListSorter",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:InLayerConstraintProcessor": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/6",
+      "canonicalComponentSha256": "d907a30627876450b2c4bd539a5a9b7002e771bcf8a9a587ff30140564eef2be",
+      "requiredProofIds": [
+        "SCAN6-InLayerConstraintProcessor",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "intermediate:EndLabelSorter": {
+      "artifact": {
+        "path": "references/e06-source-components-R.json",
+        "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+      },
+      "jsonPointer": "/components/9",
+      "canonicalComponentSha256": "0df438d600ecab149c1a004a694a1ddf1cdba9112414ab43c567592e811e95c9",
+      "requiredProofIds": [
+        "SCAN6-EndLabelSorter",
+        "SCAN6-BOUND"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    }
+  },
+  "checkedSemantics": [
+    {
+      "componentId": "intermediate:SelfLoopPreProcessor",
+      "checks": [
+        "Read process49, needsSelfLoopProcessing, initialize3 and hidePorts: only actual owner-identical edges create holders; implicit independent FREE ports are eligible. Detach endpoints and hide loop-only ports in source order. A component with no local loop still performs its actual globally selected scan and creates no fake holder.",
+        "Global original DIRECTION remains unchanged; PRE transforms the incoming port/vector frame before this stage. No active no-label holder/port detach operation branches on that property. The true/false component-count difference changes the current node iterable only, not local ownership rules."
+      ]
+    },
+    {
+      "componentId": "intermediate:SelfLoopPortRestorer",
+      "checks": [
+        "Read process47 stream callback chain: layer nodes, NORMAL filter, hasProperty SELF_LOOP_HOLDER filter, exact holder accessor and processNode4. Default ORIGINAL_PORT_CONSTRAINTS FREE, actual hidden holder/STACKED side assignment and source port recomposition remain the immutable E06 proof; components without holders do not run holder writes.",
+        "NORTH ports are restored in internal normalized coordinates after crossing, with loop endpoints still detached and source side-cache preservation unchanged. The separate post GraphTransformer maps restored original ports to public axes later; the original direction is not falsified."
+      ]
+    },
+    {
+      "componentId": "intermediate:SelfLoopRouter",
+      "checks": [
+        "Read process50 routerForGraph/NORMAL+holder filters and actual RoutingDirector/OrthogonalSelfLoopRouter paths. Current holder ports, slot intervals, nested dependency marks, routing slots, bend vector writes and margin extrema depend on prepared internal geometry, not weak connectivity; no cross-component connection or RNG draw is introduced.",
+        "Actual SelfHyperLoopLabels constructor reads DIRECTION, so its exclusion is proved by missing labels/slLabels rather than by RIGHT-only source inheritance. The default no-label branch never creates that label object. Restored NORTH/STACKED and real NodeSize geometry remain explicit caller prerequisites."
+      ]
+    },
+    {
+      "componentId": "intermediate:SelfLoopPostProcessor",
+      "checks": [
+        "Read process48 callback filters and restoreEdge: scan actual NORMAL layer nodes, enter only actual stored holders, reconnect exact original loop ports and add node-relative bends after ordinary routing/joining. No-holder components still scan without creating/restoring synthetic loops.",
+        "Source slLabels null predicate excludes label placement callbacks. Post direction transformation must follow this restoration and therefore sees all original edges/ports, including those detached during GREEDY/crossing. The stage does not reselect a chain from local graph flags."
+      ]
+    },
+    {
+      "componentId": "intermediate:ReversedEdgeRestorer",
+      "checks": [
+        "Read process46/toEdgeArray: for each actual layer/node/port, snapshot outgoing edge order, test stored REVERSED, call the separately renewed reverse0(edge,false). No DIRECTION or weak-component-count read is present. Repeated later visits cannot reverse twice because the actual boolean is toggled false.",
+        "Independent raw repeated edges retain separate ports/ORIGIN; long-edge joining has removed dummies and loops are restored before this scan. No public identity or endpoint is guessed from coordinates."
+      ]
+    },
+    {
+      "componentId": "intermediate:LongEdgeSplitter",
+      "checks": [
+        "Read process35, splitEdge, setDummyNodeProperties and moveHeadLabels. The real <=2-layer return and target-not-current/not-next predicate operate on the renewed NS driver's supplied feasible layers. Direction and weak connectivity do not alter the dummy/segment construction body.",
+        "Each private NS unit has<=8 originals and rank span<=7 under its separately approved unit-minimum/previous-filling proof. Every original segment chain therefore adds<=6 dummies; global28 edges gives<=168 dummies,176 nodes,196 segments and392 ports. Isolates add no dummies. Default thickness1, FIXED_POS E/W dummy ports, shallow edge property copy followed by JP-key removal and label-empty loops retain literal source writes.",
+        "Confirmed all FOUR actual E06 sourceDerivation IDs are inherited, including LE6-SPLIT-G4-REVERSED-MULTIPLICITY; an empty guardProofs-only selector is not accepted."
+      ]
+    },
+    {
+      "componentId": "intermediate:LongEdgeJoiner",
+      "checks": [
+        "Read process34/joinAt, setTargetAndInsertAtIndex, KVector copies and actual mutable JP getter proof. Source follows each proper-layer dummy chain, retains the first original LEdge, copies/drops subsequent vector segments in source order, removes dummies, and preserves sibling repeated-edge identities.",
+        "No DIRECTION or connectivity branch changes the joins. Original REVERSED state remains for later restoration; all dummies must be gone before post direction transform. Empty JP chain object is truthy in source and its default clone/store side effect remains real.",
+        "Confirmed all THREE actual E06 sourceDerivation IDs are inherited, including LE6-JOIN-G3-ORIGINAL-DIRECTION-AND-FLAGS; the inherited full source/proof artifact is hash and pointer bound."
+      ]
+    },
+    {
+      "componentId": "intermediate:EdgeAndLayerConstraintEdgeReverser",
+      "checks": [
+        "Read process7/handleOuterNodes/handleInnerNodes: actual two node scans, default NONE layer constraints and FREE original implicit ports exclude constraint reversal branches. Before long splitting there are no FIXED_POS long dummies at this stage. Known original directions and false disconnection do not activate a hidden coordinate-direction branch."
+      ]
+    },
+    {
+      "componentId": "intermediate:LayerConstraintPreprocessor",
+      "checks": [
+        "Read process32/isRelevantNode: actual scan and temporary hiddenNodes allocation remain; default NONE is not FIRST_SEPARATE/LAST_SEPARATE, hence no node hide/remove and no HIDDEN_NODES property write. The predicate is independent of direction/component count."
+      ]
+    },
+    {
+      "componentId": "intermediate:LayerConstraintPostprocessor",
+      "checks": [
+        "Read process31/moveFirstAndLastNodes and hidden-node branch: first/last temporary layers and source scans are retained, but default NONE moves no originals and absent HIDDEN_NODES skips restoration. Unsplit disconnected NS units can share actual layers; the processor consumes those layers in source order without inferring one component."
+      ]
+    },
+    {
+      "componentId": "intermediate:PortSideProcessor",
+      "checks": [
+        "Read process44/process45 on actual layerless and layered nodes. Source current incoming-minus-outgoing counts select E/W for FREE originals and set FIXED_SIDE. FIXED_POS dummy ports preserve defined sides; no PORT_DUMMY exists in the admitted original/dummy representation. No graph DIRECTION or connectedness read changes this degree rule."
+      ]
+    },
+    {
+      "componentId": "intermediate:PortListSorter",
+      "checks": [
+        "Read process43 side/composed comparators and reverseWestAndSouthSide: source stable side ordering, actual WEST exclusive-end reversal quirk, default unmerged-port degree tie behavior and port-side cache writes remain node-local. Newly split dummy E/W ports use the actual FIXED_POS comparator branch; loop-only NORTH ports are still hidden until later restoration."
+      ]
+    },
+    {
+      "componentId": "intermediate:InLayerConstraintProcessor",
+      "checks": [
+        "Read process21: actual toNodeArray scan, topInsertionIndex updates and empty bottom-constrained collection remain. Default NONE excludes TOP/BOTTOM movement even when disconnected units share a layer. No connectivity/direction-based no-op shortcut replaces the scan."
+      ]
+    },
+    {
+      "componentId": "intermediate:EndLabelSorter",
+      "checks": [
+        "Read process10/apply75/test34/accept73/processNode3: traverse actual layers and filter NORMAL nodes. Absent END_LABELS key makes the source hasProperty guard false BEFORE the port sorting/initialization loop. This is not an outgoing-edge scan claimed to have zero labels.",
+        "The direction-reading EndLabelPreprocessor is a distinct unselected processor under no-label graph flags. No fabricated RIGHT value is used to hide a direction read."
+      ]
+    }
+  ],
+  "reviewHistory": [
+    {
+      "status": "resolved-before-port-approval",
+      "finding": "R first proposal omitted LE splitter/joiner E06 sourceDerivation IDs by selecting only guardProofs. Canonical audit actually failed; root repaired the complete proof selector and propagated dependent seals. First failed source snapshot and raw command logs remain."
+    },
+    {
+      "status": "resolved-before-port-approval",
+      "finding": "EndLabelSorter renewal incorrectly described outgoing-edge scans. Root corrected the actual NORMAL node / absent END_LABELS guard before this accepted seal."
+    }
+  ],
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E07-01/B/R-scanners-canonical-02/report.json",
+      "sha256": "eda10eb61685a67703ecd1071a07d9c36284418754f9eaea10130687408ca60d"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/R14-typed-inheritance.json",
+      "sha256": "e57572ffd6948f98249a3b849e9985757a92c8174155ff58eabdbf4fa8a57834"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/R-scanners-manual-read-01.txt",
+      "sha256": "588756a55c8ad7d36a23fce28bfcd963f4d9ce10ab40ead6be8c8d7aab591539"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/E06-complete-inherited-source-validation.json",
+      "sha256": "5e84ee121f60abe5451b15520746c8a300c73734f795c3f116afa116e9a81b06"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/R-source-binding-command-01/command.json",
+      "sha256": "5700f529f51856536e09b9d0d25cb5871ab71c08a5ddeff54195ccaca19372a0"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/R-source-binding-command-02/command.json",
+      "sha256": "17fd498828ef7954721e768c32e8d32f37f85c3db0479b9491925da6ba1b5693"
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "Real global import/prepare/frame selection and full processor dispatch remain independently reviewed source components; this local review assumes their exact prepared object protocol.",
+    "NS rank feasibility/span/previous-filling is a separately approved A dependency. Root must enforce all original/expanded/private work bounds and child/default guards; observed maxima are not general bounds.",
+    "Global no-label/implicit independent-port/default strategy semantics and unique default getters are required. No local property or original direction is rewritten to manufacture an inherited E06 premise."
+  ],
+  "limitations": [
+    "No runtime or full algorithm/API acceptance is granted.",
+    "Exact external Java build and project distribution-license/release gates remain open.",
+    "Review is read-only; root grants the actual port approval."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE07SourceGateApproved": false
+}

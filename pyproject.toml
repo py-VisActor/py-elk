@@ -3,14 +3,16 @@ requires = ["setuptools==84.2.1", "wheel==0.48.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "py-elk"
-version = "0.0.1a0"
-description = "Native Python ELK layout port: project scaffold and compatibility planning"
+name = "py-visactor-elk"
+version = "0.1.0"
+description = "Native Python ELK graph layout, asynchronous execution and metadata"
 readme = "README.md"
+license = "MIT AND (EPL-2.0 OR GPL-3.0-or-later) AND Apache-2.0"
+license-files = ["LICENSE", "THIRD_PARTY_NOTICES.md", "src/pyelk/_licenses/*.md", "src/pyelk/_licenses/*.txt"]
 requires-python = ">=3.11"
 dependencies = []
 classifiers = [
-  "Development Status :: 1 - Planning",
+  "Development Status :: 4 - Beta",
   "Programming Language :: Python :: 3",
   "Topic :: Scientific/Engineering :: Visualization",
 ]
@@ -18,9 +20,12 @@ classifiers = [
 [project.optional-dependencies]
 dev = ["build==1.6.1", "setuptools==84.2.1", "wheel==0.48.0"]
 
+[project.urls]
+Repository = "https://github.com/py-VisActor/py-elk"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 namespaces = false
 
 [tool.setuptools.package-data]
-pyelk = ["py.typed"]
+pyelk = ["py.typed", "_licenses/*.md", "_licenses/*.txt"]

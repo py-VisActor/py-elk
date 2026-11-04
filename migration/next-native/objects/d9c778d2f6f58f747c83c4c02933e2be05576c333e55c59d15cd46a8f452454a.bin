@@ -1,0 +1,359 @@
+# SPDX-License-Identifier: (EPL-2.0 OR GPL-3.0-or-later) AND Apache-2.0
+# Apache-2.0 applies to the generated GWT PriorityQueue adaptation below.
+# PriorityQueue: Copyright 2008 Google Inc. Licensed under Apache License2.0,
+# https://www.apache.org/licenses/LICENSE-2.0 (see packaged Apache-2.0.txt).
+# GWT2.13.0 corroborates the helper; exact worker build input is unproven.
+# Fixed elkjs 0.12.1 lib/elk-worker.js, B01-B16/N01 and
+# shared F05-F07/F14: references/e16-basic-sources.json.
+# Worker SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+"""Native box provider. Central recursive/import/export integration is separate."""
+from __future__ import annotations
+from functools import cmp_to_key
+import math
+
+from .fixed import _State, _div, _enum_set, _minimum, _padding, _owner_padding, _port_side, _resize
+from .layered.components import _double_compare
+
+
+def _max(*values):
+    if any(math.isnan(x) for x in values): return math.nan
+    value = max(values)
+    if value == 0:
+        return 0.0 if any(x == 0 and math.copysign(1.0, x) > 0 for x in values) else -0.0
+    return value
+
+
+def _sqrt(value):
+    return math.sqrt(value) if value >= 0 else math.nan
+
+
+def _square(value):
+    return value*value
+
+
+def _micro_resize(state, node):
+    constraints = _enum_set(state.option(node, 'nodeSize.constraints', []))
+    if not constraints:
+        return None
+    width, height = 0.0, 0.0
+    if 'PORTS' in constraints:
+        fixed = state.option(node, 'portConstraints', 'UNDEFINED') == 'FIXED_POS'
+        extent = dict.fromkeys(('NORTH', 'EAST', 'SOUTH', 'WEST'), 2.0)
+        parent = state.parents[id(node)]
+        direction = state.option(parent if parent is not None else node, 'direction', 'UNDEFINED')
+        for port in node.get('ports', []):
+            side = state.option(port, 'port.side', 'UNDEFINED')
+            if side == 'UNDEFINED':
+                side = _port_side(port, node, direction)
+                state.computed_options.setdefault(id(port), {})['port.side'] = side
+            if side in extent:
+                if fixed:
+                    extent[side] = _max(extent[side], port['x']+port['width'] if side in ('NORTH', 'SOUTH') else port['y']+port['height'])
+                else:
+                    extent[side] += port['width']+2 if side in ('NORTH', 'SOUTH') else port['height']+2
+        width = _max(extent['NORTH'], extent['SOUTH'])
+        height = _max(extent['EAST'], extent['WEST'])
+    return _resize(state, node, width, height, True, True)
+
+
+def _translate(node, dx, dy, state=None):
+    for child in node.get('children', []):
+        child['x'] += dx; child['y'] += dy
+    for edge in node.get('edges', []):
+        for section in edge.get('sections', []):
+            for point in (section['startPoint'], *section.get('bendPoints', []), section['endPoint']):
+                point['x'] += dx; point['y'] += dy
+        for label in edge.get('labels', []):
+            label['x'] = label.get('x', 0)+dx; label['y'] = label.get('y', 0)+dy
+        if state is not None and hasattr(state,'get_native_property'):
+            for point in state.get_native_property(edge,'junctionPoints'):
+                point.x += dx; point.y += dy
+        else:
+            for point in edge.get('junctionPoints', []):
+                point['x'] += dx; point['y'] += dy
+
+
+def _translate_alignment(state, node, old_width, old_height):
+    alignment = _enum_set(state.option(node, 'contentAlignment', ['V_TOP', 'H_LEFT']))
+    dw, dh = node['width']-old_width, node['height']-old_height
+    dx = dw/2 if dw > 0 and 'H_CENTER' in alignment else dw if dw > 0 and 'H_RIGHT' in alignment else 0
+    dy = dh/2 if dh > 0 and 'V_CENTER' in alignment else dh if dh > 0 and 'V_BOTTOM' in alignment else 0
+    _translate(node, dx, dy, state)
+
+
+def _stddev(areas, mean):
+    variance = 0.0
+    for area in areas:
+        variance += _square(area-mean)
+    return _sqrt(_div(variance, len(areas)-1))
+
+
+def _place_simple(state, boxes, spacing, padding, min_width, min_height, expand, aspect):
+    max_row_width, area = 0.0, 0.0
+    for box in boxes:
+        _micro_resize(state, box)
+        max_row_width = _max(max_row_width, box['width'])
+        area += box['width']*box['height']
+    mean = _div(area, len(boxes))
+    area += len(boxes)*_stddev([box['width']*box['height'] for box in boxes], mean)
+    area += _sqrt(area)*(padding['bottom']+padding['top'])
+    area += _sqrt(area)*padding['right']
+    max_row_width = _max(max_row_width, _sqrt(area*aspect))+padding['left']
+    x, y, highest = padding['left'], padding['top'], 0.0
+    broadest = padding['left']+padding['right']
+    row_indices, row_heights = [0], []
+    for index, box in enumerate(boxes):
+        width, height = box['width'], box['height']
+        if x+width > max_row_width:
+            if expand:
+                row_heights.append(highest); row_indices.append(index)
+            x = padding['left']; y += highest+spacing; highest = 0.0
+            broadest = _max(broadest, padding['left']+padding['right']+width)
+        box['x'], box['y'] = x, y
+        broadest = _max(broadest, x+width+padding['right'])
+        highest = _max(highest, height); x += width+spacing
+    broadest = _max(broadest, min_width)
+    total_height = y+highest+padding['bottom']
+    if total_height < min_height:
+        highest += min_height-total_height; total_height = min_height
+    if expand:
+        x = padding['left']; row_indices.append(len(boxes)); row_heights.append(highest)
+        next_row = 0; row = 0; row_height = 0
+        for index, box in enumerate(boxes):
+            if index == row_indices[next_row]:
+                x = padding['left']; row_height = row_heights[row]
+                row += 1; next_row += 1
+            old_height = box['height']; box['height'] = row_height
+            if index+1 == row_indices[next_row]:
+                old_width = box['width']; box['width'] = broadest-x-padding['right']
+                _translate_alignment(state, box, old_width, old_height)
+            x += box['width']+spacing
+    return broadest, total_height
+
+
+class _Group:
+    def __init__(self, groups=None, node=None):
+        self.node = node
+        self.groups = [] if groups is None else list(groups)
+        self.bottom = []; self.right = []; self.size = (0.0, 0.0)
+        if node is not None: node['x'], node['y'] = 0.0, 0.0
+
+    @property
+    def width(self):
+        return self.node['width'] if self.node is not None else self.size[0]
+
+    @property
+    def height(self):
+        return self.node['height'] if self.node is not None else self.size[1]
+
+    @property
+    def area(self):
+        return self.width*self.height
+
+    def set_width(self, value):
+        if self.node is not None: self.node['width'] = value
+        else:
+            delta = value-self.width
+            for group in self.right: group.set_width(group.width+delta)
+
+    def set_height(self, value):
+        if self.node is not None: self.node['height'] = value
+        else:
+            delta = value-self.height
+            for group in self.bottom: group.set_height(group.height+delta)
+
+    def translate(self, x, y):
+        if self.node is not None:
+            self.node['x'] += x; self.node['y'] += y
+        else:
+            for group in self.groups: group.translate(x, y)
+
+    def translate_inner(self, x, y):
+        if self.node is not None: _translate(self.node, x, y)
+        else:
+            for group in self.groups: group.translate_inner(x, y)
+
+
+class _Heap:
+    """B14 GWT heap, including its observable equal-priority movement.
+
+    Apache-2.0 adaptation; Copyright2008 Google Inc. No heapq stable tie key.
+    """
+    def __init__(self, values):
+        self.values = []
+        self.add_all(values)
+
+    def _merge(self, index):
+        values = self.values; item = values[index]
+        while index*2+1 < len(values):
+            child = index*2+1
+            if child+1 < len(values) and _double_compare(values[child+1].area, values[child].area) < 0:
+                child += 1
+            if _double_compare(item.area, values[child].area) < 0: break
+            values[index] = values[child]; index = child
+        values[index] = item
+
+    def _make(self, index):
+        if index*2+1 >= len(self.values): return
+        self._make(index*2+1)
+        if index*2+2 < len(self.values): self._make(index*2+2)
+        self._merge(index)
+
+    def add_all(self, values):
+        old = len(self.values); self.values.extend(values)
+        if len(self.values) != old: self._make(0)
+
+    def offer(self, item):
+        index = len(self.values); self.values.append(item)
+        while index > 0:
+            child = index; index = (index-1)//2
+            if _double_compare(self.values[index].area, item.area) <= 0:
+                self.values[child] = item; return
+            self.values[child] = self.values[index]
+        self.values[index] = item
+
+    def poll(self):
+        value = self.values[0]; last = self.values.pop()
+        if self.values:
+            self.values[0] = last; self._merge(0)
+        return value
+
+
+def _place_inner(state, group, spacing, padding, min_width, min_height, expand, aspect):
+    max_row_width, area = 0.0, 0.0
+    for box in group.groups:
+        if box.node is not None: _micro_resize(state, box.node)
+        max_row_width = _max(max_row_width, box.width); area += box.area
+    mean = _div(area, len(group.groups))
+    area += len(group.groups)*_stddev([box.area for box in group.groups], mean)
+    max_row_width = _max(max_row_width, _sqrt(area*aspect))+padding['left']
+    x, y, highest = padding['left'], padding['top'], 0.0
+    broadest = padding['left']+padding['right']; row_indices, row_heights = [0], []
+    last = None; bottoms = []
+    for index, box in enumerate(group.groups):
+        width, height = box.width, box.height
+        if x+width > max_row_width:
+            if expand:
+                row_heights.append(highest); row_indices.append(index)
+                group.right.append(last); bottoms.clear()
+            x = padding['left']; y += highest+spacing; highest = 0.0
+            broadest = _max(broadest, padding['left']+padding['right']+width)
+        bottoms.append(box); box.translate(x, y)
+        broadest = _max(broadest, x+width+padding['right'])
+        highest = _max(highest, height); x += width+spacing; last = box
+    group.bottom.extend(bottoms); group.right.append(bottoms[-1])
+    broadest = _max(broadest, min_width)
+    total_height = y+highest+padding['bottom']
+    if total_height < min_height:
+        highest += min_height-total_height; total_height = min_height
+    if expand:
+        x = padding['left']; row_indices.append(len(group.groups)); row_heights.append(highest)
+        next_row, row, row_height = 0, 0, 0.0
+        for index, box in enumerate(group.groups):
+            if index == row_indices[next_row]:
+                x = padding['left']; row_height = row_heights[row]; row += 1; next_row += 1
+            box.set_height(row_height)
+            if index+1 == row_indices[next_row]:
+                new_width = broadest-x-padding['right']; old_width = box.width
+                box.set_width(new_width); box.translate_inner((new_width-old_width)/2, 0)
+            x += box.width+spacing
+    return broadest, total_height
+
+
+def _area_compare(left, right):
+    return _double_compare(left.area, right.area)
+
+
+def _merge_dec(state, groups, spacing, min_width, min_height, expand):
+    queue = sorted(groups, key=cmp_to_key(lambda a, b: -_area_compare(a, b)))
+    placed, maybe = [], []; to_beat = None; collected = 0.0
+    for index, box in enumerate(queue):
+        if to_beat is None or to_beat.area/2 < box.area:
+            to_beat = box; placed.append(box)
+        else:
+            collected += box.area; maybe.append(box)
+            if len(maybe) > 1 and (collected > to_beat.area/2 or index+1 == len(queue)):
+                inner = _Group(maybe)
+                inner.size = _place_inner(state, inner, spacing, dict.fromkeys(('top','right','bottom','left'), 0.0),
+                                          min_width, min_height, expand, _div(to_beat.width, to_beat.height))
+                to_beat = inner; placed.append(inner); collected = 0.0; maybe.clear()
+    placed.extend(maybe)
+    return placed
+
+
+def _merge_inc(state, groups, spacing, min_width, min_height, expand):
+    placed = []; common = 0.0
+    for group in sorted(groups, key=cmp_to_key(_area_compare)):
+        if placed and group.area > common*2:
+            merged = _Group(placed)
+            merged.size = _place_inner(state, merged, spacing, dict.fromkeys(('top','right','bottom','left'), 0.0),
+                                       min_width, min_height, expand, _div(group.width, group.height))
+            placed.clear(); placed.extend((merged, group)); common = merged.area+group.area
+        else:
+            placed.append(group); common += group.area
+    return placed
+
+
+def _merge_mixed(state, groups, spacing, min_width, min_height, expand):
+    cumulative = [0.0]*len(groups); heap = _Heap(groups); placed = []; index = 0
+    while heap.values:
+        box = heap.values[0]
+        if index > 1 and box.area/2 > cumulative[0]:
+            selected = 0
+            while selected < len(placed)-1 and box.area/2 > cumulative[selected]: selected += 1
+            inner = _Group(placed[:selected+1])
+            inner.size = _place_inner(state, inner, spacing, dict.fromkeys(('top','right','bottom','left'), 0.0),
+                                      min_width, min_height, expand, _div(box.width, box.height))
+            heap.offer(inner); heap.add_all(placed[selected+1:])
+            placed.clear(); index = 0; cumulative = [0.0]*len(cumulative)
+        else:
+            heap.poll()
+            if index > 0: cumulative[index] = cumulative[index-1]
+            cumulative[index] += box.area; index += 1; placed.append(box)
+    return placed
+
+
+def _place_grouped(state, node, mode, spacing, padding, expand, aspect):
+    minimum = state.option(node, 'nodeSize.minimum')
+    from .fixed import _vector
+    width, height = _vector(minimum)
+    width = _max(width-padding['left']-padding['right'], 0.0)
+    height = _max(height-padding['top']-padding['bottom'], 0.0)
+    groups = [_Group(node=child) for child in node.get('children', [])]
+    merge = {'GROUP_DEC': _merge_dec, 'GROUP_INC': _merge_inc, 'GROUP_MIXED': _merge_mixed}[mode]
+    placed = merge(state, groups, spacing, width, height, expand)
+    return _place_inner(state, _Group(placed), spacing, padding, width, height, expand, aspect)
+
+
+def _layout(state, node, monitor=None):
+    """Apply the provider to a node in the job's persistent imported state."""
+    if monitor is not None: monitor.begin('Box layout', 2)
+    mode = state.option(node, 'box.packingMode', 'SIMPLE')
+    interactive = state.option(node, 'interactive', False)
+    def compare(left, right):
+        a = state.option(left, 'priority', 0) or 0; b = state.option(right, 'priority', 0) or 0
+        if a != b: return -1 if a > b else 1
+        if interactive:
+            for field in ('y', 'x'):
+                result = _double_compare(left[field], right[field])
+                if result: return result
+        return _double_compare(left['width']*left['height'], right['width']*right['height'])
+    aspect = state.option(node, 'aspectRatio', 1.2999999523162842)
+    if aspect is None or aspect <= 0: aspect = 1.3
+    spacing = state.option(node, 'spacing.nodeNode', 15)
+    padding = _owner_padding(state, node); expand = state.option(node, 'expandNodes', False)
+    if mode == 'SIMPLE':
+        boxes = sorted(node.get('children', []), key=cmp_to_key(compare))
+        size = _place_simple(state, boxes, spacing, padding, *_minimum(state, node), expand, aspect)
+    else:
+        size = _place_grouped(state, node, mode, spacing, padding, expand, aspect)
+    _resize(state, node, *size, False, True)
+    if monitor is not None: monitor.done()
+    return node
+
+
+def layout_box(graph, options=None, *, monitor=None):
+    """Apply one complete source provider invocation to an independent graph."""
+    state = _State(graph, options)
+    _layout(state, state.graph, monitor)
+    return state.graph

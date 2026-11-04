@@ -1,0 +1,173 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "noteTop",
+        "width": 44,
+        "height": 14,
+        "business": {
+          "id": "noteTop",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.commentBox": true
+        }
+      },
+      {
+        "id": "noteBottom",
+        "width": 28,
+        "height": 16,
+        "business": {
+          "id": "noteBottom",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.commentBox": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "e0",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "e1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "e2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "long",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "long",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "comment1",
+        "sources": [
+          "noteTop"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "comment1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "comment2",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "noteBottom"
+        ],
+        "business": {
+          "edge": "comment2",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    }
+  }
+}

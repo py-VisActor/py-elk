@@ -1,0 +1,144 @@
+# SPDX-License-Identifier: (EPL-2.0 OR GPL-3.0-or-later) AND Apache-2.0
+# Fixed elkjs 0.12.1 worker R01-R06/N01: references/e16-basic-sources.json.
+# The reused JavaRandom and adapted unseeded constructor retain Apache-2.0;
+# Copyright 2009 Google Inc.; ASF contributors; Richard Zschech modifications.
+# GWT2.13.0 is corroboration, not proven exact worker compilation input.
+# Worker SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+"""Native random provider preserving the fixed generated worker's behavior.
+
+In particular the fixed worker reads the source endpoint as its target too.
+Changing that behavior would be a different algorithm, not this port.
+"""
+from __future__ import annotations
+import math
+import time
+
+from .fixed import _State, _div, _padding, _resize
+from .layered.phases import JavaRandom
+
+_unique_seed = 0.0
+
+
+def _max(*values):
+    if any(math.isnan(value) for value in values): return math.nan
+    result = max(values)
+    if result == 0:
+        return 0.0 if any(value == 0 and math.copysign(1.0, value) > 0 for value in values) else -0.0
+    return result
+
+
+def _sqrt(value):
+    return math.sqrt(value) if value >= 0 else math.nan
+
+
+def _unseeded_random():
+    global _unique_seed
+    previous = _unique_seed
+    _unique_seed += 1.0
+    # Actual integer wall milliseconds, never a frozen golden-coordinate seed.
+    seed = previous+float(time.time_ns()//1_000_000)
+    return JavaRandom(int(seed))
+
+
+def _hierarchical(state, edge):
+    common = None
+    for identifier in (*edge.get('sources', []), *edge.get('targets', [])):
+        shape = state.shapes[(type(identifier), identifier)]
+        parent = state.parents[id(state.owners[id(shape)])]
+        if common is None: common = parent
+        elif common is not parent: return True
+    return False
+
+
+def _randomize_edge(state, edge, rng, draw_width, draw_height):
+    source = state.endpoint(edge)
+    x, y = source['x'], source['y']
+    sw, sh = source['width']/2, source['height']/2
+    if state.owners[id(source)] is not source:
+        x += state.owners[id(source)]['x']; x += state.owners[id(source)]['x']
+    x += sw; y += sh
+    # Deliberately sources[0], including the duplicated port-owner x adjustment.
+    target = state.endpoint(edge)
+    tx, ty = target['x'], target['y']
+    tw, th = target['width']/2, target['height']/2
+    if state.owners[id(target)] is not target:
+        tx += state.owners[id(target)]['x']; tx += state.owners[id(target)]['x']
+    tx += tw; ty += th
+    sections = edge.setdefault('sections', [])
+    if not sections: sections.append({})
+    elif len(sections) > 1: raise ValueError('IllegalStateException')
+    section = sections[0]
+    sx = tx
+    if tx > x+sw: sx = x+sw
+    elif tx < x-sw: sx = x-sw
+    sy = ty
+    if ty > y+sh: sy = y+sh
+    elif ty < y-sh: sy = y-sh
+    if x-sw < sx < x+sw and y-sh < sy < y+sh: sx = x+sw
+    ex = x
+    if x > tx+tw: ex = tx+tw
+    elif x < tx-tw: ex = tx-tw
+    ey = y
+    if y > ty+th: ey = ty+th
+    elif y < ty-th: ey = ty-th
+    if tx-tw < ex < tx+tw and ty-th < ey < ty+th: ey = ty+th
+    section['startPoint'] = {'x': sx, 'y': sy}; section['endPoint'] = {'x': ex, 'y': ey}
+    bends = rng.next_int(5)+(1 if source is target else 0)
+    dx, dy = ex-sx, ey-sy
+    max_rand = _sqrt(dx*dx+dy*dy)*0.20000000298023224
+    ix, iy = dx/(bends+1), dy/(bends+1)
+    points = []
+    for _ in range(bends):
+        sx += ix; sy += iy
+        rx = sx+rng.next_float()*max_rand-max_rand/2
+        if rx < 0: rx = 1
+        elif rx > draw_width: rx = draw_width-1
+        ry = sy+rng.next_float()*max_rand-max_rand/2
+        if ry < 0: ry = 1
+        elif ry > draw_height: ry = draw_height-1
+        points.append({'x': rx, 'y': ry})
+    section['bendPoints'] = points
+
+
+def _layout(state, node, monitor=None):
+    """Apply the provider to a node in the job's persistent imported state."""
+    if monitor is not None: monitor.begin('Random Layout', 1)
+    children = node.get('children', [])
+    if not children:
+        if monitor is not None: monitor.done()
+        return node
+    seed = state.option(node, 'randomSeed', 0)
+    rng = JavaRandom(seed) if seed is not None and seed != 0 else _unseeded_random()
+    aspect = state.option(node, 'aspectRatio', 1.600000023841858)
+    spacing = state.option(node, 'spacing.nodeNode', 15)
+    padding = _padding(state.option(node, 'padding'))
+    area, max_width, max_height, m = 0.0, 0.0, 0.0, 1
+    for child in children:
+        m += len(state.node_edges(child))
+        max_width = _max(max_width, child['width']); max_height = _max(max_height, child['height'])
+        area += child['width']*child['height']
+    draw_area = area+2*spacing*spacing*m*len(children)
+    area_sqrt = _sqrt(draw_area)
+    draw_width = _max(area_sqrt*aspect, max_width)
+    draw_height = _max(_div(area_sqrt, aspect), max_height)
+    for child in children:
+        child['x'] = padding['left']+rng.next_double()*(draw_width-child['width'])
+        child['y'] = padding['left']+rng.next_double()*(draw_height-child['height'])
+    total_width = draw_width+padding['left']+padding['right']
+    total_height = draw_height+padding['top']+padding['bottom']
+    for child in children:
+        for edge in state.node_edges(child):
+            if not _hierarchical(state, edge):
+                _randomize_edge(state, edge, rng, total_width, total_height)
+    total_width += padding['left']+padding['right']
+    total_height += padding['top']+padding['bottom']
+    _resize(state, node, total_width, total_height, False, True)
+    if monitor is not None: monitor.done()
+    return node
+
+
+def layout_random(graph, options=None, *, monitor=None):
+    """One real provider invocation, without recursive or export emulation."""
+    state = _State(graph, options)
+    _layout(state, state.graph, monitor)
+    return state.graph

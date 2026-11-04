@@ -1,0 +1,245 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "30c7195757af21cca72e5c4fbfe9337f5986380a0a34eb3f1a122f87f3b05df1",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "e06-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "root-business-stack"
+      }
+    },
+    "children": [
+      {
+        "id": "graph-node-0",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 16,
+        "x": 12,
+        "y": 32
+      }
+    ],
+    "edges": [
+      {
+        "id": "graph-edge-0",
+        "sources": [
+          "graph-node-0"
+        ],
+        "targets": [
+          "graph-node-0"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "graph-edge-0_s0",
+            "startPoint": {
+              "x": 24,
+              "y": 32
+            },
+            "endPoint": {
+              "x": 30,
+              "y": 32
+            },
+            "bendPoints": [
+              {
+                "x": 24,
+                "y": 22
+              },
+              {
+                "x": 30,
+                "y": 22
+              }
+            ],
+            "incomingShape": "graph-node-0",
+            "outgoingShape": "graph-node-0"
+          }
+        ],
+        "container": "e06-root"
+      },
+      {
+        "id": "graph-edge-1",
+        "sources": [
+          "graph-node-0"
+        ],
+        "targets": [
+          "graph-node-0"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "graph-edge-1_s0",
+            "startPoint": {
+              "x": 18,
+              "y": 32
+            },
+            "endPoint": {
+              "x": 36,
+              "y": 32
+            },
+            "bendPoints": [
+              {
+                "x": 18,
+                "y": 12
+              },
+              {
+                "x": 36,
+                "y": 12
+              }
+            ],
+            "incomingShape": "graph-node-0",
+            "outgoingShape": "graph-node-0"
+          }
+        ],
+        "container": "e06-root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 54,
+    "height": 64
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "e06-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "root-business-stack"
+      }
+    },
+    "children": [
+      {
+        "id": "graph-node-0",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 16,
+        "x": 12,
+        "y": 32
+      }
+    ],
+    "edges": [
+      {
+        "id": "graph-edge-0",
+        "sources": [
+          "graph-node-0"
+        ],
+        "targets": [
+          "graph-node-0"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "graph-edge-0_s0",
+            "startPoint": {
+              "x": 24,
+              "y": 32
+            },
+            "endPoint": {
+              "x": 30,
+              "y": 32
+            },
+            "bendPoints": [
+              {
+                "x": 24,
+                "y": 22
+              },
+              {
+                "x": 30,
+                "y": 22
+              }
+            ],
+            "incomingShape": "graph-node-0",
+            "outgoingShape": "graph-node-0"
+          }
+        ],
+        "container": "e06-root"
+      },
+      {
+        "id": "graph-edge-1",
+        "sources": [
+          "graph-node-0"
+        ],
+        "targets": [
+          "graph-node-0"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "graph-edge-1_s0",
+            "startPoint": {
+              "x": 18,
+              "y": 32
+            },
+            "endPoint": {
+              "x": 36,
+              "y": 32
+            },
+            "bendPoints": [
+              {
+                "x": 18,
+                "y": 12
+              },
+              {
+                "x": 36,
+                "y": 12
+              }
+            ],
+            "incomingShape": "graph-node-0",
+            "outgoingShape": "graph-node-0"
+          }
+        ],
+        "container": "e06-root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 54,
+    "height": 64
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

@@ -1,0 +1,312 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Fixed elkjs0.12.1 worker SHA256:
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Components P10B/P10C/P10F in references/e13-kernel-sources.json.
+# Native slot/queue adapters; existing Apache-noticed signed helper reused.
+# Actual basic and NS scores; real local swap queries added; aggregate scheduler separate.
+"""Actual between/in-layer/NS crossing scores and live counter scratch."""
+"""Actual between/in-layer/NS crossing scores and live counter scratch."""
+'Actual between/in-layer/NS crossing scores and live counter scratch.'
+from .phases import _signed
+from .ports import _cache_sides, _source_sort
+
+def _source_low_bit(index):
+    return _signed(_signed(index, 32) & _signed(-index, 32), 32)
+
+class BinaryIndexedTree:
+
+    def __init__(self, max_num):
+        self.max_num = max_num
+        self.binary_sums = [0.0] * (max_num + 1)
+        self.nums_per_index = [0.0] * max_num
+        self.size = 0.0
+
+    def add(self, index):
+        self.size += 1.0
+        self.nums_per_index[index] += 1.0
+        current = index + 1
+        while current < len(self.binary_sums):
+            self.binary_sums[current] += 1.0
+            current += _source_low_bit(current)
+
+    def clear(self):
+        self.binary_sums = [0.0] * (self.max_num + 1)
+        self.nums_per_index = [0.0] * self.max_num
+        self.size = 0.0
+
+    def rank(self, index):
+        current = index
+        total = 0.0
+        while current > 0:
+            total += self.binary_sums[current]
+            current -= _source_low_bit(current)
+        return total
+
+    def remove_all(self, index):
+        count = self.nums_per_index[index]
+        if count == 0:
+            return
+        self.nums_per_index[index] = 0.0
+        self.size -= count
+        current = index + 1
+        while current < len(self.binary_sums):
+            self.binary_sums[current] -= count
+            current += _source_low_bit(current)
+
+def _side_view(node, side):
+    if not node.port_sides_cached:
+        _cache_sides(node)
+    indices = node.port_side_indices.get(side)
+    if indices is None:
+        return []
+    return node.ports[indices[0]:indices[1]]
+
+def _connected_edges(port):
+    yield from port.incoming_edges
+    yield from port.outgoing_edges
+
+def _is_in_layer(edge):
+    return edge.source.owner.layer is edge.target.owner.layer
+
+class CrossingsCounter:
+    INDEXING_SIDE = 'WEST'
+    STACK_SIDE = 'EAST'
+
+    def __init__(self, port_positions):
+        self.port_positions = port_positions
+        self.ends = []
+
+    def _position_of(self, port):
+        return self.port_positions[port]
+
+    def _init_positions(self, nodes, ports, side, top_down, get_cardinalities):
+        count = len(ports)
+        if get_cardinalities:
+            self.node_cardinalities = {}
+        for node in nodes if top_down else reversed(nodes):
+            node_ports = _side_view(node, side)
+            if side == 'EAST' and (not top_down) or (side != 'EAST' and top_down):
+                node_ports = list(reversed(node_ports))
+            if get_cardinalities:
+                self.node_cardinalities[node] = len(node_ports)
+            for port in node_ports:
+                self.port_positions[port] = count
+                count += 1
+            ports.extend(node_ports)
+
+    def _init_positions_counter_clockwise(self, left, right):
+        ports = []
+        self._init_positions(left, ports, 'EAST', True, False)
+        self._init_positions(right, ports, 'WEST', False, False)
+        return ports
+
+    def _init_positions_for_in_layer(self, nodes, side):
+        ports = []
+        self._init_positions(nodes, ports, side, True, True)
+        self.index_tree = BinaryIndexedTree(len(ports))
+        return ports
+
+    def init_for_counting_between(self, left, right):
+        ports = self._init_positions_counter_clockwise(left, right)
+        self.index_tree = BinaryIndexedTree(len(ports))
+
+    def count_crossings_between_layers(self, left, right):
+        ports = self._init_positions_counter_clockwise(left, right)
+        self.index_tree = BinaryIndexedTree(len(ports))
+        return self.count_crossings_on_ports(ports)
+
+    def count_crossings_on_ports(self, ports):
+        crossings = 0.0
+        for port in ports:
+            self.index_tree.remove_all(self.port_positions[port])
+            for edge in _connected_edges(port):
+                end = self._position_of(edge.target if port is edge.source else edge.source)
+                if end > self.port_positions[port]:
+                    crossings += self.index_tree.rank(end)
+                    self.ends.append(end)
+            while self.ends:
+                self.index_tree.add(self.ends.pop())
+        return crossings
+
+    def count_in_layer_crossings_on_ports(self, ports):
+        crossings = 0.0
+        for port in ports:
+            self.index_tree.remove_all(self.port_positions[port])
+            between_edges = 0.0
+            for edge in _connected_edges(port):
+                if _is_in_layer(edge):
+                    end = self._position_of(edge.target if port is edge.source else edge.source)
+                    if end > self.port_positions[port]:
+                        crossings += self.index_tree.rank(end)
+                        self.ends.append(end)
+                else:
+                    between_edges += 1.0
+            crossings += self.index_tree.size * between_edges
+            while self.ends:
+                self.index_tree.add(self.ends.pop())
+        return crossings
+
+    def count_in_layer_crossings_on_side(self, nodes, side):
+        ports = self._init_positions_for_in_layer(nodes, side)
+        return self.count_in_layer_crossings_on_ports(ports)
+
+    @staticmethod
+    def _is_layout_unit_changed(last_unit, node):
+        if last_unit is None or last_unit is node or 'IN_LAYER_LAYOUT_UNIT' not in node.properties:
+            return False
+        return node.properties.get('IN_LAYER_LAYOUT_UNIT') is not last_unit
+
+    def _empty_stack(self, stack, ports, side, start_index):
+        index = start_index
+        while stack:
+            dummy = stack.pop()
+            port = _side_view(dummy, side)[0]
+            self.port_positions[port] = index
+            index += 1
+            ports.append(port)
+        return index
+
+    def _init_positions_for_north_south(self, nodes):
+        ports = []
+        stack = []
+        last_unit = None
+        index = 0
+        for current in nodes:
+            if self._is_layout_unit_changed(last_unit, current):
+                index = self._empty_stack(stack, ports, self.STACK_SIDE, index)
+            if 'IN_LAYER_LAYOUT_UNIT' in current.properties:
+                last_unit = current.properties.get('IN_LAYER_LAYOUT_UNIT')
+            if current.type == 'NORMAL':
+                for port in _side_view(current, 'NORTH'):
+                    if 'PORT_DUMMY' in port.properties:
+                        self.port_positions[port] = index
+                        index += 1
+                        ports.append(port)
+                index = self._empty_stack(stack, ports, self.STACK_SIDE, index)
+                for port in _side_view(current, 'SOUTH'):
+                    if 'PORT_DUMMY' in port.properties:
+                        self.port_positions[port] = index
+                        index += 1
+                        ports.append(port)
+            elif current.type == 'NORTH_SOUTH_PORT':
+                indexing = _side_view(current, self.INDEXING_SIDE)
+                if indexing:
+                    port = indexing[0]
+                    self.port_positions[port] = index
+                    index += 1
+                    ports.append(port)
+                if _side_view(current, self.STACK_SIDE):
+                    stack.append(current)
+            elif current.type == 'LONG_EDGE':
+                for port in _side_view(current, 'WEST'):
+                    self.port_positions[port] = index
+                    index += 1
+                    ports.append(port)
+                for port in _side_view(current, 'EAST'):
+                    stack.append(current)
+        self._empty_stack(stack, ports, self.STACK_SIDE, index)
+        return ports
+
+    def count_north_south_crossings_on_ports(self, ports):
+        crossings = 0.0
+        targets_and_degrees = []
+        for port in ports:
+            self.index_tree.remove_all(self.port_positions[port])
+            targets_and_degrees.clear()
+            if port.owner.type == 'NORMAL':
+                dummy = port.properties.get('PORT_DUMMY')
+                for target in dummy.ports:
+                    targets_and_degrees.append((target, float(len(target.incoming_edges) + len(target.outgoing_edges))))
+            elif port.owner.type == 'LONG_EDGE':
+                target = next((other for other in port.owner.ports if other is not port), None)
+                if target is not None:
+                    targets_and_degrees.append((target, float(len(target.incoming_edges) + len(target.outgoing_edges))))
+            elif port.owner.type == 'NORTH_SOUTH_PORT':
+                target = port.properties.get('ORIGIN')
+                targets_and_degrees.append((target, float(len(port.incoming_edges) + len(port.outgoing_edges))))
+            for target, degree in targets_and_degrees:
+                end = self._position_of(target)
+                if end > self.port_positions[port]:
+                    crossings += self.index_tree.rank(end) * degree
+                    self.ends.append(end)
+            while self.ends:
+                self.index_tree.add(self.ends.pop())
+        return crossings
+
+    def count_north_south_port_crossings_in_layer(self, nodes):
+        ports = self._init_positions_for_north_south(nodes)
+        self.index_tree = BinaryIndexedTree(len(ports))
+        return self.count_north_south_crossings_on_ports(ports)
+
+    def _side_ports_in_north_south_order(self, node, side):
+        if side in ('NORTH', 'EAST'):
+            return _side_view(node, side)
+        if side in ('SOUTH', 'WEST'):
+            return list(reversed(_side_view(node, side)))
+        return []
+
+    def _compare_ports_by_position(self, first, second):
+        left, right = (self.port_positions[first], self.port_positions[second])
+        return -1 if left < right else 1 if left > right else 0
+
+    def _ports_from_position_tree(self, first_by_position):
+        ports = list(first_by_position.values())
+        _source_sort(ports, self._compare_ports_by_position)
+        return ports
+
+    def connected_in_layer_ports_sorted_by_position(self, upper_node, lower_node, side):
+        first = {}
+        for node in (upper_node, lower_node):
+            for port in self._side_ports_in_north_south_order(node, side):
+                for edge in _connected_edges(port):
+                    if edge.source.owner is edge.target.owner:
+                        continue
+                    first.setdefault(self.port_positions[port], port)
+                    if _is_in_layer(edge):
+                        other = edge.target if port is edge.source else edge.source
+                        first.setdefault(self.port_positions[other], other)
+        return self._ports_from_position_tree(first)
+
+    def connected_ports_sorted_by_position(self, upper_port, lower_port):
+        first = {}
+        for port in (upper_port, lower_port):
+            first.setdefault(self.port_positions[port], port)
+            for edge in _connected_edges(port):
+                if edge.source is not edge.target:
+                    other = edge.target if port is edge.source else edge.source
+                    first.setdefault(self.port_positions[other], other)
+        return self._ports_from_position_tree(first)
+
+    def switch_ports(self, top_port, bottom_port):
+        top_position = self.port_positions[top_port]
+        self.port_positions[top_port] = self.port_positions[bottom_port]
+        self.port_positions[bottom_port] = top_position
+
+    def switch_nodes(self, upper_node, lower_node, side):
+        for port in self._side_ports_in_north_south_order(upper_node, side):
+            self.port_positions[port] += self.node_cardinalities[lower_node]
+        for port in self._side_ports_in_north_south_order(lower_node, side):
+            self.port_positions[port] -= self.node_cardinalities[upper_node]
+
+    def count_crossings_between_ports_in_both_orders(self, upper_port, lower_port):
+        ports = self.connected_ports_sorted_by_position(upper_port, lower_port)
+        upper_lower = self.count_crossings_on_ports(ports)
+        self.index_tree.clear()
+        self.switch_ports(upper_port, lower_port)
+        _source_sort(ports, self._compare_ports_by_position)
+        lower_upper = self.count_crossings_on_ports(ports)
+        self.index_tree.clear()
+        self.switch_ports(lower_port, upper_port)
+        return (upper_lower, lower_upper)
+
+    def count_in_layer_crossings_between_nodes_in_both_orders(self, upper_node, lower_node, side):
+        ports = self.connected_in_layer_ports_sorted_by_position(upper_node, lower_node, side)
+        upper_lower = self.count_in_layer_crossings_on_ports(ports)
+        self.switch_nodes(upper_node, lower_node, side)
+        self.index_tree.clear()
+        _source_sort(ports, self._compare_ports_by_position)
+        lower_upper = self.count_in_layer_crossings_on_ports(ports)
+        self.switch_nodes(lower_node, upper_node, side)
+        self.index_tree.clear()
+        return (upper_lower, lower_upper)

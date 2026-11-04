@@ -1,0 +1,48 @@
+{
+  "schema": "py-elk-tooling-independent-review/v1",
+  "batch": "E08-00",
+  "reviewerLane": "A",
+  "reviewedLane": "root",
+  "status": "ACCEPTED_UNDER_DEVELOPMENT_AND_COMPLETION_CONTRACT",
+  "reviewedUtc": "2026-11-03T11:40:02.994715+00:00",
+  "filesSha256": {
+    "scripts/change_impact.py": "02d0d987275e82e91df587f6e8633d020f5290dbabf6c9b1054c32636ea2347e",
+    "scripts/preflight.py": "9d6ed8077e5882b855b66a8f4a59a5c446343ac899631701be84e619e429181a",
+    "scripts/validate_completion_state.py": "56d25a5de44619ab83f1e9cdefb8e8952d2ce80a2090fb2c3c79838f14519156",
+    "scripts/check.py": "2ae31b6722f9642fa5d3ce2c731a0c0a183da886dacbd5be5736d6e4b5a7b6ed",
+    "tests/validation/test_change_impact.py": "3bc994bb14a808c19c9a45edd2271efaf81e85df25836f40f53e61e3ea3463e5",
+    "tests/validation/test_completion_state.py": "a04b873122bb434082f955b56b93feda934e1f7691c96465c91a0c2199aadbea"
+  },
+  "independentNegativeControlsRejected": 25,
+  "independentPositiveControls": 2,
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E08-00-01/A/root-controls-final/report.json",
+      "sha256": "7fdda1952d850d6c0d4d73d9e57e6a537d3d33ba1fe0c26e55e040a8e3bc764a"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/root-controls-final-command/command.json",
+      "sha256": "094098c914cd31aa7c09b27f2b1b64907e034d93a30284303a70b29515f2f6cd"
+    }
+  ],
+  "initialFailuresPreserved": [
+    "A/root-controls-first/report.json",
+    "A/root-controls-03/report.json"
+  ],
+  "resolvedFindings": [
+    "Source notices/ADRs select full; model selects layered.",
+    "Only root generated folders are excluded; nested fixture build/dist/test-runs/__pycache__ remain inputs.",
+    "29/45 fixed role, exact argv/cwd and whole discover scope are checked; SHA-rebound partial commands reject.",
+    "Relevant environment is fingerprinted without exposing values.",
+    "Original plan raw bytes are bound to initial input SHA and parsed snapshot; protected types compare canonically.",
+    "Inventory-only explicitly reports no smoke execution or success."
+  ],
+  "blockers": [],
+  "limitations": [
+    "Synthetic guard controls are not proof that historical commands ran; wholly forged chains remain outside authentication.",
+    "Completion permits only operator bookkeeping over unchanged protected inputs; normal full acceptance remains required for code/test/reference/configuration changes."
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "runtimeReexecuted": false,
+  "packagePublished": false
+}

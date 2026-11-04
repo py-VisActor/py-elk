@@ -1,0 +1,536 @@
+{
+  "passed": true,
+  "caseCount": 4,
+  "rows": [
+    {
+      "id": "default-inherit",
+      "result": {
+        "id": "root",
+        "x": 17,
+        "y": 29,
+        "width": 500,
+        "height": 400,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true,
+          "elk.json.shapeCoords": "INHERIT",
+          "elk.json.edgeCoords": "INHERIT"
+        },
+        "business": {
+          "keep": "root"
+        },
+        "children": [
+          {
+            "id": "compound",
+            "x": 20,
+            "y": 30,
+            "width": 80,
+            "height": 70,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true
+            },
+            "children": [
+              {
+                "id": "inside",
+                "x": 5,
+                "y": 7,
+                "width": 10,
+                "height": 8,
+                "labels": [
+                  {
+                    "text": "node",
+                    "x": 1,
+                    "y": 2,
+                    "width": 3,
+                    "height": 4,
+                    "business": "node-label"
+                  }
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "id": "cross",
+                "sources": [
+                  "inside"
+                ],
+                "targets": [
+                  "sibling"
+                ],
+                "sections": [
+                  {
+                    "id": "kept-section",
+                    "startPoint": {
+                      "x": 15,
+                      "y": 11
+                    },
+                    "endPoint": {
+                      "x": 100,
+                      "y": 46
+                    },
+                    "bendPoints": [],
+                    "business": "section",
+                    "incomingShape": "inside",
+                    "outgoingShape": "sibling"
+                  }
+                ],
+                "labels": [
+                  {
+                    "text": "edge",
+                    "x": 3,
+                    "y": 4,
+                    "width": 10,
+                    "height": 5,
+                    "business": "edge-label"
+                  }
+                ],
+                "business": "edge",
+                "container": "root"
+              }
+            ]
+          },
+          {
+            "id": "sibling",
+            "x": 100,
+            "y": 40,
+            "width": 10,
+            "height": 12
+          }
+        ]
+      },
+      "strictDifference": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/0/children/0/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 283
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "mandatoryDifferences": [],
+      "inputPreserved": true
+    },
+    {
+      "id": "root-root",
+      "result": {
+        "id": "root",
+        "x": 17,
+        "y": 29,
+        "width": 500,
+        "height": 400,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true,
+          "elk.json.shapeCoords": "ROOT",
+          "elk.json.edgeCoords": "ROOT"
+        },
+        "business": {
+          "keep": "root"
+        },
+        "children": [
+          {
+            "id": "compound",
+            "x": 37,
+            "y": 59,
+            "width": 80,
+            "height": 70,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true
+            },
+            "children": [
+              {
+                "id": "inside",
+                "x": 42,
+                "y": 66,
+                "width": 10,
+                "height": 8,
+                "labels": [
+                  {
+                    "text": "node",
+                    "x": 43,
+                    "y": 68,
+                    "width": 3,
+                    "height": 4,
+                    "business": "node-label"
+                  }
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "id": "cross",
+                "sources": [
+                  "inside"
+                ],
+                "targets": [
+                  "sibling"
+                ],
+                "sections": [
+                  {
+                    "id": "kept-section",
+                    "startPoint": {
+                      "x": 32,
+                      "y": 40
+                    },
+                    "endPoint": {
+                      "x": 117,
+                      "y": 75
+                    },
+                    "bendPoints": [],
+                    "business": "section",
+                    "incomingShape": "inside",
+                    "outgoingShape": "sibling"
+                  }
+                ],
+                "labels": [
+                  {
+                    "text": "edge",
+                    "x": 20,
+                    "y": 33,
+                    "width": 10,
+                    "height": 5,
+                    "business": "edge-label"
+                  }
+                ],
+                "business": "edge"
+              }
+            ]
+          },
+          {
+            "id": "sibling",
+            "x": 117,
+            "y": 69,
+            "width": 10,
+            "height": 12
+          }
+        ]
+      },
+      "strictDifference": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/0/children/0/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 283
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "mandatoryDifferences": [],
+      "inputPreserved": true
+    },
+    {
+      "id": "root-parent",
+      "result": {
+        "id": "root",
+        "x": 17,
+        "y": 29,
+        "width": 500,
+        "height": 400,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true,
+          "elk.json.shapeCoords": "ROOT",
+          "elk.json.edgeCoords": "PARENT"
+        },
+        "business": {
+          "keep": "root"
+        },
+        "children": [
+          {
+            "id": "compound",
+            "x": 37,
+            "y": 59,
+            "width": 80,
+            "height": 70,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true
+            },
+            "children": [
+              {
+                "id": "inside",
+                "x": 42,
+                "y": 66,
+                "width": 10,
+                "height": 8,
+                "labels": [
+                  {
+                    "text": "node",
+                    "x": 43,
+                    "y": 68,
+                    "width": 3,
+                    "height": 4,
+                    "business": "node-label"
+                  }
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "id": "cross",
+                "sources": [
+                  "inside"
+                ],
+                "targets": [
+                  "sibling"
+                ],
+                "sections": [
+                  {
+                    "id": "kept-section",
+                    "startPoint": {
+                      "x": -5,
+                      "y": -19
+                    },
+                    "endPoint": {
+                      "x": 80,
+                      "y": 16
+                    },
+                    "bendPoints": [],
+                    "business": "section",
+                    "incomingShape": "inside",
+                    "outgoingShape": "sibling"
+                  }
+                ],
+                "labels": [
+                  {
+                    "text": "edge",
+                    "x": -17,
+                    "y": -26,
+                    "width": 10,
+                    "height": 5,
+                    "business": "edge-label"
+                  }
+                ],
+                "business": "edge"
+              }
+            ]
+          },
+          {
+            "id": "sibling",
+            "x": 117,
+            "y": 69,
+            "width": 10,
+            "height": 12
+          }
+        ]
+      },
+      "strictDifference": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/0/children/0/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 283
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "mandatoryDifferences": [],
+      "inputPreserved": true
+    },
+    {
+      "id": "parent-container",
+      "result": {
+        "id": "root",
+        "x": 17,
+        "y": 29,
+        "width": 500,
+        "height": 400,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true,
+          "elk.json.shapeCoords": "PARENT",
+          "elk.json.edgeCoords": "CONTAINER"
+        },
+        "business": {
+          "keep": "root"
+        },
+        "children": [
+          {
+            "id": "compound",
+            "x": 20,
+            "y": 30,
+            "width": 80,
+            "height": 70,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true
+            },
+            "children": [
+              {
+                "id": "inside",
+                "x": 5,
+                "y": 7,
+                "width": 10,
+                "height": 8,
+                "labels": [
+                  {
+                    "text": "node",
+                    "x": 1,
+                    "y": 2,
+                    "width": 3,
+                    "height": 4,
+                    "business": "node-label"
+                  }
+                ]
+              }
+            ],
+            "edges": [
+              {
+                "id": "cross",
+                "sources": [
+                  "inside"
+                ],
+                "targets": [
+                  "sibling"
+                ],
+                "sections": [
+                  {
+                    "id": "kept-section",
+                    "startPoint": {
+                      "x": 15,
+                      "y": 11
+                    },
+                    "endPoint": {
+                      "x": 100,
+                      "y": 46
+                    },
+                    "bendPoints": [],
+                    "business": "section",
+                    "incomingShape": "inside",
+                    "outgoingShape": "sibling"
+                  }
+                ],
+                "labels": [
+                  {
+                    "text": "edge",
+                    "x": 3,
+                    "y": 4,
+                    "width": 10,
+                    "height": 5,
+                    "business": "edge-label"
+                  }
+                ],
+                "business": "edge",
+                "container": "root"
+              }
+            ]
+          },
+          {
+            "id": "sibling",
+            "x": 100,
+            "y": 40,
+            "width": 10,
+            "height": 12
+          }
+        ]
+      },
+      "strictDifference": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/0/children/0/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 283
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "mandatoryDifferences": [],
+      "inputPreserved": true
+    }
+  ],
+  "sourceFilesSha256": {
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\execution\\json_transfer.py": "210e3e6cbcab28bc233353719047ae5678684e1c62359d8c942e27fb21d3069a",
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\algorithms\\fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\algorithms\\box.py": "c1188f8dd443182aacce7f46bbda0295a4d7feebca6c5a114aa6828807236df8",
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\algorithms\\random.py": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d"
+  },
+  "oracleSha256": "8b25700c5749d08ff2ca54e8b5a0d1ce27a9f61e04173ac97ebe8e56dfcee364",
+  "harnessSha256": "193790105d5ede7d96c0894ed4e51549dab90d604f466b52149f11c58acfd226",
+  "limitations": [
+    "All raw strict differences retained. GWT $H is separately identified, not certified equal.",
+    "Explicit harness provider traversal is not full recursive engine, parser or installed/public API acceptance."
+  ]
+}

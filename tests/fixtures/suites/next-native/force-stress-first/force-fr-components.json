@@ -1,0 +1,70 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "force",
+      "org.eclipse.elk.randomSeed": 19,
+      "org.eclipse.elk.force.model": "FRUCHTERMAN_REINGOLD",
+      "org.eclipse.elk.force.iterations": 6,
+      "org.eclipse.elk.force.temperature": 0.03,
+      "org.eclipse.elk.spacing.nodeNode": 31
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "d",
+        "width": 20,
+        "height": 12,
+        "x": 0,
+        "y": 0
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "labels": [
+          {
+            "text": "inline",
+            "width": 7,
+            "height": 5,
+            "layoutOptions": {
+              "org.eclipse.elk.edgeLabels.inline": true
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "x": 0,
+        "y": 74
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "x": 0,
+        "y": 37
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "x": 100,
+        "y": 74
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "x": 100,
+        "y": 37
+      },
+      {
+        "id": "f",
+        "width": 47,
+        "height": 27,
+        "business": {
+          "id": "f",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "x": 100,
+        "y": 0
+      }
+    ],
+    "edges": [
+      {
+        "id": "ad",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "ad",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "be",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "be",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cf",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "f"
+        ],
+        "business": {
+          "edge": "cf",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "af",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "f"
+        ],
+        "business": {
+          "edge": "af",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.layered.crossingMinimization.strategy": "INTERACTIVE"
+    }
+  }
+}

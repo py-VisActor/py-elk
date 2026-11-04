@@ -1,0 +1,176 @@
+{
+  "schema": "py-elk-iteration-evidence/v1",
+  "iteration": "E02",
+  "status": "complete",
+  "completedUtc": "2026-11-03T03:57:22.355552+00:00",
+  "baselineCommit": "01830431b621c04959120f8e992d8b08c9d5ca8d",
+  "nextIteration": "E03",
+  "parallel": {
+    "protocol": "docs/PARALLEL_EXECUTION.md",
+    "protocolVersion": "1.2",
+    "subagentLanes": {
+      "A": "source_lineage",
+      "B": "layered_path",
+      "V": "assertion_inventory"
+    },
+    "maxConcurrentSubagents": 3,
+    "crossReviews": [
+      "A->B",
+      "B->V",
+      "V->root"
+    ],
+    "serialSpeedupClaimed": false,
+    "retrospective": "docs/retrospectives/E02.md"
+  },
+  "results": {
+    "officialContractProbes": 56,
+    "officialCallRecords": 59,
+    "sourceRecords": 7,
+    "observationGroups": 9,
+    "unitTests": {
+      "bootstrap": 14,
+      "layoutValidator": 87,
+      "contractFacts": 12,
+      "audit": 58,
+      "total": 171
+    },
+    "liveSyntheticCollectorControls": 2,
+    "originalStrictComparisonsUnchanged": 50,
+    "rootIndependentControlsRejected": 56,
+    "windowsReferenceIntegration": "PASS",
+    "windowsFinalStateOffline": "PASS",
+    "WSL": "PASS",
+    "freshSessionWithoutLocalOrGit": "PASS",
+    "immutableStartingFiles": 272,
+    "unitCountsByPlatform": {
+      "Windows": {
+        "bootstrap-tests": 14,
+        "validator-tests": 87,
+        "contract-tests": 12,
+        "audit-tests": 58
+      },
+      "WSL": {
+        "bootstrap-tests": 14,
+        "validator-tests": 87,
+        "contract-tests": 12,
+        "audit-tests": 58
+      },
+      "Fresh": {
+        "bootstrap-tests": 14,
+        "validator-tests": 87,
+        "contract-tests": 12,
+        "audit-tests": 58
+      }
+    },
+    "strictOfficialFixtureCases": 25,
+    "officialFixtureRepeat": 3,
+    "officialProbeReplay": "PASS",
+    "sourceFingerprintsSameInFinalPlatformChecks": true,
+    "freshSourceFiles": 345
+  },
+  "limits": {
+    "nativeContractGate": "verified: design and tooling only",
+    "algorithmSourceGate": "unverified",
+    "pythonAlgorithmsVerified": 0,
+    "pythonRuntimeImplemented": false,
+    "publicApiAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false,
+    "packagePublished": false,
+    "remoteCIForThisChange": "not run",
+    "commitOrPushPerformed": false,
+    "exactJavaCommit": "unresolved",
+    "candidateJavaCommit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4"
+  },
+  "reportsSha256": {
+    "test-runs/20261103-E02-01/starting-snapshot.json": "efb82cc9c2a36162866dc54432f467dea4b8bbb539b58c89172d468de71dc76e",
+    "test-runs/20261103-E02-01/baseline/report.json": "c7ef072fcbb7c955c5ba934cb56b325087cb58bb36147cb70492d0e73ac1577d",
+    "test-runs/20261103-E02-01/baseline-corrected/report.json": "77b44ae3c035ae599390f81d7e31771bb19a99521a0bb361572d6b9e6b4a851e",
+    "test-runs/20261103-E02-01/integration/report.json": "1fc2eabb886c7d25697f4cb6be7236783874a65425f163dd72fb516fc3679797",
+    "test-runs/20261103-E02-01/integration/replay.json": "ffc72fbf2682bf2024537f9ebcf4707b180514fed4b4c1f69378701f27e12bfc",
+    "test-runs/20261103-E02-01/integration/path-trace/report.json": "6f6d4ca524640e060e2ab3daa7a2e3b7719421019ecaa7a1b89d34d4a791a5ba",
+    "test-runs/20261103-E02-01/integration/contract-probes/index.json": "a445948724dd544fd1d5b9b17438c7401cb9f587cd80fcba59a79f50d3bbffdf",
+    "test-runs/20261103-E02-01/integration/collector-controls/report.json": "98a03bbe5075b8a8d3c2cd353b3e38e8f34008db3fa54822dca50d8a844a44cd",
+    "test-runs/20261103-E02-01/A/handoff-final.json": "4212a7ed9bfc79b59bdde7027ea8c32d17aeec7ac7b55e4c3ce3c3740cc5645f",
+    "test-runs/20261103-E02-01/A/review-B-final.json": "82e8658e40e172f4efc7a3a8ae0e96930fa7509008db01c50b4124ab9c58f945",
+    "test-runs/20261103-E02-01/B/handoff-final.json": "bd3253a17091c0ede7b3455a5ff5d22d5900bd7314dab92fa5c4ebbe5c6b08a8",
+    "test-runs/20261103-E02-01/B/review-V-final.json": "887e9842aecd7c2a7ede5d80593d49a6145ef215428b25929c780b31b3db533c",
+    "test-runs/20261103-E02-01/B/completion.json": "b7e2c304ed2ee68d96bed1c1d5dada6c544be16dedc68a3c7b1900bb67ae1eea",
+    "test-runs/20261103-E02-01/V/handoff-final-v2.json": "40f649b8c255ad55ec94d08f7dd8514bbe92b7a04af45a67f7d32529a8a18042",
+    "test-runs/20261103-E02-01/V/review-root-final.json": "2209ee738045f43bafe970d353a21068d33699e2eead8b0526a61749348886ec",
+    "test-runs/20261103-E02-01/V/review-root-controls-final-v2.json": "b786ec8b00241f5cd4f3dbf4b0ea34e3e55c1223318eb2e714d63883ddf3d559",
+    "test-runs/20261103-E02-01/V/root-validator-final-v2.json": "58050765522e2e90746f3ff3a7d95bf7672ff6ea4b615948f9071127ad432a7c",
+    "test-runs/20261103-E02-01/immutable-starting-artifacts.json": "87423450aff9071805db161b8bff6b1cc6efb7e9777ba3a146b9f5f0f12f5f21",
+    "test-runs/20261103-E02-01/final-diff-command/result.json": "a9d3883e751d4e21fba4a1c9f77e17becc7e98692d39197a6b93c4f2c05e3809",
+    "test-runs/20261103-E02-01/final-offline/report.json": "ab9a79f3fac2f3bde6ae72cf44d4463ba80c29480827ae27a08210b2a3bdb93c",
+    "test-runs/20261103-E02-01/linux-offline/report.json": "e0cc986c31dad131b7bb00ab2bd94b32f945e16fd75be6bf6a98a32abb179dff",
+    "test-runs/20261103-E02-01/fresh-session-report.json": "4d51e24a2e55bc399534e98b8bce8e7249ef2c4d4b66c136cb4adb47969413d4"
+  },
+  "changedFilesSha256": {
+    ".github/workflows/validate.yml": "288f176ebb51b0782b54c201bd78352b992a7f29a314c4402a0391027e266687",
+    "AGENTS.md": "cde809cc63a2fd5261a0e75ce81d0b18f2882d02b03d4d69c3ff47a9ef606180",
+    "API_COMPATIBILITY.md": "1283a5df8cf413de02b92b3a246cd618df48b95789dc54b56aa9c819050e8830",
+    "DEVELOPMENT_PLAN.md": "0fceca27d5222df1ea1b0874690db1344efebfd1902362993debfe917367a307",
+    "README.en.md": "14ce144ed487b4cee863b5115d20b4d78873ac892dcded271a838918fd77f2df",
+    "README.md": "b021c65c79243e335ca40f4428362cbbb8851f575c416b9b861fb9fd16e874b2",
+    "docs/IMPLEMENTATION_PLAN.md": "0113961da2d3665e646f7a3c4fc2a01f6960a63430237b5345d126d134e8d80a",
+    "docs/ITERATION_PLAN.md": "b8c7811c81e453d0d9531f0df54b7f1ca7f7e4b1c508116a8f082c5ad322983a",
+    "docs/LAYOUT_VALIDATION.md": "32d70e90afef500b66760167c67cf897e4e2c6bef5920aeb92aeba1d271b9db8",
+    "docs/NEW_SESSION.md": "e36f3ca435072ddcecad05aafbc0484804f4042375025ef5aeef2e8ab832941a",
+    "docs/PARALLEL_EXECUTION.md": "4484669d7a1a38dd99e089a8219df347ffd8d42019496f6e053d8ab42b2bdaf7",
+    "docs/RELEASE_STATUS.md": "93d32d9c519ad601057af53ec48fc5f9e979a88ba24f12de11bb9cbb2b39152a",
+    "docs/TASKS.md": "36217330f9ecf5a0103aa7ec8c64bd7c3fb6e430ecd8eff70355c379db18d0ae",
+    "docs/decisions/0001-native-contract.md": "8596cbc5fea28796e532293352d0eb2ad1875c211d333729337e5555fdc9d2bf",
+    "docs/iteration-plan.json": "2bb7f7ffff1a6843b144ff3e5ba19d8a81a9b8245482c0bdacdc63d3d8726475",
+    "docs/iterations/E02.md": "7731c52369a92e316de753cfb15cc2ed65e8bfa7e4073d34e4d9216ca4b8aea2",
+    "docs/iterations/E03.md": "f098dc375d15a8525ddf1cc67bea6865998ea954490dd83e0f79a52e37371866",
+    "docs/retrospectives/E02.md": "b7a2050a35bdbdaccb83e9adcba6817049412815b7a70336d6518c12d405c8bf",
+    "references/README.md": "ca02c32b80ed7811525488852eb1a3a32d26e97b2893e351bdb2ebff22583481",
+    "references/e02-audit.json": "463a8812f7fe2544c03af6ca5f4bff01782fcdf6c8eccf956ab28a4a171c60fc",
+    "references/e02-contract-probes.json": "3ca993ac1747466215f88b22abf8626ea65afefb2dad1a37ade826d1fd84efaa",
+    "references/native-contract.json": "75260ea337fe4c3eeaea89aab46c815f61e9134dfea29b618c2aa5252d3b2558",
+    "scripts/check.py": "9968267c79b441c1e22c5145326d3db024f71240c1e87808bb08d335030a728d",
+    "scripts/layout_checks.py": "075482bd8ac1032a89320c823ff7eecd84866e186ff0b1f5228bd7f570f37197",
+    "scripts/validate_e02_contract.py": "62fd7714d2ea8e4c230b0b0fa7ebb96eecac5dfccee8d761f4da8954d5fad146",
+    "scripts/validate_layout.py": "ec49da5bc46d3934e18efd51cbca9ee625d9808032ed75f0bcaa6f99df2f4d4e",
+    "tests/README.md": "dbc99d0a74df02db5feac9dcd50e516f12863c41d0efd67da9c58c4f257d563b",
+    "tests/audit/test_e01_audit.py": "928bee907633063c47cc7932edb461b34b7f4a2fe6cbde9fae46f4ec3091024d",
+    "tests/audit/test_e02_contract.py": "014f5805d47432a0be3cc491a3412047ea88af7013750a12c5a6558c1f252dfd",
+    "tests/contract/live_collector_failclosed.py": "fc48fffa6b0d7df50bbc681d879b3f91a6865707cf39b4723ec1296678a14d3e",
+    "tests/contract/test_contract_probes.py": "dd6c38c5d043e4a93551704e69dd61feba61c894a8d052f03d68cf2ce9508bc6",
+    "tests/validation/test_profile_cases.py": "9487aae25d12b27610eb6a119581db3129e2f2ab0fa357b02e2bb06a7e0446ba",
+    "tests/validation/test_profiles.py": "1c98f9d1893afd142f0986a98bce8d9415f6bfdeec49e3f12e0c344e23fbb3c4",
+    "tools/reference/README.md": "58f7d30857f041597ec3084467321c674df8bdd57829b41a899181463ee9f263",
+    "tools/reference/capture_contracts.cjs": "563483d28ad38a171bb8a76b96978436d7879906610c9b330a64278d947cbc91"
+  },
+  "finalizedUtc": "2026-11-03T04:01:46.726567+00:00",
+  "platforms": {
+    "Windows": {
+      "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+      "platform": "Windows-11-10.0.26200-SP0"
+    },
+    "WSL": {
+      "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]",
+      "platform": "Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.43"
+    }
+  },
+  "evidenceDocuments": {
+    "audit": "references/e02-audit.json",
+    "contract": "references/native-contract.json",
+    "officialProbes": "references/e02-contract-probes.json",
+    "decision": "docs/decisions/0001-native-contract.md",
+    "nextBrief": "docs/iterations/E03.md"
+  },
+  "startingSnapshotSha256": "efb82cc9c2a36162866dc54432f467dea4b8bbb539b58c89172d468de71dc76e",
+  "worktreeFingerprintExcludingThisRecord": "33c8642cfca5a2902f259839b6891aa80cd14f4502d8bc631ee52455edb7fd6a",
+  "baselineFailuresPreserved": [
+    "E01 negative fixture inherited nonempty gate evidence",
+    "Contract seal exposed overbroad diagnostic stack projection",
+    "Review found returned-model domain bypass",
+    "Review found cleanup timeout accepted as captured",
+    "Review found nested runtime and manifest semantic guard gaps",
+    "Aggregation first assumed uniform review status spelling; original reviews retained"
+  ],
+  "verificationSequence": "Initial Windows full reference check; final manifest guards independently source/probe-replayed by V; after completion/gate update final Windows, WSL and fresh offline checks share identical code fingerprints."
+}

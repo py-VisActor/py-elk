@@ -11,20 +11,21 @@ import subprocess
 import sys
 import time
 
-from layout_checks import (ROOT, compare_captures, compare_observations, contained, contract,
+from layout_checks import (ROOT, PROFILES, DETERMINISM_POLICIES, compare_captures, compare_observations, contained, contract,
                            diff, load, negative_controls, sha256, validate_suite, verify_capture, write)
 
 
 def source_hashes():
-    paths = [*ROOT.glob("scripts/*.py"), *ROOT.glob("tools/reference/*.cjs"), *ROOT.glob("src/**/*.py")]
+    paths = [*ROOT.glob("scripts/*.py"), *ROOT.glob("tools/reference/*.cjs"),
+             *ROOT.glob("tools/reference/*.py"), *ROOT.glob("src/**/*.py")]
     return {p.relative_to(ROOT).as_posix(): sha256(p) for p in sorted(paths)}
 
 
-def run(command, directory, timeout):
+def run(command, directory, timeout, *, env=None):
     """No shell. Preserve stdout, stderr, argv, cwd, elapsed time and failed exits."""
     start = time.monotonic()
     try:
-        result = subprocess.run(command, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
+        result = subprocess.run(command, cwd=ROOT, env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=timeout)
         stdout, stderr, code, timed_out = result.stdout, result.stderr, result.returncode, False
     except subprocess.TimeoutExpired as error:
         stdout, stderr, code, timed_out = error.stdout or b"", error.stderr or b"", None, True
@@ -119,6 +120,9 @@ def main():
         p.add_argument("--reference", type=Path, required=True)
         p.add_argument("--candidate", type=Path, required=True, help="New official capture for replay; Python capture for compare")
         p.add_argument("--out", type=Path, required=True)
+        p.add_argument("--determinism-policy", choices=DETERMINISM_POLICIES, default="explicit-nonzero-seed")
+        if name == "compare":
+            p.add_argument("--profile", choices=PROFILES, default="strict")
     p = commands.add_parser("selftest", help="Official positives and deliberately broken negative controls; no Python layout claim")
     p.add_argument("--reference", type=Path, default=ROOT / "references/layout")
     p.add_argument("--out", type=Path, required=True)
@@ -126,6 +130,8 @@ def main():
     p.add_argument("--expected", type=Path, required=True)
     p.add_argument("--actual", type=Path, required=True)
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--profile", choices=PROFILES, default="strict")
+    p.add_argument("--request", type=Path, help="Original request bytes; mandatory for the native profile")
     p = commands.add_parser("verify", help="Verify capture artifact hashes and case denominators")
     p.add_argument("directory", type=Path)
     p = commands.add_parser("json", help="Diff raw JSON/metadata or raw layout graphs")
@@ -144,7 +150,9 @@ def main():
         if args.action in ("reference", "candidate"):
             result = capture(args)
         elif args.action in ("compare", "replay"):
-            result = compare_captures(args.reference.resolve(), args.candidate.resolve(), replay=args.action == "replay")
+            result = compare_captures(args.reference.resolve(), args.candidate.resolve(), replay=args.action == "replay",
+                                      profile=args.profile if args.action == "compare" else "strict",
+                                      determinism_policy=args.determinism_policy)
             write(args.out, result)
         elif args.action == "selftest":
             args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -152,8 +160,8 @@ def main():
             result = negative_controls(args.reference.resolve(), args.out)
             write(args.out / "report.json", result)
         elif args.action == "pair":
-            result = compare_observations(load(args.expected), load(args.actual))
-            result.update(status="PAIR_CHECKED", passed=result["coordinateTolerance"]["passed"],
+            result = compare_observations(load(args.expected), load(args.actual), profile=args.profile, request=args.request)
+            result.update(status="PAIR_CHECKED",
                           limitation="JSON comparison only; no suite, geometry, determinism or provenance acceptance.")
             write(args.out, result)
         elif args.action == "json":

@@ -1,0 +1,1077 @@
+{
+  "schema": "py-elk-e01-source-lineage/v1",
+  "status": "AUDIT_COMPLETED_WITH_OPEN_ITEMS",
+  "capturedOn": "2026-11-03",
+  "baseline": {
+    "elkjsVersion": "0.12.1",
+    "elkjsCommit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "npmTarballSha256": "7a017dd56e31e4963ad5c4b9deb3230db5c37edf53a82dc507a8599f2f01122f",
+    "npmWorkerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "npmBundledSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "exactJavaCommit": {
+    "status": "unresolved",
+    "commit": null,
+    "pinnedReadableCandidate": {
+      "repository": "https://github.com/eclipse-elk/elk",
+      "tag": "v0.12.1",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4"
+    },
+    "reason": "Release version declaration and tracked generated code identity do not establish the earlier external Java build checkout."
+  },
+  "sources": [
+    {
+      "id": "elkjs-build",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "build.gradle",
+      "gitBlob": "86791850bffe38210af47d6dd7c581f50027a378",
+      "sha256": "536f320e3931fa1175abd8e5f62982226f9322be3f4ab3ec9ef51ab01cbca82f",
+      "lineCount": 322,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/build.gradle",
+      "lineRanges": [
+        {
+          "startLine": 42,
+          "endLine": 52,
+          "topic": "toolchain version declarations"
+        },
+        {
+          "startLine": 64,
+          "endLine": 82,
+          "topic": "external ELK source roots"
+        },
+        {
+          "startLine": 208,
+          "endLine": 255,
+          "topic": "source preprocessing and replacement"
+        },
+        {
+          "startLine": 275,
+          "endLine": 288,
+          "topic": "GWT pretty/minified compilation"
+        },
+        {
+          "startLine": 314,
+          "endLine": 322,
+          "topic": "generation task order"
+        }
+      ],
+      "copyrightHeaders": [],
+      "spdxIdentifiers": []
+    },
+    {
+      "id": "elkjs-ci",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": ".github/workflows/ci.yml",
+      "gitBlob": "e9fc771acdcb4e5275d5776d0b69a28bf54aeb49",
+      "sha256": "c9ec18e3084143d8f5cae9a16c70ae9bb1e35acc8e81c5650e5cd9a951e4e7de",
+      "lineCount": 67,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/.github/workflows/ci.yml",
+      "lineRanges": [
+        {
+          "startLine": 28,
+          "endLine": 35,
+          "topic": "external eclipse/elk master checkout"
+        }
+      ],
+      "copyrightHeaders": [],
+      "spdxIdentifiers": []
+    },
+    {
+      "id": "elkjs-publish",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": ".github/workflows/publish.yml",
+      "gitBlob": "a1b1219e137e1184cc70fbdc9cbe54212bacea06",
+      "sha256": "d512a6e4f24d6f91a8e6c4353921e9e4625e11f0d6af448dd0eee50d54780e41",
+      "lineCount": 23,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/.github/workflows/publish.yml",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 23,
+          "topic": "tag checkout and npm publish; no Java build step"
+        }
+      ],
+      "copyrightHeaders": [],
+      "spdxIdentifiers": []
+    },
+    {
+      "id": "elkjs-package",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "package.json",
+      "gitBlob": "56c7fa4f29e7d3807d39f750334013760a0d6eaa",
+      "sha256": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "lineCount": 54,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/package.json",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 54,
+          "topic": "package identity and build/publish scripts"
+        }
+      ],
+      "copyrightHeaders": [],
+      "spdxIdentifiers": [],
+      "npmSha256": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "gitMatchesNpm": true
+    },
+    {
+      "id": "elkjs-license",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "LICENSE.md",
+      "gitBlob": "91dd37eefbe62d3d9fb7a1e7e2c7a9a1e2cdcbcc",
+      "sha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "lineCount": 263,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/LICENSE.md",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 1,
+          "topic": "EPL-2.0 license text"
+        }
+      ],
+      "copyrightHeaders": [],
+      "spdxIdentifiers": [],
+      "npmSha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "gitMatchesNpm": true
+    },
+    {
+      "id": "elkjs-java-bridge",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "src/java/org/eclipse/elk/js/ElkJs.java",
+      "gitBlob": "22d4b0c2d148d33c694da7a7b5f0b0ddcc4dc6db",
+      "sha256": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+      "lineCount": 317,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/src/java/org/eclipse/elk/js/ElkJs.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 14,
+          "topic": "copyright and SPDX"
+        },
+        {
+          "startLine": 162,
+          "endLine": 206,
+          "topic": "JSON import, recursive layout and JSON transfer"
+        }
+      ],
+      "copyrightHeaders": [
+        "Copyright (c) 2017 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ]
+    },
+    {
+      "id": "elkjs-json-adapter",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend",
+      "gitBlob": "550adf7a46fd3e8f6453c3e9a9be6dae494020e6",
+      "sha256": "c968d1589ae1bbe74bf9ee75b45043da8c5b51dcd63e4e16e0cfa43fdf2d0c19",
+      "lineCount": 235,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 18,
+          "topic": "copyright and SPDX"
+        },
+        {
+          "startLine": 28,
+          "endLine": 50,
+          "topic": "GWT JSON adapter identity"
+        }
+      ],
+      "copyrightHeaders": [
+        "Copyright (c) 2017, 2019 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ]
+    },
+    {
+      "id": "elkjs-api",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "src/js/elk-api.js",
+      "gitBlob": "e0ab45141f2aa338a40a3adde0f5267f296ef66e",
+      "sha256": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+      "lineCount": 177,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/src/js/elk-api.js",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 14,
+          "topic": "copyright and SPDX"
+        },
+        {
+          "startLine": 58,
+          "endLine": 79,
+          "topic": "layout request/default argument construction"
+        }
+      ],
+      "copyrightHeaders": [
+        "Copyright (c) 2017 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ]
+    },
+    {
+      "id": "elkjs-node-entry",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "src/js/main-node.js",
+      "gitBlob": "88ded7e67fe0d431b62e2c4f6d023576893dc765",
+      "sha256": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+      "lineCount": 53,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/src/js/main-node.js",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 14,
+          "topic": "copyright and SPDX"
+        }
+      ],
+      "copyrightHeaders": [
+        "Copyright (c) 2021 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ]
+    },
+    {
+      "id": "elkjs-worker",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "lib/elk-worker.js",
+      "gitBlob": "13d07b8601ca22b5de216ca7e8f497a61335a22d",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lineCount": 107033,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/lib/elk-worker.js",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "tracked generated worker identity"
+        }
+      ],
+      "copyrightHeaders": [],
+      "spdxIdentifiers": [],
+      "npmSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "gitMatchesNpm": true
+    },
+    {
+      "id": "elkjs-bundled",
+      "kind": "git_blob",
+      "repository": "https://github.com/kieler/elkjs",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "path": "lib/elk.bundled.js",
+      "gitBlob": "fbebd45cfd9cd1fe10c5e5165e3ba16653e129bd",
+      "sha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "lineCount": 6770,
+      "sourceIdentity": "verified_fixed_elkjs_commit",
+      "sourceUrl": "https://github.com/kieler/elkjs/blob/624ae90aa37110033a8af59c5ccbb292708b4317/lib/elk.bundled.js",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 1,
+          "topic": "tracked bundled entry identity"
+        }
+      ],
+      "copyrightHeaders": [
+        "Copyright (c) 2017 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "npmSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "gitMatchesNpm": true
+    },
+    {
+      "id": "java-candidate-00",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "LICENSE.md",
+      "gitBlob": "9d21324202c7acfdfe06fda0bf7ceb3b408d15e7",
+      "sha256": "22080908c4e8696d8ea137db9c51b0dd67c19a4440b3be689b9d06d397aa88fd",
+      "lineCount": 263,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-00.txt",
+      "copyrightHeaders": [],
+      "spdxIdentifiers": [],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/LICENSE.md",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-01",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "NOTICE.md",
+      "gitBlob": "ca2a52e4e3ebf9e25835a81046f3c01a2bc14c9f",
+      "sha256": "bee47856ac471e04ec60be967d9014e20395d5f65292f1555b6178add8497168",
+      "lineCount": 60,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-01.txt",
+      "copyrightHeaders": [
+        "## Copyright"
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/NOTICE.md",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-02",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "DEPENDENCIES",
+      "gitBlob": "2d365eb849352d299644aaaa90295e6eaac9b013",
+      "sha256": "2ec1564f641584e69184567d1371bf793066ddb28e6f77cb27f698082403ea08",
+      "lineCount": 636,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-02.txt",
+      "copyrightHeaders": [],
+      "spdxIdentifiers": [],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/DEPENDENCIES",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-03",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/ElkLayered.java",
+      "gitBlob": "fb5e835c3ddde440b0847604ab8e840dfbc8ed7d",
+      "sha256": "3952ec5df00b27ab9c4744f7a994e978d2a176d2db960671861038507e0b3f31",
+      "lineCount": 772,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-03.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2010, 2020 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/ElkLayered.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-04",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/GraphConfigurator.java",
+      "gitBlob": "668836a7e23fcdc687ae0124ddebfea481f26751",
+      "sha256": "5fe1fea095f560239b707b72df6336ac0003ee535912eebe3c93ede6d13bc458",
+      "lineCount": 393,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-04.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2015, 2020 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/GraphConfigurator.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-05",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/Layered.melk",
+      "gitBlob": "b708c49108770138fc89a71e0479b4907df98156",
+      "sha256": "390642f547cd40836082406d2caac8042ff1ed36d5690aa3b4ae621acddb4c5d",
+      "lineCount": 1293,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-05.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2015, 2020 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/Layered.melk",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-06",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/LayeredLayoutProvider.java",
+      "gitBlob": "d0552690c5e3047ebf240c70e5913f8c73d20df8",
+      "sha256": "b339a6f01aca301760437045ab71d904cbcb5cd5c0cb7790d7f0b2928b15b8e0",
+      "lineCount": 109,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-06.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2010, 2015 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/LayeredLayoutProvider.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-07",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p1cycles/GreedyCycleBreaker.java",
+      "gitBlob": "7db04046288bf3a2ccbb51a085ffd4b8c1e2db87",
+      "sha256": "f7adc4d3c77656c775ab25e75e320376381518c0f290f2e04e498bd8f10b20ed",
+      "lineCount": 286,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-07.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2010, 2015 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p1cycles/GreedyCycleBreaker.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-08",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p2layers/NetworkSimplexLayerer.java",
+      "gitBlob": "6952d9bb1ff73796c6150f941c7d0bb73511c97c",
+      "sha256": "75c2adea4007eb52dc01643293d193ad24b4cebaa80e61d9ccfc873a221a268b",
+      "lineCount": 322,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-08.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2010, 2020 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p2layers/NetworkSimplexLayerer.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-09",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p3order/LayerSweepCrossingMinimizer.java",
+      "gitBlob": "4141abc604cb2008761aa2c4b3ec0fc9a62e1004",
+      "sha256": "0c839352f4f45e5221c56b47e919c51228af014ed3f53c3770b2484cc269935a",
+      "lineCount": 681,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-09.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2010, 2015 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p3order/LayerSweepCrossingMinimizer.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-10",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p4nodes/bk/BKNodePlacer.java",
+      "gitBlob": "6e87252323fc6812495083ef831a235688e88b70",
+      "sha256": "0601b7f0cedb7ec2591181b29f48beafd37d6a66fc22df606a8b1b7b58b79c0f",
+      "lineCount": 628,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-10.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2012, 2015 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p4nodes/bk/BKNodePlacer.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-11",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p5edges/OrthogonalEdgeRouter.java",
+      "gitBlob": "f655c26b26faad376eb4343cf5cf4e5ff5a65f37",
+      "sha256": "e76ac762c5372df81f5dc45dfd3484f42420cf9c41974d4e47c4384fd5891d07",
+      "lineCount": 297,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-11.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2010, 2020 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.alg.layered/src/org/eclipse/elk/alg/layered/p5edges/OrthogonalEdgeRouter.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-12",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.core/src/org/eclipse/elk/core/Core.melk",
+      "gitBlob": "a742f7e784bf8ba2803d43166db5fa9b98371ebe",
+      "sha256": "0838dbe65eabbf508b8f6b43ae354ad7065b39f38e9aa42639f31d7922fb3831",
+      "lineCount": 1134,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-12.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2015, 2020 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.core/src/org/eclipse/elk/core/Core.melk",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    },
+    {
+      "id": "java-candidate-13",
+      "repository": "https://github.com/eclipse-elk/elk",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "path": "plugins/org.eclipse.elk.core/src/org/eclipse/elk/core/RecursiveGraphLayoutEngine.java",
+      "gitBlob": "13661146235adea11b9042834b878e7952c61b8c",
+      "sha256": "4f471829c00884a0c640d1a9c44eec9a3ff7187a0285fb93f9c2cd4ac5813b9c",
+      "lineCount": 621,
+      "sourceIdentity": "pinned_readable_candidate",
+      "workerBuildCorrespondence": "unresolved",
+      "rawEvidence": "test-runs/20261103-E01-01/A/java-candidate-13.txt",
+      "copyrightHeaders": [
+        "Copyright (c) 2008, 2018 Kiel University and others."
+      ],
+      "spdxIdentifiers": [
+        "EPL-2.0 OR GPL-3.0-or-later"
+      ],
+      "sourceUrl": "https://github.com/eclipse-elk/elk/blob/3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4/plugins/org.eclipse.elk.core/src/org/eclipse/elk/core/RecursiveGraphLayoutEngine.java",
+      "lineRanges": [
+        {
+          "startLine": 1,
+          "endLine": 20,
+          "topic": "pinned candidate header or document identity"
+        }
+      ],
+      "kind": "git_blob"
+    }
+  ],
+  "primaryReceipts": [
+    {
+      "id": "release-declaration",
+      "url": "https://github.com/kieler/elkjs/releases/tag/0.12.1",
+      "kind": "primary_release_metadata",
+      "tag": "0.12.1",
+      "releaseId": 426635684,
+      "publishedAt": "2026-10-28T12:23:36Z",
+      "targetCommitish": "releases/0.12.1",
+      "declaredJavaVersion": "0.12.1",
+      "declaration": "Based on ELK 0.12.1",
+      "rawEvidence": "test-runs/20261103-E01-01/A/elkjs-release-tool.json",
+      "rawEvidenceSha256": "5adba2372e1194679164fb0843c3219ed0ef8ac4989f2df444d4c316be0dce6f"
+    },
+    {
+      "id": "npm-slsa",
+      "url": "https://registry.npmjs.org/-/npm/v1/attestations/elkjs@0.12.1",
+      "kind": "parsed_registry_attestation",
+      "payload": {
+        "_type": "https://in-toto.io/Statement/v1",
+        "subject": [
+          {
+            "name": "pkg:npm/elkjs@0.12.1",
+            "digest": {
+              "sha512": "2213182871384b6bedc7442b8413f79583882837888895c1addabd306624b81f191ea86b0671cd7d25277635c57b0ad7d423caf1c870abed8d0342b4865898bb"
+            }
+          }
+        ],
+        "predicateType": "https://slsa.dev/provenance/v1",
+        "predicate": {
+          "buildDefinition": {
+            "buildType": "https://slsa-framework.github.io/github-actions-buildtypes/workflow/v1",
+            "externalParameters": {
+              "workflow": {
+                "ref": "refs/tags/0.12.1",
+                "repository": "https://github.com/kieler/elkjs",
+                "path": ".github/workflows/publish.yml"
+              }
+            },
+            "internalParameters": {
+              "github": {
+                "event_name": "release",
+                "repository_id": "96763449",
+                "repository_owner_id": "7465697"
+              }
+            },
+            "resolvedDependencies": [
+              {
+                "uri": "git+https://github.com/kieler/elkjs@refs/tags/0.12.1",
+                "digest": {
+                  "gitCommit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+                }
+              }
+            ]
+          },
+          "runDetails": {
+            "builder": {
+              "id": "https://github.com/actions/runner/github-hosted"
+            },
+            "metadata": {
+              "invocationId": "https://github.com/kieler/elkjs/actions/runs/40687425972/attempts/1"
+            }
+          }
+        }
+      },
+      "payloadSha256": "37964401082fc9e56d383f8fc20e2a5dbe7d9d36678f9f9244f5b325cd905e3e",
+      "subjectMatchesLockedTarball": true,
+      "cryptographicSignatureVerified": false,
+      "scope": "Metadata parsed and artifact digest checked; certificate/signature/transparency verification was not performed",
+      "rawEvidence": "test-runs/20261103-E01-01/A/npm-attestations.json",
+      "rawEvidenceSha256": "e1422807d3018b674679051a0e08b4c5ec461ab2bf860a3bb6040660e3a08cd5"
+    },
+    {
+      "id": "publish-run",
+      "url": "https://github.com/kieler/elkjs/actions/runs/40687425972",
+      "kind": "primary_actions_metadata",
+      "runId": 40687425972,
+      "event": "release",
+      "headSha": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "workflowPath": ".github/workflows/publish.yml",
+      "conclusion": "success",
+      "steps": [
+        "Set up job",
+        "Run actions/checkout@v4",
+        "Run actions/setup-node@v4",
+        "Run npm publish",
+        "Post Run actions/setup-node@v4",
+        "Post Run actions/checkout@v4",
+        "Complete job"
+      ],
+      "rawEvidence": "test-runs/20261103-E01-01/A/elkjs-publish-jobs-tool.json",
+      "rawEvidenceSha256": "283b4696b65be2ce6400d0d4870d6a5e2a88f52befeeac5cc4ae5f9b8df5d1fc"
+    },
+    {
+      "id": "worker-introduction",
+      "url": "https://github.com/kieler/elkjs/commit/73ae7182e8ecfd7c53bfbdad2f63ad1ca77dbd98",
+      "kind": "primary_commit_history",
+      "commit": "73ae7182e8ecfd7c53bfbdad2f63ad1ca77dbd98",
+      "message": "add lib files for 0.12.1 release",
+      "date": "2026-10-28T11:20:20Z",
+      "scope": "Latest change to lib/elk-worker.js on the locked elkjs ancestry",
+      "rawEvidence": "test-runs/20261103-E01-01/A/elkjs-worker-history-tool.json",
+      "rawEvidenceSha256": "d54643c1fb4a90211b9d2aba35d22747037c00458ebcc877bbac55db12e6555a"
+    },
+    {
+      "id": "java-release-tag",
+      "url": "https://github.com/eclipse-elk/elk/releases/tag/v0.12.1",
+      "kind": "primary_git_ref",
+      "tag": "v0.12.1",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4",
+      "sourceRepository": "https://github.com/eclipse-elk/elk",
+      "rawEvidence": "test-runs/20261103-E01-01/A/elk-java-tag-tool.json",
+      "rawEvidenceSha256": "7ca4051658655490d84873d88ca51fdeba10cbe17fdec369897cca2de5822092"
+    }
+  ],
+  "gitNpmFileComparison": [
+    {
+      "path": "lib/elk-api.d.ts",
+      "gitCanonicalSha256": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "npmSha256": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "equal": true
+    },
+    {
+      "path": "lib/elk-api.js",
+      "gitCanonicalSha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "npmSha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "equal": true
+    },
+    {
+      "path": "lib/elk-worker.d.ts",
+      "gitCanonicalSha256": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "npmSha256": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "equal": true
+    },
+    {
+      "path": "lib/elk-worker.js",
+      "gitCanonicalSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "npmSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "equal": true
+    },
+    {
+      "path": "lib/elk-worker.min.js",
+      "gitCanonicalSha256": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "npmSha256": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "equal": true
+    },
+    {
+      "path": "lib/elk.bundled.d.ts",
+      "gitCanonicalSha256": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "npmSha256": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "equal": true
+    },
+    {
+      "path": "lib/elk.bundled.js",
+      "gitCanonicalSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "npmSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "equal": true
+    },
+    {
+      "path": "lib/main.d.ts",
+      "gitCanonicalSha256": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "npmSha256": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "equal": true
+    },
+    {
+      "path": "lib/main.js",
+      "gitCanonicalSha256": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "npmSha256": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "equal": true
+    },
+    {
+      "path": "LICENSE.md",
+      "gitCanonicalSha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "npmSha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "equal": true
+    },
+    {
+      "path": "package.json",
+      "gitCanonicalSha256": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "npmSha256": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "equal": true
+    },
+    {
+      "path": "README.md",
+      "gitCanonicalSha256": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c",
+      "npmSha256": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c",
+      "equal": true
+    }
+  ],
+  "verifiedFacts": [
+    {
+      "id": "A-F01",
+      "claim": "All 12 npm artifact files equal their canonical Git blobs at the locked elkjs commit.",
+      "certainty": "verified",
+      "evidence": [
+        "gitNpmFileComparison",
+        "elkjs-worker",
+        "elkjs-bundled"
+      ]
+    },
+    {
+      "id": "A-F02",
+      "claim": "The registry SLSA payload has the locked tarball SHA512 and resolves only the elkjs Git commit, with the publish workflow and run identifier.",
+      "certainty": "verified",
+      "evidence": [
+        "npm-slsa",
+        "publish-run"
+      ]
+    },
+    {
+      "id": "A-F03",
+      "claim": "The locked publish workflow checks out the release tag then runs npm publish; the observed job contains no Java compilation or external Java checkout.",
+      "certainty": "verified",
+      "evidence": [
+        "elkjs-publish",
+        "publish-run"
+      ]
+    },
+    {
+      "id": "A-F04",
+      "claim": "The separately defined CI builds from an external master checkout; build.gradle reads ../elk, preprocesses/excludes source and uses a GWT JSON adapter replacement.",
+      "certainty": "verified",
+      "evidence": [
+        "elkjs-build",
+        "elkjs-ci",
+        "elkjs-json-adapter"
+      ]
+    },
+    {
+      "id": "A-F05",
+      "claim": "The release declares ELK 0.12.1 and the official Java v0.12.1 tag identifies a readable candidate at the recorded Java SHA.",
+      "certainty": "verified",
+      "evidence": [
+        "release-declaration",
+        "java-release-tag"
+      ]
+    },
+    {
+      "id": "A-F06",
+      "claim": "The selected Java/MELK algorithm and core source files, candidate NOTICE, and fixed elkjs adapter headers declare EPL-2.0 OR GPL-3.0-or-later; exact copyright headers and file hashes are indexed.",
+      "certainty": "verified",
+      "evidence": [
+        "elkjs-java-bridge",
+        "elkjs-json-adapter",
+        "java-candidate-01",
+        "java-candidate-03",
+        "java-candidate-04",
+        "java-candidate-05",
+        "java-candidate-06",
+        "java-candidate-07",
+        "java-candidate-08",
+        "java-candidate-09",
+        "java-candidate-10",
+        "java-candidate-11",
+        "java-candidate-12",
+        "java-candidate-13"
+      ]
+    }
+  ],
+  "inferences": [
+    {
+      "id": "A-I01",
+      "claim": "The pinned official Java v0.12.1 source is a relevant explanatory candidate for the shipped worker.",
+      "certainty": "inferred",
+      "evidence": [
+        "release-declaration",
+        "java-release-tag",
+        "worker-introduction"
+      ],
+      "notEstablished": "No retrieved build provenance binds this Java SHA to the GWT compilation that produced the tracked worker."
+    }
+  ],
+  "components": [
+    {
+      "id": "elkjs-public-api",
+      "sourceIds": [
+        "elkjs-api",
+        "elkjs-node-entry"
+      ],
+      "identityStatus": "verified_fixed_elkjs_commit",
+      "pythonImplementation": "not_implemented"
+    },
+    {
+      "id": "elkjs-java-json-bridge",
+      "sourceIds": [
+        "elkjs-java-bridge",
+        "elkjs-json-adapter"
+      ],
+      "identityStatus": "verified_fixed_elkjs_commit",
+      "workerCorrespondence": "tracked source and generated artifact co-located; full build not reproduced",
+      "pythonImplementation": "not_implemented"
+    },
+    {
+      "id": "generated-layered-runtime",
+      "sourceIds": [
+        "elkjs-worker",
+        "elkjs-bundled"
+      ],
+      "identityStatus": "verified_generated_artifact",
+      "javaBuildCommitStatus": "unresolved",
+      "pythonImplementation": "not_implemented"
+    },
+    {
+      "id": "readable-java-layered-core",
+      "sourceIds": [
+        "java-candidate-03",
+        "java-candidate-04",
+        "java-candidate-05",
+        "java-candidate-06",
+        "java-candidate-07",
+        "java-candidate-08",
+        "java-candidate-09",
+        "java-candidate-10",
+        "java-candidate-11"
+      ],
+      "identityStatus": "pinned_readable_candidate",
+      "workerCorrespondence": "unresolved",
+      "pythonImplementation": "not_implemented"
+    }
+  ],
+  "licenseAudit": {
+    "kind": "Factual source-header inventory, not a legal compatibility conclusion",
+    "declaredSpdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "generatedWorkerPerClassHeadersAvailable": false,
+    "candidateLicenseSourceId": "java-candidate-00",
+    "candidateNoticeSourceId": "java-candidate-01",
+    "candidateDependenciesSourceId": "java-candidate-02",
+    "projectDistributionLicense": "unresolved",
+    "algorithmCodeCopiedByThisAudit": false
+  },
+  "gateAssessment": {
+    "gate": "algorithm-source",
+    "status": "unverified",
+    "verifiedScope": [
+      "fixed generated artifact and JS/adapter source identities",
+      "official readable Java candidate identity and selected headers"
+    ],
+    "openScope": [
+      "exact Java build checkout",
+      "resolved generation inputs",
+      "component-specific port and notice handling"
+    ],
+    "auditCompletionDoesNotVerifyGate": true
+  },
+  "unresolved": [
+    {
+      "id": "A-O01",
+      "topic": "Exact Java source-to-worker build relationship",
+      "status": "unresolved",
+      "reason": "The npm publication provenance starts from already tracked generated lib files. The external Java checkout, resolved generator snapshot and prior compilation are absent from that publication dependency list.",
+      "nextAction": "Inspect or request the pre-generated worker build record associated with elkjs commit 73ae7182e8ecfd7c53bfbdad2f63ad1ca77dbd98. If unavailable, compare pinned Java candidate components against fixed generated symbols and retain explicit component evidence; do not promote the whole Java SHA."
+    },
+    {
+      "id": "A-O02",
+      "topic": "Resolved generator/compiler and third-party build inputs",
+      "status": "unresolved",
+      "reason": "build.gradle declares MELK 0.13.0-SNAPSHOT and tool versions, but the publication attestation does not record the artifact hashes resolved for the earlier GWT compilation.",
+      "nextAction": "Recover the original Gradle resolution/build manifest or create a separately labelled reproduction with fixed dependency hashes and compare output without assuming byte differences prove a Java mismatch."
+    },
+    {
+      "id": "A-O03",
+      "topic": "Distribution license and actual ported dependency notices",
+      "status": "unresolved",
+      "reason": "This audit inventories source declarations only; no Python algorithm has been ported and the project distribution license remains undecided.",
+      "nextAction": "Before porting each component, record whether code or only behavior is reused and retain applicable file notices. Before release, review the actual Python package content and finalize LICENSE/NOTICE and source-availability handling."
+    }
+  ],
+  "retrievalLimitations": [
+    {
+      "kind": "HTTP",
+      "status": 403,
+      "scope": "Unauthenticated GitHub REST requests",
+      "savedEvidence": "test-runs/20261103-E01-01/A/collection-index.json",
+      "recovery": "Authenticated GitHub connector succeeded"
+    },
+    {
+      "kind": "HTTP",
+      "status": 406,
+      "scope": "Initial npm request used GitHub vendor Accept header",
+      "recovery": "Retried with application/json; registry and attestation capture succeeded"
+    },
+    {
+      "kind": "connector",
+      "scope": "Java tags collection URL rejected and legacy eclipse/elk URL redirected",
+      "recovery": "Used canonical eclipse-elk/elk git-ref URL and git ls-remote"
+    }
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "limitation": "Source audit and parsed provenance metadata only. No Java-to-worker rebuild, signature-chain verification, Python algorithm or release acceptance."
+}

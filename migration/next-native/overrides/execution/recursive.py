@@ -1,0 +1,181 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed worker RecursiveGraphLayoutEngine main/Topdown source closure:
+# HOST11/V/recursive-control-source-review-01.json; worker SHA256
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+"""Actual recursive control using continuations and real registered bodies.
+
+The frame driver avoids introducing a Python recursion-depth cap. Algorithm
+availability is enforced by real provider loading, independently of metadata.
+"""
+from collections import deque
+from .._errors import ExecutionError
+from ..algorithms.fixed import _div
+from .diagnostics import BasicProgressMonitor,number_text
+from .resolver import AlgorithmRegistry
+from .pools import ProviderPools,execute_algorithm
+from .recursive_helpers import (count_nodes_recursively,count_nodes_with_hierarchy,
+    evaluate_hierarchy_handling_inheritance,apply_configured_node_scaling,
+    compute_child_area_dimensions,_minimum,_maximum)
+from .visitors import prepare_graph_properties
+
+_CONFIGURATION_ERROR='org.eclipse.elk.core.UnsupportedConfigurationException: '
+
+
+def _text(value):
+    if value is None:return 'null'
+    if type(value)is bool:return 'true'if value else 'false'
+    return number_text(value)if type(value)in(int,float)else str(value)
+
+
+def _configuration_error(state,node,code,message):
+    raise ExecutionError(code,state.paths[id(node)],_CONFIGURATION_ERROR+message)
+
+
+class RecursiveLayoutEngine:
+    def __init__(self,registry=None,pools=None,*,metadata=None):
+        if registry is None:
+            from .metadata_service import NativeMetadataService
+            metadata=NativeMetadataService()if metadata is None else metadata
+            registry=metadata.registry
+        self.metadata_service=metadata
+        self.registry=registry
+        self.pools=(metadata.pools if metadata is not None else ProviderPools())if pools is None else pools
+
+    def layout(self,state,root=None,monitor=None):
+        root=state.graph if root is None else root
+        if state.kinds.get(id(root))!='node':raise ValueError('Recursive layout requires an owned node')
+        monitor=BasicProgressMonitor()if monitor is None else monitor
+        state._algorithm_registry=self.registry
+        state._provider_pools=self.pools
+        node_count=count_nodes_recursively(state,root,True)
+        monitor.begin('Recursive Graph Layout',node_count)
+        prepare_graph_properties(state,self.registry,root)
+        self.layout_recursively(state,root,monitor)
+        monitor.done()
+        return state
+
+    def layout_recursively(self,state,node,monitor):
+        frames=[self._node(state,node,monitor)];result=None
+        while frames:
+            try:child=frames[-1].send(result)
+            except StopIteration as completed:
+                frames.pop();result=completed.value
+            else:
+                frames.append(self._node(state,child,monitor));result=None
+        return result
+
+    def _node(self,state,node,monitor):
+        from .inside_self_loops import gather_inside_self_loops,post_process_inside_self_loops
+        if monitor.is_canceled()or state.get_native_property(node,'noLayout'):return ()
+        has_children=bool(node.get('children',()))
+        inside=gather_inside_self_loops(state,node);has_inside=bool(inside)
+        if not(has_children or has_inside):return ()
+        algorithm=state.get_native_property(node,'resolvedAlgorithm')
+        if algorithm is None:
+            _configuration_error(state,node,'MISSING_RESOLVED_ALGORITHM',
+                'Resolved algorithm is not set; apply a LayoutAlgorithmResolver before computing layout.')
+        supports_inside=algorithm.supports_feature('INSIDE_SELF_LOOPS')
+        evaluate_hierarchy_handling_inheritance(state,node)
+        if not has_children and has_inside and not supports_inside:return ()
+        child_loops=[]
+        if (state.get_native_property(node,'hierarchyHandling')=='INCLUDE_CHILDREN'
+                and (algorithm.supports_feature('COMPOUND')or algorithm.supports_feature('CLUSTERS'))):
+            if state.get_native_property(node,'topdownLayout'):
+                _configuration_error(state,node,'UNSUPPORTED_CONFIGURATION',
+                    'Topdown layout cannot be used together with hierarchy handling.')
+            node_count=count_nodes_with_hierarchy(state,node)
+            queue=deque(node.get('children',()))
+            while queue:
+                child=queue.popleft();evaluate_hierarchy_handling_inheritance(state,child)
+                stop=state.get_native_property(child,'hierarchyHandling')=='SEPARATE_CHILDREN'
+                if stop or(state.has_option(child,'algorithm')and algorithm!=state.get_native_property(child,'resolvedAlgorithm')):
+                    returned=yield child
+                    child_loops.extend(returned)
+                    state.set_option(child,'hierarchyHandling','SEPARATE_CHILDREN')
+                    apply_configured_node_scaling(state,child)
+                else:queue.extend(child.get('children',()))
+        else:
+            node_count=len(node.get('children',()))
+            if state.get_native_property(node,'topdownLayout'):
+                self._topdown(state,node,algorithm,monitor,node_count)
+            for child in node.get('children',()):
+                returned=yield child
+                child_loops.extend(returned)
+                apply_configured_node_scaling(state,child)
+        if monitor.is_canceled():return ()
+        for edge in child_loops:state.set_option(edge,'noLayout',True)
+        if not state.get_native_property(node,'topdownLayout'):
+            execute_algorithm(state,node,algorithm,monitor.sub_task(node_count),self.pools)
+        post_process_inside_self_loops(state,child_loops)
+        return inside if has_inside and supports_inside else ()
+
+    def _topdown(self,state,node,algorithm,monitor,node_count):
+        top_monitor=monitor.sub_task(1);top_monitor.begin('Topdown Layout',1)
+        if state.get_native_property(node,'topdown.nodeType') is None:
+            _configuration_error(state,node,'MISSING_TOPDOWN_NODE_TYPE',
+                _text(state.identifier_text(node))+' has not been assigned a top-down node type.')
+        if (state.get_native_property(node,'topdown.nodeType')=='HIERARCHICAL_NODE'
+                or state.get_native_property(node,'topdown.nodeType')=='ROOT_NODE'):
+            for child in node.get('children',()):
+                child_algorithm=state.get_native_property(child,'resolvedAlgorithm')
+                padding=state.read_native_property(child,'padding')
+                # Actual compiled &&(fetch,false) still fetches for nonempty
+                # children. The null-method branch is unreachable, not a body.
+                if len(child.get('children',()))>0:self.pools.pool_for(child_algorithm).fetch()
+                if (state.read_native_property(child,'topdown.sizeApproximator',None) is not None
+                        and child.get('children',()) and len(child.get('children',()))>0):
+                    approximator=state.read_native_property(child,'topdown.sizeApproximator',None)
+                    size=approximator.get_size(child)
+                    child['width']=_maximum(child['width'],size.x+padding.left+padding.right)
+                    child['height']=_maximum(child['height'],size.y+padding.top+padding.bottom)
+                elif len(child.get('children',()))!=0:
+                    width=state.get_native_property(child,'topdown.hierarchicalNodeWidth')
+                    height=_div(state.get_native_property(child,'topdown.hierarchicalNodeWidth'),
+                                state.get_native_property(child,'topdown.hierarchicalNodeAspectRatio'))
+                    child['width']=_maximum(child['width'],width+padding.left+padding.right)
+                    child['height']=_maximum(child['height'],height+padding.top+padding.bottom)
+        padding=state.read_native_property(node,'padding')
+        available_width=node['width']-(padding.left+padding.right)
+        available_height=node['height']-(padding.top+padding.bottom)
+        top_monitor.log('Available Child Area: ('+_text(available_width)+'|'+_text(available_height)+')')
+        state.set_option(node,'aspectRatio',_div(available_width,available_height))
+        execute_algorithm(state,node,algorithm,monitor.sub_task(node_count),self.pools)
+        if state.get_native_property(node,'topdown.nodeType')=='ROOT_NODE':
+            compute_child_area_dimensions(state,node)
+            node['width']=padding.left+state.get_native_property(node,'childAreaWidth')+padding.right
+            node['height']=padding.top+state.get_native_property(node,'childAreaHeight')+padding.bottom
+        top_monitor.log('Executed layout algorithm: '+_text(state.get_native_property(node,'algorithm'))
+                        +' on node '+_text(state.identifier_text(node)))
+        if state.get_native_property(node,'topdown.nodeType')=='HIERARCHICAL_NODE':
+            if available_width<0 or available_height<0:
+                _configuration_error(state,node,'INVALID_TOPDOWN_SIZE',
+                    'The size defined by the parent parallel node is too small for the space provided by the paddings of the child hierarchical node. '+_text(state.identifier_text(node)))
+            if not state.has_option(node,'childAreaWidth')and not state.has_option(node,'childAreaHeight'):
+                compute_child_area_dimensions(state,node)
+            desired_width=state.get_native_property(node,'childAreaWidth')
+            desired_height=state.get_native_property(node,'childAreaHeight')
+            top_monitor.log('Desired Child Area: ('+_text(desired_width)+'|'+_text(desired_height)+')')
+            scale_x=_div(available_width,desired_width);scale_y=_div(available_height,desired_height)
+            scale=_minimum(scale_x,_minimum(scale_y,state.get_native_property(node,'topdown.scaleCap')))
+            state.set_option(node,'topdown.scaleFactor',scale)
+            top_monitor.log(_text(state.identifier_text(node))+' -- Local Scale Factor (X|Y): ('+_text(scale_x)+'|'+_text(scale_y)+')')
+            alignment=state.get_native_property(node,'contentAlignment');dx=dy=0.0
+            if scale<scale_x:
+                if 'H_CENTER'in alignment:dx=_div(available_width/2-desired_width*scale/2,scale)
+                elif 'H_RIGHT'in alignment:dx=_div(available_width-desired_width*scale,scale)
+            if scale<scale_y:
+                if 'V_CENTER'in alignment:dy=_div(available_height/2-desired_height*scale/2,scale)
+                elif 'V_BOTTOM'in alignment:dy=_div(available_height-desired_height*scale,scale)
+            x_shift=dx+(_div(padding.left,scale)-padding.left)
+            y_shift=dy+(_div(padding.top,scale)-padding.top)
+            top_monitor.log('Shift: ('+_text(x_shift)+'|'+_text(y_shift)+')')
+            for child in node.get('children',()):child['x']+=x_shift;child['y']+=y_shift
+            for edge in state.contained_edges(node):
+                for section in edge.get('sections',()):
+                    for point in(section['startPoint'],section['endPoint'],*section.get('bendPoints',())):
+                        point['x']+=x_shift;point['y']+=y_shift
+                for label in edge.get('labels',()):label['x']+=x_shift;label['y']+=y_shift
+                points=state.get_native_property(edge,'junctionPoints')
+                for point in points:point.x+=x_shift;point.y+=y_shift
+                state.set_option(edge,'junctionPoints',points)
+        top_monitor.done()

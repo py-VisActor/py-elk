@@ -1,0 +1,95 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "Five saved actual0.1 public captures, including a multi-pointer geometry contrast; no layout replay",
+  "cases": [
+    {
+      "id": "ports-base",
+      "request": "requests/ports-base.json",
+      "requestSha256": "f89865034ebc9ca7bdd752ac0ddd492a435b0f74efa77bba2e81492881814f7f",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "alignment-default",
+      "request": "requests/alignment-default.json",
+      "requestSha256": "d105b6faf63fbe5c911155d4fd26e4bb17a407ad59296177f10c43596c1a8cc1",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portAlignment.default",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/x",
+          "claim": "BEGIN to END moves the first port on the selected side"
+        }
+      ]
+    },
+    {
+      "id": "port-anchor",
+      "request": "requests/port-anchor.json",
+      "requestSha256": "2658c904b79523cc4f9f67ad9c63ea7c2a353f7276640d2f91a798c1b8739b15",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.port.anchor",
+          "kind": "changed",
+          "pointer": "/result/edges/0/sections/0/startPoint/x",
+          "claim": "Explicit anchor changes the actual routed endpoint"
+        }
+      ]
+    },
+    {
+      "id": "p4-bk-base",
+      "request": "requests/p4-bk-base.json",
+      "requestSha256": "b565f7a0062f3c5368da9c50470e2bc89f0369ba4ddfd9fa655e75d3e87c3218",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p4-bk-alignment",
+      "request": "requests/p4-bk-alignment.json",
+      "requestSha256": "7d6363c049d32e2edca0d5fc108e8bb150bf479756295e21c852cd11fd9092b2",
+      "baseline": "p4-bk-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.bk.fixedAlignment",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "A controlled P4 setting changes computed node coordinates or dimensions on a mixed-size shared-port DAG"
+        }
+      ]
+    }
+  ]
+}

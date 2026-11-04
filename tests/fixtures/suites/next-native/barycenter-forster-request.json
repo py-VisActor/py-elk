@@ -1,0 +1,229 @@
+{
+  "cases": [
+    {
+      "id": "calculate-cycle-duplicate-and-self-associates",
+      "operation": "calculate",
+      "layerCount": 2,
+      "seed": 17,
+      "forward": true,
+      "work": [
+        "a",
+        "b",
+        "z"
+      ],
+      "nodes": [
+        {
+          "id": "f",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "fe",
+              "side": "EAST",
+              "rank": 2.5
+            }
+          ]
+        },
+        {
+          "id": "a",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "aw",
+              "side": "WEST",
+              "rank": 0
+            },
+            {
+              "id": "ae",
+              "side": "EAST",
+              "rank": 0
+            }
+          ],
+          "associates": [
+            "b",
+            "b",
+            "a"
+          ]
+        },
+        {
+          "id": "b",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "bw",
+              "side": "WEST",
+              "rank": 0
+            },
+            {
+              "id": "be",
+              "side": "EAST",
+              "rank": 0
+            }
+          ],
+          "associates": [
+            "a"
+          ]
+        },
+        {
+          "id": "z",
+          "layer": 1,
+          "ports": []
+        }
+      ],
+      "edges": [
+        {
+          "source": "fe",
+          "target": "aw"
+        },
+        {
+          "source": "ae",
+          "target": "bw"
+        },
+        {
+          "source": "be",
+          "target": "aw"
+        }
+      ]
+    },
+    {
+      "id": "forster-two-pass-duplicates-group-zero-weights",
+      "operation": "resolve",
+      "layerCount": 2,
+      "seed": 23,
+      "twoPass": true,
+      "work": [
+        "b",
+        "d",
+        "a"
+      ],
+      "nodes": [
+        {
+          "id": "f",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "fe",
+              "side": "EAST",
+              "rank": 2.5
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "layer": 1,
+          "ports": [],
+          "unit": "b",
+          "initialState": {
+            "barycenter": 0,
+            "degree": 2,
+            "weight": 0
+          }
+        },
+        {
+          "id": "d",
+          "layer": 1,
+          "ports": [],
+          "type": "LONG_EDGE",
+          "unit": "a",
+          "initialState": {
+            "barycenter": 1,
+            "degree": 4,
+            "weight": 4
+          }
+        },
+        {
+          "id": "a",
+          "layer": 1,
+          "ports": [],
+          "unit": "a",
+          "successors": [
+            "b",
+            "b"
+          ],
+          "initialState": {
+            "barycenter": 2,
+            "degree": 100,
+            "weight": 200
+          }
+        }
+      ],
+      "edges": []
+    },
+    {
+      "id": "base-calculate-unknown-sort-real-forster",
+      "operation": "base",
+      "layerCount": 2,
+      "seed": 31,
+      "forward": true,
+      "preOrdered": false,
+      "work": [
+        "a",
+        "z",
+        "b"
+      ],
+      "nodes": [
+        {
+          "id": "f",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "fe",
+              "side": "EAST",
+              "rank": 9
+            }
+          ]
+        },
+        {
+          "id": "q",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "qe",
+              "side": "EAST",
+              "rank": 1
+            }
+          ]
+        },
+        {
+          "id": "a",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "aw",
+              "side": "WEST",
+              "rank": 0
+            }
+          ],
+          "successors": [
+            "b"
+          ]
+        },
+        {
+          "id": "z",
+          "layer": 1,
+          "ports": []
+        },
+        {
+          "id": "b",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "bw",
+              "side": "WEST",
+              "rank": 0
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "source": "fe",
+          "target": "aw"
+        },
+        {
+          "source": "qe",
+          "target": "bw"
+        }
+      ]
+    }
+  ]
+}

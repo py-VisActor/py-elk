@@ -1,0 +1,197 @@
+{
+  "schema": "py-elk-e05-routing-number-oracle/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "instrumentedSourceSha256": "71f5812b50f9fa985632c8160a1f293f47ddd31103a4d696d2d66b4cf3a4cf55",
+  "toolSha256": "334ed96dec27fc8b15e3dad6b341a131476946cc20c4bf5519ab9fb8d5f0cf3d",
+  "memoryOnlyBridge": "\nmodule.exports.__E05NumericBridge={\n  compare:compare_3,\n  stream:values=>new StreamImpl(null,new Spliterators$IteratorSpliterator(new Arrays$ArrayList(values),16)),\n  distinctSorted:stream=>$collect_1($distinct($sorted_0(stream)),of_4(new Collectors$21methodref$ctor$Type,new Collectors$20methodref$add$Type,new Collectors$lambda$49$Type,stampJavaTypeInfo(getClassLiteralForArray(Ljava_util_stream_Collector$Characteristics_2_classLit,1),$intern_38,104,0,[($clinit_Collector$Characteristics(),IDENTITY_FINISH)]))),\n  difference:$minimumDifference\n};\n",
+  "compareNegativePositiveZero": -1,
+  "records": [
+    {
+      "input": [
+        {
+          "value": 0,
+          "negativeZero": false
+        },
+        {
+          "value": 0,
+          "negativeZero": false
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": 0,
+          "negativeZero": false
+        }
+      ],
+      "minimumDifference": {
+        "value": 1.7976931348623157e+308,
+        "negativeZero": false
+      }
+    },
+    {
+      "input": [
+        {
+          "value": 0,
+          "negativeZero": true
+        },
+        {
+          "value": 0,
+          "negativeZero": true
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": 0,
+          "negativeZero": true
+        }
+      ],
+      "minimumDifference": {
+        "value": 1.7976931348623157e+308,
+        "negativeZero": false
+      }
+    },
+    {
+      "input": [
+        {
+          "value": 0,
+          "negativeZero": true
+        },
+        {
+          "value": 0,
+          "negativeZero": false
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": 0,
+          "negativeZero": true
+        }
+      ],
+      "minimumDifference": {
+        "value": 1.7976931348623157e+308,
+        "negativeZero": false
+      }
+    },
+    {
+      "input": [
+        {
+          "value": 0,
+          "negativeZero": false
+        },
+        {
+          "value": 0,
+          "negativeZero": true
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": 0,
+          "negativeZero": true
+        }
+      ],
+      "minimumDifference": {
+        "value": 1.7976931348623157e+308,
+        "negativeZero": false
+      }
+    },
+    {
+      "input": [
+        {
+          "value": 3,
+          "negativeZero": false
+        },
+        {
+          "value": 0,
+          "negativeZero": true
+        },
+        {
+          "value": 0,
+          "negativeZero": false
+        },
+        {
+          "value": 3,
+          "negativeZero": false
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": 0,
+          "negativeZero": true
+        },
+        {
+          "value": 3,
+          "negativeZero": false
+        }
+      ],
+      "minimumDifference": {
+        "value": 3,
+        "negativeZero": false
+      }
+    },
+    {
+      "input": [
+        {
+          "value": 0.1,
+          "negativeZero": false
+        },
+        {
+          "value": 0.1,
+          "negativeZero": false
+        },
+        {
+          "value": 0.2,
+          "negativeZero": false
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": 0.1,
+          "negativeZero": false
+        },
+        {
+          "value": 0.2,
+          "negativeZero": false
+        }
+      ],
+      "minimumDifference": {
+        "value": 0.1,
+        "negativeZero": false
+      }
+    },
+    {
+      "input": [
+        {
+          "value": -1e-300,
+          "negativeZero": false
+        },
+        {
+          "value": 0,
+          "negativeZero": false
+        },
+        {
+          "value": 1e-300,
+          "negativeZero": false
+        }
+      ],
+      "sortedDistinct": [
+        {
+          "value": -1e-300,
+          "negativeZero": false
+        },
+        {
+          "value": 0,
+          "negativeZero": false
+        },
+        {
+          "value": 1e-300,
+          "negativeZero": false
+        }
+      ],
+      "minimumDifference": {
+        "value": 1e-300,
+        "negativeZero": false
+      }
+    }
+  ],
+  "limitation": "Actual fixed generated helper behavior only; not Python routing/layout acceptance. Signed zero is described separately from JSON numeric serialization."
+}

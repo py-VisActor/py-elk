@@ -1,0 +1,43 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/execution/json_transfer.py": "129631bdd897b216186724e0179395c6e49c832951d715c7e676ecfac03ae9d1",
+    "references/next-json-transfer-sources.json": "be79416c20587db4f75ba49ed70bfdbb55f57010e70fb117fcdf535988b2c921",
+    "tests/fixtures/suites/next-native/compare_json_transfer.py": "193790105d5ede7d96c0894ed4e51549dab90d604f466b52149f11c58acfd226"
+  },
+  "scope": "Reviewed full native JsonLayoutSession importer, persistent origin/semantic state, conditional section/geometry/relations and two-pass transfer, limited to declared host typed IDs/errors plus original source J01-J06; no public API/full parser or recursive scheduling acceptance.",
+  "actualEvidence": [
+    {
+      "report": "test-runs/20261104-JSON-01/V/four-reference-comparison-01/report.json",
+      "executedSourceSha256": "210e3e6cbcab28bc233353719047ae5678684e1c62359d8c942e27fb21d3069a",
+      "cases": 4,
+      "mandatoryDifferences": 0,
+      "strictDifferences": 16,
+      "strictDifferenceKind": "original GWT $H only"
+    },
+    {
+      "report": "test-runs/20261104-JSON-01/V/detached-comparison-02/report.json",
+      "executedSourceSha256": "129631bdd897b216186724e0179395c6e49c832951d715c7e676ecfac03ae9d1",
+      "cases": 1,
+      "mandatoryDifferences": 0,
+      "strictDifferences": 1,
+      "strictDifferenceKind": "original GWT $H only"
+    }
+  ],
+  "sourceDelta": "Only root-containment traversal guard for detached edge and descendant labels added after four-case run. Existing normal container branches/mathematics unchanged; old execution not rebound/repeated.",
+  "preservedFirstFailure": "test-runs/20261104-JSON-01/V/detached-reference-01/first-comparison.json (actual original returned vs210 native MISSING_CONTAINER)",
+  "reviewedSemantics": [
+    "Original JSON business/array ownership and source current containment remain distinct; all providers share one state, cleared constraints and computed property cache survive.",
+    "Import shapes before endpoint resolution; simple section auto-shapes only if both absent; first typed identity occurrence/semantic inverse section links preserved. Point geometry replaces point business objects exactly where original constructs fresh objects.",
+    "Conditional empty/stale fields match source: no invented deletion of original bends/sections/junctions/incoming links. Existing section JSON/id reused and generated ID follows original typed edge ID suffix policy.",
+    "Record globals before second-pass edge/label export; originalowner versus actualcontainer offsets, all concrete mode branches and root XY directly checked by4 independent official graphs.",
+    "Native clone/input-preservation, exact typed IDs, finite validation, duplicate/option errors and Python-owned data are explicit host policies; original permissive parsing/JS object hash mutation not silently claimed equal.",
+    "Only actually contained edge/label objects transfer. Actual rootselfedge original raw remains untouched, fixing real discovered export error without an admission guard."
+  ],
+  "limitations": [
+    "All original strict differences retained. $H global GWT identity counter is not certified or faked.",
+    "Harness explicitly invokes provider kernels bottom-up for these graphs and is not full RecursiveGraphLayoutEngine.",
+    "No old provider matrix rerun, full suite or installed release certification."
+  ]
+}

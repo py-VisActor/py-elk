@@ -1,0 +1,114 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "e05-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "root-business-stack"
+      }
+    },
+    "children": [
+      {
+        "id": "dag-node-0",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        }
+      },
+      {
+        "id": "dag-node-1",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        }
+      },
+      {
+        "id": "dag-node-2",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        }
+      },
+      {
+        "id": "dag-node-3",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "dag-edge-3",
+        "sources": [
+          "dag-node-2"
+        ],
+        "targets": [
+          "dag-node-3"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        }
+      },
+      {
+        "id": "dag-edge-2",
+        "sources": [
+          "dag-node-1"
+        ],
+        "targets": [
+          "dag-node-3"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        }
+      },
+      {
+        "id": "dag-edge-1",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-2"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        }
+      },
+      {
+        "id": "dag-edge-0",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-1"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        }
+      }
+    ]
+  }
+}

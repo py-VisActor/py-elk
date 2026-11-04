@@ -1,0 +1,134 @@
+{
+  "schema": "py-elk-e05-component-source-review/v1",
+  "iteration": "E05",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T06:47:22.395467+00:00",
+  "sourceDocument": {
+    "path": "references/e05-source-components-A.json",
+    "sha256": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336"
+  },
+  "approvedComponents": [
+    "intermediate:PortSideProcessor",
+    "intermediate:PortListSorter",
+    "intermediate:LabelAndNodeSizeProcessor",
+    "intermediate:InnermostNodeMarginCalculator"
+  ],
+  "componentSeals": {
+    "intermediate:PortSideProcessor": "5dbb5ffe52f12d4004dc37331cbad331cd7ff49eb9238b848327192d09ed4c6b",
+    "intermediate:PortListSorter": "05966fd7fe6cc6c261bb04e270db6a9f7d1bfcd2ca36d47625270bc9a2b00572",
+    "intermediate:LabelAndNodeSizeProcessor": "a12abf9300a0695a05ac5aad01f820fac46d4ff22934f1aa5c8a0e66ed300620",
+    "intermediate:InnermostNodeMarginCalculator": "1603bdc5336f35312a9ff3f1e73fe085e2719062452f4645b0e3897f86cebc3c"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 879,
+    "functionOffsetOccurrences": 801,
+    "staticCallEdges": 317,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E05-01/V/source-A-all-01/report.json",
+    "sha256": "68ff9e923ed12ac0ffe7bc7b8694d06bd81575054c5d654b012d2217e0c81708"
+  },
+  "checkedSemantics": [
+    {
+      "id": "PORT-SIDE",
+      "checked": "NORMAL FREE walks actual ordered ports, degree difference selects EAST/WEST, writes FIXED_SIDE. LONG_EDGE FIXED_POS takes isSideFixed branch and retains pre-existing side/anchor/floor(thickness/2) geometry. setSide only recalculates non-explicit anchors; zero-size normal ports yield zero anchors."
+    },
+    {
+      "id": "PORT-ORDER",
+      "checked": "Normal stable side sort then literal SOUTH and WEST range/reverse. Verified lowIdx read in high loop and high-exclusive swaps: trailing WEST count<=3 unchanged; count>=4 reverses first count-1, keeps last. Dummies take real combined sort, EAST before WEST, no same-side tie. portSidesCached and exact independent half-open cache writes retained including NORTH(0,0) empty case."
+    },
+    {
+      "id": "NORMAL-FILTER",
+      "checked": "Actual process25 supplies type NORMAL predicate; getNodes tests before adapter creation. No comment or external-port properties are admitted. Dummy height1, fixed positions and volatile IDs stay unchanged by NodeContext."
+    },
+    {
+      "id": "CELLS-AND-DEFAULTS",
+      "checked": "Only E04 false-contribution lemma is inherited: empty constraints return before flags change. Nonzero DISTRIBUTED scratch is allowed; middle-row mode1 minimum filters flags false, outer mode0 assigns given height, inner mode1 passes it to E/W cells. Core alignment remains DISTRIBUTED; layered initialization discards new Property_2 rather than mutating Core default. No default catalogue is injected into original local properties."
+    },
+    {
+      "id": "PORT-CONTEXT-ORDER",
+      "checked": "Node current port list sets volatile IDs before creating contexts. TreeMultimap comparator sorts E by ascending and W by descending volatile ID. Ordered side contexts are a valid host mapping only with independent contexts and this strict total comparator; tree rotations have no layout selection effect."
+    },
+    {
+      "id": "FLOAT-ARITHMETIC",
+      "checked": "Retain source scratch accumulation, 10+(h-C)/(k+1), iterative currentY additions, one-port CENTER transition, and rectangle min/max/subtract/re-add. Independent k7 h1e-14 control yields step1.7763568394002505e-15 and margin.bottom2.4344978758017533e-15, contradicting h/(k+1) simplification or all-zero margin. Source allows these tiny margins; no EPS clamp."
+    },
+    {
+      "id": "MUTABLE-DEFAULTS",
+      "checked": "Verified actual type maps166/184 lack exact key4. Ordinary getDefault/getProperty therefore reads EnumSet defaults without clone/store; explicit clone_11 special case166 cannot be inferred reachable. Padding/Margin class interface4 and registered class-specific clone8/9 do allocate graph-owned copies through individual-or-inherited graph getter; subsequent contexts reuse them. setNodePadding returns with COMPUTE_PADDING absent."
+    },
+    {
+      "id": "REAL-MARGIN-WRITES",
+      "checked": "All NORMAL and LONG_EDGE nodes and their actual ports enter real rectangle union; labels loops are empty and includeEdgeHeadTailLabels is false. All four margin assignments and copy/write identity remain, so this component is not a no-op. Pre-BK positions are zero; no whole post-BK theorem is inferred."
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e04-source-components-A.json",
+      "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+    }
+  ],
+  "independentLemmaEvidence": {
+    "path": "test-runs/20261103-E05-01/V/port-node-controls.json",
+    "sha256": "042eb8561b076cb396e0b632fd516f7df6858973cb95f492063b93696d207105"
+  },
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E05-01/V/source-A-all-canonical.command.json",
+      "sha256": "cacff68469daeb3a8de418795d8e025eb87561ad1db49373fe97587e729f4c4a"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-port-order.command.json",
+      "sha256": "e5c53a02e5e10cc406474b4f8ed838689a575c4787bd8696f42d2d7b5d3d492d"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-node-context.command.json",
+      "sha256": "01f9c3b5ee836ada8c8ad4e62ddf183381a11e08f80c2c2d9dc41f81ea0a6b12"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-cell-margin.command.json",
+      "sha256": "7dc07c7edb89a435fc2d5038a54fe48eba38995ba01a5848d29168ef47ddbb5c"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/port-node-controls-corrected.command.json",
+      "sha256": "25154f342f514d817d016d63ce70d7ce8520b4bf62659fe3e9f3e5775e2c2048"
+    }
+  ],
+  "actualObservationReceipts": [
+    {
+      "path": "test-runs/20261103-E05-01/B/formal-dag-traces.json",
+      "sha256": "25cd5545c97a8092b8a1538bac22a121fc408f7e6aecb7742ef13f092f9934ea",
+      "observationOnly": true,
+      "independentEngineReexecution": false
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E05-01/A/nodesize-default-properties-01/instrumented.json",
+      "sha256": "6cdbfea6857351915234026d925f6b6a059db2d9885c8bb9021651a426cf33a4",
+      "observationOnly": true,
+      "independentEngineReexecution": false
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E05-01/A/nodesize-fanin-properties-01/instrumented.json",
+      "sha256": "a58d994865cfd383a6b91bd6a20ff89021fc4a68d522bfd074c3eee342e368d1",
+      "observationOnly": true,
+      "independentEngineReexecution": false
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "Other A intermediate/import/export and B/R components require independent approvals; this review does not close the whole E05 source gate."
+  ],
+  "limitations": [
+    "Canonical byte checks are separate from manual mathematical def-use review; scalar finite controls do not exhaust every layout.",
+    "Initial scalar checker erroneously matched type184 as interface4 using substring test; original failed log and original checker preserved, corrected token-boundary control passed. This was a reviewer tool error, not an upstream source defect.",
+    "Exact Java provenance and overall release license remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE05SourceGateApproved": false
+}

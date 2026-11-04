@@ -1,0 +1,150 @@
+{
+  "schema": "py-elk-iteration-completion/v1",
+  "iteration": "E10",
+  "status": "complete",
+  "completedUtc": "2026-11-03T15:46:19.193358+00:00",
+  "runDirectory": "test-runs/20261103-E10-01",
+  "baselineCommit": "01830431b621c04959120f8e992d8b08c9d5ca8d",
+  "scope": "Eight wheel platform cells, two source-install representatives, bounded public performance and lifecycle",
+  "validationMode": "change-only",
+  "fullValidation": false,
+  "platformFullExecuted": false,
+  "oldLayoutMatricesRecaptured": false,
+  "productPackageRebuilt": false,
+  "productCodeChanged": false,
+  "targetedManifest": {
+    "path": "docs/iterations/E10-validation.json",
+    "sha256": "3aa33d55963695b08da56c93781b175e9be433fa88b9b305950fd2308f1b1767"
+  },
+  "targetedValidation": "docs/changes/20261103-E10-change-validation.json",
+  "selectedTargetedTestsPassed": 14,
+  "runtimeAudit": {
+    "path": "references/e10-runtime-audit.json",
+    "sha256": "859be9da313d9c14bbf7435ab7fd95d35024d3df68b3a35d31219f66e51e02a5"
+  },
+  "wheelPlatformCells": 8,
+  "sourceInstallRepresentatives": [
+    {
+      "os": "Windows",
+      "pythonMinor": "3.13"
+    },
+    {
+      "os": "Linux",
+      "pythonMinor": "3.14"
+    }
+  ],
+  "publicWarmups": 3,
+  "publicMeasuredSamples": 15,
+  "instrumentedSamples": 3,
+  "publicPerformance": {
+    "small": {
+      "publicElapsedSeconds": {
+        "minimum": 0.073402998,
+        "median": 0.07592634,
+        "p95NearestRank": 0.078993377,
+        "maximum": 0.078993377
+      },
+      "parentCpuSeconds": {
+        "minimum": 0.008314999999999996,
+        "median": 0.008600999999999996,
+        "p95NearestRank": 0.009161999999999991,
+        "maximum": 0.009161999999999991
+      },
+      "workerCpuSeconds": {
+        "minimum": 0.061216999999999994,
+        "median": 0.061681,
+        "p95NearestRank": 0.06548699999999999,
+        "maximum": 0.06548699999999999
+      },
+      "parentPeakRssBytes": {
+        "minimum": 29458432,
+        "median": 29597696,
+        "p95NearestRank": 29757440,
+        "maximum": 29757440
+      },
+      "workerPeakRssBytes": {
+        "minimum": 28114944,
+        "median": 28258304,
+        "p95NearestRank": 28405760,
+        "maximum": 28405760
+      }
+    },
+    "medium": {
+      "publicElapsedSeconds": {
+        "minimum": 0.081657867,
+        "median": 0.082505463,
+        "p95NearestRank": 0.086344692,
+        "maximum": 0.086344692
+      },
+      "parentCpuSeconds": {
+        "minimum": 0.015857000000000007,
+        "median": 0.016273000000000006,
+        "p95NearestRank": 0.017023999999999997,
+        "maximum": 0.017023999999999997
+      },
+      "workerCpuSeconds": {
+        "minimum": 0.065229,
+        "median": 0.065755,
+        "p95NearestRank": 0.067269,
+        "maximum": 0.067269
+      },
+      "parentPeakRssBytes": {
+        "minimum": 30765056,
+        "median": 30867456,
+        "p95NearestRank": 31240192,
+        "maximum": 31240192
+      },
+      "workerPeakRssBytes": {
+        "minimum": 28114944,
+        "median": 28233728,
+        "p95NearestRank": 28409856,
+        "maximum": 28409856
+      }
+    },
+    "large": {
+      "publicElapsedSeconds": {
+        "minimum": 0.233040225,
+        "median": 0.236034309,
+        "p95NearestRank": 0.244548159,
+        "maximum": 0.244548159
+      },
+      "parentCpuSeconds": {
+        "minimum": 0.133757,
+        "median": 0.13441999999999998,
+        "p95NearestRank": 0.13896999999999998,
+        "maximum": 0.13896999999999998
+      },
+      "workerCpuSeconds": {
+        "minimum": 0.103049,
+        "median": 0.105826,
+        "p95NearestRank": 0.107566,
+        "maximum": 0.107566
+      },
+      "parentPeakRssBytes": {
+        "minimum": 52826112,
+        "median": 52862976,
+        "p95NearestRank": 53026816,
+        "maximum": 53026816
+      },
+      "workerPeakRssBytes": {
+        "minimum": 40853504,
+        "median": 40882176,
+        "p95NearestRank": 40976384,
+        "maximum": 40976384
+      }
+    }
+  },
+  "independentReviewCount": 6,
+  "fullMigrationValidationDeferred": true,
+  "packagePublished": false,
+  "pythonAlgorithmsVerified": 0,
+  "mermaidIntegrationPerformed": false,
+  "limitations": [
+    "Eight wheel cells; two explicitly named sdist representatives, not eight sdist cells.",
+    "Performance only on the recorded Linux CPython3.14 host and three bounded inputs.",
+    "Instrumented samples are separate from public statistics; no hard resource quota.",
+    "Full migration validation remains deferred until all planned features are implemented."
+  ],
+  "retrospective": "docs/retrospectives/E10.md",
+  "nextIteration": "E11"
+}

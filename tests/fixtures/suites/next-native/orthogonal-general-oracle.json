@@ -1,0 +1,206 @@
+{
+  "schema": "py-elk-next-orthogonal-general-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "4e9017496790eb2a41f8e95b4eaf6ad590c9690ea1070176ef8f56553a67d9a6",
+  "requestSha256": "9274e40eac0be5cc635f69320c3ffb8f484ba4995fef5ccfd40dfdb2a7390762",
+  "pid": 24776,
+  "parentPid": 37828,
+  "node": "v24.19.0",
+  "observation": {
+    "width": 96,
+    "nodes": [
+      {
+        "id": "w",
+        "x": 0,
+        "y": -2
+      },
+      {
+        "id": "a",
+        "x": 0,
+        "y": -2
+      },
+      {
+        "id": "b",
+        "x": 10,
+        "y": 8
+      },
+      {
+        "id": "c",
+        "x": 7.5,
+        "y": 18
+      },
+      {
+        "id": "x",
+        "x": 68,
+        "y": 8
+      },
+      {
+        "id": "y",
+        "x": 68,
+        "y": 18
+      },
+      {
+        "id": "z",
+        "x": 73,
+        "y": -2
+      },
+      {
+        "id": "e",
+        "x": 96,
+        "y": -2
+      }
+    ],
+    "edges": [
+      {
+        "id": "boundary-in",
+        "bends": [],
+        "hasJunction": false,
+        "junctions": null
+      },
+      {
+        "id": "ax",
+        "bends": [
+          [
+            40,
+            0
+          ],
+          [
+            40,
+            5
+          ],
+          [
+            58,
+            5
+          ],
+          [
+            58,
+            10
+          ]
+        ],
+        "hasJunction": true,
+        "junctions": [
+          [
+            9.5,
+            -3.25
+          ]
+        ]
+      },
+      {
+        "id": "by",
+        "bends": [
+          [
+            52,
+            10
+          ],
+          [
+            52,
+            20
+          ]
+        ],
+        "hasJunction": false,
+        "junctions": null
+      },
+      {
+        "id": "cz",
+        "bends": [
+          [
+            46,
+            20
+          ],
+          [
+            46,
+            0
+          ]
+        ],
+        "hasJunction": false,
+        "junctions": null
+      },
+      {
+        "id": "boundary-out",
+        "bends": [],
+        "hasJunction": false,
+        "junctions": null
+      }
+    ],
+    "existingChainPreserved": true,
+    "calls": [
+      {
+        "kind": "gap",
+        "left": null,
+        "right": [
+          "w"
+        ],
+        "start": 0,
+        "slots": 0
+      },
+      {
+        "kind": "gap",
+        "left": [
+          "w"
+        ],
+        "right": [
+          "a",
+          "b",
+          "c"
+        ],
+        "start": 10,
+        "slots": 0
+      },
+      {
+        "kind": "split",
+        "dependencies": 1,
+        "before": 3,
+        "after": 4,
+        "threshold": 2
+      },
+      {
+        "kind": "gap",
+        "left": [
+          "a",
+          "b",
+          "c"
+        ],
+        "right": [
+          "x",
+          "y",
+          "z"
+        ],
+        "start": 40,
+        "slots": 4
+      },
+      {
+        "kind": "gap",
+        "left": [
+          "x",
+          "y",
+          "z"
+        ],
+        "right": [
+          "e"
+        ],
+        "start": 106,
+        "slots": 0
+      },
+      {
+        "kind": "gap",
+        "left": [
+          "e"
+        ],
+        "right": null,
+        "start": 106,
+        "slots": 0
+      }
+    ],
+    "draws": [
+      3
+    ],
+    "monitor": {
+      "name": "Orthogonal edge routing",
+      "closed": true
+    },
+    "layoutExecuted": false,
+    "workingGraphPhaseExecuted": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

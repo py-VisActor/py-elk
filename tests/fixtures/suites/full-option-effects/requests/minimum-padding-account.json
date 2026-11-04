@@ -1,0 +1,28 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 41
+    },
+    "children": [
+      {
+        "id": "minimumNode",
+        "width": 20,
+        "height": 10,
+        "layoutOptions": {
+          "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+          "elk.nodeSize.minimum": "(100,70)",
+          "elk.padding": "[top=10,left=10,bottom=10,right=10]",
+          "elk.nodeSize.options": "[MINIMUM_SIZE_ACCOUNTS_FOR_PADDING]"
+        }
+      }
+    ]
+  }
+}

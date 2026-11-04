@@ -28,6 +28,26 @@ def local_file(root: Path, name: str) -> bool:
     return not Path(name).is_absolute() and path.is_relative_to(root.resolve()) and path.is_file()
 
 
+def documentation_origin(root: Path, name: Path) -> Path:
+    """Resolve copied evidence documents using their original repository path.
+
+    Archived source/doc bytes keep relative links authored before archival;
+    their storage prefix is not a relocated documentation publishing root.
+    Links are still required to resolve to a real file or directory.
+    """
+    parts=name.relative_to(root).parts
+    if len(parts)>3 and parts[:2]==('references','next-native-evidence'):
+        remainder=parts[3:]
+        if remainder[0]in('docs','references','src','tools','examples','tests'):
+            return root.joinpath(*remainder)
+        if len(remainder)==1:
+            return root/remainder[0]
+        for index,part in enumerate(remainder[:-1]):
+            if part=='snapshot'and remainder[index+1]=='src':
+                return root.joinpath(*remainder[index+1:])
+    return name
+
+
 def check(root: Path = ROOT) -> dict:
     errors = []
     required = ["README.md", "README.en.md", "DEVELOPMENT_PLAN.md", "API_COMPATIBILITY.md", "UPSTREAM.json",
@@ -120,6 +140,7 @@ def check(root: Path = ROOT) -> dict:
     markdown = []
     for name in [*root.glob("*.md"), *[p for directory in ("docs", "references", "src", "tests", "tools", "examples", "benchmarks") for p in (root / directory).rglob("*.md")]]:
         markdown.append(name)
+        origin=documentation_origin(root,name)
         inside = False
         language = ""
         lines = []
@@ -142,7 +163,7 @@ def check(root: Path = ROOT) -> dict:
                 if urlsplit(target).scheme or target.startswith("#"):
                     continue
                 path = unquote(target.split("#", 1)[0])
-                if path and not (name.parent / path).exists():
+                if path and not (name.parent / path).exists()and not(origin.parent/path).exists():
                     errors.append("Missing documentation link: " + str(name.relative_to(root)) + " -> " + target)
         if inside:
             errors.append("Unclosed code fence: " + str(name.relative_to(root)))

@@ -1,0 +1,1597 @@
+{
+  "passed": true,
+  "rows": [
+    {
+      "id": "compaction-down-branch",
+      "actual": {
+        "before": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                140
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "compacted": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                140
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "routed": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                140
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  14.5,
+                  22
+                ],
+                [
+                  14.5,
+                  25
+                ],
+                [
+                  18.0,
+                  80
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": [
+                [
+                  18.0,
+                  90
+                ],
+                [
+                  18.0,
+                  99
+                ],
+                [
+                  62.333333333333336,
+                  140
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": [
+                [
+                  23.5,
+                  22
+                ],
+                [
+                  23.5,
+                  25
+                ],
+                [
+                  96.0,
+                  80
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": [
+                [
+                  19.0,
+                  22
+                ],
+                [
+                  19.0,
+                  25
+                ],
+                [
+                  58.0,
+                  77
+                ],
+                [
+                  58.0,
+                  99
+                ],
+                [
+                  69.66666666666667,
+                  140
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "expected": {
+        "before": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                140
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "compacted": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                140
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "routed": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                140
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  14.5,
+                  22
+                ],
+                [
+                  14.5,
+                  25
+                ],
+                [
+                  18,
+                  80
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": [
+                [
+                  18,
+                  90
+                ],
+                [
+                  18,
+                  99
+                ],
+                [
+                  62.333333333333336,
+                  140
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": [
+                [
+                  23.5,
+                  22
+                ],
+                [
+                  23.5,
+                  25
+                ],
+                [
+                  96,
+                  80
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": [
+                [
+                  19,
+                  22
+                ],
+                [
+                  19,
+                  25
+                ],
+                [
+                  58,
+                  77
+                ],
+                [
+                  58,
+                  99
+                ],
+                [
+                  69.66666666666667,
+                  140
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "differences": []
+    },
+    {
+      "id": "up-cycle-and-long-gap",
+      "actual": {
+        "before": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                150
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                20
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 2,
+              "target": 0,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "compacted": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                150
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                20
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 2,
+              "target": 0,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "routed": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                150
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                20
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  14.5,
+                  150
+                ],
+                [
+                  14.5,
+                  147
+                ],
+                [
+                  18.0,
+                  90
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": [
+                [
+                  18.0,
+                  80
+                ],
+                [
+                  18.0,
+                  77
+                ],
+                [
+                  62.333333333333336,
+                  34
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": [
+                [
+                  23.5,
+                  150
+                ],
+                [
+                  23.5,
+                  147
+                ],
+                [
+                  96.0,
+                  96
+                ]
+              ]
+            },
+            {
+              "source": 2,
+              "target": 0,
+              "bends": [
+                [
+                  66.0,
+                  20
+                ],
+                [
+                  66.0,
+                  17
+                ],
+                [
+                  105,
+                  17
+                ],
+                [
+                  105,
+                  172
+                ],
+                [
+                  19.0,
+                  172
+                ],
+                [
+                  19.0,
+                  165
+                ],
+                [
+                  19.0,
+                  162
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": [
+                [
+                  19.0,
+                  150
+                ],
+                [
+                  19.0,
+                  147
+                ],
+                [
+                  58.0,
+                  99
+                ],
+                [
+                  58.0,
+                  77
+                ],
+                [
+                  69.66666666666667,
+                  34
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "expected": {
+        "before": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                150
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                20
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 2,
+              "target": 0,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "compacted": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                150
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                20
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": []
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            },
+            {
+              "source": 2,
+              "target": 0,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": []
+            }
+          ]
+        },
+        "routed": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                10,
+                150
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                10,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                55,
+                20
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                90,
+                80
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  14.5,
+                  150
+                ],
+                [
+                  14.5,
+                  147
+                ],
+                [
+                  18,
+                  90
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": [
+                [
+                  18,
+                  80
+                ],
+                [
+                  18,
+                  77
+                ],
+                [
+                  62.333333333333336,
+                  34
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": [
+                [
+                  23.5,
+                  150
+                ],
+                [
+                  23.5,
+                  147
+                ],
+                [
+                  96,
+                  96
+                ]
+              ]
+            },
+            {
+              "source": 2,
+              "target": 0,
+              "bends": [
+                [
+                  66,
+                  20
+                ],
+                [
+                  66,
+                  17
+                ],
+                [
+                  105,
+                  17
+                ],
+                [
+                  105,
+                  172
+                ],
+                [
+                  19,
+                  172
+                ],
+                [
+                  19,
+                  165
+                ],
+                [
+                  19,
+                  162
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 2,
+              "bends": [
+                [
+                  19,
+                  150
+                ],
+                [
+                  19,
+                  147
+                ],
+                [
+                  58,
+                  99
+                ],
+                [
+                  58,
+                  77
+                ],
+                [
+                  69.66666666666667,
+                  34
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "differences": []
+    },
+    {
+      "id": "middle-left-keeps-supplied-bend",
+      "actual": {
+        "before": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                170,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                100,
+                10
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                40,
+                55
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                100,
+                90
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  112,
+                  24
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            }
+          ]
+        },
+        "compacted": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                170,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                134,
+                10
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                138,
+                90
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                92,
+                55
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  112,
+                  24
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            }
+          ]
+        },
+        "routed": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                170,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                134,
+                10
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                138,
+                90
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                92,
+                55
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  170.0,
+                  17.074626865671643
+                ],
+                [
+                  112,
+                  24
+                ],
+                [
+                  134.0,
+                  17.4
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": [
+                [
+                  137.85106382978722,
+                  20.0
+                ],
+                [
+                  108.80851063829788,
+                  55.0
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": [
+                [
+                  176.4390243902439,
+                  22.0
+                ],
+                [
+                  147.41463414634146,
+                  90.0
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "expected": {
+        "before": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                170,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                100,
+                10
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                40,
+                55
+              ],
+              "level": 2,
+              "constraints": []
+            },
+            {
+              "id": 3,
+              "pos": [
+                100,
+                90
+              ],
+              "level": 1,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  112,
+                  24
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            }
+          ]
+        },
+        "compacted": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                170,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                134,
+                10
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                138,
+                90
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                92,
+                55
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  112,
+                  24
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": []
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": []
+            }
+          ]
+        },
+        "routed": {
+          "nodes": [
+            {
+              "id": 0,
+              "pos": [
+                170,
+                10
+              ],
+              "level": 0,
+              "constraints": []
+            },
+            {
+              "id": 1,
+              "pos": [
+                134,
+                10
+              ],
+              "level": 1,
+              "constraints": [
+                0
+              ]
+            },
+            {
+              "id": 3,
+              "pos": [
+                138,
+                90
+              ],
+              "level": 1,
+              "constraints": []
+            },
+            {
+              "id": 2,
+              "pos": [
+                92,
+                55
+              ],
+              "level": 2,
+              "constraints": []
+            }
+          ],
+          "edges": [
+            {
+              "source": 0,
+              "target": 1,
+              "bends": [
+                [
+                  170,
+                  17.074626865671643
+                ],
+                [
+                  112,
+                  24
+                ],
+                [
+                  134,
+                  17.4
+                ]
+              ]
+            },
+            {
+              "source": 1,
+              "target": 2,
+              "bends": [
+                [
+                  137.85106382978722,
+                  20
+                ],
+                [
+                  108.80851063829788,
+                  55
+                ]
+              ]
+            },
+            {
+              "source": 0,
+              "target": 3,
+              "bends": [
+                [
+                  176.4390243902439,
+                  22
+                ],
+                [
+                  147.41463414634146,
+                  90
+                ]
+              ]
+            }
+          ]
+        }
+      },
+      "differences": []
+    }
+  ],
+  "numeric": {
+    "boxed": [
+      {
+        "level": 127,
+        "value": {
+          "sameBox": true,
+          "outgoingCount": 0,
+          "incomingCount": 0
+        }
+      },
+      {
+        "level": 128,
+        "value": {
+          "sameBox": false,
+          "outgoingCount": 1,
+          "incomingCount": 1
+        }
+      }
+    ],
+    "mean": {
+      "mean": 0.19999999999999998,
+      "secondAbove": true
+    }
+  },
+  "numericDifferences": [],
+  "sourceTreeUnchanged": true,
+  "importedSourcesSha256": {
+    "pyelk/api.py": "d2de3ef7b62a75289a94598fd9bb1098a18ee09a79550d6e0165fcfcc734d594",
+    "pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "pyelk/options/schema.py": "366168b1541ad28a419330599db63d2a2a3a15e7c47c2ff04d78415a991d54f9",
+    "pyelk/_errors.py": "f58aca6c430a46e54b43ff1686259e1fe848710dda97fb7f7d6775efc810f53e",
+    "pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "pyelk/algorithms/mrtree.py": "7c281513bb820b7fdd73406d18bda5d671f3734019de0b500a97d55d3b2ca6ce",
+    "pyelk/algorithms/layered/components.py": "0b9013203232d9f0ed8ac7f26462c3b79c46f20134bc6c6c1f45d83b177eb12e",
+    "pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    "pyelk/algorithms/radial.py": "5fdd12ce7bdcae6e95a4aa7405f726eec75a15724dd6abc09e65f3ed52801e30",
+    "pyelk/algorithms/layered/phases.py": "c085d5f3f87df8d02b0ca68407cf434973da2781c6d2682792d5f373e3774515",
+    "pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "pyelk/algorithms/fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    "pyelk/options/resolution.py": "1dfb99cd7c52920109bcecb0ebbaa66b5e4fd55ce2b3c50978d2d466d2a1e5db",
+    "pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "pyelk/algorithms/random.py": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d",
+    "pyelk/__init__.py": "b316c306c0dfcb8f882befc4ed98f2182ed92bbd9b5898c29d3975b19d70d98d",
+    "pyelk/metadata/_data.py": "3bbce9e12096f25f7b5cd2477ed86112b6a18284d3677564985c959f2db90020",
+    "pyelk/_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "pyelk/algorithms/layered/long_edges.py": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+    "pyelk/metadata/__init__.py": "6d5986ed402bb071012fd0a9f625083c7e5d7b13dd95ef564ea81c2e35da699b"
+  },
+  "inputsSha256": {
+    "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\next-native\\compare_mrtree_routing.py": "9df51a8546755665a8df4e285a028a3ccbbbc3e92069d264fa00fd2bafad11d9",
+    "tests\\fixtures\\suites\\next-native\\mrtree-routing-request.json": "5793ddd98d05072443d195c7c0cb66e40706a475d8f93d375d3736ea3353deb4",
+    "tests\\fixtures\\suites\\next-native\\mrtree-routing-oracle.json": "bc893adc30b50259db4b3b11a8477a0ad8cdaaa7dd7e62db222f7cd5c8c23a9d"
+  },
+  "scope": "Prepared object-level compaction, routing, boxed integer level identity and mean; no provider/micro-layout/public API claim"
+}

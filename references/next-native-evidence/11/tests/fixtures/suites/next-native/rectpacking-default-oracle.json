@@ -1,0 +1,141 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "5e141f0fb2d5b4f542ff017caa6ce6c2044c8aa7a9ea9dd66b5e6cc58bc1ca07",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "rp-default",
+    "layoutOptions": {
+      "elk.algorithm": "rectpacking",
+      "elk.padding": "[top=3,left=7,bottom=11,right=13]",
+      "elk.spacing.nodeNode": 4,
+      "elk.aspectRatio": 1.6,
+      "elk.rectpacking.packing.compaction.iterations": 2,
+      "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+      "elk.nodeSize.minimum": "(110,90)",
+      "elk.contentAlignment": "[H_CENTER,V_BOTTOM]"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 21,
+        "height": 23,
+        "$H": 277,
+        "x": 7,
+        "y": 47
+      },
+      {
+        "id": "b",
+        "width": 31,
+        "height": 7,
+        "$H": 279,
+        "x": 32,
+        "y": 47
+      },
+      {
+        "id": "c",
+        "width": 17,
+        "height": 15,
+        "$H": 281,
+        "x": 32,
+        "y": 58
+      },
+      {
+        "id": "d",
+        "width": 28,
+        "height": 9,
+        "$H": 283,
+        "x": 53,
+        "y": 58
+      },
+      {
+        "id": "e",
+        "width": 19,
+        "height": 32,
+        "$H": 285,
+        "x": 85,
+        "y": 47
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 117,
+    "height": 90
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "rp-default",
+    "layoutOptions": {
+      "elk.algorithm": "rectpacking",
+      "elk.padding": "[top=3,left=7,bottom=11,right=13]",
+      "elk.spacing.nodeNode": 4,
+      "elk.aspectRatio": 1.6,
+      "elk.rectpacking.packing.compaction.iterations": 2,
+      "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+      "elk.nodeSize.minimum": "(110,90)",
+      "elk.contentAlignment": "[H_CENTER,V_BOTTOM]"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 21,
+        "height": 23,
+        "$H": 277,
+        "x": 7,
+        "y": 47
+      },
+      {
+        "id": "b",
+        "width": 31,
+        "height": 7,
+        "$H": 279,
+        "x": 32,
+        "y": 47
+      },
+      {
+        "id": "c",
+        "width": 17,
+        "height": 15,
+        "$H": 281,
+        "x": 32,
+        "y": 58
+      },
+      {
+        "id": "d",
+        "width": 28,
+        "height": 9,
+        "$H": 283,
+        "x": 53,
+        "y": 58
+      },
+      {
+        "id": "e",
+        "width": 19,
+        "height": 32,
+        "$H": 285,
+        "x": 85,
+        "y": 47
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 117,
+    "height": 90
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

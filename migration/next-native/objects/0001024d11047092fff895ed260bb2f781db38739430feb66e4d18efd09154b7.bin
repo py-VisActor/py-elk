@@ -1,0 +1,55 @@
+"""Nine host parsing schemas; these do not register executable algorithms."""
+from dataclasses import dataclass
+from types import MappingProxyType
+
+
+@dataclass(frozen=True)
+class Padding:
+    top: int | float
+    right: int | float
+    bottom: int | float
+    left: int | float
+
+
+@dataclass(frozen=True)
+class Vector2:
+    x: float
+    y: float
+
+
+@dataclass(frozen=True)
+class OptionSpec:
+    id: str
+    alias: str
+    kind: str
+    declared_default: object
+    targets: tuple[str, ...]
+    accepted_values: tuple[str, ...] = ()
+
+
+_SPECS = (
+    OptionSpec("org.eclipse.elk.algorithm", "elk.algorithm", "algorithm", None, ("PARENTS",),
+               ("layered", "org.eclipse.elk.layered")),
+    OptionSpec("org.eclipse.elk.direction", "elk.direction", "enum", "UNDEFINED", ("PARENTS",),
+               ("UNDEFINED", "RIGHT", "LEFT", "DOWN", "UP")),
+    OptionSpec("org.eclipse.elk.padding", "elk.padding", "padding",
+               Padding(top=12, right=12, bottom=12, left=12), ("PARENTS", "NODES")),
+    OptionSpec("org.eclipse.elk.spacing.nodeNode", "elk.spacing.nodeNode", "spacing", 20, ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers", "elk.layered.spacing.nodeNodeBetweenLayers",
+               "spacing", 20, ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.separateConnectedComponents", "elk.separateConnectedComponents", "boolean", True,
+               ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.spacing.componentComponent", "elk.spacing.componentComponent", "spacing", 20,
+               ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.edgeRouting", "elk.edgeRouting", "enum", "ORTHOGONAL", ("PARENTS",),
+               ("ORTHOGONAL",)),
+    OptionSpec("org.eclipse.elk.randomSeed", "elk.randomSeed", "seed", 1, ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.portConstraints", "elk.portConstraints", "enum_ordinal", "UNDEFINED", ("NODES",),
+               ("UNDEFINED", "FREE", "FIXED_SIDE", "FIXED_ORDER", "FIXED_RATIO", "FIXED_POS")),
+    OptionSpec("org.eclipse.elk.port.side", "elk.port.side", "enum_ordinal", "UNDEFINED", ("PORTS",),
+               ("UNDEFINED", "NORTH", "EAST", "SOUTH", "WEST")),
+    OptionSpec("org.eclipse.elk.port.index", "elk.port.index", "integer", None, ("PORTS",)),
+    OptionSpec("org.eclipse.elk.port.anchor", "elk.port.anchor", "vector", None, ("PORTS",)),
+    OptionSpec("org.eclipse.elk.port.borderOffset", "elk.port.borderOffset", "signed_number", None, ("PORTS",)),
+)
+OPTION_SPECS = MappingProxyType({spec.id: spec for spec in _SPECS})

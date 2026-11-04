@@ -1,0 +1,40 @@
+{
+  "schema": "py-elk-next-json-wire-sources/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "collectorSha256": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+  "spans": [
+    {
+      "symbol": "JSONNumber retains numeric value",
+      "source": "fixed-worker",
+      "startLine": 9800,
+      "endLine": 9808,
+      "sha256": "44c6337cf26e847959f267365e39f9e0f0730ae0e4264904742cc88e71ec0e27",
+      "sourceBytesBase64": "ZnVuY3Rpb24gSlNPTk51bWJlcih2YWx1ZV8wKXsKICB0aGlzLnZhbHVlXzAgPSB2YWx1ZV8wOwp9CgpmdW5jdGlvbiB1bndyYXBfMih2YWx1ZV8wKXsKICByZXR1cm4gdmFsdWVfMC52YWx1ZV8wOwp9CgpkZWZpbmVDbGFzcygyNjksIDIwOTQsIHsyNjk6MX0sIEpTT05OdW1iZXIpOwo="
+    },
+    {
+      "symbol": "JSONNumber actual unwrapping method",
+      "source": "fixed-worker",
+      "startLine": 9816,
+      "endLine": 9819,
+      "sha256": "cfe604cf11186aebca38e3708d3494c0bee9adbdfec75db4db70128f4c6226ef",
+      "sourceBytesBase64": "Xy5nZXRVbndyYXBwZXIgPSBmdW5jdGlvbiBnZXRVbndyYXBwZXJfMigpewogIHJldHVybiB1bndyYXBfMjsKfQo7Cg=="
+    },
+    {
+      "symbol": "JSONObject put0 retains internal numeric value",
+      "source": "fixed-worker",
+      "startLine": 9874,
+      "endLine": 9882,
+      "sha256": "8cc864701feea2ca808dfd69ae9b72671d2943bd82e017018a63b80f9698ca79",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHB1dDAodGhpcyRzdGF0aWMsIGtleSwgdmFsdWVfMCl7CiAgaWYgKHZhbHVlXzApIHsKICAgIHZhciBmdW5jID0gdmFsdWVfMC5nZXRVbndyYXBwZXIoKTsKICAgIHRoaXMkc3RhdGljLmpzT2JqZWN0W2tleV0gPSBmdW5jKHZhbHVlXzApOwogIH0KICAgZWxzZSB7CiAgICBkZWxldGUgdGhpcyRzdGF0aWMuanNPYmplY3Rba2V5XTsKICB9Cn0K"
+    },
+    {
+      "symbol": "Actual reference final JSON.stringify observation boundary",
+      "source": "tools/reference/capture_layout.cjs",
+      "startLine": 53,
+      "endLine": 53,
+      "sha256": "cd60f1edabf6a437f5147d366e074c892260dc9313752a9ff1dee394962a3246",
+      "sourceBytesBase64": "ICBmcy53cml0ZUZpbGVTeW5jKG91dHB1dFBhdGgsIEpTT04uc3RyaW5naWZ5KG9ic2VydmF0aW9uLCBudWxsLCAyKSArICdcbicsIHsgZmxhZzogJ3d4JyB9KTsK"
+    }
+  ],
+  "scope": "JSON wire conversion only; no layout math clamp, input nonfinite admission or geometry tolerance change"
+}

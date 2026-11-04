@@ -1,0 +1,36 @@
+name: Final whole-migration validation
+on:
+  workflow_dispatch:
+    inputs:
+      all_features_complete:
+        description: Confirm all planned migration features are implemented
+        required: true
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  ready:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.13'
+      - name: Require explicit confirmation and completed machine plan
+        env:
+          ALL_FEATURES_COMPLETE: ${{ inputs.all_features_complete }}
+        run: python scripts/iteration/ci_selected.py --require-final-ready
+  final:
+    needs: ready
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.12', '3.13', '3.14']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python scripts/check.py --out test-runs/final-ci

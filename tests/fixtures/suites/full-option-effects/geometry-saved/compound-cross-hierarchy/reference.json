@@ -1,0 +1,1379 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "18ed04ea7ba6acb06c26763b2b85ae9cd7fa1af0fc14ad866679e6f2a8d99c0c",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "pid": 43496,
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "executableSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "inputBefore": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "left",
+        "width": 36,
+        "height": 24,
+        "business": {
+          "id": "left",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "la",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "la",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          },
+          {
+            "id": "lb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "lb",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "le",
+            "sources": [
+              "la"
+            ],
+            "targets": [
+              "lb"
+            ],
+            "business": {
+              "edge": "le",
+              "weight": 0.125
+            }
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        }
+      },
+      {
+        "id": "right",
+        "width": 36,
+        "height": 24,
+        "business": {
+          "id": "right",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "ra",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "ra",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          },
+          {
+            "id": "rb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "rb",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "re",
+            "sources": [
+              "ra"
+            ],
+            "targets": [
+              "rb"
+            ],
+            "business": {
+              "edge": "re",
+              "weight": 0.125
+            }
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "cross1",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "rb"
+        ],
+        "business": {
+          "edge": "cross1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cross2",
+        "sources": [
+          "lb"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cross3",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross3",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+    }
+  },
+  "constructorBefore": {},
+  "argumentsBefore": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "clock": {
+    "startMs": 1793766440439,
+    "endMs": 1793766440465
+  },
+  "result": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "left",
+        "width": 116,
+        "height": 70,
+        "business": {
+          "id": "left",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "la",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "la",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 947,
+            "x": 12,
+            "y": 23
+          },
+          {
+            "id": "lb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "lb",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 949,
+            "x": 68,
+            "y": 23
+          }
+        ],
+        "edges": [
+          {
+            "id": "le",
+            "sources": [
+              "la"
+            ],
+            "targets": [
+              "lb"
+            ],
+            "business": {
+              "edge": "le",
+              "weight": 0.125
+            },
+            "sections": [
+              {
+                "id": "le_s0",
+                "startPoint": {
+                  "x": 48,
+                  "y": 35
+                },
+                "endPoint": {
+                  "x": 68,
+                  "y": 35
+                },
+                "incomingShape": "la",
+                "outgoingShape": "lb"
+              }
+            ],
+            "container": "left"
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        },
+        "$H": 945,
+        "x": 12,
+        "y": 12
+      },
+      {
+        "id": "right",
+        "width": 136,
+        "height": 59,
+        "business": {
+          "id": "right",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "ra",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "ra",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 953,
+            "x": 32,
+            "y": 12
+          },
+          {
+            "id": "rb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "rb",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 955,
+            "x": 88,
+            "y": 16
+          }
+        ],
+        "edges": [
+          {
+            "id": "re",
+            "sources": [
+              "ra"
+            ],
+            "targets": [
+              "rb"
+            ],
+            "business": {
+              "edge": "re",
+              "weight": 0.125
+            },
+            "sections": [
+              {
+                "id": "re_s0",
+                "startPoint": {
+                  "x": 68,
+                  "y": 24
+                },
+                "endPoint": {
+                  "x": 88,
+                  "y": 24
+                },
+                "incomingShape": "ra",
+                "outgoingShape": "rb"
+              }
+            ],
+            "container": "right"
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        },
+        "$H": 951,
+        "x": 168,
+        "y": 23
+      }
+    ],
+    "edges": [
+      {
+        "id": "cross1",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "rb"
+        ],
+        "business": {
+          "edge": "cross1",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cross1_s0",
+            "startPoint": {
+              "x": 60,
+              "y": 53
+            },
+            "endPoint": {
+              "x": 256,
+              "y": 55
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 53
+              },
+              {
+                "x": 70,
+                "y": 69
+              },
+              {
+                "x": 246,
+                "y": 69
+              },
+              {
+                "x": 246,
+                "y": 55
+              }
+            ],
+            "incomingShape": "la",
+            "outgoingShape": "rb"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "cross2",
+        "sources": [
+          "lb"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross2",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cross2_s0",
+            "startPoint": {
+              "x": 116,
+              "y": 47
+            },
+            "endPoint": {
+              "x": 200,
+              "y": 51
+            },
+            "bendPoints": [
+              {
+                "x": 143,
+                "y": 47
+              },
+              {
+                "x": 143,
+                "y": 53
+              },
+              {
+                "x": 190,
+                "y": 53
+              },
+              {
+                "x": 190,
+                "y": 51
+              }
+            ],
+            "incomingShape": "lb",
+            "outgoingShape": "ra"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "cross3",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross3",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cross3_s0",
+            "startPoint": {
+              "x": 60,
+              "y": 41
+            },
+            "endPoint": {
+              "x": 200,
+              "y": 43
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 41
+              },
+              {
+                "x": 70,
+                "y": 24
+              },
+              {
+                "x": 153,
+                "y": 24
+              },
+              {
+                "x": 153,
+                "y": 43
+              }
+            ],
+            "incomingShape": "la",
+            "outgoingShape": "ra"
+          }
+        ],
+        "container": "r"
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+    },
+    "$H": 943,
+    "logging": {
+      "name": "Recursive Graph Layout",
+      "children": [
+        {
+          "name": "Layered layout",
+          "children": [
+            {
+              "name": "Compound graph preprocessor"
+            },
+            {
+              "name": "Recursive hierarchical layout",
+              "children": [
+                {
+                  "name": "Edge and layer constraint edge reversal"
+                },
+                {
+                  "name": "Greedy cycle removal"
+                },
+                {
+                  "name": "Layer constraint preprocessing"
+                },
+                {
+                  "name": "Network simplex layering",
+                  "children": [
+                    {
+                      "name": "Network simplex"
+                    }
+                  ]
+                },
+                {
+                  "name": "Layer constraint postprocessing"
+                },
+                {
+                  "name": "Hierarchical port constraint processing"
+                },
+                {
+                  "name": "Edge splitting"
+                },
+                {
+                  "name": "Port side processing"
+                },
+                {
+                  "name": "Port order processing"
+                },
+                {
+                  "name": "Edge and layer constraint edge reversal"
+                },
+                {
+                  "name": "Greedy cycle removal"
+                },
+                {
+                  "name": "Layer constraint preprocessing"
+                },
+                {
+                  "name": "Network simplex layering",
+                  "children": [
+                    {
+                      "name": "Network simplex"
+                    }
+                  ]
+                },
+                {
+                  "name": "Layer constraint postprocessing"
+                },
+                {
+                  "name": "Hierarchical port constraint processing"
+                },
+                {
+                  "name": "Edge splitting"
+                },
+                {
+                  "name": "Port side processing"
+                },
+                {
+                  "name": "Port order processing"
+                },
+                {
+                  "name": "Edge and layer constraint edge reversal"
+                },
+                {
+                  "name": "Greedy cycle removal"
+                },
+                {
+                  "name": "Layer constraint preprocessing"
+                },
+                {
+                  "name": "Network simplex layering",
+                  "children": [
+                    {
+                      "name": "Network simplex"
+                    }
+                  ]
+                },
+                {
+                  "name": "Layer constraint postprocessing"
+                },
+                {
+                  "name": "Edge splitting"
+                },
+                {
+                  "name": "Port side processing"
+                },
+                {
+                  "name": "Inverted port preprocessing"
+                },
+                {
+                  "name": "Port order processing"
+                },
+                {
+                  "name": "Minimize Crossings BARYCENTER"
+                },
+                {
+                  "name": "Layer constraint edge reversal"
+                },
+                {
+                  "name": "Node and Port Label Placement and Node Sizing"
+                },
+                {
+                  "name": "Node margin calculation"
+                },
+                {
+                  "name": "Hierarchical port dummy size processing"
+                },
+                {
+                  "name": "Brandes & Koepf node placement",
+                  "logs": [
+                    "RIGHTDOWN size is 35",
+                    "RIGHTUP size is 42",
+                    "LEFTDOWN size is 35",
+                    "LEFTUP size is 42",
+                    "RIGHTDOWN is feasible: true",
+                    "RIGHTUP is feasible: true",
+                    "LEFTDOWN is feasible: true",
+                    "LEFTUP is feasible: true",
+                    "Chosen node placement: RIGHTDOWN",
+                    "Blocks: {n(external_port)_0=[n(external_port)_0, n_r.right.ra, n_r.right.rb], n(external_port)_1=[n(external_port)_1], n(external_port)_2=[n(external_port)_2, n(long_edge)_1]}",
+                    "Classes: {n(external_port)_0=[n(external_port)_0, n(external_port)_1, n(external_port)_2]}",
+                    "Marked edges: []"
+                  ]
+                },
+                {
+                  "name": "Layer size calculation"
+                },
+                {
+                  "name": "Hierarchical port position processing"
+                },
+                {
+                  "name": "Orthogonal edge routing"
+                },
+                {
+                  "name": "Orthogonally routing hierarchical port edges"
+                },
+                {
+                  "name": "Edge joining"
+                },
+                {
+                  "name": "Sort end labels"
+                },
+                {
+                  "name": "Restoring reversed edges"
+                },
+                {
+                  "name": "Resize child graph to fit parent."
+                },
+                {
+                  "name": "Layer constraint edge reversal"
+                },
+                {
+                  "name": "Node and Port Label Placement and Node Sizing"
+                },
+                {
+                  "name": "Node margin calculation"
+                },
+                {
+                  "name": "Hierarchical port dummy size processing"
+                },
+                {
+                  "name": "Brandes & Koepf node placement",
+                  "logs": [
+                    "RIGHTDOWN size is 52",
+                    "RIGHTUP size is 51",
+                    "LEFTDOWN size is 46",
+                    "LEFTUP size is 46",
+                    "RIGHTDOWN is feasible: true",
+                    "RIGHTUP is feasible: true",
+                    "LEFTDOWN is feasible: true",
+                    "LEFTUP is feasible: true",
+                    "Chosen node placement: LEFTDOWN",
+                    "Blocks: {n(external_port)_1=[n_r.left.la, n_r.left.lb, n(external_port)_1], n(external_port)_0=[n(long_edge)_0, n(external_port)_0], n(external_port)_2=[n(long_edge)_2, n(external_port)_2]}",
+                    "Classes: {n(external_port)_0=[n(external_port)_1, n(external_port)_0, n(external_port)_2]}",
+                    "Marked edges: []"
+                  ]
+                },
+                {
+                  "name": "Layer size calculation"
+                },
+                {
+                  "name": "Hierarchical port position processing"
+                },
+                {
+                  "name": "Orthogonal edge routing"
+                },
+                {
+                  "name": "Orthogonally routing hierarchical port edges"
+                },
+                {
+                  "name": "Edge joining"
+                },
+                {
+                  "name": "Sort end labels"
+                },
+                {
+                  "name": "Restoring reversed edges"
+                },
+                {
+                  "name": "Resize child graph to fit parent."
+                },
+                {
+                  "name": "Layer constraint edge reversal"
+                },
+                {
+                  "name": "Node and Port Label Placement and Node Sizing"
+                },
+                {
+                  "name": "Node margin calculation"
+                },
+                {
+                  "name": "Brandes & Koepf node placement",
+                  "logs": [
+                    "RIGHTDOWN size is 78",
+                    "RIGHTUP size is 78",
+                    "LEFTDOWN size is 70",
+                    "LEFTUP size is 70",
+                    "RIGHTDOWN is feasible: true",
+                    "RIGHTUP is feasible: true",
+                    "LEFTDOWN is feasible: true",
+                    "LEFTUP is feasible: true",
+                    "Chosen node placement: LEFTDOWN",
+                    "Blocks: {n_r.right=[n_r.left, n_r.right]}",
+                    "Classes: {n_r.right=[n_r.right]}",
+                    "Marked edges: []"
+                  ]
+                },
+                {
+                  "name": "Layer size calculation"
+                },
+                {
+                  "name": "Orthogonal edge routing"
+                },
+                {
+                  "name": "Edge joining"
+                },
+                {
+                  "name": "Sort end labels"
+                },
+                {
+                  "name": "Restoring reversed edges"
+                },
+                {
+                  "name": "Resize child graph to fit parent."
+                }
+              ]
+            },
+            {
+              "name": "Compound graph postprocessor"
+            }
+          ]
+        }
+      ]
+    },
+    "x": 0,
+    "y": 0,
+    "width": 316,
+    "height": 94
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "left",
+        "width": 116,
+        "height": 70,
+        "business": {
+          "id": "left",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "la",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "la",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 947,
+            "x": 12,
+            "y": 23
+          },
+          {
+            "id": "lb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "lb",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 949,
+            "x": 68,
+            "y": 23
+          }
+        ],
+        "edges": [
+          {
+            "id": "le",
+            "sources": [
+              "la"
+            ],
+            "targets": [
+              "lb"
+            ],
+            "business": {
+              "edge": "le",
+              "weight": 0.125
+            },
+            "sections": [
+              {
+                "id": "le_s0",
+                "startPoint": {
+                  "x": 48,
+                  "y": 35
+                },
+                "endPoint": {
+                  "x": 68,
+                  "y": 35
+                },
+                "incomingShape": "la",
+                "outgoingShape": "lb"
+              }
+            ],
+            "container": "left"
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        },
+        "$H": 945,
+        "x": 12,
+        "y": 12
+      },
+      {
+        "id": "right",
+        "width": 136,
+        "height": 59,
+        "business": {
+          "id": "right",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "ra",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "ra",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 953,
+            "x": 32,
+            "y": 12
+          },
+          {
+            "id": "rb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "rb",
+              "enabled": true,
+              "$H": "user-owned"
+            },
+            "$H": 955,
+            "x": 88,
+            "y": 16
+          }
+        ],
+        "edges": [
+          {
+            "id": "re",
+            "sources": [
+              "ra"
+            ],
+            "targets": [
+              "rb"
+            ],
+            "business": {
+              "edge": "re",
+              "weight": 0.125
+            },
+            "sections": [
+              {
+                "id": "re_s0",
+                "startPoint": {
+                  "x": 68,
+                  "y": 24
+                },
+                "endPoint": {
+                  "x": 88,
+                  "y": 24
+                },
+                "incomingShape": "ra",
+                "outgoingShape": "rb"
+              }
+            ],
+            "container": "right"
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        },
+        "$H": 951,
+        "x": 168,
+        "y": 23
+      }
+    ],
+    "edges": [
+      {
+        "id": "cross1",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "rb"
+        ],
+        "business": {
+          "edge": "cross1",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cross1_s0",
+            "startPoint": {
+              "x": 60,
+              "y": 53
+            },
+            "endPoint": {
+              "x": 256,
+              "y": 55
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 53
+              },
+              {
+                "x": 70,
+                "y": 69
+              },
+              {
+                "x": 246,
+                "y": 69
+              },
+              {
+                "x": 246,
+                "y": 55
+              }
+            ],
+            "incomingShape": "la",
+            "outgoingShape": "rb"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "cross2",
+        "sources": [
+          "lb"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross2",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cross2_s0",
+            "startPoint": {
+              "x": 116,
+              "y": 47
+            },
+            "endPoint": {
+              "x": 200,
+              "y": 51
+            },
+            "bendPoints": [
+              {
+                "x": 143,
+                "y": 47
+              },
+              {
+                "x": 143,
+                "y": 53
+              },
+              {
+                "x": 190,
+                "y": 53
+              },
+              {
+                "x": 190,
+                "y": 51
+              }
+            ],
+            "incomingShape": "lb",
+            "outgoingShape": "ra"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "cross3",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross3",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cross3_s0",
+            "startPoint": {
+              "x": 60,
+              "y": 41
+            },
+            "endPoint": {
+              "x": 200,
+              "y": 43
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 41
+              },
+              {
+                "x": 70,
+                "y": 24
+              },
+              {
+                "x": 153,
+                "y": 24
+              },
+              {
+                "x": 153,
+                "y": 43
+              }
+            ],
+            "incomingShape": "la",
+            "outgoingShape": "ra"
+          }
+        ],
+        "container": "r"
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+    },
+    "$H": 943,
+    "logging": {
+      "name": "Recursive Graph Layout",
+      "children": [
+        {
+          "name": "Layered layout",
+          "children": [
+            {
+              "name": "Compound graph preprocessor"
+            },
+            {
+              "name": "Recursive hierarchical layout",
+              "children": [
+                {
+                  "name": "Edge and layer constraint edge reversal"
+                },
+                {
+                  "name": "Greedy cycle removal"
+                },
+                {
+                  "name": "Layer constraint preprocessing"
+                },
+                {
+                  "name": "Network simplex layering",
+                  "children": [
+                    {
+                      "name": "Network simplex"
+                    }
+                  ]
+                },
+                {
+                  "name": "Layer constraint postprocessing"
+                },
+                {
+                  "name": "Hierarchical port constraint processing"
+                },
+                {
+                  "name": "Edge splitting"
+                },
+                {
+                  "name": "Port side processing"
+                },
+                {
+                  "name": "Port order processing"
+                },
+                {
+                  "name": "Edge and layer constraint edge reversal"
+                },
+                {
+                  "name": "Greedy cycle removal"
+                },
+                {
+                  "name": "Layer constraint preprocessing"
+                },
+                {
+                  "name": "Network simplex layering",
+                  "children": [
+                    {
+                      "name": "Network simplex"
+                    }
+                  ]
+                },
+                {
+                  "name": "Layer constraint postprocessing"
+                },
+                {
+                  "name": "Hierarchical port constraint processing"
+                },
+                {
+                  "name": "Edge splitting"
+                },
+                {
+                  "name": "Port side processing"
+                },
+                {
+                  "name": "Port order processing"
+                },
+                {
+                  "name": "Edge and layer constraint edge reversal"
+                },
+                {
+                  "name": "Greedy cycle removal"
+                },
+                {
+                  "name": "Layer constraint preprocessing"
+                },
+                {
+                  "name": "Network simplex layering",
+                  "children": [
+                    {
+                      "name": "Network simplex"
+                    }
+                  ]
+                },
+                {
+                  "name": "Layer constraint postprocessing"
+                },
+                {
+                  "name": "Edge splitting"
+                },
+                {
+                  "name": "Port side processing"
+                },
+                {
+                  "name": "Inverted port preprocessing"
+                },
+                {
+                  "name": "Port order processing"
+                },
+                {
+                  "name": "Minimize Crossings BARYCENTER"
+                },
+                {
+                  "name": "Layer constraint edge reversal"
+                },
+                {
+                  "name": "Node and Port Label Placement and Node Sizing"
+                },
+                {
+                  "name": "Node margin calculation"
+                },
+                {
+                  "name": "Hierarchical port dummy size processing"
+                },
+                {
+                  "name": "Brandes & Koepf node placement",
+                  "logs": [
+                    "RIGHTDOWN size is 35",
+                    "RIGHTUP size is 42",
+                    "LEFTDOWN size is 35",
+                    "LEFTUP size is 42",
+                    "RIGHTDOWN is feasible: true",
+                    "RIGHTUP is feasible: true",
+                    "LEFTDOWN is feasible: true",
+                    "LEFTUP is feasible: true",
+                    "Chosen node placement: RIGHTDOWN",
+                    "Blocks: {n(external_port)_0=[n(external_port)_0, n_r.right.ra, n_r.right.rb], n(external_port)_1=[n(external_port)_1], n(external_port)_2=[n(external_port)_2, n(long_edge)_1]}",
+                    "Classes: {n(external_port)_0=[n(external_port)_0, n(external_port)_1, n(external_port)_2]}",
+                    "Marked edges: []"
+                  ]
+                },
+                {
+                  "name": "Layer size calculation"
+                },
+                {
+                  "name": "Hierarchical port position processing"
+                },
+                {
+                  "name": "Orthogonal edge routing"
+                },
+                {
+                  "name": "Orthogonally routing hierarchical port edges"
+                },
+                {
+                  "name": "Edge joining"
+                },
+                {
+                  "name": "Sort end labels"
+                },
+                {
+                  "name": "Restoring reversed edges"
+                },
+                {
+                  "name": "Resize child graph to fit parent."
+                },
+                {
+                  "name": "Layer constraint edge reversal"
+                },
+                {
+                  "name": "Node and Port Label Placement and Node Sizing"
+                },
+                {
+                  "name": "Node margin calculation"
+                },
+                {
+                  "name": "Hierarchical port dummy size processing"
+                },
+                {
+                  "name": "Brandes & Koepf node placement",
+                  "logs": [
+                    "RIGHTDOWN size is 52",
+                    "RIGHTUP size is 51",
+                    "LEFTDOWN size is 46",
+                    "LEFTUP size is 46",
+                    "RIGHTDOWN is feasible: true",
+                    "RIGHTUP is feasible: true",
+                    "LEFTDOWN is feasible: true",
+                    "LEFTUP is feasible: true",
+                    "Chosen node placement: LEFTDOWN",
+                    "Blocks: {n(external_port)_1=[n_r.left.la, n_r.left.lb, n(external_port)_1], n(external_port)_0=[n(long_edge)_0, n(external_port)_0], n(external_port)_2=[n(long_edge)_2, n(external_port)_2]}",
+                    "Classes: {n(external_port)_0=[n(external_port)_1, n(external_port)_0, n(external_port)_2]}",
+                    "Marked edges: []"
+                  ]
+                },
+                {
+                  "name": "Layer size calculation"
+                },
+                {
+                  "name": "Hierarchical port position processing"
+                },
+                {
+                  "name": "Orthogonal edge routing"
+                },
+                {
+                  "name": "Orthogonally routing hierarchical port edges"
+                },
+                {
+                  "name": "Edge joining"
+                },
+                {
+                  "name": "Sort end labels"
+                },
+                {
+                  "name": "Restoring reversed edges"
+                },
+                {
+                  "name": "Resize child graph to fit parent."
+                },
+                {
+                  "name": "Layer constraint edge reversal"
+                },
+                {
+                  "name": "Node and Port Label Placement and Node Sizing"
+                },
+                {
+                  "name": "Node margin calculation"
+                },
+                {
+                  "name": "Brandes & Koepf node placement",
+                  "logs": [
+                    "RIGHTDOWN size is 78",
+                    "RIGHTUP size is 78",
+                    "LEFTDOWN size is 70",
+                    "LEFTUP size is 70",
+                    "RIGHTDOWN is feasible: true",
+                    "RIGHTUP is feasible: true",
+                    "LEFTDOWN is feasible: true",
+                    "LEFTUP is feasible: true",
+                    "Chosen node placement: LEFTDOWN",
+                    "Blocks: {n_r.right=[n_r.left, n_r.right]}",
+                    "Classes: {n_r.right=[n_r.right]}",
+                    "Marked edges: []"
+                  ]
+                },
+                {
+                  "name": "Layer size calculation"
+                },
+                {
+                  "name": "Orthogonal edge routing"
+                },
+                {
+                  "name": "Edge joining"
+                },
+                {
+                  "name": "Sort end labels"
+                },
+                {
+                  "name": "Restoring reversed edges"
+                },
+                {
+                  "name": "Resize child graph to fit parent."
+                }
+              ]
+            },
+            {
+              "name": "Compound graph postprocessor"
+            }
+          ]
+        }
+      ]
+    },
+    "x": 0,
+    "y": 0,
+    "width": 316,
+    "height": 94
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

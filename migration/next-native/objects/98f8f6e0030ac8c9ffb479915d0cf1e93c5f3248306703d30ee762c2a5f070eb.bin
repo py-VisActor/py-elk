@@ -1,0 +1,284 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker D03-D09, independently reviewed E19 closure.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external Java/GWT build identity remains unresolved.
+"""Real DisCo shape/component data and cell recommendation arithmetic.
+
+Polyomino packing and graph transformation remain pending. Polygon predicates
+retain the source's open crossings and strict containment, including misses.
+"""
+from __future__ import annotations
+from dataclasses import dataclass
+import math
+from .layered.graph import Vec2
+from .layered.cell_layout import Rectangle
+from .radial import IdentitySet, _maximum
+from .fixed import _div
+from .spore import _fuzzy_compare
+from .triangulation import _scalar_hash
+from .polyomino import Polyomino, NORTH as POLY_NORTH, EAST as POLY_EAST, SOUTH as POLY_SOUTH, WEST as POLY_WEST
+
+
+def contains_point(rect, point):
+    return (point.x > rect.x and point.x < rect.x+rect.width
+            and point.y > rect.y and point.y < rect.y+rect.height)
+
+
+def contains_path(rect, path):
+    if len(path) < 2:
+        return False
+    first = previous = path[0]
+    for point in path[1:]:
+        if not (contains_point(rect, previous) and contains_point(rect, point)):
+            return False
+        previous = point
+    return contains_point(rect, previous) and contains_point(rect, first)
+
+
+def intersects_open_segments(first_start, first_end, second_start, second_end):
+    x00, y00 = first_start.x, first_start.y
+    x10, y10 = second_start.x, second_start.y
+    x01, y01 = first_end.x-x00, first_end.y-y00
+    x11, y11 = second_end.x-x10, second_end.y-y10
+    determinant = x11*y01-x01*y11
+    if _fuzzy_compare(0, determinant, 1e-5) == 0:
+        return False
+    reciprocal = _div(1, determinant)
+    s = reciprocal*((x00-x10)*y01-(y00-y10)*x01)
+    t = reciprocal*(-(-(x00-x10)*y11+(y00-y10)*x11))
+    return (_fuzzy_compare(0, s, 1e-5) < 0
+            and _fuzzy_compare(s, 1, 1e-5) < 0
+            and _fuzzy_compare(0, t, 1e-5) < 0
+            and _fuzzy_compare(t, 1, 1e-5) < 0)
+
+
+def intersects_segment(rect, first, second):
+    if contains_point(rect, first) and contains_point(rect, second):
+        return False
+    top_left = Vec2(rect.x, rect.y)
+    top_right = Vec2(rect.x+rect.width, rect.y)
+    bottom_right = Vec2(rect.x+rect.width, rect.y+rect.height)
+    bottom_left = Vec2(rect.x, rect.y+rect.height)
+    return (intersects_open_segments(top_left, top_right, first, second)
+            or intersects_open_segments(top_right, bottom_right, first, second)
+            or intersects_open_segments(bottom_right, bottom_left, first, second)
+            or intersects_open_segments(bottom_left, top_left, first, second))
+
+
+def intersects_path(rect, path):
+    if len(path) < 2:
+        return False
+    first = previous = path[0]
+    for point in path[1:]:
+        if intersects_segment(rect, previous, point):
+            return True
+        previous = point
+    return intersects_segment(rect, previous, first)
+
+
+def _minimum(first, second):
+    return -_maximum(-first, -second)
+
+
+@dataclass(frozen=True, eq=False)
+class DCDirection:
+    name: str
+    ordinal: int
+    horizontal: bool
+
+
+NORTH = DCDirection('NORTH', 0, False)
+EAST = DCDirection('EAST', 1, True)
+SOUTH = DCDirection('SOUTH', 2, False)
+WEST = DCDirection('WEST', 3, True)
+
+
+class DCElement:
+    def __init__(self, polygon_path):
+        self.extensions = []
+        self.shape = polygon_path
+        self.properties = {}
+        self.component = None
+        minx = miny = math.inf
+        maxx = maxy = -math.inf
+        for point in polygon_path:
+            minx, miny = _minimum(minx, point.x), _minimum(miny, point.y)
+            maxx, maxy = _maximum(maxx, point.x), _maximum(maxy, point.y)
+        self.bounds = Rectangle(minx, miny, maxx-minx, maxy-miny)
+
+
+class DCExtension:
+    def __init__(self, parent, direction, middle_position, width):
+        self.direction, self.width = direction, width
+        bounds = parent.bounds
+        self.offset = Vec2(-bounds.x, -bounds.y)
+        self.offset.x += middle_position.x
+        self.offset.y += middle_position.y
+        half_width = width/2
+        if direction.horizontal:
+            self.offset.y -= half_width
+        else:
+            self.offset.x -= half_width
+        parent.extensions.append(self)
+
+    def set_offset(self, offset):
+        self.offset = offset
+
+
+class DCComponent:
+    def __init__(self, state):
+        self.state = state
+        self.offset = Vec2(0, 0)
+        self.shapes = IdentitySet(state)
+        self.changed = True
+
+    def add_elements(self, elements):
+        for element in elements:
+            self.changed = True
+            self.shapes.add(element)
+            # Source does not detach it from a different component's set.
+            element.component = self
+
+    def set_offset(self, offset):
+        self.changed = True
+        self.offset = offset
+
+    def intersects(self, rect):
+        for element in self.shapes.values():
+            if intersects_path(rect, element.shape) or contains_path(rect, element.shape):
+                return True
+        return False
+
+    def _update(self):
+        self.changed = False
+        minx = miny = math.inf
+        maxx = maxy = -math.inf
+        for element in self.shapes.values():
+            bounds = element.bounds
+            minx = _minimum(minx, bounds.x)
+            maxx = _maximum(maxx, bounds.x+bounds.width)
+            miny = _minimum(miny, bounds.y)
+            maxy = _maximum(maxy, bounds.y+bounds.height)
+            for extension in element.extensions:
+                if extension.direction.horizontal:
+                    minimum = bounds.y+extension.offset.y
+                    maximum = minimum+extension.width
+                    miny, maxy = _minimum(miny, minimum), _maximum(maxy, maximum)
+                else:
+                    minimum = bounds.x+extension.offset.x
+                    maximum = minimum+extension.width
+                    minx, maxx = _minimum(minx, minimum), _maximum(maxx, maximum)
+        self.bounds = Vec2(maxx-minx, maxy-miny)
+        self.min_corner = Vec2(minx+self.offset.x, miny+self.offset.y)
+
+    def get_dimensions(self):
+        if self.changed: self._update()
+        return self.bounds
+
+    def get_min_corner(self):
+        if self.changed: self._update()
+        return self.min_corner
+
+
+class DCGraph:
+    def __init__(self, state, components, origin=None):
+        self.state, self.origin = state, origin
+        self.properties = {}
+        self.components = []
+        # Source LinkedHashSet retains global insertion order rather than hash
+        # bucket iteration. Components are freshly constructed, hence distinct.
+        self._component_keys = IdentitySet(state)
+        for elements in components:
+            component = DCComponent(state)
+            component.add_elements(elements)
+            self._component_keys.add(component)
+            self.components.append(component)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.state.option(self.origin, name, default) if self.origin is not None else default
+
+    def set_dimensions(self, dimensions):
+        self.dimensions = dimensions
+
+
+def compute_low_res_dimension(dimension, cell_size):
+    fit = _div(dimension, cell_size)
+    truncated = _scalar_hash(fit)
+    if fit > truncated:
+        truncated += 1
+    return truncated
+
+
+class DCPolyomino(Polyomino):
+    def __init__(self, component, cell_size_x, cell_size_y):
+        super().__init__([])
+        self.cell_size_x, self.cell_size_y = cell_size_x, cell_size_y
+        self.representee = component
+        dimensions = component.get_dimensions()
+        self.p_width = compute_low_res_dimension(dimensions.x, cell_size_x)
+        self.p_height = compute_low_res_dimension(dimensions.y, cell_size_y)
+        self.reinitialize(self.p_width, self.p_height)
+        self._fill_cells()
+        for element in component.shapes.values():
+            if element.extensions:
+                self._add_extensions(element)
+
+    def _base(self):
+        corner = self.representee.get_min_corner()
+        dimensions = self.representee.get_dimensions()
+        offset_x = (dimensions.x-self.p_width*self.cell_size_x)*-0.5
+        offset_y = (dimensions.y-self.p_height*self.cell_size_y)*-0.5
+        return corner.x-offset_x, corner.y-offset_y
+
+    def _fill_cells(self):
+        base_x, current_y = self._base()
+        for y in range(self.p_height):
+            current_x = base_x
+            for x in range(self.p_width):
+                if self.representee.intersects(Rectangle(current_x, current_y, self.cell_size_x, self.cell_size_y)):
+                    self.set(x, y, False, True)
+                current_x += self.cell_size_x
+            current_y += self.cell_size_y
+
+    def _add_extensions(self, element):
+        base_x, base_y = self._base()
+        base_x, base_y = element.bounds.x-base_x, element.bounds.y-base_y
+        for extension in element.extensions:
+            xe, ye = base_x+extension.offset.x, base_y+extension.offset.y
+            xp = _scalar_hash(_div(xe, self.cell_size_x))
+            yp = _scalar_hash(_div(ye, self.cell_size_y))
+            direction = extension.direction
+            poly_direction = (POLY_NORTH if direction.ordinal == 0 else POLY_EAST
+                              if direction.ordinal == 1 else POLY_SOUTH
+                              if direction.ordinal == 2 else POLY_WEST)
+            if direction.horizontal:
+                end = _scalar_hash(_div(ye+extension.width, self.cell_size_y))
+                self.polyomino_extensions.append((poly_direction, yp, end))
+                if direction is WEST:
+                    self.weakly_block_area(0, yp, xp, end)
+                else:
+                    self.weakly_block_area(xp, yp, self.p_width-1, end)
+            else:
+                end = _scalar_hash(_div(xe+extension.width, self.cell_size_x))
+                self.polyomino_extensions.append((poly_direction, xp, end))
+                if direction is NORTH:
+                    self.weakly_block_area(xp, 0, end, yp)
+                else:
+                    self.weakly_block_area(xp, yp, end, self.p_height-1)
+
+
+def compute_cell_size(graph):
+    sum_term = product_term = 0.0
+    count = len(graph.components)
+    for component in graph.components:
+        bounds = component.get_dimensions()
+        width, height = bounds.x, bounds.y
+        sum_term += width+height
+        product_term += width*height
+    radicand = 400*count*product_term-4*product_term+sum_term*sum_term
+    numerator = (math.sqrt(radicand) if radicand >= 0 else math.nan)+sum_term
+    denominator = 2*(100*count-1)
+    if denominator == 0:
+        return numerator
+    return _div(numerator, denominator)

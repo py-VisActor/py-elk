@@ -1,0 +1,528 @@
+{
+  "schema": "py-elk-next-port-order-request/v1",
+  "cases": [
+    {
+      "id": "cyclic-index-three",
+      "constraints": "FIXED_ORDER",
+      "ports": [
+        {
+          "id": "A",
+          "side": "EAST",
+          "position": [
+            10,
+            10
+          ],
+          "index": 0
+        },
+        {
+          "id": "B",
+          "side": "EAST",
+          "position": [
+            5,
+            5
+          ]
+        },
+        {
+          "id": "C",
+          "side": "EAST",
+          "position": [
+            0,
+            0
+          ],
+          "index": 2
+        }
+      ]
+    },
+    {
+      "id": "cyclic-index-ten",
+      "constraints": "FIXED_ORDER",
+      "ports": [
+        {
+          "id": "0",
+          "side": "EAST",
+          "position": [
+            0.0,
+            0.0
+          ],
+          "index": 0
+        },
+        {
+          "id": "1",
+          "side": "EAST",
+          "position": [
+            7.0,
+            7.0
+          ]
+        },
+        {
+          "id": "2",
+          "side": "EAST",
+          "position": [
+            3.0,
+            3.0
+          ],
+          "index": 2
+        },
+        {
+          "id": "3",
+          "side": "EAST",
+          "position": [
+            10.0,
+            10.0
+          ],
+          "index": 3
+        },
+        {
+          "id": "4",
+          "side": "EAST",
+          "position": [
+            6.0,
+            6.0
+          ]
+        },
+        {
+          "id": "5",
+          "side": "EAST",
+          "position": [
+            2.0,
+            2.0
+          ],
+          "index": 1
+        },
+        {
+          "id": "6",
+          "side": "EAST",
+          "position": [
+            9.0,
+            9.0
+          ],
+          "index": 2
+        },
+        {
+          "id": "7",
+          "side": "EAST",
+          "position": [
+            5.0,
+            5.0
+          ]
+        },
+        {
+          "id": "8",
+          "side": "EAST",
+          "position": [
+            1.0,
+            1.0
+          ],
+          "index": 0
+        },
+        {
+          "id": "9",
+          "side": "EAST",
+          "position": [
+            8.0,
+            8.0
+          ],
+          "index": 1
+        }
+      ]
+    },
+    {
+      "id": "clockwise-axes",
+      "constraints": "FIXED_RATIO",
+      "ports": [
+        {
+          "id": "s1",
+          "side": "SOUTH",
+          "position": [
+            1,
+            1
+          ]
+        },
+        {
+          "id": "n1",
+          "side": "NORTH",
+          "position": [
+            9,
+            9
+          ]
+        },
+        {
+          "id": "n0",
+          "side": "NORTH",
+          "position": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "s2",
+          "side": "SOUTH",
+          "position": [
+            8,
+            8
+          ]
+        },
+        {
+          "id": "w1",
+          "side": "WEST",
+          "position": [
+            2,
+            2
+          ]
+        },
+        {
+          "id": "w2",
+          "side": "WEST",
+          "position": [
+            8,
+            8
+          ]
+        },
+        {
+          "id": "e1",
+          "side": "EAST",
+          "position": [
+            9,
+            9
+          ]
+        },
+        {
+          "id": "e0",
+          "side": "EAST",
+          "position": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixed-side-literal-reverse",
+      "constraints": "FIXED_SIDE",
+      "ports": [
+        {
+          "id": "0",
+          "side": "NORTH",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "1",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "2",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "3",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "4",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "5",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "6",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "7",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "8",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    {
+      "id": "degree-reversed-ten",
+      "constraints": "FIXED_SIDE",
+      "strategy": "PORT_DEGREE",
+      "ports": [
+        {
+          "id": "0",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            true,
+            true
+          ],
+          "incoming": [
+            true
+          ]
+        },
+        {
+          "id": "1",
+          "side": "EAST",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false,
+            true,
+            true
+          ],
+          "incoming": [
+            false,
+            true
+          ]
+        },
+        {
+          "id": "2",
+          "side": "NORTH",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "incoming": [
+            true
+          ]
+        },
+        {
+          "id": "3",
+          "side": "EAST",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            true,
+            true
+          ],
+          "incoming": [
+            false,
+            true
+          ]
+        },
+        {
+          "id": "4",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false,
+            true,
+            true
+          ],
+          "incoming": [
+            true
+          ]
+        },
+        {
+          "id": "5",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "incoming": [
+            false,
+            true
+          ]
+        },
+        {
+          "id": "6",
+          "side": "EAST",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            true,
+            true
+          ],
+          "incoming": [
+            true
+          ]
+        },
+        {
+          "id": "7",
+          "side": "NORTH",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false,
+            true,
+            true
+          ],
+          "incoming": [
+            false,
+            true
+          ]
+        },
+        {
+          "id": "8",
+          "side": "WEST",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "incoming": [
+            true
+          ]
+        },
+        {
+          "id": "9",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            true,
+            true
+          ],
+          "incoming": [
+            false,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "id": "empty-cache",
+      "constraints": "FIXED_SIDE",
+      "ports": []
+    },
+    {
+      "id": "layerless-free-netflow",
+      "constraints": "FREE",
+      "layerless": true,
+      "processSides": true,
+      "ports": [
+        {
+          "id": "out",
+          "side": "NORTH",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            true
+          ]
+        },
+        {
+          "id": "tie",
+          "side": "SOUTH",
+          "position": [
+            0,
+            0
+          ]
+        },
+        {
+          "id": "dummy",
+          "side": "UNDEFINED",
+          "position": [
+            0,
+            0
+          ],
+          "dummySide": "NORTH"
+        }
+      ]
+    },
+    {
+      "id": "fixed-known-and-undefined-side",
+      "constraints": "FIXED_SIDE",
+      "processSides": true,
+      "ports": [
+        {
+          "id": "known",
+          "side": "NORTH",
+          "position": [
+            0,
+            0
+          ],
+          "outgoing": [
+            false
+          ]
+        },
+        {
+          "id": "inferred",
+          "side": "UNDEFINED",
+          "position": [
+            0,
+            0
+          ],
+          "incoming": [
+            false
+          ]
+        },
+        {
+          "id": "dummy",
+          "side": "UNDEFINED",
+          "position": [
+            0,
+            0
+          ],
+          "dummySide": "SOUTH"
+        }
+      ]
+    }
+  ]
+}

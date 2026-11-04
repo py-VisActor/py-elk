@@ -1,0 +1,807 @@
+{
+  "schema": "py-elk-full-layered-suite/v1",
+  "caseCount": 72,
+  "status": "prepared-not-executed",
+  "comparison": "full JSON strict plus explicit existing ADR0011 generated shape-hash projection; all raw differences retained",
+  "scope": "Public API integration features; not a proof of every internal branch or all option cross-products. P1/P2 strategy and other algorithms owned by the shared full-algorithm suite.",
+  "cases": [
+    {
+      "id": "direction-right",
+      "request": "requests/direction-right.json",
+      "requestSha256": "e03b8c6f0c4b6b26e56c934064b24b2e637fc557a634721b7e5ae5979e28337f",
+      "features": [
+        "direction:RIGHT",
+        "node-labels",
+        "node-minimum",
+        "long-edge"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "direction-left",
+      "request": "requests/direction-left.json",
+      "requestSha256": "6066529153f33a2f344ed15646effb4cee5574fbd305a1b2feb833fd536c6602",
+      "features": [
+        "direction:LEFT",
+        "node-labels",
+        "node-minimum",
+        "long-edge"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "direction-up",
+      "request": "requests/direction-up.json",
+      "requestSha256": "58f5f69bbf90809d2db3a55df3526adc5f14f2ddbbefecebb61b7705adaa79b9",
+      "features": [
+        "direction:UP",
+        "node-labels",
+        "node-minimum",
+        "long-edge"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "direction-down",
+      "request": "requests/direction-down.json",
+      "requestSha256": "afb0adf137999d7332c2b54f214fc679215c5d67773d74fa58e9ed24853ffabe",
+      "features": [
+        "direction:DOWN",
+        "node-labels",
+        "node-minimum",
+        "long-edge"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "ports-free",
+      "request": "requests/ports-free.json",
+      "requestSha256": "9e3e615ec152349507453f7e89b30273dc3822170861ab94424cd38eaf870e29",
+      "features": [
+        "explicit-ports",
+        "port-constraints:FREE",
+        "all-port-sides",
+        "port-labels",
+        "port-anchor",
+        "port-index",
+        "port-offset"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "ports-fixed-side",
+      "request": "requests/ports-fixed-side.json",
+      "requestSha256": "bec21181ac569c2a9762f010d6c0088cfa54e5900b15779a2749babfd0337f0a",
+      "features": [
+        "explicit-ports",
+        "port-constraints:FIXED_SIDE",
+        "all-port-sides",
+        "port-labels",
+        "port-anchor",
+        "port-index",
+        "port-offset"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "ports-fixed-order",
+      "request": "requests/ports-fixed-order.json",
+      "requestSha256": "1967aeb54f27604b2e5e8751929752d6b92928f045f5585dd8dc804b4e9fbcc0",
+      "features": [
+        "explicit-ports",
+        "port-constraints:FIXED_ORDER",
+        "all-port-sides",
+        "port-labels",
+        "port-anchor",
+        "port-index",
+        "port-offset"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "ports-fixed-ratio",
+      "request": "requests/ports-fixed-ratio.json",
+      "requestSha256": "689ccbc4e8eac3f9f9969bf05d63c33175616079f3314f75758593379a8d400c",
+      "features": [
+        "explicit-ports",
+        "port-constraints:FIXED_RATIO",
+        "all-port-sides",
+        "port-labels",
+        "port-anchor",
+        "port-index",
+        "port-offset"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "ports-fixed-pos",
+      "request": "requests/ports-fixed-pos.json",
+      "requestSha256": "1b46f582d01dcc7ff2b4859300dcbc8809f079d924fb50cb0a3da63b1284d595",
+      "features": [
+        "explicit-ports",
+        "port-constraints:FIXED_POS",
+        "all-port-sides",
+        "port-labels",
+        "port-anchor",
+        "port-index",
+        "port-offset"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compound-cross-hierarchy",
+      "request": "requests/compound-cross-hierarchy.json",
+      "requestSha256": "18ed04ea7ba6acb06c26763b2b85ae9cd7fa1af0fc14ad866679e6f2a8d99c0c",
+      "features": [
+        "compound",
+        "cross-hierarchy",
+        "shared-source",
+        "hierarchical-ports"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compound-cross-labels-down",
+      "request": "requests/compound-cross-labels-down.json",
+      "requestSha256": "5b4305d9d6675ff42b08264f22ddd754a072348123176bf783a7d1a945050b5e",
+      "features": [
+        "compound",
+        "cross-hierarchy",
+        "center-labels",
+        "direction:DOWN"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "external-root-ports",
+      "request": "requests/external-root-ports.json",
+      "requestSha256": "b61faa4e5579ad27d5d4a6821b3def86da7165e82234836bf504a94ba0156701",
+      "features": [
+        "external-ports",
+        "minimum-graph",
+        "root-transfer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "center-median-layer",
+      "request": "requests/center-median-layer.json",
+      "requestSha256": "516fe70e9bf51028f510a238564a35a08f261805c9b367b6f5b5152d2a6712ca",
+      "features": [
+        "center-labels",
+        "center-placement:MEDIAN_LAYER",
+        "inline-labels"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "center-tail-layer",
+      "request": "requests/center-tail-layer.json",
+      "requestSha256": "51fd127ee70dbf96f4b38fe32751ea7e39f2a67970bc112639333e33769677a5",
+      "features": [
+        "center-labels",
+        "center-placement:TAIL_LAYER",
+        "inline-labels"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "center-head-layer",
+      "request": "requests/center-head-layer.json",
+      "requestSha256": "7c964aba2a5b41a2852ff06cf6535e1d3f79e4b8338e869aab672136b2e56ad0",
+      "features": [
+        "center-labels",
+        "center-placement:HEAD_LAYER",
+        "inline-labels"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "center-space-efficient-layer",
+      "request": "requests/center-space-efficient-layer.json",
+      "requestSha256": "c3e243ed2e203527e8ff1a30283958b42142c2b607be36d6e8709d7444a054da",
+      "features": [
+        "center-labels",
+        "center-placement:SPACE_EFFICIENT_LAYER",
+        "inline-labels"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "center-widest-layer",
+      "request": "requests/center-widest-layer.json",
+      "requestSha256": "9616be6aaac918decdc77c150ce79a2821190ee32060767493e84f06da6a03d5",
+      "features": [
+        "center-labels",
+        "center-placement:WIDEST_LAYER",
+        "inline-labels"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "center-center-layer",
+      "request": "requests/center-center-layer.json",
+      "requestSha256": "450e868f54f135f7cc34756e185125b70d379edd956df30b1145b7847f728bf3",
+      "features": [
+        "center-labels",
+        "center-placement:CENTER_LAYER",
+        "inline-labels"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "end-labels-head-tail",
+      "request": "requests/end-labels-head-tail.json",
+      "requestSha256": "a145f9b30fc970f20273e99f43ad7d2244adafc911beb824556dc9fba83c6433",
+      "features": [
+        "end-labels",
+        "nonempty-label-cells",
+        "end-label-sorter"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "loops-north",
+      "request": "requests/loops-north.json",
+      "requestSha256": "27bf5d017771a8713b15329181594b178bfb167421a587b051e5d1a3f4a920ba",
+      "features": [
+        "self-loops",
+        "loop-distribution:NORTH",
+        "loop-order:STACKED"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "loops-north_south",
+      "request": "requests/loops-north_south.json",
+      "requestSha256": "8704205ababaaa2ee943f909517d99166d97cdaa95f79351e1280c2ed119e8a5",
+      "features": [
+        "self-loops",
+        "loop-distribution:NORTH_SOUTH",
+        "loop-order:REVERSE_STACKED"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "loops-equally",
+      "request": "requests/loops-equally.json",
+      "requestSha256": "c22f9e3d507a22df648b6b8a4498c6d5cbcca9e1dfe7d7a3571166a2d23a379d",
+      "features": [
+        "self-loops",
+        "loop-distribution:EQUALLY",
+        "loop-order:SEQUENCED"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "partition-reversal",
+      "request": "requests/partition-reversal.json",
+      "requestSha256": "5d1122f1f852c167c99e52f20d2fcc786cce43d1f1c47adb61666e070d1a650f",
+      "features": [
+        "partition",
+        "partition-dummy",
+        "reverse-restore"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-nikolov",
+      "request": "requests/promotion-nikolov.json",
+      "requestSha256": "3bd61868898900d58ff6f7d75d9487ebfef028fd3f48f4115ab493fb97c8c6e9",
+      "features": [
+        "promotion:NIKOLOV",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-nikolov-pixel",
+      "request": "requests/promotion-nikolov-pixel.json",
+      "requestSha256": "f299863088bc937b3aca30fb38c7bb75a7372c7f1ed7e4b18a478d624d894164",
+      "features": [
+        "promotion:NIKOLOV_PIXEL",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-nikolov-improved",
+      "request": "requests/promotion-nikolov-improved.json",
+      "requestSha256": "c71ff8fd6bad50a9ec122807a731cd933b0f593cd075d326eed0fa2eb3dfcc6f",
+      "features": [
+        "promotion:NIKOLOV_IMPROVED",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-nikolov-improved-pixel",
+      "request": "requests/promotion-nikolov-improved-pixel.json",
+      "requestSha256": "c22d3aa20306acd0c731d98cad8989f0e0c0ca1f5b1fa1197b391c76c0066d89",
+      "features": [
+        "promotion:NIKOLOV_IMPROVED_PIXEL",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-dummynode-percentage",
+      "request": "requests/promotion-dummynode-percentage.json",
+      "requestSha256": "9ede39da73aa1259d8e621e332e27a4334128b98433a794030d53dd3d1ac09a3",
+      "features": [
+        "promotion:DUMMYNODE_PERCENTAGE",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-nodecount-percentage",
+      "request": "requests/promotion-nodecount-percentage.json",
+      "requestSha256": "0db587b0ac3a7ea7a72026414a40c2896e30d8e5be46a0a14b214886dc9d9572",
+      "features": [
+        "promotion:NODECOUNT_PERCENTAGE",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-no-boundary",
+      "request": "requests/promotion-no-boundary.json",
+      "requestSha256": "b785e1e40645a6bb88c2d21dc8a53870c48459940bc80eae55c30d887d6635a1",
+      "features": [
+        "promotion:NO_BOUNDARY",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-model-order-left-to-right",
+      "request": "requests/promotion-model-order-left-to-right.json",
+      "requestSha256": "7e7eaf04113c8885d43c5e5d84b3b9c4cdc1cfec250a1cd65b261d88bc1e7828",
+      "features": [
+        "promotion:MODEL_ORDER_LEFT_TO_RIGHT",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "promotion-model-order-right-to-left",
+      "request": "requests/promotion-model-order-right-to-left.json",
+      "requestSha256": "3ee4fa6def5c327b6a46be6ad1563047ed98d4d7a9400af9cdf69c2736477223",
+      "features": [
+        "promotion:MODEL_ORDER_RIGHT_TO_LEFT",
+        "dummy-reduction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "high-degree-trees",
+      "request": "requests/high-degree-trees.json",
+      "requestSha256": "c0ced47815c6057321c012e6ede0eeb81e992404ba4288aaa30a92d4eb837665",
+      "features": [
+        "high-degree",
+        "tree-isolation"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "unzip-alternate",
+      "request": "requests/unzip-alternate.json",
+      "requestSha256": "0257a7c4bc37c08503216011eb4ffc83afb9577c36b99bd7bb634b63efe3acca",
+      "features": [
+        "layer-unzipping",
+        "unzip-minimize:False"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "unzip-minimize",
+      "request": "requests/unzip-minimize.json",
+      "requestSha256": "8ddd09f910eb2e040d84f617d11bfc3ee8cd9dd6b6ffade7ae2fdff5a83363b4",
+      "features": [
+        "layer-unzipping",
+        "unzip-minimize:True"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "wrapping-single-edge-manual",
+      "request": "requests/wrapping-single-edge-manual.json",
+      "requestSha256": "fed51b19b713bc365dfc68febe21a94323d61d912f5e6e58cf58be05e9d0df37",
+      "features": [
+        "wrapping:SINGLE_EDGE",
+        "cutting:MANUAL",
+        "breaking-points"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "wrapping-multi-edge-ard",
+      "request": "requests/wrapping-multi-edge-ard.json",
+      "requestSha256": "629e52dfb253137a7daa77ff9b8020d843df9174545f41b62b68a062dbe2546e",
+      "features": [
+        "wrapping:MULTI_EDGE",
+        "cutting:ARD",
+        "breaking-points"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "wrapping-multi-edge-msd",
+      "request": "requests/wrapping-multi-edge-msd.json",
+      "requestSha256": "9af56fe307ca7bb671e9c401ca1489c170f5c2c58be6ac0a8da85f93023a6fdc",
+      "features": [
+        "wrapping:MULTI_EDGE",
+        "cutting:MSD",
+        "breaking-points"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compact-left",
+      "request": "requests/compact-left.json",
+      "requestSha256": "8f888519f9275454249c7cc155694d9f0c6f328dcb92f619bbfec851f03b985a",
+      "features": [
+        "horizontal-compaction:LEFT",
+        "edge-aware-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compact-right",
+      "request": "requests/compact-right.json",
+      "requestSha256": "617586b39c6c56166e76983f50d86302214f48e033563668ddd4cf0baa58fe00",
+      "features": [
+        "horizontal-compaction:RIGHT",
+        "edge-aware-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compact-left-right-constraint-locking",
+      "request": "requests/compact-left-right-constraint-locking.json",
+      "requestSha256": "2c5cb679cf2c3e995fda997a3fb57831e22b4b05167304b1a8cbf5654de11da6",
+      "features": [
+        "horizontal-compaction:LEFT_RIGHT_CONSTRAINT_LOCKING",
+        "edge-aware-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compact-left-right-connection-locking",
+      "request": "requests/compact-left-right-connection-locking.json",
+      "requestSha256": "cdd966b74c78b9a402c1440c198ec5d6ba8d7239aa3e698d151064f94bbcc377",
+      "features": [
+        "horizontal-compaction:LEFT_RIGHT_CONNECTION_LOCKING",
+        "edge-aware-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compact-edge-length",
+      "request": "requests/compact-edge-length.json",
+      "requestSha256": "6727694c06b26e93cda15144ee1b5bbaf094ca992e1f5ae3571ce90bfe1339ad",
+      "features": [
+        "horizontal-compaction:EDGE_LENGTH",
+        "edge-aware-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "compact-quadratic",
+      "request": "requests/compact-quadratic.json",
+      "requestSha256": "9ccfb85854db2098f9917b91e3925c0b783aeca556f1a49b0c095cd68d617de2",
+      "features": [
+        "horizontal-compaction",
+        "quadratic-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "components-none",
+      "request": "requests/components-none.json",
+      "requestSha256": "833c9a59e27c84f1ddcc610ddeda1e6eff23fc1537fbe9984342b81bf2745e41",
+      "features": [
+        "disconnected-components",
+        "component-order:NONE",
+        "connected-compaction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "components-model-order",
+      "request": "requests/components-model-order.json",
+      "requestSha256": "c530d4f6b61d9d1ae97fb7470ed8f56a6c6d018d427b26accb5e03308a1f0907",
+      "features": [
+        "disconnected-components",
+        "component-order:MODEL_ORDER",
+        "connected-compaction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "components-group-model-order",
+      "request": "requests/components-group-model-order.json",
+      "requestSha256": "91d7b5089b074143341c1d065b3ac77b584ab4da95db91fb0f2da4d358d0e944",
+      "features": [
+        "disconnected-components",
+        "component-order:GROUP_MODEL_ORDER",
+        "connected-compaction"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "comments-context",
+      "request": "requests/comments-context.json",
+      "requestSha256": "b3ee1cc730d8340f4f3d1952fc46c23aa9773e16897e25028d1c4e583684e9d8",
+      "features": [
+        "comments",
+        "comment-margin",
+        "comment-restoration"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "placement-simple",
+      "request": "requests/placement-simple.json",
+      "requestSha256": "2c80d0c3084690f63d7876ed63f94bb355e8d6ab8782bd32bbd404a8acb7ce9c",
+      "features": [
+        "placement:SIMPLE",
+        "given-geometry",
+        "whole-consumer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "placement-interactive",
+      "request": "requests/placement-interactive.json",
+      "requestSha256": "879b4909602ec83402cc81ac25662a47c8c17443649be16cf324b758f5c3c9b7",
+      "features": [
+        "placement:INTERACTIVE",
+        "given-geometry",
+        "whole-consumer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "placement-linear-segments",
+      "request": "requests/placement-linear-segments.json",
+      "requestSha256": "e9d1391861f778aa54b9e761512a9d1da25dcf9ef37977e6f32358d44e5eab8c",
+      "features": [
+        "placement:LINEAR_SEGMENTS",
+        "given-geometry",
+        "whole-consumer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "placement-brandes-koepf",
+      "request": "requests/placement-brandes-koepf.json",
+      "requestSha256": "b28354d06d6e8bcfe5259f5fcb1ff5c83aca3afd4457f8eb3efa364d3fb02b3d",
+      "features": [
+        "placement:BRANDES_KOEPF",
+        "given-geometry",
+        "whole-consumer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "placement-network-simplex",
+      "request": "requests/placement-network-simplex.json",
+      "requestSha256": "66926e1d132911e95dc728ab46dd429eb835be89b4573dc05ecb673ccfdafe1b",
+      "features": [
+        "placement:NETWORK_SIMPLEX",
+        "given-geometry",
+        "whole-consumer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "crossing-none",
+      "request": "requests/crossing-none.json",
+      "requestSha256": "2e7b6b45a2bf9d185d3c9959c5b6fbe911ef28beb4c41c4573e2b7b8b51d7d60",
+      "features": [
+        "crossing:NONE",
+        "live-port-order"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "crossing-interactive",
+      "request": "requests/crossing-interactive.json",
+      "requestSha256": "486e847b0010fcd8cb549322c684ba872093c7b424b3265a9f38f527871c66b3",
+      "features": [
+        "crossing:INTERACTIVE",
+        "live-port-order"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "crossing-layer-sweep",
+      "request": "requests/crossing-layer-sweep.json",
+      "requestSha256": "002528c6ab7cb28a2ddfa43afc61c64bda58454f3d3758fbb1a011264a1de468",
+      "features": [
+        "crossing:LAYER_SWEEP",
+        "live-port-order"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "crossing-median-layer-sweep",
+      "request": "requests/crossing-median-layer-sweep.json",
+      "requestSha256": "8adbfca1f4c4511d73c47b5696c146a8439df2d1e9aea355d82714f54f58bde6",
+      "features": [
+        "crossing:MEDIAN_LAYER_SWEEP",
+        "live-port-order"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "spline-logging-observation",
+      "request": "requests/spline-logging-observation.json",
+      "requestSha256": "df698c2c2a929804995f72cc994b9762182069f7ad378e1c0051bb3d5e8d4615",
+      "features": [
+        "SPLINES",
+        "logging",
+        "source-error-observation"
+      ],
+      "expected": "observe-stock-reference",
+      "note": "Capture the actual stock outcome. An upstream collectLogs error must remain an error, not a passing geometry comparison."
+    },
+    {
+      "id": "polyline-ports",
+      "request": "requests/polyline-ports.json",
+      "requestSha256": "f61a548cc1dd7cbf24ac7c410eb79c0661e261bc3c1436e1cfe355cae2eddae1",
+      "features": [
+        "POLYLINE",
+        "whole-consumer"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "high-degree-trees-no-logging",
+      "request": "requests/high-degree-trees-no-logging.json",
+      "requestSha256": "6b0d6e7d9a4cf159f3e52687d3162f775a1e172134870861e0856f05947d770b",
+      "features": [
+        "high-degree",
+        "tree-isolation"
+      ],
+      "expected": "observe-stock-reference",
+      "note": "Independent logging=false variation after stock logging=true collectLogs failure; original failure remains preserved."
+    },
+    {
+      "id": "unzip-alternate-no-logging",
+      "request": "requests/unzip-alternate-no-logging.json",
+      "requestSha256": "2a43d3806dcaacd71a36eb1f3ef397cc37944d7b8e3b76b804b2a0dc12e7aa62",
+      "features": [
+        "layer-unzipping",
+        "unzip-minimize:False"
+      ],
+      "expected": "observe-stock-reference",
+      "note": "Independent logging=false variation after stock logging=true collectLogs failure; original failure remains preserved."
+    },
+    {
+      "id": "unzip-minimize-no-logging",
+      "request": "requests/unzip-minimize-no-logging.json",
+      "requestSha256": "cedab135e0d08710e866c1c69ba2647508397d7c8e11b8a97cbe665ddd71d629",
+      "features": [
+        "layer-unzipping",
+        "unzip-minimize:True"
+      ],
+      "expected": "observe-stock-reference",
+      "note": "Independent logging=false variation after stock logging=true collectLogs failure; original failure remains preserved."
+    },
+    {
+      "id": "wrapping-single-edge-ard",
+      "request": "requests/wrapping-single-edge-ard.json",
+      "requestSha256": "a731f1021941a3c9a2957f0428a8395f7dad02510248bf28e02f75b3252655ea",
+      "features": [
+        "wrapping:SINGLE_EDGE",
+        "cutting:ARD",
+        "single-edge-dummies"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "external-nested-ports",
+      "request": "requests/external-nested-ports.json",
+      "features": [
+        "external-ports",
+        "compound",
+        "hierarchical-ports",
+        "minimum-graph"
+      ],
+      "expected": "observe-stock-reference",
+      "requestSha256": "cc57ffe5dade4a0dae40e7c84f5342e17a311a4c8e3a985d57a099bd2bfb63cd"
+    },
+    {
+      "id": "constraints-layer-first-last",
+      "request": "requests/constraints-layer-first-last.json",
+      "requestSha256": "1636ccd2c3b145f70b7237629e67b004175bd05060cbd0b4e9af99f8d4a780c3",
+      "features": [
+        "layer-constraints",
+        "hide-restore",
+        "edge-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "feedback-cycle",
+      "request": "requests/feedback-cycle.json",
+      "requestSha256": "b6c7b8c5c2b240403a8b63c39cf28ddda661596ffa954cca7a13a82e5af01ce0",
+      "features": [
+        "feedback-edges",
+        "cycle-reversal",
+        "reverse-restore"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "hypernode-collector",
+      "request": "requests/hypernode-collector.json",
+      "requestSha256": "a3047612819a7a577f3c0de17e9d0639b7e995937ee2ecdb116c5a056ea0674c",
+      "features": [
+        "hypernode",
+        "collector-ports",
+        "hypernode-reconnect"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "semi-interactive-positions",
+      "request": "requests/semi-interactive-positions.json",
+      "requestSha256": "6dd1aeb101d990a846d714e99a6973ada4211d428644a65238cc3e8196da359b",
+      "features": [
+        "semi-interactive",
+        "successor-constraints",
+        "position-property"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "position-layer-identifiers",
+      "request": "requests/position-layer-identifiers.json",
+      "requestSha256": "9edcbfec763615c74149f839a92b7f387a9ff36fd78497712205a356e65cb309",
+      "features": [
+        "generated-layer-id",
+        "generated-position-id",
+        "constraints-post"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "base-spacing-node-padding",
+      "request": "requests/base-spacing-node-padding.json",
+      "requestSha256": "36e2c78ed24bd9ed3d3935f5210bb6791e8a7b91cc4b25d6e717f2e8b134b501",
+      "features": [
+        "base-spacing",
+        "explicit-spacing-preserved",
+        "node-padding",
+        "node-size-constraints"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "flexibility-recompute",
+      "request": "requests/flexibility-recompute.json",
+      "requestSha256": "965c422a63f3f0fd73103a17cb4c89f1af0ab17410bfe098747bd7ed45f0e6ad",
+      "features": [
+        "node-flexibility",
+        "node-placement-repeater",
+        "node-size-recompute"
+      ],
+      "expected": "observe-stock-reference"
+    },
+    {
+      "id": "model-order-forced",
+      "request": "requests/model-order-forced.json",
+      "requestSha256": "9d9e12396891e060c589df39e974253f9c71d51eaaf2839ae40faea82b46362c",
+      "features": [
+        "model-order",
+        "integer-provenance",
+        "forced-crossing"
+      ],
+      "expected": "observe-stock-reference"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "effectAllOrderCost",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 19,
+      "elk.layered.thoroughness": 12,
+      "elk.layered.considerModelOrder.strategy": "PREFER_NODES",
+      "elk.layered.considerModelOrder.crossingCounterNodeInfluence": 0,
+      "elk.layered.crossingMinimization.greedySwitch.type": "OFF"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 25,
+        "height": 18
+      },
+      {
+        "id": "b",
+        "width": 27,
+        "height": 21
+      },
+      {
+        "id": "c",
+        "width": 29,
+        "height": 24
+      },
+      {
+        "id": "u",
+        "width": 31,
+        "height": 27
+      },
+      {
+        "id": "v",
+        "width": 33,
+        "height": 30
+      },
+      {
+        "id": "w",
+        "width": 35,
+        "height": 33
+      }
+    ],
+    "edges": [
+      {
+        "id": "au",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "u"
+        ]
+      },
+      {
+        "id": "av",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "v"
+        ]
+      },
+      {
+        "id": "aw",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "w"
+        ]
+      },
+      {
+        "id": "bu",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "u"
+        ]
+      },
+      {
+        "id": "bv",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "v"
+        ]
+      },
+      {
+        "id": "bw",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "w"
+        ]
+      },
+      {
+        "id": "cu",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "u"
+        ]
+      },
+      {
+        "id": "cv",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "v"
+        ]
+      },
+      {
+        "id": "cw",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "w"
+        ]
+      }
+    ]
+  }
+}

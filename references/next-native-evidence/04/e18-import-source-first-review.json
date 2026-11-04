@@ -1,0 +1,56 @@
+{
+  "schema": "py-elk-independent-source-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "F03"
+  ],
+  "filesSha256": {
+    "test-runs/20261104-E18-01/B/first-source-proposal-02.json": "24c7688042a22d95179e00e446fc6a4873f4d44be3058522ea79b509c0a33f02",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "test-runs/20261104-E18-01/V/particle-foundation-source-review-01.json": "ad30c1bb2dc37a12b0efe68ffcc5289d52e5bc35ce4a34795d70e0c2170c468f",
+    "test-runs/20261104-E18-01/V/option-default-source-review-01.json": "a4a162dd798d0a164dd55348b87f2615b3c0ca0ef285466931eec0512119b2d9"
+  },
+  "scope": "Force ordered model import and geometry transfer only; F04 independently assigned root; F05 model execution not approved here",
+  "verifiedSpanSha256": "dd79bc1d5a9030db155fd66f9e6b1424491590b282ff3d85da5a98b5c31fb024",
+  "facts": [
+    "Ordered direct children map to index IDs. Center uses original raw half dimensions before FNode size clamp >=1. First node label text only names FNode.",
+    "Original node outgoing then ordered port outgoing traversal; no new dedup. Hyperedges rejected before hierarchical/self-loop exclusion. Port endpoints map owner nodes.",
+    "Edge labels clamp dimensions >=1; original FLabel refresh/top-left semantics retained; graph and edge label lists remain distinct.",
+    "Port constraints UNDEFINED->FREE is dead local assignment, not a property mutation.",
+    "Bounds include nodes and fgraph.bendPoints only; omit label extents. Original INTMAX and negative Double.MAX initial sentinels retained, no empty normalization invented.",
+    "Transfer center->top-left offsets padding minus minima, original firstEdgeSection(true,true) resets and creates bends in encounter order. FLabel transfer stays top-left.",
+    "fixedGraphSize suppresses resizeNode_1(false,true), not CHILD_AREA writes. Reuse approved effectiveMinSize/resizeNode helper, preserving clear constraints and moveLabels side effects."
+  ],
+  "supportObservations": [
+    {
+      "name": "allOutgoingEdges",
+      "lineStart": 80829,
+      "lineEnd": 80838,
+      "spanSha256": "83fb5fbf02f17d635b8fe6c0f3705fb6430d21090be84cea7fb83a14a13519a4",
+      "sourceBytesBase64": "ZnVuY3Rpb24gYWxsT3V0Z29pbmdFZGdlcyhub2RlKXsKICB2YXIgb3V0Z29pbmdFZGdlSXRlcmFibGVzLCBwb3J0LCBwb3J0JGl0ZXJhdG9yOwogIG91dGdvaW5nRWRnZUl0ZXJhYmxlcyA9IG5ld0FycmF5TGlzdFdpdGhDYXBhY2l0eSgxICsgKCFub2RlLnBvcnRzICYmIChub2RlLnBvcnRzID0gbmV3IEVPYmplY3RDb250YWlubWVudFdpdGhJbnZlcnNlRUxpc3QoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtQb3J0XzJfY2xhc3NMaXQsIG5vZGUsIDksIDkpKSAsIG5vZGUucG9ydHMpLnNpemVfMCk7CiAgJGFkZF8zKG91dGdvaW5nRWRnZUl0ZXJhYmxlcywgKCFub2RlLm91dGdvaW5nRWRnZXMgJiYgKG5vZGUub3V0Z29pbmdFZGdlcyA9IG5ldyBFT2JqZWN0V2l0aEludmVyc2VSZXNvbHZpbmdFTGlzdCRNYW55SW52ZXJzZShMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa0VkZ2VfMl9jbGFzc0xpdCwgbm9kZSwgNywgNCkpICwgbm9kZS5vdXRnb2luZ0VkZ2VzKSk7CiAgZm9yIChwb3J0JGl0ZXJhdG9yID0gbmV3IEFic3RyYWN0RUxpc3QkRUl0ZXJhdG9yKCghbm9kZS5wb3J0cyAmJiAobm9kZS5wb3J0cyA9IG5ldyBFT2JqZWN0Q29udGFpbm1lbnRXaXRoSW52ZXJzZUVMaXN0KExvcmdfZWNsaXBzZV9lbGtfZ3JhcGhfRWxrUG9ydF8yX2NsYXNzTGl0LCBub2RlLCA5LCA5KSkgLCBub2RlLnBvcnRzKSk7IHBvcnQkaXRlcmF0b3IuY3Vyc29yICE9IHBvcnQkaXRlcmF0b3IudGhpcyQwMV8yLnNpemVfMSgpOykgewogICAgcG9ydCA9IGNhc3RUbygkZG9OZXh0KHBvcnQkaXRlcmF0b3IpLCAxMjEpOwogICAgJGFkZF8zKG91dGdvaW5nRWRnZUl0ZXJhYmxlcywgKCFwb3J0Lm91dGdvaW5nRWRnZXMgJiYgKHBvcnQub3V0Z29pbmdFZGdlcyA9IG5ldyBFT2JqZWN0V2l0aEludmVyc2VSZXNvbHZpbmdFTGlzdCRNYW55SW52ZXJzZShMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa0VkZ2VfMl9jbGFzc0xpdCwgcG9ydCwgNywgNCkpICwgcG9ydC5vdXRnb2luZ0VkZ2VzKSk7CiAgfQogIHJldHVybiBjaGVja05vdE51bGwob3V0Z29pbmdFZGdlSXRlcmFibGVzKSAsIG5ldyBGbHVlbnRJdGVyYWJsZSQyKG91dGdvaW5nRWRnZUl0ZXJhYmxlcyk7Cn0K",
+      "classification": "support observation; approved JsonLayoutSession source closure reused, no GWT container copy"
+    },
+    {
+      "name": "connectableShapeToNode",
+      "lineStart": 80840,
+      "lineEnd": 80853,
+      "spanSha256": "6e970eaae43f0e1a7eb0481db534fa5729b02c028b9ef74e9d62e225b1343acf",
+      "sourceBytesBase64": "ZnVuY3Rpb24gY29ubmVjdGFibGVTaGFwZVRvTm9kZShjb25uZWN0YWJsZVNoYXBlKXsKICBpZiAoaW5zdGFuY2VPZihjb25uZWN0YWJsZVNoYXBlLCAxOTYpKSB7CiAgICByZXR1cm4gY2FzdFRvKGNvbm5lY3RhYmxlU2hhcGUsIDI4KTsKICB9CiAgIGVsc2UgaWYgKGluc3RhbmNlT2YoY29ubmVjdGFibGVTaGFwZSwgMTg2KSkgewogICAgcmV0dXJuICRnZXRQYXJlbnRfMyhjYXN0VG8oY29ubmVjdGFibGVTaGFwZSwgMTIxKSk7CiAgfQogICBlbHNlIGlmICghY29ubmVjdGFibGVTaGFwZSkgewogICAgdGhyb3cgdG9KcyhuZXcgTnVsbFBvaW50ZXJFeGNlcHRpb25fMCgnY29ubmVjdGFibGVTaGFwZSBjYW5ub3QgYmUgbnVsbCcpKTsKICB9CiAgIGVsc2UgewogICAgdGhyb3cgdG9KcyhuZXcgVW5zdXBwb3J0ZWRPcGVyYXRpb25FeGNlcHRpb25fMCgnT25seSBzdXBwb3J0IG5vZGVzIGFuZCBwb3J0cy4nKSk7CiAgfQp9Cg==",
+      "classification": "support observation; approved JsonLayoutSession source closure reused, no GWT container copy"
+    },
+    {
+      "name": "isHierarchical",
+      "lineStart": 76188,
+      "lineEnd": 76202,
+      "spanSha256": "0eb1731d68eada7cdc7180186f321ef1e9bb0e403beb855d839187ad6dfd12be",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGlzSGllcmFyY2hpY2FsKHRoaXMkc3RhdGljKXsKICB2YXIgY29tbW9uUmVwcmVzZW50aW5nTm9kZSwgaW5jaWRlbnRTaGFwZSwgaW5jaWRlbnRTaGFwZSRpdGVyYXRvciwgc2hhcGVOb2RlOwogIGNvbW1vblJlcHJlc2VudGluZ05vZGUgPSBudWxsOwogIGZvciAoaW5jaWRlbnRTaGFwZSRpdGVyYXRvciA9ICRpdGVyYXRvcihjb25jYXROb0RlZmVuc2l2ZUNvcHkoc3RhbXBKYXZhVHlwZUluZm8oZ2V0Q2xhc3NMaXRlcmFsRm9yQXJyYXkoTGphdmFfbGFuZ19JdGVyYWJsZV8yX2NsYXNzTGl0LCAxKSwgJGludGVybl8yLCAyMiwgMCwgWyghdGhpcyRzdGF0aWMuc291cmNlcyAmJiAodGhpcyRzdGF0aWMuc291cmNlcyA9IG5ldyBFT2JqZWN0V2l0aEludmVyc2VSZXNvbHZpbmdFTGlzdCRNYW55SW52ZXJzZShMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa0Nvbm5lY3RhYmxlU2hhcGVfMl9jbGFzc0xpdCwgdGhpcyRzdGF0aWMsIDQsIDcpKSAsIHRoaXMkc3RhdGljLnNvdXJjZXMpLCAoIXRoaXMkc3RhdGljLnRhcmdldHMgJiYgKHRoaXMkc3RhdGljLnRhcmdldHMgPSBuZXcgRU9iamVjdFdpdGhJbnZlcnNlUmVzb2x2aW5nRUxpc3QkTWFueUludmVyc2UoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtDb25uZWN0YWJsZVNoYXBlXzJfY2xhc3NMaXQsIHRoaXMkc3RhdGljLCA1LCA4KSkgLCB0aGlzJHN0YXRpYy50YXJnZXRzKV0pKSk7ICRoYXNOZXh0XzEoaW5jaWRlbnRTaGFwZSRpdGVyYXRvcik7KSB7CiAgICBpbmNpZGVudFNoYXBlID0gY2FzdFRvKCRuZXh0XzAoaW5jaWRlbnRTaGFwZSRpdGVyYXRvciksIDg1KTsKICAgIHNoYXBlTm9kZSA9IGNvbm5lY3RhYmxlU2hhcGVUb05vZGUoaW5jaWRlbnRTaGFwZSk7CiAgICBpZiAoIWNvbW1vblJlcHJlc2VudGluZ05vZGUpIHsKICAgICAgY29tbW9uUmVwcmVzZW50aW5nTm9kZSA9ICRnZXRQYXJlbnRfMihzaGFwZU5vZGUpOwogICAgfQogICAgIGVsc2UgaWYgKGNvbW1vblJlcHJlc2VudGluZ05vZGUgIT0gJGdldFBhcmVudF8yKHNoYXBlTm9kZSkpIHsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CiAgfQogIHJldHVybiBmYWxzZTsKfQo=",
+      "classification": "support observation; approved JsonLayoutSession source closure reused, no GWT container copy"
+    }
+  ],
+  "limitations": [
+    "Source acceptance enables implementation, not completed Force/Stress or public registration.",
+    "Native strict finite input policy and owned JSON transfer are existing host mappings; source malformed input exception types are not newly promised.",
+    "No original phase or full layout executed by this review."
+  ]
+}

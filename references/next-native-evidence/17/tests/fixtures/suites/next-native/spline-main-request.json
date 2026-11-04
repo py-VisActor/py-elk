@@ -1,0 +1,129 @@
+{
+  "cases": [
+    {
+      "name": "conservative-crossing-main",
+      "mode": "CONSERVATIVE",
+      "layers": [
+        [
+          {
+            "name": "a",
+            "y": 0,
+            "w": 25
+          },
+          {
+            "name": "b",
+            "y": 80,
+            "w": 18
+          }
+        ],
+        [
+          {
+            "name": "c",
+            "y": 10,
+            "w": 22
+          },
+          {
+            "name": "d",
+            "y": 90,
+            "w": 30
+          }
+        ]
+      ],
+      "edges": [
+        [
+          "a",
+          "EAST",
+          "d",
+          "WEST"
+        ],
+        [
+          "b",
+          "EAST",
+          "c",
+          "WEST"
+        ],
+        [
+          "a",
+          "EAST",
+          "c",
+          "WEST"
+        ]
+      ]
+    },
+    {
+      "name": "sloppy-longchain-main",
+      "mode": "SLOPPY",
+      "layers": [
+        [
+          {
+            "name": "p",
+            "y": 0,
+            "w": 25
+          },
+          {
+            "name": "q",
+            "y": 240,
+            "w": 17
+          }
+        ],
+        [
+          {
+            "name": "dummy",
+            "y": 30,
+            "w": 0,
+            "type": "LONG_EDGE"
+          },
+          {
+            "name": "m",
+            "y": 80,
+            "w": 30
+          }
+        ],
+        [
+          {
+            "name": "z",
+            "y": 400,
+            "w": 26
+          },
+          {
+            "name": "t",
+            "y": 800,
+            "w": 22
+          }
+        ]
+      ],
+      "edges": [
+        [
+          "p",
+          "EAST",
+          "dummy",
+          "WEST"
+        ],
+        [
+          "dummy",
+          "EAST",
+          "t",
+          "WEST"
+        ],
+        [
+          "q",
+          "EAST",
+          "m",
+          "WEST"
+        ],
+        [
+          "m",
+          "EAST",
+          "z",
+          "WEST"
+        ],
+        [
+          "t",
+          "WEST",
+          "z",
+          "WEST"
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/execution/json_transfer.py": "c3764642575711469626222d687a5e117e78f93978b0522e88b5d15fd4626cd9",
+    ".local/migration-next/src/pyelk/execution/node_micro.py": "352b563ee9058840289cca6dbd2355b0fcbf7b2a0c1629f18df9512a70d7fe9d",
+    ".local/migration-next/src/pyelk/execution/identity.py": "cef88995b829792c1725b4fe33a0c60988a03bfbe9f67ccdad108d70a173128b",
+    ".local/migration-next/src/pyelk/options/schema.py": "36c13c1512e96a5e75f120e9043d13cdd5bb0e309dad4b3a35f48b50a50b9d1e",
+    ".local/migration-next/src/pyelk/algorithms/mrtree.py": "36c83ecf7b8a648770dc758c72127d6abdece5f6ae1bbbd4c2c6102c8fe25bd7",
+    ".local/migration-next/src/pyelk/algorithms/radial.py": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7"
+  },
+  "scope": "Only new selected-global constructor storage and two convenience wrapper factories; prior math and source reviews unchanged",
+  "notes": [
+    "JsonLayoutSession options=None yields owned empty mapping; explicit non-Mapping values including false rejected before cloning, Mapping accepted via strict recursive clone_json. Nested values preserve actual false/zero, no caller references retained; invalid JSON and cyclic/nonstring-key values use existing strict ownership checks.",
+    "Both wrappers lazily import JsonLayoutSession, pass original graph/options, execute real provider _layout and return session.export(). They do not bypass default micro or use external engine. No new public parser registration or full recursive scheduling claim.",
+    "Read existing root one factory-method and B AST/body equivalence receipt rather than rerun old4 official graphs. Radial new independent original graphs next; not yet claimed by this small source-delta acceptance."
+  ]
+}

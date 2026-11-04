@@ -1,0 +1,439 @@
+{
+  "schema": "py-elk-e07-export-controls-receipt/v1",
+  "iteration": "E07",
+  "operatorLane": "V",
+  "role": "actual-offline-control-execution-receipt-not-independent-review",
+  "status": "E07_EXPORT_CONTROLS_PASS",
+  "createdUtc": "2026-11-03T09:49:36.163215+00:00",
+  "tool": {
+    "path": "tools/reference/check_e07_export_controls.py",
+    "sha256": "85f315f48f656fed17954e3f019d5341709ebfc7c7044413d31d544ed4b31701"
+  },
+  "installedRun": "test-runs/20261103-E07-01/installed-e07-01",
+  "actualRunOriginalFilesSha256": {
+    "report.json": "b1cc8eb8adc5fa73357ed728e259aae8a2aef852c26e8a52a2c653ae00fbd55a",
+    "comparison.json": "bf82d4a47221ccb9eff8777fe22778db54d2287ae77d4c5ad765420d41289f01",
+    "installed-wheel.json": "9cccb1154b7843c1baa5349e589cb3d4551bcb1d4a24c9f68fa25698227466e8",
+    "reference/index.json": "cc2bdaef7704a08f6a8d0e842aac42c8ceb4a0dceea38959ff942e6447ee7ede",
+    "candidate/index.json": "f0901f0a6d85b94b0d5eb0ab61b5475472a98f59aa2551de182c5ad40a0d7963"
+  },
+  "positiveControls": {
+    "original": true,
+    "copied": true,
+    "caseCount": 72,
+    "repeat": 3,
+    "wheelSha256": "5d5666944e628088615be6d7ff9f434757d9ae6787286fd621b8dd170bebbf55",
+    "packageFiles": 36,
+    "metadataSha256": "23bad202146c99ba25ccea9e30041ee8a933c1ee21e5582ef6c186bd22db52db"
+  },
+  "copiedPositiveAfterControls": true,
+  "negativeControlsRejected": 33,
+  "installedNegativeControls": [
+    {
+      "name": "empty-candidate-geometry",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "0a0e737147cec5e4720c85a89fbdac47594082e62730590e6c02232de3967c94"
+      }
+    },
+    {
+      "name": "empty-reference-geometry",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "83a42eba6e3fed76f9df372158f6a7952a578260ef3f5588abfa24dc3689589e"
+      }
+    },
+    {
+      "name": "empty-input-preservation",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "46440c88a7573953583cb9204eb1673a0882540f589ffbe9f20bde6f65ffb74f"
+      }
+    },
+    {
+      "name": "failed-selected-profile-row",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "2c1f263b2c1bf04aa11979f25da45e2661e6d226dbd7397c49285e3e4719bac6"
+      }
+    },
+    {
+      "name": "wrong-selected-profile-row",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "3c7d84ee10e61b7a660921a8d628711e5c642a43bf0240ca7193c61a9e1a54e4"
+      }
+    },
+    {
+      "name": "wrong-reference-index-sha",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "a1afe316603fe7a33889cf6f8825919b0fc4c126648f8d4d0330ecf20e87776b"
+      }
+    },
+    {
+      "name": "wrong-candidate-index-sha",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "93df857aeb675d4f3140359fef2cc9d14aae594979f40a11701c4b44524f8084"
+      }
+    },
+    {
+      "name": "partial-determinism-comparison",
+      "category": "recomputed-comparison",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "comparison.json": "6d639fa91cf3f38e44dd32a63f30f2193db00de45816db3e31c1b1b3ea8354e6"
+      }
+    },
+    {
+      "name": "wrong-candidate-capture-role",
+      "category": "capture-role-denominator",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Reference baseline differs from UPSTREAM lock",
+      "mutatedFilesSha256": {
+        "candidate/index.json": "47bb20adb5f1ea3fe6f6fb8091bc7ebab31d3266eb27cc722603c7b882f312fd"
+      }
+    },
+    {
+      "name": "wrong-reference-capture-role",
+      "category": "capture-role-denominator",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Candidate observation identity differs",
+      "mutatedFilesSha256": {
+        "reference/index.json": "79ae1563f4ffdb805391f5d533728a75c95aca9c15a0509fcceea8e633e60bd5"
+      }
+    },
+    {
+      "name": "boolean-repeat",
+      "category": "capture-role-denominator",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Invalid capture role/repeat/failures",
+      "mutatedFilesSha256": {
+        "candidate/index.json": "a06b4e7ec080613acebfd5001e86b600d88b6b5dbeaa16c9c394f884b79d91ca"
+      }
+    },
+    {
+      "name": "partial-raw-membership",
+      "category": "capture-role-denominator",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Capture case denominator differs",
+      "mutatedFilesSha256": {
+        "reference/index.json": "d554f82e3cba8eb8c783644851e4b826dad9c5d6a5879c10697455ee82ce8114"
+      }
+    },
+    {
+      "name": "wrong-source-approval-role",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Expanded source approval command differs",
+      "mutatedFilesSha256": {
+        "report.json": "68a08dab7299978f0b8f816f23fdc6f56527ada108418c7ce68f92c4bc678913",
+        "source-approval-command/command.json": "9cac1091cb7d50fd2d73619666cc4f03e20b8654aacc1066dbef7300f8df1955"
+      }
+    },
+    {
+      "name": "wrong-source-approval-interpreter",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Source approval producer differs",
+      "mutatedFilesSha256": {
+        "report.json": "43e907298d05e1ce276f31a7eaed2045d44c76a5bf25061b1f9de1ce9c436414",
+        "source-approval-command/command.json": "5e11996daa579382c8ee60176d56d43326ae12fac771dbfd18ad7c9b0765e400"
+      }
+    },
+    {
+      "name": "candidate-environment-not-isolated",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Historical candidate environment is not isolated",
+      "mutatedFilesSha256": {
+        "candidate-command/command.json": "93158c0f73075408611fe91c0bae3001c71ee4bd00a35ba2d0792eda65bad193",
+        "report.json": "af00d889d8ca4890609d241f32f71b87234962132cdb34d3bf81f97a46c54973"
+      }
+    },
+    {
+      "name": "installed-interpreter-without-I",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Installed verification did not use an isolated interpreter",
+      "mutatedFilesSha256": {
+        "installed-wheel-command/command.json": "46fa4243fc6d4dbc93405ce4f92b9c50416b30a338ab26ee062e78a474602858",
+        "report.json": "c316b9b2bda5ed9abb4a369792f6189c7dcea28a262959547147802d1066d6fa"
+      }
+    },
+    {
+      "name": "candidate-wrong-repeat",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Command repeat count differs",
+      "mutatedFilesSha256": {
+        "candidate-command/command.json": "9bac8ea033e679d590cd68e1cd81f1a0d25222c885fd12390eb5bfd17f1996a8",
+        "report.json": "32597b7e8944a1844f4931d8d433e611a0a83b70f93baacb4235edea7f86a87a"
+      }
+    },
+    {
+      "name": "candidate-wrong-adapter",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Historical candidate capture did not use the generated adapter",
+      "mutatedFilesSha256": {
+        "candidate-command/command.json": "d2ab7ec503c318a04c2e16c85643273287a816f2661266d04cdafd1460e586d2",
+        "report.json": "072060f1fc63210682390190f6b047a55deb9f3223d17fc7c7a6d5b79d046cb3"
+      }
+    },
+    {
+      "name": "compare-wrong-profile",
+      "category": "rebound-command-role",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Historical comparison policy differs",
+      "mutatedFilesSha256": {
+        "compare-command/command.json": "2e9155000cbabe2302ac6f537bef7a595725fa0d85c8fbf87fec96de4d426af3",
+        "report.json": "b4a78a027ff4feb424acb560cf6677cd10783be156a5e756a91e46a98badfb2f"
+      }
+    },
+    {
+      "name": "command-log-byte-mismatch",
+      "category": "raw-command-log",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Actual command log SHA differs",
+      "mutatedFilesSha256": {
+        "candidate-command/stdout.log": "fbd2c290306da63177de8e67ff4b4ab326b1badbcef14f55df332031aa47e468"
+      }
+    },
+    {
+      "name": "metadata-name-rebound-sha",
+      "category": "actual-current-METADATA",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Distribution METADATA name differs",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "874b6871e0574e49658a7bec315ba1bddaefb42f87d6279c357b6d3d30e922a9"
+      }
+    },
+    {
+      "name": "metadata-readme-rebound-sha",
+      "category": "actual-current-METADATA",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Distribution README bytes differ",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "32209f85e6eda337b5ac3a19e0c9f88a8888aa9e309ad70b49e3537f7616aa49"
+      }
+    },
+    {
+      "name": "metadata-unsafe-archive-member",
+      "category": "actual-current-METADATA",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Invalid METADATA archive member",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "b303bcd6e088fb8ba436d0f705383e03aff4f81ab34fe2ddd3780d4f2573a74d"
+      }
+    },
+    {
+      "name": "metadata-missing-receipt",
+      "category": "actual-current-METADATA",
+      "rejected": true,
+      "errorType": "KeyError",
+      "reason": "'distributionMetadata'",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "72d3f2d17bf282b26f4051e192f83568922ca43225cfe053657ce7fc63039cf1"
+      }
+    },
+    {
+      "name": "missing-direction-module-identity",
+      "category": "complete-current-package-identities",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Installed Python/license file denominator differs",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "b83458ddaa392f3908ec69bc30076381c9ca17a59737e91e0e8d1a41284d5318"
+      }
+    },
+    {
+      "name": "wrong-current-module-identity",
+      "category": "complete-current-package-identities",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Current package bytes differ from the installed evidence: algorithms/layered/components.py",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "ab34955e65b5cb67766055a2d9564f123be15c012aa4d10d608fc14e489ce2bc"
+      }
+    },
+    {
+      "name": "missing-e07-notice-identity",
+      "category": "complete-current-package-identities",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Installed Python/license file denominator differs",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "d81b57ae7daf0b425a4c7c570b6a72cfad904a81ee8650948454383a79d08c35"
+      }
+    },
+    {
+      "name": "invented-package-file-identity",
+      "category": "complete-current-package-identities",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Installed Python/license file denominator differs",
+      "mutatedFilesSha256": {
+        "installed-wheel.json": "c5cbcae381eaf399148f489afc27e9addf50ca4f93b3850143003fe4f89e8a9d"
+      }
+    },
+    {
+      "name": "raw-candidate-wrong-engine",
+      "category": "rebound-raw-observation-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Candidate observation identity differs",
+      "mutatedFilesSha256": {
+        "candidate/index.json": "01f91c7abdbafb1432181aba58e17dfe30aae26c1435ebd0ec055115009f706f",
+        "candidate/layered-chain/run-01/observation.json": "3674a0644621790e5f6cf3b74b46859099cce8734a6bc1247ff2251c20fa9b3d"
+      }
+    },
+    {
+      "name": "raw-reference-wrong-entrypoint",
+      "category": "rebound-raw-observation-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Reference observation identity differs",
+      "mutatedFilesSha256": {
+        "reference/index.json": "4b3e3994f24ac816ba32930ad1b8e05dfcd0285c98293051093951f72c3a6951",
+        "reference/layered-chain/run-01/observation.json": "6c3824eb1034f661b04d5d7a5e61753769e3f15481235c842d8ea2dd26705104"
+      }
+    },
+    {
+      "name": "raw-candidate-wrong-request",
+      "category": "rebound-raw-observation-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Observation request fingerprint differs",
+      "mutatedFilesSha256": {
+        "candidate/index.json": "389578b32d34f40b5d7d946c6face6ddb0e993660cbf1ffbfad05b7da3214c20",
+        "candidate/layered-chain/run-01/observation.json": "c2710e4d4feff309b9d900961f9a4b482a66bebb2c20ab1ba1106405c75aafc4"
+      }
+    },
+    {
+      "name": "raw-candidate-mutated-input",
+      "category": "rebound-raw-observation-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "candidate/index.json": "50a8a87bb099edf207643ebafbba0346e11e67cc888223437a5a5b64100e5001",
+        "candidate/layered-chain/run-01/observation.json": "59873359dab9f8965bc633fc28036bb82e48abfd03f31f8613e030157c606aa7"
+      }
+    },
+    {
+      "name": "raw-candidate-mutated-result",
+      "category": "rebound-raw-observation-sha",
+      "rejected": true,
+      "errorType": "ValueError",
+      "reason": "Recorded comparison differs from recomputed raw observations",
+      "mutatedFilesSha256": {
+        "candidate/index.json": "8182c83e7e53491b5ca579895e18f9729548405994e403c2401a7f6e219eca60",
+        "candidate/layered-chain/run-01/observation.json": "1467de295f901b3277e44d635e364056cc2797cd3461a5a71e7c6522db9a2349"
+      }
+    }
+  ],
+  "originalInputsAndSourcesUnchanged": true,
+  "sourceFilesSha256": {
+    "tools/reference/check_e07_export_controls.py": "85f315f48f656fed17954e3f019d5341709ebfc7c7044413d31d544ed4b31701",
+    "scripts/export_e05_installed_evidence.py": "709f745db50b7bc6e4447ad8cfed225d64da4abde3f099070fb04a10f68c3373",
+    "scripts/export_e07_installed_evidence.py": "5edcb8ebf9b9ee714b5f2e12d7f25dde08312df4b59ba897c08c0d01ba9dffbb",
+    "scripts/layout_checks.py": "407cea66b49d995be8fde9678790e461353e7abee50f2c7d19027ac046fd6bf3",
+    "scripts/e07_geometry_premise.py": "9a7634400ec5347708d29fc18261cba6ca0b1b0e98f0237e8fc13c7b14e5e5db",
+    "scripts/validate_e04_runtime.py": "7cf8b2d030a98461c20bfdc34f49b01369e5435f07dcca312a788424bcffbc82",
+    "scripts/validate_e06_runtime.py": "e3dccaa28bd32e6aa79d2b320c6b8a4b9d358b88e00e77dafed6f0ea46be3da5",
+    "scripts/validate_e07_runtime.py": "089092a53bcff666c6ee9e95c9f4f886670f0206016d2b9f03bc628ccfc20e5e",
+    "pyproject.toml": "6e397c8d1575a2409a7768f7a3e6f55e14fa483e71110f1415d9491bf51ed2ff",
+    "README.md": "b19532c069d82f97a86bf2738a3864fe989175f3a32aaa7f9124c534d969b359",
+    "src/pyelk/api.py": "f1f0452e70488beb7587fba00199748e6ffa437c18e1a4de7a141150bcdff5ea",
+    "src/pyelk/_errors.py": "1611c957b017e8b4ffea931dabedad56328ec1deec238489e86da5a57c755fe9",
+    "src/pyelk/_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "src/pyelk/__init__.py": "ecf5616031230a0505175d06998874a2af9ff52465c6afa4878630b179201544",
+    "src/pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "src/pyelk/execution/context.py": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+    "src/pyelk/execution/__init__.py": "001b74f3300f958c072dabaf36e697443ad57ce3e99acbfa16702f89e77f86c2",
+    "src/pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "src/pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "src/pyelk/options/resolution.py": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+    "src/pyelk/options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+    "src/pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "src/pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+    "src/pyelk/_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+    "src/pyelk/_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+    "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6",
+    "src/pyelk/_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "src/pyelk/algorithms/layered/components.py": "0b9013203232d9f0ed8ac7f26462c3b79c46f20134bc6c6c1f45d83b177eb12e",
+    "src/pyelk/algorithms/layered/crossing.py": "abc3bb47d06c93ed7441addb388dd0b94bef120fc334aa8836a81a496c15d088",
+    "src/pyelk/algorithms/layered/cycles.py": "7261471481e3a1d7f3bfdb3972f437c28e652eab967e29e41bc0ca172a3813c7",
+    "src/pyelk/algorithms/layered/directions.py": "f90ec7e1cfdd1b4d9fcd5b46a724d60cce01fbf1310276fe9610b6ab8d44f4ec",
+    "src/pyelk/algorithms/layered/graph.py": "b3cb2df06f5a24199ab04c15314237a6a0c1f8cf0a9a4dd5460373fb332c8479",
+    "src/pyelk/algorithms/layered/import_export.py": "1a8a7fbc9ab8f41f87b4bf59a6feab320b1c7266b02f164f48bbd31680dc9c05",
+    "src/pyelk/algorithms/layered/layering.py": "53e8c3d8751377fc69fd18bcba3335356c93cda17712c946e4bdc869632eda51",
+    "src/pyelk/algorithms/layered/long_edges.py": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+    "src/pyelk/algorithms/layered/loops.py": "1752c18adedbc9be5b34b441cf79f4a28bc1cafba89abf817eeadad5be977124",
+    "src/pyelk/algorithms/layered/phases.py": "1290c88cece977b8737a4a3efa586ee0ea50fbf875b0893e432cb0e0ce0b0436",
+    "src/pyelk/algorithms/layered/pipeline.py": "abbb4667fa05e30b16f084f7ccc6975c8f640670a7e477c658fedcb76c252d9c",
+    "src/pyelk/algorithms/layered/placement.py": "102d2d89b21df852b1e96468c20562b6cd474617bc5d1f483d65e4cb705166ed",
+    "src/pyelk/algorithms/layered/processors.py": "26eace9a6d51bc0ae5dd2868f5e83c7822f07d62df6a4ea41b3c16249c865587",
+    "src/pyelk/algorithms/layered/routing.py": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75",
+    "src/pyelk/algorithms/layered/scope.py": "d3cb21a6770799d5f6d739097ab9d579d278de2b4fb829d71a7f6eeda5a33059",
+    "src/pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9"
+  },
+  "rawControlsReport": {
+    "path": "test-runs/20261103-E07-01/V/export-controls-first/report.json",
+    "sha256": "7b68912dbb0efeaf4dd5b6bbdc9f28dcfea382162a96e00e229b823b40a20696"
+  },
+  "commandReceipt": {
+    "path": "test-runs/20261103-E07-01/V/installed-export-controls-first.command.json",
+    "sha256": "271028153967d45a85c606799fe4ecf0f49804d310550282a77b8c109c9d1c95"
+  },
+  "runtimeReexecuted": false,
+  "installationReexecuted": false,
+  "engineLaunched": false,
+  "phaseProtocolAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "fullAlgorithmAccepted": false,
+  "packagePublished": false,
+  "limitation": "Offline self-consistency and current package/METADATA binding only. Entirely forged historical execution cannot be authenticated; no engine/API/lifecycle/release acceptance."
+}

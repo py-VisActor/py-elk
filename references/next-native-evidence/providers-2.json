@@ -1,0 +1,2542 @@
+{
+  "sourceFilesSha256": {
+    "fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    "box.py": "388dfc61d0a5e7171f7978095b669eee8f26df259818a2643db567f9eb3998b6",
+    "random.py": "ea98ff9f6dc18828a059bf81fd8e42ae77f6053fe23e80ee801248d48c45cb1f"
+  },
+  "cases": [
+    {
+      "id": "box-group_dec",
+      "requestSha256": "3bccdf3c4b0c21f4d53a2a6f84d64cc0943da1b78906b3bf47468592c4416b40",
+      "referenceObservationSha256": "6c55ccf10be01798e2a686d286db1bafe320e94c55b4d1515b5018d7d4bbb239",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "3bccdf3c4b0c21f4d53a2a6f84d64cc0943da1b78906b3bf47468592c4416b40",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_DEC"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80,
+              "$H": 277,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10,
+              "$H": 279,
+              "x": 110,
+              "y": 40
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10,
+              "$H": 281,
+              "x": 110,
+              "y": 65
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10,
+              "$H": 283,
+              "x": 110,
+              "y": 15
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8,
+              "$H": 285,
+              "x": 110,
+              "y": 90
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5,
+              "$H": 287,
+              "x": 133,
+              "y": 90
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 153,
+          "height": 113
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_DEC"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80,
+              "$H": 277,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10,
+              "$H": 279,
+              "x": 110,
+              "y": 40
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10,
+              "$H": 281,
+              "x": 110,
+              "y": 65
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10,
+              "$H": 283,
+              "x": 110,
+              "y": 15
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8,
+              "$H": 285,
+              "x": 110,
+              "y": 90
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5,
+              "$H": 287,
+              "x": 133,
+              "y": 90
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 153,
+          "height": 113
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.box.packingMode": "GROUP_DEC"
+        },
+        "children": [
+          {
+            "id": "0",
+            "width": 80,
+            "height": 80,
+            "x": 15.0,
+            "y": 15.0
+          },
+          {
+            "id": "1",
+            "width": 10,
+            "height": 10,
+            "x": 110.0,
+            "y": 40.0
+          },
+          {
+            "id": "2",
+            "width": 10,
+            "height": 10,
+            "x": 110.0,
+            "y": 65.0
+          },
+          {
+            "id": "3",
+            "width": 20,
+            "height": 10,
+            "x": 110.0,
+            "y": 15.0
+          },
+          {
+            "id": "4",
+            "width": 8,
+            "height": 8,
+            "x": 110.0,
+            "y": 90.0
+          },
+          {
+            "id": "5",
+            "width": 5,
+            "height": 5,
+            "x": 133.0,
+            "y": 90.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 153.0,
+        "height": 113.0
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/children/3/$H",
+            "kind": "missing",
+            "expected": 283
+          },
+          {
+            "path": "/children/4/$H",
+            "kind": "missing",
+            "expected": 285
+          },
+          {
+            "path": "/children/5/$H",
+            "kind": "missing",
+            "expected": 287
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-group_inc",
+      "requestSha256": "0240184e1308be22f425778b05b17b9432434c1353da3a6aecbef4b6673bf196",
+      "referenceObservationSha256": "6d3174104a7e6ae31576342732b80bc1c58819504d71daf02c4ff7174647f9a5",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "0240184e1308be22f425778b05b17b9432434c1353da3a6aecbef4b6673bf196",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_INC"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80,
+              "$H": 277,
+              "x": 58,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10,
+              "$H": 279,
+              "x": 15,
+              "y": 38
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10,
+              "$H": 281,
+              "x": 15,
+              "y": 63
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10,
+              "$H": 283,
+              "x": 15,
+              "y": 88
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8,
+              "$H": 285,
+              "x": 35,
+              "y": 15
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5,
+              "$H": 287,
+              "x": 15,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 153,
+          "height": 113
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_INC"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80,
+              "$H": 277,
+              "x": 58,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10,
+              "$H": 279,
+              "x": 15,
+              "y": 38
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10,
+              "$H": 281,
+              "x": 15,
+              "y": 63
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10,
+              "$H": 283,
+              "x": 15,
+              "y": 88
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8,
+              "$H": 285,
+              "x": 35,
+              "y": 15
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5,
+              "$H": 287,
+              "x": 15,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 153,
+          "height": 113
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.box.packingMode": "GROUP_INC"
+        },
+        "children": [
+          {
+            "id": "0",
+            "width": 80,
+            "height": 80,
+            "x": 58.0,
+            "y": 15.0
+          },
+          {
+            "id": "1",
+            "width": 10,
+            "height": 10,
+            "x": 15.0,
+            "y": 38.0
+          },
+          {
+            "id": "2",
+            "width": 10,
+            "height": 10,
+            "x": 15.0,
+            "y": 63.0
+          },
+          {
+            "id": "3",
+            "width": 20,
+            "height": 10,
+            "x": 15.0,
+            "y": 88.0
+          },
+          {
+            "id": "4",
+            "width": 8,
+            "height": 8,
+            "x": 35.0,
+            "y": 15.0
+          },
+          {
+            "id": "5",
+            "width": 5,
+            "height": 5,
+            "x": 15.0,
+            "y": 15.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 153.0,
+        "height": 113.0
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/children/3/$H",
+            "kind": "missing",
+            "expected": 283
+          },
+          {
+            "path": "/children/4/$H",
+            "kind": "missing",
+            "expected": 285
+          },
+          {
+            "path": "/children/5/$H",
+            "kind": "missing",
+            "expected": 287
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-group_mixed",
+      "requestSha256": "2675f3555a2895b01b826809c3458cd163f07a16e6b0032f3181b4d688e06342",
+      "referenceObservationSha256": "16a8c013a894e15964b34d6cde5083d229f6ecb0ba7fa97bc2ba1f516ff91526",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "2675f3555a2895b01b826809c3458cd163f07a16e6b0032f3181b4d688e06342",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_MIXED"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80,
+              "$H": 277,
+              "x": 50,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10,
+              "$H": 279,
+              "x": 15,
+              "y": 83
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10,
+              "$H": 281,
+              "x": 15,
+              "y": 108
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10,
+              "$H": 283,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8,
+              "$H": 285,
+              "x": 15,
+              "y": 60
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5,
+              "$H": 287,
+              "x": 15,
+              "y": 40
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 145,
+          "height": 133
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_MIXED"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80,
+              "$H": 277,
+              "x": 50,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10,
+              "$H": 279,
+              "x": 15,
+              "y": 83
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10,
+              "$H": 281,
+              "x": 15,
+              "y": 108
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10,
+              "$H": 283,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8,
+              "$H": 285,
+              "x": 15,
+              "y": 60
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5,
+              "$H": 287,
+              "x": 15,
+              "y": 40
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 145,
+          "height": 133
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.box.packingMode": "GROUP_MIXED"
+        },
+        "children": [
+          {
+            "id": "0",
+            "width": 80,
+            "height": 80,
+            "x": 50.0,
+            "y": 15.0
+          },
+          {
+            "id": "1",
+            "width": 10,
+            "height": 10,
+            "x": 15.0,
+            "y": 83.0
+          },
+          {
+            "id": "2",
+            "width": 10,
+            "height": 10,
+            "x": 15.0,
+            "y": 108.0
+          },
+          {
+            "id": "3",
+            "width": 20,
+            "height": 10,
+            "x": 15.0,
+            "y": 15.0
+          },
+          {
+            "id": "4",
+            "width": 8,
+            "height": 8,
+            "x": 15.0,
+            "y": 60.0
+          },
+          {
+            "id": "5",
+            "width": 5,
+            "height": 5,
+            "x": 15.0,
+            "y": 40.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 145.0,
+        "height": 133.0
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/children/3/$H",
+            "kind": "missing",
+            "expected": 283
+          },
+          {
+            "path": "/children/4/$H",
+            "kind": "missing",
+            "expected": 285
+          },
+          {
+            "path": "/children/5/$H",
+            "kind": "missing",
+            "expected": 287
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-priority-interactive",
+      "requestSha256": "4b2260a435d5099ec5353991588f21a3d171739dc5f7c604d65137028f59cbbe",
+      "referenceObservationSha256": "ddeedce789cf7709937a8deccbe837448f552448ca60072fae0b0146c75bf0a1",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "4b2260a435d5099ec5353991588f21a3d171739dc5f7c604d65137028f59cbbe",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.interactive": true
+          },
+          "children": [
+            {
+              "id": "a",
+              "x": 15,
+              "y": 45,
+              "width": 10,
+              "height": 20,
+              "layoutOptions": {
+                "elk.priority": 1
+              },
+              "$H": 277
+            },
+            {
+              "id": "b",
+              "x": 45,
+              "y": 15,
+              "width": 20,
+              "height": 10,
+              "layoutOptions": {
+                "elk.priority": 1
+              },
+              "$H": 279
+            },
+            {
+              "id": "c",
+              "x": 40,
+              "y": 45,
+              "width": 30,
+              "height": 10,
+              "layoutOptions": {
+                "elk.priority": 0
+              },
+              "$H": 281
+            },
+            {
+              "id": "d",
+              "x": 15,
+              "y": 15,
+              "width": 15,
+              "height": 15,
+              "layoutOptions": {
+                "elk.priority": 3
+              },
+              "$H": 283
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 85,
+          "height": 80
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.interactive": true
+          },
+          "children": [
+            {
+              "id": "a",
+              "x": 15,
+              "y": 45,
+              "width": 10,
+              "height": 20,
+              "layoutOptions": {
+                "elk.priority": 1
+              },
+              "$H": 277
+            },
+            {
+              "id": "b",
+              "x": 45,
+              "y": 15,
+              "width": 20,
+              "height": 10,
+              "layoutOptions": {
+                "elk.priority": 1
+              },
+              "$H": 279
+            },
+            {
+              "id": "c",
+              "x": 40,
+              "y": 45,
+              "width": 30,
+              "height": 10,
+              "layoutOptions": {
+                "elk.priority": 0
+              },
+              "$H": 281
+            },
+            {
+              "id": "d",
+              "x": 15,
+              "y": 15,
+              "width": 15,
+              "height": 15,
+              "layoutOptions": {
+                "elk.priority": 3
+              },
+              "$H": 283
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 85,
+          "height": 80
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.interactive": true
+        },
+        "children": [
+          {
+            "id": "a",
+            "x": 15.0,
+            "y": 45.0,
+            "width": 10,
+            "height": 20,
+            "layoutOptions": {
+              "elk.priority": 1
+            }
+          },
+          {
+            "id": "b",
+            "x": 45.0,
+            "y": 15.0,
+            "width": 20,
+            "height": 10,
+            "layoutOptions": {
+              "elk.priority": 1
+            }
+          },
+          {
+            "id": "c",
+            "x": 40.0,
+            "y": 45.0,
+            "width": 30,
+            "height": 10,
+            "layoutOptions": {
+              "elk.priority": 0
+            }
+          },
+          {
+            "id": "d",
+            "x": 15.0,
+            "y": 15.0,
+            "width": 15,
+            "height": 15,
+            "layoutOptions": {
+              "elk.priority": 3
+            }
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 85.0,
+        "height": 80.0
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/children/3/$H",
+            "kind": "missing",
+            "expected": 283
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-simple-expand-minimum",
+      "requestSha256": "974b21d7e53e8b22b2106b2fbf7432b59ee8647998c5ca1c4bf9120292010932",
+      "referenceObservationSha256": "29b31a8447ff381712df15f59c0cc0cfcc799787ccd5a76d963e8f07376b1c90",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "974b21d7e53e8b22b2106b2fbf7432b59ee8647998c5ca1c4bf9120292010932",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.expandNodes": true,
+            "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+            "elk.nodeSize.minimum": "(180,130)"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20,
+              "height": 40,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner0",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 279
+                }
+              ],
+              "$H": 277,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 150,
+              "height": 45,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner1",
+                  "x": 51,
+                  "y": 14.5,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 283
+                }
+              ],
+              "$H": 281,
+              "x": 15,
+              "y": 70
+            },
+            {
+              "id": "2",
+              "width": 115,
+              "height": 40,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner2",
+                  "x": 53.5,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 287
+                }
+              ],
+              "$H": 285,
+              "x": 50,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 180,
+          "height": 130
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.expandNodes": true,
+            "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+            "elk.nodeSize.minimum": "(180,130)"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20,
+              "height": 40,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner0",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 279
+                }
+              ],
+              "$H": 277,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 150,
+              "height": 45,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner1",
+                  "x": 51,
+                  "y": 14.5,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 283
+                }
+              ],
+              "$H": 281,
+              "x": 15,
+              "y": 70
+            },
+            {
+              "id": "2",
+              "width": 115,
+              "height": 40,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner2",
+                  "x": 53.5,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 287
+                }
+              ],
+              "$H": 285,
+              "x": 50,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 180,
+          "height": 130
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.expandNodes": true,
+          "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+          "elk.nodeSize.minimum": "(180,130)"
+        },
+        "children": [
+          {
+            "id": "0",
+            "width": 20,
+            "height": 40,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true,
+              "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+            },
+            "children": [
+              {
+                "id": "inner0",
+                "x": 1,
+                "y": 2,
+                "width": 3,
+                "height": 4
+              }
+            ],
+            "x": 15.0,
+            "y": 15.0
+          },
+          {
+            "id": "1",
+            "width": 150.0,
+            "height": 45.0,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true,
+              "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+            },
+            "children": [
+              {
+                "id": "inner1",
+                "x": 51.0,
+                "y": 14.5,
+                "width": 3,
+                "height": 4
+              }
+            ],
+            "x": 15.0,
+            "y": 70.0
+          },
+          {
+            "id": "2",
+            "width": 115.0,
+            "height": 40,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true,
+              "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+            },
+            "children": [
+              {
+                "id": "inner2",
+                "x": 53.5,
+                "y": 2,
+                "width": 3,
+                "height": 4
+              }
+            ],
+            "x": 50.0,
+            "y": 15.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 180.0,
+        "height": 130.0
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/0/children/0/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/children/1/children/0/$H",
+            "kind": "missing",
+            "expected": 283
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 285
+          },
+          {
+            "path": "/children/2/children/0/$H",
+            "kind": "missing",
+            "expected": 287
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-mixed-expand-minimum",
+      "requestSha256": "797c13a9c6283dea4bafb9f6004ca0f60bd8bd9e09063ce6a01950cca097e196",
+      "referenceObservationSha256": "e8bd66e3f4bd809dfdf2ce48f9ccb855427d7b5dadf1477b5cdade3eefcf31a7",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "797c13a9c6283dea4bafb9f6004ca0f60bd8bd9e09063ce6a01950cca097e196",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_MIXED",
+            "elk.expandNodes": true,
+            "elk.nodeSize.minimum": "(180,130)"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20,
+              "height": 100,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner0",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 279
+                }
+              ],
+              "$H": 277,
+              "x": 80,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 50,
+              "height": 100,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner1",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 283
+                }
+              ],
+              "$H": 281,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "2",
+              "width": 115,
+              "height": 100,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner2",
+                  "x": 53.5,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 287
+                }
+              ],
+              "$H": 285,
+              "x": 115,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 245,
+          "height": 130
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_MIXED",
+            "elk.expandNodes": true,
+            "elk.nodeSize.minimum": "(180,130)"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20,
+              "height": 100,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner0",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 279
+                }
+              ],
+              "$H": 277,
+              "x": 80,
+              "y": 15
+            },
+            {
+              "id": "1",
+              "width": 50,
+              "height": 100,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner1",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 283
+                }
+              ],
+              "$H": 281,
+              "x": 15,
+              "y": 15
+            },
+            {
+              "id": "2",
+              "width": 115,
+              "height": 100,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner2",
+                  "x": 53.5,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4,
+                  "$H": 287
+                }
+              ],
+              "$H": 285,
+              "x": 115,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 245,
+          "height": 130
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.box.packingMode": "GROUP_MIXED",
+          "elk.expandNodes": true,
+          "elk.nodeSize.minimum": "(180,130)"
+        },
+        "children": [
+          {
+            "id": "0",
+            "width": 20,
+            "height": 100.0,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true,
+              "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+            },
+            "children": [
+              {
+                "id": "inner0",
+                "x": 1.0,
+                "y": 2,
+                "width": 3,
+                "height": 4
+              }
+            ],
+            "x": 80.0,
+            "y": 15.0
+          },
+          {
+            "id": "1",
+            "width": 50,
+            "height": 100.0,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true,
+              "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+            },
+            "children": [
+              {
+                "id": "inner1",
+                "x": 1,
+                "y": 2,
+                "width": 3,
+                "height": 4
+              }
+            ],
+            "x": 15.0,
+            "y": 15.0
+          },
+          {
+            "id": "2",
+            "width": 115.0,
+            "height": 100.0,
+            "layoutOptions": {
+              "elk.algorithm": "fixed",
+              "elk.nodeSize.fixedGraphSize": true,
+              "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+            },
+            "children": [
+              {
+                "id": "inner2",
+                "x": 53.5,
+                "y": 2,
+                "width": 3,
+                "height": 4
+              }
+            ],
+            "x": 115.0,
+            "y": 15.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 245.0,
+        "height": 130.0
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/0/children/0/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/children/1/children/0/$H",
+            "kind": "missing",
+            "expected": 283
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 285
+          },
+          {
+            "path": "/children/2/children/0/$H",
+            "kind": "missing",
+            "expected": 287
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "box-noninteger-options",
+      "requestSha256": "4ce493eaecffcfed56f9f02e22aa3370935f76c3e6c2e219c136142217929f4a",
+      "referenceObservationSha256": "fadba27d9e0fe3d3b6a1ef964f0a99f69fd4a583989416fe3c266bb11d0e3fbc",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "4ce493eaecffcfed56f9f02e22aa3370935f76c3e6c2e219c136142217929f4a",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.aspectRatio": 1.23456789,
+            "elk.spacing.nodeNode": 7.25,
+            "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20.25,
+              "height": 10.5,
+              "$H": 277,
+              "x": 7,
+              "y": 1
+            },
+            {
+              "id": "1",
+              "width": 50.125,
+              "height": 20.75,
+              "$H": 279,
+              "x": 7,
+              "y": 48.5
+            },
+            {
+              "id": "2",
+              "width": 10.5,
+              "height": 40.25,
+              "$H": 281,
+              "x": 34.5,
+              "y": 1
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 68.125,
+          "height": 72.25
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.aspectRatio": 1.23456789,
+            "elk.spacing.nodeNode": 7.25,
+            "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20.25,
+              "height": 10.5,
+              "$H": 277,
+              "x": 7,
+              "y": 1
+            },
+            {
+              "id": "1",
+              "width": 50.125,
+              "height": 20.75,
+              "$H": 279,
+              "x": 7,
+              "y": 48.5
+            },
+            {
+              "id": "2",
+              "width": 10.5,
+              "height": 40.25,
+              "$H": 281,
+              "x": 34.5,
+              "y": 1
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 68.125,
+          "height": 72.25
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.aspectRatio": 1.23456789,
+          "elk.spacing.nodeNode": 7.25,
+          "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+        },
+        "children": [
+          {
+            "id": "0",
+            "width": 20.25,
+            "height": 10.5,
+            "x": 7.0,
+            "y": 1.0
+          },
+          {
+            "id": "1",
+            "width": 50.125,
+            "height": 20.75,
+            "x": 7.0,
+            "y": 48.5
+          },
+          {
+            "id": "2",
+            "width": 10.5,
+            "height": 40.25,
+            "x": 34.5,
+            "y": 1.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 68.125,
+        "height": 72.25
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/children/2/$H",
+            "kind": "missing",
+            "expected": 281
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "random-edge-asymmetric",
+      "requestSha256": "6d06cf1e2ea332e8ade77bd51c4e4b3dacd5281ff5c6cc01c34e02dbaf1956e7",
+      "referenceObservationSha256": "25d6618911864f50208feeb810befa70f3aea190a398c090e0ab4a8a34bdbb17",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "6d06cf1e2ea332e8ade77bd51c4e4b3dacd5281ff5c6cc01c34e02dbaf1956e7",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 19,
+            "elk.aspectRatio": 1.23456789,
+            "elk.spacing.nodeNode": 2.75,
+            "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "$H": 277,
+              "x": 28.97471987808941,
+              "y": 13.720594937249746
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "$H": 279,
+              "x": 7,
+              "y": 9.204144409265801
+            }
+          ],
+          "edges": [
+            {
+              "id": "e",
+              "sources": [
+                "a"
+              ],
+              "targets": [
+                "b"
+              ],
+              "sections": [
+                {
+                  "id": "e_s0",
+                  "startPoint": {
+                    "x": 48.97471987808941,
+                    "y": 18.720594937249746
+                  },
+                  "endPoint": {
+                    "x": 38.97471987808941,
+                    "y": 23.720594937249746
+                  },
+                  "bendPoints": [
+                    {
+                      "x": 45.05932378431707,
+                      "y": 22.101469374171238
+                    }
+                  ]
+                }
+              ],
+              "container": "root"
+            }
+          ],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 86,
+          "height": 36.75785223294076
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 19,
+            "elk.aspectRatio": 1.23456789,
+            "elk.spacing.nodeNode": 2.75,
+            "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "$H": 277,
+              "x": 28.97471987808941,
+              "y": 13.720594937249746
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "$H": 279,
+              "x": 7,
+              "y": 9.204144409265801
+            }
+          ],
+          "edges": [
+            {
+              "id": "e",
+              "sources": [
+                "a"
+              ],
+              "targets": [
+                "b"
+              ],
+              "sections": [
+                {
+                  "id": "e_s0",
+                  "startPoint": {
+                    "x": 48.97471987808941,
+                    "y": 18.720594937249746
+                  },
+                  "endPoint": {
+                    "x": 38.97471987808941,
+                    "y": 23.720594937249746
+                  },
+                  "bendPoints": [
+                    {
+                      "x": 45.05932378431707,
+                      "y": 22.101469374171238
+                    }
+                  ]
+                }
+              ],
+              "container": "root"
+            }
+          ],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 86,
+          "height": 36.75785223294076
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "random",
+          "elk.randomSeed": 19,
+          "elk.aspectRatio": 1.23456789,
+          "elk.spacing.nodeNode": 2.75,
+          "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10,
+            "x": 28.97471987808941,
+            "y": 13.720594937249746
+          },
+          {
+            "id": "b",
+            "width": 50,
+            "height": 20,
+            "x": 7.0,
+            "y": 9.204144409265801
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "sections": [
+              {
+                "startPoint": {
+                  "x": 48.97471987808941,
+                  "y": 18.720594937249746
+                },
+                "endPoint": {
+                  "x": 38.97471987808941,
+                  "y": 23.720594937249746
+                },
+                "bendPoints": [
+                  {
+                    "x": 45.05932378431707,
+                    "y": 22.101469374171238
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "x": 0,
+        "y": 0,
+        "width": 86.0,
+        "height": 36.75785223294076
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          },
+          {
+            "path": "/edges/0/container",
+            "kind": "missing",
+            "expected": "root"
+          },
+          {
+            "path": "/edges/0/sections/0/id",
+            "kind": "missing",
+            "expected": "e_s0"
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "random-port-source",
+      "requestSha256": "71f39fa54f973e621061ffac6a24f81fc2b36e843538d941a5e4a49f66194c88",
+      "referenceObservationSha256": "c4976b5dd00fd5a52bf97338dc0899cf0db5ec99bde235fb3d40a1700224d0f7",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "71f39fa54f973e621061ffac6a24f81fc2b36e843538d941a5e4a49f66194c88",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 23
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "ports": [
+                {
+                  "id": "p",
+                  "x": 20,
+                  "y": 3,
+                  "width": 6,
+                  "height": 4
+                }
+              ],
+              "$H": 277,
+              "x": 64.51821748419557,
+              "y": 15.883505069527962
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "ports": [
+                {
+                  "id": "q",
+                  "x": -8,
+                  "y": 8,
+                  "width": 8,
+                  "height": 6
+                }
+              ],
+              "$H": 281,
+              "x": 23.4134767938697,
+              "y": 20.419746975152087
+            }
+          ],
+          "edges": [
+            {
+              "id": "e",
+              "sources": [
+                "p"
+              ],
+              "targets": [
+                "q"
+              ],
+              "sections": [
+                {
+                  "id": "e_s0",
+                  "startPoint": {
+                    "x": 155.03643496839115,
+                    "y": 5
+                  },
+                  "endPoint": {
+                    "x": 152.03643496839115,
+                    "y": 7
+                  },
+                  "bendPoints": [
+                    {
+                      "x": 116.63561050669892,
+                      "y": 5.72834622418291
+                    },
+                    {
+                      "x": 116.63561050669892,
+                      "y": 6.596167957583667
+                    }
+                  ]
+                }
+              ],
+              "container": "root"
+            }
+          ],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 147.63561050669892,
+          "height": 94.23265933396651
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 23
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "ports": [
+                {
+                  "id": "p",
+                  "x": 20,
+                  "y": 3,
+                  "width": 6,
+                  "height": 4
+                }
+              ],
+              "$H": 277,
+              "x": 64.51821748419557,
+              "y": 15.883505069527962
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "ports": [
+                {
+                  "id": "q",
+                  "x": -8,
+                  "y": 8,
+                  "width": 8,
+                  "height": 6
+                }
+              ],
+              "$H": 281,
+              "x": 23.4134767938697,
+              "y": 20.419746975152087
+            }
+          ],
+          "edges": [
+            {
+              "id": "e",
+              "sources": [
+                "p"
+              ],
+              "targets": [
+                "q"
+              ],
+              "sections": [
+                {
+                  "id": "e_s0",
+                  "startPoint": {
+                    "x": 155.03643496839115,
+                    "y": 5
+                  },
+                  "endPoint": {
+                    "x": 152.03643496839115,
+                    "y": 7
+                  },
+                  "bendPoints": [
+                    {
+                      "x": 116.63561050669892,
+                      "y": 5.72834622418291
+                    },
+                    {
+                      "x": 116.63561050669892,
+                      "y": 6.596167957583667
+                    }
+                  ]
+                }
+              ],
+              "container": "root"
+            }
+          ],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 147.63561050669892,
+          "height": 94.23265933396651
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "random",
+          "elk.randomSeed": 23
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10,
+            "ports": [
+              {
+                "id": "p",
+                "x": 20,
+                "y": 3,
+                "width": 6,
+                "height": 4
+              }
+            ],
+            "x": 64.51821748419557,
+            "y": 15.883505069527962
+          },
+          {
+            "id": "b",
+            "width": 50,
+            "height": 20,
+            "ports": [
+              {
+                "id": "q",
+                "x": -8,
+                "y": 8,
+                "width": 8,
+                "height": 6
+              }
+            ],
+            "x": 23.4134767938697,
+            "y": 20.419746975152087
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "p"
+            ],
+            "targets": [
+              "q"
+            ],
+            "sections": [
+              {
+                "startPoint": {
+                  "x": 155.03643496839115,
+                  "y": 5.0
+                },
+                "endPoint": {
+                  "x": 152.03643496839115,
+                  "y": 7.0
+                },
+                "bendPoints": [
+                  {
+                    "x": 116.63561050669892,
+                    "y": 5.72834622418291
+                  },
+                  {
+                    "x": 116.63561050669892,
+                    "y": 6.596167957583667
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "x": 0,
+        "y": 0,
+        "width": 147.63561050669892,
+        "height": 94.23265933396651
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 281
+          },
+          {
+            "path": "/edges/0/container",
+            "kind": "missing",
+            "expected": "root"
+          },
+          {
+            "path": "/edges/0/sections/0/id",
+            "kind": "missing",
+            "expected": "e_s0"
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    },
+    {
+      "id": "random-negative-seed",
+      "requestSha256": "682b69f7514706c7ae880e41cf6e6f53f420d6c2891673e3157529bceb141d60",
+      "referenceObservationSha256": "a5f72c1ff3337669d5dca6dc78bea3f2282aaaeb890400dbda129e8f5e0f578c",
+      "originalExpected": {
+        "schema": "py-elk-layout-observation/v1",
+        "requestSha256": "682b69f7514706c7ae880e41cf6e6f53f420d6c2891673e3157529bceb141d60",
+        "engine": {
+          "name": "elkjs",
+          "version": "0.12.1",
+          "node": "v24.19.0",
+          "platform": "win32",
+          "arch": "x64",
+          "entrypoint": "lib/elk.bundled.js",
+          "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+        },
+        "result": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": -12,
+            "elk.spacing.nodeNode": 3.125,
+            "elk.aspectRatio": 2.7654321
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20.25,
+              "height": 10.5,
+              "$H": 277,
+              "x": 36.33465921092948,
+              "y": 23.460956914556306
+            },
+            {
+              "id": "b",
+              "width": 50.125,
+              "height": 20.75,
+              "$H": 279,
+              "x": 48.00994347805097,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 159.3933864817488,
+          "height": 80.75
+        },
+        "outcome": "returned",
+        "inputAfter": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": -12,
+            "elk.spacing.nodeNode": 3.125,
+            "elk.aspectRatio": 2.7654321
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20.25,
+              "height": 10.5,
+              "$H": 277,
+              "x": 36.33465921092948,
+              "y": 23.460956914556306
+            },
+            {
+              "id": "b",
+              "width": 50.125,
+              "height": 20.75,
+              "$H": 279,
+              "x": 48.00994347805097,
+              "y": 15
+            }
+          ],
+          "edges": [],
+          "$H": 13,
+          "x": 0,
+          "y": 0,
+          "width": 159.3933864817488,
+          "height": 80.75
+        },
+        "constructorAfter": {},
+        "argumentsAfter": {},
+        "termination": {
+          "outcome": "threw",
+          "name": "TypeError",
+          "message": "this.worker.terminate is not a function"
+        }
+      },
+      "candidateResult": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "random",
+          "elk.randomSeed": -12,
+          "elk.spacing.nodeNode": 3.125,
+          "elk.aspectRatio": 2.7654321
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20.25,
+            "height": 10.5,
+            "x": 36.33465921092948,
+            "y": 23.460956914556306
+          },
+          {
+            "id": "b",
+            "width": 50.125,
+            "height": 20.75,
+            "x": 48.00994347805097,
+            "y": 15.0
+          }
+        ],
+        "edges": [],
+        "x": 0,
+        "y": 0,
+        "width": 159.3933864817488,
+        "height": 80.75
+      },
+      "candidateError": null,
+      "strictComparison": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          },
+          {
+            "path": "/children/0/$H",
+            "kind": "missing",
+            "expected": 277
+          },
+          {
+            "path": "/children/1/$H",
+            "kind": "missing",
+            "expected": 279
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "callerInputUnchanged": true
+    }
+  ],
+  "scope": "isolated providers; full original strict differences retained; central export/recursive host separate",
+  "fullValidation": false
+}

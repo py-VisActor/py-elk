@@ -1,0 +1,361 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "Two high-priority port/label families; finite causal output contrasts, not all option values",
+  "cases": [
+    {
+      "id": "ports-base",
+      "request": "requests/ports-base.json",
+      "requestSha256": "f89865034ebc9ca7bdd752ac0ddd492a435b0f74efa77bba2e81492881814f7f",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "alignment-default",
+      "request": "requests/alignment-default.json",
+      "requestSha256": "d105b6faf63fbe5c911155d4fd26e4bb17a407ad59296177f10c43596c1a8cc1",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portAlignment.default",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/x",
+          "claim": "BEGIN to END moves the first port on the selected side"
+        }
+      ]
+    },
+    {
+      "id": "alignment-north",
+      "request": "requests/alignment-north.json",
+      "requestSha256": "7f9cb4617cdd4190d842011fdaf921126476ba26dfa02a69c27fbd33c7fcd222",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portAlignment.north",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/x",
+          "claim": "BEGIN to END moves the first port on the selected side"
+        }
+      ]
+    },
+    {
+      "id": "alignment-east",
+      "request": "requests/alignment-east.json",
+      "requestSha256": "2bb379939e55a009bc838f794269d0bce5bcb33457bb01966ef3c8d354dc8a64",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portAlignment.east",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/3/y",
+          "claim": "BEGIN to END moves the first port on the selected side"
+        }
+      ]
+    },
+    {
+      "id": "alignment-south",
+      "request": "requests/alignment-south.json",
+      "requestSha256": "c150a45ce341ccdb51811b26ab78748a00ce958b17c9093022740fa4646a5a42",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portAlignment.south",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/6/x",
+          "claim": "BEGIN to END moves the first port on the selected side"
+        }
+      ]
+    },
+    {
+      "id": "alignment-west",
+      "request": "requests/alignment-west.json",
+      "requestSha256": "46393a394487670ae7bdb411df3c7c8623ce78b97f996a3cfdff242a7d95c099",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portAlignment.west",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/9/y",
+          "claim": "BEGIN to END moves the first port on the selected side"
+        }
+      ]
+    },
+    {
+      "id": "port-anchor",
+      "request": "requests/port-anchor.json",
+      "requestSha256": "2658c904b79523cc4f9f67ad9c63ea7c2a353f7276640d2f91a798c1b8739b15",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.port.anchor",
+          "kind": "changed",
+          "pointer": "/result/edges/0/sections/0/startPoint/x",
+          "claim": "Explicit anchor changes the actual routed endpoint"
+        }
+      ]
+    },
+    {
+      "id": "port-side",
+      "request": "requests/port-side.json",
+      "requestSha256": "b97e8a8ddf3dd9c4266b725cc57ad80585875db641aaa07ccae0cf408094bfad",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.port.side",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/y",
+          "claim": "FIXED_SIDE moves the selected port to its requested node side"
+        }
+      ]
+    },
+    {
+      "id": "port-border-offset",
+      "request": "requests/port-border-offset.json",
+      "requestSha256": "73d726cd58bd95208aa204a9452fece69e31fef7ebd21a9f4da91730eae4032a",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.port.borderOffset",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/y",
+          "claim": "Border offset moves the port rectangle orthogonally"
+        }
+      ]
+    },
+    {
+      "id": "port-label-inside",
+      "request": "requests/port-label-inside.json",
+      "requestSha256": "ad95d8b60bab7b6a8dc9126089408e632b0367087ba1d6eda294048decaf11f8",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portLabels.placement",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/labels/0/y",
+          "claim": "INSIDE versus OUTSIDE changes actual label placement"
+        }
+      ]
+    },
+    {
+      "id": "port-label-next",
+      "request": "requests/port-label-next.json",
+      "requestSha256": "ae57616526ae15df9ca7ad71bc3bb58b54a98759f46645457d8c8dcc7af07870",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portLabels.nextToPortIfPossible",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/4/labels/0/y",
+          "claim": "Deprecated-property presence changes centering of an unconnected EAST port label; false still activates the presence-based migration"
+        }
+      ]
+    },
+    {
+      "id": "port-label-groups",
+      "request": "requests/port-label-groups.json",
+      "requestSha256": "1fe583c4b1cb238bd8d1914f6a03f78c14a911670fdabcd5f70c7ef25eaa7d62",
+      "baseline": "ports-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portLabels.treatAsGroup",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/labels/0/x",
+          "claim": "Treating asymmetric-width labels separately changes the actual first label position"
+        }
+      ]
+    },
+    {
+      "id": "port-order-base",
+      "request": "requests/port-order-base.json",
+      "requestSha256": "526ac35cefaa6422b1d74042dc9af897a560e7a8ffae4b48e0518d48093f2749",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "port-index",
+      "request": "requests/port-index.json",
+      "requestSha256": "bc554bf877b35b7b4c6d71e9c56f6084b3791920cf46e8ca7e4ddba7cc934f28",
+      "baseline": "port-order-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.port.index",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/x",
+          "claim": "Changing two explicit indices reverses their geometric port order"
+        }
+      ]
+    },
+    {
+      "id": "port-position-base",
+      "request": "requests/port-position-base.json",
+      "requestSha256": "e9c24e658508a32974a01be79401147bad1825dcddaf8fcf7d8f4d0d675954d6",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "port-ratio",
+      "request": "requests/port-ratio.json",
+      "requestSha256": "5455ed50e7433322af1ca9e51cf4da1a3a8734e3229bdfae2282e1e2c33188f6",
+      "baseline": "port-position-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portConstraints",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/x",
+          "claim": "FIXED_RATIO scales the supplied coordinate with increased node size; FIXED_POS preserves its tangential coordinate"
+        }
+      ]
+    },
+    {
+      "id": "node-label-base",
+      "request": "requests/node-label-base.json",
+      "requestSha256": "dbf3a65d129290aedc715b17cdd56e10530988801b7c71b2c8eb7947bafc61c2",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "node-label-padding",
+      "request": "requests/node-label-padding.json",
+      "requestSha256": "2dc0c582e225d80eb9b699d2ac19420038cdb31fed2c4434543021c172d5cffc",
+      "baseline": "node-label-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeLabels.padding",
+          "kind": "changed",
+          "pointer": "/result/children/0/width",
+          "claim": "Larger label padding enlarges the label-constrained node"
+        }
+      ]
+    },
+    {
+      "id": "node-label-placement",
+      "request": "requests/node-label-placement.json",
+      "requestSha256": "5ce04f56bb776f61716a51d8be79634620534134c7ebe84ec2e2a5ba436e856a",
+      "baseline": "node-label-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeLabels.placement",
+          "kind": "changed",
+          "pointer": "/result/children/0/labels/0/x",
+          "claim": "INSIDE center versus OUTSIDE bottom changes actual label x placement"
+        }
+      ]
+    },
+    {
+      "id": "minimum-base",
+      "request": "requests/minimum-base.json",
+      "requestSha256": "2054d92ab8166fb9cb8ccd15ff5077ad88660553f960e7d6cf4d8ed26149e4a0",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "minimum-constraint",
+      "request": "requests/minimum-constraint.json",
+      "requestSha256": "290d8443c253b06bd7d1857c15bbfe286ad83a28b7f77fd9c527771d37b22b31",
+      "baseline": "minimum-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeSize.constraints",
+          "kind": "changed",
+          "pointer": "/result/children/0/width",
+          "claim": "MINIMUM_SIZE activates an otherwise inactive explicit minimum"
+        }
+      ]
+    },
+    {
+      "id": "minimum-value",
+      "request": "requests/minimum-value.json",
+      "requestSha256": "3f9238fbcc51b068ebd78ba0c9a62f1b0e3d7d1fa95e91a9d888e57e4fbfbc04",
+      "baseline": "minimum-constraint",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeSize.minimum",
+          "kind": "changed",
+          "pointer": "/result/children/0/width",
+          "claim": "Increasing the active minimum increases real node width"
+        }
+      ]
+    },
+    {
+      "id": "minimum-padding-account",
+      "request": "requests/minimum-padding-account.json",
+      "requestSha256": "c87485ed3a5effa21e8f9dfff906d0d33f7ec5d875b7c34007159aeb5e69644a",
+      "baseline": "minimum-constraint",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeSize.options",
+          "kind": "changed",
+          "pointer": "/result/children/0/width",
+          "claim": "The minimum-size accounting flag changes whether node padding is added outside the minimum"
+        }
+      ]
+    },
+    {
+      "id": "fixed-graph-base",
+      "request": "requests/fixed-graph-base.json",
+      "requestSha256": "e1314749a452d12eef7b2ae6623acc3b21da436bf84c63d59a4d98170a9bae7b",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "fixed-graph-size",
+      "request": "requests/fixed-graph-size.json",
+      "requestSha256": "3cd81e0faa60d4d8f176c9db9fa77bf1a279452ba96deca480ccec3793428de9",
+      "baseline": "fixed-graph-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeSize.fixedGraphSize",
+          "kind": "changed",
+          "pointer": "/result/width",
+          "claim": "fixedGraphSize preserves the explicitly supplied root width"
+        }
+      ]
+    },
+    {
+      "id": "edge-label-base",
+      "request": "requests/edge-label-base.json",
+      "requestSha256": "1c1f2af8848a58c5dbbce3ade19d7481355f5961049e612ff8724074d947f794",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "edge-label-placement",
+      "request": "requests/edge-label-placement.json",
+      "requestSha256": "2c2e625b87cb768f50f2113b7920ee2e23083dd0817d5a8638597dbfa2a6c48f",
+      "baseline": "edge-label-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.edgeLabels.placement",
+          "kind": "changed",
+          "pointer": "/result/edges/0/labels/0/x",
+          "claim": "HEAD to TAIL moves the label along the actual edge"
+        }
+      ]
+    },
+    {
+      "id": "center-inline-base",
+      "request": "requests/center-inline-base.json",
+      "requestSha256": "2cac106c595eaa50d4af27ce9f16d369c4ef13e39139e520af765d03d27c011a",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "center-inline",
+      "request": "requests/center-inline.json",
+      "requestSha256": "f299f4db453a24663e98941905a0faf8178828c99e32f8d6a9af0a9f4db7e29e",
+      "baseline": "center-inline-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.edgeLabels.inline",
+          "kind": "changed",
+          "pointer": "/result/edges/0/labels/0/y",
+          "claim": "Inline center labels occupy the routed line rather than its side"
+        }
+      ]
+    }
+  ],
+  "assertionRevision": {
+    "reason": "Source-only review found two original pointers insensitive; only the declared geometry observables changed. Original request/capture bytes unchanged, no Source or candidate replay.",
+    "originalSuite": "test-runs/full-native-closure/A/cases-first-executed.json",
+    "originalFailedReport": "test-runs/full-native-closure/A/option-effects-first.json"
+  }
+}

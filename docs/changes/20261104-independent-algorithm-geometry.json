@@ -1,0 +1,955 @@
+{
+  "schema": "pyelk-independent-algorithm-geometry/v1",
+  "rows": [
+    {
+      "id": "mrtree-tree-base",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/mrtree-tree-base.json",
+          "sha256": "d8f330630ada9fdbd604ad648d2ad169cf40d22f8e3d89256f7032b7bdaf1858"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/mrtree-tree-base.json",
+          "sha256": "1a7d067138ce045e0144b252e03fef17a253733e1b7f5fc47012dbcb44a82b8a"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/mrtree-tree-base.json",
+          "sha256": "0689397014a23b5a526d71bc896fea30fd47891afaca87c2257ecb6ea7b19c53"
+        }
+      },
+      "source": {
+        "algorithm": "mrtree",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "directional-parent-child-depth-bands",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "treeDepth": 3
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "mrtree",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "directional-parent-child-depth-bands",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "treeDepth": 3
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "mrtree-compaction",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/mrtree-compaction.json",
+          "sha256": "e962f972b15fa7f66deb7da3e1a2fb109618b5a327dea109990a816d52680495"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/mrtree-compaction.json",
+          "sha256": "4ee2d76a7430c2531ba4e54aeffb7bf357047ba8b54b466cbd15fc27110c1373"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/mrtree-compaction.json",
+          "sha256": "2d441e9d94c1435dc46ca59e9a63d25e9af867fb193f1321564b2cece3664b30"
+        }
+      },
+      "source": {
+        "algorithm": "mrtree",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "Tree layer bands require a unique rooted simple tree and compaction=false"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "mrtree",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "Tree layer bands require a unique rooted simple tree and compaction=false"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "mrtree-cycle-dfs",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/mrtree-cycle-dfs.json",
+          "sha256": "f61e7965cd8fc63a22f283ab72824c7ced883cadf49257f899666b195834987c"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/mrtree-cycle-dfs.json",
+          "sha256": "f2aeddc1fe0f32f9af1d1eb3f0ab2cfce7855ddbb252247f46a76b128db4b2d5"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/mrtree-cycle-dfs.json",
+          "sha256": "780f1687401b5af85a77576bf449bb94368afd2de3fb6586585f7dc0612a5af9"
+        }
+      },
+      "source": {
+        "algorithm": "mrtree",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "Tree layer bands require a unique rooted simple tree and compaction=false"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "mrtree",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "Tree layer bands require a unique rooted simple tree and compaction=false"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "radial-base",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/radial-base.json",
+          "sha256": "edfe689a52ce6d02782589404df748c192185f4b628bf43d18073cb90b11a7a9"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/radial-base.json",
+          "sha256": "b4039ba626db1cb89acbf51d319d0a9522dec1bf100f4ea28a9213d5d52f67fb"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/radial-base.json",
+          "sha256": "2647de8d61b7f278acd1f09336e7cd44fd3bd0a900ed98cf3462402f10ac9c27"
+        }
+      },
+      "source": {
+        "algorithm": "radial",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "concentric-depth-rings-with-minimum-radius-increment",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "No radial rectangle-nonoverlap or exact depth*radius claim; radius extension is allowed"
+        ],
+        "failures": [],
+        "metrics": {
+          "radiiByDepth": {
+            "0": [
+              0.0
+            ],
+            "1": [
+              49.99999999999999,
+              50.0,
+              49.999999999999986
+            ],
+            "2": [
+              100.00000000000001,
+              99.99999999999999
+            ],
+            "3": [
+              150.0,
+              150.00000000000003
+            ]
+          }
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "radial",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "concentric-depth-rings-with-minimum-radius-increment",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "No radial rectangle-nonoverlap or exact depth*radius claim; radius extension is allowed"
+        ],
+        "failures": [],
+        "metrics": {
+          "radiiByDepth": {
+            "0": [
+              0.0
+            ],
+            "1": [
+              49.99999999999999,
+              50.0,
+              49.999999999999986
+            ],
+            "2": [
+              100.00000000000001,
+              99.99999999999999
+            ],
+            "3": [
+              150.0,
+              150.00000000000003
+            ]
+          }
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "radial-radius",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/radial-radius.json",
+          "sha256": "09a6ae97094155a9809b0b8ee0cd2cc55a75767e50ab19b24d28323aa16c3c2a"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/radial-radius.json",
+          "sha256": "fdb96703335467276c8dd7678f61e8e9e4235f36b407d46aa5b1cea07028d930"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/radial-radius.json",
+          "sha256": "e2df2378ecedaee8d0773a12cea37ea94107affc29524d380f2a6f4911db17b5"
+        }
+      },
+      "source": {
+        "algorithm": "radial",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "concentric-depth-rings-with-minimum-radius-increment",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "No radial rectangle-nonoverlap or exact depth*radius claim; radius extension is allowed"
+        ],
+        "failures": [],
+        "metrics": {
+          "radiiByDepth": {
+            "0": [
+              0.0
+            ],
+            "1": [
+              170.00000000000003,
+              169.99999999999997,
+              169.99999999999997
+            ],
+            "2": [
+              340.0,
+              340.0
+            ],
+            "3": [
+              510.0,
+              510.00000000000006
+            ]
+          }
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "radial",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "concentric-depth-rings-with-minimum-radius-increment",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "No radial rectangle-nonoverlap or exact depth*radius claim; radius extension is allowed"
+        ],
+        "failures": [],
+        "metrics": {
+          "radiiByDepth": {
+            "0": [
+              0.0
+            ],
+            "1": [
+              170.00000000000003,
+              169.99999999999997,
+              169.99999999999997
+            ],
+            "2": [
+              340.0,
+              340.0
+            ],
+            "3": [
+              510.0,
+              510.00000000000006
+            ]
+          }
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "radial-compactor",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/radial-compactor.json",
+          "sha256": "b10c3cbb5ecdf40cf78443167dd75b0c560fbfdb65f7428eae7342a70d37327f"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/radial-compactor.json",
+          "sha256": "61a18020e53db60b8fe3502e0576ff5e682b0ae93c12afc4cbc4a192faad87a5"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/radial-compactor.json",
+          "sha256": "7388084c670d737e2f5d1272d18f0d13c25260c4028d7ae636ae526159d076e2"
+        }
+      },
+      "source": {
+        "algorithm": "radial",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "Requires a unique rooted tree, explicit positive radius, NONE compactor, no rotation"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "radial",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "Requires a unique rooted tree, explicit positive radius, NONE compactor, no rotation"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "box-simple-base",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/box-simple-base.json",
+          "sha256": "469077f6ca4f64bf665b9669061cebe62ae8eebc76e385da23238aafa542ea76"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/box-simple-base.json",
+          "sha256": "dd4b540ea2b636e2bc1c9861bee186eff6961dc0a0e590abd65dfee8f17cc392"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/box-simple-base.json",
+          "sha256": "967f51389b2ce8fd4725a4e145596db028f36b47b876d371df0fad9aa64fdc3e"
+        }
+      },
+      "source": {
+        "algorithm": "box",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "box",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "box-group_dec",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/box-group_dec.json",
+          "sha256": "f1f461ac76985238e567cf4857fcfefaa7ee283f98a268942f833b51dbe43692"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/box-group_dec.json",
+          "sha256": "faaf362fc69166a8f8350d858984e30d471299390b1294c812c1e2ca0bc5e166"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/box-group_dec.json",
+          "sha256": "b4ce4a9489c8183f48d94e2ed54c19319e1f8c13f1471300a028830f0596a150"
+        }
+      },
+      "source": {
+        "algorithm": "box",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "box",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "rectpacking-base",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/rectpacking-base.json",
+          "sha256": "8a26ad9702420a0f24efd4cb2c279752edd0a9d8992e79ef6eba25cbe5758cfa"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/rectpacking-base.json",
+          "sha256": "2358ba4ad8baa6a10cdbb7f81b60788fb1bc76a0ee3d9d1c2804d025520eacd9"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/rectpacking-base.json",
+          "sha256": "6528fcc27597606ab908780983c3acdbfbb90637cf6f9cde6379682d18698351"
+        }
+      },
+      "source": {
+        "algorithm": "rectpacking",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "rectpacking",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "rectpacking-simple",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/rectpacking-simple.json",
+          "sha256": "61c96e29dfa1f6c2eb38e0310508b86bdbc6f77ac9b29d8db68d63a6d4faa7dd"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/rectpacking-simple.json",
+          "sha256": "6c4ca42f89fbaad4d57bbfbf976d10b22c0c9e684958c1cff4dced1f17affbed"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/rectpacking-simple.json",
+          "sha256": "fe718486814fbb87b83a35b203b6ff6e0cb24cbea06e810dc1ecdda2712c894d"
+        }
+      },
+      "source": {
+        "algorithm": "rectpacking",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "rectpacking",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 28
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "spore-overlap-base",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/spore-overlap-base.json",
+          "sha256": "1fa8184d2f7961f04955f6f77983f31760a16bb740c75819236f57b9bd6ea7a1"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/spore-overlap-base.json",
+          "sha256": "a8f49f7bfec45a32b15f833d48203371be1c005366c50dce277477383483c317"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/spore-overlap-base.json",
+          "sha256": "3b77c5534c3f1b2fbda2cb826bc0ef0063748ea5dd7f495048293d083a88f509"
+        }
+      },
+      "source": {
+        "algorithm": "sporeOverlap",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 15
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "sporeOverlap",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "node-rectangle-nonoverlap",
+            "passed": true,
+            "failures": []
+          },
+          {
+            "predicate": "node-rectangles-contained-in-container",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [],
+        "failures": [],
+        "metrics": {
+          "assessedRectanglePairs": 15
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "spore-overlap-scanline",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/spore-overlap-scanline.json",
+          "sha256": "cef685b55bb53c69b2e55b412bdf279e80dccd06edcfd9cca27ddf9b491ec0bf"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/spore-overlap-scanline.json",
+          "sha256": "38e7b7f26ff1cf0082ce66789cf4020e59abcf8ad31cb64e23d8d2916c34ee06"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/spore-overlap-scanline.json",
+          "sha256": "9689406a6fecb6b3631c681291a4b28f015710069ddff449c330cc98f9da55a2"
+        }
+      },
+      "source": {
+        "algorithm": "sporeOverlap",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "This overlap-removal guarantee is scoped to scanline enabled"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "sporeOverlap",
+        "status": "NOT_ASSESSED",
+        "checks": [],
+        "notAssessed": [
+          "This overlap-removal guarantee is scoped to scanline enabled"
+        ],
+        "failures": [],
+        "metrics": {},
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "disco-base",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/disco-base.json",
+          "sha256": "68b73407bf1166788ff3a0e7d2128a4d8ba310c8de42bc16c192199f17aa9964"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/disco-base.json",
+          "sha256": "7d0baabce5db443123a7780e99c414b510792a9bfd93aae513903e00bb9e90b0"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/disco-base.json",
+          "sha256": "e36c27b13af095788a428eeddd1e4caa78e9bf13bccd78f85e22e805a4a58308"
+        }
+      },
+      "source": {
+        "algorithm": "disco",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "different-component-node-rectangle-separation",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "Component-box nonoverlap is NOT_APPLICABLE to POLYOMINO interlocking; same-component nodes may overlap"
+        ],
+        "failures": [],
+        "metrics": {
+          "componentBounds": [
+            [
+              44.50282843604164,
+              53.984769262038675,
+              133.50282843604163,
+              108.98476926203867
+            ],
+            [
+              136.66536100206844,
+              10.072236696011899,
+              151.66536100206844,
+              40.0722366960119
+            ],
+            [
+              29.144473392023798,
+              91.7889467840476,
+              71.1444733920238,
+              108.7889467840476
+            ],
+            [
+              87.2889467840476,
+              38.1444733920238,
+              113.2889467840476,
+              62.1444733920238
+            ],
+            [
+              11.706266283013377,
+              18.5722366960119,
+              44.70626628301338,
+              31.5722366960119
+            ]
+          ],
+          "interlockingComponentBoxPairs": 2,
+          "assessedRectanglePairs": 14
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "disco",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "different-component-node-rectangle-separation",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "Component-box nonoverlap is NOT_APPLICABLE to POLYOMINO interlocking; same-component nodes may overlap"
+        ],
+        "failures": [],
+        "metrics": {
+          "componentBounds": [
+            [
+              44.50282843604164,
+              53.984769262038675,
+              133.50282843604163,
+              108.98476926203867
+            ],
+            [
+              136.66536100206844,
+              10.072236696011899,
+              151.66536100206844,
+              40.0722366960119
+            ],
+            [
+              29.144473392023798,
+              91.7889467840476,
+              71.1444733920238,
+              108.7889467840476
+            ],
+            [
+              87.2889467840476,
+              38.1444733920238,
+              113.2889467840476,
+              62.1444733920238
+            ],
+            [
+              11.706266283013377,
+              18.5722366960119,
+              44.70626628301338,
+              31.5722366960119
+            ]
+          ],
+          "interlockingComponentBoxPairs": 2,
+          "assessedRectanglePairs": 14
+        },
+        "tolerance": 1e-06
+      }
+    },
+    {
+      "id": "disco-component-space",
+      "bindings": {
+        "request": {
+          "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/disco-component-space.json",
+          "sha256": "096e3d173f2d0158b26d056582634b75c673e5d5fdcef3d5dcd1b0535035ab4b"
+        },
+        "source": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/disco-component-space.json",
+          "sha256": "8e9e220d2ee2938d15b9470e022e4ee385f130d207b81073ac7f176ad03a9dc5"
+        },
+        "native": {
+          "path": "test-runs/full-native-closure/B/nonlayered-effects-native-01/disco-component-space.json",
+          "sha256": "f0a4431f2585cfafc17398a140363c887f8c3a0ff54d9402a0c9f7653e8407d0"
+        }
+      },
+      "source": {
+        "algorithm": "disco",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "different-component-node-rectangle-separation",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "Component-box nonoverlap is NOT_APPLICABLE to POLYOMINO interlocking; same-component nodes may overlap"
+        ],
+        "failures": [],
+        "metrics": {
+          "componentBounds": [
+            [
+              120.47153795092456,
+              142.06873573488616,
+              209.47153795092456,
+              197.06873573488616
+            ],
+            [
+              39.27758227169273,
+              37.62478005565432,
+              54.27758227169273,
+              67.62478005565433
+            ],
+            [
+              49.16637340753909,
+              237.08230692638682,
+              91.16637340753908,
+              254.08230692638682
+            ],
+            [
+              226.73510914242524,
+              75.70796675942387,
+              252.73510914242524,
+              99.70796675942387
+            ],
+            [
+              164.76313130280934,
+              274.16549363015633,
+              197.76313130280934,
+              287.16549363015633
+            ]
+          ],
+          "interlockingComponentBoxPairs": 0,
+          "assessedRectanglePairs": 14
+        },
+        "tolerance": 1e-06
+      },
+      "native": {
+        "algorithm": "disco",
+        "status": "PASS",
+        "checks": [
+          {
+            "predicate": "different-component-node-rectangle-separation",
+            "passed": true,
+            "failures": []
+          }
+        ],
+        "notAssessed": [
+          "Component-box nonoverlap is NOT_APPLICABLE to POLYOMINO interlocking; same-component nodes may overlap"
+        ],
+        "failures": [],
+        "metrics": {
+          "componentBounds": [
+            [
+              120.47153795092456,
+              142.06873573488616,
+              209.47153795092456,
+              197.06873573488616
+            ],
+            [
+              39.27758227169273,
+              37.62478005565432,
+              54.27758227169273,
+              67.62478005565433
+            ],
+            [
+              49.16637340753909,
+              237.08230692638682,
+              91.16637340753908,
+              254.08230692638682
+            ],
+            [
+              226.73510914242524,
+              75.70796675942387,
+              252.73510914242524,
+              99.70796675942387
+            ],
+            [
+              164.76313130280934,
+              274.16549363015633,
+              197.76313130280934,
+              287.16549363015633
+            ]
+          ],
+          "interlockingComponentBoxPairs": 0,
+          "assessedRectanglePairs": 14
+        },
+        "tolerance": 1e-06
+      }
+    }
+  ],
+  "counts": {
+    "source": {
+      "PASS": 10,
+      "FAIL": 0,
+      "NOT_ASSESSED": 4
+    },
+    "native": {
+      "PASS": 10,
+      "FAIL": 0,
+      "NOT_ASSESSED": 4
+    }
+  },
+  "passed": true,
+  "archiveSha256": "fe33bda5f2bee16f60842d899f1ada4a0f6dbad4f535f17c3b8a172668c87cf5",
+  "sourceExecutions": 0,
+  "nativeExecutions": 0,
+  "wholeOptionGeometryComplete": false,
+  "scope": "Flat unlabelled direct leaf rectangles and stated simple-tree/option preconditions only"
+}

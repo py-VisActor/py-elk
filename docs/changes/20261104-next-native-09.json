@@ -1,0 +1,977 @@
+{
+  "schema": "py-elk-next-native-preparation/v1",
+  "status": "private-implementation-in-progress",
+  "previousProgressRecord": "20261104-next-native-08.json",
+  "previousProgressRecordSha256": "3d6d30af72199c365b31121c42d1adaa28713e67bbc7e79dea33139286783be4",
+  "checkpoint": {
+    "path": "migration/next-native/checkpoints/05a3920472313b4e00e82256d81c803f5d82213f3bfa00d8fcc80f5d1b0dd73a.json",
+    "sha256": "05a3920472313b4e00e82256d81c803f5d82213f3bfa00d8fcc80f5d1b0dd73a",
+    "sourceFiles": 99
+  },
+  "officialIterationsRemainPlanned": [
+    "E13",
+    "E16",
+    "E17",
+    "E18",
+    "E19"
+  ],
+  "propertyRegistry": {
+    "declarations": 243,
+    "rawConstructibleProperties": 235,
+    "sourceUnavailableRawFactories": 8,
+    "actualCoreScalarDefaults": 68,
+    "sourceAndCodeIndependentlyAccepted": true,
+    "selectedGlobalAndLocalParsedOnce": true,
+    "opaqueInternalTypedValuesSupported": true,
+    "allOwnerDefaultsAndIntegerBoxProvenanceComplete": false,
+    "publicMainSchemasUnchanged": 9
+  },
+  "hostDelta": {
+    "newJunctionOriginalCases": 6,
+    "junctionStrictDifferences": 0,
+    "newActualFixedRequestWithSectionPassed": true,
+    "newSnapshotDefaultOriginalObjects": 1,
+    "snapshotDefaultStrictDifferences": 0,
+    "unknownStructuredDefaultFactoryRequired": true,
+    "actualProviderPaddingTargetPassed": true,
+    "newIntegerProvenanceOriginalObjects": 1,
+    "integerProvenanceStrictDifferences": 0,
+    "integerGuardNegativeControls": 5,
+    "integerGuardPositiveControls": 1,
+    "oldPassingGroupsReexecuted": false,
+    "integerProvenanceSourceAndCodeAccepted": true,
+    "providerPaddingCallerCodeAccepted": true
+  },
+  "reviewScopes": [
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-code-review-01.json",
+      "sha256": "81bda767d0e5641cfd20c96764f4911d40c2ad3e99c59f74d0fcd7f37a5cdcac",
+      "scope": "New AllCrossingsCounter and literal initializer protocol; its child consumer snapshot deliberately retains approved Basic/NS936497 and Hyper00fb source bytes, excluding later unrelated local-swap append. No complete sweep/minimizer claim.",
+      "matchingCheckpointFiles": {
+        "algorithms/layered/all_crossings.py": "ed589962634ba292241b976632402e85c6f1ea50564df28236677dc8cb0da987",
+        "algorithms/layered/hyperedge_crossings.py": "00fbf431722196f1fedc17e6a8bc7ac797d11dbf865bd601d48cbad32d0bce69"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-code-review-01.json",
+      "sha256": "3f8bebf98944a2700d5c56974049ad11b3b1a134d98cb38dc3f5428952272e32",
+      "scope": "GraphInfo d2558 source/callback implementation and first actual original Barycenter constructor integration. TypeDecider is included as dependency; this object takes no-parent guard, not full influence math. Forced box provenance, Median/Greedy and full sweep optimization remain separate.",
+      "matchingCheckpointFiles": {
+        "algorithms/layered/graph_info.py": "d2558b705111d3eecbcad0e8e91f55f40a74d891983f166c91693cf51d28c54d",
+        "algorithms/layered/sweep_type.py": "ba44ba88fd93bb21e8fa374ade10530835cacdbf07026debdd349e9168f05864"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/integer-provenance-code-review-01.json",
+      "sha256": "04b3c603af8ce94961e4ab0652ea4f1fab09a2e79590fb2942064bd11fdea931",
+      "scope": "Session INTEGER option local/global parse provenance, actual assignment/removal identities and present-only shallow snapshot tokens. Explicit original native identity adapter; not arbitrary Java Integer/hash API or automatic LGraph bridge/forced minimizer acceptance.",
+      "matchingCheckpointFiles": {
+        "execution/node_micro.py": "126e83552cffeac68d2cc2ca110df8b82b1e2e9ee0155ee931235ac4e1ce15b6",
+        "execution/json_transfer.py": "d85eb05d200000e22cd10b7d70dd3c41571fda6e8edbe8fad6a2413640acacc7",
+        "execution/properties.py": "20eac79257404633094f84f138bce1d7a582071424f9059ec6040139ea4373d2",
+        "algorithms/layered/integer_box_tokens.py": "d792310af88e41fd65a5dff7f77373da0cb1657407af651ab7729dc13a234100"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/junction-property-code-review-01.json",
+      "sha256": "b06216d0b1c1b3c8ea532d021e295d63b26a972aa4ab698c8eb32cf7f97acf35",
+      "scope": "Frozen99 typed junction canonical storage: generated setter, Box native getter offset, conditional export and snapshot-current-presence correction. Existing Fixed/Box geometry formulas, legacy _State dict path and shared coordinate conversion remain unchanged.",
+      "matchingCheckpointFiles": {},
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/native-property-getter-code-review-01.json",
+      "sha256": "0430cb22eb50b322da7111e5c4857042e6e486c6b728c6783432fce6efb7a026",
+      "scope": "Only JsonLayoutSession.get_native_property thin owned-holder/canonical _property plus existing reader.get route; no new schema/default/math behavior.",
+      "matchingCheckpointFiles": {},
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-packing-code-review-01.json",
+      "sha256": "6b36136839b98ed9bab29415b983c7e5f4e96de9d057bbe3ce9476f6cf283d03",
+      "scope": "PG15-22 implementation source comparison and first native counterpart of the seven already captured actual original corner comparator cases. This review does not claim independent execution of complete pack_polyominoes or any provider.",
+      "matchingCheckpointFiles": {
+        "algorithms/polyomino.py": "c1bb61c0531e0bcf755caafb911ce06e0fffd5095968365ce4eb614b2928b750"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-code-review-01.json",
+      "sha256": "aedf290620c19e9b20907b8d5a75d2cb2c825ffd199567efa6b3c6ed875ac913",
+      "scope": "Only PG06-12/14 traversal/fill/container increment in ae4f9072 immutable consumer snapshot. Prior grid/raster controls were not replayed and packing is not executed.",
+      "matchingCheckpointFiles": {},
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/property-snapshot-default-read-code-review-01.json",
+      "sha256": "6b98e12dd36c0c15b67fa6ba2d5762f708877077314b5d8340d1c9ff57fc79c8",
+      "scope": "Actual new-holder PropertySnapshot.read_native defaults and Session thin owner-default entry, including narrow unknown structured direct-default rejection. No generic parser, new owner metadata fallback or full provider approval.",
+      "matchingCheckpointFiles": {
+        "execution/properties.py": "20eac79257404633094f84f138bce1d7a582071424f9059ec6040139ea4373d2"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/provider-padding-code-review-01.json",
+      "sha256": "bf5edea52bcd35a89a72f7f33c36eb6283989a3d6bce01c2e6ce6f578a43e0de",
+      "scope": "Only actual Fixed/Box owner-padding15 thin read/materialize calls and reusable _owner_padding helper; no changes to geometry/alignment/packing formulas or previous provider execution rebinding.",
+      "matchingCheckpointFiles": {
+        "algorithms/fixed.py": "269a257636cb06705f578be3700291e4d802e7db8087b52e55d748580bb4c51d",
+        "algorithms/box.py": "d9c778d2f6f58f747c83c4c02933e2be05576c333e55c59d15cd46a8f452454a",
+        "execution/json_transfer.py": "d85eb05d200000e22cd10b7d70dd3c41571fda6e8edbe8fad6a2413640acacc7"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-code-review-01.json",
+      "sha256": "fc34c6d68618098538369340d9f564134880edc37274c23417fdaafd5af3132a",
+      "scope": "New RP07-13 four candidate/filter/shift/special-case helper implementation and RP15 explicit target-width presence branch. RP14 property-loader/defaults, clone/PackingView additions and complete packing/provider are outside this code review.",
+      "matchingCheckpointFiles": {
+        "algorithms/rectpacking.py": "b5536ba5fcce071e514bc805e684013d26af2fc2b55840733a7faaf89a42b01c"
+      },
+      "doesNotApproveWholeModule": true
+    },
+    {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/provider-padding-code-review-01.json",
+      "sha256": "bf5edea52bcd35a89a72f7f33c36eb6283989a3d6bce01c2e6ce6f578a43e0de",
+      "scope": "Only actual Fixed/Box owner-padding15 thin read/materialize calls and reusable _owner_padding helper; no changes to geometry/alignment/packing formulas or previous provider execution rebinding.",
+      "matchingCheckpointFiles": {
+        "algorithms/fixed.py": "269a257636cb06705f578be3700291e4d802e7db8087b52e55d748580bb4c51d",
+        "algorithms/box.py": "d9c778d2f6f58f747c83c4c02933e2be05576c333e55c59d15cd46a8f452454a",
+        "execution/json_transfer.py": "d85eb05d200000e22cd10b7d70dd3c41571fda6e8edbe8fad6a2413640acacc7"
+      },
+      "doesNotApproveWholeModule": true
+    }
+  ],
+  "layeredAndPacking": "All/GraphInfo, Polyomino traversal/packing subsets and RectPacking width have separate scope-limited reviews; complete sweep/DisCo/RP providers remain in progress",
+  "pendingCheckpointCodeScopes": [
+    "Full sweep/controller and recursive coordinator",
+    "MODEL_ORDER real producer and native binding",
+    "All remaining owner defaults and full property consumers",
+    "Independent complete DisCo/RectPacking provider execution",
+    "Public algorithm registry/API and independent stable package delivery"
+  ],
+  "sourceAndExecutionBinding": "Each raw receipt retains its actual execution source. Later narrow guards have separate target controls. Checkpoint contents do not imply full module, algorithm or installed-package acceptance.",
+  "wholeAlgorithmsAccepted": 0,
+  "publicAPIIntegrated": false,
+  "installedPackageValidated": false,
+  "packagePublished": false,
+  "fullValidation": false,
+  "evidence": {
+    "references/e13-kernel-sources.json": {
+      "path": "references/next-native-evidence/09/references/e13-kernel-sources.json",
+      "sha256": "85f3ec9f7f0892df3920fb25177312815fb94ecebd105a595cbdfb33ba3a0575"
+    },
+    "references/e13-ports-sources.json": {
+      "path": "references/next-native-evidence/09/references/e13-ports-sources.json",
+      "sha256": "12b2baa803a92a9708927ed0fa6b5c9443c35c6bd66f277c274c729b902b8f35"
+    },
+    "references/next-model-order-producer-sources.json": {
+      "path": "references/next-native-evidence/09/references/next-model-order-producer-sources.json",
+      "sha256": "df63853f9531b1847c0af7e8fa33b111ca62540d8faa2b684887706fcd0762ae"
+    },
+    "test-runs/20261104-E13-01/A/all-crossings-source-proposal-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/all-crossings-source-proposal-01.json",
+      "sha256": "74738110b535946294ed0d61fcca5e882c000c70ffc11a9ecaefbb96ba8136ed"
+    },
+    "test-runs/20261104-E13-01/A/all-crossings-targeted-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/all-crossings-targeted-01/command.json",
+      "sha256": "24d92047ebb3e4bdce2994312380aa403ef36779b5474c76c02a313e0a2c9bf8"
+    },
+    "test-runs/20261104-E13-01/A/all-crossings-targeted-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/all-crossings-targeted-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/all-crossings-targeted-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/all-crossings-targeted-01/stdout.log",
+      "sha256": "3b883ce22eca071fa4fdb1dab788de1fd395c9f5ed5f3cffe0d2b1fe9eb09c5f"
+    },
+    "test-runs/20261104-E13-01/A/check_all_crossings.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/check_all_crossings.py",
+      "sha256": "e0778c7e9f926e6a9293a8d6b8e4251d606deddd759384a18244e67c2e5e4374"
+    },
+    "test-runs/20261104-E13-01/A/check_graph_info.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/check_graph_info.py",
+      "sha256": "537ce032f7f83bb4ed0b4b2fffb71abf60f904b02cb0b6c0f749bd34be05e511"
+    },
+    "test-runs/20261104-E13-01/A/check_graph_info_enum_default_fix.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/check_graph_info_enum_default_fix.py",
+      "sha256": "98362551d1584968d1a4a49dae0af40449581c15df2f013d04c698b1c505e47a"
+    },
+    "test-runs/20261104-E13-01/A/check_local_swap_crossings.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/check_local_swap_crossings.py",
+      "sha256": "53dba2506b8360528639b69ec942ed59f001dd27fe8db1083b3eba2c3a8601e9"
+    },
+    "test-runs/20261104-E13-01/A/check_local_undefined_side.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/check_local_undefined_side.py",
+      "sha256": "8d247f0b50475b1d2d3e15b4f68c398127e406b7adf66592e79a943c8af802b6"
+    },
+    "test-runs/20261104-E13-01/A/check_sweep_type.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/check_sweep_type.py",
+      "sha256": "06a8e672082117c1a13a4c3283342a9fd8e422abd851818b38310e588e001fe0"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-before-enum-default-fix.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-before-enum-default-fix.py",
+      "sha256": "a3b747c7143da2c82177fc1cbbd4b1ac3eb41c81e94d47dc7bc31d8e705ce5fa"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-enum-default-delta-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-enum-default-delta-01.json",
+      "sha256": "882eb99f38ee91b4943f63b19283c0118eb314338c1df6547ea8f2f709435679"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-enum-default-targeted-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-enum-default-targeted-02/command.json",
+      "sha256": "de07ae8c9b542506725f05b0e479ff4fee94fa0ad00ec0d2eb9d2689b8fbc974"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-enum-default-targeted-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-enum-default-targeted-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-enum-default-targeted-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-enum-default-targeted-02/stdout.log",
+      "sha256": "2e8753b266751105fca88ee139ebd28de620eee63234ce79760bdd09c3b1ba37"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-source-proposal-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-source-proposal-01.json",
+      "sha256": "40e3e2c72fcac67620a2e2089636936776c9bef005f28307535dea00e41525eb"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-targeted-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-targeted-01/command.json",
+      "sha256": "2a1c6b93a9ad55b03e6a18737e847bdd18cc6381f6913361447d8e4c5bf6d9a9"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-targeted-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-targeted-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/graph-info-targeted-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/graph-info-targeted-01/stdout.log",
+      "sha256": "808811488d0b6edcb49fe911600fdf9b159c5520a629fc9d7f147776617d5f8f"
+    },
+    "test-runs/20261104-E13-01/A/kernel-handoff-06.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/kernel-handoff-06.json",
+      "sha256": "9c149190a951d1af56f6d044c38e81d96af662940dbaae8c03d3e80e8e0f5ff3"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-ast-proof-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-ast-proof-01.json",
+      "sha256": "2a71d8ae4c6ee37c1384ab86b2dd34b4a666ae4559d816aa8dbf1049669f8900"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-ast-proof-02.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-ast-proof-02.json",
+      "sha256": "13563ca85075a73433caba16651b3691791f01d7e8baf3e9dc7e722128a15262"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-crossings-source-proposal-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-crossings-source-proposal-01.json",
+      "sha256": "47299cc8af40f8dabd2940bbe8d7934a9904126d2f2646f93d62b64eaf7b0621"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-crossings-source-proposal-02.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-crossings-source-proposal-02.json",
+      "sha256": "935880478f840401bdd88c2787af6b60ae4a2c6e2649ae99742049b27ff65408"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-crossings-source-proposal-03.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-crossings-source-proposal-03.json",
+      "sha256": "81a43adb9a5dbe52b424037ad25a060f73ee6750282cf3e448124855b9719336"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-crossings-targeted-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-crossings-targeted-01/command.json",
+      "sha256": "fa678e8f18f6b33f40f84c292408a25f89200da64cc0dc8a669b2cd526365cb4"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-crossings-targeted-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-crossings-targeted-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/local-swap-crossings-targeted-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-swap-crossings-targeted-01/stdout.log",
+      "sha256": "e5b831ededd351f739db6453e2f6355b2b136946295302fcb9ac08a3eebe8eb0"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-side-delta-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-side-delta-01.json",
+      "sha256": "504e575bf584874169c0c23e85128b8be4de2ff3d9a27012cac330d2ad11e457"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-targeted-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-targeted-01/command.json",
+      "sha256": "bdb8ce9e216a9c0a67f88881b3b5676fe0e99668090c0a2ecc0b3a5c7054e440"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-targeted-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-targeted-01/stderr.log",
+      "sha256": "15337685328870ca80c98ff9a293199db0b1e41dd2508735ee0395ffc1984b76"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-targeted-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-targeted-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-targeted-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-targeted-02/command.json",
+      "sha256": "1eac629eb36fdab18c6788dff048044d6525182cf1afa0645f61a81fd1296810"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-targeted-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-targeted-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/local-undefined-targeted-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/local-undefined-targeted-02/stdout.log",
+      "sha256": "3b057ab9489e3c33b2a2267e6f2b171774631e7ad439979ffcdb60738ed9cfd4"
+    },
+    "test-runs/20261104-E13-01/A/sweep-type-source-proposal-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/sweep-type-source-proposal-01.json",
+      "sha256": "1f94af911ea5f6ae5cf79449f478b7bb3710a92a71c4ab389d5489fe4ecf83e0"
+    },
+    "test-runs/20261104-E13-01/A/sweep-type-targeted-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/sweep-type-targeted-01/command.json",
+      "sha256": "784e0e58380d0eff1d4132c10bd667488e6f7d82b64b281ec5929dd36be626fd"
+    },
+    "test-runs/20261104-E13-01/A/sweep-type-targeted-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/sweep-type-targeted-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-E13-01/A/sweep-type-targeted-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E13-01/A/sweep-type-targeted-01/stdout.log",
+      "sha256": "883fb6b7aa88d1812892c16f75311e8a448a283480ef2cd71cf2a1938a176e01"
+    },
+    "test-runs/20261104-E19-01/B/check_disco_provider_owner.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/check_disco_provider_owner.py",
+      "sha256": "e3ecb6704a0adf023924b989c4e766c775bd6002e4196282adf44177dd8e5f52"
+    },
+    "test-runs/20261104-E19-01/B/check_spore_padding_owner.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/check_spore_padding_owner.py",
+      "sha256": "e806b5fc93000fc8840e0b49fc767f7392a99b234bcc1297c3d548838f0799c4"
+    },
+    "test-runs/20261104-E19-01/B/disco-provider-owner-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/disco-provider-owner-01.json",
+      "sha256": "b199ce159e30d3dc2601d8373afb2802aff9319fef336f93da8954b048792add"
+    },
+    "test-runs/20261104-E19-01/B/disco-transform-owner-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/disco-transform-owner-01.json",
+      "sha256": "22898c590e086151d1d95cacb983ec2f723243a307ed5681c33f1d2e5b11db55"
+    },
+    "test-runs/20261104-E19-01/B/polyomino-packing-source-proposal-03.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/polyomino-packing-source-proposal-03.json",
+      "sha256": "1071120a613f3d76699a3bbe554f93aefb29a428aedf9d9c7f2791a31919823b"
+    },
+    "test-runs/20261104-E19-01/B/spore-padding-getter-delta-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/spore-padding-getter-delta-01.json",
+      "sha256": "aa08541e7ccac66905381096b53c0822a6f7c6448c055f9178d0789db419ff30"
+    },
+    "test-runs/20261104-E19-01/B/spore-padding-owner-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-E19-01/B/spore-padding-owner-01.json",
+      "sha256": "4de4f577ddf2b9301a1c02f892ece853aa4dc747704a9d003b9a1f494a2e07cd"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-01/command.json",
+      "sha256": "8f4b2c2170fda662ee4ead7b906c75e88c434d59942f0c0b39da685f86351895"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-01/stderr.log",
+      "sha256": "9680d55ea1772b2d664025c501f159e07f3a241171805c54f1fcb3c15a18c580"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-02/command.json",
+      "sha256": "b230a1ad61396bc740460d243c9acf9fe95bdc34b56289954d1c7d8d8072ee40"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-02/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-02/comparison.json",
+      "sha256": "3ffd2d03117d6412ead5ba366fed0af68f90e96ffd753cc8a7989347461e0c7f"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-native-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-native-02/stdout.log",
+      "sha256": "60cabe544ccc5a7423d0e5aa25990cea0f39d08c3abc77333f77749307d77aa2"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-01/command.json",
+      "sha256": "8130533162f114bf69a79a88600335364794d943d999a90727365f150821e8e5"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-01/observation.json",
+      "sha256": "d971cafc1a414affb89d8e2f9a94885c4f0b9ae3ebc72bc2d13e9a166bee5b35"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-02/command.json",
+      "sha256": "ead7c140b3332f48a310b8f6c2bbea6037a35927b5435d850961b680f60f7e91"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-02/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-02/observation.json",
+      "sha256": "96be4d4677e06c45b3c718bc3972d052c93810f2f30c0dc3867bab55042aaae0"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/fixed-junction-original-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/fixed-junction-original-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/integer-native-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-native-01/command.json",
+      "sha256": "96627e0d3ab5de0ce862a57703bfdd7e1e00b5cfabccf992ba76d2cc02aa4ecd"
+    },
+    "test-runs/20261104-HOST-09/root/integer-native-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-native-01/comparison.json",
+      "sha256": "962d7a9ac769524358bf7daa34b32b47370d7491a87333abb2c6aae441725023"
+    },
+    "test-runs/20261104-HOST-09/root/integer-native-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-native-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/integer-native-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-native-01/stdout.log",
+      "sha256": "835baa2b848ef43e60de025b889d276d6a2de7254cb1cf2c01b6e1fe0045a7b6"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-01/command.json",
+      "sha256": "956d630df3a8e1a28aaa7ab6e010e3ee3d844d26c00461a8c0dbf44ebc67087b"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-01/stderr.log",
+      "sha256": "cc2de8f71e8a440caf4357ac7f3e5e637a5c4072d94447a9788678a58accb010"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-02/command.json",
+      "sha256": "dd750c3efbd7a63d8b561f76a2a680317cc371143a4216ff5fa0909c394e5e32"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-02/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-02/observation.json",
+      "sha256": "55a25131f202852a17623ada46d0d9a6f0c88cfa0fd0fd1a12a70b82450289c9"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/integer-original-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-original-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/integer-policy-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-policy-02/command.json",
+      "sha256": "7307bdae895caa02fd898080f6f9c4e5fad9b9ed855ffcafd7644ddb6c7b6226"
+    },
+    "test-runs/20261104-HOST-09/root/integer-policy-02/controls.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-policy-02/controls.json",
+      "sha256": "9995d9ab9a46eb3dbe3a543a30638c3ad4980a45a0d02f611bdfb0591d60d0ce"
+    },
+    "test-runs/20261104-HOST-09/root/integer-policy-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-policy-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/integer-policy-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/integer-policy-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/junction-native-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-native-01/command.json",
+      "sha256": "315a9ec12bb27fd2fab3ff74996a6cfe26be204b267e2925c2049c93f483f74d"
+    },
+    "test-runs/20261104-HOST-09/root/junction-native-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-native-01/comparison.json",
+      "sha256": "faf975be41600fb244e07e5a933d819b92ff52afde62f77f5f30eddf2fbf01c5"
+    },
+    "test-runs/20261104-HOST-09/root/junction-native-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-native-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/junction-native-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-native-01/stdout.log",
+      "sha256": "7e630ac52858beb6ce96b54aa7e61858de605561d67e57f25c22fbd6c8671e52"
+    },
+    "test-runs/20261104-HOST-09/root/junction-original-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-original-01/command.json",
+      "sha256": "253629bd19d545a1e31fb1f1c8d5af572f94e4699c629c09d9383e2748670727"
+    },
+    "test-runs/20261104-HOST-09/root/junction-original-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-original-01/observation.json",
+      "sha256": "2a3abd8b698945b827e41aa5c98ba6bc295261594a07a043227f79910cb658d5"
+    },
+    "test-runs/20261104-HOST-09/root/junction-original-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-original-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/junction-original-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/junction-original-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/native-property-unit-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/native-property-unit-01/command.json",
+      "sha256": "8f430d642da9a34a8efddbbb3a8f1e3179151a9f00f80a27155d7ae168c2576d"
+    },
+    "test-runs/20261104-HOST-09/root/native-property-unit-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/native-property-unit-01/stderr.log",
+      "sha256": "dcd354efc54c991689a4e29af460d9984e965171f7fc735875ba97cc3782b0b3"
+    },
+    "test-runs/20261104-HOST-09/root/native-property-unit-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/native-property-unit-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/owner-default-unit-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/owner-default-unit-01/command.json",
+      "sha256": "793a57d3cf977046079617d4d8af533c263c5ebcfa4fc611a949c308a8214eb9"
+    },
+    "test-runs/20261104-HOST-09/root/owner-default-unit-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/owner-default-unit-01/stderr.log",
+      "sha256": "c064a7c776969be685dafeb6b056e7a85341a23e243ce2c6faff97fc05a9a886"
+    },
+    "test-runs/20261104-HOST-09/root/owner-default-unit-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/owner-default-unit-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/polyomino-corners-original-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/polyomino-corners-original-01/command.json",
+      "sha256": "1cefdc2371ba7d1a7aa7568eb5a793e1c5fdfbdca5dadefa50825e9e7c4919a4"
+    },
+    "test-runs/20261104-HOST-09/root/polyomino-corners-original-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/polyomino-corners-original-01/observation.json",
+      "sha256": "ceca5f512d969e401f021d909cff2764ae95a68a973ee23415fd8a98dd7cc51c"
+    },
+    "test-runs/20261104-HOST-09/root/polyomino-corners-original-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/polyomino-corners-original-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/polyomino-corners-original-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/polyomino-corners-original-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/provider-padding-unit-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/provider-padding-unit-01/command.json",
+      "sha256": "4964a3fd4e6f96dfe8f5b161fcddf69e39884601ce39d67ee8ab37e44f9361d3"
+    },
+    "test-runs/20261104-HOST-09/root/provider-padding-unit-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/provider-padding-unit-01/stderr.log",
+      "sha256": "4826bb0ee763f2c7dd42357262032bdb4af026fe7748c40159f7d46489235ce8"
+    },
+    "test-runs/20261104-HOST-09/root/provider-padding-unit-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/provider-padding-unit-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/provider-padding-unit-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/provider-padding-unit-02/command.json",
+      "sha256": "6be0ca95728192203821262c3388ffef7c1fc1d04d335ffdf369b83161b83578"
+    },
+    "test-runs/20261104-HOST-09/root/provider-padding-unit-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/provider-padding-unit-02/stderr.log",
+      "sha256": "a809bb6c617c0983eedfda4ff59b6d84df8e6c4b6c14cc79a398a614a9731563"
+    },
+    "test-runs/20261104-HOST-09/root/provider-padding-unit-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/provider-padding-unit-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/command.json",
+      "sha256": "2083c4603a2a4d999f1d6d82ad486d29311d6e26f37ca670914fdffd7dfe4e0e"
+    },
+    "test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/review.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/review.json",
+      "sha256": "00d6e0110c223615e4e25e641146a3c3691fdab1d63911016755860e7565c3c9"
+    },
+    "test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/review_source.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/review_source.py",
+      "sha256": "c53d0ae19e6149060453ae64588114577e1598c9327d82dea023bda89574cd39"
+    },
+    "test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/rect-owner-default-source-review-01/stdout.log",
+      "sha256": "e4b14d5123fa286d44360ba1663e665a41ce2f00d568ebeeab6091bd1a5c891a"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-native-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-native-01/command.json",
+      "sha256": "99fffa240e693c18679bdcb94a202ec7612e69199fdb053bc870c95e3294572c"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-native-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-native-01/comparison.json",
+      "sha256": "82f642cd926747e6b24ad90f9d64712b944a851af52cb6b22a10c539755b22d4"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-native-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-native-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-native-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-native-01/stdout.log",
+      "sha256": "835baa2b848ef43e60de025b889d276d6a2de7254cb1cf2c01b6e1fe0045a7b6"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-original-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-original-01/command.json",
+      "sha256": "3b959868861248bdac6b9d4dd70462b88ce82aae40bfbe01e7eaf33fb707aba5"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-original-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-original-01/observation.json",
+      "sha256": "d2bb7a3c2450cb31777315c4b4314a2fb0a530d2a907aad9384db2c239073dae"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-original-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-original-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-original-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-original-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-policy-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-policy-02/command.json",
+      "sha256": "07b29c93e687d2fa343fbc585d06c940ad4a460284527c3f6e005b0ab32a7cb3"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-policy-02/probe.py": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-policy-02/probe.py",
+      "sha256": "a8a43da9049cdc38aec278f329f23aeeb5ce10e07d3890056bbde4bd4e185523"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-policy-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-policy-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/root/snapshot-default-policy-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/root/snapshot-default-policy-02/stdout.log",
+      "sha256": "aa2970e4cbe6a2b9d4bd5a33df12e105527cd51548ede84cd2630f6cdd533457"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-code-review-01.json",
+      "sha256": "81bda767d0e5641cfd20c96764f4911d40c2ad3e99c59f74d0fcd7f37a5cdcac"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-comparison-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-comparison-01/command.json",
+      "sha256": "5f169238cbdd00e29d2f60a5db10e0980fb4862b4b5a941fc45789a396ab9211"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-comparison-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-comparison-01/comparison.json",
+      "sha256": "609514dc92abe8a425db69cd0cb59afbbc4d598d14cbc60a3de91044914bd163"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-comparison-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-comparison-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-comparison-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-comparison-01/stdout.log",
+      "sha256": "835baa2b848ef43e60de025b889d276d6a2de7254cb1cf2c01b6e1fe0045a7b6"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-oracle-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-oracle-01/command.json",
+      "sha256": "92cd358126bb8cdd312f0f71cf0f608a8862dcf1cc2e05086131537cc58f6dbb"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-oracle-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-oracle-01/observation.json",
+      "sha256": "275c6903d460219493e93c0169d30aca62ba1fccfb84e73310018043e8aa7fac"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-oracle-01/probe-original.cjs": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-oracle-01/probe-original.cjs",
+      "sha256": "f90f67282191ac5fac677d9a17b577fb1a659e5d50a43edd8f396d52f1cd2297"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-oracle-01/request-original.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-oracle-01/request-original.json",
+      "sha256": "55563f95f9018e53968fd55b4e618b100ccd1478367c918a13e87141cdf5f2e3"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-oracle-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-oracle-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-oracle-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-oracle-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/all-crossings-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/all-crossings-source-review-01.json",
+      "sha256": "99250ce2509323e03c358528ee0dd26b565c177f45bf85a52c94cd388796c28e"
+    },
+    "test-runs/20261104-HOST-09/V/disco-components-contour-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/disco-components-contour-source-review-01.json",
+      "sha256": "4aa45deb18ef6672557f0333b0a9b065a19080dadbad24af0826331d485fbfaa"
+    },
+    "test-runs/20261104-HOST-09/V/disco-provider-bridge-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/disco-provider-bridge-source-review-01.json",
+      "sha256": "369175a0e2552c92b49c0586918a8d76b1ec9bcb9c20f0fa9a29cab41b542338"
+    },
+    "test-runs/20261104-HOST-09/V/disco-transform-import-transfer-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/disco-transform-import-transfer-source-review-01.json",
+      "sha256": "4f2e4933d3d62cc9b733a92bf63e036f30bcf41c1a5b770b451b0304e4e08be4"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-code-review-01.json",
+      "sha256": "3f8bebf98944a2700d5c56974049ad11b3b1a134d98cb38dc3f5428952272e32"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-comparison-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-comparison-01/command.json",
+      "sha256": "5521bf65b905457fad39c2a57e33413482756f43c06c674cd66771181e538d10"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-comparison-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-comparison-01/comparison.json",
+      "sha256": "1c1bef317b3cc4ad212b73f18052b8eec3ff81f70563a297325ec5f6d5ccee20"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-comparison-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-comparison-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-comparison-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-comparison-01/stdout.log",
+      "sha256": "835baa2b848ef43e60de025b889d276d6a2de7254cb1cf2c01b6e1fe0045a7b6"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-01/command.json",
+      "sha256": "c2d6b18670739e9d53a4b6b85ee45920503f95f481962e34a31c3ffc17eff936"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-01/probe-original.cjs": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-01/probe-original.cjs",
+      "sha256": "88b886a3b5faa8484d4ff4cab3e8e373983c83a22a80814cabbf2391e7c4af53"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-01/request-original.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-01/request-original.json",
+      "sha256": "fab586e9585ef602a535b2f71a2c7638766e55e19c39c75edc0197e97c1fd517"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-01/stderr.log",
+      "sha256": "904c40b0ae9bb341dd3a1a8bf788925492e6c3977e670a3c743099a785c4da8a"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-02/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-02/command.json",
+      "sha256": "5fb5e51c7c9a0191bfb679de48d3b2f26e42e89fe4238ed13b0f8760caf53a4e"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-02/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-02/observation.json",
+      "sha256": "6f981d3cf3ac453d7eed6724fcb06c56de7ae11ce0b7c3f31cf1c18e0e3cc6d8"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-02/probe-original.cjs": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-02/probe-original.cjs",
+      "sha256": "e4cf315efcce72d4ebd0e12775c2d041906c85768335d0980a00910499ad4e08"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-02/request-original.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-02/request-original.json",
+      "sha256": "fab586e9585ef602a535b2f71a2c7638766e55e19c39c75edc0197e97c1fd517"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-02/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-02/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-oracle-02/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-oracle-02/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/graph-info-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/graph-info-source-review-01.json",
+      "sha256": "2bcebe99c87960cba946247c17b8ef59cc7da55e72a91bc2d2d6d79311e730f3"
+    },
+    "test-runs/20261104-HOST-09/V/integer-provenance-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/integer-provenance-code-review-01.json",
+      "sha256": "04b3c603af8ce94961e4ab0652ea4f1fab09a2e79590fb2942064bd11fdea931"
+    },
+    "test-runs/20261104-HOST-09/V/integer-provenance-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/integer-provenance-source-review-01.json",
+      "sha256": "3aea40b648f878d13904836fca21b76f15fc2db17f61ef764743e45e6a22115d"
+    },
+    "test-runs/20261104-HOST-09/V/junction-property-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/junction-property-code-review-01.json",
+      "sha256": "b06216d0b1c1b3c8ea532d021e295d63b26a972aa4ab698c8eb32cf7f97acf35"
+    },
+    "test-runs/20261104-HOST-09/V/junction-property-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/junction-property-source-review-01.json",
+      "sha256": "8e670622678725efcd24ab18138768217ffbc18323f3f9c37e16f76d98b1eb70"
+    },
+    "test-runs/20261104-HOST-09/V/local-swap-crossings-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/local-swap-crossings-source-review-01.json",
+      "sha256": "066369b152fefdf71c11d6e1f2fb3571724e9e87306284e1fa6d4b6b1120fa19"
+    },
+    "test-runs/20261104-HOST-09/V/native-property-getter-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/native-property-getter-code-review-01.json",
+      "sha256": "0430cb22eb50b322da7111e5c4857042e6e486c6b728c6783432fce6efb7a026"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/command.json",
+      "sha256": "889b73a82ed248e227f907d382f40e43ec6fa706734af0c5e1025148c490a19e"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/comparison.json",
+      "sha256": "41a7789ac52a3b8c7fae728b05f3a5737f875e16c06572324bd38206155e3e14"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-corners-comparison-01/stdout.log",
+      "sha256": "f73e9c67cefe92ac1b5c57788f1f3c2b4e7055d5746e06347fe47a6e3b1c53ce"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-packing-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-packing-code-review-01.json",
+      "sha256": "6b36136839b98ed9bab29415b983c7e5f4e96de9d057bbe3ce9476f6cf283d03"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-packing-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-packing-source-review-01.json",
+      "sha256": "da3d1b4889c660f0a92301d6790bb4a44147e7126ef28c7d3921c26e586267b7"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-code-review-01.json",
+      "sha256": "aedf290620c19e9b20907b8d5a75d2cb2c825ffd199567efa6b3c6ed875ac913"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/command.json",
+      "sha256": "ebcb0d980c9bc9ef44ec1d09dd2aed15eb8cab597b63633f2f4e1aeb249a1106"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/comparison.json",
+      "sha256": "077d57fdea4478cd81bf728efe344a9b28476c1856e22bab0232d66a1ae133e0"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-comparison-01/stdout.log",
+      "sha256": "835baa2b848ef43e60de025b889d276d6a2de7254cb1cf2c01b6e1fe0045a7b6"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/command.json",
+      "sha256": "afbf267783e25e590b29f0ea321d5efa53e4c7fea223af19c965517d9ee5efef"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/observation.json",
+      "sha256": "a020be94895cd027b56340bed832252badd8f1250bcb78ddaa8ab6f2ecd490d5"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/probe-original.cjs": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/probe-original.cjs",
+      "sha256": "f5e849dc8257df735209e1853b808f263348d7001c74b8ec415fd8b0629c8605"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/request-original.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/request-original.json",
+      "sha256": "bddf7de4b08f14bcc76c6121ef4c049bb4768c905d6fa7cb8e3a11fd09a79970"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/polyomino-traversal-oracle-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/property-snapshot-default-read-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/property-snapshot-default-read-code-review-01.json",
+      "sha256": "6b98e12dd36c0c15b67fa6ba2d5762f708877077314b5d8340d1c9ff57fc79c8"
+    },
+    "test-runs/20261104-HOST-09/V/property-snapshot-default-read-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/property-snapshot-default-read-source-review-01.json",
+      "sha256": "0cface51004af31563e3cd86945290004026371714e3dbcafc5a5f54451c1a90"
+    },
+    "test-runs/20261104-HOST-09/V/provider-padding-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/provider-padding-code-review-01.json",
+      "sha256": "bf5edea52bcd35a89a72f7f33c36eb6283989a3d6bce01c2e6ce6f578a43e0de"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-code-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-code-review-01.json",
+      "sha256": "fc34c6d68618098538369340d9f564134880edc37274c23417fdaafd5af3132a"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/command.json",
+      "sha256": "db148258490c2f7a99de445b17e13445718778c17abc185b683b18e6b8b849e2"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/comparison.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/comparison.json",
+      "sha256": "dcef4eda916e862aa0e1a03585a73f3a2211f2fdd1a2161a25eca02bff9fdb45"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-comparison-01/stdout.log",
+      "sha256": "7514228ecbaaa45bd4669a90c35336808b62fca4ec8098b58481288b42118b03"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/command.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/command.json",
+      "sha256": "d4b7acbc4587e0a22307390ab2a278f1a7c4e3643248322ca95f244f226f7087"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/observation.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/observation.json",
+      "sha256": "3f084288f75bb5b16ed0b39354804ce659b1dfc22e89cb198e5150135b5e6c2e"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/probe-original.cjs": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/probe-original.cjs",
+      "sha256": "0d010ab28a7ab3ef081b4c905692d8c4852a3c9a8835baf9446712e8b0270f09"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/request-original.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/request-original.json",
+      "sha256": "5ea275f3a27093898c2919c9c3699625f60b98e58f4196bf992824880406801f"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/stderr.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/stdout.log": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/rectpacking-width-oracle-01/stdout.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "test-runs/20261104-HOST-09/V/sweep-type-source-review-01.json": {
+      "path": "references/next-native-evidence/09/test-runs/20261104-HOST-09/V/sweep-type-source-review-01.json",
+      "sha256": "9a56521b81cd4fd1619e2bd9b2f2b49650c0d000da86bc4d52a8552747af4c60"
+    },
+    "tests/fixtures/suites/next-native/check_integer_assignment_policy.py": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/check_integer_assignment_policy.py",
+      "sha256": "9c38a7988f0321d4767e6caa2efa7f588808047314da28f8dd41e7d0edcec766"
+    },
+    "tests/fixtures/suites/next-native/compare_integer_provenance.py": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/compare_integer_provenance.py",
+      "sha256": "3748f231667e70f4d4a321552f5ca45e099bf81655623de0b876818c2d41a629"
+    },
+    "tests/fixtures/suites/next-native/integer-provenance-oracle.command.json": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/integer-provenance-oracle.command.json",
+      "sha256": "dd750c3efbd7a63d8b561f76a2a680317cc371143a4216ff5fa0909c394e5e32"
+    },
+    "tests/fixtures/suites/next-native/integer-provenance-oracle.json": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/integer-provenance-oracle.json",
+      "sha256": "55a25131f202852a17623ada46d0d9a6f0c88cfa0fd0fd1a12a70b82450289c9"
+    },
+    "tests/fixtures/suites/next-native/integer-provenance-probe.cjs": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/integer-provenance-probe.cjs",
+      "sha256": "d0a9fe4ad5305b5490ae7b44ec4a311d4a4bc9eb6594bdb3e8fda7024975db94"
+    },
+    "tests/fixtures/suites/next-native/integer-provenance-request.json": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/integer-provenance-request.json",
+      "sha256": "744a0be5c5d2d52f05ce4551f73e225dbefdb969fd59500a3b43453ce7d3fc88"
+    },
+    "tests/fixtures/suites/next-native/junction-bridge-oracle.json": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/junction-bridge-oracle.json",
+      "sha256": "2a3abd8b698945b827e41aa5c98ba6bc295261594a07a043227f79910cb658d5"
+    },
+    "tests/fixtures/suites/next-native/junction-bridge-probe.cjs": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/junction-bridge-probe.cjs",
+      "sha256": "a7710b1c1a311333986c3bcd697eff2ed06a817d3d7479cdb1bbcfeec6a51b3d"
+    },
+    "tests/fixtures/suites/next-native/junction-bridge-request.json": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/junction-bridge-request.json",
+      "sha256": "0d4deb552b5db9f6f8b59061516ff940609fe8a4ef87823a46b1ce109700a9bf"
+    },
+    "tests/fixtures/suites/next-native/snapshot-default-oracle.json": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/snapshot-default-oracle.json",
+      "sha256": "d2bb7a3c2450cb31777315c4b4314a2fb0a530d2a907aad9384db2c239073dae"
+    },
+    "tests/fixtures/suites/next-native/snapshot-default-probe.cjs": {
+      "path": "references/next-native-evidence/09/tests/fixtures/suites/next-native/snapshot-default-probe.cjs",
+      "sha256": "c6f9e5164a5bac3280d2f9e4bd4fe42622201c8abe38ce8786bd1f7f3d421d2e"
+    },
+    "tests/next_native/test_micro_state.py": {
+      "path": "references/next-native-evidence/09/tests/next_native/test_micro_state.py",
+      "sha256": "c53d718ec5c74d998701407de87a46968883c1d6e2e8845a802c4f5964002471"
+    },
+    "tools/platform/next_micro_state_probe.py": {
+      "path": "references/next-native-evidence/09/tools/platform/next_micro_state_probe.py",
+      "sha256": "dff16c96a3605caf1e92700d83bcaf3ea2c9c09b4f549d27a9a4d28353c0a46e"
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schema": "py-elk-e06-oracle-provenance/v1",
+  "inputPreparationStatus": "INPUTS_PREPARED",
+  "scopeStatus": "SOURCE_REVIEWED_SEPARATE_FROM_CAPTURE",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "sourceCapture": "test-runs/20261103-E06-01/V/oracle52-final-policy-first",
+  "sourceIndexSha256": "ab9515dc58ea002cf1a174dc192ce2258d29321461878e09d92a3d2f04094c1b",
+  "snapshotIndexSha256": "ab9515dc58ea002cf1a174dc192ce2258d29321461878e09d92a3d2f04094c1b",
+  "suiteSha256": "8c8f88fa783f3c0c734fdcb8b889b60a05e69d5a7f63a2ea11ca5b8d2264f1ef",
+  "selectionSha256": "7e673013c2dfcdb73d84cf6f5cb76d3016ebaefe0c535214536f255f29d6fef2",
+  "rawSnapshotFiles": 679,
+  "masterDenominator": 25,
+  "selectedMaster": 15,
+  "excludedMaster": 10,
+  "projectVariantCount": 37,
+  "caseCount": 52,
+  "repeat": 3,
+  "observationCount": 156,
+  "pythonAlgorithmsVerified": 0,
+  "candidateCapture": null,
+  "preparationHistory": {
+    "initial48CaptureIndexSha256": "ce8da68a4afc0f1449068172d0efe6bba03eedae069af5e346fb2dcdf3ba58b2",
+    "initial48GeometryFailure": "e06-cycle-six-zero retained with old policy in ignored V/oracle-proposed-checks.json; strict original-only ring marker reviewed under GR-G6 and NS6-G7",
+    "final52RequestBytesUnchanged": true
+  },
+  "toolSha256": {
+    "scripts/validate_layout.py": "e98532916237edb3b554b307b474b0e03bd131e706a4c3c9b88bc3368f6913b0",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+    "scripts/build_e06_suite.py": "026cf93459dfa1d3aac4f60a64be1c23d48c9c46ebf877a3a7ff4389bd79815d",
+    "scripts/layout_checks.py": "268e843ae8c2cbe5f293abd2de8871cbbe5be7e7a4c8d8ca75891d0d4ac263d5"
+  },
+  "limitation": "Actual pinned official observations only, without candidate-fed expected coordinates. Input construction preceded E06 admission; final geometry-policy recapture occurs after source approval. This receipt neither executes nor accepts Python, full algorithms, lifecycle or release."
+}

@@ -1,0 +1,114 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "radial",
+      "org.eclipse.elk.randomSeed": 7
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 14,
+        "business": {
+          "ordinal": 0
+        },
+        "labels": [
+          {
+            "width": 30,
+            "height": 11
+          }
+        ],
+        "layoutOptions": {
+          "org.eclipse.elk.nodeSize.constraints": "[NODE_LABELS,MINIMUM_SIZE]",
+          "org.eclipse.elk.nodeLabels.placement": "[OUTSIDE,V_TOP,H_CENTER]"
+        }
+      },
+      {
+        "id": "n1",
+        "width": 23,
+        "height": 16,
+        "business": {
+          "ordinal": 1
+        }
+      },
+      {
+        "id": "n2",
+        "width": 26,
+        "height": 18,
+        "business": {
+          "ordinal": 2
+        }
+      },
+      {
+        "id": "n3",
+        "width": 29,
+        "height": 20,
+        "business": {
+          "ordinal": 3
+        }
+      },
+      {
+        "id": "n4",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "ordinal": 4
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "business": {
+          "edge": 0
+        }
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ],
+        "business": {
+          "edge": 1
+        }
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ],
+        "business": {
+          "edge": 2
+        }
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n4"
+        ],
+        "business": {
+          "edge": 3
+        }
+      }
+    ]
+  }
+}

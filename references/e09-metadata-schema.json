@@ -1,0 +1,601 @@
+{
+  "schema": "py-elk-e08-native-metadata-schema/v1",
+  "contract": "E08-ADR0007-revision1",
+  "status": "frozen-return-shapes-for-implementation; independent-validation-pending",
+  "queryMethods": [
+    "knownLayoutAlgorithms",
+    "knownLayoutOptions",
+    "knownLayoutCategories"
+  ],
+  "async": true,
+  "freshIndependentJsonValueEachCall": true,
+  "scope": "Native implemented/registered subset only; reference denominators remain12/243/8",
+  "fieldRules": {
+    "referenceOptionFields": "Preserve exact selected source fields including omitted keys and ordering",
+    "nativeOptionFields": [
+      "valueType",
+      "defaultValue",
+      "acceptedValues",
+      "constraints"
+    ],
+    "acceptedValuesNull": "No finite enumeration in OptionSpec; structured constraints restrict parser and layout separately",
+    "defaultValue": "OptionSpec declared default; algorithm None uses explicit layout fallback, direction remains UNDEFINED",
+    "algorithmKnownOptions": "Eight actual layered-known intersection entries; selector org.eclipse.elk.algorithm remains in nine-option query",
+    "category": "Only fixed layered category related to the single native registered algorithm",
+    "closedQueries": "ResourceClosedError(code=RESOURCE_CLOSED,path=empty)"
+  },
+  "expectedQueries": {
+    "default": {
+      "algorithms": [
+        {
+          "id": "org.eclipse.elk.layered",
+          "name": "ELK Layered",
+          "description": "Native bounded flat layered layout: 0-8 original child nodes, at most 28 original edges, four directions, weak components, cycles, self-loops and parallel edges. Ports, labels and compound layout are unsupported.",
+          "category": "org.eclipse.elk.layered",
+          "knownOptions": [
+            "org.eclipse.elk.spacing.componentComponent",
+            "org.eclipse.elk.spacing.nodeNode",
+            "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+            "org.eclipse.elk.padding",
+            "org.eclipse.elk.edgeRouting",
+            "org.eclipse.elk.randomSeed",
+            "org.eclipse.elk.separateConnectedComponents",
+            "org.eclipse.elk.direction"
+          ],
+          "supportedFeatures": [
+            "SELF_LOOPS",
+            "MULTI_EDGES"
+          ],
+          "native": {
+            "constraints": {
+              "originalChildNodes": {
+                "minimum": 0,
+                "maximum": 8
+              },
+              "originalEdges": {
+                "minimum": 0,
+                "maximum": 28
+              },
+              "flatRootChildrenOnly": true,
+              "directions": [
+                "UNDEFINED",
+                "RIGHT",
+                "LEFT",
+                "DOWN",
+                "UP"
+              ],
+              "weakComponents": [
+                "separate",
+                "combined"
+              ],
+              "ports": false,
+              "labels": false,
+              "compound": false,
+              "routing": [
+                "ORTHOGONAL"
+              ],
+              "logging": true,
+              "measureExecutionTime": true
+            }
+          }
+        }
+      ],
+      "options": [
+        {
+          "id": "org.eclipse.elk.algorithm",
+          "name": "Layout Algorithm",
+          "description": "Select a specific layout algorithm.",
+          "group": "",
+          "type": "STRING",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "algorithm",
+            "defaultValue": null,
+            "acceptedValues": [
+              "layered",
+              "org.eclipse.elk.layered"
+            ],
+            "constraints": {
+              "parsing": {
+                "aliases": [
+                  "layered",
+                  "org.eclipse.elk.layered"
+                ]
+              },
+              "layout": {
+                "fallback": "org.eclipse.elk.layered",
+                "requiresRegisteredAlgorithm": true
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.direction",
+          "name": "Direction",
+          "description": "Overall direction of edges: horizontal (right / left) or vertical (down / up).",
+          "group": "",
+          "type": "ENUM",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "enum",
+            "defaultValue": "UNDEFINED",
+            "acceptedValues": [
+              "UNDEFINED",
+              "RIGHT",
+              "LEFT",
+              "DOWN",
+              "UP"
+            ],
+            "constraints": {
+              "parsing": {
+                "caseSensitive": true
+              },
+              "layout": {}
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.edgeRouting",
+          "name": "Edge Routing",
+          "description": "What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines. The bend point list of edges with this option set to SPLINES must be interpreted as control points for a piecewise cubic spline.",
+          "group": "",
+          "type": "ENUM",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "enum",
+            "defaultValue": "ORTHOGONAL",
+            "acceptedValues": [
+              "ORTHOGONAL"
+            ],
+            "constraints": {
+              "parsing": {
+                "caseSensitive": true
+              },
+              "layout": {}
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.padding",
+          "name": "Padding",
+          "description": "The padding to be left to a parent element's border when placing child elements. This can also serve as an output option of a layout algorithm if node size calculation is setup appropriately.",
+          "group": "",
+          "type": "OBJECT",
+          "targets": [
+            "PARENTS",
+            "NODES"
+          ],
+          "native": {
+            "valueType": "padding",
+            "defaultValue": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "sides": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ],
+                "minimum": 0,
+                "finite": true,
+                "objectOrFourSideString": true
+              },
+              "layout": {
+                "fourSideStringOnly": true,
+                "maximumPerSide": 1000000
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.randomSeed",
+          "name": "Randomization Seed",
+          "description": "Seed used for pseudo-random number generators to control the layout algorithm. If the value is 0, the seed shall be determined pseudo-randomly (e.g. from the system time).",
+          "group": "",
+          "type": "INT",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "seed",
+            "defaultValue": 1,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": -2147483648,
+                "maximum": 2147483647,
+                "integerStrings": true,
+                "booleanAllowed": false
+              },
+              "layout": {
+                "excludedValues": [
+                  0
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.separateConnectedComponents",
+          "name": "Separate Connected Components",
+          "description": "Whether each connected component should be processed separately.",
+          "group": "",
+          "type": "BOOLEAN",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "boolean",
+            "defaultValue": true,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "booleanOrCaseInsensitiveString": true
+              },
+              "layout": {}
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.spacing.componentComponent",
+          "name": "Components Spacing",
+          "description": "Spacing to be preserved between pairs of connected components. This option is only relevant if 'separateConnectedComponents' is activated.",
+          "group": "spacing",
+          "type": "DOUBLE",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "spacing",
+            "defaultValue": 20,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": 0,
+                "finite": true,
+                "decimalStrings": true
+              },
+              "layout": {
+                "maximum": 1000000
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.spacing.nodeNode",
+          "name": "Node Spacing",
+          "description": "The minimal distance to be preserved between each two nodes.",
+          "group": "spacing",
+          "type": "DOUBLE",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "spacing",
+            "defaultValue": 20,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": 0,
+                "finite": true,
+                "decimalStrings": true
+              },
+              "layout": {
+                "maximum": 1000000
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+          "name": "Node Node Between Layers Spacing",
+          "description": "The spacing to be preserved between any pair of nodes of two adjacent layers. Note that 'spacing.nodeNode' is used for the spacing between nodes within the layer itself.",
+          "group": "spacing",
+          "type": "DOUBLE",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "spacing",
+            "defaultValue": 20,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": 0,
+                "finite": true,
+                "decimalStrings": true
+              },
+              "layout": {
+                "maximum": 1000000
+              }
+            }
+          }
+        }
+      ],
+      "categories": [
+        {
+          "id": "org.eclipse.elk.layered",
+          "name": "Layered",
+          "description": "The layer-based method was introduced by Sugiyama, Tagawa and Toda in 1981. It emphasizes the direction of edges by pointing as many edges as possible into the same direction. The nodes are arranged in layers, which are sometimes called \"hierarchies\", and then reordered such that the number of edge crossings is minimized. Afterwards, concrete coordinates are computed for the nodes and edge bend points.",
+          "knownLayouters": [
+            "org.eclipse.elk.layered"
+          ]
+        }
+      ]
+    },
+    "algorithmsEmpty": {
+      "algorithms": [],
+      "options": [
+        {
+          "id": "org.eclipse.elk.algorithm",
+          "name": "Layout Algorithm",
+          "description": "Select a specific layout algorithm.",
+          "group": "",
+          "type": "STRING",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "algorithm",
+            "defaultValue": null,
+            "acceptedValues": [
+              "layered",
+              "org.eclipse.elk.layered"
+            ],
+            "constraints": {
+              "parsing": {
+                "aliases": [
+                  "layered",
+                  "org.eclipse.elk.layered"
+                ]
+              },
+              "layout": {
+                "fallback": "org.eclipse.elk.layered",
+                "requiresRegisteredAlgorithm": true
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.direction",
+          "name": "Direction",
+          "description": "Overall direction of edges: horizontal (right / left) or vertical (down / up).",
+          "group": "",
+          "type": "ENUM",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "enum",
+            "defaultValue": "UNDEFINED",
+            "acceptedValues": [
+              "UNDEFINED",
+              "RIGHT",
+              "LEFT",
+              "DOWN",
+              "UP"
+            ],
+            "constraints": {
+              "parsing": {
+                "caseSensitive": true
+              },
+              "layout": {}
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.edgeRouting",
+          "name": "Edge Routing",
+          "description": "What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines. The bend point list of edges with this option set to SPLINES must be interpreted as control points for a piecewise cubic spline.",
+          "group": "",
+          "type": "ENUM",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "enum",
+            "defaultValue": "ORTHOGONAL",
+            "acceptedValues": [
+              "ORTHOGONAL"
+            ],
+            "constraints": {
+              "parsing": {
+                "caseSensitive": true
+              },
+              "layout": {}
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.padding",
+          "name": "Padding",
+          "description": "The padding to be left to a parent element's border when placing child elements. This can also serve as an output option of a layout algorithm if node size calculation is setup appropriately.",
+          "group": "",
+          "type": "OBJECT",
+          "targets": [
+            "PARENTS",
+            "NODES"
+          ],
+          "native": {
+            "valueType": "padding",
+            "defaultValue": {
+              "top": 12,
+              "right": 12,
+              "bottom": 12,
+              "left": 12
+            },
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "sides": [
+                  "top",
+                  "right",
+                  "bottom",
+                  "left"
+                ],
+                "minimum": 0,
+                "finite": true,
+                "objectOrFourSideString": true
+              },
+              "layout": {
+                "fourSideStringOnly": true,
+                "maximumPerSide": 1000000
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.randomSeed",
+          "name": "Randomization Seed",
+          "description": "Seed used for pseudo-random number generators to control the layout algorithm. If the value is 0, the seed shall be determined pseudo-randomly (e.g. from the system time).",
+          "group": "",
+          "type": "INT",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "seed",
+            "defaultValue": 1,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": -2147483648,
+                "maximum": 2147483647,
+                "integerStrings": true,
+                "booleanAllowed": false
+              },
+              "layout": {
+                "excludedValues": [
+                  0
+                ]
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.separateConnectedComponents",
+          "name": "Separate Connected Components",
+          "description": "Whether each connected component should be processed separately.",
+          "group": "",
+          "type": "BOOLEAN",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "boolean",
+            "defaultValue": true,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "booleanOrCaseInsensitiveString": true
+              },
+              "layout": {}
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.spacing.componentComponent",
+          "name": "Components Spacing",
+          "description": "Spacing to be preserved between pairs of connected components. This option is only relevant if 'separateConnectedComponents' is activated.",
+          "group": "spacing",
+          "type": "DOUBLE",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "spacing",
+            "defaultValue": 20,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": 0,
+                "finite": true,
+                "decimalStrings": true
+              },
+              "layout": {
+                "maximum": 1000000
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.spacing.nodeNode",
+          "name": "Node Spacing",
+          "description": "The minimal distance to be preserved between each two nodes.",
+          "group": "spacing",
+          "type": "DOUBLE",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "spacing",
+            "defaultValue": 20,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": 0,
+                "finite": true,
+                "decimalStrings": true
+              },
+              "layout": {
+                "maximum": 1000000
+              }
+            }
+          }
+        },
+        {
+          "id": "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+          "name": "Node Node Between Layers Spacing",
+          "description": "The spacing to be preserved between any pair of nodes of two adjacent layers. Note that 'spacing.nodeNode' is used for the spacing between nodes within the layer itself.",
+          "group": "spacing",
+          "type": "DOUBLE",
+          "targets": [
+            "PARENTS"
+          ],
+          "native": {
+            "valueType": "spacing",
+            "defaultValue": 20,
+            "acceptedValues": null,
+            "constraints": {
+              "parsing": {
+                "minimum": 0,
+                "finite": true,
+                "decimalStrings": true
+              },
+              "layout": {
+                "maximum": 1000000
+              }
+            }
+          }
+        }
+      ],
+      "categories": []
+    }
+  },
+  "referenceDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8
+  },
+  "inputFilesSha256": {
+    "references/metadata/algorithms.json": "d545c2505c5624f16a7faecb77e46a2fafa6774e4da6370081c1185059abf807",
+    "references/metadata/options.json": "8dd300a384dd50531f9d830c5e3116661d25a24fed3ee692c43184dbff127e93",
+    "references/metadata/categories.json": "57206659f57ba0e646fc65f5710e254160a1409c25e175a4293e618c81e255d8",
+    "src/pyelk/options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+    "references/e03-option-sources.json": "39b3ddb05f671559b406c4785d72f67c3ad405924af7595c77f367e8008bcaa8"
+  },
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false
+}

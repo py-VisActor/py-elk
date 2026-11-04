@@ -1,0 +1,85 @@
+{
+  "iteration": "E04",
+  "reviewerTask": "E04-A",
+  "reviewedTask": "E04-B",
+  "mode": "read_only-source-closure",
+  "status": "ACCEPTED_UNDER_ADR0003_GUARDS",
+  "reviewedUtc": "2026-11-03T04:47:11.436113+00:00",
+  "reviewedFiles": [
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+    }
+  ],
+  "approvedSourceComponents": [
+    "phase:GREEDY",
+    "phase:NETWORK_SIMPLEX",
+    "phase:LAYER_SWEEP_BARYCENTER",
+    "phase:LAYER_SWEEP_GREEDY_SWITCH",
+    "phase:BRANDES_KOEPF",
+    "phase:ORTHOGONAL",
+    "support:generated-JavaRandom"
+  ],
+  "canonicalSpanRecipesChecked": 807,
+  "canonicalWorkerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "scopePreconditions": [
+    "Only ADR0003 admitted flat directed connected path with 0..4 children and <=1e6 dimensions/spacing/padding",
+    "RIGHT/UNDEFINED, ORTHOGONAL, nonzero signed32 seed, separate=true, exact constructor subset",
+    "A intermediate/model source must provide centered zero-size implicit E/W ports, zero margins and one node/layer",
+    "No labels/ports/nested/local-child-or-edge options/geometry/sections overrides, no hidden/fixed constraints",
+    "All temporary ID/constraint/port/cache writes, original numeric operation order and RNG resets/draws must remain implemented and separately tested"
+  ],
+  "sourceReasoningChecked": [
+    {
+      "component": "GREEDY",
+      "conclusion": "N>=2 sink drain processes N-1 non-source vertices; unique source remains queued and receives positive1. Remaining marks shift by N+1, giving increasing path ranks and no edge reversal. Singleton differs and is its only sink."
+    },
+    {
+      "component": "NETWORK_SIMPLEX",
+      "conclusion": "Unit directed path gives tight rank constraints 0..N-1 and a whole spanning path; no slack exchange or balancing interval remains. N>=40 subtree branch excluded by cardinality guard."
+    },
+    {
+      "component": "BARYCENTER/GREEDY_SWITCH",
+      "conclusion": "Real singleton return precedes initialization. Multi-layer singleton-per-layer graph has zero crossings but still performs stated ordering/constraint writes and exact RNG primitives/reset sequence."
+    },
+    {
+      "component": "BRANDES_KOEPF",
+      "conclusion": "One path alignment block, no long-edge conflicts or competing nodes; retain real innerShift/spaceAbove/compaction candidate operations. Max-height centering is an exact-arithmetic equivalence, not a permission to substitute oracle coordinates."
+    },
+    {
+      "component": "ORTHOGONAL",
+      "conclusion": "One aligned segment per interior gap, no competing dependency pairs; source epsilon branch yields zero routing slots and ordinary between-layer spacing. Preserve source x accumulation and branch check."
+    },
+    {
+      "component": "generated-RNG",
+      "conclusion": "Independent 21-case before/after LCG, setSeed halves/XOR and exact phase-indexed bit-consumption checks passed; non-universal generated nextInt overflow semantics stay explicit."
+    }
+  ],
+  "rngEvidence": "test-runs/20261103-E04-01/A/review-B-rng-state-order.json",
+  "resolvedFindings": [
+    {
+      "id": "A-E04-B-SOURCE-01",
+      "severity": "medium",
+      "initialSourceSha256": "c87a585b780cc830e3c3c39245c60c1942e654b172c5fa103f78cbc1701406e6",
+      "description": "Initial GREEDY proof incorrectly stated all path nodes get negative marks. Fixed source indeg>0 condition keeps the unique source in sources for N>=2.",
+      "resolution": "B corrected source derivation and retained original bytes in B/e04-source-components-B-initial.json; final no-reversal conclusion remains valid.",
+      "sourceLines": [
+        50424,
+        50432,
+        50438,
+        50513,
+        50514
+      ]
+    }
+  ],
+  "remainingBSourceBlockers": [],
+  "notApproved": [
+    "Whole-slice algorithm-source gate promotion",
+    "A unreviewed importer/intermediate/helper source closure",
+    "Production code correctness or Python layout/API/lifecycle acceptance",
+    "Arbitrary DAG/cardinality/option/numeric support",
+    "Replacing real writes or RNG with phase no-ops"
+  ],
+  "productionFilesEdited": [],
+  "sourceStableDuringReview": true
+}

@@ -1,0 +1,36 @@
+--- before/pyelk/algorithms/mrtree.py
++++ after/pyelk/algorithms/mrtree.py
+@@ -513,18 +513,29 @@
+                 apportion(node)
+             else: node.properties['PRELIM'] = midpoint
+     if monitor is not None: monitor.worked(1)
+-    work = [(root, -root.properties.get('LEVELHEIGHT', 0)/2, 0)]
++    # Track recursive invocation paths, allowing repeated visits after return.
++    # A sibling/child cycle would recurse forever in the source second walk.
++    active = set()
++    work = [(root, -root.properties.get('LEVELHEIGHT', 0)/2, 0, False)]
+     while work:
+-        node, y_coordinate, modifier_sum = work.pop()
++        node, y_coordinate, modifier_sum, returning = work.pop()
++        identity = id(node)
++        if returning:
++            active.remove(identity)
++            continue
++        if identity in active:
++            raise RecursionError('Cyclic sibling/child dependency in MrTree second walk')
++        active.add(identity)
++        work.append((node, y_coordinate, modifier_sum, True))
+         x = node.properties.get('PRELIM', 0)+modifier_sum
+         y = y_coordinate+node.properties.get('LEVELHEIGHT', 0)/2
+         node.properties['XCOOR'] = _round_to_int32(x); node.properties['YCOOR'] = _round_to_int32(y)
+         sibling = node.properties.get('RIGHTSIBLING')
+-        if sibling is not None: work.append((sibling, y_coordinate, modifier_sum))
++        if sibling is not None: work.append((sibling, y_coordinate, modifier_sum, False))
+         children = node.get_children_copy()
+         if children:
+             work.append((children[0], y_coordinate+node.properties.get('LEVELHEIGHT', 0)+spacing,
+-                         modifier_sum+node.properties.get('MODIFIER', 0)))
++                         modifier_sum+node.properties.get('MODIFIER', 0), False))
+     if monitor is not None:
+         monitor.worked(1); monitor.done()
+ 

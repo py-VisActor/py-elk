@@ -1,0 +1,342 @@
+{
+  "schema": "py-elk-e08-api-metadata-sources/v1",
+  "contract": "E08-ADR0007-revision1",
+  "status": "root-limited-source-authorization; independent-review-pending",
+  "sourceApproved": {
+    "by": "root",
+    "scope": "Thin facade, registered bounded metadata and explicit Python host errors over the16 prepared fixed distribution ranges; no algorithm expansion",
+    "doesNotApprove": [
+      "whole-algorithm compatibility",
+      "exact external Java build",
+      "lifecycle runtime acceptance",
+      "publication"
+    ]
+  },
+  "sources": [
+    {
+      "sourceId": "elk-api",
+      "path": ".local/npm-elkjs/package/lib/elk-api.js",
+      "sha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "lineCount": 227,
+      "kind": "locked-npm-distribution",
+      "lineRanges": [
+        {
+          "startLine": 29,
+          "endLine": 71,
+          "symbol": "ELK constructor",
+          "spanSha256": "c7ab415c25cffe6add8199ef9e04d8947cf87d2c358e89577de39f9059b1d180",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Node entry -> ELKNode super(optionsClone) -> ELK; worker register dispatched before queries",
+          "material": "elk-api--29-71.txt"
+        },
+        {
+          "startLine": 73,
+          "endLine": 94,
+          "symbol": "ELK.layout",
+          "spanSha256": "ebda7e789b7394b519731bce569a74a2a26bf9c733132534c6330638d52c5751",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Public facade parses call defaults, rejects missing graph as Promise; posts layout",
+          "material": "elk-api--73-94.txt"
+        },
+        {
+          "startLine": 95,
+          "endLine": 115,
+          "symbol": "ELK.knownLayoutAlgorithms/Options/Categories",
+          "spanSha256": "aeb064ebbfc3275b3181cd3cbaf2f1a27ad2e85a4514629adcc7c59d1833533a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Public queries post algorithms/options/categories; no per-instance postfilter",
+          "material": "elk-api--95-115.txt"
+        },
+        {
+          "startLine": 116,
+          "endLine": 121,
+          "symbol": "ELK.terminateWorker",
+          "spanSha256": "d0ec5d5d77deb4dc4aaf8dad463876b2a81c2a7d534facc6657f16170728c50b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Public close delegates through PromisedWorker to actual worker. FakeWorker lacks terminate",
+          "material": "elk-api--116-121.txt"
+        },
+        {
+          "startLine": 124,
+          "endLine": 224,
+          "symbol": "PromisedWorker",
+          "spanSha256": "a6decf7f2fcce7d68bfe94e93c0fe7233af92a0f393958c2863863d9b9c4282f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "postMessage resolver -> receive -> convertGwtStyleError; reject original named error",
+          "material": "elk-api--124-224.txt"
+        }
+      ]
+    },
+    {
+      "sourceId": "node-entry",
+      "path": ".local/npm-elkjs/package/lib/main.js",
+      "sha256": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "lineCount": 71,
+      "kind": "locked-npm-distribution",
+      "lineRanges": [
+        {
+          "startLine": 31,
+          "endLine": 69,
+          "symbol": "ELKNode constructor",
+          "spanSha256": "d77ac472cba95718db8a5e522a9d556af3994772bdf1b4295e9af1eec71ccdf4",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Clones outer options, reads options.workerUrl, installs FakeWorker fallback, delegates ELK API",
+          "material": "node-entry--31-69.txt"
+        }
+      ]
+    },
+    {
+      "sourceId": "elk-worker",
+      "path": ".local/npm-elkjs/package/lib/elk-worker.js",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lineCount": 107033,
+      "kind": "locked-npm-distribution",
+      "lineRanges": [
+        {
+          "startLine": 69155,
+          "endLine": 69175,
+          "symbol": "$resolveAlgorithm",
+          "spanSha256": "711ae547f7e93f4a1e2abd8d60691b09ad56341f0540324001ceebc1cf8d5c37",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "RecursiveGraphLayoutEngine -> algorithm resolver; default layered only required for nonempty/inside-loop node",
+          "material": "elk-worker--69155-69175.txt"
+        },
+        {
+          "startLine": 69262,
+          "endLine": 69332,
+          "symbol": "$getAlgorithmDataBySuffix / option suffix lookup",
+          "spanSha256": "a72c596d02f379346c2d4b27de33aea9796b22dfa6a286e9756be9743b63cad1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Resolver exact/suffix algorithm lookup reads registered SERVICE",
+          "material": "elk-worker--69262-69332.txt"
+        },
+        {
+          "startLine": 69333,
+          "endLine": 69431,
+          "symbol": "LayoutMetaDataService registry",
+          "spanSha256": "5fc7afc2a26f9e9384070e76b09b688845ce61bf8b02f0f9a4f27d4ec5dac0a8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "getInstance singleton -> CoreOptions; provider apply -> dependencies; LinkedHashMaps preserve registration order",
+          "material": "elk-worker--69333-69431.txt"
+        },
+        {
+          "startLine": 79734,
+          "endLine": 79745,
+          "symbol": "$shapeById",
+          "spanSha256": "bb706b57944de6ee19d319ee9b0ffd2ea1a6df38518d52fff0e0f892f29c2bc1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "JsonImporter endpoint resolver -> nodeIdMap -> portIdMap -> JsonImportException",
+          "material": "elk-worker--79734-79745.txt"
+        },
+        {
+          "startLine": 80549,
+          "endLine": 80651,
+          "symbol": "JsonMetaDataConverter",
+          "spanSha256": "9f0d1b06a54ce0c3e7b089ae3aa81e9b7485d37a7cd36b1f230bb06decf892b2",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "getLayoutData -> toJson -> algorithm/category/option converter -> createCommon; optional fields omitted",
+          "material": "elk-worker--80549-80651.txt"
+        },
+        {
+          "startLine": 81801,
+          "endLine": 81865,
+          "symbol": "exportLayout.Dispatcher/FakeWorker",
+          "spanSha256": "76084ed1c639f905708beac2060917b7272d91b8665155abfba67aa019ce244d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "PromisedWorker -> FakeWorker timer -> Dispatcher.saveDispatch -> dispatch -> SERVICE or layout; errors posted raw",
+          "material": "elk-worker--81801-81865.txt"
+        },
+        {
+          "startLine": 81867,
+          "endLine": 81876,
+          "symbol": "getLayoutData",
+          "spanSha256": "1e33a696209611c417aee758e31fa7b244dc65b2fdc5c1f24af3e22c2ba68b3a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Dispatcher metadata cases traverse singleton maps and convert each row freshly",
+          "material": "elk-worker--81867-81876.txt"
+        },
+        {
+          "startLine": 81878,
+          "endLine": 81906,
+          "symbol": "layout_11",
+          "spanSha256": "27c8aa28cb11d404ea24819dc223a2e94c8cf1caf4cb712bf3f4e9e8638f646d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Dispatcher layout -> importer -> layout engine -> optional logs -> transfer original graph in place",
+          "material": "elk-worker--81878-81906.txt"
+        },
+        {
+          "startLine": 81931,
+          "endLine": 81939,
+          "symbol": "registerLayoutAlgorithms",
+          "spanSha256": "f85119262958761c9a9a16a70c22e9623904fe0464af117f3dd49f903147ec19",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Dispatcher register -> always CoreOptions then short-name conditional providers; no clearing of SERVICE",
+          "material": "elk-worker--81931-81939.txt"
+        }
+      ]
+    },
+    {
+      "sourceId": "api-types",
+      "path": ".local/npm-elkjs/package/lib/elk-api.d.ts",
+      "sha256": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "lineCount": 141,
+      "kind": "locked-npm-distribution",
+      "lineRanges": [
+        {
+          "startLine": 98,
+          "endLine": 141,
+          "symbol": "ELK metadata/constructor interfaces",
+          "spanSha256": "1dda3b6bf5cb3d100876155d5e5c856151dd7be48bb3de23cc5cbb01660f9ee8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline",
+          "actualCaller": "Public TypeScript query signatures return Promise<description[]>; descriptions carry no accepted value restriction",
+          "material": "api-types--98-141.txt"
+        }
+      ]
+    }
+  ],
+  "optionRegistrationLines": [
+    {
+      "optionId": "org.eclipse.elk.algorithm",
+      "sourceId": "elk-worker",
+      "line": 70906,
+      "spanSha256": "750304a21bacb31c489b5b604b84279a1d518989c6889ff32a647460f7eec46e",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.algorithm'), ''), 'Layout Algorithm'), 'Select a specific layout algorithm.'), ($clinit_LayoutOptionData$Type() , STRING)), Ljava_lang_String_2_classLit), of_1(($clinit_LayoutOptionData$Target() , PARENTS)))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.direction",
+      "sourceId": "elk-worker",
+      "line": 70913,
+      "spanSha256": "96e112cb79237645126fc1170e37f83ef8f50b95f6afbabd9bda308b53a84997",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($defaultValue($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.direction'), ''), 'Direction'), 'Overall direction of edges: horizontal (right / left) or vertical (down / up).'), DIRECTION_DEFAULT_1), ENUM), Lorg_eclipse_elk_core_options_Direction_2_classLit), of_1(PARENTS))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.padding",
+      "sourceId": "elk-worker",
+      "line": 70917,
+      "spanSha256": "255d40c7c7e3d62cd6e59d4b30676cc0ad8cbda56c779b28b2d267d93c636dbd",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($defaultValue($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.padding'), ''), 'Padding'), \"The padding to be left to a parent element's border when placing child elements. This can also serve as an output option of a layout algorithm if node size calculation is setup appropriately.\"), PADDING_DEFAULT_6), OBJECT), Lorg_eclipse_elk_core_math_ElkPadding_2_classLit), of_2(PARENTS, stampJavaTypeInfo(getClassLiteralForArray(Lorg_eclipse_elk_core_data_LayoutOptionData$Target_2_classLit, 1), $intern_38, 161, 0, [NODES])))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.spacing.nodeNode",
+      "sourceId": "elk-worker",
+      "line": 70960,
+      "spanSha256": "74a5a74c7a21872fb2cf948ecf06ea7c292e343a867a650b6cb16524b0805735",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($defaultValue($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.spacing.nodeNode'), 'spacing'), 'Node Spacing'), 'The minimal distance to be preserved between each two nodes.'), 20), DOUBLE), Ljava_lang_Double_2_classLit), of_1(PARENTS))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+      "sourceId": "elk-worker",
+      "line": 49030,
+      "spanSha256": "21d540d034d6b9d0786483bc9bf987d16fef54143ff9930e5f44ff082de7f28b",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($defaultValue($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers'), 'spacing'), 'Node Node Between Layers Spacing'), \"The spacing to be preserved between any pair of nodes of two adjacent layers. Note that 'spacing.nodeNode' is used for the spacing between nodes within the layer itself.\"), 20), DOUBLE), Ljava_lang_Double_2_classLit), of_1(PARENTS))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.separateConnectedComponents",
+      "sourceId": "elk-worker",
+      "line": 70925,
+      "spanSha256": "f311e16a9151b7cf91015ee7201bff8db89b0df28b079bf2a2708d25dc3a38b1",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.separateConnectedComponents'), ''), 'Separate Connected Components'), 'Whether each connected component should be processed separately.'), BOOLEAN), Ljava_lang_Boolean_2_classLit), of_1(PARENTS))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.spacing.componentComponent",
+      "sourceId": "elk-worker",
+      "line": 70952,
+      "spanSha256": "45f40e2642774235404b0552c1a6767e66acaf754a94512a1a813a4462d1c6e4",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($defaultValue($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.spacing.componentComponent'), 'spacing'), 'Components Spacing'), \"Spacing to be preserved between pairs of connected components. This option is only relevant if 'separateConnectedComponents' is activated.\"), 20), DOUBLE), Ljava_lang_Double_2_classLit), of_1(PARENTS))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.edgeRouting",
+      "sourceId": "elk-worker",
+      "line": 70914,
+      "spanSha256": "82e3e3f5b00d187b23a8fc592d2e5eb25a3b00f275a62848b911bb6f76f1369f",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($defaultValue($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.edgeRouting'), ''), 'Edge Routing'), 'What kind of edge routing style should be applied for the content of a parent node. Algorithms may also set this option to single edges in order to mark them as splines. The bend point list of edges with this option set to SPLINES must be interpreted as control points for a piecewise cubic spline.'), EDGE_ROUTING_DEFAULT_0), ENUM), Lorg_eclipse_elk_core_options_EdgeRouting_2_classLit), of_1(PARENTS))));"
+    },
+    {
+      "optionId": "org.eclipse.elk.randomSeed",
+      "sourceId": "elk-worker",
+      "line": 70924,
+      "spanSha256": "34f04871bf4103e5e26aa5080614478f28d59a13bf06878449e4d0b10e1e3a44",
+      "source": "  $register_1(registry, new LayoutOptionData($targets($optionClass($type($description_1($name_2($group($id_1(new LayoutOptionData$Builder, 'org.eclipse.elk.randomSeed'), ''), 'Randomization Seed'), 'Seed used for pseudo-random number generators to control the layout algorithm. If the value is 0, the seed shall be determined pseudo-randomly (e.g. from the system time).'), INT), Ljava_lang_Integer_2_classLit), of_1(PARENTS))));"
+    }
+  ],
+  "pythonUnits": [
+    {
+      "path": "src/pyelk/api.py",
+      "symbols": [
+        "ELK.__init__",
+        "ELK.layout",
+        "ELK.knownLayoutAlgorithms",
+        "ELK.knownLayoutOptions",
+        "ELK.knownLayoutCategories",
+        "ELK.terminateWorker"
+      ],
+      "sourceIds": [
+        "elk-api",
+        "node-entry",
+        "elk-worker",
+        "api-types"
+      ],
+      "scope": "Thin async host adaptation and input/trace ownership; actual scheduling delegated to B controller"
+    },
+    {
+      "path": "src/pyelk/metadata/__init__.py",
+      "symbols": [
+        "MetadataRegistry",
+        "classify_algorithm"
+      ],
+      "sourceIds": [
+        "elk-worker"
+      ],
+      "scope": "Instance-local implemented subset; explicit host divergence from global cumulative reference registry"
+    },
+    {
+      "path": "src/pyelk/metadata/_data.py",
+      "symbols": [
+        "OPTIONS",
+        "ALGORITHMS",
+        "CATEGORIES",
+        "REFERENCE_ALGORITHM_IDS"
+      ],
+      "sourceIds": [
+        "elk-worker"
+      ],
+      "scope": "Nine fixed option descriptors with native constraints, one bounded algorithm/category, full twelve IDs used for errors only"
+    },
+    {
+      "path": "src/pyelk/_errors.py",
+      "symbols": [
+        "ValidationError",
+        "UnknownAlgorithmError",
+        "UnsupportedAlgorithmError",
+        "UnsupportedWorkerError",
+        "ResourceClosedError",
+        "ExecutionError"
+      ],
+      "sourceIds": [
+        "elk-api",
+        "elk-worker"
+      ],
+      "scope": "Native code/path/message and execution categories; no broad relabeling of JS errors"
+    }
+  ],
+  "nativeMetadataSchema": "references/e08-metadata-schema.json",
+  "nativeMetadataSchemaSha256": "4d258ec6fb90c1a7a72a26ec300b2d9177de20c16a0dd961ebacc69e845444e3",
+  "existingOptionSources": "references/e03-option-sources.json",
+  "existingOptionSourcesSha256": "39b3ddb05f671559b406c4785d72f67c3ad405924af7595c77f367e8008bcaa8",
+  "hostDecisions": {
+    "selectorValidation": "Classify every global/local algorithm selector that the unchanged resolver actually parses, in global then local order; explicit call layoutOptions replaces constructor defaults, but a local selector does not hide an invalid selected global selector.",
+    "instanceRegistry": "Isolated; empty algorithm list is metadata-only; no imitation of global FakeWorker accumulation",
+    "workerParameters": "UnsupportedWorkerError also NotImplementedError without invoking callables",
+    "inputOwnership": "Snapshots and independent returned values; original JS mutation remains separate reference fact",
+    "errors": "Specific native code/path/message classes; internal worker errors distinct from unsupported"
+  },
+  "license": {
+    "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "material": "src/pyelk/_licenses/elkjs-LICENSE.md"
+  },
+  "pythonAlgorithmsVerified": 0,
+  "limitations": [
+    "Runtime acceptance and independent source review pending",
+    "Full reference12/243/8 remains unmodified"
+  ]
+}

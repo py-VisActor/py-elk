@@ -1,0 +1,306 @@
+{
+  "schema": "py-elk-next-polyomino-grid-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "fbaa8a340ff19d9a7cc4fdcaa3720f532bf8b3b0eae6204df357683797346d00",
+  "requestSha256": "73f88497ae59674be1ea3d2f9c565339687dc80381f0d0ae461d78ab1cbc5f42",
+  "pid": 26080,
+  "parentPid": 25004,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "two-bit-word-boundaries-and-access-asymmetry",
+      "value": {
+        "snapshot": {
+          "size": [
+            35,
+            2
+          ],
+          "center": [
+            17,
+            0
+          ],
+          "wordCounts": [
+            2,
+            2
+          ],
+          "cells": [
+            [
+              1,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              1
+            ]
+          ],
+          "text": " 01234567890123456789012345678901234\n0X______________________________0___\n1________________________________0_X"
+        },
+        "flags": [
+          {
+            "x": 0,
+            "y": 0,
+            "empty": false,
+            "blocked": true,
+            "weak": false
+          },
+          {
+            "x": 31,
+            "y": 0,
+            "empty": false,
+            "blocked": false,
+            "weak": true
+          },
+          {
+            "x": 32,
+            "y": 1,
+            "empty": false,
+            "blocked": false,
+            "weak": false
+          },
+          {
+            "x": 34,
+            "y": 1,
+            "empty": false,
+            "blocked": true,
+            "weak": false
+          }
+        ],
+        "reads": [
+          {
+            "x": 35,
+            "y": 1,
+            "result": {
+              "outcome": "returned",
+              "value": 0
+            }
+          },
+          {
+            "x": 63,
+            "y": 1,
+            "result": {
+              "outcome": "returned",
+              "value": 0
+            }
+          },
+          {
+            "x": 64,
+            "y": 1,
+            "result": {
+              "outcome": "threw",
+              "error": {
+                "name": "TypeError",
+                "message": "Cannot read properties of undefined (reading 'h')",
+                "text": "TypeError: Cannot read properties of undefined (reading 'h')"
+              }
+            }
+          },
+          {
+            "x": -1,
+            "y": 0,
+            "result": {
+              "outcome": "threw",
+              "error": {
+                "name": "TypeError",
+                "message": "Cannot read properties of undefined (reading 'h')",
+                "text": "TypeError: Cannot read properties of undefined (reading 'h')"
+              }
+            }
+          },
+          {
+            "x": 0,
+            "y": -1,
+            "result": {
+              "outcome": "threw",
+              "error": {
+                "name": "TypeError",
+                "message": "Cannot read properties of undefined (reading '0')",
+                "text": "TypeError: Cannot read properties of undefined (reading '0')"
+              }
+            }
+          }
+        ],
+        "badSets": [
+          {
+            "x": 35,
+            "y": 1,
+            "result": {
+              "outcome": "threw",
+              "error": {
+                "name": "Error",
+                "message": "java.lang.IndexOutOfBoundsException: Grid is only of size 35*2. Requested point (35, 1) is out of bounds.",
+                "text": "Error: java.lang.IndexOutOfBoundsException: Grid is only of size 35*2. Requested point (35, 1) is out of bounds."
+              }
+            }
+          },
+          {
+            "x": 0,
+            "y": 2,
+            "result": {
+              "outcome": "threw",
+              "error": {
+                "name": "TypeError",
+                "message": "Cannot read properties of undefined (reading '0')",
+                "text": "TypeError: Cannot read properties of undefined (reading '0')"
+              }
+            }
+          },
+          {
+            "x": -1,
+            "y": 0,
+            "result": {
+              "outcome": "threw",
+              "error": {
+                "name": "TypeError",
+                "message": "Cannot read properties of undefined (reading 'l')",
+                "text": "TypeError: Cannot read properties of undefined (reading 'l')"
+              }
+            }
+          }
+        ],
+        "layoutExecuted": false
+      }
+    },
+    {
+      "id": "center-weak-area-and-reinitialize",
+      "value": {
+        "before": {
+          "size": [
+            5,
+            3
+          ],
+          "center": [
+            2,
+            1
+          ],
+          "wordCounts": [
+            1,
+            1,
+            1
+          ],
+          "cells": [
+            [
+              2,
+              2,
+              2,
+              2,
+              2
+            ],
+            [
+              2,
+              2,
+              1,
+              2,
+              2
+            ],
+            [
+              2,
+              2,
+              2,
+              2,
+              2
+            ]
+          ],
+          "text": " 01234\n000000\n100X00\n200000"
+        },
+        "weakOnlyAreaIntersects": false,
+        "allAreaIntersects": true,
+        "centerFlags": {
+          "blocked": true,
+          "weak": true,
+          "empty": false
+        },
+        "after": {
+          "size": [
+            3,
+            1
+          ],
+          "center": [
+            1,
+            0
+          ],
+          "wordCounts": [
+            1
+          ],
+          "cells": [
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "text": " 012\n0___"
+        },
+        "storageReplaced": true,
+        "layoutExecuted": false
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

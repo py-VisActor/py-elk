@@ -1,0 +1,231 @@
+{
+  "schema": "py-elk-iteration-change-manifest/v1",
+  "iteration": "E09",
+  "fullValidation": false,
+  "policy": "docs/VALIDATION_POLICY.md",
+  "checks": [
+    {
+      "id": "source-owner",
+      "directory": "test-runs/20261103-E09-01/A/source-owner-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/audit",
+        "-p",
+        "test_e09_sources.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 14,
+      "scope": "audit/test_e09_sources.py"
+    },
+    {
+      "id": "branch-owner",
+      "directory": "test-runs/20261103-E09-01/A/branch-owner-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/audit",
+        "-p",
+        "test_e09_branch_evidence.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 7,
+      "scope": "audit/test_e09_branch_evidence.py"
+    },
+    {
+      "id": "diagnostics-owner",
+      "directory": "test-runs/20261103-E09-01/B/hooks-owner-02",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/execution",
+        "-p",
+        "test_e09_diagnostics.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 15,
+      "scope": "execution/test_e09_diagnostics.py"
+    },
+    {
+      "id": "lifecycle-probe-owner",
+      "directory": "test-runs/20261103-E09-01/B/lifecycle-owner-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/execution",
+        "-p",
+        "test_e09_lifecycle_probe.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 6,
+      "scope": "execution/test_e09_lifecycle_probe.py"
+    },
+    {
+      "id": "affected-e08-lifecycle",
+      "directory": "test-runs/20261103-E09-01/B/e08-lifecycle-regression-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/execution",
+        "-p",
+        "test_e08_lifecycle.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 28,
+      "scope": "execution/test_e08_lifecycle.py"
+    },
+    {
+      "id": "public-contract",
+      "directory": "test-runs/20261103-E09-01/V/owner-final-03/contract",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/contract",
+        "-p",
+        "test_e09_logging_contract.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 3,
+      "scope": "contract/test_e09_logging_contract.py"
+    },
+    {
+      "id": "conformance-owner",
+      "directory": "test-runs/20261103-E09-01/V/owner-final-03/conformance",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/conformance",
+        "-p",
+        "test_e09_coverage.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 3,
+      "scope": "conformance/test_e09_coverage.py"
+    },
+    {
+      "id": "coverage-controls",
+      "directory": "test-runs/20261103-E09-01/V/owner-final-03/audit",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/audit",
+        "-p",
+        "test_e09_coverage_validation.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 5,
+      "scope": "audit/test_e09_coverage_validation.py"
+    },
+    {
+      "id": "runtime-owner",
+      "directory": "test-runs/20261103-E09-01/V/root-audit-owner-03",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/audit",
+        "-p",
+        "test_e09_runtime.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 8,
+      "scope": "audit/test_e09_runtime.py"
+    },
+    {
+      "id": "new-geometry",
+      "directory": "test-runs/20261103-E09-01/geometry-tests-02",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/validation",
+        "-p",
+        "test_e09_geometry.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 6,
+      "scope": "validation/test_e09_geometry.py"
+    },
+    {
+      "id": "affected-old-geometry",
+      "directory": "test-runs/20261103-E09-01/geometry-old-v2-tests-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/validation",
+        "-p",
+        "test_e07_geometry.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 13,
+      "scope": "validation/test_e07_geometry.py"
+    },
+    {
+      "id": "change-policy-checker",
+      "directory": "test-runs/20261103-E09-01/change-policy-tests-03",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/validation",
+        "-p",
+        "test_iteration_changes.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 3,
+      "scope": "validation/test_iteration_changes.py"
+    }
+  ],
+  "scopeExplanation": "Explicit source/monitor/API/geometry/receipt checks affected by E09; actual same-wheel captures and independent reviews are recorded separately in the runtime audit.",
+  "additionalEvidence": [
+    "references/e09-runtime-audit.json",
+    "references/e09-installed-check.json",
+    "references/e09-coverage-installed.json"
+  ],
+  "finalWholeMigrationFullDeferred": true
+}

@@ -1,0 +1,294 @@
+{
+  "schema": "py-elk-next-sweep-phase-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "e341f118d815dc6b8d1f970f7588fd3603bce0c71ef0286b2c3e0e5fed68e909",
+  "requestSha256": "cf40696ec65ca9db104c887eed2f2864a375db06b5c1ee9ab207018121059640",
+  "pid": 24936,
+  "parentPid": 6084,
+  "node": "v24.19.0",
+  "observation": {
+    "order": [
+      [
+        "b",
+        "c",
+        "a"
+      ],
+      [
+        "x",
+        "y",
+        "z"
+      ]
+    ],
+    "current": [
+      [
+        "a",
+        "c",
+        "b"
+      ],
+      [
+        "x",
+        "y",
+        "z"
+      ]
+    ],
+    "ports": [
+      {
+        "id": "a",
+        "ports": [
+          "ax",
+          "ay",
+          "az"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "b",
+        "ports": [
+          "bx",
+          "by",
+          "bz"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "c",
+        "ports": [
+          "cx",
+          "cy",
+          "cz"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "x",
+        "ports": [
+          "xa",
+          "xc",
+          "xb"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "y",
+        "ports": [
+          "ya",
+          "yc",
+          "yb"
+        ],
+        "constraint": "FIXED_ORDER"
+      },
+      {
+        "id": "z",
+        "ports": [
+          "za",
+          "zc",
+          "zb"
+        ],
+        "constraint": "FIXED_ORDER"
+      }
+    ],
+    "best": {
+      "nodes": [
+        [
+          "b",
+          "c",
+          "a"
+        ],
+        [
+          "x",
+          "y",
+          "z"
+        ]
+      ],
+      "ports": [
+        [
+          [
+            "bx",
+            "by",
+            "bz"
+          ],
+          [
+            "cx",
+            "cy",
+            "cz"
+          ],
+          [
+            "ax",
+            "ay",
+            "az"
+          ]
+        ],
+        [
+          [
+            "xa",
+            "xc",
+            "xb"
+          ],
+          [
+            "ya",
+            "yc",
+            "yb"
+          ],
+          [
+            "za",
+            "zc",
+            "zb"
+          ]
+        ]
+      ]
+    },
+    "currentlyBest": {
+      "nodes": [
+        [
+          "a",
+          "c",
+          "b"
+        ],
+        [
+          "x",
+          "y",
+          "z"
+        ]
+      ],
+      "ports": [
+        [
+          [
+            "ax",
+            "ay",
+            "az"
+          ],
+          [
+            "cx",
+            "cy",
+            "cz"
+          ],
+          [
+            "bx",
+            "by",
+            "bz"
+          ]
+        ],
+        [
+          [
+            "xb",
+            "xc",
+            "xa"
+          ],
+          [
+            "yb",
+            "yc",
+            "ya"
+          ],
+          [
+            "zb",
+            "zc",
+            "za"
+          ]
+        ]
+      ]
+    },
+    "bits": [
+      32,
+      32,
+      1,
+      1,
+      26,
+      27,
+      26,
+      27,
+      26,
+      27,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      1,
+      26,
+      27,
+      26,
+      27,
+      26,
+      27,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24,
+      1,
+      26,
+      27,
+      26,
+      27,
+      26,
+      27,
+      24,
+      24,
+      24,
+      24,
+      24,
+      24
+    ],
+    "counts": [
+      18,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9,
+      9
+    ],
+    "sweeps": [
+      {
+        "forward": true,
+        "first": true,
+        "returned": 0
+      },
+      {
+        "forward": false,
+        "first": false,
+        "returned": 0
+      },
+      {
+        "forward": false,
+        "first": true,
+        "returned": 0
+      },
+      {
+        "forward": true,
+        "first": false,
+        "returned": 0
+      },
+      {
+        "forward": true,
+        "first": true,
+        "returned": 0
+      },
+      {
+        "forward": false,
+        "first": false,
+        "returned": 0
+      }
+    ],
+    "rngState": [
+      10260777,
+      11283573
+    ],
+    "monitor": {
+      "name": "Minimize Crossings BARYCENTER",
+      "closed": true
+    },
+    "flags": {
+      "first": false,
+      "second": false
+    },
+    "layoutExecuted": false,
+    "crossingPhaseExecuted": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

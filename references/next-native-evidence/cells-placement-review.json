@@ -1,0 +1,31 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/layered/cell_layout.py": "5722e8c129f4bd0d90c32b25ec7eab071e424c8874e4dbad86c0950a015d8790",
+    ".local/migration-next/src/pyelk/algorithms/layered/node_size.py": "ef8059d445d67b9fa1e947838e41c3b03ce95b6a6619e89c48c7f7cec8cb75bd",
+    ".local/migration-next/src/pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d"
+  },
+  "checks": {
+    "cells": {
+      "caseCount": 8,
+      "comparison": "test-runs/20261104-E13-01/V/cell-oracle-02/comparison.json",
+      "scope": "Cell/Atomic/Grid/Strip/Label object geometry using original complete worker classes and original label adapter"
+    },
+    "placement": {
+      "caseCount": 9,
+      "comparison": "test-runs/20261104-E13-01/V/port-placement-oracle-02/comparison.json",
+      "scope": "Approved arithmetic over supplied cells/margins and actual source-prepared side order; no common NodeContext sizing claim"
+    }
+  },
+  "limitations": [
+    "No complete native ports/labels/pipeline acceptance; no public installed candidate validation.",
+    "Original zero Atomic padding suppression, mutable tabular shared widths, Grid/Strip recursion difference and asymmetric label padding are exercised.",
+    "Default alignment absent is DISTRIBUTED (original22,48,74), corrected private ef8059. Original1404 preserved.",
+    "First cell scaffold used LLabel instead of actual LLabelAdapter and failed; first placement scaffold misspelled enum symbol and failed. Both original Node command/log failures preserved.",
+    "First Python placement adapter omitted source SOUTH/WEST context-order reversal: one difference preserved; only comparison setup fixed to source caller order, native arithmetic unchanged.",
+    "Earlier failed probe source bytes were not separately snapshotted at launch; command/log/hash remain. Final placement successful run has source+request snapshots."
+  ],
+  "iterationCompleted": false,
+  "fullValidation": false
+}

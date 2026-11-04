@@ -1,0 +1,284 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Fixed elkjs0.12.1 worker275e6caf; P17D outer/external import source closure.
+"""Actual outer importer; the separately frozen primitive importer is reused."""
+from ..._errors import UnsupportedFeatureError
+from ...execution.node_micro import _Node, _PropertyReader
+from ..fixed import _port_side
+from .cell_layout import _maximum
+from .graph import LNode, LPort, Vec2, set_port_owner
+from .native_adapters import _read_property
+from .native_import import ElkGraphImporter, _GenericGraphView
+from .native_properties import CanonicalPropertyMap
+from .node_size_cells import compute_inside_part
+from .node_size_process import process_node_size
+from .ports import _divide, set_side
+from .property_access import read_layered_scalar
+
+
+_FROM_DIRECTION = {'RIGHT': 'EAST', 'LEFT': 'WEST', 'DOWN': 'SOUTH', 'UP': 'NORTH', 'UNDEFINED': 'UNDEFINED'}
+_OPPOSED = {'EAST': 'WEST', 'WEST': 'EAST', 'NORTH': 'SOUTH', 'SOUTH': 'NORTH', 'UNDEFINED': 'UNDEFINED'}
+
+
+def _new_port(node):
+    port = LPort(properties=CanonicalPropertyMap())
+    port.integer_box_identities = port.properties.integer_boxes
+    port.labels = []
+    set_port_owner(port, node)
+    return port
+
+
+class FullElkGraphImporter(ElkGraphImporter):
+    def __init__(self, state):
+        super().__init__(state)
+        self.reader = _PropertyReader(state)
+
+    def import_graph(self, raw):
+        graph = self.create_lgraph(raw)
+        for port in raw.get('ports', []):
+            self.ensure_defined_port_side(graph, port)
+        properties = graph.properties['GRAPH_PROPERTIES']
+        self.check_external_ports(raw, properties)
+        if 'EXTERNAL_PORTS' in properties:
+            for port in raw.get('ports', []):
+                self.transform_external_port(raw, graph, port)
+        if self.reader.get(raw, 'node', 'nodeSize.constraints'):
+            self.calculate_minimum_graph_size(raw, graph)
+        if read_layered_scalar(graph, 'PARTITIONING_ACTIVATE', 'PARTITIONING_ACTIVATE'):
+            properties.add('PARTITIONS')
+        if 'SPACING_BASE_VALUE' in graph.properties:
+            self.apply_base_spacing(graph)
+        if self._read(raw, 'HIERARCHY_HANDLING') == 'INCLUDE_CHILDREN':
+            self.import_hierarchical_graph(raw, graph)
+        else:
+            self.import_flat_graph(raw, graph)
+        return graph
+
+    def apply_base_spacing(self, graph):
+        from .base_spacing import LayeredSpacingsBuilder
+        LayeredSpacingsBuilder(graph.properties['SPACING_BASE_VALUE']).apply(graph)
+
+    def import_hierarchical_graph(self, raw, graph):
+        raise UnsupportedFeatureError('LAYERED_PROCESSOR_PENDING', '',
+                                      'The actual hierarchical importer is not connected yet')
+
+    def check_external_ports(self, raw, properties):
+        enabled = self._read(raw, 'INSIDE_SELF_LOOPS_ACTIVATE')
+        placement = self.reader.get(raw, 'node', 'portLabels.placement')
+        external = hyper = False
+        for port in raw.get('ports', []):
+            if external and hyper:
+                break
+            count = 0
+            for edge in [*self.state.incidence(port, True), *self.state.incidence(port)]:
+                inside = enabled and self._is_self_loop(edge) and self._read(edge, 'INSIDE_SELF_LOOPS_YO')
+                from_port = any(self.state.shapes[(type(value), value)] is port for value in edge.get('sources', []))
+                other = self._endpoint_node(edge['targets' if from_port else 'sources'][0])
+                child = self.state.parents[id(other)] is raw
+                if inside or child:
+                    count += 1
+                    if count > 1:
+                        break
+            if count > 0:
+                external = True
+            elif 'INSIDE' in placement and port.get('labels'):
+                external = True
+            if count > 1:
+                hyper = True
+        if external:
+            properties.add('EXTERNAL_PORTS')
+        if hyper:
+            properties.add('HYPEREDGES')
+
+    def calculate_net_flow(self, raw):
+        owner = self.state.owners[id(raw)]
+        enabled = self._read(owner, 'INSIDE_SELF_LOOPS_ACTIVATE')
+        output_vote = input_vote = 0
+        for edge in self.state.incidence(raw):
+            loop = self._is_self_loop(edge)
+            inside = loop and enabled and self._read(edge, 'INSIDE_SELF_LOOPS_YO')
+            target = self._endpoint_node(edge['targets'][0])
+            if loop and inside:
+                input_vote += 1
+            elif loop and not inside:
+                output_vote += 1
+            elif self.state.parents[id(target)] is owner or target is owner:
+                input_vote += 1
+            else:
+                output_vote += 1
+        for edge in self.state.incidence(raw, True):
+            loop = self._is_self_loop(edge)
+            inside = loop and enabled and self._read(edge, 'INSIDE_SELF_LOOPS_YO')
+            source = self._endpoint_node(edge['sources'][0])
+            if loop and inside:
+                output_vote += 1
+            elif loop and not inside:
+                input_vote += 1
+            elif self.state.parents[id(source)] is owner or source is owner:
+                output_vote += 1
+            else:
+                input_vote += 1
+        return output_vote - input_vote
+
+    def ensure_defined_port_side(self, graph, raw):
+        direction = read_layered_scalar(graph, 'DIRECTION', 'DIRECTION')
+        side = self._read(raw, 'PORT_SIDE')
+        constraints = read_layered_scalar(graph, 'PORT_CONSTRAINTS', 'PORT_CONSTRAINTS_0')
+        if constraints not in ('FREE', 'UNDEFINED'):
+            if side == 'UNDEFINED':
+                side = _port_side(raw, self.state.owners[id(raw)], direction)
+                if side == 'UNDEFINED':
+                    side = _FROM_DIRECTION[direction]
+        else:
+            flow = self.calculate_net_flow(raw)
+            side = _FROM_DIRECTION[direction]
+            if flow <= 0:
+                side = _OPPOSED[side]
+        self.state.set_option(raw, 'port.side', side)
+
+    def calculate_minimum_graph_size(self, raw, graph):
+        parent = self.state.parents[id(raw)]
+        if parent is None:
+            return
+        constraints = _read_property(graph, 'NODE_SIZE_CONSTRAINTS')
+        if self._read(raw, 'PORT_CONSTRAINTS_0') == 'UNDEFINED':
+            self.state.set_option(raw, 'portConstraints', 'FREE')
+        parent_view = _GenericGraphView(self.reader, parent)
+        node_view = _Node(self.reader, raw, parent_view)
+        minimum = process_node_size(parent_view, node_view, False, True)
+        constraints.add('MINIMUM_SIZE')
+        configured = _read_property(graph, 'NODE_SIZE_MINIMUM')
+        configured.x = _maximum(minimum.x, configured.x)
+        configured.y = _maximum(minimum.y, configured.y)
+
+    def is_connected_to_external_nodes(self, raw):
+        owner = self.state.owners[id(raw)]
+        for edge in self.state.incidence(raw):
+            if not self.state._ancestor(self._endpoint_node(edge['targets'][0]), owner):
+                return True
+        for edge in self.state.incidence(raw, True):
+            if not self.state._ancestor(self._endpoint_node(edge['sources'][0]), owner):
+                return True
+        return False
+
+    def transform_external_port(self, raw, graph, port):
+        position = Vec2(port['x'] + port['width'] / 2, port['y'] + port['height'] / 2)
+        flow = self.calculate_net_flow(port)
+        constraints, side = self._read(raw, 'PORT_CONSTRAINTS_0'), self._read(port, 'PORT_SIDE')
+        if not self.state.has_option(port, 'port.borderOffset'):
+            if port['x'] == 0 and port['y'] == 0:
+                offset = 0.0
+            else:
+                offset = self.port_offset(port, side)
+            self.state.set_option(port, 'port.borderOffset', offset)
+        dummy = self.create_external_port_dummy(port, constraints, side, flow,
+                    Vec2(raw['width'], raw['height']), position,
+                    Vec2(port['width'], port['height']),
+                    read_layered_scalar(graph, 'DIRECTION', 'DIRECTION'), graph)
+        dummy.properties['ORIGIN'] = port
+        native_port = dummy.ports[0]
+        native_port.connected_to_external_nodes = self.is_connected_to_external_nodes(port)
+        dummy.properties['PORT_LABELS_PLACEMENT'] = {'OUTSIDE'}
+        placement = self.reader.get(raw, 'node', 'portLabels.placement')
+        inside = 'INSIDE' in placement
+        for raw_label in port.get('labels', []):
+            if not self._read(raw_label, 'NO_LAYOUT') and raw_label.get('text'):
+                label = self.transform_label(raw_label)
+                native_port.labels.append(label)
+                if not inside:
+                    inside_part = 0.0
+                    current_placement = self.reader.get(raw, 'node', 'portLabels.placement')
+                    if 'INSIDE' not in current_placement and 'OUTSIDE' not in current_placement:
+                        inside_part = compute_inside_part(Vec2(raw_label['x'], raw_label['y']),
+                            Vec2(raw_label['width'], raw_label['height']),
+                            Vec2(port['width'], port['height']), 0.0, side)
+                    if side in ('WEST', 'EAST'):
+                        label.size.x = inside_part
+                    elif side in ('NORTH', 'SOUTH'):
+                        label.size.y = inside_part
+        parent = self.state.parents[id(raw)]
+        for key in ('SPACING_LABEL_PORT_HORIZONTAL', 'SPACING_LABEL_PORT_VERTICAL', 'SPACING_LABEL_LABEL'):
+            dummy.properties[key] = self._read(parent, key)
+        graph.layerless_nodes.append(dummy)
+        self._put(port, dummy)
+
+    def port_offset(self, raw, side):
+        parent = self.state.owners[id(raw)]
+        if parent is None:
+            raise RuntimeError('port must have a parent node to calculate the port side')
+        if side == 'NORTH':
+            return -(raw['y'] + raw['height'])
+        if side == 'EAST':
+            return raw['x'] - parent['width']
+        if side == 'SOUTH':
+            return raw['y'] - parent['height']
+        if side == 'WEST':
+            return -(raw['x'] + raw['width'])
+        return 0.0
+
+    def create_external_port_dummy(self, raw, constraints, side, net_flow, node_size,
+                                   position, port_size, direction, graph):
+        final_side = side
+        dummy = LNode(graph, type='EXTERNAL_PORT', properties=CanonicalPropertyMap())
+        dummy.integer_box_identities = dummy.properties.integer_boxes
+        dummy.labels = []
+        dummy.properties['EXT_PORT_SIZE'] = port_size
+        dummy.properties['PORT_CONSTRAINTS'] = 'FIXED_POS'
+        offset = self._read(raw, 'PORT_BORDER_OFFSET')
+        dummy.properties['PORT_BORDER_OFFSET'] = offset
+        port = _new_port(dummy)
+        if constraints in ('FREE', 'UNDEFINED'):
+            final_side = _FROM_DIRECTION[direction]
+            if net_flow < 0:
+                final_side = _OPPOSED[final_side]
+            self.state.set_option(raw, 'port.side', final_side)
+        anchor = Vec2()
+        explicit = False
+        if self.state.has_option(raw, 'port.anchor'):
+            value = self.state.get_native_property(raw, 'port.anchor')
+            anchor.x, anchor.y = value.x, value.y
+            explicit = True
+        else:
+            anchor.x, anchor.y = port_size.x / 2, port_size.y / 2
+        if final_side in ('WEST', 'EAST'):
+            dummy.properties['LAYER_CONSTRAINT'] = 'FIRST_SEPARATE' if final_side == 'WEST' else 'LAST_SEPARATE'
+            dummy.properties['EDGE_CONSTRAINT'] = 'OUTGOING_ONLY' if final_side == 'WEST' else 'INCOMING_ONLY'
+            dummy.size.y = port_size.y
+            if offset < 0:
+                dummy.size.x = -offset
+            set_side(port, 'EAST' if final_side == 'WEST' else 'WEST')
+            if not explicit:
+                anchor.x = port_size.x if final_side == 'WEST' else 0.0
+            if final_side == 'WEST':
+                anchor.x -= port_size.x
+        elif final_side in ('NORTH', 'SOUTH'):
+            dummy.properties['IN_LAYER_CONSTRAINT'] = 'TOP' if final_side == 'NORTH' else 'BOTTOM'
+            dummy.size.x = port_size.x
+            if offset < 0:
+                dummy.size.y = -offset
+            set_side(port, 'SOUTH' if final_side == 'NORTH' else 'NORTH')
+            if not explicit:
+                anchor.y = port_size.y if final_side == 'NORTH' else 0.0
+            if final_side == 'NORTH':
+                anchor.y -= port_size.y
+        port.pos.x, port.pos.y = anchor.x, anchor.y
+        dummy.properties['PORT_ANCHOR'] = anchor
+        if constraints in ('FIXED_ORDER', 'FIXED_RATIO', 'FIXED_POS'):
+            information = 0.0
+            if constraints == 'FIXED_ORDER' and self.state.has_option(raw, 'port.index'):
+                index = float(self._read(raw, 'PORT_INDEX'))
+                if final_side in ('NORTH', 'EAST'):
+                    information = index
+                elif final_side in ('SOUTH', 'WEST'):
+                    information = -index
+            elif final_side in ('WEST', 'EAST'):
+                information = position.y
+                if constraints == 'FIXED_RATIO':
+                    information = _divide(information, node_size.y)
+            elif final_side in ('NORTH', 'SOUTH'):
+                information = position.x
+                if constraints == 'FIXED_RATIO':
+                    information = _divide(information, node_size.x)
+            dummy.properties['PORT_RATIO_OR_POSITION'] = information
+        dummy.properties['EXT_PORT_SIDE'] = final_side
+        return dummy

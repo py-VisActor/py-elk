@@ -1,8 +1,8 @@
 {
   "schema": "py-elk-iteration-plan/v1",
-  "updatedOn": "2026-11-03",
-  "status": "planned",
-  "nextIteration": "E01",
+  "updatedOn": "2026-11-04",
+  "status": "in_progress",
+  "nextIteration": "E12",
   "detailsDocument": "ITERATION_PLAN.md",
   "strategyDocument": "IMPLEMENTATION_PLAN.md",
   "workPackagesDocument": "TASKS.md",
@@ -10,53 +10,128 @@
   "upstreamVersion": "0.12.1",
   "upstreamCommit": "624ae90aa37110033a8af59c5ccbb292708b4317",
   "firstStableVersionPlanned": "0.1.0",
-  "firstReleaseIterations": ["E01", "E02", "E03", "E04", "E05", "E06", "E07", "E08", "E09", "E10", "E11", "E12"],
+  "firstReleaseIterations": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12"
+  ],
   "mermaidIntegrationRequiredForFirstRelease": false,
-  "iterationStates": ["planned", "in_progress", "waiting", "complete"],
-  "gateStates": ["unverified", "verified"],
+  "iterationStates": [
+    "planned",
+    "in_progress",
+    "waiting",
+    "complete"
+  ],
+  "gateStates": [
+    "unverified",
+    "verified"
+  ],
   "gates": [
     {
       "id": "algorithm-source",
       "ownerIteration": "E01",
-      "status": "unverified",
-      "scope": "Components executed by the current slice; renew the evidence when adding a component or strategy",
+      "status": "verified",
+      "scope": "E07 ADR0006: bounded flat0-8 original nodes/28edges, all4 directions/default, multiple weak components and false unsplit;33 renewed reviewed generated-worker components,176/196/392 and private-routing56. Exact external Java build unresolved; renew before expansion.",
       "criterion": "Reviewable source-to-artifact mapping, exact source identity and copyright/license handling for each ported component",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "references/e07-component-approvals.json",
+          "sha256": "d2263aa531b33a80bdd7055e116a65eeb077b341ceea7ee33209e0fc684c5711"
+        }
+      ]
     },
     {
       "id": "native-contract",
       "ownerIteration": "E02",
-      "status": "unverified",
+      "status": "verified",
       "criterion": "Explicit native host mapping and executable comparison profile; raw strict differences retained",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "references/e02-audit.json",
+          "sha256": "463a8812f7fe2544c03af6ca5f4bff01782fcdf6c8eccf956ab28a4a171c60fc"
+        }
+      ],
+      "scope": "E02 frozen design and comparator tooling only; native Python API, algorithms and lifecycle remain unimplemented"
     },
     {
       "id": "ordered-model-options",
       "ownerIteration": "E03",
-      "status": "unverified",
+      "status": "verified",
       "criterion": "Ordered identity, lossless model transfer, option precedence and call-state tests pass",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "references/e03-audit.json",
+          "sha256": "63f9815d4fa5abc38693d8fae8858b5b5de28b62b65e28d5126f516d824246aa"
+        }
+      ],
+      "scope": "Internal host model, nine option parsing schemas and per-call data ownership only; not layout, random stream, public API or lifecycle acceptance"
     },
     {
       "id": "first-release-coverage",
       "ownerIteration": "E09",
-      "status": "unverified",
+      "status": "verified",
       "criterion": "Every declared basic-layered branch has implementation and API/geometry/coordinate evidence",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ]
     },
     {
       "id": "platform-quality",
       "ownerIteration": "E10",
-      "status": "unverified",
+      "status": "verified",
       "criterion": "Real layout on declared platforms with measured performance, resource and lifecycle limits",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "references/e10-runtime-audit.json",
+          "sha256": "859be9da313d9c14bbf7435ab7fd95d35024d3df68b3a35d31219f66e51e02a5"
+        }
+      ],
+      "scope": "Eight Windows/Linux CPython3.11-3.14 wheel cells; Windows3.13/Linux3.14 sdist representatives; six requests/cell plus real running cancellation/recovery; measured bounded Linux3.14 performance and separate resource peaks. No full validation or publication."
     },
     {
       "id": "candidate-accepted",
       "ownerIteration": "E11",
-      "status": "unverified",
+      "status": "verified",
       "criterion": "Final wheel/sdist hashes, source/license closure and isolated real-layout acceptance",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/candidate-delta.json",
+          "sha256": "d99670ea1707a5dfde26646cbc1e13802059dad51e2f6dcd8f62db59a2f86f58"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/candidate-delta-validation.json",
+          "sha256": "0633dc054b2181618a3f5ef9b21deefe3d8836ae39619c8dc86c669292afc336"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/wheel-installed.json",
+          "sha256": "526ec6fe3b112747fb122cf80917040253b28a3772b41b0a1e0dcd3fd19c1357"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/sdist-installed.json",
+          "sha256": "54f68ad4d94dbec0c71634c0f7c1c1f8a3386b968d8102faedaa221c072e9f9b"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/independent-name-review.json",
+          "sha256": "1219c117b8ba1b045f59913d3628a51af79534562de156ae4043fbe436832cc6"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/selected-ci-windows.json",
+          "sha256": "48ac91582064e070f1fa8881270f32dc776d8f173758e2a91f38b37252c98c42"
+        }
+      ],
+      "scope": "First standalone py-visactor-elk0.1.0 candidate: exact metadata/source/actual installations and40 selected checks. This does not close E20/E21 all-declared-branch acceptance or publication/download itself."
     },
     {
       "id": "package-published",
@@ -70,202 +145,814 @@
     {
       "id": "E01",
       "title": "Source and default-path audit",
-      "status": "planned",
+      "status": "complete",
       "dependsOn": [],
       "requiredGates": [],
-      "workPackages": ["M1-01", "M1-02"],
-      "evidence": []
+      "workPackages": [
+        "M1-01",
+        "M1-02"
+      ],
+      "evidence": [
+        {
+          "path": "references/e01-audit.json",
+          "sha256": "886ebd372bb633b74a09403aa9fa7c6c11205c4290f77d557c0be5c19c9e1d87"
+        }
+      ],
+      "parallelStrategy": "E01",
+      "retrospective": "retrospectives/E01.md",
+      "brief": "iterations/E01.md"
     },
     {
       "id": "E02",
       "title": "Native contract and comparison profile",
-      "status": "planned",
-      "dependsOn": ["E01"],
+      "status": "complete",
+      "dependsOn": [
+        "E01"
+      ],
       "requiredGates": [],
-      "workPackages": ["M1-03", "M1-05", "M1-06", "M1-08"],
-      "evidence": []
+      "workPackages": [
+        "M1-03",
+        "M1-05",
+        "M1-06",
+        "M1-08"
+      ],
+      "evidence": [
+        {
+          "path": "references/e02-audit.json",
+          "sha256": "463a8812f7fe2544c03af6ca5f4bff01782fcdf6c8eccf956ab28a4a171c60fc"
+        }
+      ],
+      "parallelStrategy": "E02",
+      "retrospective": "retrospectives/E02.md",
+      "brief": "iterations/E02.md"
     },
     {
       "id": "E03",
       "title": "Ordered model, options and execution context",
-      "status": "planned",
-      "dependsOn": ["E02"],
-      "requiredGates": ["native-contract"],
-      "workPackages": ["M1-04", "M1-05", "M2-01"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E02"
+      ],
+      "requiredGates": [
+        "native-contract"
+      ],
+      "workPackages": [
+        "M1-04",
+        "M1-05",
+        "M2-01"
+      ],
+      "evidence": [
+        {
+          "path": "references/e03-audit.json",
+          "sha256": "63f9815d4fa5abc38693d8fae8858b5b5de28b62b65e28d5126f516d824246aa"
+        }
+      ],
+      "parallelStrategy": "E03",
+      "retrospective": "retrospectives/E03.md",
+      "brief": "iterations/E03.md"
     },
     {
       "id": "E04",
       "title": "First real end-to-end layered slice",
-      "status": "planned",
-      "dependsOn": ["E03"],
-      "requiredGates": ["algorithm-source", "native-contract", "ordered-model-options"],
-      "workPackages": ["M1-06", "M1-07", "M1-08", "M2-01", "M2-03", "M2-04", "M2-05", "M2-06"],
-      "algorithms": ["org.eclipse.elk.layered"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E03"
+      ],
+      "requiredGates": [
+        "algorithm-source",
+        "native-contract",
+        "ordered-model-options"
+      ],
+      "workPackages": [
+        "M1-06",
+        "M1-07",
+        "M1-08",
+        "M2-01",
+        "M2-03",
+        "M2-04",
+        "M2-05",
+        "M2-06"
+      ],
+      "algorithms": [
+        "org.eclipse.elk.layered"
+      ],
+      "evidence": [
+        {
+          "path": "references/e04-runtime-audit.json",
+          "sha256": "366adde7298370871619a5530a7f12c22504c3b3a4025a664e99d754129dd026"
+        }
+      ],
+      "parallelStrategy": "E04",
+      "retrospective": "retrospectives/E04.md",
+      "brief": "iterations/E04.md"
     },
     {
       "id": "E05",
       "title": "DAGs, long edges and default phases",
-      "status": "planned",
-      "dependsOn": ["E04"],
-      "requiredGates": ["algorithm-source"],
-      "workPackages": ["M2-03", "M2-04", "M2-05", "M2-06"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E04"
+      ],
+      "requiredGates": [
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M2-03",
+        "M2-04",
+        "M2-05",
+        "M2-06"
+      ],
+      "evidence": [
+        {
+          "path": "references/e05-runtime-audit.json",
+          "sha256": "bcdfd05d219bfc8538b15d606c371c49ea651230e9ab9027349965c608688b37"
+        }
+      ],
+      "parallelStrategy": "E05",
+      "retrospective": "retrospectives/E05.md",
+      "brief": "iterations/E05.md",
+      "sourceExpansionApprovalRequired": true,
+      "sourceExpansionScope": "Renew the E04-only source approval for the actual new DAG/long-edge branches before mechanical port"
     },
     {
       "id": "E06",
       "title": "Cycles, self-loops and parallel edges",
-      "status": "planned",
-      "dependsOn": ["E05"],
-      "requiredGates": ["algorithm-source"],
-      "workPackages": ["M2-02", "M2-03", "M2-04", "M2-06"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E05"
+      ],
+      "requiredGates": [
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M2-02",
+        "M2-03",
+        "M2-04",
+        "M2-06"
+      ],
+      "evidence": [
+        {
+          "path": "docs/changes/20261103-E06.json",
+          "sha256": "63841a98307d2aea79f5588b89d04bf672068505cfe4c1903f1d77d98e08570a"
+        }
+      ],
+      "parallelStrategy": "E06",
+      "retrospective": "retrospectives/E06.md",
+      "brief": "iterations/E06.md",
+      "sourceExpansionApprovalRequired": true,
+      "sourceExpansionScope": "Renew E05 DAG-only source approval for actual cycles/self-loops/parallel-edge branches and their internal scale before mechanical port"
     },
     {
       "id": "E07",
       "title": "Directions, components and nine basic options",
-      "status": "planned",
-      "dependsOn": ["E06"],
-      "requiredGates": ["algorithm-source"],
-      "workPackages": ["M2-01", "M2-05", "M2-06", "M3-01"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E06"
+      ],
+      "requiredGates": [
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M2-01",
+        "M2-05",
+        "M2-06",
+        "M3-01"
+      ],
+      "evidence": [
+        {
+          "path": "docs/changes/20261103-E07.json",
+          "sha256": "3f372312c14e8dd59d590974262447e706733d56c5bb3d13cf3f33029e9cd4f3"
+        }
+      ],
+      "parallelStrategy": "E07",
+      "retrospective": "retrospectives/E07.md",
+      "brief": "iterations/E07.md",
+      "sourceExpansionApprovalRequired": true,
+      "sourceExpansionScope": "Renew E06 original RIGHT/single-component assumptions for all directions, true/false components, property getters and nine option effects before port"
     },
     {
       "id": "E08",
       "title": "Public API, metadata and execution lifecycle",
-      "status": "planned",
-      "dependsOn": ["E07"],
-      "requiredGates": ["native-contract"],
-      "workPackages": ["M1-03", "M1-06", "M3-02", "M3-04", "M4-02"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E07"
+      ],
+      "requiredGates": [
+        "native-contract"
+      ],
+      "workPackages": [
+        "M1-03",
+        "M1-06",
+        "M3-02",
+        "M3-04",
+        "M4-02"
+      ],
+      "evidence": [
+        {
+          "path": "docs/changes/20261103-E08.json",
+          "sha256": "cba9463e5955b0bfd48d92fd9ef12ff97445ad7b19384e0c4aead2ef9149bffa"
+        }
+      ],
+      "parallelStrategy": "E08",
+      "retrospective": "retrospectives/E08.md",
+      "brief": "iterations/E08.md",
+      "preparationBatch": "E08-00"
     },
     {
       "id": "E09",
       "title": "Basic release conformance closure",
-      "status": "planned",
-      "dependsOn": ["E08"],
-      "requiredGates": ["native-contract"],
-      "workPackages": ["M1-02", "M3-01", "M3-02", "M3-03", "M3-04"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E08"
+      ],
+      "requiredGates": [
+        "native-contract"
+      ],
+      "workPackages": [
+        "M1-02",
+        "M3-01",
+        "M3-02",
+        "M3-03",
+        "M3-04"
+      ],
+      "evidence": [
+        {
+          "path": "docs/changes/20261103-E09.json",
+          "sha256": "134d048c60dd56e761179359815c8e964c87dcc61d286bec9dd861f9ccf4f542"
+        },
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        },
+        {
+          "path": "docs/changes/20261103-E09-change-validation.json",
+          "sha256": "41812f7523fd54389d65ecb7d64912287cd94f998d4d02121a2daffaa9099003"
+        }
+      ],
+      "parallelStrategy": "E09",
+      "retrospective": "retrospectives/E09.md"
     },
     {
       "id": "E10",
       "title": "Platform, performance and resource acceptance",
-      "status": "planned",
-      "dependsOn": ["E09"],
-      "requiredGates": ["first-release-coverage"],
-      "workPackages": ["M4-01", "M4-02", "M4-03"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E09"
+      ],
+      "requiredGates": [
+        "first-release-coverage"
+      ],
+      "workPackages": [
+        "M4-01",
+        "M4-02",
+        "M4-03"
+      ],
+      "evidence": [
+        {
+          "path": "references/e10-runtime-audit.json",
+          "sha256": "859be9da313d9c14bbf7435ab7fd95d35024d3df68b3a35d31219f66e51e02a5"
+        },
+        {
+          "path": "docs/changes/20261103-E10.json",
+          "sha256": "bd57745793ccd04bc4da14614431e4e7d761be9b880de89da2b3a46d901cfe54"
+        }
+      ],
+      "parallelStrategy": "E10",
+      "retrospective": "retrospectives/E10.md",
+      "brief": "iterations/E10.md"
     },
     {
       "id": "E11",
       "title": "Final wheel/sdist candidate acceptance",
-      "status": "planned",
-      "dependsOn": ["E10"],
-      "requiredGates": ["platform-quality"],
-      "workPackages": ["M4-04", "M5-01"],
-      "evidence": []
+      "status": "complete",
+      "dependsOn": [
+        "E10"
+      ],
+      "requiredGates": [
+        "platform-quality"
+      ],
+      "workPackages": [
+        "M4-04",
+        "M5-01"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/candidate-delta.json",
+          "sha256": "d99670ea1707a5dfde26646cbc1e13802059dad51e2f6dcd8f62db59a2f86f58"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/candidate-delta-validation.json",
+          "sha256": "0633dc054b2181618a3f5ef9b21deefe3d8836ae39619c8dc86c669292afc336"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/wheel-installed.json",
+          "sha256": "526ec6fe3b112747fb122cf80917040253b28a3772b41b0a1e0dcd3fd19c1357"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/sdist-installed.json",
+          "sha256": "54f68ad4d94dbec0c71634c0f7c1c1f8a3386b968d8102faedaa221c072e9f9b"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/independent-name-review.json",
+          "sha256": "1219c117b8ba1b045f59913d3628a51af79534562de156ae4043fbe436832cc6"
+        },
+        {
+          "path": "docs/releases/evidence/py-visactor-elk-0.1.0/selected-ci-windows.json",
+          "sha256": "48ac91582064e070f1fa8881270f32dc776d8f173758e2a91f38b37252c98c42"
+        }
+      ],
+      "parallelStrategy": "E11",
+      "retrospective": "retrospectives/E11.md",
+      "brief": "iterations/E11.md",
+      "acceptanceStatus": "first-standalone-candidate-accepted-scoped"
     },
     {
       "id": "E12",
       "title": "Stable release and download verification",
-      "status": "planned",
-      "dependsOn": ["E11"],
-      "requiredGates": ["candidate-accepted"],
-      "workPackages": ["M5-02", "M5-03"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E11"
+      ],
+      "requiredGates": [
+        "candidate-accepted"
+      ],
+      "workPackages": [
+        "M5-02",
+        "M5-03"
+      ],
+      "evidence": [],
+      "parallelStrategy": "E12",
+      "retrospective": null,
+      "waitingFor": "Actual reviewed Git commit/tag OIDC upload and downloaded-artifact verification"
     },
     {
       "id": "E13",
       "title": "Ports and given-size labels",
-      "status": "planned",
-      "dependsOn": ["E12"],
-      "requiredGates": ["package-published", "algorithm-source"],
-      "workPackages": ["M6-01", "M6-02"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E12"
+      ],
+      "requiredGates": [
+        "package-published",
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M6-01",
+        "M6-02"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E13",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E14",
       "title": "Hierarchy and coordinate containers",
-      "status": "planned",
-      "dependsOn": ["E13"],
-      "requiredGates": ["algorithm-source"],
-      "workPackages": ["M6-03"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E13"
+      ],
+      "requiredGates": [
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M6-03"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E14",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E15",
       "title": "Full layered strategies and routing",
-      "status": "planned",
-      "dependsOn": ["E14"],
-      "requiredGates": ["algorithm-source"],
-      "workPackages": ["M6-04", "M6-05"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E14"
+      ],
+      "requiredGates": [
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M6-04",
+        "M6-05"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E15",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E16",
       "title": "fixed, box and random",
-      "status": "planned",
-      "dependsOn": ["E12"],
-      "requiredGates": ["package-published", "algorithm-source"],
-      "workPackages": ["M7-01"],
-      "algorithms": ["org.eclipse.elk.fixed", "org.eclipse.elk.box", "org.eclipse.elk.random"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E12"
+      ],
+      "requiredGates": [
+        "package-published",
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M7-01"
+      ],
+      "algorithms": [
+        "org.eclipse.elk.fixed",
+        "org.eclipse.elk.box",
+        "org.eclipse.elk.random"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E16",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E17",
       "title": "mrtree and radial",
-      "status": "planned",
-      "dependsOn": ["E12"],
-      "requiredGates": ["package-published", "algorithm-source"],
-      "workPackages": ["M7-02"],
-      "algorithms": ["org.eclipse.elk.mrtree", "org.eclipse.elk.radial"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E12"
+      ],
+      "requiredGates": [
+        "package-published",
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M7-02"
+      ],
+      "algorithms": [
+        "org.eclipse.elk.mrtree",
+        "org.eclipse.elk.radial"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        },
+        {
+          "path": "docs/releases/evidence/runtime-repair/cycle-termination.json",
+          "sha256": "591931d57927ddd21b504f901eaeb4095efadb2b329ee02bd057a9aac41f6bbd"
+        },
+        {
+          "path": "docs/releases/evidence/runtime-repair/valid-tree-regression.json",
+          "sha256": "ccab8e5a7d669afb1a954d0b4970091d7c173812090e9cc05c0395f01005dcc6"
+        },
+        {
+          "path": "docs/releases/evidence/runtime-repair/valid-phase-report.json",
+          "sha256": "756eb9400c8877f48ab5bf22426841341a6a61322338f974efb7a3b91723676a"
+        }
+      ],
+      "parallelStrategy": "E17",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "mrtree-termination-repaired-scoped-regressions-passed-final-geometry-review",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E18",
       "title": "force and stress",
-      "status": "planned",
-      "dependsOn": ["E12"],
-      "requiredGates": ["package-published", "algorithm-source"],
-      "workPackages": ["M7-03"],
-      "algorithms": ["org.eclipse.elk.force", "org.eclipse.elk.stress"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E12"
+      ],
+      "requiredGates": [
+        "package-published",
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M7-03"
+      ],
+      "algorithms": [
+        "org.eclipse.elk.force",
+        "org.eclipse.elk.stress"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E18",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E19",
       "title": "disco, sporeOverlap, sporeCompaction and rectpacking",
-      "status": "planned",
-      "dependsOn": ["E12"],
-      "requiredGates": ["package-published", "algorithm-source"],
-      "workPackages": ["M7-04"],
-      "algorithms": ["org.eclipse.elk.disco", "org.eclipse.elk.sporeOverlap", "org.eclipse.elk.sporeCompaction", "org.eclipse.elk.rectpacking"],
-      "evidence": []
+      "status": "in_progress",
+      "dependsOn": [
+        "E12"
+      ],
+      "requiredGates": [
+        "package-published",
+        "algorithm-source"
+      ],
+      "workPackages": [
+        "M7-04"
+      ],
+      "algorithms": [
+        "org.eclipse.elk.disco",
+        "org.eclipse.elk.sporeOverlap",
+        "org.eclipse.elk.sporeCompaction",
+        "org.eclipse.elk.rectpacking"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E19",
+      "retrospective": null,
+      "implementationStatus": "complete",
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair."
     },
     {
       "id": "E20",
       "title": "Full coverage and reliability audit",
-      "status": "planned",
-      "dependsOn": ["E15", "E16", "E17", "E18", "E19"],
+      "status": "in_progress",
+      "dependsOn": [
+        "E15",
+        "E16",
+        "E17",
+        "E18",
+        "E19"
+      ],
       "requiredGates": [],
-      "workPackages": ["M8-01", "M8-02"],
-      "evidence": []
+      "workPackages": [
+        "M8-01",
+        "M8-02"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E20",
+      "retrospective": null,
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair.",
+      "preparationStatus": "tools-and-candidate-prepared-acceptance-not-complete"
     },
     {
       "id": "E21",
       "title": "Full candidate and subsequent releases",
-      "status": "planned",
-      "dependsOn": ["E20"],
+      "status": "in_progress",
+      "dependsOn": [
+        "E20"
+      ],
       "requiredGates": [],
-      "workPackages": ["M8-03"],
-      "evidence": []
+      "workPackages": [
+        "M8-03"
+      ],
+      "evidence": [
+        {
+          "path": "docs/releases/evidence/development-frozen/report.json",
+          "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5"
+        },
+        {
+          "path": "references/full-native-closure/options.manifest.json",
+          "sha256": "d426a594342735cf697fabbd21e53901c95af5b2441a82e772c0d0fca3f18d50"
+        },
+        {
+          "path": "docs/changes/20261104-full-performance.json",
+          "sha256": "006b9be179f6db2e5ea3402c29e9e7e0578df8a38cf8c59821b3912c53dd2fe7"
+        }
+      ],
+      "parallelStrategy": "E21",
+      "retrospective": null,
+      "acceptanceStatus": "targeted-closure-in-progress",
+      "evidenceScope": "Frozen implementation validation and scoped option/performance evidence; not proof of all exit requirements or subsequent runtime repair.",
+      "preparationStatus": "tools-and-candidate-prepared-acceptance-not-complete"
     }
   ],
   "integration": [
-    {"id": "I0", "status": "planned", "dependsOn": ["E12"], "requiredGates": ["package-published"], "workPackages": ["I0"], "evidence": []},
-    {"id": "I1", "status": "planned", "dependsOn": ["I0"], "requiredGates": ["package-published"], "additionalRequirement": "Published capabilities required by the I0 audit", "workPackages": ["I1"], "evidence": []},
-    {"id": "I2", "status": "planned", "dependsOn": ["I1"], "requiredGates": [], "workPackages": ["I2"], "evidence": []},
-    {"id": "I3", "status": "planned", "dependsOn": ["I2"], "requiredGates": [], "workPackages": ["I3"], "evidence": []}
-  ]
+    {
+      "id": "I0",
+      "status": "planned",
+      "dependsOn": [
+        "E12"
+      ],
+      "requiredGates": [
+        "package-published"
+      ],
+      "workPackages": [
+        "I0"
+      ],
+      "evidence": [],
+      "parallelStrategy": "I0",
+      "retrospective": null
+    },
+    {
+      "id": "I1",
+      "status": "planned",
+      "dependsOn": [
+        "I0"
+      ],
+      "requiredGates": [
+        "package-published"
+      ],
+      "additionalRequirement": "Published capabilities required by the I0 audit",
+      "workPackages": [
+        "I1"
+      ],
+      "evidence": [],
+      "parallelStrategy": "I1",
+      "retrospective": null
+    },
+    {
+      "id": "I2",
+      "status": "planned",
+      "dependsOn": [
+        "I1"
+      ],
+      "requiredGates": [],
+      "workPackages": [
+        "I2"
+      ],
+      "evidence": [],
+      "parallelStrategy": "I2",
+      "retrospective": null
+    },
+    {
+      "id": "I3",
+      "status": "planned",
+      "dependsOn": [
+        "I2"
+      ],
+      "requiredGates": [],
+      "workPackages": [
+        "I3"
+      ],
+      "evidence": [],
+      "parallelStrategy": "I3",
+      "retrospective": null
+    }
+  ],
+  "coordination": {
+    "protocolDocument": "PARALLEL_EXECUTION.md",
+    "maxActiveAgents": 4,
+    "maxSubagents": 3,
+    "laneRoles": [
+      "A",
+      "B",
+      "V"
+    ],
+    "fileOwnership": "single writer per file",
+    "integrationOwner": "root",
+    "stableValidationBarrierRequired": true,
+    "retrospectiveRequired": true,
+    "protocolVersion": "1.5",
+    "validationMode": "change-related checks; final whole-migration full only"
+  },
+  "validationPolicy": {
+    "document": "IMPLEMENTATION_FIRST.md",
+    "mode": "implementation-first",
+    "fullValidationWhen": "all migration features implemented and wired; then unified validation and repair",
+    "perIterationFullRequired": false,
+    "repeatedPlatformFullRequired": false,
+    "unchangedPassingChecksRerun": false,
+    "scope": [
+      "E09",
+      "E10",
+      "E11",
+      "E12",
+      "E13",
+      "E14",
+      "E15",
+      "E16",
+      "E17",
+      "E18",
+      "E19",
+      "E20",
+      "E21"
+    ],
+    "mermaidIntegrationSeparate": true,
+    "featureImplementationComplete": true,
+    "implementationChecks": [
+      "syntax",
+      "import",
+      "interface-wiring"
+    ],
+    "runtimeChecksDuringImplementation": false,
+    "independentReviewRequiredBeforeImplementation": false,
+    "currentPhase": "final-evidence-and-release-closure",
+    "unifiedTechnicalValidationComplete": false,
+    "frozenDevelopmentChecksPassed": true
+  },
+  "parallelPreparation": {
+    "status": "public-implementation-complete-targeted-validation-repair",
+    "historicalPrivatePreparation": "iterations/parallel-preparation-history-20261104.json",
+    "publicAPIIntegrated": true,
+    "activeSourceDirectory": "src/pyelk",
+    "packagePublished": false,
+    "implementationAlgorithms": 12,
+    "metadataOptions": 243,
+    "metadataCategories": 8,
+    "wholeAlgorithmsUniversallyVerified": false,
+    "activeWork": {
+      "root": "reviewed repair candidate, current state and delivery",
+      "A": "read-only explicit requirement closure audit",
+      "B": "offline independent non-Layered geometry predicates",
+      "V": "final byte-preserving repair and option evidence review"
+    },
+    "executionOrderOverride": "User implementation-first instruction allows E13-E19 development before E12 publication; historical dependency gates remain acceptance requirements."
+  },
+  "distributionName": "py-visactor-elk"
 }

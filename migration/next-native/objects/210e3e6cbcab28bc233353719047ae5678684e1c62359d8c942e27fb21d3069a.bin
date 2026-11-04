@@ -1,0 +1,398 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Source behavior: elkjs 0.12.1 lib/elk-worker.js, SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Copyright Kiel University and others. Reviewed closure J01-J06:
+# references/next-json-transfer-sources.json. Native typed IDs and owned copies
+# follow ADR-0002; this host adapter does not copy GWT or EMF runtimes.
+"""Persistent provider state and original-object ELK JSON layout transfer.
+
+Private migration component. Scheduling and full typed option registration are
+separate work. Providers operate on one state, while export retains a distinct
+owned copy of the original JSON and its conditional business fields.
+"""
+from __future__ import annotations
+
+import copy
+
+from .._errors import ModelValidationError, OptionValidationError
+from .._json import clone_json, finite_number, pointer
+from ..algorithms.fixed import _State, _option
+from ..model import TypedId
+from ..options.element import integer
+
+
+def _error(code, path, message):
+    raise ModelValidationError(code, path, message)
+
+
+def _object(value, path):
+    if type(value) is not dict:
+        _error('INVALID_ELEMENT', path, 'Expected a JSON object')
+    return value
+
+
+def _array(item, key, path):
+    value = item.get(key, [])
+    if type(value) is not list:
+        _error('INVALID_CONTAINER', pointer(path, key), 'Expected a JSON array')
+    return value
+
+
+def _key(value, path=''):
+    identity = TypedId.from_value(value, path=path)
+    return type(identity.value), identity.value
+
+
+def _unique(values):
+    result = []
+    for value in values:
+        if _key(value) not in {_key(old) for old in result}:
+            result.append(value)
+    return result
+
+
+class JsonLayoutSession(_State):
+    """One imported graph shared by all recursive provider calls.
+
+    ``resolve_option(element, short_name, default)`` can supply the central
+    parser. Without it only local scalar properties are read by the provider
+    helpers; this is not an implementation of all option schemas.
+    """
+
+    def __init__(self, graph, *, resolve_option=None):
+        self.original = clone_json(graph, error_type=ModelValidationError)
+        _object(self.original, '')
+        self.graph = copy.deepcopy(self.original)
+        self.options = {}
+        self.resolve_option = resolve_option
+        self.shapes = {}; self.owners = {}; self.parents = {}; self.edges = []
+        self.nodes = []; self.ports = []; self.labels = []
+        self.kinds = {}; self.json_parents = {}; self.paths = {}; self.origins = {}
+        self.edge_original_owners = {}; self.current_containers = {}
+        self.section_origins = {}; self.section_ids = {}; self.sections_by_id = {}
+        self.cleared_constraints = set(); self.computed_options = {}
+        self._identities = {}
+        self._import_node(self.graph, self.original, None, '')
+        self._import_edges(self.graph, self.original, '')
+        # Current semantic containment is independent of original JSON arrays.
+        for node in self.nodes:
+            if 'edges' in node:
+                node['edges'] = []
+        for edge in self.edges:
+            container = self._best_container(edge)
+            self.current_containers[id(edge)] = container
+            if container is not None:
+                container.setdefault('edges', []).append(edge)
+
+    def _register(self, item, raw, kind, parent, path, *, required_id=True):
+        _object(item, path)
+        if required_id:
+            if 'id' not in item:
+                _error('MISSING_ID', pointer(path, 'id'), 'Element must have an ID')
+            key = _key(item['id'], pointer(path, 'id'))
+            if key in self._identities:
+                _error('DUPLICATE_ID', pointer(path, 'id'), 'ID duplicates another graph element')
+            self._identities[key] = item
+        elif 'id' in item:
+            _key(item['id'], pointer(path, 'id'))
+        for name in ('layoutOptions', 'properties'):
+            if name in item and type(item[name]) is not dict:
+                _error('INVALID_CONTAINER', pointer(path, name), 'Expected an option mapping')
+        self.kinds[id(item)] = kind
+        self.json_parents[id(item)] = parent
+        self.paths[id(item)] = path
+        self.origins[id(item)] = raw
+
+    def _geometry(self, shape, path):
+        for key in ('x', 'y', 'width', 'height'):
+            if key in shape:
+                finite_number(shape[key], path=pointer(path, key),
+                              nonnegative=key in ('width', 'height'), error_type=ModelValidationError)
+            else:
+                shape[key] = 0
+
+    def _import_labels(self, element, original, path):
+        for i, label in enumerate(_array(element, 'labels', path)):
+            where = pointer(pointer(path, 'labels'), i)
+            self._register(label, original['labels'][i], 'label', element, where, required_id=False)
+            self._geometry(label, where)
+            self.labels.append(label)
+
+    def _import_node(self, node, original, parent, path):
+        self._register(node, original, 'node', parent, path)
+        self._geometry(node, path)
+        self.nodes.append(node); self.parents[id(node)] = parent
+        self.owners[id(node)] = node; self.shapes[_key(node['id'])] = node
+        for i, port in enumerate(_array(node, 'ports', path)):
+            where = pointer(pointer(path, 'ports'), i)
+            self._register(port, original['ports'][i], 'port', node, where)
+            self._geometry(port, where)
+            self.ports.append(port); self.owners[id(port)] = node
+            self.shapes[_key(port['id'])] = port
+            self._import_labels(port, original['ports'][i], where)
+        self._import_labels(node, original, path)
+        for i, child in enumerate(_array(node, 'children', path)):
+            self._import_node(child, original['children'][i], node, pointer(pointer(path, 'children'), i))
+
+    def _shape_id(self, value, path):
+        shape = self.shapes.get(_key(value, path))
+        if shape is None:
+            _error('UNKNOWN_ENDPOINT', path, 'Referenced node or port does not exist')
+        return shape
+
+    def _point(self, value, path):
+        _object(value, path)
+        result = {}
+        for key in ('x', 'y'):
+            if key not in value:
+                _error('MISSING_COORDINATE', pointer(path, key), 'Point requires both coordinates')
+            result[key] = finite_number(value[key], path=pointer(path, key), error_type=ModelValidationError)
+        return result
+
+    def _import_sections(self, edge, original, path):
+        sections = _array(edge, 'sections', path)
+        for i, section in enumerate(sections):
+            where = pointer(pointer(path, 'sections'), i)
+            _object(section, where)
+            if 'id' not in section:
+                _error('MISSING_ID', pointer(where, 'id'), 'Original edge section requires an ID')
+            key = _key(section['id'], pointer(where, 'id'))
+            if key in self.sections_by_id:
+                _error('DUPLICATE_ID', pointer(where, 'id'), 'Duplicate original section ID')
+            self.sections_by_id[key] = section
+            self.section_origins[id(section)] = original['sections'][i]
+            self.section_ids[id(section)] = section['id']
+            for name in ('startPoint', 'endPoint'):
+                if name not in section:
+                    _error('MISSING_COORDINATE', pointer(where, name), 'Edge section requires '+name)
+                section[name] = self._point(section[name], pointer(where, name))
+            section['bendPoints'] = [self._point(p, pointer(pointer(where, 'bendPoints'), j))
+                                     for j, p in enumerate(_array(section, 'bendPoints', where))]
+            for name in ('incomingShape', 'outgoingShape'):
+                if name in section and section[name] is not None:
+                    self._shape_id(section[name], pointer(where, name))
+            for name in ('incomingSections', 'outgoingSections'):
+                section[name] = _unique(_array(section, name, where))
+        # Resolve after every section in this edge exists, retaining inverse links.
+        for section in sections:
+            for name, inverse in (('incomingSections', 'outgoingSections'),
+                                  ('outgoingSections', 'incomingSections')):
+                for identifier in list(section[name]):
+                    other = self.sections_by_id.get(_key(identifier))
+                    if other is None:
+                        _error('UNKNOWN_SECTION', path, 'Referenced edge section does not exist')
+                    values = other.setdefault(inverse, [])
+                    if _key(section['id']) not in {_key(value) for value in values}:
+                        values.append(section['id'])
+        if len(edge['sources']) == len(edge['targets']) == len(sections) == 1:
+            section = sections[0]
+            if section.get('incomingShape') is None and section.get('outgoingShape') is None:
+                section['incomingShape'] = edge['sources'][0]
+                section['outgoingShape'] = edge['targets'][0]
+
+    def _import_primitive(self, edge, path):
+        for field, port_field, dest in (('source', 'sourcePort', 'sources'), ('target', 'targetPort', 'targets')):
+            if field not in edge:
+                _error('MISSING_ENDPOINT', pointer(path, field), 'Primitive edge requires '+field)
+            node = self._shape_id(edge[field], pointer(path, field))
+            if self.kinds[id(node)] != 'node':
+                _error('INVALID_ENDPOINT', pointer(path, field), 'Primitive endpoint must be a node')
+            port = None
+            if port_field in edge and edge[port_field] is not None:
+                # A missing primitive port falls back to its node in the source.
+                candidate = self.shapes.get(_key(edge[port_field], pointer(path, port_field)))
+                port = candidate if candidate is not None and self.kinds[id(candidate)] == 'port' else None
+                if port is not None and self.owners[id(port)] is not node:
+                    _error('INVALID_ENDPOINT', pointer(path, port_field), 'Primitive port belongs to another node')
+            edge[dest] = [(port if port is not None else node)['id']]
+        edge.pop('sections', None)  # Primitive importer does not import modern sections.
+        if any(key in edge for key in ('sourcePoint', 'targetPoint', 'bendPoints')):
+            section = {'startPoint': {'x': 0, 'y': 0}, 'endPoint': {'x': 0, 'y': 0}}
+            for key, dest in (('sourcePoint', 'startPoint'), ('targetPoint', 'endPoint')):
+                if key in edge and edge[key] is not None:
+                    section[dest] = self._point(edge[key], pointer(path, key))
+            section['bendPoints'] = [self._point(p, pointer(pointer(path, 'bendPoints'), i))
+                                     for i, p in enumerate(_array(edge, 'bendPoints', path))]
+            edge['sections'] = [section]
+
+    def _import_edges(self, node, original, path):
+        for i, edge in enumerate(_array(node, 'edges', path)):
+            where = pointer(pointer(path, 'edges'), i)
+            raw = original['edges'][i]
+            self._register(edge, raw, 'edge', node, where)
+            self.edge_original_owners[id(edge)] = node
+            if 'sources' in edge or 'targets' in edge:
+                for name in ('sources', 'targets'):
+                    identifiers = _array(edge, name, where)
+                    if not identifiers:
+                        _error('MISSING_ENDPOINT', pointer(where, name), 'Edge requires at least one '+name)
+                    for j, value in enumerate(identifiers):
+                        self._shape_id(value, pointer(pointer(where, name), j))
+                    edge[name] = _unique(identifiers)
+                self._import_sections(edge, raw, where)
+            else:
+                self._import_primitive(edge, where)
+            self._import_labels(edge, raw, where)
+            # junctionPoints is an exported property, not primitive JSON geometry
+            # imported by JsonImporter. An actual provider can set it later.
+            edge.pop('junctionPoints', None)
+            self.edges.append(edge)
+        for i, child in enumerate(_array(node, 'children', path)):
+            self._import_edges(child, original['children'][i], pointer(pointer(path, 'children'), i))
+
+    def option(self, element, name, default=None):
+        if name == 'nodeSize.constraints' and id(element) in self.cleared_constraints:
+            return []
+        if name in self.computed_options.get(id(element), {}):
+            return self.computed_options[id(element)][name]
+        if self.resolve_option is not None:
+            return self.resolve_option(element, name, default)
+        local = element
+        if 'layoutOptions' not in element and 'properties' in element:
+            local = dict(element, layoutOptions=element['properties'])
+        return _option(local, name, default)
+
+    def _ancestor(self, child, ancestor):
+        while self.parents[id(child)] is not None:
+            child = self.parents[id(child)]
+            if child is ancestor:
+                return True
+        return False
+
+    def _lca(self, first, second):
+        # AncestorIterator starts with the node itself in the reviewed source.
+        ancestors = []
+        while first is not None:
+            ancestors.append(first); first = self.parents[id(first)]
+        while second is not None:
+            if any(second is item for item in ancestors):
+                return second
+            second = self.parents[id(second)]
+        return None
+
+    def _best_container(self, edge):
+        incident = [self.owners[id(self._shape_id(value, self.paths[id(edge)]))]
+                    for value in (*edge['sources'], *edge['targets'])]
+        if len(incident) == 1:
+            return self.parents[id(incident[0])]
+        if len(edge['sources']) == len(edge['targets']) == 1:
+            source, target = incident
+            sp, tp = self.parents[id(source)], self.parents[id(target)]
+            if sp is tp:
+                return sp
+            if source is tp:
+                return source
+            if target is sp:
+                return target
+        common = incident[0]
+        for node in incident[1:]:
+            if node is not common and not self._ancestor(node, common):
+                if self.parents[id(node)] is self.parents[id(common)]:
+                    common = self.parents[id(node)]
+                else:
+                    common = self._lca(common, node)
+                if common is None:
+                    return None
+        return common
+
+    def contained_edges(self, node):
+        return tuple(edge for edge in self.edges if self.current_containers[id(edge)] is node)
+
+    def _mode(self, element, name, values):
+        value = self.option(element, name, 'INHERIT')
+        if value is None:
+            return 'INHERIT'
+        if type(value) is str and value in values:
+            return value
+        ordinal = integer(value, self.paths[id(element)])
+        if 0 <= ordinal < len(values):
+            return values[ordinal]
+        raise OptionValidationError('INVALID_OPTION_VALUE', self.paths[id(element)], 'Invalid '+name)
+
+    def export(self):
+        """Transfer current geometry to owned original JSON without moving arrays."""
+        global_xy = {}; shape_modes = {}; edge_modes = {}
+
+        def record_modes(element):
+            parent = self.json_parents[id(element)]
+            scm = self._mode(element, 'json.shapeCoords', ('INHERIT', 'PARENT', 'ROOT'))
+            ecm = self._mode(element, 'json.edgeCoords', ('INHERIT', 'CONTAINER', 'PARENT', 'ROOT'))
+            shape_modes[id(element)] = shape_modes.get(id(parent), 'PARENT') if scm == 'INHERIT' else scm
+            edge_modes[id(element)] = edge_modes.get(id(parent), 'CONTAINER') if ecm == 'INHERIT' else ecm
+
+        def edge_adjust(edge, point):
+            owner = self.edge_original_owners[id(edge)]
+            mode = edge_modes.get(id(owner))
+            container = self.current_containers[id(edge)]
+            if mode in ('ROOT', 'PARENT'):
+                if container is None:
+                    _error('MISSING_CONTAINER', self.paths[id(edge)], 'Edge has no current container')
+                dx, dy = global_xy[id(container)]
+                x, y = point['x']+dx, point['y']+dy
+                if mode == 'PARENT':
+                    ox, oy = global_xy[id(owner)]; x -= ox; y -= oy
+                return {'x': x, 'y': y}
+            return {'x': point['x'], 'y': point['y']}
+
+        def transfer_shape(shape):
+            raw = self.origins.get(id(shape))
+            if raw is None:
+                _error('UNKNOWN_ORIGIN', '', 'Shape did not exist in input')
+            parent = self.json_parents[id(shape)]
+            ancestor = parent
+            if parent is not None and self.kinds[id(parent)] == 'edge':
+                ancestor = self.edge_original_owners[id(parent)]
+            dx, dy = global_xy.get(id(ancestor), (0, 0))
+            global_xy[id(shape)] = shape['x']+dx, shape['y']+dy
+            record_modes(shape)
+            point = {'x': shape['x'], 'y': shape['y']}
+            if parent is not None:
+                if self.kinds[id(parent)] == 'edge':
+                    point = edge_adjust(parent, point)
+                elif shape_modes.get(id(parent)) == 'ROOT':
+                    px, py = global_xy[id(parent)]
+                    point = {'x': point['x']+px, 'y': point['y']+py}
+            raw.update(point, width=shape['width'], height=shape['height'])
+
+        def first_pass(node):
+            transfer_shape(node)
+            for port in node.get('ports', []):
+                transfer_shape(port)
+            for child in node.get('children', []):
+                first_pass(child)
+
+        first_pass(self.graph)
+        # Node/port globals are now complete, including later sibling containers.
+        for edge in self.edges:
+            record_modes(edge)
+            raw = self.origins[id(edge)]
+            if edge.get('sections'):
+                result = []
+                for i, section in enumerate(edge['sections']):
+                    target = self.section_origins.get(id(section))
+                    if target is None:
+                        target = {'id': str(raw['id'])+'_s'+str(i)}
+                    target['startPoint'] = edge_adjust(edge, section['startPoint'])
+                    target['endPoint'] = edge_adjust(edge, section['endPoint'])
+                    if section.get('bendPoints'):
+                        target['bendPoints'] = [edge_adjust(edge, p) for p in section['bendPoints']]
+                    for name in ('incomingShape', 'outgoingShape'):
+                        if section.get(name) is not None:
+                            target[name] = self._shape_id(section[name], self.paths[id(edge)])['id']
+                    for name in ('incomingSections', 'outgoingSections'):
+                        if section.get(name):
+                            target[name] = [self.section_ids.get(id(self.sections_by_id.get(_key(value))))
+                                            for value in section[name]]
+                    result.append(target)
+                raw['sections'] = result
+            if edge.get('junctionPoints'):
+                raw['junctionPoints'] = [edge_adjust(edge, p) for p in edge['junctionPoints']]
+            owner = self.edge_original_owners[id(edge)]
+            if edge_modes.get(id(owner)) == 'CONTAINER':
+                container = self.current_containers[id(edge)]
+                if container is None:
+                    _error('MISSING_CONTAINER', self.paths[id(edge)], 'Edge has no current container')
+                # Node.identifier is a string; original typed endpoint IDs remain.
+                raw['container'] = str(container['id'])
+        for label in self.labels:
+            transfer_shape(label)
+        return copy.deepcopy(self.original)

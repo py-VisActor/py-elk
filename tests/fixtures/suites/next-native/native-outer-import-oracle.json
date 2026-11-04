@@ -1,0 +1,113 @@
+{
+  "schema": "py-elk-next-outer-import/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "9ce7ceb225fd502112a59ddbbbaff6c1bdf201a3580b914239a95c58d6398b36",
+  "requestSha256": "8889baa7ea4dca062ba82d461b29919cbac221b6915d9da09a7e5b28956c5e89",
+  "pid": 26004,
+  "parentPid": 25672,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "ordinary-root-minimum-return",
+        "events": [
+          "create",
+          "checkExternal",
+          "minimum",
+          "flat"
+        ],
+        "padding": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "direction": "RIGHT",
+        "flags": [],
+        "nativeConstraints": [
+          "NODE_LABELS"
+        ],
+        "rawConstraints": [
+          "NODE_LABELS"
+        ],
+        "minimum": null,
+        "rawPortConstraintsPresent": false,
+        "rawPortConstraints": "UNDEFINED",
+        "nodes": [
+          {
+            "id": "a",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              20,
+              10
+            ]
+          }
+        ],
+        "rawLabels": [],
+        "layoutExecuted": false
+      },
+      {
+        "id": "nested-label-minimum",
+        "events": [
+          "create",
+          "checkExternal",
+          "minimum",
+          "flat"
+        ],
+        "padding": [
+          12,
+          12,
+          12,
+          12
+        ],
+        "direction": "RIGHT",
+        "flags": [],
+        "nativeConstraints": [
+          "MINIMUM_SIZE",
+          "NODE_LABELS"
+        ],
+        "rawConstraints": [
+          "MINIMUM_SIZE",
+          "NODE_LABELS"
+        ],
+        "minimum": [
+          70,
+          20
+        ],
+        "rawPortConstraintsPresent": true,
+        "rawPortConstraints": "FREE",
+        "nodes": [
+          {
+            "id": "inner",
+            "type": "NORMAL",
+            "pos": [
+              0,
+              0
+            ],
+            "size": [
+              12,
+              8
+            ]
+          }
+        ],
+        "rawLabels": [
+          {
+            "id": "label",
+            "x": 0,
+            "y": 0,
+            "width": 60,
+            "height": 10
+          }
+        ],
+        "layoutExecuted": false
+      }
+    ],
+    "layoutExecuted": false
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

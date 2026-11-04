@@ -4,7 +4,7 @@
   "profiles": [
     {
       "id": "basic-layered",
-      "status": "planned",
+      "status": "implemented-bounded",
       "algorithms": [
         "org.eclipse.elk.layered"
       ],
@@ -27,7 +27,41 @@
       "independentLabelLayout": false,
       "mermaidIntegrationRequired": false,
       "releaseMilestone": "M5",
-      "implemented": false
+      "implemented": true,
+      "inputDomain": {
+        "originalChildNodes": {
+          "minimum": 0,
+          "maximum": 8
+        },
+        "originalEdges": {
+          "minimum": 0,
+          "maximum": 28
+        },
+        "topology": "flat-directed-multigraph",
+        "ids": "nonempty strings",
+        "nodeDimensions": "given finite nonnegative numbers, at most 1000000",
+        "spacingAndPaddingMaximum": 1000000,
+        "randomSeed": "nonzero signed32; omitted defaults to 1",
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "preexistingGeometry": false,
+        "rootLogging": "reserved; removed/replaced on returned copy",
+        "sourceDecision": "docs/decisions/0008-e09-diagnostics-coverage.md"
+      },
+      "layoutArguments": {
+        "logging": "bool",
+        "measureExecutionTime": "bool",
+        "generatedClock": "integer wall-ms delta * 1000 * 1e-9, fixed elkjs generated scale",
+        "comparisonPolicy": "source-generated monitor executionTime leaves only; all business fields exact"
+      },
+      "coverageGate": "first-release-coverage",
+      "runtimeValidation": "references/e09-runtime-audit.json",
+      "releaseAccepted": false
     }
   ],
   "fullCompatibilityDenominatorRetained": true

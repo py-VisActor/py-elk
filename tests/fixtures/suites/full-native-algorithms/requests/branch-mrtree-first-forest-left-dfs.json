@@ -1,0 +1,102 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "mrtree",
+      "elk.direction": "LEFT",
+      "elk.mrtree.searchOrder": "DFS",
+      "elk.randomSeed": 7
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 14,
+        "business": {
+          "ordinal": 0
+        }
+      },
+      {
+        "id": "n1",
+        "width": 23,
+        "height": 16,
+        "business": {
+          "ordinal": 1
+        }
+      },
+      {
+        "id": "n2",
+        "width": 26,
+        "height": 18,
+        "business": {
+          "ordinal": 2
+        }
+      },
+      {
+        "id": "n3",
+        "width": 29,
+        "height": 20,
+        "business": {
+          "ordinal": 3
+        }
+      },
+      {
+        "id": "n4",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "ordinal": 4
+        }
+      },
+      {
+        "id": "n5",
+        "width": 35,
+        "height": 24,
+        "business": {
+          "ordinal": 5
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "business": {
+          "ordinal": 0
+        }
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n2"
+        ],
+        "business": {
+          "ordinal": 1
+        }
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n4"
+        ],
+        "business": {
+          "ordinal": 2
+        }
+      }
+    ]
+  }
+}

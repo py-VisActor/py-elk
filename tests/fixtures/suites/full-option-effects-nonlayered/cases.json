@@ -1,0 +1,797 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "Bounded new non-Layered causal contrasts; Source-selected computed geometry pointers, not parser/input-effect inference",
+  "cases": [
+    {
+      "id": "force-eades-base",
+      "request": "requests/force-eades-base.json",
+      "requestSha256": "af7d4853c340258af8606494d840f872639f85eeecc31a1cd448bce31232abb3",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "force-fr-model",
+      "request": "requests/force-fr-model.json",
+      "requestSha256": "80015305b8e0c54f72ea0f9ffdcb88d067f223b9b02c92f519583affed62a80b",
+      "baseline": "force-eades-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.force.model",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual force.model consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "force-eades-iterations",
+      "request": "requests/force-eades-iterations.json",
+      "requestSha256": "b7f9e33faf4188c3b6166542a826b9c9d26d74640d7cd2867bd0367223d3accc",
+      "baseline": "force-eades-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.force.iterations",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual force.iterations consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "force-eades-repulsion",
+      "request": "requests/force-eades-repulsion.json",
+      "requestSha256": "635e7008c29ae1434ad3763d290ee8eaa81483372d88399212cc8d00f93b74c8",
+      "baseline": "force-eades-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.force.repulsion",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual force.repulsion consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "force-fr-temperature",
+      "request": "requests/force-fr-temperature.json",
+      "requestSha256": "5174cea49aba6554df8b98808dd7f3d51ddaf943a74ddca76d2689153b93e1cd",
+      "baseline": "force-fr-model",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.force.temperature",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual force.temperature consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "force-edge-power",
+      "request": "requests/force-edge-power.json",
+      "requestSha256": "caa21741e78ae3089bdfed1f9ca9b8bf3acb38eed3ce2cf07c1c614e0891a50d",
+      "baseline": "force-eades-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.force.repulsivePower",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual force.repulsivePower consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "stress-base",
+      "request": "requests/stress-base.json",
+      "requestSha256": "98993f6fef63f652a6113f56b1bf169eb7f7ddad17c4277fd9b41bafd4fa8a89",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "stress-length",
+      "request": "requests/stress-length.json",
+      "requestSha256": "f1ac8286ad7a27f9530648f5b855d06b80c914c00ab3dc5f8590f96e53a9a476",
+      "baseline": "stress-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.stress.desiredEdgeLength",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual stress.desiredEdgeLength consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "stress-iterations",
+      "request": "requests/stress-iterations.json",
+      "requestSha256": "081bbb397bf95e92f4a5c2ad033da9eb6dd283341317f98ab9babbec3683c841",
+      "baseline": "stress-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.stress.iterationLimit",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual stress.iterationLimit consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "stress-epsilon",
+      "request": "requests/stress-epsilon.json",
+      "requestSha256": "f40cfeb19d0b0626cfe62315c2df5bcc965ce7700acbf07e4fd225ad90de43a1",
+      "baseline": "stress-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.stress.epsilon",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual stress.epsilon consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "stress-dimension",
+      "request": "requests/stress-dimension.json",
+      "requestSha256": "63acc9b5a175bf6035d91294fd6407eb8583c20d742825b96096cd6b198662f1",
+      "baseline": "stress-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.stress.dimension",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual stress.dimension consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "stress-fixed",
+      "request": "requests/stress-fixed.json",
+      "requestSha256": "8f169cf406c4b5341c609ac6fc0ca7ad2a6157505e7ce6971a2aaa60b6a97fb1",
+      "baseline": "stress-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.stress.fixed",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual stress.fixed consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "box-simple-base",
+      "request": "requests/box-simple-base.json",
+      "requestSha256": "469077f6ca4f64bf665b9669061cebe62ae8eebc76e385da23238aafa542ea76",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "box-group_dec",
+      "request": "requests/box-group_dec.json",
+      "requestSha256": "f1f461ac76985238e567cf4857fcfefaa7ee283f98a268942f833b51dbe43692",
+      "baseline": "box-simple-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.box.packingMode",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual box.packingMode consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "box-group_inc",
+      "request": "requests/box-group_inc.json",
+      "requestSha256": "536528d09e3636def1cb86c4c847f8e25f37d9bd502726cc5faf97b605bb66ca",
+      "baseline": "box-simple-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.box.packingMode",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual box.packingMode consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "box-group_mixed",
+      "request": "requests/box-group_mixed.json",
+      "requestSha256": "84dccc8c2348bc264b2dea156dd36ff4f45825f5e212820149e1dc8e9346cb3b",
+      "baseline": "box-simple-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.box.packingMode",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual box.packingMode consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "box-expand",
+      "request": "requests/box-expand.json",
+      "requestSha256": "bdc359900c5f9f508be9aa8bdf75e8de98909db0a19d5e3912cdd677611a9e01",
+      "baseline": "box-simple-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.expandNodes",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual expandNodes consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "box-aspect",
+      "request": "requests/box-aspect.json",
+      "requestSha256": "23afb2615143a4977ce5c6fdc9edb577e3f2f4681479c3886a0b17eef8281f6e",
+      "baseline": "box-simple-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.aspectRatio",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual aspectRatio consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "random-base",
+      "request": "requests/random-base.json",
+      "requestSha256": "a8f13c13d084b2092c25d5ead31fbf0a2ce82127c648047834b1179b607992ff",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "random-seed",
+      "request": "requests/random-seed.json",
+      "requestSha256": "79a5828cd68c916e1ca5fbe7fd9d855153a491c96cd28d8978eed81400ee96ff",
+      "baseline": "random-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.randomSeed",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual randomSeed consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "random-aspect",
+      "request": "requests/random-aspect.json",
+      "requestSha256": "2cd51146f172e8b199d49a96338c207ef2cbb18c49764fc9b02a277c04afbac1",
+      "baseline": "random-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.aspectRatio",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual aspectRatio consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "random-fixed-container",
+      "request": "requests/random-fixed-container.json",
+      "requestSha256": "8003b025a51298ff5b51855b61d4bb7c518b173c6fc1b920f064295fb1f983a5",
+      "baseline": "random-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeSize.fixedGraphSize",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual nodeSize.fixedGraphSize consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "mrtree-tree-base",
+      "request": "requests/mrtree-tree-base.json",
+      "requestSha256": "d8f330630ada9fdbd604ad648d2ad169cf40d22f8e3d89256f7032b7bdaf1858",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "mrtree-weighting",
+      "request": "requests/mrtree-weighting.json",
+      "requestSha256": "9214c75ed9a468520ec8e02c91703110b46c189ae4c0d9b9c174c2cc1003e4f9",
+      "baseline": "mrtree-tree-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.mrtree.weighting",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual mrtree.weighting consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "mrtree-compaction",
+      "request": "requests/mrtree-compaction.json",
+      "requestSha256": "e962f972b15fa7f66deb7da3e1a2fb109618b5a327dea109990a816d52680495",
+      "baseline": "mrtree-tree-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.mrtree.compaction",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual mrtree.compaction consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "mrtree-routing",
+      "request": "requests/mrtree-routing.json",
+      "requestSha256": "3084f2e8348bd267f402db75a17c105593fc23987b9cb9d64101a8cd844c8c01",
+      "baseline": "mrtree-tree-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.mrtree.edgeRoutingMode",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual mrtree.edgeRoutingMode consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "mrtree-texture",
+      "request": "requests/mrtree-texture.json",
+      "requestSha256": "8ee1be40fd2b57634188991d06caf5ddabcd808acce470818657ec214a240387",
+      "baseline": "mrtree-tree-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.mrtree.edgeEndTextureLength",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual mrtree.edgeEndTextureLength consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "mrtree-cycle-dfs",
+      "request": "requests/mrtree-cycle-dfs.json",
+      "requestSha256": "f61e7965cd8fc63a22f283ab72824c7ced883cadf49257f899666b195834987c",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "mrtree-cycle-bfs",
+      "request": "requests/mrtree-cycle-bfs.json",
+      "requestSha256": "08c95a4806fdfdc23348f1eb6dc45ae6c086b98de53ad7a0952ce8e56f5e9840",
+      "baseline": "mrtree-cycle-dfs",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.mrtree.searchOrder",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual mrtree.searchOrder consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "radial-base",
+      "request": "requests/radial-base.json",
+      "requestSha256": "edfe689a52ce6d02782589404df748c192185f4b628bf43d18073cb90b11a7a9",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "radial-radius",
+      "request": "requests/radial-radius.json",
+      "requestSha256": "09a6ae97094155a9809b0b8ee0cd2cc55a75767e50ab19b24d28323aa16c3c2a",
+      "baseline": "radial-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.radial.radius",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual radial.radius consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "radial-sorter",
+      "request": "requests/radial-sorter.json",
+      "requestSha256": "9aa2eb73c64ac5e7771600df67f22d56631e3949a5b67d1e4f28b1d6c3be7d5b",
+      "baseline": "radial-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.radial.sorter",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual radial.sorter consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "radial-compactor",
+      "request": "requests/radial-compactor.json",
+      "requestSha256": "b10c3cbb5ecdf40cf78443167dd75b0c560fbfdb65f7428eae7342a70d37327f",
+      "baseline": "radial-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.radial.compactor",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual radial.compactor consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "radial-center",
+      "request": "requests/radial-center.json",
+      "requestSha256": "0eaf07248bab7931e03385231acda54246aa68d0ee6405a7fdca752377c63bc1",
+      "baseline": "radial-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.radial.centerOnRoot",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual radial.centerOnRoot consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "radial-wedge",
+      "request": "requests/radial-wedge.json",
+      "requestSha256": "8433c04738597907942baf8bc0812a10df6999540ca66268df386d358834aeef",
+      "baseline": "radial-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.radial.wedgeCriteria",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual radial.wedgeCriteria consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "disco-base",
+      "request": "requests/disco-base.json",
+      "requestSha256": "68b73407bf1166788ff3a0e7d2128a4d8ba310c8de42bc16c192199f17aa9964",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "disco-no-compaction",
+      "request": "requests/disco-no-compaction.json",
+      "requestSha256": "27389e516e8d2b75ffb9c69988cbd32f9988e325f7785c31a934be98a35fa3b9",
+      "baseline": "disco-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.disco.componentCompaction.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual disco.componentCompaction.strategy consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "disco-component-space",
+      "request": "requests/disco-component-space.json",
+      "requestSha256": "096e3d173f2d0158b26d056582634b75c673e5d5fdcef3d5dcd1b0535035ab4b",
+      "baseline": "disco-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.spacing.componentComponent",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual spacing.componentComponent consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "disco-component-layout",
+      "request": "requests/disco-component-layout.json",
+      "requestSha256": "475572adb9f31ebddb9e2483fc83c3ebaca88eb83aa957f9bd52cbf9fdc0f9dd",
+      "baseline": "disco-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.disco.componentCompaction.componentLayoutAlgorithm",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual disco.componentCompaction.componentLayoutAlgorithm consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "spore-overlap-base",
+      "request": "requests/spore-overlap-base.json",
+      "requestSha256": "1fa8184d2f7961f04955f6f77983f31760a16bb740c75819236f57b9bd6ea7a1",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "spore-overlap-iterations",
+      "request": "requests/spore-overlap-iterations.json",
+      "requestSha256": "4b23f2b2229911ca953a667f65dc8c30a0089f3b669942407d5ea86745995f09",
+      "baseline": "spore-overlap-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.overlapRemoval.maxIterations",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual overlapRemoval.maxIterations consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "spore-overlap-scanline",
+      "request": "requests/spore-overlap-scanline.json",
+      "requestSha256": "cef685b55bb53c69b2e55b412bdf279e80dccd06edcfd9cca27ddf9b491ec0bf",
+      "baseline": "spore-overlap-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.overlapRemoval.runScanline",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual overlapRemoval.runScanline consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "spore-overlap-spacing",
+      "request": "requests/spore-overlap-spacing.json",
+      "requestSha256": "bba3edb0b862de20f7cbd1a014d998a4863139cd47afad3326173304a66d28da",
+      "baseline": "spore-overlap-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.spacing.nodeNode",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual spacing.nodeNode consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "spore-compact-base",
+      "request": "requests/spore-compact-base.json",
+      "requestSha256": "d191304a65d8780fc472ce54a518de9945696efce4bfd04ea8a7ad50e8aa6811",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "spore-compact-tree",
+      "request": "requests/spore-compact-tree.json",
+      "requestSha256": "5d54941725fda3a8cf8e2b06df8d3fbcbe13b68b9e8db8ee83cad0c17d42c5ca",
+      "baseline": "spore-compact-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.processingOrder.treeConstruction",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual processingOrder.treeConstruction consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "spore-compact-root",
+      "request": "requests/spore-compact-root.json",
+      "requestSha256": "5dd1761e2675968aa27e2a9776b140a46aaf5a2b427ee19d95c646bc139ba270",
+      "baseline": "spore-compact-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.processingOrder.rootSelection",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual processingOrder.rootSelection consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "spore-compact-cost",
+      "request": "requests/spore-compact-cost.json",
+      "requestSha256": "652bebe575b556d1c646864b7747ad4a14dfc05bd1b4d7f027a1410b1bdfb569",
+      "baseline": "spore-compact-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.processingOrder.spanningTreeCostFunction",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual processingOrder.spanningTreeCostFunction consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "rectpacking-base",
+      "request": "requests/rectpacking-base.json",
+      "requestSha256": "8a26ad9702420a0f24efd4cb2c279752edd0a9d8992e79ef6eba25cbe5758cfa",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "rectpacking-target",
+      "request": "requests/rectpacking-target.json",
+      "requestSha256": "ead931813859aa7d4294de72e151b52755af0a0af610fd48dd72cefa60894c8a",
+      "baseline": "rectpacking-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.rectpacking.widthApproximation.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual rectpacking.widthApproximation.strategy consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "rectpacking-target-wide",
+      "request": "requests/rectpacking-target-wide.json",
+      "requestSha256": "32561a83a71a64ba605b1ec53fb8379e26caeb3c37cc3e9cbeeedb180f95dc21",
+      "baseline": "rectpacking-target",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.rectpacking.widthApproximation.targetWidth",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual rectpacking.widthApproximation.targetWidth consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "rectpacking-simple",
+      "request": "requests/rectpacking-simple.json",
+      "requestSha256": "61c96e29dfa1f6c2eb38e0310508b86bdbc6f77ac9b29d8db68d63a6d4faa7dd",
+      "baseline": "rectpacking-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.rectpacking.packing.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual rectpacking.packing.strategy consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "rectpacking-size-order",
+      "request": "requests/rectpacking-size-order.json",
+      "requestSha256": "7d2dd58ea36b8841269299624a9b82b90d97b730239750fded2aa4115fe7c142",
+      "baseline": "rectpacking-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.rectpacking.orderBySize",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual rectpacking.orderBySize consumer changes computed geometry in this paired graph"
+        }
+      ]
+    },
+    {
+      "id": "rectpacking-whitespace",
+      "request": "requests/rectpacking-whitespace.json",
+      "requestSha256": "4c4090815289a5ece1a1d475855f19f0f7b5c1a1f54b08fcf1fb008ac10cf6be",
+      "baseline": "rectpacking-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.rectpacking.whiteSpaceElimination.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual rectpacking.whiteSpaceElimination.strategy consumer changes computed geometry in this paired graph"
+        }
+      ]
+    }
+  ]
+}

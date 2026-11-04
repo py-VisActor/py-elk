@@ -1,0 +1,38 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "random",
+      "elk.randomSeed": 19,
+      "elk.aspectRatio": 1.23456789,
+      "elk.spacing.nodeNode": 2.75,
+      "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 10
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 20
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,411 @@
+{
+  "schema": "py-elk-iteration-evidence/v1",
+  "iteration": "E06",
+  "status": "complete",
+  "completedUtc": "2026-11-03T08:17:21.016862+00:00",
+  "baselineCommit": "01830431b621c04959120f8e992d8b08c9d5ca8d",
+  "nextIteration": "E07",
+  "runDirectory": "test-runs/20261103-E06-01",
+  "parallel": {
+    "protocol": "docs/PARALLEL_EXECUTION.md",
+    "protocolVersion": "1.6",
+    "maxConcurrentSubagents": 3,
+    "lanes": {
+      "A": "source_lineage",
+      "B": "layered_path",
+      "V": "assertion_inventory"
+    },
+    "crossReviews": [
+      "A->B",
+      "B->V/root",
+      "V->A/root"
+    ],
+    "componentApprovalBeforePort": true,
+    "rootTransfer": "NORTH NodeSize/configuration/shared later-phase guards; A later received old GREEDY tests and current receipt audit",
+    "stableValidationBarrierRequired": true,
+    "serialSpeedupClaimed": false,
+    "retrospective": "docs/retrospectives/E06.md",
+    "nextBrief": "docs/iterations/E07.md"
+  },
+  "scope": {
+    "id": "E06-ADR0005-revision1",
+    "document": "docs/decisions/0005-e06-multigraph.md",
+    "topology": "flat-connected-directed-multigraph",
+    "minimumNodes": 0,
+    "maximumNodes": 8,
+    "maximumEdges": 28,
+    "maximumInternalNodes": 176,
+    "maximumInternalSegments": 196,
+    "maximumInternalPorts": 392,
+    "maximumRoutingSegmentsPerBoundary": 56,
+    "directions": [
+      "RIGHT",
+      "UNDEFINED"
+    ],
+    "edgeRouting": "ORTHOGONAL",
+    "numericMaximum": 1000000,
+    "nonzeroSigned32Seed": true,
+    "explicitPaddingType": "string",
+    "renewSourceApprovalBeforeExpansion": true
+  },
+  "coverageDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25,
+    "selectedMasterCases": 15,
+    "excludedMasterCases": 10,
+    "projectVariants": 37,
+    "sliceCases": 52
+  },
+  "results": {
+    "baseline": {
+      "unitTotal": 498,
+      "report": {
+        "path": "test-runs/20261103-E06-01/baseline/report.json",
+        "sha256": "816ecdadca2f923957a39b8833180d1ace78a37f836e7e9a6bff0eb28da2657c"
+      }
+    },
+    "platforms": {
+      "Windows": {
+        "status": "PASS",
+        "report": {
+          "path": "test-runs/20261103-E06-01/integration-windows-01/report.json",
+          "sha256": "0494476acbbab0b0fa74ea8c6f1c875f725189dd04189985c1da4dde62e3e702"
+        },
+        "unitCounts": {
+          "bootstrap-tests": 14,
+          "validator-tests": 154,
+          "contract-tests": 12,
+          "foundation-tests": 9,
+          "model-tests": 34,
+          "option-tests": 31,
+          "context-tests": 16,
+          "layered-tests": 116,
+          "api-tests": 5,
+          "conformance-tests": 35,
+          "audit-tests": 171
+        },
+        "unitTotal": 597,
+        "commandCount": 41,
+        "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]"
+      },
+      "WSL": {
+        "status": "PASS",
+        "report": {
+          "path": "test-runs/20261103-E06-01/wsl-local-01/evidence/report.json",
+          "sha256": "a5e7e24f6d862b934405c2e6c7c8c7abe3996368142e615fb3a7e484ba5fbddd"
+        },
+        "unitCounts": {
+          "bootstrap-tests": 14,
+          "validator-tests": 154,
+          "contract-tests": 12,
+          "foundation-tests": 9,
+          "model-tests": 34,
+          "option-tests": 31,
+          "context-tests": 16,
+          "layered-tests": 116,
+          "api-tests": 5,
+          "conformance-tests": 35,
+          "audit-tests": 171
+        },
+        "unitTotal": 597,
+        "commandCount": 26,
+        "python": "3.14.4 (main, Aug 20 2026, 10:41:58) [GCC 15.2.0]"
+      },
+      "FreshGitCheckout": {
+        "status": "PASS",
+        "report": {
+          "path": "test-runs/20261103-E06-01/fresh-git-01/evidence/report.json",
+          "sha256": "a65038f7472db69915230fe3b1f77c19b1da81c67c5e8a6f8be253d0e7595563"
+        },
+        "unitCounts": {
+          "bootstrap-tests": 14,
+          "validator-tests": 154,
+          "contract-tests": 12,
+          "foundation-tests": 9,
+          "model-tests": 34,
+          "option-tests": 31,
+          "context-tests": 16,
+          "layered-tests": 116,
+          "api-tests": 5,
+          "conformance-tests": 35,
+          "audit-tests": 171
+        },
+        "unitTotal": 597,
+        "commandCount": 26,
+        "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]"
+      }
+    },
+    "installedSameWheel": {
+      "E06": {
+        "status": "PASS",
+        "report": {
+          "path": "test-runs/20261103-E06-01/installed-e06-01/report.json",
+          "sha256": "c267fccecaee98491038c2012813be7118d424b41901be5d9ff3dbd48707c50c"
+        },
+        "cases": 52,
+        "repeatEachEngine": 3,
+        "wheelSha256": "83861c32ededc634e511a2ff9c0b197208ead612df1782697c3d96dee7e4eff1",
+        "isolatedCandidate": true
+      },
+      "E05": {
+        "status": "PASS",
+        "report": {
+          "path": "test-runs/20261103-E06-01/regression-e05-01/report.json",
+          "sha256": "92aed32abf89c9347b0ba2bff97fd188c0b8170b5a03b60c8b5b6ec22f538ca6"
+        },
+        "cases": 36,
+        "repeatEachEngine": 3,
+        "wheelSha256": "83861c32ededc634e511a2ff9c0b197208ead612df1782697c3d96dee7e4eff1",
+        "isolatedCandidate": true
+      },
+      "E04": {
+        "status": "PASS",
+        "report": {
+          "path": "test-runs/20261103-E06-01/regression-e04-01/report.json",
+          "sha256": "8156f633caca1cdb55640d63f179a098980288636eb739b3a1ddf83f7b4fac14"
+        },
+        "cases": 21,
+        "repeatEachEngine": 3,
+        "wheelSha256": "83861c32ededc634e511a2ff9c0b197208ead612df1782697c3d96dee7e4eff1",
+        "isolatedCandidate": true
+      }
+    },
+    "sourceApprovals": {
+      "count": 27,
+      "lanes": {
+        "A": 8,
+        "B": 4,
+        "R": 15
+      },
+      "evidence": {
+        "path": "references/e06-component-approvals.json",
+        "sha256": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e"
+      }
+    },
+    "currentRuntimeAudit": {
+      "path": "references/e06-runtime-audit.json",
+      "sha256": "128afff1ce02fc219533f69cd63340a64f009fb6ae2ea19886e046883bdff81a"
+    },
+    "currentInstalledReceipt": {
+      "path": "references/e06-installed-check.json",
+      "sha256": "5fabf04c0ba34b02edd35a1be7ee4e6361ad83407e55a8c11459c351d34909b7"
+    },
+    "sourceStageKernelCalls": {
+      "A": 119,
+      "selfLoops": 28,
+      "R": 126,
+      "classification": "Separate private-stage source-input checks, not additional full algorithm acceptance"
+    },
+    "exportControls": {
+      "negativeControlsRejected": 20,
+      "report": {
+        "path": "references/e06-export-controls.json",
+        "sha256": "b0b42f874f3f4b05949b9c828f0bf657ca792d3bf9c76e4a50647241bd563cee"
+      }
+    },
+    "independentReceiptControls": {
+      "negativeControlsRejected": 10,
+      "review": {
+        "path": "references/e06-reviews/Current-receipts-by-B.json",
+        "sha256": "e44e05414da81af7a6032fdc8ebd949f1f595265f72425852fa9ac2f920482cb"
+      }
+    },
+    "sourceCheckerControls": {
+      "review": {
+        "path": "references/e06-reviews/Validator-by-B.json",
+        "sha256": "477e515cf93337e44edcab9ce6abfe665c42e5c9310630d3a556c9798161c93d"
+      },
+      "fixedSemanticLabels": 13,
+      "labelRangeFunctionNegativeControls": 28,
+      "labelReview": {
+        "path": "references/e06-reviews/Semantic-labels-by-B.json",
+        "sha256": "9325c7a17e909eb9bce205879c837eef89b0c7a8878cf0a6a7f5cdc281dd0457"
+      }
+    },
+    "maximumObservedInternalNodes": 134,
+    "allThreePlatformCodeSha256Equal": true,
+    "originalArtifacts": {
+      "oldReferenceArtifacts": 277,
+      "oldFixtures": 613
+    }
+  },
+  "package": {
+    "version": "0.0.1a0",
+    "wheel": {
+      "path": "test-runs/20261103-E06-01/candidate-build-02/dist/py_elk-0.0.1a0-py3-none-any.whl",
+      "sha256": "83861c32ededc634e511a2ff9c0b197208ead612df1782697c3d96dee7e4eff1",
+      "bytes": 92756
+    },
+    "sdist": {
+      "path": "test-runs/20261103-E06-01/candidate-build-02/dist/py_elk-0.0.1a0.tar.gz",
+      "sha256": "92b61e6240b6f7cf4ee7b2975dd0d7b148c487f8ba501d3bd339910fa6e1b01e",
+      "bytes": 76723
+    },
+    "distributionMetadata": {
+      "status": "E06_DISTRIBUTION_METADATA_VALIDATED",
+      "archivePath": "py_elk-0.0.1a0.dist-info/METADATA",
+      "sha256": "2c8ab7b793d51d2d20f83d2dc19a36e70ade0fd841401c18e771d0ffa8bb5976",
+      "name": "py-elk",
+      "version": "0.0.1a0",
+      "readmeSha256": "099f8bd80fbf029b4773420e13240ea52fc6042a5aaf62dc011fe1d6992151c8",
+      "normalization": "email CRLF to LF only",
+      "historicalExecutionAuthenticated": false
+    },
+    "build01Retained": "Earlier candidate before final source notice headers; not used for acceptance"
+  },
+  "finalCodeFilesSha256": {
+    "scripts/audit_assertions.py": "db62e7162763646267c8ad1e658f5c2b02122fc006cfffb574136d3f78bf4dc5",
+    "scripts/build_e05_suite.py": "4203d4b4156e28ec6be9e6b4db956c97571a4f58fbf3eef0831d5efda0c9bbe9",
+    "scripts/build_e06_suite.py": "026cf93459dfa1d3aac4f60a64be1c23d48c9c46ebf877a3a7ff4389bd79815d",
+    "scripts/build_slice_suite.py": "40fcd9ee7093d18394b36799984efc486e2b63966f99c0f620a37a59b932ac66",
+    "scripts/check.py": "8c2f98f502b40d29cde9f17e899b58a4bd735ddfd15ff709dc583239f3333138",
+    "scripts/check_e04_slice.py": "6ce867e1d29445cc1c52d2cd845f40290e541b2d874f227bbc6dfe55dcdea54c",
+    "scripts/check_e05_slice.py": "f2bb7b6d9a1f2c539d88bddef702a24f3b4a6868d71fc7e0eec1eab4abd45fbf",
+    "scripts/check_e06_slice.py": "4fed49c78497ef059fd32e9dd5581d8a2bb2c3ae0316d272ffd5bbc845bcb046",
+    "scripts/check_fresh_copy.py": "7219b48e8ae53760ee22fabd04a7b2e9bace27e397ee1ecf3eb230a3918d1c65",
+    "scripts/export_e05_installed_evidence.py": "f56196aeeb66744533085e302d53659bc1599741067717a1594c507f834049f2",
+    "scripts/export_e05_phase_observations.py": "5fd7aee6c9147ee649ff35a06d108af98f71dfe7918eb1078e8f933b40951c2a",
+    "scripts/export_e06_installed_evidence.py": "b416fb11c362a636652ca02037880cbaeb6effff6c8b70419bd8a7b868dbe06d",
+    "scripts/export_e06_phase_observations.py": "a89a29625176fd476977553c2142ea1027a34165f687f9ef77bce6dde9926b80",
+    "scripts/generate_validation_cases.py": "722fe05ca76f946283e81999589ed81d239872384b4b68941be41cc5d8ecf2b3",
+    "scripts/layout_checks.py": "6c33428224565931344691ffb08c02563213bb48377de4b77042cfc8e4e76529",
+    "scripts/run_pyelk_candidate.py": "d57b0ed6a6076815a667465015897d8fcb9bd9b74439c254467700ddd7e933b7",
+    "scripts/upstream.py": "fdb0af88917d4b717bc25e4c7181ebfc8c5d6f2697ec07085a4d547e65df4325",
+    "scripts/validate_bootstrap.py": "6b8cda8d2ccfe011e9db979ee7d48f5f9b490d49e1d21df483e8548ad01cabfe",
+    "scripts/validate_e01_audit.py": "ba14a3ffb3615af4a8a0818009e9b62b0fcc48fbefae034b18bec6e02dae1a9d",
+    "scripts/validate_e02_contract.py": "62fd7714d2ea8e4c230b0b0fa7ebb96eecac5dfccee8d761f4da8954d5fad146",
+    "scripts/validate_e03_foundations.py": "0eb10aa02d3754fad0fd8d3c464ce679d17f5cd7ae17d7ab8d5e18b6b3e31799",
+    "scripts/validate_e04_runtime.py": "2eccc3d480b34dc4f9015b920b25402b4957cf10cff93daa9d827d2841478542",
+    "scripts/validate_e04_source_bindings.py": "2cc82a97cd06db73427b13cc97edbe777686105ffbc023a9f3c77b41f69c1258",
+    "scripts/validate_e05_runtime.py": "e9a0042cbe9ad05967f688a69b88814b5aa7325f0345245109c7fb49ed3948a1",
+    "scripts/validate_e05_source_bindings.py": "f0362324562d92d732ef3d87a29d5d62513b629da5fffba575da6862b12ab1a8",
+    "scripts/validate_e06_runtime.py": "5cc0183dca379812bfc4d675f28c9c172b5becc58c7ef218d303132af5658afc",
+    "scripts/validate_e06_source_bindings.py": "4dbe0168754a1e9ff8061edfeb3c725edb4cd93fe87786c22fe3ba6aafa27553",
+    "scripts/validate_layout.py": "e98532916237edb3b554b307b474b0e03bd131e706a4c3c9b88bc3368f6913b0",
+    "scripts/verify_installed_wheel.py": "284aaffcb48a1e507aaa741a38d5cd202308573242282e1eb9c5aed22c8b2239",
+    "src/pyelk/__init__.py": "ecf5616031230a0505175d06998874a2af9ff52465c6afa4878630b179201544",
+    "src/pyelk/_errors.py": "1611c957b017e8b4ffea931dabedad56328ec1deec238489e86da5a57c755fe9",
+    "src/pyelk/_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "src/pyelk/_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "src/pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "src/pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "src/pyelk/algorithms/layered/crossing.py": "335416ee57531d36e0d95258f98dcbee29e4fd67446334e340fefc6c31dc6473",
+    "src/pyelk/algorithms/layered/cycles.py": "9c8cd1eb4350a06f5be24c7e7599b592f135231e9e3b647c310140be9d6bd1fa",
+    "src/pyelk/algorithms/layered/graph.py": "b3cb2df06f5a24199ab04c15314237a6a0c1f8cf0a9a4dd5460373fb332c8479",
+    "src/pyelk/algorithms/layered/import_export.py": "0ec93bbb0ee2998310cddc1ed6982344a51704758fdc4198bba1f529e6754c83",
+    "src/pyelk/algorithms/layered/layering.py": "801493c18dca7449577a8e40ff22f454166eba066f420825adf91b98f1dc734a",
+    "src/pyelk/algorithms/layered/long_edges.py": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+    "src/pyelk/algorithms/layered/loops.py": "1752c18adedbc9be5b34b441cf79f4a28bc1cafba89abf817eeadad5be977124",
+    "src/pyelk/algorithms/layered/phases.py": "1290c88cece977b8737a4a3efa586ee0ea50fbf875b0893e432cb0e0ce0b0436",
+    "src/pyelk/algorithms/layered/pipeline.py": "8f383ed8fb3ccf94dcbf46d384c8e840fb5532e143aa39d8e5811ec306fcbca7",
+    "src/pyelk/algorithms/layered/placement.py": "102d2d89b21df852b1e96468c20562b6cd474617bc5d1f483d65e4cb705166ed",
+    "src/pyelk/algorithms/layered/processors.py": "4c68f9b9152ba2036cf91a00a89161433e6956989c8d7ebce2ff99560c162583",
+    "src/pyelk/algorithms/layered/routing.py": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75",
+    "src/pyelk/algorithms/layered/scope.py": "b4fd0fac2136609b72ff1be357f28838d3ae4d8f6017da63a2f5a7ba6081187b",
+    "src/pyelk/api.py": "f1f0452e70488beb7587fba00199748e6ffa437c18e1a4de7a141150bcdff5ea",
+    "src/pyelk/execution/__init__.py": "001b74f3300f958c072dabaf36e697443ad57ce3e99acbfa16702f89e77f86c2",
+    "src/pyelk/execution/context.py": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+    "src/pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "src/pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "src/pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "src/pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "src/pyelk/options/resolution.py": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+    "src/pyelk/options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+    "tools/reference/capture_contracts.cjs": "563483d28ad38a171bb8a76b96978436d7879906610c9b330a64278d947cbc91",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+    "tools/reference/capture_metadata.cjs": "4077cedf9ba9afaae20919388711a30d3628c7b513e152654377a36138d19623",
+    "tools/reference/check_e05_export_controls.py": "2b274b3ffa6c4f10bcd25853b925fa3e1db5f6ab758f43df54fff1fc4e6a1cd8",
+    "tools/reference/check_e06_export_controls.py": "01933e02221459265050343484eda3c2e082d5d0cbd1fd08c5199733870979bc",
+    "tools/reference/probe_e04_rng.cjs": "9c67bc265151ed6993290c3dd75a6420a9e3a1a8feaffb5de572a17de3a0dc38",
+    "tools/reference/probe_e05_routing_helpers.cjs": "c62eab57eb66e8c7340eb021f4ca593af633e5c9d55daf1a316c6ba5f0d455bb",
+    "tools/reference/trace_e04_slice.cjs": "67711fc45e1fbf6076ad82b4ffe8d5afd1545986a6e33d6e748cc361e7ab7160",
+    "tools/reference/trace_e05_dag.cjs": "48afbe2e2a169e068fc220cc73d5236dddc7de20ff499ed2440781b2e69c362f",
+    "tools/reference/trace_e06_graph.cjs": "fea6a362319d66f46def77e04c86add3532d70f5436ec7574cb1e1dc07db56f0",
+    "tools/reference/trace_layered_path.cjs": "c16ecaf704b09ceb939f25080074c91d0164c4346e8e22744f7a32d0a0db9970"
+  },
+  "stableBarrier": {
+    "path": "test-runs/20261103-E06-01/stable-barrier-verified.json",
+    "sha256": "2a26724404cf7c113b48cfa7f9aa9ece37842e35ac5c2e3a1b6af546bdb420f0"
+  },
+  "finalStateValidation": {
+    "record": "docs/changes/20261103-E06-final-validation.json",
+    "procedure": "Rerun the complete offline entry after completion metadata is written"
+  },
+  "handoffs": [
+    {
+      "path": "test-runs/20261103-E06-01/A/handoff-final.json",
+      "sha256": "fb49a54458450832a4fd3b83aa68b75d073d532adbd7a04783a9d08b465a8056"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/runtime-handoff.json",
+      "sha256": "80a160dccbe03323c8d99a48a1a1c3dd94bbe2fe09ee0e3da55c6e258dbfcbd2"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/handoff-final.json",
+      "sha256": "9c6c238eb6be663659f735110f7a81a128e2e9c096ea52052c46fc9ed27fe2a3"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/handoff-final.json",
+      "sha256": "8f854040a4c27efca0d5f2e2b739a1201bd0e3a3d9bbe797f1708a3c383bb6a1"
+    }
+  ],
+  "versionedIndependentReviews": [
+    {
+      "path": "references/e06-reviews/Loop-code-by-A.json",
+      "sha256": "2cde05ccff9d036aecd2b0760005d55a2bda6d81cdcae2b1c7e055437146b7e8"
+    },
+    {
+      "path": "references/e06-reviews/A-code-by-V.json",
+      "sha256": "974cfe34e3bd22980deaf5d2dfb7688c8749fc3b8e48519b478a31d64c0cf72b"
+    },
+    {
+      "path": "references/e06-reviews/Root-code-by-V.json",
+      "sha256": "eefdc44a3112c29ba67f69d0c345354838a32804dafe734b70e4bb3d906c80ff"
+    },
+    {
+      "path": "references/e06-reviews/Root-code-by-B.json",
+      "sha256": "8843dadba2f01edbc69070d3510f9f59457444dc643c1648ad271cf35e5b28f7"
+    },
+    {
+      "path": "references/e06-reviews/Current-receipts-by-B.json",
+      "sha256": "e44e05414da81af7a6032fdc8ebd949f1f595265f72425852fa9ac2f920482cb"
+    },
+    {
+      "path": "references/e06-reviews/Validator-by-B.json",
+      "sha256": "477e515cf93337e44edcab9ce6abfe665c42e5c9310630d3a556c9798161c93d"
+    },
+    {
+      "path": "references/e06-reviews/Semantic-labels-by-B.json",
+      "sha256": "9325c7a17e909eb9bce205879c837eef89b0c7a8878cf0a6a7f5cdc281dd0457"
+    },
+    {
+      "path": "references/e06-reviews/E05-history-by-V.json",
+      "sha256": "3b4e41bb2c320235d1fb847cb82a63f91094bf16c83647a932edba308681200b"
+    },
+    {
+      "path": "references/e06-reviews/Root-phase-effects-by-B.json",
+      "sha256": "bf27142ac7f1f43f3b79b27abe7a8389bc1f253ad0e8b079ad427318d356a59e"
+    }
+  ],
+  "failuresPreserved": [
+    "root-layered-first-command",
+    "V/oracle-proposed-checks.json",
+    "B/review-V-validator-initial.json",
+    "B/review-root-code-effects-first",
+    "root-source",
+    "Original partial drafts and failed canonical checks remain in run; no refresh of old oracles"
+  ],
+  "limits": {
+    "pythonAlgorithmsVerified": 0,
+    "fullAlgorithmAccepted": false,
+    "publicApiAccepted": false,
+    "lifecycleAccepted": false,
+    "packagePublished": false,
+    "remoteCiExecuted": false,
+    "committedOrPushedThisIteration": false,
+    "exactExternalJavaBuild": "unresolved",
+    "projectReleaseLicense": "unresolved"
+  }
+}

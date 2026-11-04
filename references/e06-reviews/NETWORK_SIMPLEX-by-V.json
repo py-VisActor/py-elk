@@ -1,0 +1,112 @@
+{
+  "schema": "py-elk-e06-component-source-review/v1",
+  "iteration": "E06",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T07:31:31.312041+00:00",
+  "sourceDocument": {
+    "path": "references/e06-source-components-A.json",
+    "sha256": "72340c9afc5b3f04a1fbb1cfdc29bfc4795d40faa2109db766435651b9a12c16"
+  },
+  "approvedComponents": [
+    "phase:NETWORK_SIMPLEX"
+  ],
+  "componentSeals": {
+    "phase:NETWORK_SIMPLEX": "4fce717cb395c50a15b693194dfe71e6df5575133179ad0aaf94b3de85f3a5bf"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "commonSourceContextSha256": "e9054c6ddfb15478df5676340a0237691b73daa450e564227b7147a67aa46a73",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 475,
+    "functionOffsetOccurrences": 466,
+    "staticCallEdges": 232,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E06-01/V/source-A-NS-02/report.json",
+    "sha256": "909b3c296e622c2799d1d213517a1222aa60b9e7911fe148ca7544dab4adf752"
+  },
+  "checkedSemantics": [
+    {
+      "id": "NS-ENTRY-MULTIGRAPH",
+      "checked": "Actual initialize4 scans every current nonself LEdge and creates a distinct ordered NEdge, including same-endpoint parallels; source never disqualifies REVERSED or CYCLIC provenance. Incoming/outgoing cache order remains private creation order. Approved reversal preserves undirected connectivity; loop-only connected graph is a singleton. Actual caller always enables balancing/default THOROUGHNESS7, previous countsnull for one component."
+    },
+    {
+      "id": "NS-TIGHT-TREE-EXCHANGE",
+      "checked": "Unit delta/weight per separately counted edge. Topological FIFO still feasible; weak connectivity grows tight spanning tree, parallel-to-already-tree nodes cannot add a second tree edge. Exact cutvalue/postorder/head, first negative leave/first strict-min enter, insertion identity order and OLD intervals during shift retained for each multiedge; no endpoint deduplication or textbook optimizer."
+    },
+    {
+      "id": "NS-BALANCE-RANGE",
+      "checked": "Connected tight unit tree gives range<=n-1 and occupancy of each intervening integer rank. Literal minimalSpan incoming ternary also tightens outgoing bound; do not correct it. Every candidate remains feasible; strict smaller filling implies moved-from count>=2 and no layer can empty. Multiplicity changes equal-degree eligibility, not unit feasibility. Isolated singleton has empty move range."
+    },
+    {
+      "id": "NS-NUMERICS",
+      "checked": "Phase BEFORE split sees n<=8 and e<=28, never removeSubtrees>=40. Unit ranks and source arithmetic/cut counters remain under conservative4096/7168/signed32 limits and exact binary64 integers. sqrt/round on1..8 stays away from half boundaries; limitmax84 and cut<-1e-10 unchanged. Dimensions/RNG are not read."
+    },
+    {
+      "id": "NS-LATER-BOUNDS",
+      "checked": "Each forward nonself edge gap<=n-1 yields gap-1<=6 dummies; count multiplicity, not C(n,3). With raw totalm<=28: D<=168, nodes<=176, proper nonloop segments<=196; original ports2m plus dummy2D<=392, assuming separately source-approved no-allocation loop wrappers/default-unmerged importer. These later bounds do not select early NS>=40 branch. Visible source stress134nodes/308ports/154segments is corroboration, not a claimed worst-case proof."
+    },
+    {
+      "id": "NS-SIMPLE-RING",
+      "checked": "Typed dependency binds GREEDY corrected GR-G4/G6. Ring Hamiltonian path forces span>=n-1, tight tree span<=n-1, so all path gaps1 and n distinct occupied ranks. Internal path nodes have immediate predecessor/successor and literal minimalSpan no alternate integer rank; endpoints have unequal in/out counts (also n2 two forward parallels). Balance cannot move a ring vertex. Equal publicx/y at zero width/spacing cannot establish same layer; arbitrary SCC/extra-edge inputs excluded from this special lemma."
+    }
+  ],
+  "componentDependencies": {
+    "phase:NETWORK_SIMPLEX": [
+      {
+        "componentId": "phase:GREEDY",
+        "canonicalComponentSha256": "7a029449006feb2b5c8b8b05a7e54f0e975bd35e8645fa9135e3afa2bac495d5",
+        "proofIds": [
+          "GR-G4-REVERSAL-AND-CYCLIC",
+          "GR-G6-SIMPLE-RING"
+        ],
+        "role": "actual acyclic nonself orientation; special ring shape only when strict original topology is validated"
+      }
+    ]
+  },
+  "inheritedArtifacts": [
+    {
+      "path": "references/e05-source-components-A.json",
+      "sha256": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0"
+    },
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+    }
+  ],
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E06-01/V/source-NS-entry-independent.command.json",
+      "sha256": "e3ebbd35e93438533b704f1d1f55b69b8b384c9c95cdb6ae2b4ae8e3e5172e84"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/source-A-NS-canonical-corrected.command.json",
+      "sha256": "215efc833255317a47c7c0c7364b42a3b0be10c6f0f5e970f48ecaae0e780c30"
+    }
+  ],
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E06-01/V/degenerate-ring-stage-01/summary.json",
+      "sha256": "ab7a309e6395bc9a2e61623062f8597b68bb4177bd7cb3963037f43da1b93f6c"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/stress-source-observations.json",
+      "sha256": "25ba966768632e9ecfecd649c8dcf4746eb7730d8897d9f63860f6e2a3bd430d"
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "Default-unmerged importer/private FREE copy, loopPre/longSplit/Join/export and later root/B processors require separate E06 source approvals. Bound depends on their explicit no-new-LNode/LPort-before-NS and two-ports-per-raw-edge input guards; this component does not grant them runtime acceptance."
+  ],
+  "limitations": [
+    "This approves NS under explicit current input guards; importer/loop/split/join source composition and runtime need their own approvals. No old E05 simple-DAG/no-op/64 bound is reused.",
+    "Earlier private canonical review harness assumed every component used immutableHostSupport and failed for NS immutableSupportEvidence; preserved old harness/failure and new explicit recursive typed artifact checks passed. Source function inspection command printed actual entry/initialize/minimalSpan then exited1 on an unused wrong balance helper name; partial stdout retained.",
+    "Manual math/def-use review and canonical bytes are separate; no automatic equivalence proof or Python acceptance. Exact Java build/release license remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE06SourceGateApproved": false
+}

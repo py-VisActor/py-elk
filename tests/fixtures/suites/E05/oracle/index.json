@@ -1,0 +1,1405 @@
+{
+  "schema": "py-elk-layout-capture/v1",
+  "role": "reference",
+  "status": "CAPTURED",
+  "repeat": 2,
+  "suiteSha256": "ceb6dd9b2bbe5a3f6d9cdf784202e9930f53273be52dfcba40de5c2d993dade6",
+  "createdUtc": "2026-11-03T05:49:50.158957+00:00",
+  "host": {
+    "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0"
+  },
+  "commandPrefix": [
+    "node",
+    "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+    "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package"
+  ],
+  "sourceSha256": {
+    "scripts/audit_assertions.py": "db62e7162763646267c8ad1e658f5c2b02122fc006cfffb574136d3f78bf4dc5",
+    "scripts/build_e05_suite.py": "4203d4b4156e28ec6be9e6b4db956c97571a4f58fbf3eef0831d5efda0c9bbe9",
+    "scripts/build_slice_suite.py": "40fcd9ee7093d18394b36799984efc486e2b63966f99c0f620a37a59b932ac66",
+    "scripts/check.py": "7732634625fb0bb31280a0ac9ee2e03d9f8a2f3cbcf0ab08e12e5507ed696846",
+    "scripts/check_e04_slice.py": "4d02c27d65840d7cc69a2421d03b513466307e9f97f49bfde17f37c9b195f8ba",
+    "scripts/generate_validation_cases.py": "722fe05ca76f946283e81999589ed81d239872384b4b68941be41cc5d8ecf2b3",
+    "scripts/layout_checks.py": "63619805acd22081a2430c6c8173011501ae669a8ecccf77aa9fee4724b915fe",
+    "scripts/run_pyelk_candidate.py": "d57b0ed6a6076815a667465015897d8fcb9bd9b74439c254467700ddd7e933b7",
+    "scripts/upstream.py": "fdb0af88917d4b717bc25e4c7181ebfc8c5d6f2697ec07085a4d547e65df4325",
+    "scripts/validate_bootstrap.py": "6b8cda8d2ccfe011e9db979ee7d48f5f9b490d49e1d21df483e8548ad01cabfe",
+    "scripts/validate_e01_audit.py": "ba14a3ffb3615af4a8a0818009e9b62b0fcc48fbefae034b18bec6e02dae1a9d",
+    "scripts/validate_e02_contract.py": "62fd7714d2ea8e4c230b0b0fa7ebb96eecac5dfccee8d761f4da8954d5fad146",
+    "scripts/validate_e03_foundations.py": "0eb10aa02d3754fad0fd8d3c464ce679d17f5cd7ae17d7ab8d5e18b6b3e31799",
+    "scripts/validate_e04_runtime.py": "7d48eac9e7c7ca4f794591f8632d95b6e2424fd1d30977278fe8596136dc0a9c",
+    "scripts/validate_e04_source_bindings.py": "2cc82a97cd06db73427b13cc97edbe777686105ffbc023a9f3c77b41f69c1258",
+    "scripts/validate_layout.py": "c65f32999e5a6b782192ee20c3f9b97cf15180de38f6243f08a802b0a0106168",
+    "scripts/verify_installed_wheel.py": "fc1e046d8bd1ff75c4ba8b77d691cad15f1c7e7a0a3b8cf0f93f9e8362460821",
+    "src/pyelk/__init__.py": "2639bead964d46b5152c252a56da57d24c4bff1ccd46f9a6c2787959a236e800",
+    "src/pyelk/_errors.py": "1611c957b017e8b4ffea931dabedad56328ec1deec238489e86da5a57c755fe9",
+    "src/pyelk/_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "src/pyelk/_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "src/pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "src/pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "src/pyelk/algorithms/layered/graph.py": "aa88223b03b7dd54004b7b5ba28b66def61ab6a648096fc43d7b8219f1cf6ae1",
+    "src/pyelk/algorithms/layered/import_export.py": "3e5ce646be644fe8219c624959ce512509b841e88642038d64623fe5e0354d6a",
+    "src/pyelk/algorithms/layered/phases.py": "a48ea0281174d0bff82aaa0ab0c707ec1f9cb49eb0b73f5e9a405b6516da4535",
+    "src/pyelk/algorithms/layered/pipeline.py": "bfab04d5209e82967dc4c85b8c7b85de7859ae16a15edd1d35d0a00dc6ba263d",
+    "src/pyelk/algorithms/layered/processors.py": "770383435b067e4e612c09938ff48806302b929e47a9d6c638099690d9665e4b",
+    "src/pyelk/algorithms/layered/scope.py": "5172ab61248b7165236756231ffd95e171d0145be39f4e9b7339ed92d19f28f9",
+    "src/pyelk/api.py": "12c9a2bac99cdcef280537601a20191aaef5cd45ab6132aee16e5b5619af61d4",
+    "src/pyelk/execution/__init__.py": "001b74f3300f958c072dabaf36e697443ad57ce3e99acbfa16702f89e77f86c2",
+    "src/pyelk/execution/context.py": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+    "src/pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "src/pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "src/pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "src/pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "src/pyelk/options/resolution.py": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+    "src/pyelk/options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+    "tools/reference/capture_contracts.cjs": "563483d28ad38a171bb8a76b96978436d7879906610c9b330a64278d947cbc91",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+    "tools/reference/capture_metadata.cjs": "4077cedf9ba9afaae20919388711a30d3628c7b513e152654377a36138d19623",
+    "tools/reference/probe_e04_rng.cjs": "9c67bc265151ed6993290c3dd75a6420a9e3a1a8feaffb5de572a17de3a0dc38",
+    "tools/reference/trace_e04_slice.cjs": "67711fc45e1fbf6076ad82b4ffe8d5afd1545986a6e33d6e748cc361e7ab7160",
+    "tools/reference/trace_layered_path.cjs": "c16ecaf704b09ceb939f25080074c91d0164c4346e8e22744f7a32d0a0db9970"
+  },
+  "upstreamLockSha256": "91856f51262e99679a0cae50d8c8a6ccd302a7daa1c94b5ca96b14afc5c96aa1",
+  "upstreamCommit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+  "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+  "cases": [
+    {
+      "id": "layered-empty",
+      "definition": {
+        "id": "layered-empty",
+        "request": "requests/master/layered-empty.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-empty/request.json",
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "observations": [
+        "layered-empty/run-01/observation.json",
+        "layered-empty/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-singleton",
+      "definition": {
+        "id": "layered-singleton",
+        "request": "requests/master/layered-singleton.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-singleton/request.json",
+      "requestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "observations": [
+        "layered-singleton/run-01/observation.json",
+        "layered-singleton/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-chain",
+      "definition": {
+        "id": "layered-chain",
+        "request": "requests/master/layered-chain.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-chain/request.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "observations": [
+        "layered-chain/run-01/observation.json",
+        "layered-chain/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-fork",
+      "definition": {
+        "id": "layered-fork",
+        "request": "requests/master/layered-fork.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-fork/request.json",
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "observations": [
+        "layered-fork/run-01/observation.json",
+        "layered-fork/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-join",
+      "definition": {
+        "id": "layered-join",
+        "request": "requests/master/layered-join.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-join/request.json",
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "observations": [
+        "layered-join/run-01/observation.json",
+        "layered-join/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-diamond-right",
+      "definition": {
+        "id": "layered-diamond-right",
+        "request": "requests/master/layered-diamond-right.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-diamond-right/request.json",
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "observations": [
+        "layered-diamond-right/run-01/observation.json",
+        "layered-diamond-right/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-long-edge",
+      "definition": {
+        "id": "layered-long-edge",
+        "request": "requests/master/layered-long-edge.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-long-edge/request.json",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "observations": [
+        "layered-long-edge/run-01/observation.json",
+        "layered-long-edge/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "definition": {
+        "id": "layered-unequal-sizes",
+        "request": "requests/master/layered-unequal-sizes.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-unequal-sizes/request.json",
+      "requestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "observations": [
+        "layered-unequal-sizes/run-01/observation.json",
+        "layered-unequal-sizes/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-zero-size",
+      "definition": {
+        "id": "layered-zero-size",
+        "request": "requests/master/layered-zero-size.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-zero-size/request.json",
+      "requestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "observations": [
+        "layered-zero-size/run-01/observation.json",
+        "layered-zero-size/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "layered-custom-spacing",
+      "definition": {
+        "id": "layered-custom-spacing",
+        "request": "requests/master/layered-custom-spacing.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 11,
+            "left": 17,
+            "bottom": 23,
+            "right": 31
+          },
+          "nodeNode": 37,
+          "betweenLayers": 53,
+          "forwardEdges": true
+        }
+      },
+      "request": "layered-custom-spacing/request.json",
+      "requestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "observations": [
+        "layered-custom-spacing/run-01/observation.json",
+        "layered-custom-spacing/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "definition": {
+        "id": "options-explicit-empty-replaces-default",
+        "request": "requests/master/options-explicit-empty-replaces-default.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "options-explicit-empty-replaces-default/request.json",
+      "requestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "observations": [
+        "options-explicit-empty-replaces-default/run-01/observation.json",
+        "options-explicit-empty-replaces-default/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "options-full-ids",
+      "definition": {
+        "id": "options-full-ids",
+        "request": "requests/master/options-full-ids.json",
+        "origin": "project-authored",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "forwardEdges": true
+        }
+      },
+      "request": "options-full-ids/request.json",
+      "requestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "observations": [
+        "options-full-ids/run-01/observation.json",
+        "options-full-ids/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-fork-default",
+      "definition": {
+        "id": "e05-fork-default",
+        "request": "requests/project/e05-fork-default.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-fork-default/request.json",
+      "requestSha256": "d930b6f5e3e4e0025aee909946ac3b1be37ae8e1745c97b17461e371e0331ddb",
+      "observations": [
+        "e05-fork-default/run-01/observation.json",
+        "e05-fork-default/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-join-default",
+      "definition": {
+        "id": "e05-join-default",
+        "request": "requests/project/e05-join-default.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-join-default/request.json",
+      "requestSha256": "079f8b33580667c791fc44281ba3b047e4949c23fc092e0532c371a24e8558c8",
+      "observations": [
+        "e05-join-default/run-01/observation.json",
+        "e05-join-default/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-default",
+      "definition": {
+        "id": "e05-diamond-default",
+        "request": "requests/project/e05-diamond-default.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-default/request.json",
+      "requestSha256": "e9c6058177154b833f04cfbbb53251799adcc49dac084712accc2f27f5813e5c",
+      "observations": [
+        "e05-diamond-default/run-01/observation.json",
+        "e05-diamond-default/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-skip-one-dummy",
+      "definition": {
+        "id": "e05-skip-one-dummy",
+        "request": "requests/project/e05-skip-one-dummy.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-skip-one-dummy/request.json",
+      "requestSha256": "9681ebe9c74ad293cb2580b15971b741f9f1a093afe6ad37b2220e86a7e8674d",
+      "observations": [
+        "e05-skip-one-dummy/run-01/observation.json",
+        "e05-skip-one-dummy/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-skip-two-dummies",
+      "definition": {
+        "id": "e05-skip-two-dummies",
+        "request": "requests/project/e05-skip-two-dummies.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-skip-two-dummies/request.json",
+      "requestSha256": "a5633fb96e2745759fb4c59df01b577b9a131dc6ab34f2328a8a5493bf11fd32",
+      "observations": [
+        "e05-skip-two-dummies/run-01/observation.json",
+        "e05-skip-two-dummies/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-skip-four-dummies",
+      "definition": {
+        "id": "e05-skip-four-dummies",
+        "request": "requests/project/e05-skip-four-dummies.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-skip-four-dummies/request.json",
+      "requestSha256": "50608a3b18e0cffadf29d55dd1e8ac57a7e2aff3b09ff8fc29aca0c5e26f79ed",
+      "observations": [
+        "e05-skip-four-dummies/run-01/observation.json",
+        "e05-skip-four-dummies/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-multiple-skip-six",
+      "definition": {
+        "id": "e05-multiple-skip-six",
+        "request": "requests/project/e05-multiple-skip-six.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-multiple-skip-six/request.json",
+      "requestSha256": "a621c4d6d505f4781b5c822b1b2db168e3a5bc125a6feaa7d583d0f3d1819d2e",
+      "observations": [
+        "e05-multiple-skip-six/run-01/observation.json",
+        "e05-multiple-skip-six/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-fanout-four",
+      "definition": {
+        "id": "e05-fanout-four",
+        "request": "requests/project/e05-fanout-four.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-fanout-four/request.json",
+      "requestSha256": "e3ab41a0caaabbc16ce2c39627873b1263338166912d1325d54fc494e0f3b9e9",
+      "observations": [
+        "e05-fanout-four/run-01/observation.json",
+        "e05-fanout-four/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-fanin-four",
+      "definition": {
+        "id": "e05-fanin-four",
+        "request": "requests/project/e05-fanin-four.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-fanin-four/request.json",
+      "requestSha256": "20d11e5920b63225dacf0ddc8b0e2701e5d4423daab6348426f70607900ab772",
+      "observations": [
+        "e05-fanin-four/run-01/observation.json",
+        "e05-fanin-four/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-two-source-five",
+      "definition": {
+        "id": "e05-two-source-five",
+        "request": "requests/project/e05-two-source-five.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-two-source-five/request.json",
+      "requestSha256": "96b80c67efa44e5cd1c8a952bc1583c99d9a0008a3902fa5ff0406b58557ee0e",
+      "observations": [
+        "e05-two-source-five/run-01/observation.json",
+        "e05-two-source-five/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-two-sink-five",
+      "definition": {
+        "id": "e05-two-sink-five",
+        "request": "requests/project/e05-two-sink-five.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-two-sink-five/request.json",
+      "requestSha256": "584ed9e8c8cb58193fa74352e3f0ee48374d10994b45608cde106011de5400b5",
+      "observations": [
+        "e05-two-sink-five/run-01/observation.json",
+        "e05-two-sink-five/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-crossing-six",
+      "definition": {
+        "id": "e05-crossing-six",
+        "request": "requests/project/e05-crossing-six.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-crossing-six/request.json",
+      "requestSha256": "19269714c8a1ac4617eb75f53b5ab0f34526ac1423e0d907a44a4601662fa377",
+      "observations": [
+        "e05-crossing-six/run-01/observation.json",
+        "e05-crossing-six/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-unequal",
+      "definition": {
+        "id": "e05-diamond-unequal",
+        "request": "requests/project/e05-diamond-unequal.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-unequal/request.json",
+      "requestSha256": "598ff5ad13a08cf59ac305eee5f96fcf6247bfcbc278d92f649e30c6b83a5753",
+      "observations": [
+        "e05-diamond-unequal/run-01/observation.json",
+        "e05-diamond-unequal/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-fork-zero",
+      "definition": {
+        "id": "e05-fork-zero",
+        "request": "requests/project/e05-fork-zero.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-fork-zero/request.json",
+      "requestSha256": "6be8cd2d7d72581c4eb8d37e966bd86b2065ca8be3cd6110de77b502bb572a67",
+      "observations": [
+        "e05-fork-zero/run-01/observation.json",
+        "e05-fork-zero/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-join-mixed-zero",
+      "definition": {
+        "id": "e05-join-mixed-zero",
+        "request": "requests/project/e05-join-mixed-zero.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-join-mixed-zero/request.json",
+      "requestSha256": "1de879e5845bfb53ca82cc66fdcda9007b1e9060ba443428d625f7a49668a8fa",
+      "observations": [
+        "e05-join-mixed-zero/run-01/observation.json",
+        "e05-join-mixed-zero/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-decimal",
+      "definition": {
+        "id": "e05-diamond-decimal",
+        "request": "requests/project/e05-diamond-decimal.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-decimal/request.json",
+      "requestSha256": "9429bab0886f599f834df114bdc354aae0764e38f1a578fe74beeb0e5712b959",
+      "observations": [
+        "e05-diamond-decimal/run-01/observation.json",
+        "e05-diamond-decimal/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-long-edge-decimal",
+      "definition": {
+        "id": "e05-long-edge-decimal",
+        "request": "requests/project/e05-long-edge-decimal.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 0.0,
+            "left": 0.0,
+            "bottom": 0.0,
+            "right": 0.0
+          },
+          "nodeNode": 0,
+          "betweenLayers": 0,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-long-edge-decimal/request.json",
+      "requestSha256": "ceb2a109656ccd1edd27da284f24d0cc4af95a7799f5b27670801493d1ce623c",
+      "observations": [
+        "e05-long-edge-decimal/run-01/observation.json",
+        "e05-long-edge-decimal/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-node-order",
+      "definition": {
+        "id": "e05-diamond-node-order",
+        "request": "requests/project/e05-diamond-node-order.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-node-order/request.json",
+      "requestSha256": "6050981c99b18e04f4048f61190d08143251c4c80ab1c81e5da7e705645fd453",
+      "observations": [
+        "e05-diamond-node-order/run-01/observation.json",
+        "e05-diamond-node-order/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-edge-order",
+      "definition": {
+        "id": "e05-diamond-edge-order",
+        "request": "requests/project/e05-diamond-edge-order.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-edge-order/request.json",
+      "requestSha256": "05d1b6c5867758369a09f382873d7d523ebd3341ba57905833991a53ac7d8f7f",
+      "observations": [
+        "e05-diamond-edge-order/run-01/observation.json",
+        "e05-diamond-edge-order/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-multiskip-permuted-eight",
+      "definition": {
+        "id": "e05-multiskip-permuted-eight",
+        "request": "requests/project/e05-multiskip-permuted-eight.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-multiskip-permuted-eight/request.json",
+      "requestSha256": "5d8cd33d005828ee7141fd8dbe802d03858cfc5e67e83890da7713d3e5809f24",
+      "observations": [
+        "e05-multiskip-permuted-eight/run-01/observation.json",
+        "e05-multiskip-permuted-eight/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-seed17",
+      "definition": {
+        "id": "e05-diamond-seed17",
+        "request": "requests/project/e05-diamond-seed17.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-seed17/request.json",
+      "requestSha256": "cc7724fe8048bb0d838c888d9c5515db98c57669aa3e9a9884260a6c083cf197",
+      "observations": [
+        "e05-diamond-seed17/run-01/observation.json",
+        "e05-diamond-seed17/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-seed-negative17",
+      "definition": {
+        "id": "e05-diamond-seed-negative17",
+        "request": "requests/project/e05-diamond-seed-negative17.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-seed-negative17/request.json",
+      "requestSha256": "a2ed823d8cfd6547aa97760ccb9e9de0e58ec14d59676a7a9564d64df373617d",
+      "observations": [
+        "e05-diamond-seed-negative17/run-01/observation.json",
+        "e05-diamond-seed-negative17/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-fork-custom-spacing",
+      "definition": {
+        "id": "e05-fork-custom-spacing",
+        "request": "requests/project/e05-fork-custom-spacing.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 11.0,
+            "left": 31.0,
+            "bottom": 23.0,
+            "right": 17.0
+          },
+          "nodeNode": 37,
+          "betweenLayers": 53,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-fork-custom-spacing/request.json",
+      "requestSha256": "abb1ddbed2ccfee859e9ae9358e382758906522264474814e9e4d0433b9bd8af",
+      "observations": [
+        "e05-fork-custom-spacing/run-01/observation.json",
+        "e05-fork-custom-spacing/run-02/observation.json"
+      ]
+    },
+    {
+      "id": "e05-diamond-option-precedence",
+      "definition": {
+        "id": "e05-diamond-option-precedence",
+        "request": "requests/project/e05-diamond-option-precedence.json",
+        "origin": "project-authored-e05-variant",
+        "expectedOutcome": "returned",
+        "geometry": {
+          "profile": "basic-flat-orthogonal",
+          "direction": "RIGHT",
+          "padding": {
+            "top": 2.0,
+            "left": 7.0,
+            "bottom": 5.0,
+            "right": 3.0
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "forwardEdges": true
+        }
+      },
+      "request": "e05-diamond-option-precedence/request.json",
+      "requestSha256": "ba793bf62539d9ad0348388884446f23537acfac5ad9dba0c3b61b8033d91e7d",
+      "observations": [
+        "e05-diamond-option-precedence/run-01/observation.json",
+        "e05-diamond-option-precedence/run-02/observation.json"
+      ]
+    }
+  ],
+  "failures": [],
+  "files": {
+    "e05-crossing-six/request.json": "19269714c8a1ac4617eb75f53b5ab0f34526ac1423e0d907a44a4601662fa377",
+    "e05-crossing-six/run-01/command.json": "42e3a0fb73a284ac40f9098eff712a42cc994e1920cc66edc3e8d942b4c792a1",
+    "e05-crossing-six/run-01/observation.json": "5cf3ab3b70f204e8683fcf6b2cec2b8e0d9459a962f1b85309aeb7c28bd14568",
+    "e05-crossing-six/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-crossing-six/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-crossing-six/run-02/command.json": "75703d82036f70c7ca739a4559c528f6dae5e6eea4336fabe71f6d739785ed54",
+    "e05-crossing-six/run-02/observation.json": "5cf3ab3b70f204e8683fcf6b2cec2b8e0d9459a962f1b85309aeb7c28bd14568",
+    "e05-crossing-six/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-crossing-six/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-decimal/request.json": "9429bab0886f599f834df114bdc354aae0764e38f1a578fe74beeb0e5712b959",
+    "e05-diamond-decimal/run-01/command.json": "de446ccdffda976c5ac2ab88851278e6378046252b33da6da4d7f6a1f4664ac7",
+    "e05-diamond-decimal/run-01/observation.json": "7fabbbd7a82a0f952579d87b11375a2cf44b58f891dc0aec8f135f87d8e876af",
+    "e05-diamond-decimal/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-decimal/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-decimal/run-02/command.json": "e7bf23a693a17cf37eec8ea4eed317bcf9d8bb0213d40996a5550ca2fadcfb5e",
+    "e05-diamond-decimal/run-02/observation.json": "7fabbbd7a82a0f952579d87b11375a2cf44b58f891dc0aec8f135f87d8e876af",
+    "e05-diamond-decimal/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-decimal/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-default/request.json": "e9c6058177154b833f04cfbbb53251799adcc49dac084712accc2f27f5813e5c",
+    "e05-diamond-default/run-01/command.json": "42efa99e21eceb110b46b8155aa249e40fdfcb51d704b9ab44de639c0d9a7ecd",
+    "e05-diamond-default/run-01/observation.json": "bff9f947167e8446133ec62803c4f33588cac0fd8e807a623139e18281862022",
+    "e05-diamond-default/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-default/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-default/run-02/command.json": "4adee563028150278ee7b3c42b112b605dd64baa2c2d8a4893e392e141ddd9ab",
+    "e05-diamond-default/run-02/observation.json": "bff9f947167e8446133ec62803c4f33588cac0fd8e807a623139e18281862022",
+    "e05-diamond-default/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-default/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-edge-order/request.json": "05d1b6c5867758369a09f382873d7d523ebd3341ba57905833991a53ac7d8f7f",
+    "e05-diamond-edge-order/run-01/command.json": "e14969de2cfb1ea2125e3255499f5dd28393895f3cd07a8a6fa33656c9bcbc4a",
+    "e05-diamond-edge-order/run-01/observation.json": "3b2642af0bf9f7077b8a246642e55010c107515bdd0dc07bf0ee52b8ab39a190",
+    "e05-diamond-edge-order/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-edge-order/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-edge-order/run-02/command.json": "3218a34c44cabe35c9e3c8f0dc9e86662938596335a1d7820aec80d1e2bb6bb0",
+    "e05-diamond-edge-order/run-02/observation.json": "3b2642af0bf9f7077b8a246642e55010c107515bdd0dc07bf0ee52b8ab39a190",
+    "e05-diamond-edge-order/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-edge-order/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-node-order/request.json": "6050981c99b18e04f4048f61190d08143251c4c80ab1c81e5da7e705645fd453",
+    "e05-diamond-node-order/run-01/command.json": "579b8660b40aac53cfcc8bb57cd1d82b0a0206a0a1a7a5989efb5f18decedf1a",
+    "e05-diamond-node-order/run-01/observation.json": "7e912cd5fb28f6882eb1b628ebc5a3fd217cc58fa3e7b4df4e6ba91d9d1489a0",
+    "e05-diamond-node-order/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-node-order/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-node-order/run-02/command.json": "ba59251c352739fb3d5b96a30f5660607c9316b858092b21f307af8eb3457702",
+    "e05-diamond-node-order/run-02/observation.json": "7e912cd5fb28f6882eb1b628ebc5a3fd217cc58fa3e7b4df4e6ba91d9d1489a0",
+    "e05-diamond-node-order/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-node-order/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-option-precedence/request.json": "ba793bf62539d9ad0348388884446f23537acfac5ad9dba0c3b61b8033d91e7d",
+    "e05-diamond-option-precedence/run-01/command.json": "aa668d95f9be2b6df9d71667ad3aeed987cae1628269cf82777097cb9b5fe1b5",
+    "e05-diamond-option-precedence/run-01/observation.json": "d6cfa2c429115b0c5f2f98c757f61728796cd8a952854157a9a3003fc45bc125",
+    "e05-diamond-option-precedence/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-option-precedence/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-option-precedence/run-02/command.json": "5b366bc998ff1bec0d56a9eac0f6a55cc25bdfceec1888b647ea3acae41192ae",
+    "e05-diamond-option-precedence/run-02/observation.json": "d6cfa2c429115b0c5f2f98c757f61728796cd8a952854157a9a3003fc45bc125",
+    "e05-diamond-option-precedence/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-option-precedence/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed-negative17/request.json": "a2ed823d8cfd6547aa97760ccb9e9de0e58ec14d59676a7a9564d64df373617d",
+    "e05-diamond-seed-negative17/run-01/command.json": "8f08a5f3f95d0f2ce83397a935586cb342ba6266cf721290676e5d6097c18caa",
+    "e05-diamond-seed-negative17/run-01/observation.json": "1a8618b29032347f7283758d08b0f63411faad31ae59e0c9a0459e7a626ba602",
+    "e05-diamond-seed-negative17/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed-negative17/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed-negative17/run-02/command.json": "a3e0bd43b063eb49f313e59296a831ff5b87324ce645b5fe56d2296ec7214b7c",
+    "e05-diamond-seed-negative17/run-02/observation.json": "1a8618b29032347f7283758d08b0f63411faad31ae59e0c9a0459e7a626ba602",
+    "e05-diamond-seed-negative17/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed-negative17/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed17/request.json": "cc7724fe8048bb0d838c888d9c5515db98c57669aa3e9a9884260a6c083cf197",
+    "e05-diamond-seed17/run-01/command.json": "f5b9134f8ddf1af5853fe7cccff37f51f9e0ca4c0ebfd3463c6d4b1bf85d3e7b",
+    "e05-diamond-seed17/run-01/observation.json": "337969212cc1d7e6c1d5fde8b6b9a5e5635340e7b170a6d05661ab088796556d",
+    "e05-diamond-seed17/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed17/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed17/run-02/command.json": "f42fed8385760e944418c83c37c25928dcdcb0c21ae19d3ce80e84803b8a76bf",
+    "e05-diamond-seed17/run-02/observation.json": "337969212cc1d7e6c1d5fde8b6b9a5e5635340e7b170a6d05661ab088796556d",
+    "e05-diamond-seed17/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-seed17/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-unequal/request.json": "598ff5ad13a08cf59ac305eee5f96fcf6247bfcbc278d92f649e30c6b83a5753",
+    "e05-diamond-unequal/run-01/command.json": "c9908353fd6f0c099b8dc5c19febeed30739800b65633cf154e545f117eb4d69",
+    "e05-diamond-unequal/run-01/observation.json": "c9b31f5d744b15b117490255011a26f91385e4af62285f1d24f76e3ab984dee0",
+    "e05-diamond-unequal/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-unequal/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-unequal/run-02/command.json": "fc1298caab4bd4af4bcb135af7094809b56def4c653382e0a721ccd8e2a0ac03",
+    "e05-diamond-unequal/run-02/observation.json": "c9b31f5d744b15b117490255011a26f91385e4af62285f1d24f76e3ab984dee0",
+    "e05-diamond-unequal/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-diamond-unequal/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanin-four/request.json": "20d11e5920b63225dacf0ddc8b0e2701e5d4423daab6348426f70607900ab772",
+    "e05-fanin-four/run-01/command.json": "9854cce8f21b81f6260782182722416c0f272533b2007386686f482e3e3a6f2f",
+    "e05-fanin-four/run-01/observation.json": "44dd96fb19cef35a5ed7ccb15c553647009299653994f0405dfb1ca40c7c30b6",
+    "e05-fanin-four/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanin-four/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanin-four/run-02/command.json": "5d69ac201b7e1129fc9cca5eb9a01a1a153be8d8eea271f0d9c211cbce5f9ec8",
+    "e05-fanin-four/run-02/observation.json": "44dd96fb19cef35a5ed7ccb15c553647009299653994f0405dfb1ca40c7c30b6",
+    "e05-fanin-four/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanin-four/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanout-four/request.json": "e3ab41a0caaabbc16ce2c39627873b1263338166912d1325d54fc494e0f3b9e9",
+    "e05-fanout-four/run-01/command.json": "0bf8dc6a155e301220cc385c989d13174b88e508622190173927efea4eca345a",
+    "e05-fanout-four/run-01/observation.json": "1e45605a640b0e9ffec649794b17757560d83e28abf1d1b0e1830af5cb6d3739",
+    "e05-fanout-four/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanout-four/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanout-four/run-02/command.json": "d0c7ef7a6781c34f569cc6217da207573ec4b2d4085be5c5f762d889f4108bd5",
+    "e05-fanout-four/run-02/observation.json": "1e45605a640b0e9ffec649794b17757560d83e28abf1d1b0e1830af5cb6d3739",
+    "e05-fanout-four/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fanout-four/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-custom-spacing/request.json": "abb1ddbed2ccfee859e9ae9358e382758906522264474814e9e4d0433b9bd8af",
+    "e05-fork-custom-spacing/run-01/command.json": "34e3099bfefdaf3c5998ec57925ef6ae8c975a97e38123c9ba925df4468965a3",
+    "e05-fork-custom-spacing/run-01/observation.json": "074adaea93cb9cddbef5003beefc76c2c9791f4868f7931e315ee7c169a7dd06",
+    "e05-fork-custom-spacing/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-custom-spacing/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-custom-spacing/run-02/command.json": "5fe8a5efbf6653c8fd721d76820315518f3673eade36fd2f085468bdf31ba8f9",
+    "e05-fork-custom-spacing/run-02/observation.json": "074adaea93cb9cddbef5003beefc76c2c9791f4868f7931e315ee7c169a7dd06",
+    "e05-fork-custom-spacing/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-custom-spacing/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-default/request.json": "d930b6f5e3e4e0025aee909946ac3b1be37ae8e1745c97b17461e371e0331ddb",
+    "e05-fork-default/run-01/command.json": "adb964017565d68140036bedcae01f15469875a47ccd88fa58d0f05075cd6b2d",
+    "e05-fork-default/run-01/observation.json": "ff3194e621e05c8a87e10c3fa7a7028460a96d904a5c6fb466176412ed0f31ea",
+    "e05-fork-default/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-default/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-default/run-02/command.json": "51cf25f1b2ae61d670d81e003f2a7605e90749ba744dc1fa751e6a29b5aa517a",
+    "e05-fork-default/run-02/observation.json": "ff3194e621e05c8a87e10c3fa7a7028460a96d904a5c6fb466176412ed0f31ea",
+    "e05-fork-default/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-default/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-zero/request.json": "6be8cd2d7d72581c4eb8d37e966bd86b2065ca8be3cd6110de77b502bb572a67",
+    "e05-fork-zero/run-01/command.json": "c7b5f0900acb669196c1dd144c9a04bf3f90a981e8169465e3e7e41cc1ecd73b",
+    "e05-fork-zero/run-01/observation.json": "94561d2c0d9f3d4cbe03c5cd371b971d8213c5c5d5409d9a4632438a4731c2af",
+    "e05-fork-zero/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-zero/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-zero/run-02/command.json": "3e1015e8fe804cbc5a049e93ed4a8251f9254152c8bb6ff9dee206a7acfb533a",
+    "e05-fork-zero/run-02/observation.json": "94561d2c0d9f3d4cbe03c5cd371b971d8213c5c5d5409d9a4632438a4731c2af",
+    "e05-fork-zero/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-fork-zero/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-default/request.json": "079f8b33580667c791fc44281ba3b047e4949c23fc092e0532c371a24e8558c8",
+    "e05-join-default/run-01/command.json": "3eb95fb8f192ddf1017ef1a1e2af2a35ff15107633849ab976f2eef81198848f",
+    "e05-join-default/run-01/observation.json": "80d653ed12a5d961b1f2661e23ef11c4655e84cabec0b7455462729ef40c0701",
+    "e05-join-default/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-default/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-default/run-02/command.json": "5953a08c4c0f4e058d996a3416867f3d4adc2cb332cd78876919c2faddf73c64",
+    "e05-join-default/run-02/observation.json": "80d653ed12a5d961b1f2661e23ef11c4655e84cabec0b7455462729ef40c0701",
+    "e05-join-default/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-default/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-mixed-zero/request.json": "1de879e5845bfb53ca82cc66fdcda9007b1e9060ba443428d625f7a49668a8fa",
+    "e05-join-mixed-zero/run-01/command.json": "e78130dc414d952728786aa7621f331d7507e0dee8028b56d2ab4d6ff7b193c3",
+    "e05-join-mixed-zero/run-01/observation.json": "06cd6872e66de093eb65987919849e7e2ded580f95564bcf6572082a1b4500eb",
+    "e05-join-mixed-zero/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-mixed-zero/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-mixed-zero/run-02/command.json": "974c0fe8d1558a8e3aff884229360634520f1591273e6a7b8d3b4db0e0d9d831",
+    "e05-join-mixed-zero/run-02/observation.json": "06cd6872e66de093eb65987919849e7e2ded580f95564bcf6572082a1b4500eb",
+    "e05-join-mixed-zero/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-join-mixed-zero/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-long-edge-decimal/request.json": "ceb2a109656ccd1edd27da284f24d0cc4af95a7799f5b27670801493d1ce623c",
+    "e05-long-edge-decimal/run-01/command.json": "5a2c8cadaa8b3e2993c202f8f629f4daf3dd39708035ec68c299150d78cd8dbf",
+    "e05-long-edge-decimal/run-01/observation.json": "8fc224ee645e0d66df8b6c8ea5c902f6b89cd5585e71f87b4b73ddd33b6da6e9",
+    "e05-long-edge-decimal/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-long-edge-decimal/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-long-edge-decimal/run-02/command.json": "276f0ec48e0cf6341838535736cf3eba87ed654c6afe373011fb86ac96386a7b",
+    "e05-long-edge-decimal/run-02/observation.json": "8fc224ee645e0d66df8b6c8ea5c902f6b89cd5585e71f87b4b73ddd33b6da6e9",
+    "e05-long-edge-decimal/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-long-edge-decimal/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiple-skip-six/request.json": "a621c4d6d505f4781b5c822b1b2db168e3a5bc125a6feaa7d583d0f3d1819d2e",
+    "e05-multiple-skip-six/run-01/command.json": "5341a889f6364f316028b6721fabee1f069763e0b82e25d8818d638e21781112",
+    "e05-multiple-skip-six/run-01/observation.json": "490b4dcf68550bb5547508d526aa10a09a49db8b0271f8536b72006d322eedae",
+    "e05-multiple-skip-six/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiple-skip-six/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiple-skip-six/run-02/command.json": "ee795107a30422eb8aebecff2302d341f513f037dae849e3ff81417d82789e0e",
+    "e05-multiple-skip-six/run-02/observation.json": "490b4dcf68550bb5547508d526aa10a09a49db8b0271f8536b72006d322eedae",
+    "e05-multiple-skip-six/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiple-skip-six/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiskip-permuted-eight/request.json": "5d8cd33d005828ee7141fd8dbe802d03858cfc5e67e83890da7713d3e5809f24",
+    "e05-multiskip-permuted-eight/run-01/command.json": "35e5cbd2661d3f1206def635d84c504505ebc7687e5750efdab14d10aab326aa",
+    "e05-multiskip-permuted-eight/run-01/observation.json": "6920058d1706bbee57e40d8fe608631b44a693738f2616fb0942e3b0b052635c",
+    "e05-multiskip-permuted-eight/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiskip-permuted-eight/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiskip-permuted-eight/run-02/command.json": "2e63e3ce1d622a5ffd430fc04262ff1e44f5d5ae360a675d877213893fec6b08",
+    "e05-multiskip-permuted-eight/run-02/observation.json": "6920058d1706bbee57e40d8fe608631b44a693738f2616fb0942e3b0b052635c",
+    "e05-multiskip-permuted-eight/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-multiskip-permuted-eight/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-four-dummies/request.json": "50608a3b18e0cffadf29d55dd1e8ac57a7e2aff3b09ff8fc29aca0c5e26f79ed",
+    "e05-skip-four-dummies/run-01/command.json": "06916c62b6b343fa32f48adfb76951c97a8ef24244521ba697a4fe9dd459ec65",
+    "e05-skip-four-dummies/run-01/observation.json": "497822dd40d68231d4acc3d48b042a279e34880d6960123f566305249ce065eb",
+    "e05-skip-four-dummies/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-four-dummies/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-four-dummies/run-02/command.json": "38969a6be04068cc6e76383b71aa2d2a5c5d2a0f4af9c9708f2c325d8e478299",
+    "e05-skip-four-dummies/run-02/observation.json": "497822dd40d68231d4acc3d48b042a279e34880d6960123f566305249ce065eb",
+    "e05-skip-four-dummies/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-four-dummies/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-one-dummy/request.json": "9681ebe9c74ad293cb2580b15971b741f9f1a093afe6ad37b2220e86a7e8674d",
+    "e05-skip-one-dummy/run-01/command.json": "fb0882c4e5303699840f905f2d6648653b8a940f320764f45135090a2913d2cb",
+    "e05-skip-one-dummy/run-01/observation.json": "4ee7c78ce110d76627de79d2d961bbca4b256387badd174236afa449bee3423a",
+    "e05-skip-one-dummy/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-one-dummy/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-one-dummy/run-02/command.json": "05be0573d140e2ecca9fba914e2a8fb639586c753fb318a3ff2edc84225d5d88",
+    "e05-skip-one-dummy/run-02/observation.json": "4ee7c78ce110d76627de79d2d961bbca4b256387badd174236afa449bee3423a",
+    "e05-skip-one-dummy/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-one-dummy/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-two-dummies/request.json": "a5633fb96e2745759fb4c59df01b577b9a131dc6ab34f2328a8a5493bf11fd32",
+    "e05-skip-two-dummies/run-01/command.json": "e51cc605bb61fa57e42205f160757647e3c292e1f804f7b2708f042975478de0",
+    "e05-skip-two-dummies/run-01/observation.json": "10d9eb2dd2e39f30ecc8c230ce889ac20dc743c371706a1a3681d89233746230",
+    "e05-skip-two-dummies/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-two-dummies/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-two-dummies/run-02/command.json": "a1d5a027148c6b063fab61afe5a5dde20ec497e01afe30e1ea89f89b1ffff0c8",
+    "e05-skip-two-dummies/run-02/observation.json": "10d9eb2dd2e39f30ecc8c230ce889ac20dc743c371706a1a3681d89233746230",
+    "e05-skip-two-dummies/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-skip-two-dummies/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-sink-five/request.json": "584ed9e8c8cb58193fa74352e3f0ee48374d10994b45608cde106011de5400b5",
+    "e05-two-sink-five/run-01/command.json": "f06b10ecf9978f2b2af0eccc67c84de86925b4eabf5bd7b779c9cc16e884e522",
+    "e05-two-sink-five/run-01/observation.json": "853509151114d45f24a7bcf3b690d531978d4e8722d5008be15a067c1ab13b78",
+    "e05-two-sink-five/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-sink-five/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-sink-five/run-02/command.json": "38307f6e411de68818b1ad4b4b34abff1e27272c3c08ca48fc96df9689458d82",
+    "e05-two-sink-five/run-02/observation.json": "853509151114d45f24a7bcf3b690d531978d4e8722d5008be15a067c1ab13b78",
+    "e05-two-sink-five/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-sink-five/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-source-five/request.json": "96b80c67efa44e5cd1c8a952bc1583c99d9a0008a3902fa5ff0406b58557ee0e",
+    "e05-two-source-five/run-01/command.json": "03b34be191bc4d8e2f3ac257b5af5428edbfed4f23c4208a36e00aad1c230819",
+    "e05-two-source-five/run-01/observation.json": "07ad8bec509dadd944490ff99afc3d262a454f64665a07fbe04525815acdc84b",
+    "e05-two-source-five/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-source-five/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-source-five/run-02/command.json": "488deba03c406d9de676ff674308f08fe008eb0825800041acc216aa6e8ae082",
+    "e05-two-source-five/run-02/observation.json": "07ad8bec509dadd944490ff99afc3d262a454f64665a07fbe04525815acdc84b",
+    "e05-two-source-five/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "e05-two-source-five/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-chain/request.json": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+    "layered-chain/run-01/command.json": "377584dd24f230706c7aca5f0b5b5ee001619d1899d28d065ac0a3d4bc403f85",
+    "layered-chain/run-01/observation.json": "5d90ffd616a380a22bb06c2ca450889ef8edc16746ab05193471a808d5b53ee9",
+    "layered-chain/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-chain/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-chain/run-02/command.json": "b5ef1c57178c1873f82cd9bd5bbf04aa912ec738176f54cb1c015fcfaec509e1",
+    "layered-chain/run-02/observation.json": "5d90ffd616a380a22bb06c2ca450889ef8edc16746ab05193471a808d5b53ee9",
+    "layered-chain/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-chain/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-custom-spacing/request.json": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+    "layered-custom-spacing/run-01/command.json": "b993303be42f1ac54195050d5c5df9b52ec943bdc9e4cc464786fa014e34c76a",
+    "layered-custom-spacing/run-01/observation.json": "2f8168e88226c082d0fc4d56d718ffa74b784d9338742fc53944c2c5130c76dc",
+    "layered-custom-spacing/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-custom-spacing/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-custom-spacing/run-02/command.json": "3ea219aca5f52d6a622e60cc3de2309ae38ad27b153ff1fc88e05403338dbdb2",
+    "layered-custom-spacing/run-02/observation.json": "2f8168e88226c082d0fc4d56d718ffa74b784d9338742fc53944c2c5130c76dc",
+    "layered-custom-spacing/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-custom-spacing/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-diamond-right/request.json": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+    "layered-diamond-right/run-01/command.json": "1cb2feeb647b72fe9b502b9abe2dce15fbf567f8211784e241bbd80bb8d59b1d",
+    "layered-diamond-right/run-01/observation.json": "de099e3abc82af03f1df62521236fb28163b484b43ee8ed64d020a5412e54d93",
+    "layered-diamond-right/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-diamond-right/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-diamond-right/run-02/command.json": "75d20201fff881dd8d5fe562e7de4c1b0b38d9e29365a443d8839f62e546c17d",
+    "layered-diamond-right/run-02/observation.json": "de099e3abc82af03f1df62521236fb28163b484b43ee8ed64d020a5412e54d93",
+    "layered-diamond-right/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-diamond-right/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-empty/request.json": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+    "layered-empty/run-01/command.json": "ca50b563b3352ca424abe664e05f2554a85758ed03a5b27af039f6447bc27de1",
+    "layered-empty/run-01/observation.json": "b7da64ac4b11869e6d50fe612d6991c844868392a03f3fc09709cadfed22353b",
+    "layered-empty/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-empty/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-empty/run-02/command.json": "78e228d6780b623da7467bea958388987ecf13a7f319a70ac3c3bb28c0d3862b",
+    "layered-empty/run-02/observation.json": "b7da64ac4b11869e6d50fe612d6991c844868392a03f3fc09709cadfed22353b",
+    "layered-empty/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-empty/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-fork/request.json": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+    "layered-fork/run-01/command.json": "4ebd77f0969c699b9a640ac7d6d3681c35aa500eadd4ec478304f139cea7dc7e",
+    "layered-fork/run-01/observation.json": "bab28061af2b522cdd83cb16473d91385c39f17fae82582bba6145439f68659b",
+    "layered-fork/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-fork/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-fork/run-02/command.json": "ff85131dd1cd6ac45a23e0c15a36f43ecda89fc208d12b21a2c67710b380d72e",
+    "layered-fork/run-02/observation.json": "bab28061af2b522cdd83cb16473d91385c39f17fae82582bba6145439f68659b",
+    "layered-fork/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-fork/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-join/request.json": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+    "layered-join/run-01/command.json": "6f89671133ba557686ce7d49da30937c2e2b447aa41af4a42dd5b9eaaef75f85",
+    "layered-join/run-01/observation.json": "9cae823577cb43cb64426d65c5381ce597329a805899b288fa8fe8ab62b2196c",
+    "layered-join/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-join/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-join/run-02/command.json": "23f3154cb03f995b94c119bfec2f4d5a94bdbc302913bdfa7f7ecc44d9113339",
+    "layered-join/run-02/observation.json": "9cae823577cb43cb64426d65c5381ce597329a805899b288fa8fe8ab62b2196c",
+    "layered-join/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-join/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-long-edge/request.json": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+    "layered-long-edge/run-01/command.json": "526a6dc4d4e04053a6cb102dd619838694367c35038c71076361611ddeda0020",
+    "layered-long-edge/run-01/observation.json": "8232c90e96f5649df1c4600167bcf1ccae86eaac4ba51729376b26c436ae2578",
+    "layered-long-edge/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-long-edge/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-long-edge/run-02/command.json": "84ddf226302a92a2c81f957d18912a404273582ef362e1b00e89c42e9bc47151",
+    "layered-long-edge/run-02/observation.json": "8232c90e96f5649df1c4600167bcf1ccae86eaac4ba51729376b26c436ae2578",
+    "layered-long-edge/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-long-edge/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-singleton/request.json": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+    "layered-singleton/run-01/command.json": "16fc672569770373729a01c48950c90f83ecddf5eb88088abd553c98e8571af0",
+    "layered-singleton/run-01/observation.json": "4282fd255073e98f628a4e40e719722e51acdea191646aa08967355bbf975339",
+    "layered-singleton/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-singleton/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-singleton/run-02/command.json": "b306ff566a960ce02af3af657ccce1efb7e3df532e765093e78cad425fd83aee",
+    "layered-singleton/run-02/observation.json": "4282fd255073e98f628a4e40e719722e51acdea191646aa08967355bbf975339",
+    "layered-singleton/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-singleton/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-unequal-sizes/request.json": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+    "layered-unequal-sizes/run-01/command.json": "c63fa4de03efa509b8244667d16d3b3281a75c498b69eab632a4ad4dc20cadff",
+    "layered-unequal-sizes/run-01/observation.json": "6d4a6131a563b700990c939a53121fa220fce6a9627541f818a1d3095ef0ad37",
+    "layered-unequal-sizes/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-unequal-sizes/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-unequal-sizes/run-02/command.json": "d229c6efc29a4357c2c498b509b768c6344d304ffd9cf8bf5ee901dc16ca8e9f",
+    "layered-unequal-sizes/run-02/observation.json": "6d4a6131a563b700990c939a53121fa220fce6a9627541f818a1d3095ef0ad37",
+    "layered-unequal-sizes/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-unequal-sizes/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-zero-size/request.json": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+    "layered-zero-size/run-01/command.json": "e324ba8fb95c9134a09d55b8692e1db0806374a6a97b21e08bf9e008d47c24ae",
+    "layered-zero-size/run-01/observation.json": "0b534cc9194d9a8edad05086027cfa574c923d3a29dc19be2192e5b4a010081d",
+    "layered-zero-size/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-zero-size/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-zero-size/run-02/command.json": "f51fb3ed18d9784345c7c98993dfdfbe01436e27bb158e747e08c6ba1d9b8059",
+    "layered-zero-size/run-02/observation.json": "0b534cc9194d9a8edad05086027cfa574c923d3a29dc19be2192e5b4a010081d",
+    "layered-zero-size/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "layered-zero-size/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-explicit-empty-replaces-default/request.json": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+    "options-explicit-empty-replaces-default/run-01/command.json": "d9a75bcd1f6648131eb519a3c5560db016d5d187e86fea854a93dfcfd5609a5b",
+    "options-explicit-empty-replaces-default/run-01/observation.json": "70ac0262c1e00cc7ec14e4a46adf2578da69fb512dd5dd2515a739f1f918b9eb",
+    "options-explicit-empty-replaces-default/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-explicit-empty-replaces-default/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-explicit-empty-replaces-default/run-02/command.json": "f65e7871a5cd143c228b3a48fd4e85ed1310fa24228fc841af48676174a717fb",
+    "options-explicit-empty-replaces-default/run-02/observation.json": "70ac0262c1e00cc7ec14e4a46adf2578da69fb512dd5dd2515a739f1f918b9eb",
+    "options-explicit-empty-replaces-default/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-explicit-empty-replaces-default/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-full-ids/request.json": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+    "options-full-ids/run-01/command.json": "433a62ac6f90acfb3dd91d721cbba9dd3addf1a65a97125588ffd6dc2ca86eeb",
+    "options-full-ids/run-01/observation.json": "c73245a3ab1626248e6d54e5e0d73b65225f6029a4afb8fc67e1523d0c2414a5",
+    "options-full-ids/run-01/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-full-ids/run-01/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-full-ids/run-02/command.json": "08318b342193e1bb360f5b62b8e88b5fc733786f8ae9665f0a49dbe9041a520d",
+    "options-full-ids/run-02/observation.json": "c73245a3ab1626248e6d54e5e0d73b65225f6029a4afb8fc67e1523d0c2414a5",
+    "options-full-ids/run-02/stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "options-full-ids/run-02/stdout.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "suite.json": "ceb6dd9b2bbe5a3f6d9cdf784202e9930f53273be52dfcba40de5c2d993dade6",
+    "upstream-lock.json": "91856f51262e99679a0cae50d8c8a6ccd302a7daa1c94b5ca96b14afc5c96aa1"
+  }
+}

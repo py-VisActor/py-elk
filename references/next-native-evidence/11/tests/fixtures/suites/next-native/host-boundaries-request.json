@@ -1,0 +1,101 @@
+{
+  "cases": [
+    {
+      "id": "numeric-identifier-selects-second-child",
+      "operation": "numeric-root",
+      "graph": {
+        "id": "r",
+        "layoutOptions": {
+          "org.eclipse.elk.processingOrder.rootSelection": "FIXED",
+          "org.eclipse.elk.processingOrder.preferredRoot": "7"
+        },
+        "children": [
+          {
+            "id": "other",
+            "width": 10,
+            "height": 6
+          },
+          {
+            "id": 7,
+            "width": 12,
+            "height": 8,
+            "x": 40,
+            "y": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "same-session-real-box-underlying",
+      "operation": "invoke-box",
+      "graph": {
+        "id": "macro",
+        "layoutOptions": {
+          "org.eclipse.elk.algorithm": "sporeOverlap"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 12,
+            "height": 8
+          },
+          {
+            "id": "b",
+            "width": 17,
+            "height": 20
+          }
+        ]
+      }
+    },
+    {
+      "id": "parent-generic-minimum-ignores-inside-port-label",
+      "operation": "minimum",
+      "graph": {
+        "id": "parent",
+        "children": [
+          {
+            "id": "child",
+            "x": 7,
+            "y": 9,
+            "width": 10,
+            "height": 10,
+            "layoutOptions": {
+              "org.eclipse.elk.nodeSize.constraints": "[NODE_LABELS,PORT_LABELS]",
+              "org.eclipse.elk.portLabels.placement": "[INSIDE]"
+            },
+            "labels": [
+              {
+                "id": "nl",
+                "x": -1,
+                "y": -1,
+                "width": 60,
+                "height": 10
+              }
+            ],
+            "ports": [
+              {
+                "id": "p",
+                "width": 2,
+                "height": 2,
+                "x": 0,
+                "y": 3,
+                "layoutOptions": {
+                  "org.eclipse.elk.port.side": "WEST"
+                },
+                "labels": [
+                  {
+                    "id": "pl",
+                    "x": 2,
+                    "y": 3,
+                    "width": 1000,
+                    "height": 1000
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

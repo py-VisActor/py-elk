@@ -1,0 +1,165 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Fixed elkjs0.12.1 worker SHA256:
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Component P11B in references/e13-kernel-sources.json.
+# Native identity/callback protocol adapters; no collection runtime transplanted.
+# Only Barycenter/ModelOrder math is implemented here; other factories explicit.
+"""Real GraphInfo construction; strategy math lives in its actual consumers."""
+from .all_crossings import AllCrossingsCounter, initialize_crossing_receivers
+from .forster_constraints import ForsterConstraintResolver
+from .integer_box_tokens import holder_integer_box_identity
+from .model_order_barycenter import create_barycenter_heuristic
+from .port_distribution import create_barycenter_port_distributor
+from .sweep_type import LayerSweepTypeDecider
+
+def _graph_of(node):
+    if node.graph is None and node.layer is not None:
+        return node.layer.graph
+    return node.graph
+
+class _TraversalConstraintResolver(ForsterConstraintResolver):
+
+    def __init__(self, node_order):
+        self.constraints_between_non_dummies = bool(node_order and node_order[0] and _graph_of(node_order[0][0]).properties.get('IN_LAYER_SUCCESSOR_CONSTRAINTS_BETWEEN_NON_DUMMIES', False))
+        self.states = {}
+        self.constraint_groups = {}
+        self.layout_units = {}
+        self._row_nodes = [[] for row in node_order]
+
+    def init_at_layer_level(self, layer_index, node_order):
+        for node in self._row_nodes[layer_index]:
+            self.states.pop(node, None)
+            self.constraint_groups.pop(node, None)
+        self._row_nodes[layer_index] = list(node_order[layer_index])
+
+    def init_at_node_level(self, layer_index, node_index, node_order):
+        self._init_node(node_order[layer_index][node_index], True)
+
+    def init_at_edge_level(self, layer_index, node_index, port_index, edge_index, edge, node_order):
+        pass
+
+    def init_at_port_level(self, layer_index, node_index, port_index, node_order):
+        pass
+
+    def init_after_traversal(self):
+        pass
+
+class _DistributorReceiver:
+
+    def __init__(self, distributor):
+        self.distributor = distributor
+
+    def init_at_layer_level(self, layer_index, node_order):
+        self.distributor.init_at_layer_level(layer_index, node_order)
+
+    def init_at_node_level(self, layer_index, node_index, node_order):
+        self.distributor.init_at_node_level(layer_index, node_index, node_order)
+
+    def init_at_port_level(self, layer_index, node_index, port_index, node_order):
+        self.distributor.init_at_port_level(layer_index, node_index, port_index, node_order)
+
+    def init_at_edge_level(self, layer_index, node_index, port_index, edge_index, edge, node_order):
+        pass
+
+    def init_after_traversal(self):
+        self.distributor.init_after_traversal()
+
+class _BarycenterReceiver:
+
+    def __init__(self, heuristic):
+        self.heuristic = heuristic
+
+    def init_at_layer_level(self, layer_index, node_order):
+        self.heuristic.init_at_layer_level(layer_index, node_order)
+
+    def init_at_node_level(self, layer_index, node_index, node_order):
+        pass
+
+    def init_at_port_level(self, layer_index, node_index, port_index, node_order):
+        pass
+
+    def init_at_edge_level(self, layer_index, node_index, port_index, edge_index, edge, node_order):
+        pass
+
+    def init_after_traversal(self):
+        self.heuristic.init_after_traversal()
+
+    def is_deterministic(self):
+        return False
+
+    def always_improves(self):
+        return False
+
+    def minimize_crossings(self, order, free_layer_index, forward, first_sweep):
+        return self.heuristic.minimize_crossings(order, free_layer_index, forward, first_sweep)
+
+    def set_first_layer_order(self, order, forward):
+        return self.heuristic.set_first_layer_order(order, forward)
+
+def create_port_distributor(cross_min_type, random, order):
+    if cross_min_type == 'TWO_SIDED_GREEDY_SWITCH':
+        from .greedy_port_distribution import GreedyPortDistributor
+        return GreedyPortDistributor()
+    return create_barycenter_port_distributor(random, order)
+
+class GraphInfoHolder:
+
+    def __init__(self, graph, cross_min_type, graphs, *, box_identity_getter=holder_integer_box_identity):
+        self.l_graph = graph
+        self.current_node_order = [list(layer.nodes) for layer in graph.layers]
+        self.parent = getattr(graph, 'parent_node', None)
+        self.has_parent = self.parent is not None
+        self.parent_graph_data = graphs[_graph_of(self.parent).id] if self.has_parent else None
+        graph_properties = graph.properties.get('GRAPH_PROPERTIES')
+        if graph_properties is None:
+            graph_properties = set()
+            graph.properties['GRAPH_PROPERTIES'] = graph_properties
+        self.has_external_ports = 'EXTERNAL_PORTS' in graph_properties
+        self.child_graphs = []
+        self.crossings_counter = AllCrossingsCounter(self.current_node_order)
+        random = graph.random
+        self.port_distributor = create_port_distributor(cross_min_type, random, self.current_node_order)
+        self.layer_sweep_type_decider = LayerSweepTypeDecider(self)
+        self.n_ports = 0
+        self._registered_ports = []
+        distributor_receiver = self.port_distributor if cross_min_type == 'TWO_SIDED_GREEDY_SWITCH' else _DistributorReceiver(self.port_distributor)
+        receivers = [self, self.crossings_counter, self.layer_sweep_type_decider, distributor_receiver]
+        if cross_min_type == 'BARYCENTER':
+            resolver = _TraversalConstraintResolver(self.current_node_order)
+            receivers.append(resolver)
+            heuristic = create_barycenter_heuristic(graph, resolver, random, self.port_distributor, box_identity_getter=box_identity_getter)
+            self.cross_minimizer = _BarycenterReceiver(heuristic)
+        elif cross_min_type == 'MEDIAN':
+            from .median_order import MedianHeuristic
+            self.cross_minimizer = MedianHeuristic(random)
+        else:
+            from .greedy_switch import GreedySwitchHeuristic
+            self.cross_minimizer = GreedySwitchHeuristic(cross_min_type, self)
+        receivers.append(self.cross_minimizer)
+        initialize_crossing_receivers(receivers, self.current_node_order)
+        self.use_bottom_up = self.layer_sweep_type_decider.use_bottom_up()
+
+    def init_at_layer_level(self, layer_index, node_order):
+        pass
+
+    def init_at_node_level(self, layer_index, node_index, node_order):
+        nested = getattr(node_order[layer_index][node_index], 'nested_graph', None)
+        if nested is not None:
+            self.child_graphs.append(nested)
+
+    def init_at_port_level(self, layer_index, node_index, port_index, node_order):
+        self.n_ports += 1
+        self._registered_ports.append(node_order[layer_index][node_index].ports[port_index])
+
+    def init_at_edge_level(self, layer_index, node_index, port_index, edge_index, edge, node_order):
+        pass
+
+    def init_after_traversal(self):
+        self.port_positions = {port: 0 for port in self._registered_ports}
+
+    def set_best_node_and_port_order(self, snapshot):
+        self.best_node_and_port_order = snapshot
+
+    def set_currently_best_node_and_port_order(self, snapshot):
+        self.currently_best_node_and_port_order = snapshot

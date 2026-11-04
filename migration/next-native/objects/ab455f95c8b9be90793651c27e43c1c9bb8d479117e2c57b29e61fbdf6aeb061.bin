@@ -1,0 +1,181 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Fixed elkjs0.12.1 worker SHA256:
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Component P11C in references/e13-kernel-sources.json.
+# Native continuation/independent-snapshot views; no runtime collections copied.
+# Optimization methods await P11D approval: absent dependencies do not fake zero.
+"""Actual sweep controller; strategy/cost dependencies are explicit consumers."""
+from .graph_info import GraphInfoHolder
+from .integer_box_tokens import holder_integer_box_identity
+from .sweep_copy import SweepCopy
+from .crossing_counter import _side_view
+
+class IllegalStateException(RuntimeError):
+    pass
+
+def _side_ports(node, side):
+    ports = _side_view(node, side)
+    return list(reversed(ports)) if side in ('WEST', 'SOUTH') else ports
+
+def _first(forward, length):
+    return 0 if forward else length - 1
+
+def _end(forward, length):
+    return length - 1 if forward else 0
+
+def _array_item(array, index):
+    if index < 0 or index >= len(array):
+        raise IndexError(index)
+    return array[index]
+
+class LayerSweepCrossingMinimizer:
+
+    def __init__(self, cross_min_type, *, box_identity_getter=holder_integer_box_identity):
+        self.cross_min_type = cross_min_type
+        self.random_seed = 0
+        self.box_identity_getter = box_identity_getter
+
+    def initialize(self, root_graph):
+        self.graph_info_holders = []
+        self.random = root_graph.random
+        self.random_seed = self.random.next_long()
+        to_sweep = []
+        graphs = [root_graph]
+        index = 0
+        while index < len(graphs):
+            graph = graphs[index]
+            graph.id = index
+            index += 1
+            data = GraphInfoHolder(graph, self.cross_min_type, self.graph_info_holders, box_identity_getter=self.box_identity_getter)
+            graphs.extend(data.child_graphs)
+            self.graph_info_holders.append(data)
+            if data.use_bottom_up:
+                to_sweep.insert(0, data)
+        self.graphs_whose_node_order_changed = {}
+        return to_sweep
+
+    def set_currently_best_node_orders(self):
+        for graph in self.graphs_whose_node_order_changed:
+            graph.set_currently_best_node_and_port_order(SweepCopy(graph.current_node_order))
+
+    def save_all_node_orders_of_changed_graphs(self):
+        for graph in self.graphs_whose_node_order_changed:
+            graph.set_best_node_and_port_order(SweepCopy(graph.currently_best_node_and_port_order))
+
+    @staticmethod
+    def sort_port_dummies_by_port_positions(parent, close_layer, side):
+        result = [None] * len(close_layer)
+        index = 0
+        for port in _side_ports(parent, side):
+            if port.properties.get('INSIDE_CONNECTIONS', False):
+                dummy = port.properties.get('PORT_DUMMY')
+                if index < len(result):
+                    result[index] = dummy
+                else:
+                    result.append(dummy)
+                index += 1
+        if index < len(close_layer):
+            raise IllegalStateException('Expected ' + str(len(close_layer)) + ' hierarchical ports, but found only ' + str(index) + '.')
+        return result
+
+    @staticmethod
+    def sort_ports_by_dummy_positions_in_last_layer(order, parent, on_right_most_layer):
+        last_layer = order[_end(on_right_most_layer, len(order))]
+        index = _first(on_right_most_layer, len(last_layer))
+        if _array_item(last_layer, index).type != 'EXTERNAL_PORT':
+            return
+        side = 'EAST' if on_right_most_layer else 'WEST'
+        for port_index in range(len(parent.ports)):
+            port = parent.ports[port_index]
+            if port.side == side and port.properties.get('INSIDE_CONNECTIONS', False):
+                parent.ports[port_index] = _array_item(last_layer, index).properties.get('ORIGIN')
+                index += 1 if on_right_most_layer else -1
+
+    def set_port_order_on_parent_graph(self, data):
+        if not data.has_external_ports:
+            return
+        snapshot = getattr(data, 'currently_best_node_and_port_order', None) if data.cross_minimizer.is_deterministic() else getattr(data, 'best_node_and_port_order', None)
+        if snapshot is not None:
+            self.sort_ports_by_dummy_positions_in_last_layer(snapshot.node_order, data.parent, True)
+            self.sort_ports_by_dummy_positions_in_last_layer(snapshot.node_order, data.parent, False)
+            data.parent.properties['PORT_CONSTRAINTS'] = 'FIXED_ORDER'
+
+    def _hierarchy_steps(self, layer, forward, first_sweep):
+        improved = False
+        for index in range(len(layer)):
+            node = layer[index]
+            nested_graph = getattr(node, 'nested_graph', None)
+            if nested_graph is None:
+                continue
+            nested = self.graph_info_holders[nested_graph.id]
+            if nested.use_bottom_up:
+                continue
+            order = nested.current_node_order
+            start = _first(forward, len(order))
+            if order[start][0].type == 'EXTERNAL_PORT':
+                order[start] = self.sort_port_dummies_by_port_positions(node, order[start], 'WEST' if forward else 'EAST')
+            else:
+                nested.cross_minimizer.set_first_layer_order(order, forward)
+            inner_improved = (yield (nested, forward, first_sweep))
+            self.sort_ports_by_dummy_positions_in_last_layer(nested.current_node_order, nested.parent, forward)
+            improved = int(improved) | int(inner_improved)
+        return improved
+
+    def _sweep_steps(self, graph, forward, first_sweep):
+        order = graph.current_node_order
+        length = len(order)
+        start = _first(forward, length)
+        improved = graph.port_distributor.distribute_ports_while_sweeping(order, start, forward)
+        hierarchical = (yield from self._hierarchy_steps(order[start], forward, first_sweep))
+        improved = int(improved) | int(hierarchical)
+        indices = range(1, length) if forward else range(length - 2, -1, -1)
+        for index in indices:
+            first = first_sweep and (not graph.l_graph.properties.get('FIRST_TRY_WITH_INITIAL_ORDER', False)) and (not graph.l_graph.properties.get('SECOND_TRY_WITH_INITIAL_ORDER', False))
+            improved = int(improved) | int(graph.cross_minimizer.minimize_crossings(order, index, forward, first))
+            improved = int(improved) | int(graph.port_distributor.distribute_ports_while_sweeping(order, index, forward))
+            hierarchical = (yield from self._hierarchy_steps(order[index], forward, first_sweep))
+            improved = int(improved) | int(hierarchical)
+        self.graphs_whose_node_order_changed[graph] = None
+        return improved
+
+    def sweep_reducing_crossings(self, graph, forward, first_sweep):
+        stack = [self._sweep_steps(graph, forward, first_sweep)]
+        sent = None
+        while stack:
+            try:
+                dependency = stack[-1].send(sent)
+                sent = None
+                stack.append(self._sweep_steps(*dependency))
+            except StopIteration as done:
+                stack.pop()
+                sent = done.value
+        return sent
+
+    def transfer_node_and_port_orders_to_graph(self):
+        for graph in self.graph_info_holders:
+            snapshot = getattr(graph, 'currently_best_node_and_port_order', None) if graph.cross_minimizer.is_deterministic() else getattr(graph, 'best_node_and_port_order', None)
+            if snapshot is not None:
+                snapshot.transfer_node_and_port_orders_to_graph(graph.l_graph)
+
+    def process(self, graph, monitor):
+        monitor.begin('Minimize Crossings ' + self.cross_min_type, 1)
+        empty = len(graph.layers) == 0 or not any((layer.nodes for layer in graph.layers))
+        single = len(graph.layers) == 1 and len(graph.layers[0].nodes) == 1
+        hierarchical = graph.properties.get('HIERARCHY_HANDLING', 'INHERIT') == 'INCLUDE_CHILDREN'
+        if empty or (single and (not hierarchical)):
+            monitor.done()
+            return
+        to_sweep = self.initialize(graph)
+        first = to_sweep[0]
+        if first.cross_minimizer.is_deterministic():
+            method = self.minimize_crossings_no_counter if first.cross_minimizer.always_improves() else self.minimize_crossings_with_counter
+        else:
+            method = self.compare_different_randomized_layouts
+        for data in to_sweep:
+            if len(data.current_node_order) > 0:
+                method(data)
+                if data.has_parent:
+                    self.set_port_order_on_parent_graph(data)
+        self.transfer_node_and_port_orders_to_graph()
+        monitor.done()

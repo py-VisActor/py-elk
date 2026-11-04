@@ -1,0 +1,153 @@
+"""Private typed property schemas; these do not register executable algorithms."""
+from dataclasses import dataclass
+from types import MappingProxyType
+
+
+@dataclass(frozen=True)
+class Padding:
+    top: int | float
+    right: int | float
+    bottom: int | float
+    left: int | float
+
+
+@dataclass(frozen=True)
+class Vector2:
+    x: float
+    y: float
+
+
+@dataclass(frozen=True)
+class OptionSpec:
+    id: str
+    alias: str
+    kind: str
+    declared_default: object
+    targets: tuple[str, ...]
+    accepted_values: tuple[str, ...] = ()
+
+
+_SPECS = (
+    OptionSpec("org.eclipse.elk.algorithm", "elk.algorithm", "algorithm", None, ("PARENTS",),
+               ("layered", "org.eclipse.elk.layered")),
+    OptionSpec("org.eclipse.elk.direction", "elk.direction", "enum", "UNDEFINED", ("PARENTS",),
+               ("UNDEFINED", "RIGHT", "LEFT", "DOWN", "UP")),
+    OptionSpec("org.eclipse.elk.padding", "elk.padding", "padding",
+               Padding(top=12, right=12, bottom=12, left=12), ("PARENTS", "NODES")),
+    OptionSpec("org.eclipse.elk.spacing.nodeNode", "elk.spacing.nodeNode", "spacing", 20, ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers", "elk.layered.spacing.nodeNodeBetweenLayers",
+               "spacing", 20, ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.separateConnectedComponents", "elk.separateConnectedComponents", "boolean", True,
+               ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.spacing.componentComponent", "elk.spacing.componentComponent", "spacing", 20,
+               ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.edgeRouting", "elk.edgeRouting", "enum", "ORTHOGONAL", ("PARENTS",),
+               ("ORTHOGONAL",)),
+    OptionSpec("org.eclipse.elk.randomSeed", "elk.randomSeed", "seed", 1, ("PARENTS",)),
+    OptionSpec("org.eclipse.elk.portConstraints", "elk.portConstraints", "enum_ordinal", "UNDEFINED", ("NODES",),
+               ("UNDEFINED", "FREE", "FIXED_SIDE", "FIXED_ORDER", "FIXED_RATIO", "FIXED_POS")),
+    OptionSpec("org.eclipse.elk.port.side", "elk.port.side", "enum_ordinal", "UNDEFINED", ("PORTS",),
+               ("UNDEFINED", "NORTH", "EAST", "SOUTH", "WEST")),
+    OptionSpec("org.eclipse.elk.port.index", "elk.port.index", "integer", None, ("PORTS",)),
+    OptionSpec("org.eclipse.elk.port.anchor", "elk.port.anchor", "vector", None, ("PORTS",)),
+    OptionSpec("org.eclipse.elk.port.borderOffset", "elk.port.borderOffset", "signed_number", None, ("PORTS",)),
+)
+# Source-bound additions: references/e13-option-type-sources.json and root
+# independent review5f92e10d. These are Core defaults; algorithm overrides are
+# deliberately separate from explicit element/global properties.
+_SIZE_CONSTRAINTS = ('PORTS', 'PORT_LABELS', 'NODE_LABELS', 'MINIMUM_SIZE')
+_SIZE_OPTIONS = ('DEFAULT_MINIMUM_SIZE', 'MINIMUM_SIZE_ACCOUNTS_FOR_PADDING', 'COMPUTE_PADDING',
+                 'OUTSIDE_NODE_LABELS_OVERHANG', 'PORTS_OVERHANG', 'UNIFORM_PORT_SPACING',
+                 'SPACE_EFFICIENT_PORT_LABELS', 'FORCE_TABULAR_NODE_LABELS', 'ASYMMETRICAL')
+_NODE_LABELS = ('H_LEFT', 'H_CENTER', 'H_RIGHT', 'V_TOP', 'V_CENTER', 'V_BOTTOM',
+                'INSIDE', 'OUTSIDE', 'H_PRIORITY')
+_PORT_LABELS = ('OUTSIDE', 'INSIDE', 'NEXT_TO_PORT_IF_POSSIBLE', 'ALWAYS_SAME_SIDE',
+                'ALWAYS_OTHER_SAME_SIDE', 'SPACE_EFFICIENT')
+_ALIGNMENTS = ('DISTRIBUTED', 'JUSTIFIED', 'BEGIN', 'CENTER', 'END')
+
+
+def _context_spec(name, kind, default, targets, accepted=()):
+    return OptionSpec('org.eclipse.elk.'+name, 'elk.'+name, kind, default, targets, accepted)
+
+
+_NODE_CONTEXT_SPECS = (
+    _context_spec('nodeSize.constraints', 'enumset', frozenset(), ('NODES',), _SIZE_CONSTRAINTS),
+    _context_spec('nodeSize.options', 'enumset', frozenset({'DEFAULT_MINIMUM_SIZE'}), ('NODES',), _SIZE_OPTIONS),
+    _context_spec('nodeSize.minimum', 'vector', Vector2(0, 0), ('NODES',)),
+    _context_spec('nodeSize.fixedGraphSize', 'boolean', False, ('PARENTS',)),
+    _context_spec('nodeLabels.placement', 'enumset', frozenset(), ('NODES', 'LABELS'), _NODE_LABELS),
+    _context_spec('nodeLabels.padding', 'insets', Padding(5, 5, 5, 5), ('PARENTS',)),
+    _context_spec('portLabels.placement', 'enumset', frozenset({'OUTSIDE'}), ('NODES',), _PORT_LABELS),
+    _context_spec('portLabels.treatAsGroup', 'boolean', True, ('NODES',)),
+    _context_spec('portAlignment.default', 'enum_ordinal', 'DISTRIBUTED', ('NODES',), _ALIGNMENTS),
+    *(_context_spec('portAlignment.'+side, 'enum_ordinal', None, ('NODES',), _ALIGNMENTS)
+      for side in ('north', 'east', 'south', 'west')),
+    _context_spec('spacing.labelLabel', 'signed_number', 0, ('PARENTS',)),
+    _context_spec('spacing.labelNode', 'signed_number', 5, ('PARENTS',)),
+    _context_spec('spacing.portPort', 'signed_number', 10, ('PARENTS', 'NODES')),
+    _context_spec('spacing.labelPortHorizontal', 'signed_number', 1, ('PARENTS',)),
+    _context_spec('spacing.labelPortVertical', 'signed_number', 1, ('PARENTS',)),
+    _context_spec('spacing.portsSurrounding', 'insets', Padding(0, 0, 0, 0), ('PARENTS',)),
+    _context_spec('spacing.individual', 'individual_spacings', None, ('NODES', 'EDGES', 'PORTS', 'LABELS')),
+)
+_SPECS += _NODE_CONTEXT_SPECS
+_MICRO_SPECS = (
+    _context_spec('margins', 'insets', Padding(0, 0, 0, 0), ('NODES',)),
+    _context_spec('edgeLabels.placement', 'enum_ordinal', 'CENTER', ('LABELS',), ('CENTER', 'HEAD', 'TAIL')),
+    _context_spec('insideSelfLoops.activate', 'boolean', False, ('NODES',)),
+    _context_spec('insideSelfLoops.yo', 'boolean', False, ('EDGES',)),
+    _context_spec('topdownLayout', 'boolean', False, ('PARENTS',)),
+)
+_SPECS += _MICRO_SPECS
+# Source-reviewed NS preprocessor declarations: e13-kernel-sources.json,
+# NS-preprocess proposal lines48778/48890-91 and OrderingStrategy49755-61.
+_LAYERED_NS_SPECS = (
+    _context_spec('layered.allowNonFlowPortsToSwitchSides', 'boolean', False, ('PORTS',)),
+    _context_spec('layered.considerModelOrder.strategy', 'enum_ordinal', 'NONE', ('PARENTS',),
+                  ('NONE', 'NODES_AND_EDGES', 'PREFER_EDGES', 'PREFER_NODES')),
+)
+_SPECS += _LAYERED_NS_SPECS
+# F06-F09/S01-S02, independent source review a4a162dd. Numeric metadata
+# bounds not actually stored by the source are deliberately not invented.
+_FORCE_STRESS_SPECS = (
+    _context_spec('priority', 'integer', None, ('NODES', 'EDGES')),
+    _context_spec('edgeLabels.inline', 'boolean', False, ('LABELS',)),
+    _context_spec('force.model', 'enum_ordinal', 'FRUCHTERMAN_REINGOLD', ('PARENTS',),
+                  ('EADES', 'FRUCHTERMAN_REINGOLD')),
+    _context_spec('force.iterations', 'integer', 300, ('PARENTS',)),
+    _context_spec('force.temperature', 'signed_number', 0.001, ('PARENTS',)),
+    _context_spec('force.repulsion', 'signed_number', 5, ('PARENTS',)),
+    _context_spec('force.repulsivePower', 'integer', 0, ('EDGES',)),
+    _context_spec('stress.fixed', 'boolean', False, ('NODES',)),
+    _context_spec('stress.desiredEdgeLength', 'signed_number', 100, ('PARENTS', 'EDGES')),
+    _context_spec('stress.dimension', 'enum_ordinal', 'XY', ('PARENTS',), ('XY', 'X', 'Y')),
+    _context_spec('stress.epsilon', 'signed_number', 0.001, ('PARENTS',)),
+    _context_spec('stress.iterationLimit', 'integer', 2147483647, ('PARENTS',)),
+)
+_SPECS += _FORCE_STRESS_SPECS
+OPTION_SPECS = MappingProxyType({spec.id: spec for spec in _SPECS})
+ALGORITHM_DEFAULT_OVERRIDES = MappingProxyType({
+    'org.eclipse.elk.layered': MappingProxyType({'org.eclipse.elk.portAlignment.default': 'JUSTIFIED'}),
+    'org.eclipse.elk.force': MappingProxyType({'org.eclipse.elk.priority': 1, 'org.eclipse.elk.randomSeed': 1}),
+    'org.eclipse.elk.stress': MappingProxyType({'org.eclipse.elk.edgeLabels.inline': True}),
+})
+
+
+def generic_spec(canonical):
+    """Core schemas apart from the preserved nine-option bounded parser.
+
+    Core randomSeed has no default; providers supply their own source default.
+    The generic Core border-offset adapter exposes zero without establishing
+    property presence. These are reviewed declarations, not provider admission.
+    """
+    spec = OPTION_SPECS[canonical]
+    overrides = {
+        'org.eclipse.elk.padding': ('insets', spec.declared_default),
+        'org.eclipse.elk.direction': ('enum_ordinal', spec.declared_default),
+        'org.eclipse.elk.port.borderOffset': ('signed_number', 0),
+        'org.eclipse.elk.randomSeed': ('integer', None),
+    }
+    if canonical not in overrides:
+        return spec
+    kind, default = overrides[canonical]
+    return OptionSpec(spec.id, spec.alias, kind, default, spec.targets, spec.accepted_values)

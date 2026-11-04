@@ -1,0 +1,48 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "Source-caller-specific external label and nested padding contrasts",
+  "cases": [
+    {
+      "id": "external-group-base",
+      "request": "requests/external-group-base.json",
+      "requestSha256": "2c434da6bf5700d26c4e78cace0bbeb7d14a8f54ea5ffd8c73d95cc4bd5c142f",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "external-label-groups",
+      "request": "requests/external-label-groups.json",
+      "requestSha256": "2c6c198bcb205bca00b845560e735c14248615b2c03dbe491e9752e8f0adce5d",
+      "baseline": "external-group-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.portLabels.treatAsGroup",
+          "kind": "changed",
+          "pointer": "/result/children/0/ports/0/labels/0/y",
+          "claim": "On a real external WEST port with no outside connection, group height versus first-label height changes vertical centering"
+        }
+      ]
+    },
+    {
+      "id": "container-label-base",
+      "request": "requests/container-label-base.json",
+      "requestSha256": "3769ce4320456e234009f8a33fcd536d28485a3c55a36d8351730e52c5cf0b0c",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "container-label-padding",
+      "request": "requests/container-label-padding.json",
+      "requestSha256": "bc67c1f61f04ef2b24070a2f0ab3351913e91112092721be6c2475e44664c9df",
+      "baseline": "container-label-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.nodeLabels.padding",
+          "kind": "changed",
+          "pointer": "/result/children/0/height",
+          "claim": "Actual generic inside-label padding contributes to the nested layout container padding"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+{
+  "cases": [
+    {
+      "id": "regular-shared-mixed-orthogonal",
+      "strategy": "NONE",
+      "routing": "ORTHOGONAL",
+      "nodes": [
+        {
+          "id": "a",
+          "pos": [
+            10,
+            20
+          ],
+          "ports": [
+            {
+              "id": "aE",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "pos": [
+            70,
+            35
+          ],
+          "ports": [
+            {
+              "id": "nOut",
+              "side": "NORTH",
+              "allowSwitch": true
+            },
+            {
+              "id": "sMix",
+              "side": "SOUTH"
+            },
+            {
+              "id": "nMix",
+              "side": "NORTH"
+            },
+            {
+              "id": "nIn",
+              "side": "NORTH"
+            },
+            {
+              "id": "idle",
+              "side": "NORTH"
+            },
+            {
+              "id": "cE",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "pos": [
+            150,
+            60
+          ],
+          "ports": [
+            {
+              "id": "bW",
+              "side": "WEST"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "source": "aE",
+          "target": "nIn"
+        },
+        {
+          "id": "e1",
+          "source": "aE",
+          "target": "nMix",
+          "emptyJunction": true
+        },
+        {
+          "id": "e2",
+          "source": "nMix",
+          "target": "bW",
+          "bends": [
+            [
+              -7,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "source": "nOut",
+          "target": "bW"
+        },
+        {
+          "id": "e4",
+          "source": "aE",
+          "target": "sMix"
+        },
+        {
+          "id": "e5",
+          "source": "sMix",
+          "target": "bW"
+        }
+      ],
+      "dummyPlacement": {
+        "start": [
+          100,
+          200
+        ],
+        "step": [
+          7,
+          11
+        ]
+      }
+    },
+    {
+      "id": "same-side-and-north-south-selfloops",
+      "strategy": "PREFER_NODES",
+      "routing": "ORTHOGONAL",
+      "nodes": [
+        {
+          "id": "c",
+          "pos": [
+            17,
+            29
+          ],
+          "ports": [
+            {
+              "id": "l0",
+              "side": "NORTH"
+            },
+            {
+              "id": "l1",
+              "side": "NORTH"
+            },
+            {
+              "id": "np",
+              "side": "NORTH"
+            },
+            {
+              "id": "sp",
+              "side": "SOUTH"
+            },
+            {
+              "id": "so",
+              "side": "SOUTH"
+            },
+            {
+              "id": "no",
+              "side": "NORTH"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "pos": [
+            150,
+            60
+          ],
+          "ports": [
+            {
+              "id": "bW",
+              "side": "WEST"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "loop",
+          "source": "l0",
+          "target": "l1"
+        },
+        {
+          "id": "pair",
+          "source": "np",
+          "target": "sp"
+        },
+        {
+          "id": "south",
+          "source": "so",
+          "target": "bW"
+        },
+        {
+          "id": "north",
+          "source": "no",
+          "target": "bW"
+        }
+      ],
+      "dummyPlacement": {
+        "start": [
+          80,
+          140
+        ],
+        "step": [
+          9,
+          13
+        ]
+      }
+    },
+    {
+      "id": "regular-shared-mixed-spline-leaves",
+      "strategy": "NONE",
+      "routing": "SPLINES",
+      "nodes": [
+        {
+          "id": "a",
+          "pos": [
+            10,
+            20
+          ],
+          "ports": [
+            {
+              "id": "aE",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "c",
+          "pos": [
+            70,
+            35
+          ],
+          "ports": [
+            {
+              "id": "nOut",
+              "side": "NORTH",
+              "allowSwitch": true
+            },
+            {
+              "id": "sMix",
+              "side": "SOUTH"
+            },
+            {
+              "id": "nMix",
+              "side": "NORTH"
+            },
+            {
+              "id": "nIn",
+              "side": "NORTH"
+            },
+            {
+              "id": "idle",
+              "side": "NORTH"
+            },
+            {
+              "id": "cE",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "pos": [
+            150,
+            60
+          ],
+          "ports": [
+            {
+              "id": "bW",
+              "side": "WEST"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "e0",
+          "source": "aE",
+          "target": "nIn"
+        },
+        {
+          "id": "e1",
+          "source": "aE",
+          "target": "nMix",
+          "emptyJunction": true
+        },
+        {
+          "id": "e2",
+          "source": "nMix",
+          "target": "bW",
+          "bends": [
+            [
+              -7,
+              8
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "source": "nOut",
+          "target": "bW"
+        },
+        {
+          "id": "e4",
+          "source": "aE",
+          "target": "sMix"
+        },
+        {
+          "id": "e5",
+          "source": "sMix",
+          "target": "bW"
+        }
+      ],
+      "dummyPlacement": {
+        "start": [
+          100,
+          200
+        ],
+        "step": [
+          7,
+          11
+        ]
+      }
+    }
+  ]
+}

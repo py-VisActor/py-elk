@@ -1,0 +1,356 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright Kiel University and others. Fixed elkjs0.12.1 worker275e6caf.
+# Source: HOST-12/root/bk-entry-source-review-01 and V BK math reviews.
+# Uses separately attributed source_sort/Double host adapters from ports.py.
+"""Source-general Brandes/Koepf with actual type-pair spacing and anchors.
+
+The historical placement module remains read-only. Actual reviewed math is
+reused below; general caller selection, property owners and model bookkeeping
+are independent of its bounded admission checks.
+"""
+import math
+from functools import cmp_to_key
+
+from collections import deque
+from ...execution.diagnostics import BasicProgressMonitor,layout_name,number_text
+from ..radial import IdentitySet
+from ..disco import _IdentityMap
+from .ports import _source_sort,double_compare
+from .property_access import read_layered_scalar
+from .diagnostic_strings import (node_text as _native_node_text,
+                                 port_designation,get_origin_identifier)
+from .placement import (_Neighborhood as _OldNeighborhood,_Layout as _OldLayout,
+                        _vertical_alignment,_Threshold,_ClassNode,_min,_max)
+
+
+def _source_session(graph):return getattr(graph,'_source_session',None)
+
+
+def _node_map_text(groups,graph):
+    state=_source_session(graph)
+    return '{'+', '.join(_native_node_text(key,state)+'=['+
+        ', '.join(_native_node_text(node,state)for node in values)+']'
+        for key,values in groups.items())+'}'
+
+
+def _edge_text(edge,graph):
+    state=_source_session(graph);labels=getattr(edge,'labels',())
+    designation=(labels[0].text if labels and labels[0].text else get_origin_identifier(edge,state))
+    text='e_'+(''if designation is None else designation)
+    if edge.source is not None and edge.target is not None:
+        text+=' '+port_designation(edge.source,state)+'['+_native_node_text(edge.source.owner,state)+'] -> '
+        text+=port_designation(edge.target,state)+'['+_native_node_text(edge.target.owner,state)+']'
+    return text
+
+
+def _feasible(layout,*,monitor=None):
+    for layer in layout.graph.layers:
+        previous=-math.inf;previous_node=None
+        for node in layer.nodes:
+            top=layout.y[node]+layout.inner[node]-node.margin.top
+            bottom=layout.y[node]+layout.inner[node]+node.size.y+node.margin.bottom
+            if top>previous and bottom>previous:
+                previous=layout.y[node]+layout.inner[node]+node.size.y+node.margin.bottom
+                previous_node=node
+            else:
+                if monitor is not None and monitor.record_logs:
+                    state=_source_session(layout.graph)
+                    monitor.log('bk node placement breaks on '+_native_node_text(node,state)+
+                                ' which should have been after '+_native_node_text(previous_node,state))
+                    monitor.log(layout_name(layout)+' is feasible: false')
+                return False
+    if monitor is not None and monitor.record_logs:monitor.log(layout_name(layout)+' is feasible: true')
+    return True
+
+
+class _Neighborhood(_OldNeighborhood):
+    def _neighbors(self,node,left):
+        result=[];maximum=0
+        edges=[edge for port in node.ports for edge in
+               (port.incoming_edges if left else port.outgoing_edges)]
+        for edge in edges:
+            if edge.source.owner is edge.target.owner or edge.source.owner.layer is edge.target.owner.layer:continue
+            priority=read_layered_scalar(edge,'PRIORITY_STRAIGHTNESS','PRIORITY_STRAIGHTNESS')
+            if priority>maximum:maximum=priority;result.clear()
+            if priority==maximum:result.append((edge.source.owner if left else edge.target.owner,edge))
+        def compare(a,b):
+            delta=self.node_index[a[0]]-self.node_index[b[0]]
+            return (delta>0)-(delta<0)
+        _source_sort(result,compare)
+        return result
+
+
+class _Layout(_OldLayout):
+    def __init__(self,graph,nodes,vertical,horizontal):
+        super().__init__(graph,nodes,vertical,horizontal)
+        self.spacings=graph.properties.get('SPACINGS')
+
+    def spacing(self,first,second):
+        return self.spacings.get_vertical_spacing_nodes(first,second)
+
+
+class _LinkedIdentityMap:
+    """Source linked key order with actual shared identity-hash get/put."""
+    def __init__(self,graph):self.map=_IdentityMap(graph);self.order=[];self.none_value=None
+    def get(self,key):return self.none_value if key is None else self.map.get(key)
+    def put(self,key,value):
+        if not any(old is key for old in self.order):self.order.append(key)
+        # Source null-key hash is zero and does not allocate Object identity.
+        if key is None:self.none_value=value
+        else:self.map.put(key,value)
+    def items(self):
+        # Iteration itself does not perform synthetic source hash lookups.
+        return [(key,self.none_value if key is None else self.map.values_by_id[id(key)])for key in self.order]
+
+
+def _inside_block_shift(layout):
+    blocks=_LinkedIdentityMap(layout.graph)
+    for node in layout.nodes:
+        root=layout.root[node];group=blocks.get(root)
+        if group is None:group=[];blocks.put(root,group)
+        group.append(node)
+    for root,_ in blocks.items():
+        above=root.margin.top;below=root.size.y+root.margin.bottom
+        layout.inner[root]=0.0;current=root
+        while layout.align[current] is not root:
+            following=layout.align[current]
+            edge=next(edge for port in current.ports for edge in [*port.incoming_edges,*port.outgoing_edges]
+                      if edge.source.owner is following or edge.target.owner is following)
+            if layout.horizontal=='LEFT':
+                difference=edge.target.pos.y+edge.target.anchor.y-edge.source.pos.y-edge.source.anchor.y
+            else:difference=edge.source.pos.y+edge.source.anchor.y-edge.target.pos.y-edge.target.anchor.y
+            value=layout.inner[current]+difference;layout.inner[following]=value
+            above=_max(above,following.margin.top-value)
+            below=_max(below,value+following.size.y+following.margin.bottom)
+            current=following
+        current=root
+        while True:
+            layout.inner[current]+=above;current=layout.align[current]
+            if current is root:break
+        layout.block_size[root]=above+below
+
+
+class _MarkedEdges:
+    def __init__(self,graph):self.set=IdentitySet(graph)
+    def add(self,edge):self.set.add(edge)
+    def __contains__(self,edge):return self.set.contains(edge)
+    def values(self):return self.set.values()
+
+
+def _mark_conflicts(graph,neighborhood):
+    marked=_MarkedEdges(graph)
+    if len(graph.layers)<3:return marked
+    sizes=[len(layer.nodes)for layer in graph.layers]
+    def inner(node,layer1,layer2):
+        if node.type=='LONG_EDGE':
+            for port in node.ports:
+                for edge in port.incoming_edges:
+                    if (edge.source.owner.type=='LONG_EDGE'
+                            and neighborhood.layer_index[edge.source.owner.layer]==layer2
+                            and neighborhood.layer_index[node.layer]==layer1):return True
+        return False
+    for i in range(1,len(graph.layers)-1):
+        layer=graph.layers[i+1];low=0;position=0
+        for index in range(sizes[i+1]):
+            node=layer.nodes[index]
+            if index==sizes[i+1]-1 or inner(node,i+1,i):
+                high=sizes[i]-1
+                if inner(node,i+1,i):high=neighborhood.node_index[neighborhood.left[node][0][0]]
+                while position<=index:
+                    current=layer.nodes[position]
+                    if not inner(current,i+1,i):
+                        for neighbor,edge in neighborhood.left[current]:
+                            value=neighborhood.node_index[neighbor]
+                            if value<low or value>high:marked.add(edge)
+                    position+=1
+                low=high
+    return marked
+
+
+class _SimpleThreshold(_Threshold):
+    def __init__(self,layout,neighborhood):
+        super().__init__(layout,neighborhood)
+        self.finished=_MarkedEdges(layout.graph)
+
+
+class _NullThreshold(_SimpleThreshold):
+    def calculate(self,old,root,current):return math.inf if self.layout.vertical=='UP'else -math.inf
+    def post_process(self):pass
+
+
+def _balanced_layout(graph,layouts,nodes):
+    balanced=_Layout(graph,nodes,None,None)
+    minimums=[2**31-1.0]*len(layouts);maximums=[-2147483648.0]*len(layouts)
+    widths=[];smallest=0
+    for index,layout in enumerate(layouts):
+        widths.append(layout.size())
+        if widths[smallest]>widths[index]:smallest=index
+        for node in nodes:
+            value=layout.y[node]+layout.inner[node]
+            minimums[index]=_min(minimums[index],value)
+            maximums[index]=_max(maximums[index],value+node.size.y)
+    shifts=[minimums[smallest]-minimums[i]if layout.vertical=='DOWN'else maximums[smallest]-maximums[i]
+            for i,layout in enumerate(layouts)]
+    for node in nodes:
+        calculated=[layout.y[node]+layout.inner[node]+shifts[i]for i,layout in enumerate(layouts)]
+        calculated.sort(key=cmp_to_key(double_compare))
+        balanced.y[node]=(calculated[1]+calculated[2])/2;balanced.inner[node]=0.0
+    return balanced
+
+
+class _Compactor:
+    def __init__(self,graph,neighborhood):
+        self.graph=graph;self.neighborhood=neighborhood
+        self.spacings=graph.properties.get('SPACINGS')
+        self.improve=read_layered_scalar(graph,'NODE_PLACEMENT_BK_EDGE_STRAIGHTENING',
+                                        'NODE_PLACEMENT_BK_EDGE_STRAIGHTENING')=='IMPROVE_STRAIGHTNESS'
+
+    def compact(self,layout):
+        self.layout=layout;self.classes=_IdentityMap(self.graph)
+        self.threshold=(_SimpleThreshold if self.improve else _NullThreshold)(layout,self.neighborhood)
+        for node in layout.nodes:
+            layout.sink[node]=node;layout.shift[node]=-math.inf if layout.vertical=='UP'else math.inf
+            layout.y[node]=None
+        for layer in layout.layers():
+            for node in layout.ordered_nodes(layer):
+                if layout.root[node]is node:self._place_block(node)
+        self._place_classes()
+        for layer in layout.layers():
+            for node in layer.nodes:
+                layout.y[node]=layout.y[layout.root[node]]
+                if node is layout.root[node]:
+                    shift=layout.shift[layout.sink[node]]
+                    if (layout.vertical=='UP'and shift>-math.inf)or(layout.vertical=='DOWN'and shift<math.inf):
+                        layout.y[node]+=shift
+        self.threshold.post_process()
+
+    def _class(self,sink):
+        node=self.classes.get(sink)
+        if node is None:node=_ClassNode(sink);self.classes.put(sink,node)
+        return node
+
+    def _add_class_edge(self,source,target,separation):
+        source.outgoing.append((target,separation));target.indegree+=1
+
+    def _block(self,root):
+        layout=self.layout
+        if layout.y[root]is not None:return
+        initial=True;layout.y[root]=0.0;current=root
+        threshold=-math.inf if layout.vertical=='DOWN'else math.inf
+        while True:
+            index=self.neighborhood.node_index[current];count=len(current.layer.nodes)
+            if (layout.vertical=='DOWN'and index>0)or(layout.vertical=='UP'and index<count-1):
+                neighbor=current.layer.nodes[index+1 if layout.vertical=='UP'else index-1]
+                neighbor_root=layout.root[neighbor]
+                yield neighbor_root  # Resume immediately after the real recursive call.
+                threshold=self.threshold.calculate(threshold,root,current)
+                if layout.sink[root]is root:layout.sink[root]=layout.sink[neighbor_root]
+                if layout.sink[root]is layout.sink[neighbor_root]:
+                    spacing=self.spacings.get_vertical_spacing_nodes(current,neighbor)
+                    old=layout.y[root]
+                    if layout.vertical=='UP':
+                        position=layout.y[neighbor_root]+layout.inner[neighbor]-neighbor.margin.top-spacing-current.margin.bottom-current.size.y-layout.inner[current]
+                        layout.y[root]=_min(position,threshold)if initial else _min(old,_min(position,threshold))
+                    else:
+                        position=layout.y[neighbor_root]+layout.inner[neighbor]+neighbor.size.y+neighbor.margin.bottom+spacing+current.margin.top-layout.inner[current]
+                        layout.y[root]=_max(position,threshold)if initial else _max(old,_max(position,threshold))
+                    if initial:initial=False
+                else:
+                    # This branch deliberately uses the graph nodeNode owner,
+                    # not the type-pair/individual Spacings path above.
+                    spacing=read_layered_scalar(self.graph,'SPACING_NODE_NODE','SPACING_NODE_NODE')
+                    sink=self._class(layout.sink[root]);neighbor_sink=self._class(layout.sink[neighbor_root])
+                    if layout.vertical=='UP':
+                        separation=layout.y[root]+layout.inner[current]+current.size.y+current.margin.bottom+spacing-(layout.y[neighbor_root]+layout.inner[neighbor]-neighbor.margin.top)
+                    else:
+                        separation=layout.y[root]+layout.inner[current]-current.margin.top-layout.y[neighbor_root]-layout.inner[neighbor]-neighbor.size.y-neighbor.margin.bottom-spacing
+                    self._add_class_edge(sink,neighbor_sink,separation)
+            else:threshold=self.threshold.calculate(threshold,root,current)
+            current=layout.align[current]
+            if current is root:break
+        self.threshold.finished.add(root)
+
+    def _place_block(self,root):
+        frames=[self._block(root)]
+        while frames:
+            try:child=next(frames[-1])
+            except StopIteration:frames.pop()
+            else:frames.append(self._block(child))
+
+    def _place_classes(self):
+        nodes=[value for _,value in self.classes.items()]
+        sources=deque(node for node in nodes if node.indegree==0)
+        while sources:
+            node=sources.popleft()
+            if node.shift is None:node.shift=0.0
+            for target,separation in node.outgoing:
+                value=node.shift+separation
+                if target.shift is None:target.shift=value
+                elif self.layout.vertical=='DOWN':target.shift=_min(target.shift,value)
+                else:target.shift=_max(target.shift,value)
+                target.indegree-=1
+                if target.indegree==0:sources.append(target)
+        for node in nodes:self.layout.shift[node.node]=node.shift
+
+
+def _log_choice(monitor,layout,marked):
+    if not monitor.record_logs:return
+    monitor.log('Chosen node placement: '+layout_name(layout))
+    blocks=_LinkedIdentityMap(layout.graph)
+    for node in layout.nodes:
+        root=layout.root[node];group=blocks.get(root)
+        if group is None:group=[];blocks.put(root,group)
+        group.append(node)
+    monitor.log('Blocks: '+_node_map_text(dict(blocks.items()),layout.graph))
+    roots=_LinkedIdentityMap(layout.graph)
+    for root in layout.root.values():roots.put(root,True)
+    classes=_LinkedIdentityMap(layout.graph)
+    for root,_ in roots.items():
+        if root is None:
+            monitor.log('There are no classes in a balanced layout.');break
+        sink=layout.sink[root];group=classes.get(sink)
+        if group is None:group=[];classes.put(sink,group)
+        group.append(root)
+    monitor.log('Classes: '+_node_map_text(dict(classes.items()),layout.graph))
+    monitor.log('Marked edges: ['+', '.join(_edge_text(edge,layout.graph)for edge in marked.values())+']')
+
+
+def bk_node_placer(graph,*,monitor=None):
+    if monitor is None:monitor=BasicProgressMonitor()
+    monitor.begin('Brandes & Koepf node placement',1)
+    neighborhood=_Neighborhood(graph)
+    alignment=read_layered_scalar(graph,'NODE_PLACEMENT_BK_FIXED_ALIGNMENT','NODE_PLACEMENT_BK_FIXED_ALIGNMENT')
+    favor=read_layered_scalar(graph,'NODE_PLACEMENT_FAVOR_STRAIGHT_EDGES','NODE_PLACEMENT_FAVOR_STRAIGHT_EDGES')
+    if type(favor)is not bool:raise TypeError('Actual nonnull configured favorStraightEdges Boolean required')
+    produce_balanced=(alignment=='NONE'and not favor)or alignment=='BALANCED'
+    marked=_mark_conflicts(graph,neighborhood)
+    fixed={'LEFTDOWN':('DOWN','LEFT'),'LEFTUP':('UP','LEFT'),
+           'RIGHTDOWN':('DOWN','RIGHT'),'RIGHTUP':('UP','RIGHT')}
+    if alignment in fixed:
+        vertical,horizontal=fixed[alignment];layouts=[_Layout(graph,neighborhood.nodes,vertical,horizontal)]
+    else:
+        left_down=_Layout(graph,neighborhood.nodes,'DOWN','LEFT');left_up=_Layout(graph,neighborhood.nodes,'UP','LEFT')
+        right_down=_Layout(graph,neighborhood.nodes,'DOWN','RIGHT');right_up=_Layout(graph,neighborhood.nodes,'UP','RIGHT')
+        layouts=[right_down,right_up,left_down,left_up]
+    for layout in layouts:
+        _vertical_alignment(layout,neighborhood,marked);_inside_block_shift(layout)
+    compactor=_Compactor(graph,neighborhood)
+    for layout in layouts:compactor.compact(layout)
+    if monitor.record_logs:
+        for layout in layouts:monitor.log(layout_name(layout)+' size is '+number_text(layout.size()))
+    chosen=None
+    if produce_balanced:
+        balanced=_balanced_layout(graph,layouts,neighborhood.nodes)
+        if _feasible(balanced,monitor=monitor):chosen=balanced
+    if chosen is None:
+        for layout in layouts:
+            if _feasible(layout,monitor=monitor)and(chosen is None or chosen.size()>layout.size()):chosen=layout
+    if chosen is None:chosen=layouts[0]
+    for node in neighborhood.nodes:node.pos.y=chosen.y[node]+chosen.inner[node]
+    _log_choice(monitor,chosen,marked)
+    for layout in layouts:
+        layout.root=None;layout.block_size=None;layout.align=None;layout.inner=None
+        layout.sink=None;layout.shift=None;layout.y=None
+    neighborhood.layer_index=None;neighborhood.node_index=None;neighborhood.left.clear();neighborhood.right.clear()
+    marked.set.buckets.clear()
+    monitor.done()

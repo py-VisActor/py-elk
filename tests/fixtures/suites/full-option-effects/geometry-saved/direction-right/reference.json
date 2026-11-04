@@ -1,0 +1,939 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "e03b8c6f0c4b6b26e56c934064b24b2e637fc557a634721b7e5ae5979e28337f",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "pid": 43496,
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "executableSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "inputBefore": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "labels": [
+          {
+            "id": "nodeLabel",
+            "text": "typed node label",
+            "width": 49,
+            "height": 11
+          }
+        ],
+        "layoutOptions": {
+          "elk.nodeLabels.placement": "[INSIDE, V_CENTER, H_CENTER]",
+          "elk.nodeSize.constraints": "[NODE_LABELS, MINIMUM_SIZE]",
+          "elk.nodeSize.minimum": "(45,31)"
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "e0",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "e1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "e2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "d"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "e3",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "long",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "long",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    }
+  },
+  "constructorBefore": {},
+  "argumentsBefore": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "clock": {
+    "startMs": 1793766439745,
+    "endMs": 1793766439835
+  },
+  "result": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 277,
+        "x": 12,
+        "y": 23.833333333333332
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 279,
+        "x": 64,
+        "y": 27
+      },
+      {
+        "id": "c",
+        "width": 59,
+        "height": 31,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "labels": [
+          {
+            "id": "nodeLabel",
+            "text": "typed node label",
+            "width": 49,
+            "height": 11,
+            "x": 5,
+            "y": 10
+          }
+        ],
+        "layoutOptions": {
+          "elk.nodeLabels.placement": "[INSIDE, V_CENTER, H_CENTER]",
+          "elk.nodeSize.constraints": "[NODE_LABELS, MINIMUM_SIZE]",
+          "elk.nodeSize.minimum": "(45,31)"
+        },
+        "$H": 281,
+        "x": 119,
+        "y": 23
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 285,
+        "x": 198,
+        "y": 26
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 287,
+        "x": 259,
+        "y": 21.166666666666668
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "e0",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": 44,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 64,
+              "y": 38.5
+            },
+            "incomingShape": "a",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "e1",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e1_s0",
+            "startPoint": {
+              "x": 99,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 119,
+              "y": 38.5
+            },
+            "incomingShape": "b",
+            "outgoingShape": "c"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "e2",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e2_s0",
+            "startPoint": {
+              "x": 178,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 198,
+              "y": 38.5
+            },
+            "incomingShape": "c",
+            "outgoingShape": "d"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "d"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "e3",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e3_s0",
+            "startPoint": {
+              "x": 239,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 259,
+              "y": 38.5
+            },
+            "incomingShape": "d",
+            "outgoingShape": "e"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "long",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "long",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "long_s0",
+            "startPoint": {
+              "x": 44,
+              "y": 31.166666666666664
+            },
+            "endPoint": {
+              "x": 259,
+              "y": 29.833333333333336
+            },
+            "bendPoints": [
+              {
+                "x": 54,
+                "y": 31.166666666666664
+              },
+              {
+                "x": 54,
+                "y": 12
+              },
+              {
+                "x": 249,
+                "y": 12
+              },
+              {
+                "x": 249,
+                "y": 29.833333333333336
+              }
+            ],
+            "incomingShape": "a",
+            "outgoingShape": "e"
+          }
+        ],
+        "container": "r"
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    },
+    "$H": 13,
+    "logging": {
+      "name": "Recursive Graph Layout",
+      "children": [
+        {
+          "name": "Layered layout",
+          "logs": [
+            "ELK Layered uses the following 19 modules:",
+            "   Slot 00: org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+            "   Slot 01: org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+            "   Slot 02: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+            "   Slot 03: org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+            "   Slot 04: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+            "   Slot 05: org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+            "   Slot 06: org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+            "   Slot 07: org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+            "   Slot 08: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 09: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 10: org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+            "   Slot 11: org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+            "   Slot 12: org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+            "   Slot 13: org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+            "   Slot 14: org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+            "   Slot 15: org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+            "   Slot 16: org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+            "   Slot 17: org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+            "   Slot 18: org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+          ],
+          "children": [
+            {
+              "name": "Edge and layer constraint edge reversal"
+            },
+            {
+              "name": "Greedy cycle removal"
+            },
+            {
+              "name": "Layer constraint preprocessing"
+            },
+            {
+              "name": "Network simplex layering",
+              "children": [
+                {
+                  "name": "Network simplex"
+                }
+              ]
+            },
+            {
+              "name": "Layer constraint postprocessing"
+            },
+            {
+              "name": "Edge splitting"
+            },
+            {
+              "name": "Port side processing"
+            },
+            {
+              "name": "Port order processing"
+            },
+            {
+              "name": "Minimize Crossings BARYCENTER"
+            },
+            {
+              "name": "Minimize Crossings TWO_SIDED_GREEDY_SWITCH"
+            },
+            {
+              "name": "Layer constraint edge reversal"
+            },
+            {
+              "name": "Node and Port Label Placement and Node Sizing"
+            },
+            {
+              "name": "Node margin calculation"
+            },
+            {
+              "name": "Brandes & Koepf node placement",
+              "logs": [
+                "RIGHTDOWN size is 50.666666666666664",
+                "RIGHTUP size is 42",
+                "LEFTDOWN size is 50.666666666666664",
+                "LEFTUP size is 42",
+                "RIGHTDOWN is feasible: true",
+                "RIGHTUP is feasible: true",
+                "LEFTDOWN is feasible: true",
+                "LEFTUP is feasible: true",
+                "Chosen node placement: RIGHTUP",
+                "Blocks: {n_r.a=[n_r.a, n_r.b, n_typed node label, n_r.d, n_r.e], n(long_edge)_0=[n(long_edge)_0, n(long_edge)_0, n(long_edge)_0]}",
+                "Classes: {n_r.a=[n_r.a, n(long_edge)_0]}",
+                "Marked edges: []"
+              ]
+            },
+            {
+              "name": "Layer size calculation"
+            },
+            {
+              "name": "Orthogonal edge routing"
+            },
+            {
+              "name": "Edge joining"
+            },
+            {
+              "name": "Sort end labels"
+            },
+            {
+              "name": "Restoring reversed edges"
+            }
+          ]
+        }
+      ]
+    },
+    "x": 0,
+    "y": 0,
+    "width": 315,
+    "height": 66
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 277,
+        "x": 12,
+        "y": 23.833333333333332
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 279,
+        "x": 64,
+        "y": 27
+      },
+      {
+        "id": "c",
+        "width": 59,
+        "height": 31,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "labels": [
+          {
+            "id": "nodeLabel",
+            "text": "typed node label",
+            "width": 49,
+            "height": 11,
+            "x": 5,
+            "y": 10
+          }
+        ],
+        "layoutOptions": {
+          "elk.nodeLabels.placement": "[INSIDE, V_CENTER, H_CENTER]",
+          "elk.nodeSize.constraints": "[NODE_LABELS, MINIMUM_SIZE]",
+          "elk.nodeSize.minimum": "(45,31)"
+        },
+        "$H": 281,
+        "x": 119,
+        "y": 23
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 285,
+        "x": 198,
+        "y": 26
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 287,
+        "x": 259,
+        "y": 21.166666666666668
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "e0",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": 44,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 64,
+              "y": 38.5
+            },
+            "incomingShape": "a",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "e1",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e1_s0",
+            "startPoint": {
+              "x": 99,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 119,
+              "y": 38.5
+            },
+            "incomingShape": "b",
+            "outgoingShape": "c"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "e2",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e2_s0",
+            "startPoint": {
+              "x": 178,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 198,
+              "y": 38.5
+            },
+            "incomingShape": "c",
+            "outgoingShape": "d"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "d"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "e3",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "e3_s0",
+            "startPoint": {
+              "x": 239,
+              "y": 38.5
+            },
+            "endPoint": {
+              "x": 259,
+              "y": 38.5
+            },
+            "incomingShape": "d",
+            "outgoingShape": "e"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "long",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "long",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "long_s0",
+            "startPoint": {
+              "x": 44,
+              "y": 31.166666666666664
+            },
+            "endPoint": {
+              "x": 259,
+              "y": 29.833333333333336
+            },
+            "bendPoints": [
+              {
+                "x": 54,
+                "y": 31.166666666666664
+              },
+              {
+                "x": 54,
+                "y": 12
+              },
+              {
+                "x": 249,
+                "y": 12
+              },
+              {
+                "x": 249,
+                "y": 29.833333333333336
+              }
+            ],
+            "incomingShape": "a",
+            "outgoingShape": "e"
+          }
+        ],
+        "container": "r"
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    },
+    "$H": 13,
+    "logging": {
+      "name": "Recursive Graph Layout",
+      "children": [
+        {
+          "name": "Layered layout",
+          "logs": [
+            "ELK Layered uses the following 19 modules:",
+            "   Slot 00: org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+            "   Slot 01: org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+            "   Slot 02: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+            "   Slot 03: org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+            "   Slot 04: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+            "   Slot 05: org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+            "   Slot 06: org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+            "   Slot 07: org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+            "   Slot 08: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 09: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 10: org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+            "   Slot 11: org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+            "   Slot 12: org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+            "   Slot 13: org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+            "   Slot 14: org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+            "   Slot 15: org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+            "   Slot 16: org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+            "   Slot 17: org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+            "   Slot 18: org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+          ],
+          "children": [
+            {
+              "name": "Edge and layer constraint edge reversal"
+            },
+            {
+              "name": "Greedy cycle removal"
+            },
+            {
+              "name": "Layer constraint preprocessing"
+            },
+            {
+              "name": "Network simplex layering",
+              "children": [
+                {
+                  "name": "Network simplex"
+                }
+              ]
+            },
+            {
+              "name": "Layer constraint postprocessing"
+            },
+            {
+              "name": "Edge splitting"
+            },
+            {
+              "name": "Port side processing"
+            },
+            {
+              "name": "Port order processing"
+            },
+            {
+              "name": "Minimize Crossings BARYCENTER"
+            },
+            {
+              "name": "Minimize Crossings TWO_SIDED_GREEDY_SWITCH"
+            },
+            {
+              "name": "Layer constraint edge reversal"
+            },
+            {
+              "name": "Node and Port Label Placement and Node Sizing"
+            },
+            {
+              "name": "Node margin calculation"
+            },
+            {
+              "name": "Brandes & Koepf node placement",
+              "logs": [
+                "RIGHTDOWN size is 50.666666666666664",
+                "RIGHTUP size is 42",
+                "LEFTDOWN size is 50.666666666666664",
+                "LEFTUP size is 42",
+                "RIGHTDOWN is feasible: true",
+                "RIGHTUP is feasible: true",
+                "LEFTDOWN is feasible: true",
+                "LEFTUP is feasible: true",
+                "Chosen node placement: RIGHTUP",
+                "Blocks: {n_r.a=[n_r.a, n_r.b, n_typed node label, n_r.d, n_r.e], n(long_edge)_0=[n(long_edge)_0, n(long_edge)_0, n(long_edge)_0]}",
+                "Classes: {n_r.a=[n_r.a, n(long_edge)_0]}",
+                "Marked edges: []"
+              ]
+            },
+            {
+              "name": "Layer size calculation"
+            },
+            {
+              "name": "Orthogonal edge routing"
+            },
+            {
+              "name": "Edge joining"
+            },
+            {
+              "name": "Sort end labels"
+            },
+            {
+              "name": "Restoring reversed edges"
+            }
+          ]
+        }
+      ]
+    },
+    "x": 0,
+    "y": 0,
+    "width": 315,
+    "height": 66
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schema": "py-elk-iteration-completion/v1",
+  "iteration": "E09",
+  "status": "complete",
+  "completedUtc": "2026-11-03T15:14:00.869350+00:00",
+  "runDirectory": "test-runs/20261103-E09-01",
+  "baselineCommit": "01830431b621c04959120f8e992d8b08c9d5ca8d",
+  "scope": "ADR0008 bounded diagnostics, source-generated clock/log semantics and finite first-release behavior coverage",
+  "validationMode": "change-only per explicit user instruction",
+  "fullValidation": false,
+  "platformFullExecuted": false,
+  "finalWholeMigrationFullDeferred": true,
+  "validationPolicy": "docs/VALIDATION_POLICY.md",
+  "targetedValidation": {
+    "path": "docs/changes/20261103-E09-change-validation.json",
+    "sha256": "41812f7523fd54389d65ecb7d64912287cd94f998d4d02121a2daffaa9099003"
+  },
+  "targetedManifest": {
+    "path": "docs/iterations/E09-validation.json",
+    "sha256": "803293e190fd369dd6215328866f3b5a2e6d52a7a8d9b515020ae8a77c207b7c"
+  },
+  "selectedTargetedTestsPassed": 111,
+  "globalMethodInventoryOnly": 915,
+  "globalMethodSuiteExecuted": false,
+  "baselineMethodCount": 844,
+  "originalNamesRetained": 843,
+  "explicitMethodMigrations": [
+    {
+      "from": "tests/api/test_e08_errors.py::NativeErrorTests.test_logging_and_execution_timing_true_remain_explicitly_unsupported",
+      "to": "tests/api/test_e08_errors.py::NativeErrorTests.test_logging_and_execution_timing_reject_non_bool_flags",
+      "reason": "True diagnostics implemented; keep non-bool rejection and independent four-flag positive coverage."
+    }
+  ],
+  "runtimeAudit": {
+    "path": "references/e09-runtime-audit.json",
+    "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+  },
+  "geometryAndApiReceipt": {
+    "path": "references/e09-installed-check.json",
+    "sha256": "57da4457568cddf191d1ff891812bda87ba66a0622702fbf2809e353ddabe8ea"
+  },
+  "coverageReceipt": {
+    "path": "references/e09-coverage-installed.json",
+    "sha256": "d92950539b782b599491edc0af1f47e4b91eec5e4c03b719bd3dd82a91483269"
+  },
+  "componentApprovals": {
+    "path": "references/e09-component-approvals.json",
+    "sha256": "09ff141f8279493e94416331a968e1fdbdf85db6ff653db0fbf678eb1db1e1a2"
+  },
+  "currentWheel": {
+    "path": "test-runs\\20261103-E09-01\\candidate-build-02\\dist\\py_elk-0.0.1a0-py3-none-any.whl",
+    "sha256": "739f04ebce2782894023dd58b3f1e2e35efda8717f8bdd956c3f7967acedc593",
+    "packageFiles": 43,
+    "pythonModules": 35,
+    "licenseAndNoticeFiles": 7,
+    "pyTypedFiles": 1
+  },
+  "source": {
+    "kernelComponents": 33,
+    "monitorComponents": 40,
+    "geometryLemmaSpans": 11,
+    "exactExternalJavaBuildResolved": false
+  },
+  "behavior": {
+    "declarations": 38,
+    "finiteBehaviorItemsVerified": 219,
+    "pending": 0,
+    "nativeRegistry": [
+      1,
+      9,
+      1
+    ],
+    "fullReferenceCatalog": [
+      12,
+      243,
+      8
+    ]
+  },
+  "actualExecution": {
+    "geometrySuiteCases": 181,
+    "uniqueGeometryRequests": 149,
+    "geometryOuterCaptureProcesses": 894,
+    "newCases": 144,
+    "returnedCases": 132,
+    "expectedErrorCases": 12,
+    "originalMasters": 25,
+    "newCandidateOuterCaptures": 432,
+    "additionalHostAndLifecycleOuterCaptures": 6,
+    "repeatPerEngine": 3,
+    "hostPublicCases": 52,
+    "numberIntrinsicCases": 298,
+    "candidateTimedCaptures": 210,
+    "candidateNonzeroMeasuredLeaves": 1334
+  },
+  "costs": {
+    "finalGeometryCaptureSeconds": 118.987243,
+    "finalGeometryVerifySeconds": 4.383342,
+    "finalCoverageLayoutAndProbeCaptureSeconds": 152.053491,
+    "finalCoverageVerifySeconds": 2.74828,
+    "rootEightTargetedTestsSeconds": 81.194414,
+    "pairedSpeedImprovementClaimed": false
+  },
+  "preservedPriorRuns": [
+    "shared-layout-01",
+    "shared-layout-02",
+    "V/candidate-coverage-01",
+    "V/candidate-coverage-02"
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false,
+  "nextIteration": "E10",
+  "limitation": "Finite bounded witnesses and change checks. No exhaustive graph/path proof, full platform matrix, whole-algorithm acceptance or publication. Full validation deferred until all migration features are complete."
+}

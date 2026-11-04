@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "id": "mixed-default-boundaries",
+      "offsetY": 7,
+      "layers": [
+        [
+          {"id":"b0","constraint":"BOTTOM","y":18,"width":13,"height":4,"margin":[1,2,3,4]},
+          {"id":"t0","constraint":"TOP","type":"EXTERNAL_PORT","y":-4,"width":4,"height":3,"margin":[2,3,4,5]},
+          {"id":"n0","constraint":"NONE","y":-1000,"width":20,"height":2,"margin":[50,6,90,7]},
+          {"id":"t1","constraint":"TOP","y":3,"width":10,"height":7,"margin":[1,0,2,0]},
+          {"id":"b1","constraint":"BOTTOM","type":"EXTERNAL_PORT","y":28,"width":8,"height":8,"margin":[1,2,4,3]}
+        ],
+        [],
+        [
+          {"id":"at0","constraint":"TOP","y":2,"width":6,"height":3,"margin":[1,2,1,2]},
+          {"id":"at1","constraint":"TOP","y":17,"width":9,"height":4,"margin":[2,3,2,4]}
+        ]
+      ]
+    },
+    {
+      "id":"explicit-surrounding",
+      "offsetY":-3,
+      "surrounding":[3,4,5,6],
+      "layers":[[
+        {"id":"last","constraint":"BOTTOM","type":"EXTERNAL_PORT","y":40,"width":9,"height":6,"margin":[1,2,3,4]},
+        {"id":"first","constraint":"TOP","type":"EXTERNAL_PORT","y":6,"width":11,"height":7,"margin":[2,1,5,3]}
+      ]]
+    },
+    {
+      "id":"normal-never-reads-surrounding",
+      "offsetY":2,
+      "layers":[[
+        {"id":"normal","constraint":"NONE","y":-2,"width":8,"height":9,"margin":[1,2,3,4]}
+      ]]
+    },
+    {"id":"all-empty-reset","offsetY":5,"layers":[[],[]]}
+  ]
+}

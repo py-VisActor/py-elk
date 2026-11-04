@@ -1,0 +1,61 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "overlap-root",
+    "layoutOptions": {
+      "elk.algorithm": "sporeOverlap"
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 12
+      },
+      {
+        "id": "b",
+        "x": 8,
+        "y": 2,
+        "width": 14,
+        "height": 16
+      },
+      {
+        "id": "c",
+        "x": 35,
+        "y": 5,
+        "width": 9,
+        "height": 10
+      },
+      {
+        "id": "d",
+        "x": 12,
+        "y": 30,
+        "width": 12,
+        "height": 8
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ]
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ]
+      }
+    ]
+  }
+}

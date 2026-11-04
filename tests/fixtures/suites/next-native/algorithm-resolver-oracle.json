@@ -1,0 +1,155 @@
+{
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "9a78219513f807b68fc567b16e11d003c027b953bc84ce386ec1e3f7d20e027f",
+  "requestSha256": "3db682131a9336bfe108d2be1e6d6ef31e57ac4a7ec4c6bf72067142df509773",
+  "pid": 36456,
+  "parentPid": 29940,
+  "observation": {
+    "lookups": [
+      {
+        "id": "box",
+        "resolved": "org.eclipse.elk.box",
+        "cachedIdentity": true
+      },
+      {
+        "id": "elk.box",
+        "resolved": "org.eclipse.elk.box",
+        "cachedIdentity": true
+      },
+      {
+        "id": "org.eclipse.elk.box",
+        "resolved": "org.eclipse.elk.box",
+        "cachedIdentity": true
+      },
+      {
+        "id": "ox",
+        "resolved": null,
+        "cachedIdentity": true
+      },
+      {
+        "id": "",
+        "resolved": null,
+        "cachedIdentity": true
+      },
+      {
+        "id": "missing",
+        "resolved": null,
+        "cachedIdentity": true
+      },
+      {
+        "id": "layered",
+        "resolved": "org.eclipse.elk.layered",
+        "cachedIdentity": true
+      }
+    ],
+    "cases": [
+      {
+        "id": "absent-leaf",
+        "outcome": "returned",
+        "message": null,
+        "resolved": null,
+        "hasResolved": false,
+        "registryIdentity": true
+      },
+      {
+        "id": "known-leaf",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.box",
+        "hasResolved": true,
+        "registryIdentity": true
+      },
+      {
+        "id": "absent-parent",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.layered",
+        "hasResolved": true,
+        "registryIdentity": true
+      },
+      {
+        "id": "unknown-leaf",
+        "outcome": "returned",
+        "message": null,
+        "resolved": null,
+        "hasResolved": false,
+        "registryIdentity": true
+      },
+      {
+        "id": "unknown-parent",
+        "outcome": "threw",
+        "message": "org.eclipse.elk.core.UnsupportedConfigurationException: Layout algorithm 'missing' not found for Root Node r",
+        "resolved": null,
+        "hasResolved": false,
+        "registryIdentity": true
+      },
+      {
+        "id": "java-blank-parent",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.layered",
+        "hasResolved": true,
+        "registryIdentity": true
+      },
+      {
+        "id": "nbsp-parent",
+        "outcome": "threw",
+        "message": "org.eclipse.elk.core.UnsupportedConfigurationException: Layout algorithm ' ' not found for Root Node r",
+        "resolved": null,
+        "hasResolved": false,
+        "registryIdentity": true
+      },
+      {
+        "id": "skipped-parent",
+        "outcome": "returned",
+        "message": null,
+        "resolved": null,
+        "hasResolved": false,
+        "registryIdentity": true
+      },
+      {
+        "id": "inside-loop-trigger",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.layered",
+        "hasResolved": true,
+        "registryIdentity": true
+      },
+      {
+        "id": "old-resolved-unknown",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.fixed",
+        "hasResolved": true,
+        "registryIdentity": true
+      },
+      {
+        "id": "known-overwrites-old",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.box",
+        "hasResolved": true,
+        "registryIdentity": true
+      },
+      {
+        "id": "nested-error-path",
+        "outcome": "threw",
+        "message": "org.eclipse.elk.core.UnsupportedConfigurationException: Layout algorithm 'missing' not found for Root Node r > Node group",
+        "resolved": null,
+        "hasResolved": false,
+        "registryIdentity": true
+      },
+      {
+        "id": "parent-algorithm-not-default",
+        "outcome": "returned",
+        "message": null,
+        "resolved": "org.eclipse.elk.layered",
+        "hasResolved": true,
+        "registryIdentity": true
+      }
+    ]
+  },
+  "layoutExecuted": false,
+  "candidateExecuted": false,
+  "fullValidation": false
+}

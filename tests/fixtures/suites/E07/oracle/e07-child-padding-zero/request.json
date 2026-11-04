@@ -1,0 +1,55 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "children": [
+      {
+        "id": "n0",
+        "width": 9.25,
+        "height": 3.5
+      },
+      {
+        "id": "n1",
+        "width": 27,
+        "height": 11.75,
+        "layoutOptions": {
+          "org.eclipse.elk.padding": "[top=0,left=0,bottom=0,right=0]"
+        }
+      },
+      {
+        "id": "n2",
+        "width": 5.125,
+        "height": 19
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n2"
+        ]
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": 17,
+      "elk.edgeRouting": "ORTHOGONAL",
+      "elk.padding": "[top=3,left=5,bottom=7,right=11]"
+    }
+  }
+}

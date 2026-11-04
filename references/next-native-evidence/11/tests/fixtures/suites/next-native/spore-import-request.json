@@ -1,0 +1,153 @@
+{
+  "cases": [
+    {
+      "id": "spore-import-margin-cost-update-transfer",
+      "graph": {
+        "id": "root",
+        "x": 17,
+        "y": 29,
+        "width": 200,
+        "height": 180,
+        "layoutOptions": {
+          "org.eclipse.elk.padding": "[top=4,left=7,bottom=9,right=11]",
+          "org.eclipse.elk.spacing.nodeNode": 10,
+          "org.eclipse.elk.processingOrder.spanningTreeCostFunction": "INVERTED_OVERLAP",
+          "org.eclipse.elk.compaction.orthogonal": true
+        },
+        "children": [
+          {
+            "id": "a",
+            "x": 10,
+            "y": 15,
+            "width": 20,
+            "height": 12,
+            "labels": [
+              {
+                "id": "la",
+                "x": -3,
+                "y": -2,
+                "width": 7,
+                "height": 5
+              }
+            ],
+            "ports": [
+              {
+                "id": "pa",
+                "x": 20,
+                "y": 4,
+                "width": 3,
+                "height": 4,
+                "layoutOptions": {
+                  "org.eclipse.elk.port.side": "EAST"
+                }
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "x": 75,
+            "y": 80,
+            "width": 24,
+            "height": 16,
+            "ports": [
+              {
+                "id": "pb",
+                "x": -2,
+                "y": 6,
+                "width": 2,
+                "height": 3,
+                "layoutOptions": {
+                  "org.eclipse.elk.port.side": "WEST"
+                }
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "pa"
+            ],
+            "targets": [
+              "pb"
+            ],
+            "labels": [
+              {
+                "id": "lab",
+                "x": 2,
+                "y": -1,
+                "width": 8,
+                "height": 3,
+                "layoutOptions": {
+                  "org.eclipse.elk.edgeLabels.placement": "HEAD"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "direction": [
+        100,
+        90
+      ],
+      "translations": [
+        [
+          3,
+          -2
+        ],
+        [
+          -4,
+          6
+        ]
+      ]
+    },
+    {
+      "id": "spore-collision-zero-round-then-free-key",
+      "graph": {
+        "id": "r",
+        "layoutOptions": {
+          "org.eclipse.elk.spacing.nodeNode": 0,
+          "org.eclipse.elk.processingOrder.rootSelection": "FIXED",
+          "org.eclipse.elk.processingOrder.preferredRoot": "a"
+        },
+        "children": [
+          {
+            "id": "a",
+            "x": 0,
+            "y": 0,
+            "width": 10,
+            "height": 10
+          },
+          {
+            "id": "b",
+            "x": 0,
+            "y": 0,
+            "width": 10,
+            "height": 10
+          }
+        ]
+      },
+      "direction": [
+        20,
+        20
+      ],
+      "translations": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "draws": [
+        0.5,
+        0.5,
+        0.75,
+        0.25
+      ]
+    }
+  ]
+}

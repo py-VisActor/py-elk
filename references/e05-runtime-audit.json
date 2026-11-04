@@ -1,0 +1,66 @@
+{
+  "schema": "py-elk-e05-runtime-audit/v1",
+  "iteration": "E05",
+  "status": "E05_EXPERIMENTAL_SLICE_VERIFIED",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "scope": {
+    "id": "E05-ADR0004-revision1",
+    "document": "docs/decisions/0004-e05-dag-long-edge.md",
+    "topology": "flat-connected-directed-simple-acyclic-graph",
+    "minimumNodes": 0,
+    "maximumNodes": 8,
+    "maximumInternalNodes": 64,
+    "directions": [
+      "RIGHT",
+      "UNDEFINED"
+    ],
+    "edgeRouting": "ORTHOGONAL",
+    "numericMaximum": 1000000,
+    "nonzeroSigned32Seed": true,
+    "explicitPaddingType": "string",
+    "renewSourceApprovalBeforeExpansion": true
+  },
+  "runtimeClaims": {
+    "nativeLayoutImplemented": true,
+    "experimentalSliceAvailable": true,
+    "publicLayoutApiAccepted": false,
+    "fullAlgorithmAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false,
+    "releaseAccepted": false,
+    "packagePublished": false
+  },
+  "pythonAlgorithmsVerified": 0,
+  "availableExperimentalAlgorithms": [
+    "org.eclipse.elk.layered"
+  ],
+  "coverageDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25,
+    "selectedMasterCases": 12,
+    "excludedMasterCases": 13,
+    "projectVariants": 24,
+    "sliceCases": 36
+  },
+  "filesSha256": {
+    "docs/decisions/0004-e05-dag-long-edge.md": "d90cb5cfa12e886996e925c12ced6c14f914a2ea598a973a09020fb4edec2cda",
+    "references/e04-determinism-policy.json": "352897995c7833a13a5470cfb6a5d72312297605471114c2933370b97835aac3",
+    "references/e04-numeric-regressions.json": "e30c5ee1b1de06223b9df92f8d1e216ad713187c8784070aaa908f48dc553d79",
+    "references/e05-component-approvals.json": "195e98510aca2a66ba7409498cad66964e6ce0702511e34b6628918668b8059e",
+    "references/e05-installed-check.json": "b473af64e9ff4c052898aa82b5ba0ab24a64f1454aa800d290bbdf533c3d936d",
+    "tests/fixtures/suites/E05/cases.json": "ceb6dd9b2bbe5a3f6d9cdf784202e9930f53273be52dfcba40de5c2d993dade6",
+    "tests/fixtures/suites/E05/selection.json": "959b09ee3c61470c8c860d43dda77add1deabdb8225e2409db7898eacee30204"
+  },
+  "installedEvidence": "references/e05-installed-check.json",
+  "algorithmSourceGate": "verified-for-guarded-generated-source-slice-only",
+  "retrospective": "docs/retrospectives/E05.md",
+  "nextIteration": "E06",
+  "runDirectory": "test-runs/20261103-E05-01",
+  "limitation": "Only the explicitly guarded E05 experimental slice. Exact external Java build and project release license remain unresolved. No complete algorithm/API/lifecycle or formal publication acceptance."
+}

@@ -1,0 +1,19 @@
+{
+  "layers":[["empty","a"],["b","c","dummy"]],
+  "nodes":[
+    {"id":"empty","ports":[]},
+    {"id":"a","ports":[["a1","EAST"],["a2","EAST"],["an","NORTH"],["as","SOUTH"]]},
+    {"id":"b","ports":[["bw","WEST"],["bn","NORTH"],["be","EAST"],["bs","SOUTH"],["bu","WEST"]]},
+    {"id":"c","ports":[["cw","WEST"],["ce","EAST"]]},
+    {"id":"dummy","ports":[["do","EAST"],["di","WEST"]]}
+  ],
+  "edges":[["a1","bw"],["a1","bw"],["a2","bn"],["be","an"],["be","cw"],["a1","cw"],["ce","bw"],["do","an"],["as","di"]],
+  "dummy":{"node":"dummy","port":"bn","originPorts":["do","di"]},
+  "oldBarycenters":{"bs":17,"bu":19},
+  "cases":[
+    {"id":"node-relative-real-ranks-retain-other-slots","kind":"NodeRelative","operation":"rank"},
+    {"id":"layer-total-real-ranks-count-ports","kind":"LayerTotal","operation":"rank"},
+    {"id":"node-relative-real-forward-sweep-ns-inlayer","kind":"NodeRelative","operation":"sweep"},
+    {"id":"layer-total-real-forward-sweep-ns-inlayer","kind":"LayerTotal","operation":"sweep"}
+  ]
+}

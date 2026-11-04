@@ -1,0 +1,83 @@
+{
+  "schema": "py-elk-targeted-closure-progress/v1",
+  "sourceCodeChanged": true,
+  "currentVersion": "0.1.0",
+  "repeatedFrozenFullChecks": false,
+  "performance": {
+    "status": "verified_declared_profiles",
+    "document": "docs/FULL_PERFORMANCE.md",
+    "profiles": 39,
+    "warmups": 39,
+    "formalSamples": 195,
+    "iterationObservations": 6,
+    "installedVersion": "0.1.0",
+    "wheelSha256": "0e7c089b37728d6a0a10374c9df488f48bb5b96c12d92c04d8b761618fabc9d9",
+    "host": "Windows-11-10.0.26200-SP0",
+    "maxWorkerPeakBytes": 44560384,
+    "scopeNote": "Pre-repair version-only candidate; no measurements rebound to the final repair/README candidate"
+  },
+  "determinism": {
+    "status": "verified_declared_profiles",
+    "profiles": 39,
+    "stableFiveResults": 39,
+    "allStable": true,
+    "rawReportSha256": "695a88216445d49e726e4ff40ca2d5f66b1a3efdbee9256c421e4b6366d54db2",
+    "scope": "Same seed37, same installed0.1 artifact, same worker within each finite profile; no process-history or all-parameter guarantee"
+  },
+  "optionCoverage": {
+    "metadataVerified": 243,
+    "parserValueVerified": 235,
+    "sourceUnavailableRawFactories": 8,
+    "optionsExplicitlyPresentInPublicSuites": 88,
+    "layoutGeometryScoped": 73,
+    "runtimeStateScoped": 15,
+    "completeOptionSemantics": 0
+  },
+  "advancedGeometry": {
+    "observations": 142,
+    "applicablePredicates": 6590,
+    "applicableFailures": 0,
+    "partiallyAssessedObservations": 40,
+    "notAssessedItems": 188,
+    "rawReport": "test-runs/full-native-closure/A/advanced-geometry-final/report.json"
+  },
+  "freshCheckout": {
+    "status": "verified_at_saved_snapshot",
+    "summary": "test-runs/full-native-closure/B/clean-checkout-final-summary.json",
+    "scope": "Independent Git commit/clone, byte filters, source-only release, selected pure checks; later helper additions use affected checks"
+  },
+  "publication": {
+    "status": "UNPUBLISHED_LAST_INDEX_OBSERVATION_404",
+    "httpStatus": 404,
+    "published": false,
+    "publisherReplyReceived": false,
+    "downloadVerifier": "scripts/iteration/pypi_release.py"
+  },
+  "remaining": [
+    "Map finite declared branches and243 option roles to existing Source/case/assertion/status, then close only concrete missing witnesses",
+    "Reconcile final exit states; actual PyPI configuration, upload and download verification"
+  ],
+  "nativeRuntimeChangedFilesSinceFrozen": [
+    "pyelk/__init__.py",
+    "pyelk/algorithms/mrtree.py"
+  ],
+  "repairDecision": "docs/decisions/0015-mrtree-recursive-cycle.md",
+  "repairCandidateReadiness": "docs/releases/0.1.0-readiness.json",
+  "optionEvidence": {
+    "manifest": "references/full-native-closure/options.manifest.json",
+    "portableWindowsStrictPassed": true,
+    "portableLinuxStrictPassed": true,
+    "recordedIn": "test-runs/full-native-closure/V/option-archive/git-clean-closure-02.json"
+  },
+  "algorithmGeometry": {
+    "document": "docs/INDEPENDENT_ALGORITHM_GEOMETRY.md",
+    "report": "docs/changes/20261104-independent-algorithm-geometry.json",
+    "observations": 28,
+    "passPerEngine": 10,
+    "notAssessedPerEngine": 4,
+    "failPerEngine": 0,
+    "unitMethods": 9,
+    "numericalNegativeControlsCaught": 7,
+    "newLayoutExecutions": 0
+  }
+}

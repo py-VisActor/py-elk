@@ -1,0 +1,57 @@
+FF
+======================================================================
+FAIL: test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal (tests.next_native.test_micro_state.PrivateMicroStateTests.test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 32, in test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal
+    def test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal(self): self.run_case('property-presence')
+                                                                                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 24, in run_case
+    self.assertEqual(result.returncode,0,result.stderr.decode(errors='replace'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 193, in <module>
+    args=parser.parse_args();print(json.dumps(probe(args.workspace,args.case)))
+                                              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 98, in probe
+    assert imported.has_option(root,'stress.desiredEdgeLength')
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-u8hfitdq\restored\src\pyelk\execution\json_transfer.py", line 305, in has_option
+    reader, kind, name = self._property(element, name)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-u8hfitdq\restored\src\pyelk\execution\json_transfer.py", line 299, in _property
+    if canonical not in OPTION_SPECS:
+                        ^^^^^^^^^^^^
+NameError: name 'OPTION_SPECS' is not defined
+
+
+======================================================================
+FAIL: test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics (tests.next_native.test_micro_state.PrivateMicroStateTests.test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 33, in test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics
+    def test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics(self): self.run_case('source-option-additions')
+                                                                                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 24, in run_case
+    self.assertEqual(result.returncode,0,result.stderr.decode(errors='replace'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 193, in <module>
+    args=parser.parse_args();print(json.dumps(probe(args.workspace,args.case)))
+                                              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 154, in probe
+    assert imported.option(root,'force.model')=='EADES'
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-u8hfitdq\restored\src\pyelk\execution\json_transfer.py", line 264, in option
+    reader, kind, name = self._property(element,name)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-u8hfitdq\restored\src\pyelk\execution\json_transfer.py", line 299, in _property
+    if canonical not in OPTION_SPECS:
+                        ^^^^^^^^^^^^
+NameError: name 'OPTION_SPECS' is not defined
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.277s
+
+FAILED (failures=2)

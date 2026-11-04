@@ -1,0 +1,51 @@
+{
+  "schema": "py-elk-iteration-final-validation/v1",
+  "iteration": "E10",
+  "status": "CHANGE_VALIDATION_COMPLETE",
+  "completedUtc": "2026-11-03T15:47:27.664815+00:00",
+  "fullValidation": false,
+  "platformFullExecuted": false,
+  "globalMethodSuiteExecuted": false,
+  "targetedTests": 14,
+  "wheelPlatformCells": 8,
+  "sdistRepresentativeCells": 2,
+  "publicWarmups": 3,
+  "publicMeasuredSamples": 15,
+  "instrumentedSamples": 3,
+  "runtimeAudit": {
+    "path": "references/e10-runtime-audit.json",
+    "sha256": "859be9da313d9c14bbf7435ab7fd95d35024d3df68b3a35d31219f66e51e02a5"
+  },
+  "changeValidation": {
+    "path": "docs/changes/20261103-E10-change-validation.json",
+    "sha256": "20c64b324263d539206afc4835a2c6fb0124535a654a81141e9cb71db22a4a22"
+  },
+  "iterationRecord": {
+    "path": "docs/changes/20261103-E10.json",
+    "sha256": "bd57745793ccd04bc4da14614431e4e7d761be9b880de89da2b3a46d901cfe54"
+  },
+  "machinePlan": {
+    "path": "docs/iteration-plan.json",
+    "sha256": "562a486e71a0bd5c2de4b3ad210bbce57bee16f85e8e24cd5ad6dbd4bcd1754b"
+  },
+  "completionMetadataCheck": {
+    "command": [
+      "python",
+      "scripts/validate_e01_audit.py"
+    ],
+    "exitCode": 0,
+    "status": "E01_AUDIT_VALIDATED"
+  },
+  "completionOnlyChangesAfterChangeAudit": [
+    {
+      "path": "docs/retrospectives/E10.md",
+      "sha256": "a2d970db96852fdc10102db7e2c2f07bcfc1c8440688be1e202e758b8d128a78",
+      "reason": "Match required retrospective section titles and document standard command-record formatting; no runtime, test or capture inputs changed"
+    }
+  ],
+  "finalWholeMigrationFullDeferred": true,
+  "packagePublished": false,
+  "pythonAlgorithmsVerified": 0,
+  "goalStatus": "active",
+  "nextIteration": "E11"
+}

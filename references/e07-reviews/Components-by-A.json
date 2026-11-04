@@ -1,0 +1,176 @@
+{
+  "schema": "py-elk-e07-independent-source-review/v1",
+  "reviewerLane": "A",
+  "ownerLane": "B",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "sourceDocument": {
+    "path": "references/e07-source-components-B.json",
+    "sha256": "a09ac46bb9fd8cc5c1c0b66e906a6699843767395feb59ab9fada2cd378007b5"
+  },
+  "components": [
+    {
+      "componentId": "components:split",
+      "canonicalComponentSha256": "4d130819d010e1ef4405c17c5245abfed9e1c8835b5b6ffd89ab4fa7a8bb77bd",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "independentChecks": [
+        "Read canonical split_2/dfs_1 and the actual LPort neighbor iterable/iterator callbacks. Reset0/mark1, current port order, incoming-source before outgoing-target DFS and self-loop termination preserve identities without edge/port allocation.",
+        "Separate=true allocates fresh graph/list/vector/padding containers but shallow-copies property VALUES, preserving shared global RANDOM/PROCESSORS/GRAPH_PROPERTIES; root target node list remains until combine. EXT_PORT_CONNECTIONS fresh empty set and graph minimum-key deletion are actual writes.",
+        "Separate=false returns original graph identity without DFS/reset/reorder/new component; disconnected NS/GREEDY/downstream contents remain separate approvals. Default external/model-order guards select the real SimpleRow placer."
+      ]
+    },
+    {
+      "componentId": "components:simple-row-combine",
+      "canonicalComponentSha256": "a1710aa1d900ea3f1c29c929d27f5889d66dbb1821505b77a620d57a459f7c8e",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "independentChecks": [
+        "Read singleton same-object/distinct-object/empty branches literally: distinct moveGraph mutates source.offset by add(0,0), moves nodes and all outgoing bends/real JP, changes owner then copies properties/padding/size. Same object early return is not reused for distinct singleton.",
+        "Default priority sum0 and exact ascending area Double comparator yield stable discovery-order ties, with signed-zero distinction. Actual insertion/merge threshold7 and dynamic sort/callback types are bound; stable Python comparator mapping retains these order semantics for<=8 finite rectangles.",
+        "Read source sort/totalArea/maxRowWidth sqrt*1.600000023841858 and row literal arithmetic. Packing consumes post-direction component size/offset, uses independently resolved componentSpacing, materializes real JP even empty, resets offsets, then STILL executes moveGraphs/moveGraph_0(0,0) second arithmetic/ownership pass. No zero-offset skip or component padding addition is licensed.",
+        "Compactor/model-order/external/labels/advanced size options are explicitly guarded out. Unique JP getter proof is inherited through exact immutable E06 artifact and selected proof pointer; no duplicate default getter."
+      ]
+    },
+    {
+      "componentId": "components:layout-finalization",
+      "canonicalComponentSha256": "cab226eb9545a2e88f9561803f8962c028b9e0a7ec2bebb5c646ba2361d45064",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "independentChecks": [
+        "Read actual layout_1 cleanup after all globally selected processors: layer-node append in layer order, clear each layer nodes, set node.layer null, clear layers. Global SELF_LOOPS may make every component run loop4; cleanup does not reselect a local chain.",
+        "Read resizeGraph/default constraints/options/contentAlignment actual type/default chains. EnumSet runtime cast map lacks interface4, so registered clone callback alone does not imply Property.getDefault clone/store: three default properties stay absent. No minimum-size growth is selected under empty sizing constraints.",
+        "Retain source size+padding and final -padding operation order even without growth, while fixedGraphSizefalse calls actual resize helper. Empty public root bypasses phases independently; private empty-combine/resize is not misreported as public layout work."
+      ]
+    }
+  ],
+  "canonicalBinding": {
+    "sources": 2,
+    "spanOccurrences": 152,
+    "functionOffsetOccurrences": 119,
+    "staticCallEdges": 58,
+    "realSymbolTokens": true,
+    "functionLineAlignment": true,
+    "claim": "Actual canonical Git byte/LF/UTF16/lexical checks, not dynamic reachability or mathematical automation."
+  },
+  "hostMappings": {
+    "artifactOccurrencesChecked": 4,
+    "artifactBindings": [
+      {
+        "path": "references/e04-source-components-A.json",
+        "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b",
+        "jsonPointer": "/hostSupportPolicy"
+      },
+      {
+        "path": "references/e04-source-components-A.json",
+        "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b",
+        "jsonPointer": "/hostSupportPolicy"
+      },
+      {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54",
+        "jsonPointer": "/components/5/hostMappings/1"
+      },
+      {
+        "path": "references/e04-source-components-A.json",
+        "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b",
+        "jsonPointer": "/hostSupportPolicy"
+      }
+    ],
+    "sourceDefaultObservation": "EnumSet non-type4 distinguished from KVector/ElkPadding mutable defaults; absence is preserved where source does not write."
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "license": {
+    "sourceSpdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "licenseFilesSha256": {
+      "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+      "src/pyelk/_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+      "src/pyelk/_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+      "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6"
+    },
+    "fixedGeneratedWorkerIsActualPortSource": true,
+    "exactExternalJavaBuildVerified": false,
+    "projectDistributionLicenseResolved": false
+  },
+  "findings": [],
+  "reviewHistory": [
+    {
+      "status": "resolved-before-formal-proposal",
+      "detail": "B v2 added explicit prototype/constructor callback bindings and literal second add-zero pass before this formal review; no algorithm guard relaxation."
+    },
+    {
+      "status": "reviewer-harness-corrected-not-source-defect",
+      "detail": "First run-only draft check required a top componentSeals object which the B draft intentionally did not contain; KeyError retained, next check reported computed seals without claiming absent top binding. Formal source has exact top seals and passes unchanged checks."
+    }
+  ],
+  "externalPrerequisites": [
+    "Root/A must supply approved real importer/prepare/direction/transformed size/offset and the actually selected complete phase list. This local component review does not approve those producers.",
+    "Separatefalse disconnected/private NS/other phases require their own E07 source/host admission proof. True workgraphs must be real split components.",
+    "Finite per-kernel extents and global176/196/392/8-component bounds remain guarded input prerequisites; source proposal does not derive them from finite trace maxima."
+  ],
+  "limits": {
+    "runtimeVerified": false,
+    "wholeE07SourceGateAccepted": false,
+    "fullAlgorithmAccepted": false,
+    "reviewDoesNotWriteProduction": true
+  },
+  "evidence": [
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-proposal-pre-read-01.command.json",
+      "sha256": "e2ee628dd2d278fcc6f89d775c7fc39d52afba7de330149110d78cdd500891f2"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-proposal-pre-read-01.stdout.log",
+      "sha256": "eae47dcf685cd7b09c09359d9cd29dbc8c4482803eda2c2d3860e808f8bc1fd0"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-proposal-pre-read-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-component-source-independent-read-01.command.json",
+      "sha256": "0c6bbb48f6442951808ab8903296b11859be8ec2217ecc1936e02aca38456b02"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-component-source-independent-read-01.stdout.log",
+      "sha256": "b68ea12bf56abd4f317265fc0b967e17fe4a6bd6b685a73fc86b7836801fcafc"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-component-source-independent-read-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-adjacency-sort-move-read-01.command.json",
+      "sha256": "e1736faf06b603ae35cdd08493f027af86a36c057c6d6f9f8e5a838649940a11"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-adjacency-sort-move-read-01.stdout.log",
+      "sha256": "cdc287696269b8b67a7c7d74a1414b93f384116bf80000464b26e1bc3f020446"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-adjacency-sort-move-read-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-source-draft-canonical-independent-02.command.json",
+      "sha256": "76a69d5b48118016868b967cefcec193236e5ed86095aec4e2a2bc13cc78b034"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-source-draft-canonical-independent-02.stdout.log",
+      "sha256": "dd0d290317379a2239331c925a14bd2cc419a485a85df0e2af770a4e9617e2f6"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-source-draft-canonical-independent-02.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-source-formal-canonical-01.command.json",
+      "sha256": "5a0ef8a86f2d618886136244bcf8e0e8b6e679363eeb3454450ce1c3e543f132"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-source-formal-canonical-01.stdout.log",
+      "sha256": "ee70e4aa3d8b232b40778536d2029f380b4cf32ccf51748c6b0fd677921140af"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E07-01/A/B-source-formal-canonical-01.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

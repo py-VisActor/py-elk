@@ -1,0 +1,15 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "tests/fixtures/suites/next-native/json-wire-sources.json": "7057c14d2eb5a1486b6bd2a05d5e91b3b3bbe8de2018575b7acb4d496235ad39",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "tests/fixtures/suites/next-native/json-wire-oracle.json": "533e93a020589770a2f18c33acab48d27ca1996846485309d9402f3c771c970e"
+  },
+  "notes": [
+    "Original JSONNumber/JSONObject preserve NaN/+Inf/-Inf as internal Number, then actual JSON.stringify emits null for each at final wire boundary. Three actual source helper observations have original argv/log/request/source hashes; no candidate or layout executed.",
+    "Existing radial additionalWedge original null and native internal NaN phase evidence retained; root policy may match this final wire representation without pretending finite geometry or changing source math/input strictness.",
+    "Scope does not cover RuntimeRootNode int/double normalization, arbitrary object serialization or native input acceptance."
+  ]
+}

@@ -1,0 +1,987 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "5d8cd33d005828ee7141fd8dbe802d03858cfc5e67e83890da7713d3e5809f24",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "e05-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "root-business-stack"
+      }
+    },
+    "children": [
+      {
+        "id": "dag-node-3",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 277,
+        "x": 172,
+        "y": 29.666666666666664
+      },
+      {
+        "id": "dag-node-7",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 279,
+        "x": 372,
+        "y": 15.333333333333334
+      },
+      {
+        "id": "dag-node-1",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 281,
+        "x": 72,
+        "y": 12
+      },
+      {
+        "id": "dag-node-5",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 283,
+        "x": 272,
+        "y": 33
+      },
+      {
+        "id": "dag-node-0",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 285,
+        "x": 12,
+        "y": 17
+      },
+      {
+        "id": "dag-node-6",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 287,
+        "x": 322,
+        "y": 12
+      },
+      {
+        "id": "dag-node-2",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 289,
+        "x": 122,
+        "y": 29.666666666666664
+      },
+      {
+        "id": "dag-node-4",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 291,
+        "x": 222,
+        "y": 33
+      }
+    ],
+    "edges": [
+      {
+        "id": "dag-edge-9",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-7"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-9_s0",
+            "startPoint": {
+              "x": 42,
+              "y": 32
+            },
+            "endPoint": {
+              "x": 372,
+              "y": 28.666666666666664
+            },
+            "bendPoints": [
+              {
+                "x": 52,
+                "y": 32
+              },
+              {
+                "x": 52,
+                "y": 70.66666666666666
+              },
+              {
+                "x": 362,
+                "y": 70.66666666666666
+              },
+              {
+                "x": 362,
+                "y": 28.666666666666664
+              }
+            ],
+            "incomingShape": "dag-node-0",
+            "outgoingShape": "dag-node-7"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-8",
+        "sources": [
+          "dag-node-1"
+        ],
+        "targets": [
+          "dag-node-6"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-8_s0",
+            "startPoint": {
+              "x": 102,
+              "y": 18.666666666666664
+            },
+            "endPoint": {
+              "x": 322,
+              "y": 18.666666666666664
+            },
+            "incomingShape": "dag-node-1",
+            "outgoingShape": "dag-node-6"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-7",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-4"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-7_s0",
+            "startPoint": {
+              "x": 42,
+              "y": 27
+            },
+            "endPoint": {
+              "x": 222,
+              "y": 46.33333333333333
+            },
+            "bendPoints": [
+              {
+                "x": 62,
+                "y": 27
+              },
+              {
+                "x": 62,
+                "y": 59.666666666666664
+              },
+              {
+                "x": 212,
+                "y": 59.666666666666664
+              },
+              {
+                "x": 212,
+                "y": 46.33333333333333
+              }
+            ],
+            "incomingShape": "dag-node-0",
+            "outgoingShape": "dag-node-4"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-6",
+        "sources": [
+          "dag-node-6"
+        ],
+        "targets": [
+          "dag-node-7"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-6_s0",
+            "startPoint": {
+              "x": 352,
+              "y": 22
+            },
+            "endPoint": {
+              "x": 372,
+              "y": 22
+            },
+            "incomingShape": "dag-node-6",
+            "outgoingShape": "dag-node-7"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-5",
+        "sources": [
+          "dag-node-5"
+        ],
+        "targets": [
+          "dag-node-6"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-5_s0",
+            "startPoint": {
+              "x": 302,
+              "y": 43
+            },
+            "endPoint": {
+              "x": 322,
+              "y": 25.333333333333332
+            },
+            "bendPoints": [
+              {
+                "x": 312,
+                "y": 43
+              },
+              {
+                "x": 312,
+                "y": 25.333333333333332
+              }
+            ],
+            "incomingShape": "dag-node-5",
+            "outgoingShape": "dag-node-6"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-4",
+        "sources": [
+          "dag-node-4"
+        ],
+        "targets": [
+          "dag-node-5"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-4_s0",
+            "startPoint": {
+              "x": 252,
+              "y": 43
+            },
+            "endPoint": {
+              "x": 272,
+              "y": 43
+            },
+            "incomingShape": "dag-node-4",
+            "outgoingShape": "dag-node-5"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-3",
+        "sources": [
+          "dag-node-3"
+        ],
+        "targets": [
+          "dag-node-4"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-3_s0",
+            "startPoint": {
+              "x": 202,
+              "y": 39.666666666666664
+            },
+            "endPoint": {
+              "x": 222,
+              "y": 39.666666666666664
+            },
+            "incomingShape": "dag-node-3",
+            "outgoingShape": "dag-node-4"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-2",
+        "sources": [
+          "dag-node-2"
+        ],
+        "targets": [
+          "dag-node-3"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-2_s0",
+            "startPoint": {
+              "x": 152,
+              "y": 39.666666666666664
+            },
+            "endPoint": {
+              "x": 172,
+              "y": 39.666666666666664
+            },
+            "incomingShape": "dag-node-2",
+            "outgoingShape": "dag-node-3"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-1",
+        "sources": [
+          "dag-node-1"
+        ],
+        "targets": [
+          "dag-node-2"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-1_s0",
+            "startPoint": {
+              "x": 102,
+              "y": 25.333333333333332
+            },
+            "endPoint": {
+              "x": 122,
+              "y": 39.666666666666664
+            },
+            "bendPoints": [
+              {
+                "x": 112,
+                "y": 25.333333333333332
+              },
+              {
+                "x": 112,
+                "y": 39.666666666666664
+              }
+            ],
+            "incomingShape": "dag-node-1",
+            "outgoingShape": "dag-node-2"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-0",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-1"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-0_s0",
+            "startPoint": {
+              "x": 42,
+              "y": 22
+            },
+            "endPoint": {
+              "x": 72,
+              "y": 22
+            },
+            "incomingShape": "dag-node-0",
+            "outgoingShape": "dag-node-1"
+          }
+        ],
+        "container": "e05-root"
+      }
+    ],
+    "layoutOptions": {
+      "elk.randomSeed": 17
+    },
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 414,
+    "height": 83.66666666666666
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "e05-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "root-business-stack"
+      }
+    },
+    "children": [
+      {
+        "id": "dag-node-3",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 277,
+        "x": 172,
+        "y": 29.666666666666664
+      },
+      {
+        "id": "dag-node-7",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 279,
+        "x": 372,
+        "y": 15.333333333333334
+      },
+      {
+        "id": "dag-node-1",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 281,
+        "x": 72,
+        "y": 12
+      },
+      {
+        "id": "dag-node-5",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 283,
+        "x": 272,
+        "y": 33
+      },
+      {
+        "id": "dag-node-0",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 285,
+        "x": 12,
+        "y": 17
+      },
+      {
+        "id": "dag-node-6",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 287,
+        "x": 322,
+        "y": 12
+      },
+      {
+        "id": "dag-node-2",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 289,
+        "x": 122,
+        "y": 29.666666666666664
+      },
+      {
+        "id": "dag-node-4",
+        "width": 30,
+        "height": 20,
+        "business": {
+          "$H": 0,
+          "null": null
+        },
+        "$H": 291,
+        "x": 222,
+        "y": 33
+      }
+    ],
+    "edges": [
+      {
+        "id": "dag-edge-9",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-7"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-9_s0",
+            "startPoint": {
+              "x": 42,
+              "y": 32
+            },
+            "endPoint": {
+              "x": 372,
+              "y": 28.666666666666664
+            },
+            "bendPoints": [
+              {
+                "x": 52,
+                "y": 32
+              },
+              {
+                "x": 52,
+                "y": 70.66666666666666
+              },
+              {
+                "x": 362,
+                "y": 70.66666666666666
+              },
+              {
+                "x": 362,
+                "y": 28.666666666666664
+              }
+            ],
+            "incomingShape": "dag-node-0",
+            "outgoingShape": "dag-node-7"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-8",
+        "sources": [
+          "dag-node-1"
+        ],
+        "targets": [
+          "dag-node-6"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-8_s0",
+            "startPoint": {
+              "x": 102,
+              "y": 18.666666666666664
+            },
+            "endPoint": {
+              "x": 322,
+              "y": 18.666666666666664
+            },
+            "incomingShape": "dag-node-1",
+            "outgoingShape": "dag-node-6"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-7",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-4"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-7_s0",
+            "startPoint": {
+              "x": 42,
+              "y": 27
+            },
+            "endPoint": {
+              "x": 222,
+              "y": 46.33333333333333
+            },
+            "bendPoints": [
+              {
+                "x": 62,
+                "y": 27
+              },
+              {
+                "x": 62,
+                "y": 59.666666666666664
+              },
+              {
+                "x": 212,
+                "y": 59.666666666666664
+              },
+              {
+                "x": 212,
+                "y": 46.33333333333333
+              }
+            ],
+            "incomingShape": "dag-node-0",
+            "outgoingShape": "dag-node-4"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-6",
+        "sources": [
+          "dag-node-6"
+        ],
+        "targets": [
+          "dag-node-7"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-6_s0",
+            "startPoint": {
+              "x": 352,
+              "y": 22
+            },
+            "endPoint": {
+              "x": 372,
+              "y": 22
+            },
+            "incomingShape": "dag-node-6",
+            "outgoingShape": "dag-node-7"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-5",
+        "sources": [
+          "dag-node-5"
+        ],
+        "targets": [
+          "dag-node-6"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-5_s0",
+            "startPoint": {
+              "x": 302,
+              "y": 43
+            },
+            "endPoint": {
+              "x": 322,
+              "y": 25.333333333333332
+            },
+            "bendPoints": [
+              {
+                "x": 312,
+                "y": 43
+              },
+              {
+                "x": 312,
+                "y": 25.333333333333332
+              }
+            ],
+            "incomingShape": "dag-node-5",
+            "outgoingShape": "dag-node-6"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-4",
+        "sources": [
+          "dag-node-4"
+        ],
+        "targets": [
+          "dag-node-5"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-4_s0",
+            "startPoint": {
+              "x": 252,
+              "y": 43
+            },
+            "endPoint": {
+              "x": 272,
+              "y": 43
+            },
+            "incomingShape": "dag-node-4",
+            "outgoingShape": "dag-node-5"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-3",
+        "sources": [
+          "dag-node-3"
+        ],
+        "targets": [
+          "dag-node-4"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-3_s0",
+            "startPoint": {
+              "x": 202,
+              "y": 39.666666666666664
+            },
+            "endPoint": {
+              "x": 222,
+              "y": 39.666666666666664
+            },
+            "incomingShape": "dag-node-3",
+            "outgoingShape": "dag-node-4"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-2",
+        "sources": [
+          "dag-node-2"
+        ],
+        "targets": [
+          "dag-node-3"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-2_s0",
+            "startPoint": {
+              "x": 152,
+              "y": 39.666666666666664
+            },
+            "endPoint": {
+              "x": 172,
+              "y": 39.666666666666664
+            },
+            "incomingShape": "dag-node-2",
+            "outgoingShape": "dag-node-3"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-1",
+        "sources": [
+          "dag-node-1"
+        ],
+        "targets": [
+          "dag-node-2"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-1_s0",
+            "startPoint": {
+              "x": 102,
+              "y": 25.333333333333332
+            },
+            "endPoint": {
+              "x": 122,
+              "y": 39.666666666666664
+            },
+            "bendPoints": [
+              {
+                "x": 112,
+                "y": 25.333333333333332
+              },
+              {
+                "x": 112,
+                "y": 39.666666666666664
+              }
+            ],
+            "incomingShape": "dag-node-1",
+            "outgoingShape": "dag-node-2"
+          }
+        ],
+        "container": "e05-root"
+      },
+      {
+        "id": "dag-edge-0",
+        "sources": [
+          "dag-node-0"
+        ],
+        "targets": [
+          "dag-node-1"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        },
+        "sections": [
+          {
+            "id": "dag-edge-0_s0",
+            "startPoint": {
+              "x": 42,
+              "y": 22
+            },
+            "endPoint": {
+              "x": 72,
+              "y": 22
+            },
+            "incomingShape": "dag-node-0",
+            "outgoingShape": "dag-node-1"
+          }
+        ],
+        "container": "e05-root"
+      }
+    ],
+    "layoutOptions": {
+      "elk.randomSeed": 17
+    },
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 414,
+    "height": 83.66666666666666
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

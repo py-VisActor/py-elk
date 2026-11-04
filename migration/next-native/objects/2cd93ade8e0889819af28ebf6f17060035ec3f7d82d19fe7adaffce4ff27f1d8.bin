@@ -1,0 +1,128 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Fixed elkjs0.12.1 worker275e6caf; HOST18/B/depth-first-source-review-01.
+"""Actual general edge reversal and cached depth-first cycle removal.
+
+Native continuation frames retain the recursive visit/active/exit order without
+adding a Python call-stack limit to valid native work graphs.
+"""
+from .graph import LPort,Vec2,set_port_owner,set_source,set_target
+from .native_properties import CanonicalPropertyMap
+from .ports import set_side
+from .property_access import read_layered_scalar
+from .self_loops_general import _is_self_loop
+from ...execution.diagnostics import BasicProgressMonitor
+from ...execution.node_micro import VectorChain
+
+
+def _boolean(holder,key):
+    value=holder.properties.get(key)
+    if value is None:return False
+    if type(value)is not bool:raise TypeError('An actual native Boolean property is required')
+    return value
+
+
+def _provide_collector_port(node,output):
+    key='OUTPUT_COLLECT'if output else'INPUT_COLLECT'
+    for port in node.ports:
+        if _boolean(port,key):return port
+    port=LPort(properties=CanonicalPropertyMap())
+    port.properties[key]=True
+    set_port_owner(port,node)
+    set_side(port,'EAST'if output else'WEST')
+    port.pos.x=node.size.x if output else 0.0
+    port.pos.y=node.size.y/2
+    return port
+
+
+def reverse_edge(edge,adapt_ports=True):
+    old_source=edge.source;old_target=edge.target
+    set_source(edge,None)
+    set_target(edge,None)
+    if adapt_ports and _boolean(old_target,'INPUT_COLLECT'):
+        set_source(edge,_provide_collector_port(old_target.owner,True))
+    else:set_source(edge,old_target)
+    if adapt_ports and _boolean(old_source,'OUTPUT_COLLECT'):
+        set_target(edge,_provide_collector_port(old_source.owner,False))
+    else:set_target(edge,old_source)
+    for label in edge.labels:
+        placement=read_layered_scalar(label,'EDGE_LABELS_PLACEMENT','EDGE_LABELS_PLACEMENT')
+        if placement=='TAIL':label.properties['EDGE_LABELS_PLACEMENT']='HEAD'
+        elif placement=='HEAD':label.properties['EDGE_LABELS_PLACEMENT']='TAIL'
+    reversed_=_boolean(edge,'REVERSED')
+    edge.properties['REVERSED']=not reversed_
+    bends=VectorChain()
+    for point in edge.bend_points:bends.insert(0,Vec2(point.x,point.y))
+    edge.bend_points=bends
+
+
+_CONFIGURATION=None
+
+
+def _configuration():
+    global _CONFIGURATION
+    if _CONFIGURATION is None:
+        from .layout_configuration import LayoutProcessorConfiguration,LayeredPhase
+        from .phase_factories import IntermediateProcessorStrategy
+        _CONFIGURATION=LayoutProcessorConfiguration()
+        _CONFIGURATION.add_after(tuple(LayeredPhase)[4],IntermediateProcessorStrategy.REVERSED_EDGE_RESTORER)
+    return _CONFIGURATION
+
+
+def _outgoing(node):
+    lists=[port.outgoing_edges for port in node.ports]
+    return(edge for edges in lists for edge in edges)
+
+
+class DepthFirstCycleBreaker:
+    source_name='DepthFirstCycleBreaker'
+
+    def __init__(self):
+        _configuration()
+        self.sources=None;self.visited=None;self.active=None;self.edges_to_be_reversed=None
+
+    def get_layout_processor_configuration(self,graph):return _configuration()
+
+    def _dfs(self,node):
+        if self.visited[node.id]:return
+        self.visited[node.id]=True
+        self.active[node.id]=True
+        frames=[(node,_outgoing(node))]
+        while frames:
+            current,edges=frames[-1]
+            try:edge=next(edges)
+            except StopIteration:
+                self.active[current.id]=False
+                frames.pop()
+                continue
+            if _is_self_loop(edge):continue
+            target=edge.target.owner
+            if self.active[target.id]:self.edges_to_be_reversed.append(edge)
+            elif not self.visited[target.id]:
+                self.visited[target.id]=True
+                self.active[target.id]=True
+                frames.append((target,_outgoing(target)))
+
+    def process(self,graph,monitor=None):
+        monitor=monitor if monitor is not None else BasicProgressMonitor(False,False)
+        monitor.begin('Depth-first cycle removal',1)
+        nodes=graph.layerless_nodes;count=len(nodes)
+        self.sources=[]
+        self.visited=[False]*count
+        self.active=[False]*count
+        self.edges_to_be_reversed=[]
+        for index,node in enumerate(nodes):
+            node.id=index
+            incoming=[port.incoming_edges for port in node.ports]
+            if not any(incoming):self.sources.append(node)
+        for source in self.sources:self._dfs(source)
+        for index in range(count):
+            if not self.visited[index]:self._dfs(nodes[index])
+        for edge in self.edges_to_be_reversed:
+            reverse_edge(edge,True)
+            graph.properties['CYCLIC']=True
+        self.sources=None
+        self.visited=None
+        self.active=None
+        self.edges_to_be_reversed=None
+        monitor.done()

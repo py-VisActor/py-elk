@@ -1,0 +1,183 @@
+{
+  "schema": "py-elk-next-node-size-process-request/v1",
+  "cases": [
+    {
+      "id": "fixed-position-constrained-inside",
+      "size": [
+        100,
+        60
+      ],
+      "options": {
+        "portConstraints": "FIXED_POS",
+        "nodeSize.constraints": "[MINIMUM_SIZE]",
+        "nodeSize.minimum": "(100,60)",
+        "portLabels.placement": "[INSIDE]"
+      },
+      "ports": [
+        {
+          "side": "NORTH",
+          "pos": [
+            10,
+            -4
+          ],
+          "labels": [
+            {
+              "size": [
+                35,
+                12
+              ]
+            }
+          ]
+        },
+        {
+          "side": "NORTH",
+          "pos": [
+            14,
+            -4
+          ],
+          "labels": [
+            {
+              "size": [
+                30,
+                8
+              ]
+            }
+          ]
+        },
+        {
+          "side": "SOUTH",
+          "pos": [
+            38,
+            60
+          ],
+          "labels": [
+            {
+              "size": [
+                22,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "side": "EAST",
+          "pos": [
+            100,
+            20
+          ],
+          "labels": [
+            {
+              "size": [
+                14,
+                16
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "apply-false-outside-overlap",
+      "apply": false,
+      "size": [
+        45,
+        25
+      ],
+      "options": {
+        "portConstraints": "FIXED_SIDE",
+        "nodeSize.constraints": "[PORTS]",
+        "portLabels.placement": "[OUTSIDE,SPACE_EFFICIENT]"
+      },
+      "ports": [
+        {
+          "side": "NORTH",
+          "labels": [
+            {
+              "size": [
+                28,
+                9
+              ]
+            }
+          ]
+        },
+        {
+          "side": "NORTH",
+          "labels": [
+            {
+              "size": [
+                32,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "side": "NORTH",
+          "labels": [
+            {
+              "size": [
+                26,
+                11
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "node-labels-computed-padding",
+      "size": [
+        30,
+        20
+      ],
+      "graphOptions": {
+        "direction": "DOWN"
+      },
+      "options": {
+        "portConstraints": "FIXED_SIDE",
+        "nodeSize.constraints": "[PORTS,NODE_LABELS,MINIMUM_SIZE]",
+        "nodeSize.options": "[COMPUTE_PADDING,MINIMUM_SIZE_ACCOUNTS_FOR_PADDING,DEFAULT_MINIMUM_SIZE]",
+        "nodeSize.minimum": "(24,18)",
+        "nodeLabels.placement": "[INSIDE,V_TOP,H_LEFT]",
+        "portLabels.placement": "[]"
+      },
+      "labels": [
+        {
+          "size": [
+            18,
+            8
+          ]
+        },
+        {
+          "size": [
+            22,
+            10
+          ],
+          "options": {
+            "nodeLabels.placement": "[OUTSIDE,V_TOP,H_CENTER]"
+          }
+        }
+      ],
+      "ports": [
+        {
+          "side": "WEST",
+          "options": {
+            "port.borderOffset": "-5"
+          },
+          "labels": [
+            {
+              "pos": [
+                2,
+                -2
+              ],
+              "size": [
+                14,
+                8
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

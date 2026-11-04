@@ -1,0 +1,326 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "08c95a4806fdfdc23348f1eb6dc45ae6c086b98de53ad7a0952ce8e56f5e9840",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "pid": 6316,
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "executableSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "inputBefore": {
+    "id": "root",
+    "width": 240,
+    "height": 180,
+    "business": {
+      "scope": "new-nonlayered-effects",
+      "preserve": [
+        false,
+        0,
+        null
+      ]
+    },
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "mrtree",
+      "org.eclipse.elk.randomSeed": 83,
+      "org.eclipse.elk.padding": "[top=7,left=11,bottom=13,right=17]",
+      "org.eclipse.elk.spacing.nodeNode": 11,
+      "org.eclipse.elk.mrtree.searchOrder": "BFS"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 12,
+        "x": 2,
+        "y": 0
+      },
+      {
+        "id": "n1",
+        "width": 37,
+        "height": 20,
+        "x": 54,
+        "y": 35
+      },
+      {
+        "id": "n2",
+        "width": 15,
+        "height": 30,
+        "x": 17,
+        "y": 52
+      },
+      {
+        "id": "n3",
+        "width": 42,
+        "height": 17,
+        "x": 97,
+        "y": 18
+      },
+      {
+        "id": "n4",
+        "width": 26,
+        "height": 24,
+        "x": 61,
+        "y": 81
+      },
+      {
+        "id": "n5",
+        "width": 33,
+        "height": 13,
+        "x": 140,
+        "y": 70
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ]
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n4"
+        ]
+      },
+      {
+        "id": "e5",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n5"
+        ]
+      },
+      {
+        "id": "e6",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n5"
+        ]
+      },
+      {
+        "id": "back",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n0"
+        ]
+      }
+    ]
+  },
+  "constructorBefore": {},
+  "argumentsBefore": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "clock": {
+    "startMs": 1793771906448,
+    "endMs": 1793771906461
+  },
+  "outcome": "threw",
+  "error": {
+    "name": "RangeError",
+    "message": "Maximum call stack size exceeded"
+  },
+  "diagnostics": {
+    "errorStack": "RangeError: Maximum call stack size exceeded\n    at fLd.mLd [as Hb] (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6684:447131)\n    at tb (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:4405:84)\n    at btb.dtb [as ze] (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6684:119764)\n    at ytb (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:2820:44)\n    at ckb (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:3005:44)\n    at jQb (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:5346:50)\n    at A3c (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6052:48)\n    at A3c (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6052:320)\n    at A3c (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6052:320)\n    at A3c (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6052:320)"
+  },
+  "inputAfter": {
+    "id": "root",
+    "width": 240,
+    "height": 180,
+    "business": {
+      "scope": "new-nonlayered-effects",
+      "preserve": [
+        false,
+        0,
+        null
+      ]
+    },
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "mrtree",
+      "org.eclipse.elk.randomSeed": 83,
+      "org.eclipse.elk.padding": "[top=7,left=11,bottom=13,right=17]",
+      "org.eclipse.elk.spacing.nodeNode": 11,
+      "org.eclipse.elk.mrtree.searchOrder": "BFS"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 12,
+        "x": 2,
+        "y": 0,
+        "$H": 1128
+      },
+      {
+        "id": "n1",
+        "width": 37,
+        "height": 20,
+        "x": 54,
+        "y": 35,
+        "$H": 1130
+      },
+      {
+        "id": "n2",
+        "width": 15,
+        "height": 30,
+        "x": 17,
+        "y": 52,
+        "$H": 1132
+      },
+      {
+        "id": "n3",
+        "width": 42,
+        "height": 17,
+        "x": 97,
+        "y": 18,
+        "$H": 1134
+      },
+      {
+        "id": "n4",
+        "width": 26,
+        "height": 24,
+        "x": 61,
+        "y": 81,
+        "$H": 1136
+      },
+      {
+        "id": "n5",
+        "width": 33,
+        "height": 13,
+        "x": 140,
+        "y": 70,
+        "$H": 1138
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ]
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n4"
+        ]
+      },
+      {
+        "id": "e5",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n5"
+        ]
+      },
+      {
+        "id": "e6",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n5"
+        ]
+      },
+      {
+        "id": "back",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n0"
+        ]
+      }
+    ],
+    "$H": 1126
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

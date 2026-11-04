@@ -1,0 +1,52 @@
+{
+  "schema": "py-elk-e10-platform-suite/v1",
+  "cases": [
+    {
+      "id": "layered-empty",
+      "request": "requests/layered-empty.json",
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "referenceCase": "layered-empty",
+      "expectedOutcome": "returned"
+    },
+    {
+      "id": "layered-chain",
+      "request": "requests/layered-chain.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "referenceCase": "layered-chain",
+      "expectedOutcome": "returned"
+    },
+    {
+      "id": "layered-diamond-up-flags-11",
+      "request": "requests/layered-diamond-up-flags-11.json",
+      "requestSha256": "4c028db34ed75c91df6464ebdc71f115eb6995b18b7d01829e244dc3210b13a3",
+      "referenceCase": "layered-diamond-up-flags-11",
+      "expectedOutcome": "returned"
+    },
+    {
+      "id": "generated-07",
+      "request": "requests/generated-07.json",
+      "requestSha256": "60704c61d62bfdba2cd23ca9eb8ac34f128c4cded961f265293169a2756102ed",
+      "referenceCase": "generated-07",
+      "expectedOutcome": "returned"
+    },
+    {
+      "id": "error-unknown-endpoint",
+      "request": "requests/error-unknown-endpoint.json",
+      "requestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "referenceCase": "error-unknown-endpoint",
+      "expectedOutcome": "threw"
+    },
+    {
+      "id": "error-unknown-algorithm",
+      "request": "requests/error-unknown-algorithm.json",
+      "requestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "referenceCase": "error-unknown-algorithm",
+      "expectedOutcome": "threw"
+    }
+  ],
+  "cancelRequest": {
+    "path": "tests/fixtures/suites/E08-api/native-request.json",
+    "sha256": "ec027476a833dd6bd89affb777a0d47f6651aeecf145349df1d8c4702cb35fa9"
+  },
+  "runtimeDomainExpansion": false
+}

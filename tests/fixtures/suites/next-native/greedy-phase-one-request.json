@@ -1,0 +1,87 @@
+{
+  "seed": 31,
+  "thoroughness": 2,
+  "nodes": [
+    {
+      "id": "a",
+      "ports": [
+        [
+          "ap",
+          "EAST"
+        ]
+      ]
+    },
+    {
+      "id": "b",
+      "ports": [
+        [
+          "bp",
+          "EAST"
+        ]
+      ]
+    },
+    {
+      "id": "c",
+      "ports": [
+        [
+          "cp",
+          "EAST"
+        ]
+      ]
+    },
+    {
+      "id": "x",
+      "ports": [
+        [
+          "xp",
+          "WEST"
+        ]
+      ]
+    },
+    {
+      "id": "y",
+      "ports": [
+        [
+          "yp",
+          "WEST"
+        ]
+      ]
+    },
+    {
+      "id": "z",
+      "ports": [
+        [
+          "zp",
+          "WEST"
+        ]
+      ]
+    }
+  ],
+  "layers": [
+    [
+      "a",
+      "b",
+      "c"
+    ],
+    [
+      "x",
+      "y",
+      "z"
+    ]
+  ],
+  "edges": [
+    [
+      "ap",
+      "yp"
+    ],
+    [
+      "bp",
+      "zp"
+    ],
+    [
+      "cp",
+      "xp"
+    ]
+  ],
+  "strategy": "ONE_SIDED_GREEDY_SWITCH"
+}

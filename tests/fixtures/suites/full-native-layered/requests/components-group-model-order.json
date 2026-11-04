@@ -1,0 +1,120 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.priority": 3
+        }
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "f",
+        "width": 47,
+        "height": 27,
+        "business": {
+          "id": "f",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cd",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "cd",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.layered.considerModelOrder.components": "GROUP_MODEL_ORDER",
+      "elk.layered.compaction.connectedComponents": true
+    }
+  }
+}

@@ -1,0 +1,193 @@
+{
+  "schema": "py-elk-e08-api-observation/v1",
+  "id": "sequence-unknown-algorithm",
+  "requestSha256": "04a16e0e9e88e7c78965c721a448d2f3d4299ffc0a1e24dd18988a5df9798ca4",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "events": [
+    {
+      "kind": "constructor",
+      "id": "first",
+      "outcome": "returned",
+      "initialized": false
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "layout",
+      "outcome": "threw",
+      "returnKind": "Promise",
+      "error": {
+        "name": "Error",
+        "message": "org.eclipse.elk.core.UnsupportedConfigurationException: Layout algorithm 'DOES_NOT_EXIST' not found for Root Node root",
+        "ownNames": [
+          "stack",
+          "message",
+          "cause",
+          "suppressed"
+        ],
+        "stack": "Error: org.eclipse.elk.core.UnsupportedConfigurationException: Layout algorithm 'DOES_NOT_EXIST' not found for Root Node root\n    at $hd.pz [as ee] (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6684:93397)\n    at $hd.vz [as je] (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6684:93705)\n    at $hd.nz (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:2855:48)\n    at $hd.yz (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:1455:19)\n    at new $hd (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:1502:20)\n    at sjd (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6227:414)\n    at ujd (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:3576:57)\n    at vjd.wjd [as Ig] (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6684:357454)\n    at kwd (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:5398:187)\n    at Vhd (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:5420:137)"
+      },
+      "graphAfter": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "DOES_NOT_EXIST"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 30,
+            "height": 20,
+            "$H": 277
+          },
+          {
+            "id": "b",
+            "width": 30,
+            "height": 20,
+            "$H": 279
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ]
+          }
+        ],
+        "$H": 13
+      },
+      "initialized": true
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "layout",
+      "outcome": "returned",
+      "returnKind": "Promise",
+      "result": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "layered"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 30,
+            "height": 20,
+            "$H": 288,
+            "x": 12,
+            "y": 12
+          },
+          {
+            "id": "b",
+            "width": 30,
+            "height": 20,
+            "$H": 290,
+            "x": 62,
+            "y": 12
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "sections": [
+              {
+                "id": "ab_s0",
+                "startPoint": {
+                  "x": 42,
+                  "y": 22
+                },
+                "endPoint": {
+                  "x": 62,
+                  "y": 22
+                },
+                "incomingShape": "a",
+                "outgoingShape": "b"
+              }
+            ],
+            "container": "root"
+          }
+        ],
+        "$H": 286,
+        "x": 0,
+        "y": 0,
+        "width": 104,
+        "height": 44
+      },
+      "graphAfter": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "layered"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 30,
+            "height": 20,
+            "$H": 288,
+            "x": 12,
+            "y": 12
+          },
+          {
+            "id": "b",
+            "width": 30,
+            "height": 20,
+            "$H": 290,
+            "x": 62,
+            "y": 12
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "sections": [
+              {
+                "id": "ab_s0",
+                "startPoint": {
+                  "x": 42,
+                  "y": 22
+                },
+                "endPoint": {
+                  "x": 62,
+                  "y": 22
+                },
+                "incomingShape": "a",
+                "outgoingShape": "b"
+              }
+            ],
+            "container": "root"
+          }
+        ],
+        "$H": 286,
+        "x": 0,
+        "y": 0,
+        "width": 104,
+        "height": 44
+      },
+      "initialized": true
+    }
+  ]
+}

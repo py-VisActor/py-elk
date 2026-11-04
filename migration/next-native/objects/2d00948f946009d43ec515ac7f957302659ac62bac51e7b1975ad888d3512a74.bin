@@ -1,0 +1,61 @@
+"""Static generic parsing declarations, separate from runtime Property owners.
+
+The metadata default field describes LayoutOptionData only. This module does
+not inject it into Core/algorithm getters, register executable algorithms, or
+change the preserved bounded resolver. No reference files are read at runtime.
+"""
+from types import MappingProxyType
+
+from .._errors import OptionValidationError, UnknownOptionError, UnsupportedOptionError
+from .._json import clone_json, pointer
+from ._catalogue import KNOWN_OPTION_IDS
+from ._generic_data import SCALAR_DECLARATIONS
+from .resolution import _container, _parse
+from .schema import OptionSpec
+
+
+def _spec(row):
+    canonical, kind, default, targets, members = row
+    if kind == 'enumset' and default is not None:
+        default = frozenset(default)
+    return OptionSpec(canonical, canonical[len('org.eclipse.'):], kind, default, targets, members)
+
+
+METADATA_SCALAR_SPECS = MappingProxyType({row[0]: _spec(row) for row in SCALAR_DECLARATIONS})
+
+
+def canonical_generic_id(key, path):
+    canonical = key if key in KNOWN_OPTION_IDS else None
+    if canonical is None and key.startswith('elk.'):
+        candidate = 'org.eclipse.' + key
+        if candidate in KNOWN_OPTION_IDS:
+            canonical = candidate
+    if canonical is None:
+        matches = [name for name in KNOWN_OPTION_IDS if name.endswith('.' + key)]
+        if len(matches) == 1:
+            canonical = matches[0]
+    if canonical is None:
+        raise UnknownOptionError('UNKNOWN_OPTION', path, 'Unknown or unsupported identifier spelling: ' + key)
+    return canonical
+
+
+def parse_generic_mapping(raw, path='/layoutOptions'):
+    """Parse explicitly supplied scalar properties without choosing defaults.
+
+    Targets are declarations used later by the actual global configurator;
+    local JSON property import does not filter them. OBJECT factories remain a
+    separate migration step. Existing finite and strict invalid-value policy
+    applies; this does not claim all permissive source error coercions.
+    """
+    raw = _container(raw, path)
+    parsed, original = {}, {}
+    for spelling, value in raw.items():
+        where = pointer(path, spelling)
+        canonical = canonical_generic_id(spelling, where)
+        if canonical in parsed:
+            raise OptionValidationError('AMBIGUOUS_OPTION', where, 'Two aliases for the same option in one scope')
+        if canonical not in METADATA_SCALAR_SPECS:
+            raise UnsupportedOptionError('UNSUPPORTED_OPTION', where, 'OBJECT property parsing is not part of the scalar registry: ' + canonical)
+        parsed[canonical] = _parse(METADATA_SCALAR_SPECS[canonical], value, where)
+        original[canonical] = clone_json(value, path=where, error_type=OptionValidationError)
+    return parsed, original

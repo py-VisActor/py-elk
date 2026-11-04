@@ -1,0 +1,2715 @@
+{
+  "schema": "py-elk-port-map/v1",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "status": "source-and-assertion-map-inventoried",
+  "sources": [
+    {
+      "id": "elkjs-api",
+      "path": "src/js/elk-api.js",
+      "sha256": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+      "kind": "elkjs-git",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "e0ab45141f2aa338a40a3adde0f5267f296ef66e",
+      "lineCount": 177
+    },
+    {
+      "id": "elkjs-main-node",
+      "path": "src/js/main-node.js",
+      "sha256": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+      "kind": "elkjs-git",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "88ded7e67fe0d431b62e2c4f6d023576893dc765",
+      "lineCount": 53
+    },
+    {
+      "id": "elkjs-java-facade",
+      "path": "src/java/org/eclipse/elk/js/ElkJs.java",
+      "sha256": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+      "kind": "elkjs-git",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "22d4b0c2d148d33c694da7a7b5f0b0ddcc4dc6db",
+      "lineCount": 317
+    },
+    {
+      "id": "elkjs-json-adapter",
+      "path": "src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend",
+      "sha256": "c968d1589ae1bbe74bf9ee75b45043da8c5b51dcd63e4e16e0cfa43fdf2d0c19",
+      "kind": "elkjs-git",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "550adf7a46fd3e8f6453c3e9a9be6dae494020e6",
+      "lineCount": 235
+    },
+    {
+      "id": "npm-worker",
+      "path": "lib/elk-worker.js",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "kind": "npm-artifact",
+      "lineCount": 107033
+    },
+    {
+      "id": "npm-bundled",
+      "path": "lib/elk.bundled.js",
+      "sha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "kind": "npm-artifact",
+      "lineCount": 6770
+    },
+    {
+      "id": "npm-api",
+      "path": "lib/elk-api.js",
+      "sha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "kind": "npm-artifact",
+      "lineCount": 227
+    }
+  ],
+  "components": [
+    {
+      "id": "entry:api-layout",
+      "description": "Call layoutOptions replaces constructor defaults, including explicit empty mapping; local graph options are transferred separately",
+      "sourceRefs": [
+        {
+          "sourceId": "elkjs-api",
+          "symbol": "  layout(graph, {",
+          "lineStart": 65,
+          "lineEnd": 86,
+          "spanSha256": "86a733688c9de543e3098f2f7e2345f32695ca2dc120670cd54738523bc4c409",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "elkjs-java-facade",
+          "symbol": "    private static LayoutConfigurator optsToCfg(final JSONObject opts) {",
+          "lineStart": 278,
+          "lineEnd": 282,
+          "spanSha256": "e92f948818463363778cfb1dbc17891c6efab13fa9614138f7c3377dc434507d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testParameters:it:001",
+        "elkjs:testParameters:it:002",
+        "project:layered-chain",
+        "project:layered-diamond-right",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.elk.ELK.layout",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.options.resolve.resolve_call_options",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "entry:node-worker",
+      "description": "Node wrapper uses bundled minified FakeWorker unless explicit workerFactory is supplied",
+      "sourceRefs": [
+        {
+          "sourceId": "elkjs-main-node",
+          "symbol": "    if (!optionsClone.workerFactory) {",
+          "lineStart": 40,
+          "lineEnd": 44,
+          "spanSha256": "1c428bec242230767930cae9fad883787f9ebdaa32054e1b472af6e617e74676",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testEntryPoints:it:001",
+        "elkjs:testEntryPoints:it:002",
+        "elkjs:testEntryPoints:it:003",
+        "elkjs:testEntryPoints:it:004",
+        "elkjs:testEntryPoints:it:005",
+        "project:layered-chain",
+        "project:layered-diamond-right"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.elk.ELK.__init__",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.execution.context.ExecutionContext",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "entry:json-recursive-layout-export",
+      "description": "JsonImporter transforms JSON; global options use NO_OVERWRITE; recursive engine layouts; importer transfers layout into original JSON",
+      "sourceRefs": [
+        {
+          "sourceId": "elkjs-java-facade",
+          "symbol": "    public static void layout(final JavaScriptObject graphObj,",
+          "lineStart": 162,
+          "lineEnd": 221,
+          "spanSha256": "68d391e991790d66d16eb2c31bbe39ed7d6ce1c2dd28dfc0e6271808ddc61589",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function layout_11(graphObj, layoutOptionsObj, optionsObj){",
+          "lineStart": 81878,
+          "lineEnd": 81907,
+          "spanSha256": "1bce2fb0fc147a5562d7bdcce74e15881a55423841982a2562316887b38e5c92",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testIds:it:001",
+        "elkjs:testIds:it:002",
+        "elkjs:testIds:it:003",
+        "elkjs:testIds:it:004",
+        "elkjs:testIds:it:005",
+        "elkjs:testIds:it:006",
+        "elkjs:testIds:it:007",
+        "elkjs:testLogging:it:006",
+        "project:layered-chain",
+        "project:layered-diamond-right"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.model.adapter.import_graph",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.model.adapter.export_layout",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "entry:algorithm-resolver",
+      "description": "Unconfigured nonempty node falls back to org.eclipse.elk.layered if registered; unknown requested algorithm is rejected",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $resolveAlgorithm(node){",
+          "lineStart": 69155,
+          "lineEnd": 69175,
+          "spanSha256": "711ae547f7e93f4a1e2abd8d60691b09ad56341f0540324001ceebc1cf8d5c37",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:007",
+        "project:error-unknown-algorithm",
+        "project:layered-chain",
+        "project:layered-diamond-right"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.metadata.registry.resolve_algorithm",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "entry:layered-provider",
+      "description": "ELK graph imports into LGraph; flat/hierarchical branch selected; geometry transfers back unless canceled",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.layout = function layout_2(elkgraph, progressMonitor){",
+          "lineStart": 28537,
+          "lineEnd": 28542,
+          "spanSha256": "f86bad3972154ef855ad308b44e0c4c6a5244a46d2614b8e1d87f2775ab2c130",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $importGraph_1(this$static, elkgraph){",
+          "lineStart": 34105,
+          "lineEnd": 34110,
+          "spanSha256": "189c18f2ac0aade6eb27d703f154fee5ee4c0280551e005660a1827408361a88",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $applyLayout_2(this$static, lgraph){",
+          "lineStart": 34610,
+          "lineEnd": 34615,
+          "spanSha256": "36ae23cd94881901234f86b54dbf0ec453594816bc147a96b3f8ca94cc13c5aa",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-diamond-right"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline.layout",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "entry:flat-coordinator",
+      "description": "Prepare graph, split components, run per-component processor list, combine components, resize root",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $doLayout(this$static, lgraph, monitor){",
+          "lineStart": 28205,
+          "lineEnd": 28228,
+          "spanSha256": "8154afd17bf573d03b1a283f6ee0f181b88e3d411534e624db02f726d51f186d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $split_2(this$static, graph){",
+          "lineStart": 30954,
+          "lineEnd": 30991,
+          "spanSha256": "2134c2fa4bb6b77d64389e6e174fb3dd3fe75762e6f166f9212992344f64ada2",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $resizeGraph(lgraph){",
+          "lineStart": 28314,
+          "lineEnd": 28329,
+          "spanSha256": "5384cef7a06c0a414192fe7ea69c4958fbdb416582331ba7e76f4be2780c531d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-diamond-right"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.components.layout_components",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "entry:assembler",
+      "description": "Five enum phases; union phase-specific and graph-configurator additions; sort processors within slots with enum factory comparator; execute each processor in assembled order",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $prepareGraphForLayout(this$static, lgraph){",
+          "lineStart": 28450,
+          "lineEnd": 28472,
+          "spanSha256": "6e38d924b1e97880aee50c5f39874ac84ebd32a92c8b577354d42b37b423cfdc",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $build_0(this$static, graph){",
+          "lineStart": 68772,
+          "lineEnd": 68800,
+          "spanSha256": "6209fb92b622ffde2d9b7897f43a61b8169125e69758d37511ec7cb0d3cabc39",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $retrieveProcessors(this$static, factories){",
+          "lineStart": 68826,
+          "lineEnd": 68831,
+          "spanSha256": "adf39d0468deec3f2a142bf9a15514595baa5bd613a1361d5cbf44d3ddc8ad0f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $layout_1(lgraph, monitor){",
+          "lineStart": 28277,
+          "lineEnd": 28312,
+          "spanSha256": "94124432646edf173bb5c29282089ec2312165c13cabfa6db254f89c950ee84a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-diamond-right"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline.assemble_processors",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EdgeAndLayerConstraintEdgeReverser',",
+          "lineStart": 35425,
+          "lineEnd": 35425,
+          "spanSha256": "d81de6afc9dda21bc8d26cb5c9e90bdc6540a9ff3c287bc78971155ed6fe4ef8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_5(layeredGraph, monitor){",
+          "lineStart": 35421,
+          "lineEnd": 35424,
+          "spanSha256": "59868a3d85e7800b1b95cb16a71c693af2f2e15cf7c813f1ee5165bd8a860afd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_7(layeredGraph, monitor){",
+          "lineStart": 35388,
+          "lineEnd": 35394,
+          "spanSha256": "e7c231a5cda6ec01a63a4e9f602aa1a28c117ba6fd2d4d3fc9091493b38d041c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.EdgeAndLayerConstraintEdgeReverser",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_7",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EndLabelSorter',",
+          "lineStart": 35876,
+          "lineEnd": 35876,
+          "spanSha256": "449b65dacfc30388e5f5200d715a298fbc1ce4e4c69e2adb7f16b8e089866986",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_8(layeredGraph, monitor){",
+          "lineStart": 35871,
+          "lineEnd": 35874,
+          "spanSha256": "e89d5fd947c481f33ec7d30d3e9a9f954367fc5f84b5c67b181df83671138b2d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_10(layeredGraph, monitor){",
+          "lineStart": 35830,
+          "lineEnd": 35834,
+          "spanSha256": "d3c80ff2add272315f6a63d7e003150ed72e2ffa5d099536c7911912bdbe1cdd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.EndLabelSorter",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_10",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'GraphTransformer',",
+          "lineStart": 36792,
+          "lineEnd": 36792,
+          "spanSha256": "7a92b89b98763d9d50e09a8946d85e0aa73f91ca8afaf602ec16e3a6345739c2",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_10(layeredGraph, monitor){",
+          "lineStart": 36788,
+          "lineEnd": 36791,
+          "spanSha256": "45caa9ebad945b562debc6b4825d09f2c8453798e902e28498d6812cb9be19d8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_12(this$static, layeredGraph, monitor){",
+          "lineStart": 36556,
+          "lineEnd": 36618,
+          "spanSha256": "6aa90476a3758fb513d52edeb6fb811ce3ae21b9f27d0213ec3cfa8f6ca4ea9c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-up",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.GraphTransformer",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "options-constructor-default",
+        "options-call-replaces-default"
+      ],
+      "requiredByDefaultSingleEdge": false,
+      "processSymbol": "$process_12",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InLayerConstraintProcessor',",
+          "lineStart": 38128,
+          "lineEnd": 38128,
+          "spanSha256": "50ff78582337e655581e88e17f8f3c72fdb60fe0e2f0a744cf223d10fc65259b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_19(layeredGraph, monitor){",
+          "lineStart": 38124,
+          "lineEnd": 38127,
+          "spanSha256": "71d0ba57503bcaf69f325e91e28836083bdd7dd2b426ad3e4d014a396350e304",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_21(layeredGraph, monitor){",
+          "lineStart": 38090,
+          "lineEnd": 38118,
+          "spanSha256": "f6b4bc93c55f4d7e39f85a955fe01ae4654cb9f2d85632b798e74d06c3ba3958",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.InLayerConstraintProcessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_21",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InnermostNodeMarginCalculator',",
+          "lineStart": 38143,
+          "lineEnd": 38143,
+          "spanSha256": "755b9c8d75a724e8a9baa7e43ef618fd5ff0e03fb8b10e5fdd7012883da823a3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_20(layeredGraph, monitor){",
+          "lineStart": 38139,
+          "lineEnd": 38142,
+          "spanSha256": "0c4a9d95006bf9e0efde89a8c47156b79783f568f87227f814901950f75b493b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_22(layeredGraph, monitor){",
+          "lineStart": 38129,
+          "lineEnd": 38133,
+          "spanSha256": "fc47a532b65db9fa4b6a74e7c13111839710c4fb7bc93ff3c8c3de5f3533165f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.InnermostNodeMarginCalculator",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_22",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LabelAndNodeSizeProcessor',",
+          "lineStart": 38816,
+          "lineEnd": 38816,
+          "spanSha256": "b3a7bf9e12d0330b791b1f8a138fa985f27c8206f4cc17bd651e9305009dab1a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_23(layeredGraph, monitor){",
+          "lineStart": 38812,
+          "lineEnd": 38815,
+          "spanSha256": "75dfce12f9dbe04e339ba81e20dd5097bf6293c3837bae3bf52baee7f0f11838",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_25(layeredGraph, monitor){",
+          "lineStart": 38792,
+          "lineEnd": 38806,
+          "spanSha256": "9ef115d7e0c14a81c83078388dcd6f6fc0575ff6c112361a03fe95d164ac80b4",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LabelAndNodeSizeProcessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_25",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPostprocessor',",
+          "lineStart": 39778,
+          "lineEnd": 39778,
+          "spanSha256": "4f3743caf428ec1d732a62bb537758a665e700fcd7e3f39de4e6b33b54609262",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_29(layeredGraph, monitor){",
+          "lineStart": 39774,
+          "lineEnd": 39777,
+          "spanSha256": "b10960f3781f2cc72e54b5fe0ce73ea3d5c1ab8ec345747abff549e94aa70608",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_31(layeredGraph, monitor){",
+          "lineStart": 39704,
+          "lineEnd": 39725,
+          "spanSha256": "7f13374eb87cd75cb785058a78d2409ad1b9ff56b5756ec788a6f72ff8624c1b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LayerConstraintPostprocessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_31",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPreprocessor',",
+          "lineStart": 39880,
+          "lineEnd": 39880,
+          "spanSha256": "d5f5239e7a75d19d68cd09c49f070c19f1bf084b6a71e4ea02d95fbf2a60cc41",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_30(layeredGraph, monitor){",
+          "lineStart": 39875,
+          "lineEnd": 39878,
+          "spanSha256": "1b7d85d449c4ee6988ffce4a17340eadecbef9ac85d12e3bef2a883629fbc836",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_32(layeredGraph, monitor){",
+          "lineStart": 39834,
+          "lineEnd": 39849,
+          "spanSha256": "edddce66e838384e0909d1768eea50112721cd4eca8d9a51f1419913de0ce54c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LayerConstraintPreprocessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_32",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerSizeAndGraphHeightCalculator',",
+          "lineStart": 39972,
+          "lineEnd": 39972,
+          "spanSha256": "f3d4987f28b5c1da848a8f8a14a248545168c2cbd5a90cd778122f7c14fff16e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_31(layeredGraph, monitor){",
+          "lineStart": 39968,
+          "lineEnd": 39971,
+          "spanSha256": "3fa6327987dac7bee35cbd2704e600f206714eacc24d67b366fd8512cc76ca17",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_33(layeredGraph, monitor){",
+          "lineStart": 39924,
+          "lineEnd": 39962,
+          "spanSha256": "3a3c36aacd544e027219bb5d63a69b90f42b610e7953d1ebf8bb555dd55ea4c3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LayerSizeAndGraphHeightCalculator",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_33",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeJoiner',",
+          "lineStart": 40039,
+          "lineEnd": 40039,
+          "spanSha256": "d0a1ef44853969a8441e098586adf55940937cd0ada1c518574266e4184da157",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_32(layeredGraph, monitor){",
+          "lineStart": 40035,
+          "lineEnd": 40038,
+          "spanSha256": "098f1d1ac5a2f98af97e8cf237e3e320053bacfccf2007fd8f1245a7617cdf73",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_34(layeredGraph, monitor){",
+          "lineStart": 39973,
+          "lineEnd": 39989,
+          "spanSha256": "af40e3f81711535c25e865479ab1dd0808df79acee99adf88428b76d547260dd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LongEdgeJoiner",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_34",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeSplitter',",
+          "lineStart": 40144,
+          "lineEnd": 40144,
+          "spanSha256": "e84e26ca6bc24806bd8334f9222a616f518da596a8b749014ae8c720df0594b8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_33(layeredGraph, monitor){",
+          "lineStart": 40140,
+          "lineEnd": 40143,
+          "spanSha256": "c9e241e984ddd04d212b463dd5a62d0b366d3125bfa91b32ee76dab393ffba2d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_35(layeredGraph, monitor){",
+          "lineStart": 40040,
+          "lineEnd": 40066,
+          "spanSha256": "1864b50a98e1299971ce0088e9ee9642bbf4337dc8628ca709d7f3142eb605c9",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LongEdgeSplitter",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_35",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortListSorter',",
+          "lineStart": 41436,
+          "lineEnd": 41436,
+          "spanSha256": "0dc3a2d875ca2def67da626357ff36fa1ccb8c86589db8c6472686d15743c215",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_41(layeredGraph, monitor){",
+          "lineStart": 41431,
+          "lineEnd": 41434,
+          "spanSha256": "259b73bbb4a3624831a3eeb749aac43a114c416a74ae11652cb530394115385a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_43(layeredGraph, monitor){",
+          "lineStart": 41307,
+          "lineEnd": 41332,
+          "spanSha256": "fa2f3a8e92e6cdd7548aef3904f57ca970130953adfc61648901300453c5dc51",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.PortListSorter",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_43",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortSideProcessor',",
+          "lineStart": 41549,
+          "lineEnd": 41549,
+          "spanSha256": "ac2d22717085d8a61a480c8bebea05ce13b161e756e693ebbb9f9ca4c9c18058",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_42(layeredGraph, monitor){",
+          "lineStart": 41545,
+          "lineEnd": 41548,
+          "spanSha256": "ccafeeb0e99bcb08f92158ed9341e01cb2d224deeb1219abef4ec6f0d9cf38e4",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_44(layeredGraph, monitor){",
+          "lineStart": 41506,
+          "lineEnd": 41521,
+          "spanSha256": "3fdbec403a30f2582e782ff080b39fe37bd0a62dd0fc40d42492096b3cd76ce3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.PortSideProcessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_44",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'ReversedEdgeRestorer',",
+          "lineStart": 41578,
+          "lineEnd": 41578,
+          "spanSha256": "0f852ea53f5d308bce9ae7bd70d052b95a41312901085d490a47c329842476d1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_43(layeredGraph, monitor){",
+          "lineStart": 41574,
+          "lineEnd": 41577,
+          "spanSha256": "cf2d0528e3b87cf08646cb561db36b400b46d1627197e0c4cd53ae29b5d64715",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_46(layeredGraph, monitor){",
+          "lineStart": 41550,
+          "lineEnd": 41568,
+          "spanSha256": "d85bb870bdb5fef6c0cdc4640d815820b2c6337473088cca1f570f3db86e7c81",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.ReversedEdgeRestorer",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_46",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.SelfLoopPortRestorer",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopPortRestorer',",
+          "lineStart": 41610,
+          "lineEnd": 41610,
+          "spanSha256": "7b258c9f7c605bab824f7d8d44297a89b0f3881f893196b4c36b271a9fc6351a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_44(graph, progressMonitor){",
+          "lineStart": 41606,
+          "lineEnd": 41609,
+          "spanSha256": "dde57fcd9d9aaba62c6abf776ea9c45d31ce1090d93417267f3f8148e9a2dd01",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_47(this$static, graph, progressMonitor){",
+          "lineStart": 41579,
+          "lineEnd": 41583,
+          "spanSha256": "2a927b3a0bfcacae6b5974b634311917c8f31973208a411e710fdfa5b1dfaf59",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-self-loop"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.SelfLoopPortRestorer",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-self-loop"
+      ],
+      "requiredByDefaultSingleEdge": false,
+      "processSymbol": "$process_47",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.SelfLoopPostProcessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopPostProcessor',",
+          "lineStart": 41699,
+          "lineEnd": 41699,
+          "spanSha256": "073b88a5bda56c0a818eb0b1c49636827d7955899bef818832d0b1cff592631b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_45(graph, progressMonitor){",
+          "lineStart": 41695,
+          "lineEnd": 41698,
+          "spanSha256": "c11ef34ff94aecbd0458cddda4ff9299748aac39268e5b3d8e3e4252508dc374",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_48(graph, progressMonitor){",
+          "lineStart": 41666,
+          "lineEnd": 41670,
+          "spanSha256": "8d570871fbc487c1e7525d5203539b9354693e6fdbca6214a2c2ac5e3234fc7f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-self-loop"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.SelfLoopPostProcessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-self-loop"
+      ],
+      "requiredByDefaultSingleEdge": false,
+      "processSymbol": "$process_48",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.SelfLoopPreProcessor",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopPreProcessor',",
+          "lineStart": 41821,
+          "lineEnd": 41821,
+          "spanSha256": "82c7e4e298c51c634d274f75ca4e0cd342ceb9d71d7ab46d6bfbb86c5c10ec82",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_46(graph, progressMonitor){",
+          "lineStart": 41817,
+          "lineEnd": 41820,
+          "spanSha256": "8cc5a0e1d815747e2b3486083fce6a919f7a6e52dbc870a532a2e99fb67ccf28",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_49(graph, progressMonitor){",
+          "lineStart": 41799,
+          "lineEnd": 41811,
+          "spanSha256": "e362a62810b66f27f19214313c68353d7a908a7a8eee6c1b76a8c018f3607335",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-self-loop"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.SelfLoopPreProcessor",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-self-loop"
+      ],
+      "requiredByDefaultSingleEdge": false,
+      "processSymbol": "$process_49",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.intermediate.SelfLoopRouter",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopRouter',",
+          "lineStart": 41885,
+          "lineEnd": 41885,
+          "spanSha256": "c553be15c1956f70fe418f01fa8bff8f6ffde98fb5149552c4ffcafe32c6dfe4",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_47(graph, progressMonitor){",
+          "lineStart": 41881,
+          "lineEnd": 41884,
+          "spanSha256": "0c72d6a5d0fb10d3fb871fbe1f3c399d1f329fcb42507f766ea88348dcc1be22",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_50(this$static, graph, progressMonitor){",
+          "lineStart": 41856,
+          "lineEnd": 41863,
+          "spanSha256": "b1355c3deed511758295ff876d68fa3c3fb117184518e930ab7ae387679e4244",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-self-loop"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.SelfLoopRouter",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-self-loop"
+      ],
+      "requiredByDefaultSingleEdge": false,
+      "processSymbol": "$process_50",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p1cycles', 'GreedyCycleBreaker',",
+          "lineStart": 50541,
+          "lineEnd": 50541,
+          "spanSha256": "59ac0f667c58fba5aa4817f8467702a3c6db36378fb2194407108136927adf40",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_59(layeredGraph, monitor){",
+          "lineStart": 50532,
+          "lineEnd": 50535,
+          "spanSha256": "8eb1a6fb065184a701c99e26c0185727c751863cfe753635e3cf164bd0dd8ad8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_62(this$static, layeredGraph, monitor){",
+          "lineStart": 50392,
+          "lineEnd": 50491,
+          "spanSha256": "bf09a7475896ca23d4e2b039a4fe1bc6a464229f4e42566a18434218fc1ef91d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.GreedyCycleBreaker",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_62",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p2layers', 'NetworkSimplexLayerer',",
+          "lineStart": 52100,
+          "lineEnd": 52100,
+          "spanSha256": "54d9c83353cd416529f74c2a7e0514124bb383d34aba6f39fd7e07439e19e861",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_70(theLayeredGraph, monitor){",
+          "lineStart": 52095,
+          "lineEnd": 52098,
+          "spanSha256": "1ddf920e413b7d7b89fe320d069b6549fa3aa95a9335b14b0e024b8f11e61ae7",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_73(this$static, theLayeredGraph, monitor){",
+          "lineStart": 52044,
+          "lineEnd": 52084,
+          "spanSha256": "c8052655710c38b9ee66e9518dd2022b46a0d035c4d940c759b88773407d16c0",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.NetworkSimplexLayerer",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_73",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+          "lineStart": 53744,
+          "lineEnd": 53744,
+          "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_73(layeredGraph, progressMonitor){",
+          "lineStart": 53738,
+          "lineEnd": 53741,
+          "spanSha256": "ecedd944681b39af1bd6a785d1ee44046daecff3dd827798485e6b52050f01b5",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_76(this$static, layeredGraph, progressMonitor){",
+          "lineStart": 53616,
+          "lineEnd": 53631,
+          "spanSha256": "1dff3a9e537dfa9f36d3a69394d4ce5bf74a7f43a71bc77bbcb5260da2636712",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.LayerSweepCrossingMinimizer",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_76",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p4nodes.bk', 'BKNodePlacer',",
+          "lineStart": 57730,
+          "lineEnd": 57730,
+          "spanSha256": "9adec88eb05685a348cb038125566ff3c0e93a11ec5721a418e7dca1a912f3ca",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_79(layeredGraph, monitor){",
+          "lineStart": 57724,
+          "lineEnd": 57727,
+          "spanSha256": "0965fce31f8d0626f4004286aa33a0a1efc4f907b2a20d713115793dcdd8297a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_82(this$static, layeredGraph, monitor){",
+          "lineStart": 57564,
+          "lineEnd": 57659,
+          "spanSha256": "6904f26a5f4ce98c5fa9c9aef1738fbb56b19be586b10bcc79fcf415097aec9e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.BKNodePlacer",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_82",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "processor:org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+      "description": "Observed generated processor; includes process body and dispatch identity",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p5edges', 'OrthogonalEdgeRouter',",
+          "lineStart": 58156,
+          "lineEnd": 58156,
+          "spanSha256": "490e7dd27a282b3a714ae8d689276239050c39c7daa1f32258031ec5fe9eb17d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_80(layeredGraph, monitor){",
+          "lineStart": 58151,
+          "lineEnd": 58154,
+          "spanSha256": "e0b68f11e47dfa5ff8cd2cea55938a67e7c4b22820ea10ffcad66566bd375723",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_84(layeredGraph, monitor){",
+          "lineStart": 58101,
+          "lineEnd": 58140,
+          "spanSha256": "ede3b815c5955d3978064ec257f61b00f7695ca35019d355bf398ce4c067e369",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "project:layered-chain",
+        "project:layered-custom-spacing",
+        "project:layered-cycle",
+        "project:layered-diamond-down",
+        "project:layered-diamond-left",
+        "project:layered-diamond-right",
+        "project:layered-diamond-up",
+        "project:layered-disconnected",
+        "project:layered-fork",
+        "project:layered-join",
+        "project:layered-long-edge",
+        "project:layered-parallel-edges",
+        "project:layered-self-loop",
+        "project:layered-singleton",
+        "project:layered-unequal-sizes",
+        "project:layered-unseparated-components",
+        "project:layered-zero-size",
+        "project:options-call-replaces-default",
+        "project:options-constructor-default",
+        "project:options-explicit-empty-replaces-default",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.processors.OrthogonalEdgeRouter",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "observedCases": [
+        "layered-singleton",
+        "layered-chain",
+        "layered-fork",
+        "layered-join",
+        "layered-diamond-right",
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up",
+        "layered-long-edge",
+        "layered-cycle",
+        "layered-self-loop",
+        "layered-parallel-edges",
+        "layered-disconnected",
+        "layered-unequal-sizes",
+        "layered-zero-size",
+        "layered-custom-spacing",
+        "layered-unseparated-components",
+        "options-constructor-default",
+        "options-explicit-empty-replaces-default",
+        "options-call-replaces-default",
+        "options-full-ids",
+        "two-node-defaults"
+      ],
+      "requiredByDefaultSingleEdge": true,
+      "processSymbol": "$process_84",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.algorithm",
+      "description": "Fallback org.eclipse.elk.layered for unconfigured nonempty nodes when registered",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  ALGORITHM = new Property('org.eclipse.elk.algorithm');",
+          "lineStart": 70766,
+          "lineEnd": 70766,
+          "spanSha256": "d874faf363b6393135dc1ee53e4a0d08ed17d1ce0f36708ee733b2f1aeda8065",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $resolveAlgorithm(node){",
+          "lineStart": 69155,
+          "lineEnd": 69175,
+          "spanSha256": "711ae547f7e93f4a1e2abd8d60691b09ad56341f0540324001ceebc1cf8d5c37",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.algorithm",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": null,
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.direction",
+      "description": "Resolved by getDirection_1: aspectRatio>=1 gives RIGHT, otherwise DOWN; baseline probe observed RIGHT",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  DIRECTION_DEFAULT =",
+          "lineStart": 49175,
+          "lineEnd": 49175,
+          "spanSha256": "d372d11259c0306817b650e50b5f7630e45e00be4e4512ae6db783e0350138aa",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function getDirection_1(graph){",
+          "lineStart": 32724,
+          "lineEnd": 32732,
+          "spanSha256": "6a0684bb41cf963217cc6b9ca1ddc3d044887fc07bf1f60955a7d9e5eef19b9c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.direction",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": "UNDEFINED",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.padding",
+      "description": "Layered and core default padding is 12 on all sides",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  PADDING_DEFAULT_0 =",
+          "lineStart": 49156,
+          "lineEnd": 49157,
+          "spanSha256": "da300ca674989e521e6f7b65ccda66e9483818eb19c42cb7b98e6059bfb3fae1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.padding",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": {
+        "top": 12,
+        "left": 12,
+        "bottom": 12,
+        "right": 12
+      },
+      "metadataTargets": [
+        "PARENTS",
+        "NODES"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.spacing.nodeNode",
+      "description": "Core default copied into layered option alias",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_NODE_NODE_6 = new Property_1(",
+          "lineStart": 70836,
+          "lineEnd": 70836,
+          "spanSha256": "077fb5979594c14156d98c7ebeb141c175489a92f9f78ac52368e620553c9b20",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_NODE_NODE_0 = SPACING_NODE_NODE_6;",
+          "lineStart": 49118,
+          "lineEnd": 49118,
+          "spanSha256": "d839a33b34cbf5194c07b240b8ac3a0f32d51762db0dd3319e82e688113d235e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.spacing_nodeNode",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": 20,
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+      "description": "Layered spacing default",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_NODE_NODE_BETWEEN_LAYERS = new Property_1(",
+          "lineStart": 48845,
+          "lineEnd": 48845,
+          "spanSha256": "df11b2b7b66f8fbc14367aec9274cbe12611ff2f2cb95b91302f18780264d946",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.layered_spacing_nodeNodeBetweenLayers",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": 20,
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.separateConnectedComponents",
+      "description": "Layered overrides absent core property default to true; split additionally considers external ports",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SEPARATE_CONNECTED_COMPONENTS_0 =",
+          "lineStart": 49169,
+          "lineEnd": 49169,
+          "spanSha256": "ee1ef0db84a4a9ecc0dfdd986a9e5e76bd97ceefac9e160fa4c70ac08d0f0d0c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $split_2(this$static, graph){",
+          "lineStart": 30954,
+          "lineEnd": 30963,
+          "spanSha256": "cd811dd1f744c0de801b27ff75fffa84f262d088c536a7d06ba1c0e5548bf5df",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.separateConnectedComponents",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": true,
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.spacing.componentComponent",
+      "description": "Core component spacing default copied into layered alias",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_COMPONENT_COMPONENT_1 = new Property_1(",
+          "lineStart": 70828,
+          "lineEnd": 70828,
+          "spanSha256": "13a2bb1658f5852f2426c2241e16d2f711eba25fcccb0701a5dab61b88fcbc5e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_COMPONENT_COMPONENT_0 = SPACING_COMPONENT_COMPONENT_1;",
+          "lineStart": 49110,
+          "lineEnd": 49110,
+          "spanSha256": "cc1f6ae00ade16ab20c2ca0a1a92f50a94260cbd0dae849873a044ed5ec7c715",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.spacing_componentComponent",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": 20,
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.edgeRouting",
+      "description": "Layered overrides core UNDEFINED to ORTHOGONAL",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  EDGE_ROUTING_DEFAULT =",
+          "lineStart": 49158,
+          "lineEnd": 49159,
+          "spanSha256": "6d7896aa96cf45b67adf14589152da78a07b8a62070a85ed2397bb93962ed3d1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $create_7(this$static){",
+          "lineStart": 58034,
+          "lineEnd": 58046,
+          "spanSha256": "325368067650166c4266cba7eb312ef86c6ce72a6d9131267bea2eddddceb167",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.edgeRouting",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": "ORTHOGONAL",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "option:org.eclipse.elk.randomSeed",
+      "description": "Layered default1; seed0 constructs unseeded Random, nonzero constructs Random_0(seed)",
+      "sourceRefs": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  RANDOM_SEED_0 = new Property_2(",
+          "lineStart": 49161,
+          "lineEnd": 49161,
+          "spanSha256": "216990ea0d5c1188c861d90cda30a06fed70c1d144f55ba632e6faf9f22dbb5f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $prepareGraphForLayout(this$static, lgraph){",
+          "lineStart": 28450,
+          "lineEnd": 28459,
+          "spanSha256": "a041b785e86447069b0ce13d317f3bcd648e3b9a0942688200ce8b51444a30bc",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008",
+        "project:options-full-ids"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.options.schema.randomSeed",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "declaredDefault": 1,
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    },
+    {
+      "id": "model:id-values",
+      "description": "Reference accepts string/integral-number IDs; the basic Python string-only subset needs an explicit contract",
+      "sourceRefs": [
+        {
+          "sourceId": "elkjs-json-adapter",
+          "symbol": "def Object getId(JSONObject o)",
+          "lineStart": 38,
+          "lineEnd": 50,
+          "spanSha256": "93fa9f13b1b80e64d004d7d3b950b8af7942b5d781ef88d8559c09b8a43c6e24",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "assertionRefs": [
+        "elkjs:testIds:it:001",
+        "elkjs:testIds:it:002",
+        "elkjs:testIds:it:003",
+        "elkjs:testIds:it:004",
+        "elkjs:testIds:it:005",
+        "elkjs:testIds:it:006",
+        "elkjs:testIds:it:007"
+      ],
+      "assertionRelationship": "topic_only",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.model.validation.validate_id",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "sourceStatus": "fixed-source-located; transitive dependency and readable-Java mapping are separate",
+      "scopeDecision": "E02",
+      "assertionRelationshipMeaning": "Existing static test or authored case exercises the topic; not complete coverage or execution proof"
+    }
+  ],
+  "defaultSingleEdgeSequence": [
+    "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+    "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+    "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+    "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+    "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+    "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+    "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+    "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+    "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+    "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+    "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+    "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+    "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+    "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+    "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+    "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+    "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+    "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+    "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+  ],
+  "totals": {
+    "mappedComponents": 40,
+    "observedProcessorClasses": 23,
+    "defaultSingleEdgeCalls": 19,
+    "pythonAlgorithmsVerified": 0
+  },
+  "openItems": [
+    {
+      "id": "PORT-001",
+      "nextAction": "Close per-component readable Java/source and license mapping before mechanical algorithm porting; candidate Java tag is not build provenance."
+    },
+    {
+      "id": "PORT-002",
+      "nextAction": "Expand each process body into its transitive numeric/PRNG/collection/geometry dependencies and map assertions; top-level process spans are not full dependency closure."
+    },
+    {
+      "id": "PORT-003",
+      "nextAction": "Freeze the E02 host adaptation profile using original strict differences and the same-graph logging reuse test."
+    },
+    {
+      "id": "PORT-004",
+      "nextAction": "Expand static assertion roots and project-topic links into first-release branch assertions; no test execution or complete coverage is implied."
+    }
+  ],
+  "limitation": "All Python targets are planned symbols, not existing implementations. Audit mappings and observed invocations do not prove algorithm compatibility."
+}

@@ -1,0 +1,281 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "f35bb6560557c6cc414a746d101e7247f2453ce71f0a1ed21293d174f0cfb6eb",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "force",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.force.model": "EADES",
+      "org.eclipse.elk.force.iterations": 4,
+      "org.eclipse.elk.spacing.nodeNode": 23.5,
+      "org.eclipse.elk.padding": "[top=7,left=11,bottom=13,right=17]"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 470.0060092871847,
+        "y": 96.8133808493952,
+        "layoutOptions": {
+          "org.eclipse.elk.priority": 2
+        },
+        "ports": [
+          {
+            "id": "p",
+            "width": 2,
+            "height": 3,
+            "layoutOptions": {
+              "org.eclipse.elk.port.side": "EAST"
+            },
+            "x": 20,
+            "y": 4.5
+          }
+        ],
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 11,
+        "y": 286.8033694849772,
+        "$H": 281
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 116.55887567899967,
+        "y": 7.000000000000028,
+        "$H": 283
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "p"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.priority": 3,
+          "org.eclipse.elk.force.repulsivePower": 1
+        },
+        "labels": [
+          {
+            "text": "weighted",
+            "width": 9,
+            "height": 4,
+            "x": 255.80315058807315,
+            "y": 204.7367003088029
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 470.0060092871847,
+              "y": 106.95254209764613
+            },
+            "endPoint": {
+              "x": 31,
+              "y": 288.66420823672627
+            },
+            "bendPoints": [
+              {
+                "x": 249.26865650426927,
+                "y": 198.2021924561198
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        },
+        "sections": [
+          {
+            "id": "bc_s0",
+            "startPoint": {
+              "x": 23.26356550044335,
+              "y": 286.8033694849772
+            },
+            "endPoint": {
+              "x": 124.29531017855632,
+              "y": 19.00000000000003
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 507.0060092871847,
+    "height": 311.80336948497717
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "force",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.force.model": "EADES",
+      "org.eclipse.elk.force.iterations": 4,
+      "org.eclipse.elk.spacing.nodeNode": 23.5,
+      "org.eclipse.elk.padding": "[top=7,left=11,bottom=13,right=17]"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 470.0060092871847,
+        "y": 96.8133808493952,
+        "layoutOptions": {
+          "org.eclipse.elk.priority": 2
+        },
+        "ports": [
+          {
+            "id": "p",
+            "width": 2,
+            "height": 3,
+            "layoutOptions": {
+              "org.eclipse.elk.port.side": "EAST"
+            },
+            "x": 20,
+            "y": 4.5
+          }
+        ],
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 11,
+        "y": 286.8033694849772,
+        "$H": 281
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 116.55887567899967,
+        "y": 7.000000000000028,
+        "$H": 283
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "p"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.priority": 3,
+          "org.eclipse.elk.force.repulsivePower": 1
+        },
+        "labels": [
+          {
+            "text": "weighted",
+            "width": 9,
+            "height": 4,
+            "x": 255.80315058807315,
+            "y": 204.7367003088029
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 470.0060092871847,
+              "y": 106.95254209764613
+            },
+            "endPoint": {
+              "x": 31,
+              "y": 288.66420823672627
+            },
+            "bendPoints": [
+              {
+                "x": 249.26865650426927,
+                "y": 198.2021924561198
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        },
+        "sections": [
+          {
+            "id": "bc_s0",
+            "startPoint": {
+              "x": 23.26356550044335,
+              "y": 286.8033694849772
+            },
+            "endPoint": {
+              "x": 124.29531017855632,
+              "y": 19.00000000000003
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 507.0060092871847,
+    "height": 311.80336948497717
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

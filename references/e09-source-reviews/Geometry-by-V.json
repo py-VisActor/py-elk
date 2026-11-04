@@ -1,0 +1,47 @@
+{
+  "schema": "py-elk-e09-independent-geometry-source-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "G01-GREEDY",
+    "G02-DELTA-BUILDER",
+    "G03-NS-INITIALIZE",
+    "G04-NS-FEASIBILITY",
+    "G05-LAYER-DEFAULT",
+    "G06-INLAYER-DEFAULT",
+    "G07-LAYER-POST",
+    "G08-INLAYER-PROCESS",
+    "G09-ORTHOGONAL-SPACE",
+    "G10-NODE-HORIZONTAL",
+    "G11-EXTERNAL-PREDICATE"
+  ],
+  "lemmaId": "E09-G01-original-adjacent-nonself-distinct-ranks",
+  "proposalPath": "test-runs/20261103-E09-01/A/geometry-proof-proposal-02.json",
+  "proposalSha256": "40b08bbac464c1dd74c4ee12fded56be21fb56c84cfadaf4863898a0082c9f41",
+  "factsSha256": "efdb4249ead04f837c4bf2d2cdcfd73bb9035edf8e3d7a42137b039a145f80bc",
+  "filesSha256": {
+    "test-runs/20261103-E09-01/A/geometry-proof-proposal-02.json": "40b08bbac464c1dd74c4ee12fded56be21fb56c84cfadaf4863898a0082c9f41",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "references/e05-source-components-A.json": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0",
+    "references/e06-source-components-A.json": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54",
+    "references/e07-source-components-A.json": "e042248ccab20113571e0423af1d5ca125827c4892fa76f8cb16098422f8dfef"
+  },
+  "independentChecks": [
+    "Recomputed all 11 exact spans from the locked complete worker; decoded bytes and SHA match.",
+    "GREEDY compares strict endpoint marks and reverses orientation without coalescing endpoints.",
+    "Each original nonself edge becomes an NS private edge with literal delta1; topological initial ranks satisfy target-source>=1.",
+    "Minimal-slack tight-tree moves, exchange, common normalization and strict interior balance preserve feasibility.",
+    "Default public layer constraint NONE and internal in-layer NONE exclude rank relocation; later within-layer reorder and long-edge/restoration preserve distinct original endpoint ranks.",
+    "G11 corrected to include actual apply_17 callee: only EXTERNAL_PORT WEST/EAST qualifies, excluding original NORMAL nodes and LONG_EDGE dummies.",
+    "The claim is rank distinction, never an inference from close axis origins. Zero dimension and zero between-layer gap may yield coincident origins."
+  ],
+  "firstRejectedProposal": {
+    "path": "test-runs/20261103-E09-01/A/geometry-proof-proposal.json",
+    "reason": "G11 initial wrapper omitted actual predicate callee; proposal02 includes it."
+  },
+  "limitations": [
+    "Only independently admitted current bounded default GREEDY/NS inputs and original nonself adjacency pairs; no arbitrary pair SCC rank reconstruction.",
+    "Old v2 premises, profiles, thresholds and actual layouts unchanged. Proposed v3 geometry implementation still requires separate checks.",
+    "Approval binds immutable facts/proposal bytes; later sourceApproved/independentReview envelope fields are separate and not oracle identity."
+  ]
+}

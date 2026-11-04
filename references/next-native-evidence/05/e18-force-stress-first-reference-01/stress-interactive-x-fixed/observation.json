@@ -1,0 +1,225 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "be3c777123e8cf147c9ac0214c709f31a0e4ff2a3ff26246d114b2c61e07da0e",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.interactive": true,
+      "org.eclipse.elk.stress.dimension": "X",
+      "org.eclipse.elk.stress.iterationLimit": 3,
+      "org.eclipse.elk.stress.epsilon": 0,
+      "org.eclipse.elk.stress.desiredEdgeLength": 45
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 50,
+        "y": 50,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        },
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 60.02521295991876,
+        "y": 66,
+        "$H": 279
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 56.761214138161336,
+        "y": 112,
+        "$H": 281
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.stress.desiredEdgeLength": 17
+        },
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 63.75945485996954,
+              "y": 62
+            },
+            "endPoint": {
+              "x": 66.26575809994922,
+              "y": 66
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        },
+        "sections": [
+          {
+            "id": "bc_s0",
+            "startPoint": {
+              "x": 69.5994739831678,
+              "y": 78
+            },
+            "endPoint": {
+              "x": 67.18695311491231,
+              "y": 112
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 130.02521295991875,
+    "height": 174
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.interactive": true,
+      "org.eclipse.elk.stress.dimension": "X",
+      "org.eclipse.elk.stress.iterationLimit": 3,
+      "org.eclipse.elk.stress.epsilon": 0,
+      "org.eclipse.elk.stress.desiredEdgeLength": 45
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 50,
+        "y": 50,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        },
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 60.02521295991876,
+        "y": 66,
+        "$H": 279
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 56.761214138161336,
+        "y": 112,
+        "$H": 281
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.stress.desiredEdgeLength": 17
+        },
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 63.75945485996954,
+              "y": 62
+            },
+            "endPoint": {
+              "x": 66.26575809994922,
+              "y": 66
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        },
+        "sections": [
+          {
+            "id": "bc_s0",
+            "startPoint": {
+              "x": 69.5994739831678,
+              "y": 78
+            },
+            "endPoint": {
+              "x": 67.18695311491231,
+              "y": 112
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 130.02521295991875,
+    "height": 174
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

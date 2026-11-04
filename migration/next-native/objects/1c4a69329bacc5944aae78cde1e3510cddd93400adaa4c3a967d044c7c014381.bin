@@ -1,0 +1,196 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Source behavior: elkjs0.12.1 worker275e6caf, source review
+# references/e13-element-options-sources.json. Copyright Kiel University and others.
+# Strict native errors and finite parsing reuse the explicit host contract.
+"""Presence-aware element properties for private E13 migration work.
+
+Core defaults remain separate from algorithm-specific overrides. A default
+None is not an explicitly supplied property, and an explicit zero is retained.
+"""
+from __future__ import annotations
+from collections.abc import Mapping
+import json
+import math
+import re
+from types import MappingProxyType
+
+from .._errors import OptionValidationError
+from .._json import clone_json, pointer
+from ..model import Node, Port, Edge
+from .schema import OPTION_SPECS, ALGORITHM_DEFAULT_OVERRIDES, Padding, Vector2
+from .resolution import ResolvedOptions, _canonical_id, _container, _parse, _DECIMAL, _INTEGER
+
+_JS_WHITESPACE='\t\n\v\f\r \u00a0\u1680'+''.join(map(chr,range(0x2000,0x200b)))+'\u2028\u2029\u202f\u205f\u3000\ufeff'
+_JAVA_TRIM=''.join(map(chr,range(33)))
+_ENUMSET_DELIMITERS='[\\[\\],'+re.escape(_JS_WHITESPACE)+']+'
+
+
+def invalid(path, message):
+    raise OptionValidationError('INVALID_OPTION_VALUE', path, message)
+
+
+def integer(value, path):
+    if type(value) is str and _INTEGER.fullmatch(value):
+        try:value=int(value)
+        except ValueError:invalid(path,'Expected a signed32 integer')
+    elif type(value) is float and math.isfinite(value) and value.is_integer():
+        value=int(value)
+    if type(value) is not int or not -(2**31)<=value<2**31:
+        invalid(path,'Expected a signed32 integer')
+    return value
+
+
+def signed_number(value, path):
+    if type(value) is str:
+        value=value.strip(_JS_WHITESPACE)
+        if value.endswith(('d','D','f','F')):value=value[:-1]
+        if not _DECIMAL.fullmatch(value):invalid(path,'Expected a finite decimal number')
+        try:value=float(value)
+        except (ValueError,OverflowError):invalid(path,'Expected a finite number')
+    try:valid=type(value) in (int,float) and math.isfinite(value)
+    except OverflowError:valid=False
+    if not valid:invalid(path,'Expected a finite number')
+    return value
+
+
+def java_split(text, pattern):
+    """Native representation of the observed trailing-empty split rule.
+
+    Only the nonempty delimiter expressions used by these data parsers apply;
+    this is not a general Java regex/runtime implementation.
+    """
+    parts=re.split(pattern,text)
+    if text:
+        while parts and parts[-1]=='':parts.pop()
+    return parts
+
+
+def parse_extended(spec, value, path):
+    if spec.kind=='enum_ordinal':
+        if type(value) is str and value in spec.accepted_values:return value
+        ordinal=integer(value,path)
+        if not 0<=ordinal<len(spec.accepted_values):invalid(path,'Enum ordinal is outside its source range')
+        return spec.accepted_values[ordinal]
+    if spec.kind=='integer':return integer(value,path)
+    if spec.kind=='signed_number':return signed_number(value,path)
+    if spec.kind=='enumset':
+        if type(value) is bool or type(value) not in (str,int,float):
+            invalid(path,'Enum sets require a serialized scalar')
+        text=str(int(value)) if type(value) is float and math.isfinite(value) and value.is_integer() else str(value)
+        members=set()
+        for token in java_split(text,_ENUMSET_DELIMITERS):
+            if not token.strip(_JAVA_TRIM):continue
+            if token in spec.accepted_values:members.add(token)
+            else:
+                ordinal=integer(token,path)
+                if not 0<=ordinal<len(spec.accepted_values):invalid(path,'Enum set member outside source range')
+                members.add(spec.accepted_values[ordinal])
+        return frozenset(members)
+    if spec.kind=='insets':
+        if type(value) is not str:invalid(path,'Insets require a serialized key=value string')
+        text=value.lstrip('([{\"\' \t\r\n').rstrip(')]}\"\' \t\r\n')
+        values=dict.fromkeys(('top','right','bottom','left'),0)
+        if text:
+            for token in java_split(text,',|;'):
+                pair=java_split(token,'=')
+                if len(pair)!=2:invalid(path,'Insets require key=value pairs')
+                key=pair[0].strip(_JAVA_TRIM);number=signed_number(pair[1].strip(_JAVA_TRIM),path)
+                if key in values:values[key]=number
+        return Padding(**values)
+    if spec.kind=='individual_spacings':
+        if type(value) is not str:invalid(path,'Individual spacings require a serialized string')
+        values={}
+        if value:
+            for token in java_split(value,';,;'):
+                pair=java_split(token,':')
+                if len(pair)<2:invalid(path,'Individual spacings require an option:value pair')
+                canonical=_canonical_id(pair[0],path)
+                values[canonical]=_parse(OPTION_SPECS[canonical],pair[1],path)
+        return MappingProxyType(values)
+    if spec.kind=='vector':
+        if type(value) is not str:invalid(path,'Element vector values require a serialized string')
+        # Fixed KVector.parse delimiter sets and exactly-two-token rule.
+        text=value.lstrip('([{\"\' \t\r\n').rstrip(')]}\"\' \t\r\n')
+        tokens=java_split(text,'[,;\r\n]')
+        if len(tokens)!=2:invalid(path,'Vector requires exactly two numbers')
+        return Vector2(signed_number(tokens[0].strip(_JAVA_TRIM),path),
+                       signed_number(tokens[1].strip(_JAVA_TRIM),path))
+    raise AssertionError('Unknown extended option kind')
+
+
+def parse_mapping(raw, path, *, global_options=False):
+    raw=_container(raw,path);parsed={};original={}
+    for spelling,value in raw.items():
+        where=pointer(path,spelling);canonical=_canonical_id(spelling,where)
+        if canonical in parsed:
+            raise OptionValidationError('AMBIGUOUS_OPTION',where,'Two aliases for the same option in one scope')
+        spec=OPTION_SPECS[canonical]
+        # optsToCfg serializes complex global data; local JsonImporter accepts
+        # scalar JSON values only. Preserve the original raw value separately.
+        adapted=value
+        if global_options and spec.kind in ('vector','enumset','insets','individual_spacings') and type(value) in (list,dict):
+            adapted=json.dumps(value,separators=(',',':'),ensure_ascii=False,allow_nan=False)
+        parsed[canonical]=_parse(spec,adapted,where)
+        original[canonical]=clone_json(value,path=where,error_type=OptionValidationError)
+    return parsed,original
+
+
+def selected_global(context):
+    key='_E13_SELECTED_GLOBAL_PROPERTIES'
+    if key not in context.state:
+        arguments=context.original_arguments;constructor=context.original_constructor
+        if 'layoutOptions' in arguments:
+            raw=arguments['layoutOptions'];label='call';path='/layoutArguments/layoutOptions'
+        elif 'defaultLayoutOptions' in constructor:
+            raw=constructor['defaultLayoutOptions'];label='constructor';path='/constructor/defaultLayoutOptions'
+        else:raw={};label='default';path='/constructor/defaultLayoutOptions'
+        values,original=parse_mapping(raw,path,global_options=True)
+        context.state[key]=(values,original,label)
+    return context.state[key]
+
+
+def resolve_raw_element_options(data, kind, context, *, path='', algorithm=None):
+    """Resolve owned node/port/edge/label data without cloning a provider graph.
+
+    The explicit algorithm parameter selects only source-reviewed metadata
+    overrides. Parsed schemas are a subset, not a full provider registry.
+    """
+    target_classes={'node':{'NODES','PARENTS'},'port':{'PORTS'},'edge':{'EDGES'},'label':{'LABELS'}}
+    if kind not in target_classes:raise TypeError('Unknown graph element kind')
+    targets=target_classes[kind]
+    specs={key:spec for key,spec in OPTION_SPECS.items() if targets.intersection(spec.targets)}
+    values={key:spec.declared_default for key,spec in specs.items()}
+    origins={key:'default' for key in values};raw={}
+    if algorithm=='layered':algorithm='org.eclipse.elk.layered'
+    for key,value in ALGORITHM_DEFAULT_OVERRIDES.get(algorithm,{}).items():
+        if key in specs:values[key]=value;origins[key]='algorithm-default'
+    global_values,global_raw,label=selected_global(context)
+    for key,value in global_values.items():
+        if key in specs:values[key]=value;origins[key]=label;raw[key]=global_raw[key]
+    if 'layoutOptions' in data:
+        local=data['layoutOptions'];local_path=path+'/layoutOptions'
+    elif 'properties' in data and isinstance(data['properties'],Mapping):
+        local=data['properties'];local_path=path+'/properties'
+    else:local={};local_path=path+'/layoutOptions'
+    local_values,local_raw=parse_mapping(local,local_path)
+    # The source imports local properties directly, without the global target
+    # filter. Algorithms choose which of those properties they actually use.
+    values.update(local_values);origins.update({key:'local' for key in local_values});raw.update(local_raw)
+    # This is the actual transformNode special path, before global NO_OVERWRITE
+    # application; port/edge/label importers do not call it.
+    if kind=='node' and 'individualSpacings' in data:
+        key='org.eclipse.elk.spacing.individual'
+        individual=dict(local_values.get(key) or {})
+        extra,_=parse_mapping(data['individualSpacings'],path+'/individualSpacings')
+        individual.update(extra)
+        values[key]=MappingProxyType(individual);origins[key]='individualSpacings'
+        raw[key]=clone_json(data['individualSpacings'],path=path+'/individualSpacings',error_type=OptionValidationError)
+    return ResolvedOptions(MappingProxyType(values),MappingProxyType(origins),label,raw)
+
+
+def resolve_element_options(element, context, *, algorithm=None):
+    if isinstance(element,Port):kind='port'
+    elif isinstance(element,Node):kind='node'
+    elif isinstance(element,Edge):kind='edge'
+    else:raise TypeError('Expected a native graph node, port or edge')
+    return resolve_raw_element_options(element._data,kind,context,path=element.path,algorithm=algorithm)

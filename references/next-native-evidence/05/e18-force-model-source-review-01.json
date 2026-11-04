@@ -1,0 +1,50 @@
+{
+  "schema": "py-elk-independent-source-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "F10",
+    "F11",
+    "F12",
+    "F13"
+  ],
+  "filesSha256": {
+    "test-runs/20261104-E18-01/B/force-model-source-proposal-01.json": "bd9cb3ec56c5262e539e45bd45f755481646a8daec36fbe783f08725a7625845",
+    "test-runs/20261104-E18-01/B/force-vector-support-01.json": "8c3faaa6dc57be844f2bbc54cd97c640bf255587cf136132d215c5b90880c75a",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "test-runs/20261104-E18-01/V/particle-foundation-source-review-01.json": "ad30c1bb2dc37a12b0efe68ffcc5289d52e5bc35ce4a34795d70e0c2170c468f",
+    "test-runs/20261104-E18-01/V/option-default-source-review-01.json": "a4a162dd798d0a164dd55348b87f2615b3c0ca0ef285466931eec0512119b2d9"
+  },
+  "scope": "Actual Force abstract loop, avoidSamePosition, Eades and Fruchterman-Reingold math; no Stress model acceptance",
+  "facts": [
+    "Verified all four proposed raw spans plus vector support SHA/base64 against fixed elkjs worker bytes. Added closing brace70337 as support only.",
+    "Initialize adjacency before seeded random positions; interactive preserves centers. Noninteractive two nextDouble draws/node. REPULSIVE_POWER positive creates edge-local and graph-wide bendpoints in source order, distributing after each edge allocation.",
+    "Each iteration refreshes labels then distributes bends; FR lowers temperature at this point before displacement. Particle encounter nodes, labels, bendpoints, outer forcee then inner forcer. Accumulate all displacement before bound/apply/reset, except avoidSamePosition explicitly mutates live positions during pair calculation.",
+    "Bound uses ordered per-axis comparisons, not max/min that can swallow NaN. Vector lengths/distances use source sqrt(x*x+y*y), not hypot. Preserve nonfinite intermediate IEEE outcomes and final shared JSON wire mapping.",
+    "AvoidSamePosition resets triedForBendPoints inside each while; the bendpoint case constructs two fresh vectors, compares their identity, and adds BOTH to pu. Do not fix second-add target or invent termination cap. Non-bendpoint case draws four nextDouble-equivalent draws in exact order; uses existing approved JavaRandom.",
+    "Eades distance subtracts each full size diagonal/2 then max(0); connections use weighted graph adjacency. Positive connection uses only attraction, absent/nonpositive connection only repulsion*forcer priority. Source d<=0 constants/log/division behavior retained.",
+    "FR computes both repulsion and positive-connection attraction; applies temperature/length scale. k uses sequential width/height sums, area/(2*n), spacing*.01. No alternate area formula, fsum or integer-rounding.",
+    "Eades terminates count<iterations. FR threshold=temperature/iterations and terminates solely temperature>0; preserve floating subtraction extra-iteration/zero/negative values rather than replacing with integer for range. Cancellation checked at while condition and monitor done once."
+  ],
+  "supportObservations": [
+    {
+      "name": "complete bound",
+      "lineStart": 70330,
+      "lineEnd": 70337,
+      "spanSha256": "d7c3eca16a90eb47a3b3a59c2e3e315086a0d0b21d5f0baad59612e7ebe69400",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGJvdW5kKHRoaXMkc3RhdGljLCBsb3d4LCBsb3d5LCBoaWdoeCwgaGlnaHkpewogIGlmIChoaWdoeCA8IGxvd3ggfHwgaGlnaHkgPCBsb3d5KSB7CiAgICB0aHJvdyB0b0pzKG5ldyBJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb25fMCgnVGhlIGhpZ2h4IG11c3QgYmUgYmlnZ2VyIHRoZW4gbG93eCBhbmQgdGhlIGhpZ2h5IG11c3QgYmUgYmlnZ2VyIHRoZW4gbG93eScpKTsKICB9CiAgdGhpcyRzdGF0aWMueF8wIDwgbG93eD8odGhpcyRzdGF0aWMueF8wID0gbG93eCk6dGhpcyRzdGF0aWMueF8wID4gaGlnaHggJiYgKHRoaXMkc3RhdGljLnhfMCA9IGhpZ2h4KTsKICB0aGlzJHN0YXRpYy55XzAgPCBsb3d5Pyh0aGlzJHN0YXRpYy55XzAgPSBsb3d5KTp0aGlzJHN0YXRpYy55XzAgPiBoaWdoeSAmJiAodGhpcyRzdGF0aWMueV8wID0gaGlnaHkpOwogIHJldHVybiB0aGlzJHN0YXRpYzsKfQo="
+    },
+    {
+      "name": "approved nextDouble arithmetic observation",
+      "lineStart": 17031,
+      "lineEnd": 17033,
+      "spanSha256": "307c4c7605830493a93547f14784feb6d33edccafb9912629c764b357327c2f1",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJG5leHREb3VibGUodGhpcyRzdGF0aWMpewogIHJldHVybiAkbmV4dEludGVybmFsKHRoaXMkc3RhdGljLCAyNikgKiAkaW50ZXJuXzc5ICsgJG5leHRJbnRlcm5hbCh0aGlzJHN0YXRpYywgMjcpICogJGludGVybl84MDsKfQo="
+    }
+  ],
+  "limitations": [
+    "Runtime integration, generic metadata, public parser, full Force/Stress comparison and release remain separate.",
+    "Preserve internal NaN/Infinity and original source exceptions; existing native finite input admission is not expanded by source acceptance.",
+    "No original or candidate execution performed by this source review."
+  ]
+}

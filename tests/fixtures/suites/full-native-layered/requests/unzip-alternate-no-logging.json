@@ -1,0 +1,213 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      },
+      {
+        "id": "f",
+        "width": 47,
+        "height": 27,
+        "business": {
+          "id": "f",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      },
+      {
+        "id": "g",
+        "width": 50,
+        "height": 28,
+        "business": {
+          "id": "g",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.layered.layerUnzipping.layerSplit": 3,
+          "elk.layered.layerUnzipping.minimizeEdgeLength": false,
+          "elk.layered.layerUnzipping.resetOnLongEdges": false
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "fan0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "fan0",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "fan1",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "fan1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "fan2",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "fan2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "fan3",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "fan3",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "fan4",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "f"
+        ],
+        "business": {
+          "edge": "fan4",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "fan5",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "g"
+        ],
+        "business": {
+          "edge": "fan5",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.layered.layerUnzipping.strategy": "ALTERNATING"
+    }
+  }
+}

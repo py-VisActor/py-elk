@@ -1,0 +1,639 @@
+{
+  "schema": "py-elk-compound-segments/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "8f0e97885bd9cc94b7139e2d875acdcfc4ed634112d966df4554e6fad278ccfe",
+  "requestSha256": "93898da36ee8bf5d4f43c0b5b3a3f02f1e5bdc8b34dafad166c4bb3cdf1769d8",
+  "pid": 25396,
+  "parentPid": 20872,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "merged-cross-level-with-junctions",
+        "before": [
+          {
+            "id": "e0",
+            "detached": true,
+            "labels": [],
+            "segments": [
+              {
+                "graph": "A",
+                "type": "OUTPUT",
+                "edgeToken": 0,
+                "actualSource": "xp",
+                "actualTarget": "parentA:port0",
+                "labels": [
+                  "e1-label"
+                ],
+                "thickness": 5
+              },
+              {
+                "graph": "B",
+                "type": "INPUT",
+                "edgeToken": 1,
+                "actualSource": "parentB:port0",
+                "actualTarget": "yp",
+                "labels": [],
+                "thickness": 2
+              },
+              {
+                "graph": "r",
+                "type": "OUTPUT",
+                "edgeToken": 2,
+                "actualSource": "parentA:port0",
+                "actualTarget": "parentB:port0",
+                "labels": [
+                  "e0-label"
+                ],
+                "thickness": 2
+              }
+            ]
+          },
+          {
+            "id": "e1",
+            "detached": true,
+            "labels": [],
+            "segments": [
+              {
+                "graph": "A",
+                "type": "OUTPUT",
+                "edgeToken": 0,
+                "actualSource": "xp",
+                "actualTarget": "parentA:port0",
+                "labels": [
+                  "e1-label"
+                ],
+                "thickness": 5
+              },
+              {
+                "graph": "B",
+                "type": "INPUT",
+                "edgeToken": 3,
+                "actualSource": "parentB:port1",
+                "actualTarget": "zp",
+                "labels": [],
+                "thickness": 5
+              },
+              {
+                "graph": "r",
+                "type": "OUTPUT",
+                "edgeToken": 4,
+                "actualSource": "parentA:port0",
+                "actualTarget": "parentB:port1",
+                "labels": [],
+                "thickness": 5
+              }
+            ]
+          },
+          {
+            "id": "e2",
+            "detached": true,
+            "labels": [],
+            "segments": [
+              {
+                "graph": "A",
+                "type": "INPUT",
+                "edgeToken": 5,
+                "actualSource": "parentA:port1",
+                "actualTarget": "xin",
+                "labels": [
+                  "e2-label"
+                ],
+                "thickness": 2
+              },
+              {
+                "graph": "B",
+                "type": "OUTPUT",
+                "edgeToken": 6,
+                "actualSource": "back",
+                "actualTarget": "parentB:port2",
+                "labels": [],
+                "thickness": 2
+              },
+              {
+                "graph": "r",
+                "type": "OUTPUT",
+                "edgeToken": 7,
+                "actualSource": "parentB:port2",
+                "actualTarget": "parentA:port1",
+                "labels": [],
+                "thickness": 2
+              }
+            ]
+          }
+        ],
+        "after": [
+          {
+            "id": "e0",
+            "source": "xp",
+            "target": "yp",
+            "bends": [
+              [
+                5,
+                9
+              ],
+              [
+                8,
+                12
+              ],
+              [
+                -7,
+                -6
+              ],
+              [
+                44,
+                15
+              ],
+              [
+                74,
+                35
+              ],
+              [
+                183,
+                87
+              ],
+              [
+                165,
+                75
+              ],
+              [
+                171,
+                81
+              ]
+            ],
+            "junctionPresent": true,
+            "junctions": [
+              [
+                2,
+                4
+              ]
+            ],
+            "targetOffset": [
+              152,
+              58
+            ],
+            "labels": [
+              {
+                "id": "e0-label",
+                "position": [
+                  -96,
+                  -33
+                ],
+                "originalEdge": true
+              }
+            ]
+          },
+          {
+            "id": "e1",
+            "source": "xp",
+            "target": "zp",
+            "bends": [
+              [
+                5,
+                9
+              ],
+              [
+                8,
+                12
+              ],
+              [
+                -7,
+                -6
+              ],
+              [
+                44,
+                15
+              ],
+              [
+                74,
+                35
+              ],
+              [
+                183,
+                87
+              ],
+              [
+                165,
+                75
+              ],
+              [
+                171,
+                81
+              ]
+            ],
+            "junctionPresent": true,
+            "junctions": [
+              [
+                2,
+                4
+              ]
+            ],
+            "targetOffset": [
+              152,
+              58
+            ],
+            "labels": [
+              {
+                "id": "e1-label",
+                "position": [
+                  11,
+                  13
+                ],
+                "originalEdge": true
+              }
+            ]
+          },
+          {
+            "id": "e2",
+            "source": "back",
+            "target": "xin",
+            "bends": [
+              [
+                13,
+                17
+              ],
+              [
+                19,
+                23
+              ],
+              [
+                -9,
+                -14
+              ],
+              [
+                -108,
+                -43
+              ],
+              [
+                -78,
+                -23
+              ],
+              [
+                -109,
+                -35
+              ],
+              [
+                -147,
+                -49
+              ],
+              [
+                -144,
+                -46
+              ]
+            ],
+            "junctionPresent": true,
+            "junctions": [
+              [
+                -150,
+                -54
+              ]
+            ],
+            "targetOffset": [
+              -152,
+              -58
+            ],
+            "labels": [
+              {
+                "id": "e2-label",
+                "position": [
+                  -141,
+                  -45
+                ],
+                "originalEdge": true
+              }
+            ]
+          }
+        ],
+        "flags": {
+          "r": [
+            "CENTER_LABELS",
+            "END_LABELS",
+            "NON_FREE_PORTS"
+          ],
+          "A": [
+            "CENTER_LABELS",
+            "END_LABELS",
+            "EXTERNAL_PORTS"
+          ],
+          "B": [
+            "EXTERNAL_PORTS"
+          ]
+        },
+        "allDummyEdgesDetached": true,
+        "persistentMapCleared": true,
+        "preMapFieldCleared": true,
+        "geometrySupplied": true,
+        "routingExecuted": false,
+        "layoutExecuted": false
+      },
+      {
+        "id": "merged-cross-level-empty-junctions",
+        "before": [
+          {
+            "id": "e0",
+            "detached": true,
+            "labels": [],
+            "segments": [
+              {
+                "graph": "A",
+                "type": "OUTPUT",
+                "edgeToken": 0,
+                "actualSource": "xp",
+                "actualTarget": "parentA:port0",
+                "labels": [
+                  "e1-label"
+                ],
+                "thickness": 5
+              },
+              {
+                "graph": "B",
+                "type": "INPUT",
+                "edgeToken": 1,
+                "actualSource": "parentB:port0",
+                "actualTarget": "yp",
+                "labels": [],
+                "thickness": 2
+              },
+              {
+                "graph": "r",
+                "type": "OUTPUT",
+                "edgeToken": 2,
+                "actualSource": "parentA:port0",
+                "actualTarget": "parentB:port0",
+                "labels": [
+                  "e0-label"
+                ],
+                "thickness": 2
+              }
+            ]
+          },
+          {
+            "id": "e1",
+            "detached": true,
+            "labels": [],
+            "segments": [
+              {
+                "graph": "A",
+                "type": "OUTPUT",
+                "edgeToken": 0,
+                "actualSource": "xp",
+                "actualTarget": "parentA:port0",
+                "labels": [
+                  "e1-label"
+                ],
+                "thickness": 5
+              },
+              {
+                "graph": "B",
+                "type": "INPUT",
+                "edgeToken": 3,
+                "actualSource": "parentB:port1",
+                "actualTarget": "zp",
+                "labels": [],
+                "thickness": 5
+              },
+              {
+                "graph": "r",
+                "type": "OUTPUT",
+                "edgeToken": 4,
+                "actualSource": "parentA:port0",
+                "actualTarget": "parentB:port1",
+                "labels": [],
+                "thickness": 5
+              }
+            ]
+          },
+          {
+            "id": "e2",
+            "detached": true,
+            "labels": [],
+            "segments": [
+              {
+                "graph": "A",
+                "type": "INPUT",
+                "edgeToken": 5,
+                "actualSource": "parentA:port1",
+                "actualTarget": "xin",
+                "labels": [
+                  "e2-label"
+                ],
+                "thickness": 2
+              },
+              {
+                "graph": "B",
+                "type": "OUTPUT",
+                "edgeToken": 6,
+                "actualSource": "back",
+                "actualTarget": "parentB:port2",
+                "labels": [],
+                "thickness": 2
+              },
+              {
+                "graph": "r",
+                "type": "OUTPUT",
+                "edgeToken": 7,
+                "actualSource": "parentB:port2",
+                "actualTarget": "parentA:port1",
+                "labels": [],
+                "thickness": 2
+              }
+            ]
+          }
+        ],
+        "after": [
+          {
+            "id": "e0",
+            "source": "xp",
+            "target": "yp",
+            "bends": [
+              [
+                5,
+                9
+              ],
+              [
+                8,
+                12
+              ],
+              [
+                -7,
+                -6
+              ],
+              [
+                44,
+                15
+              ],
+              [
+                74,
+                35
+              ],
+              [
+                183,
+                87
+              ],
+              [
+                165,
+                75
+              ],
+              [
+                171,
+                81
+              ]
+            ],
+            "junctionPresent": false,
+            "junctions": null,
+            "targetOffset": [
+              152,
+              58
+            ],
+            "labels": [
+              {
+                "id": "e0-label",
+                "position": [
+                  -96,
+                  -33
+                ],
+                "originalEdge": true
+              }
+            ]
+          },
+          {
+            "id": "e1",
+            "source": "xp",
+            "target": "zp",
+            "bends": [
+              [
+                5,
+                9
+              ],
+              [
+                8,
+                12
+              ],
+              [
+                -7,
+                -6
+              ],
+              [
+                44,
+                15
+              ],
+              [
+                74,
+                35
+              ],
+              [
+                183,
+                87
+              ],
+              [
+                165,
+                75
+              ],
+              [
+                171,
+                81
+              ]
+            ],
+            "junctionPresent": false,
+            "junctions": null,
+            "targetOffset": [
+              152,
+              58
+            ],
+            "labels": [
+              {
+                "id": "e1-label",
+                "position": [
+                  11,
+                  13
+                ],
+                "originalEdge": true
+              }
+            ]
+          },
+          {
+            "id": "e2",
+            "source": "back",
+            "target": "xin",
+            "bends": [
+              [
+                13,
+                17
+              ],
+              [
+                19,
+                23
+              ],
+              [
+                -9,
+                -14
+              ],
+              [
+                -108,
+                -43
+              ],
+              [
+                -78,
+                -23
+              ],
+              [
+                -109,
+                -35
+              ],
+              [
+                -147,
+                -49
+              ],
+              [
+                -144,
+                -46
+              ]
+            ],
+            "junctionPresent": false,
+            "junctions": null,
+            "targetOffset": [
+              -152,
+              -58
+            ],
+            "labels": [
+              {
+                "id": "e2-label",
+                "position": [
+                  -141,
+                  -45
+                ],
+                "originalEdge": true
+              }
+            ]
+          }
+        ],
+        "flags": {
+          "r": [
+            "CENTER_LABELS",
+            "END_LABELS",
+            "NON_FREE_PORTS"
+          ],
+          "A": [
+            "CENTER_LABELS",
+            "END_LABELS",
+            "EXTERNAL_PORTS"
+          ],
+          "B": [
+            "EXTERNAL_PORTS"
+          ]
+        },
+        "allDummyEdgesDetached": true,
+        "persistentMapCleared": true,
+        "preMapFieldCleared": true,
+        "geometrySupplied": true,
+        "routingExecuted": false,
+        "layoutExecuted": false
+      }
+    ],
+    "geometrySupplied": true,
+    "routingExecuted": false,
+    "layoutExecuted": false
+  },
+  "nativeExecuted": false,
+  "layoutExecuted": false
+}

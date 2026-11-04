@@ -1,0 +1,451 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright Kiel University and others. Fixed elkjs0.12.1 worker275e6caf.
+# SG01-SG06: HOST15/V/spline-foundation-source-review-01.
+"""Actual spline P5 segment production/ranking; final CP is a separate phase."""
+from dataclasses import dataclass
+from collections import deque
+import math
+
+from .cell_layout import Rectangle,_maximum
+from .port_label_placement import _minimum
+from ..radial import IdentitySet
+from ..disco import _IdentityMap
+from ..triangulation import ValueMap
+from ...execution.identity import identity_hash as _host_identity_hash
+from ...execution.enum_identity import enum_identity_hash
+from ...execution.pair_hash import pair_hash_codes
+from ...execution.diagnostics import BasicProgressMonitor
+from .property_access import read_layered_scalar
+from .orthogonal_general import _place_nodes_horizontally,_is_external_west_or_east
+from .ports import _divide
+from .self_loops_general import _is_self_loop
+
+
+def _graph_for_port(port):
+    node=port.owner
+    return node.graph if node.graph is not None else node.layer.graph
+
+
+def _anchor_y(port):
+    if port.side in('NORTH','SOUTH'):
+        value=port.properties.get('SPLINE_NS_PORT_Y_COORD')
+        if value is None:raise TypeError('The actual splines.nsPortY value is null')
+        return value
+    value=0.0
+    for vector in(port.owner.pos,port.pos,port.anchor):value+=vector.y
+    return value
+
+
+def is_between(value,first,second):
+    if abs(first-value)<1.0e-8 or abs(second-value)<1.0e-8:return True
+    return value-second>1.0e-8 if first-value>1.0e-8 else second-value>1.0e-8
+
+
+@dataclass(eq=False)
+class EdgeInformation:
+    start_y:float=0.0
+    end_y:float=0.0
+    normal_source_node:bool=False
+    normal_target_node:bool=False
+    inverted_left:bool=False
+    inverted_right:bool=False
+
+
+class Dependency:
+    def __init__(self,source,target,weight):
+        self.source=source;self.target=target;self.weight=weight
+        source.outgoing.append(self);target.incoming.append(self)
+
+
+class SplineSegment:
+    def _initialize(self,graph):
+        self.left_ports=IdentitySet(graph);self.right_ports=IdentitySet(graph)
+        self.outgoing=[];self.incoming=[];self.edges=IdentitySet(graph)
+        self.bounding_box=Rectangle();self.edge_information=_IdentityMap(graph)
+        self.center_control_point_y=0.0;self.handled=False
+        self.hyper_edge_top_y=0.0;self.hyper_edge_bottom_y=0.0
+        self.initial_segment=False;self.inverse_order=False;self.in_weight=0
+        self.is_straight=False;self.is_west_of_initial_layer=False;self.last_segment=False
+        self.mark=0;self.out_weight=0;self.rank=0;self.x_delta=0.0
+    def add_edge(self,edge):
+        self.edges.add(edge);information=EdgeInformation();self.edge_information.put(edge,information)
+        information.start_y=_anchor_y(edge.source);information.end_y=_anchor_y(edge.target)
+        information.normal_source_node=edge.source.owner.type in('NORMAL','BREAKING_POINT')
+        information.normal_target_node=edge.target.owner.type in('NORMAL','BREAKING_POINT')
+        information.inverted_left=edge.source.side=='WEST'
+        information.inverted_right=edge.target.side=='EAST'
+    def _relevant_positions(self,source,target_minimum,target_maximum):
+        self.bounding_box.y=_minimum(source,target_minimum)
+        self.bounding_box.height=_maximum(source,target_maximum)-self.bounding_box.y
+        if source<target_minimum:
+            self.center_control_point_y=0.5*(source+target_minimum)
+            self.hyper_edge_top_y=0.09999999999999998*self.center_control_point_y+0.9*source
+            self.hyper_edge_bottom_y=0.09999999999999998*self.center_control_point_y+0.9*target_minimum
+        else:
+            self.center_control_point_y=0.5*(source+target_maximum)
+            self.hyper_edge_top_y=0.09999999999999998*self.center_control_point_y+0.9*target_maximum
+            self.hyper_edge_bottom_y=0.09999999999999998*self.center_control_point_y+0.9*source
+    def __init__(self,edge,source_side,target_side):
+        self._initialize(_graph_for_port(edge.source))
+        (self.left_ports if source_side=='LEFT'else self.right_ports).add(edge.source)
+        (self.left_ports if target_side=='LEFT'else self.right_ports).add(edge.target)
+        self.add_edge(edge);source=_anchor_y(edge.source);target=_anchor_y(edge.target)
+        self._relevant_positions(source,target,target);self.is_straight=abs(source-target)<0.2
+    @classmethod
+    def for_hyperedge(cls,single_port,pairs,source_side):
+        value=cls.__new__(cls);value._initialize(_graph_for_port(single_port))
+        (value.left_ports if source_side=='LEFT'else value.right_ports).add(single_port)
+        minimum=math.inf;maximum=-math.inf
+        # Caller supplies the actual source bucket encounter order. Pair
+        # production and value-key hashing are a separately reviewed block.
+        for pair in pairs:
+            edge=pair.second;target=edge.source
+            if target is single_port:target=edge.target
+            (value.left_ports if pair.first=='LEFT'else value.right_ports).add(target)
+            target_y=_anchor_y(target);minimum=_minimum(minimum,target_y);maximum=_maximum(maximum,target_y)
+        value._relevant_positions(_anchor_y(single_port),minimum,maximum)
+        for pair in pairs:value.add_edge(pair.second)
+        value.is_straight=False
+        return value
+    def compare_to(self,other):return self.mark-other.mark
+
+
+class _OrderedSegments:
+    """Caller-specific linked identity set, including actual hash requests."""
+    def __init__(self,owner,values=()):
+        self.codes=IdentitySet(owner);self.map=ValueMap(self.codes._code,lambda a,b:a is b)
+        self.order=[]
+        for value in values:self.add(value)
+    def add(self,value):
+        old=self.map.put(value,True)
+        if old is None:self.order.append(value)
+    def remove(self,value):
+        if self.map.remove(value)is not None:
+            for index,old in enumerate(self.order):
+                if old is value:del self.order[index];break
+    def values(self):return self.order.copy()
+    def __len__(self):return self.map.count
+    def contains(self,value):return self.map.contains(value)
+    def clear(self):self.map.buckets.clear();self.map.count=0;self.order.clear()
+
+
+def _update_neighbors(segment,sources,sinks):
+    for dependency in segment.outgoing:
+        target=dependency.target
+        if target.mark<0 and dependency.weight>0:
+            target.in_weight-=dependency.weight
+            if target.in_weight<=0 and target.out_weight>0:sources.append(target)
+    for dependency in segment.incoming:
+        source=dependency.source
+        if source.mark<0 and dependency.weight>0:
+            source.out_weight-=dependency.weight
+            if source.out_weight<=0 and source.in_weight>0:sinks.append(source)
+
+
+def break_cycles(segments,random,*,identity_owner=None):
+    """Actual spline cycle remover; no orthogonal critical-edge substitution."""
+    sources=deque();sinks=deque();next_mark=-1
+    for segment in segments:
+        segment.mark=next_mark;next_mark-=1;incoming=0.0;outgoing=0.0
+        for dependency in segment.outgoing:outgoing+=dependency.weight
+        for dependency in segment.incoming:incoming+=dependency.weight
+        segment.in_weight=incoming;segment.out_weight=outgoing
+        if outgoing==0:sinks.append(segment)
+        elif incoming==0:sources.append(segment)
+    if identity_owner is None and segments:identity_owner=segments[0].edges.state
+    unprocessed=_OrderedSegments(identity_owner,segments);base=len(segments)
+    left=base+1;right=base-1;candidates=[]
+    while len(unprocessed)!=0:
+        while sinks:
+            sink=sinks.popleft();unprocessed.remove(sink);sink.mark=right;right-=1
+            _update_neighbors(sink,sources,sinks)
+        while sources:
+            source=sources.popleft();unprocessed.remove(source);source.mark=left;left+=1
+            _update_neighbors(source,sources,sinks)
+        maximum=-2147483648
+        for segment in unprocessed.values():
+            outflow=segment.out_weight-segment.in_weight
+            if outflow>=maximum:
+                if outflow>maximum:candidates.clear();maximum=outflow
+                candidates.append(segment)
+        if candidates:
+            selected=candidates[random.next_int(len(candidates))]
+            unprocessed.remove(selected);selected.mark=left;left+=1
+            _update_neighbors(selected,sources,sinks);candidates.clear()
+    shift=len(segments)+1
+    for segment in segments:
+        if segment.mark<base:segment.mark+=shift
+    for source in segments:
+        index=0
+        while index<len(source.outgoing):
+            dependency=source.outgoing[index];target=dependency.target
+            if source.mark>target.mark:
+                del source.outgoing[index]
+                # Actual identity-first ArrayList removal, not edge endpoints.
+                for other_index,old in enumerate(target.incoming):
+                    if old is dependency:del target.incoming[other_index];break
+                if dependency.weight>0:
+                    dependency.source=target;target.outgoing.append(dependency)
+                    dependency.target=source;source.incoming.append(dependency)
+            else:index+=1
+
+
+def topological_numbering(segments):
+    sources=deque();rightward=deque()
+    for segment in segments:
+        segment.rank=0;segment.in_weight=len(segment.incoming);segment.out_weight=len(segment.outgoing)
+        if segment.in_weight==0:sources.append(segment)
+        if segment.out_weight==0 and not segment.left_ports.values():rightward.append(segment)
+    maximum=-1
+    while sources:
+        segment=sources.popleft()
+        for dependency in segment.outgoing:
+            target=dependency.target;target.rank=_maximum(target.rank,segment.rank+1)
+            maximum=_maximum(maximum,target.rank);target.in_weight-=1
+            if target.in_weight==0:sources.append(target)
+    if maximum>-1:
+        for segment in rightward:segment.rank=maximum
+        while rightward:
+            segment=rightward.popleft()
+            for dependency in segment.incoming:
+                source=dependency.source
+                if source.left_ports.values():continue
+                source.rank=_minimum(source.rank,segment.rank-1);source.out_weight-=1
+                if source.out_weight==0:rightward.append(source)
+
+
+def _absolute_y(port):
+    value=0.0
+    for vector in(port.owner.pos,port.pos,port.anchor):value+=vector.y
+    return value
+
+
+class _IdentityTable:
+    def __init__(self,owner):
+        self.map=ValueMap(lambda key:0 if key is None else owner.identity_hash(key),lambda a,b:a is b)
+    def get(self,key):return self.map.get(key)
+    def put(self,key,value):return self.map.put(key,value)
+    def clear(self):self.map.buckets.clear();self.map.count=0
+
+
+@dataclass(eq=False)
+class _Pair:
+    first:str
+    second:object
+
+
+class _Pairs:
+    def __init__(self,owner):
+        self.owner=owner;self.map=ValueMap(self._code,lambda a,b:a.first==b.first and a.second is b.second)
+    def _code(self,pair):
+        first=0 if pair.first is None else enum_identity_hash(
+            'org.eclipse.elk.alg.layered.p5edges.splines.SplineEdgeRouter$SideToProcess',pair.first)
+        second=0 if pair.second is None else self.owner.identity_hash(pair.second)
+        return pair_hash_codes(first,second)
+    def add(self,pair):self.map.put(pair,True)
+    def __iter__(self):return iter(self.map)
+    def __len__(self):return self.map.count
+
+
+def _remove_first(values,value):
+    for index,old in enumerate(values):
+        if old is value:del values[index];return
+
+
+def _create_dependency(first,second):
+    if (first.hyper_edge_top_y>second.hyper_edge_bottom_y or
+            second.hyper_edge_top_y>first.hyper_edge_bottom_y):return
+    a=0;b=0
+    for port in first.right_ports.values():
+        if is_between(_absolute_y(port),second.hyper_edge_top_y,second.hyper_edge_bottom_y):a+=1
+    for port in first.left_ports.values():
+        if is_between(_absolute_y(port),second.hyper_edge_top_y,second.hyper_edge_bottom_y):a-=1
+    for port in second.right_ports.values():
+        if is_between(_absolute_y(port),first.hyper_edge_top_y,first.hyper_edge_bottom_y):b+=1
+    for port in second.left_ports.values():
+        if is_between(_absolute_y(port),first.hyper_edge_top_y,first.hyper_edge_bottom_y):b-=1
+    if a<b:Dependency(first,second,b-a)
+    elif b<a:Dependency(second,first,a-b)
+    else:Dependency(second,first,0);Dependency(first,second,0)
+
+
+class SplineEdgeRouter:
+    source_name='SplineEdgeRouter'
+    def __init__(self):
+        self.l_graph=None;self._identity_codes={}
+        self.remaining_edges=[];self.segments_layer=[]
+        self.left_ports_layer=_OrderedSegments(self);self.right_ports_layer=_OrderedSegments(self)
+        self.self_loops_layer=_OrderedSegments(self);self.start_edges=[];self.all_segments=[]
+        self.edge_to_segment=_IdentityTable(self);self.successor=_IdentityTable(self)
+    def identity_hash(self,value):
+        key=id(value)
+        if key not in self._identity_codes:
+            graph=self.l_graph
+            if graph is None:raise RuntimeError('An active source graph is required for a first identity request')
+            method=getattr(graph,'identity_hash',None)
+            code=method(value)if method is not None else _host_identity_hash(graph,value)
+            self._identity_codes[key]=(value,code)
+        return self._identity_codes[key][1]
+    def get_layout_processor_configuration(self,graph):
+        from .layout_configuration import LayoutProcessorConfiguration,LayeredPhase
+        from .phase_factories import IntermediateProcessorStrategy as Strategy
+        from .graph_info import get_graph_properties
+        p1,p2,p3,p4,p5=tuple(LayeredPhase);configuration=LayoutProcessorConfiguration()
+        def before(phase,name):configuration.add_before(phase,Strategy[name])
+        def after(phase,name):configuration.add_after(phase,Strategy[name])
+        after(p5,'FINAL_SPLINE_BENDPOINTS_CALCULATOR');before(p3,'INVERTED_PORT_PROCESSOR')
+        properties=get_graph_properties(graph)
+        if 'SELF_LOOPS'in properties:
+            before(p1,'SELF_LOOP_PREPROCESSOR');after(p5,'SELF_LOOP_POSTPROCESSOR')
+            before(p4,'SELF_LOOP_PORT_RESTORER');before(p4,'SELF_LOOP_ROUTER')
+        if 'CENTER_LABELS'in properties:
+            before(p2,'LABEL_DUMMY_INSERTER');before(p4,'LABEL_DUMMY_SWITCHER')
+            before(p4,'LABEL_SIDE_SELECTOR');after(p5,'LABEL_DUMMY_REMOVER')
+        if 'NORTH_SOUTH_PORTS'in properties:
+            before(p3,'NORTH_SOUTH_PORT_PREPROCESSOR');before(p5,'NORTH_SOUTH_PORT_POSTPROCESSOR')
+        if 'END_LABELS'in properties:
+            before(p4,'LABEL_SIDE_SELECTOR');before(p4,'END_LABEL_PREPROCESSOR')
+            after(p5,'END_LABEL_POSTPROCESSOR')
+        return configuration
+    @staticmethod
+    def _outgoing(node):
+        return(edge for edges in[port.outgoing_edges for port in node.ports]for edge in edges)
+    def _find_successor(self,edge):
+        node=edge.target.owner
+        if node.type in('NORMAL','BREAKING_POINT'):return
+        iterator=self._outgoing(node);successor=next(iterator,None)
+        if successor is not None:self.successor.put(edge,successor)
+    def _collect_edge(self,edge,left,right):
+        if _is_self_loop(edge):return
+        self.remaining_edges.append(edge);self._find_successor(edge)
+        if edge.source.owner.type in('NORMAL','NORTH_SOUTH_PORT','EXTERNAL_PORT','BREAKING_POINT'):
+            self.start_edges.append(edge)
+        target=edge.target;layer=target.owner.layer
+        if layer is right:self.right_ports_layer.add(target)
+        elif layer is left:self.left_ports_layer.add(target)
+        else:_remove_first(self.remaining_edges,edge)
+    def clear_then_fill(self,left,right):
+        self.left_ports_layer.clear();self.right_ports_layer.clear();self.remaining_edges.clear()
+        self.segments_layer.clear();self.self_loops_layer.clear()
+        if left is not None:
+            for node in left.nodes:
+                for port in(node_port for node_port in node.ports if node_port.side=='EAST'):
+                    self.left_ports_layer.add(port)
+                    for edge in port.outgoing_edges:self._collect_edge(edge,left,right)
+        if right is not None:
+            for node in right.nodes:
+                for port in node.ports:
+                    for edge in port.outgoing_edges:
+                        if _is_self_loop(edge):self.self_loops_layer.add(edge)
+                for port in(node_port for node_port in node.ports if node_port.side=='WEST'):
+                    self.right_ports_layer.add(port)
+                    for edge in port.outgoing_edges:self._collect_edge(edge,left,right)
+    def _hyperedges(self,side,reversed):
+        ports=self.left_ports_layer if side=='LEFT'else self.right_ports_layer
+        for single in ports.values():
+            y=_absolute_y(single);up=_Pairs(self);down=_Pairs(self)
+            for edge in[ *single.incoming_edges,*single.outgoing_edges]:
+                reverse=edge.properties.get('REVERSED')
+                if reverse is None:reverse=False
+                if type(reverse)is not bool:raise TypeError('The actual InternalProperties.REVERSED value is not Boolean')
+                if reverse!=reversed:continue
+                if not any(old is edge for old in self.remaining_edges):continue
+                target=edge.source if edge.target is single else edge.target
+                target_y=_absolute_y(target)
+                if abs(target_y-y)<0.2:continue
+                target_side='LEFT'if self.left_ports_layer.contains(target)else'RIGHT'
+                (up if target_y<y else down).add(_Pair(target_side,edge))
+            for pairs in(up,down):
+                if len(pairs)>1:
+                    segment=SplineSegment.for_hyperedge(single,pairs,side)
+                    for pair in pairs:self.edge_to_segment.put(pair.second,segment)
+                    self.segments_layer.append(segment)
+                    for pair in pairs:_remove_first(self.remaining_edges,pair.second)
+    def _regular_segments(self):
+        for edge in self.remaining_edges:
+            if self.left_ports_layer.contains(edge.source):source='LEFT'
+            elif self.right_ports_layer.contains(edge.source):source='RIGHT'
+            else:raise ValueError('Source port must be in one of the port sets.')
+            if self.left_ports_layer.contains(edge.target):target='LEFT'
+            elif self.right_ports_layer.contains(edge.target):target='RIGHT'
+            else:raise ValueError('Target port must be in one of the port sets.')
+            segment=SplineSegment(edge,source,target);self.edge_to_segment.put(edge,segment)
+            self.segments_layer.append(segment)
+    def create_segments_and_ranking(self):
+        for side,reversed in(('LEFT',True),('LEFT',False),('RIGHT',True),('RIGHT',False)):
+            self._hyperedges(side,reversed)
+        self._regular_segments()
+        for index,first in enumerate(self.segments_layer):
+            for second in self.segments_layer[index+1:]:_create_dependency(first,second)
+        random=self.l_graph.properties.get('RANDOM')
+        break_cycles(self.segments_layer,random,identity_owner=self)
+        topological_numbering(self.segments_layer)
+    def _edge_chain(self,start):
+        edges=[];current=start
+        while True:
+            edges.append(current);current=self.successor.get(current)
+            if current is None:return edges
+    def _spline_path(self,start):
+        segments=[];current=start
+        while True:
+            segment=self.edge_to_segment.get(current)
+            segment.source_port=current.source;segment.target_port=current.target;segments.append(segment)
+            current=self.successor.get(current)
+            if current is None:break
+        first=segments[0];first.initial_segment=True;first.source_node=first.edges.values()[0].source.owner
+        last=segments[-1];last.last_segment=True;last.target_node=last.edges.values()[0].target.owner
+        return segments
+    @staticmethod
+    def _sloppy_spacing(right,edge_gap,node_gap,factor):
+        maximum=0.0
+        for node in right.nodes:
+            current=0.0
+            for port in node.ports:
+                for edge in port.incoming_edges:
+                    source=_absolute_y(edge.source);target=_absolute_y(edge.target)
+                    current=_maximum(current,abs(target-source))
+            maximum=_maximum(maximum,current)
+        return factor*_minimum(1.0,_divide(edge_gap,node_gap))*maximum
+    def process(self,graph,monitor=None):
+        monitor=BasicProgressMonitor(False,False)if monitor is None else monitor
+        monitor.begin('Spline edge routing',1)
+        if not graph.layers:graph.size.x=0.0;monitor.done();return
+        node_gap=read_layered_scalar(graph,'SPACING_NODE_NODE_BETWEEN_LAYERS','SPACING_NODE_NODE_BETWEEN_LAYERS_0')
+        node_edge_gap=read_layered_scalar(graph,'SPACING_EDGE_NODE_BETWEEN_LAYERS','SPACING_EDGE_NODE_BETWEEN_LAYERS_0')
+        edge_gap=read_layered_scalar(graph,'SPACING_EDGE_EDGE_BETWEEN_LAYERS','SPACING_EDGE_EDGE_BETWEEN_LAYERS_0')
+        mode=read_layered_scalar(graph,'EDGE_ROUTING_SPLINES_MODE','EDGE_ROUTING_SPLINES_MODE_0')
+        factor=read_layered_scalar(graph,'EDGE_ROUTING_SPLINES_SLOPPY_LAYER_SPACING_FACTOR','EDGE_ROUTING_SPLINES_SLOPPY_LAYER_SPACING_FACTOR_0')
+        self.l_graph=graph;self.start_edges.clear();self.all_segments.clear();self.successor.clear()
+        first=graph.layers[0];last=graph.layers[-1]
+        external_left=all(_is_external_west_or_east(node)for node in first.nodes)
+        external_right=all(_is_external_west_or_east(node)for node in last.nodes)
+        iterator=iter(graph.layers);left=None;x=0.0
+        while True:
+            right=next(iterator,None);self.clear_then_fill(left,right);self.create_segments_and_ranking()
+            slots=max((segment.rank+1 for segment in self.segments_layer if not segment.is_straight),default=0)
+            delta=0.0;right_position=x
+            special_left=left is None or external_left and left is first
+            special_right=right is None or external_right and right is last
+            if slots>0:
+                increment=0.0
+                if left is not None:increment+=node_edge_gap
+                increment+=(slots-1)*edge_gap
+                if right is not None:increment+=node_edge_gap
+                if mode=='SLOPPY'and right is not None:
+                    increment=_maximum(increment,self._sloppy_spacing(right,edge_gap,node_gap,factor))
+                if increment<node_gap and not special_left and not special_right:
+                    delta=(node_gap-increment)/2;increment=node_gap
+                right_position+=increment
+            elif not special_left and not special_right:right_position+=node_gap
+            if right is not None:_place_nodes_horizontally(right,right_position)
+            for segment in self.segments_layer:
+                segment.bounding_box.x=x;segment.bounding_box.width=right_position-x
+                segment.x_delta=delta;segment.is_west_of_initial_layer=left is None
+            self.all_segments.extend(self.segments_layer);x=right_position
+            if right is not None:x+=right.size.x
+            left=right
+            if right is None:break
+        for edge in self.start_edges:
+            edge.properties['SPLINE_EDGE_CHAIN']=self._edge_chain(edge)
+            edge.properties['SPLINE_ROUTE_START']=self._spline_path(edge)
+        graph.size.x=x;self.l_graph=None;monitor.done()

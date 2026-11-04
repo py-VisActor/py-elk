@@ -1,0 +1,79 @@
+{
+  "schema": "py-elk-e08-independent-review/v1",
+  "lane": "B",
+  "reviewedLane": "V-old-conformance-spawn-migration",
+  "status": "ACCEPTED_TEST_ONLY_DELTA",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "tests/conformance/native_worker_controls.py": "f5f158d7e8b73fdaeb2ab42503a622ac54e02b8d40e402c7da6cab7842e0615e",
+    "tests/conformance/test_e04_cases.py": "dc092d0cfdc802b983e2742b3d6e429dcd732053882c1b2289607952499d4949",
+    "tests/conformance/test_e05_native.py": "ee1e4ea2fdfb698c30498c5dde14e2569b485d423f082a93cf45473470c7995e",
+    "tests/conformance/test_e06_native.py": "84986753e5ecf77ef0707fc9523a534286e4d4e10133867c1de4569372220f2c",
+    "tests/conformance/test_e07_native.py": "137cadae13b9ebd088993bcc5444fc314684cf65dec1fddbc090d9edeadc7a86"
+  },
+  "assertionPreservation": [
+    {
+      "path": "tests/conformance/test_e04_cases.py",
+      "oldMethods": 11,
+      "currentMethods": 12,
+      "allOriginalSelfAssertAstExactlyRetained": true,
+      "newMethods": [
+        "E04IndependentNativeCases.test_external_engine_launch_guard_really_runs_inside_the_native_child"
+      ]
+    },
+    {
+      "path": "tests/conformance/test_e05_native.py",
+      "oldMethods": 11,
+      "currentMethods": 11,
+      "allOriginalSelfAssertAstExactlyRetained": true,
+      "newMethods": []
+    },
+    {
+      "path": "tests/conformance/test_e06_native.py",
+      "oldMethods": 9,
+      "currentMethods": 9,
+      "allOriginalSelfAssertAstExactlyRetained": true,
+      "newMethods": []
+    },
+    {
+      "path": "tests/conformance/test_e07_native.py",
+      "oldMethods": 5,
+      "currentMethods": 5,
+      "allOriginalSelfAssertAstExactlyRetained": true,
+      "newMethods": []
+    }
+  ],
+  "ownerActualEvidence": [
+    {
+      "path": "test-runs/20261103-E08-01/V/conformance-migration/targeted-01-command/command.json",
+      "sha256": "ba09102e8842e873ffbaedc96a572a78fb23451c3358c8c35bdecc9946a4517e",
+      "actualTests": 5,
+      "reviewScope": "Verified original producer command/logs; B did not rerun this workload."
+    },
+    {
+      "path": "test-runs/20261103-E08-01/V/conformance-migration/full-conformance-01-command/command.json",
+      "sha256": "2429c072b74e055d742ecbfc44f22eead841640ba5da610ded633f11c92567a3",
+      "actualTests": 46,
+      "reviewScope": "Verified original producer command/logs; B did not rerun this workload."
+    }
+  ],
+  "runtimeCodeMatchesActual894": true,
+  "productionToolsFixturesAndNativeE08HelperMatchFirstFullBarrier": true,
+  "findings": [
+    "All ordinary observation helpers call the public ELK layout with a real spawned Python worker; only its test-private target selects guarded or deliberately faulty real run_job execution.",
+    "The Popen prohibition is installed inside the child target around the real context/validation/pipeline execution, so the parent is free to create the intended native Python process.",
+    "All three omitted operations patch the real processor registry in that child and call the real run_job. They preserve the original omission semantics and original exact/geometry/error assertions.",
+    "The new external-launch control first checks a genuine pristine result, then attempts a harmless Python Popen from the injected kernel body. Exact WorkerExecutionError code and unique guard message cannot be satisfied by merely falling through to a malformed result or by a missing guard.",
+    "Only the volatile-port callback instrumentation uses direct create_context/validate_slice/layout_context, explicitly documented as kernel-only and excluded from API/lifecycle evidence. Its original nested self assertions and calls observation remain intact.",
+    "Every instance created by the four ordinary helper paths closes in finally, including failed negative controls."
+  ],
+  "scope": "Read-only source delta and independent original assertion-AST/producer-log review. No algorithm, current runtime code, original request/oracle, geometry policy or native E08 capture helper changed.",
+  "limitations": [
+    "B did not rerun the118-second conformance group or claim the forthcoming three-platform full run passed.",
+    "The first full WSL01 failure/raw logs and all original snapshots remain retained.",
+    "Root-managed documentation and .gitattributes updates are outside these five reviewed test files."
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false
+}

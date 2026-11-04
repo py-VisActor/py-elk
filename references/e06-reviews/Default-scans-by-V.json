@@ -1,0 +1,129 @@
+{
+  "schema": "py-elk-e06-component-source-review/v1",
+  "iteration": "E06",
+  "reviewer": "V",
+  "reviewedLane": "R",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T07:40:58.507097+00:00",
+  "sourceDocument": {
+    "path": "references/e06-source-components-R.json",
+    "sha256": "793112c70d2198fec9d83267daa0199949c3fcc25373cfe4336290d7c4a9ace5"
+  },
+  "approvedComponents": [
+    "intermediate:EdgeAndLayerConstraintEdgeReverser",
+    "intermediate:LayerConstraintPreprocessor",
+    "intermediate:LayerConstraintPostprocessor",
+    "intermediate:PortSideProcessor",
+    "intermediate:PortListSorter",
+    "intermediate:InLayerConstraintProcessor",
+    "intermediate:InnermostNodeMarginCalculator",
+    "intermediate:LayerSizeAndGraphHeightCalculator",
+    "intermediate:EndLabelSorter"
+  ],
+  "componentSeals": {
+    "intermediate:EdgeAndLayerConstraintEdgeReverser": "1ad2163bc3d721a52b61320f3b4793f1f481509775773e45c0a241d03c114ae8",
+    "intermediate:LayerConstraintPreprocessor": "c66866369183ebc9557684d604bf8331f391b08a611a288ff483231895b837e1",
+    "intermediate:LayerConstraintPostprocessor": "9dc9171993a6f1442020f055ee7a2d87ff808d4ba2b41626df47dc9c6bf2b30b",
+    "intermediate:PortSideProcessor": "8daeb1bff199bb830cd3bb059bd8593ec887253cebd75428280c691fbd74f9ac",
+    "intermediate:PortListSorter": "dc667f25c66af51806f1e7e4c264b7ba7a1c2b5cd6850cea86797b7230f611e5",
+    "intermediate:InLayerConstraintProcessor": "d907a30627876450b2c4bd539a5a9b7002e771bcf8a9a587ff30140564eef2be",
+    "intermediate:InnermostNodeMarginCalculator": "d5e56ab0fa60d9ab0ff1c1b424411b352e9dd2922d7fc5323ae039e87c5bc566",
+    "intermediate:LayerSizeAndGraphHeightCalculator": "6291a4ef226d91ef159043cdd302c257ac07632009710e8aa42b40a58c8f1643",
+    "intermediate:EndLabelSorter": "0df438d600ecab149c1a004a694a1ddf1cdba9112414ab43c567592e811e95c9"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "commonSourceContextSha256": "8e8a7e51b814ac6b6f5364f4bcce3b9cc174066d286e56e48cb1830eaebf7a4b",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 1019,
+    "functionOffsetOccurrences": 984,
+    "staticCallEdges": 432,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E06-01/V/source-R-scans-01/report.json",
+    "sha256": "d8f5c079143d3f8041f8bd5b2616fab199f8d4d399c7364523ee502f57abe7ce"
+  },
+  "checkedSemantics": [
+    {
+      "id": "SOURCE-INHERITANCE",
+      "checked": "Each source helper/host read/write semantics resolves to exact E05 immutable component pointer+canonical seal. E05 raw-DAG/no-loop/noREVERSED/64/168/84 exclusions are explicitly superseded, not inherited. Scope/context delta allows raw8/28 and176/196/392 under separately approved source proofs. Only SELF_LOOPS GraphProperties flag is added; no other public/compound/label/collector branch is enabled."
+    },
+    {
+      "id": "EARLY-CONSTRAINT-SCANS",
+      "checked": "Actual EdgeConstraint scan is BEFORE loopPre, on all original NORMAL/FREE nodes. Layer.NONE skips layer branches and FREE fails fixed-side reversal guard even with loop/parallel edges. After hide+GREEDY real preprocessor allocates hidden list and scans nodes, no first/last constraint qualifies and HIDDEN_NODES not fabricated. Postprocessor after real NS allocates two temporary label layers, snapshots nodes and removes actual empty layers; no constraints/labels and NS occupied-layer proof retain source layers."
+    },
+    {
+      "id": "PORT-SIDE-ORDER",
+      "checked": "Before late loop restoration all active ports are independent single-segment E/W or source LONG_EDGE fixed-position ports. FREE actual incoming-minus-outgoing degree sets sides including swapped former targets; reverse helper itself must not pre-set side. Dummy floor/side/anchor retained. Port sorter stable sides and literal stale-low WEST high-exclusive reversal/cache writes apply up to28 active ports, independently checked all435 EAST/WEST count combinations; no full-WEST-reverse correction or later cache recomputation."
+    },
+    {
+      "id": "IN-LAYER",
+      "checked": "Late NORTH loop ports have empty adjacency. Node IN_LAYER.NONE remains source predicate; actual snapshot/top-index/bottom-list scan executes, no TOP/BOTTOM moves or new constraint/cache conditions. No label/loop object is converted into an in-layer graph edge."
+    },
+    {
+      "id": "REAL-RECTANGLE-MARGIN",
+      "checked": "Actual rectangle union includes every current port, any side, so tiny NORTH overshoot may create margin.right and E/W iterative effects may create margin.bottom. Exact min/max/subtract/re-add order and four retained writes remain; no zero-margin theorem. Source excludes edge-head/tail-label processing. Separate SelfLoopRouter later legitimately grows top margin."
+    },
+    {
+      "id": "LAYER-SIZE",
+      "checked": "At this actual stage real loop margin.top and BK positions exist, loops remain detached until Post. Exact width+margin association, FIRST/LAST node boundaries, global min/max and graph.offset.y subtraction retained.176 nodes/8layers do not alter that source traversal; do not require layer.height==node.height or infer source layer from public coordinate equality."
+    },
+    {
+      "id": "END-CALLBACK",
+      "checked": "After actual join and loopPost only original NORMAL nodes/ports and edges remain. Real NORMAL stream filter and processNode3 callback/inner END_LABELS presence test execute; no labels generated, so sort/initialization writes skipped. Restored loops/REVERSED metadata never create label keys; no blanket business-field deletion."
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e05-source-components-A.json",
+      "sha256": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0"
+    },
+    {
+      "path": "src/pyelk/_licenses/elkjs-LICENSE.md",
+      "sha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9"
+    },
+    {
+      "path": "src/pyelk/_licenses/NOTICE.md",
+      "sha256": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6"
+    },
+    {
+      "path": "src/pyelk/_licenses/NOTICE-E05.md",
+      "sha256": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807"
+    },
+    {
+      "path": "src/pyelk/_licenses/NOTICE-E06.md",
+      "sha256": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858"
+    }
+  ],
+  "independentScalarEvidence": {
+    "path": "test-runs/20261103-E06-01/V/source-scan-controls.json",
+    "sha256": "d1622ddbb8ceeb816281304fb354a0836a49f2a550a5400aa7ef00ba1e3a38d6"
+  },
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E06-01/V/stress-source-observations.json",
+      "sha256": "25ba966768632e9ecfecd649c8dcf4746eb7730d8897d9f63860f6e2a3bd430d"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/NORTH-scalar-control.json",
+      "sha256": "7683b7ac30d9d1a9bf64928349105e1b8dcdff251b30d14142aead9b3af1c6d0"
+    }
+  ],
+  "blockers": [],
+  "excludedFromApproval": [
+    "phase:LAYER_SWEEP_BARYCENTER",
+    "phase:LAYER_SWEEP_GREEDY_SWITCH",
+    "phase:BRANDES_KOEPF",
+    "phase:ORTHOGONAL",
+    "pipeline:default-processor-configuration"
+  ],
+  "limitations": [
+    "Canonical full15 byte checks1019LF/984UTF16/432calls do not semantically approve the five excluded components; B independently reviews those.",
+    "These nine inherit exact source helper/read/write artifacts, not old admission/no-op proof. Their actual prefix/typed source constraints must remain required when shared host guards are widened.",
+    "Finite scalar/official observations support manual def-use proof, not automatic whole algorithm equivalence or Python/wheel acceptance. Exact Java build/release license remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE06SourceGateApproved": false
+}

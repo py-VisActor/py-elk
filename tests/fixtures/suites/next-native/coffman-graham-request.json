@@ -1,0 +1,14 @@
+{
+  "nodeOrder":["h","e","a","d","g","b","f","c"],
+  "edges":[["a","b"],["a","c"],["b","d"],["c","d"],["d","e"],["b","e"],["a","e"],["c","f"],["f","g"],["e","g"],["a","b"]],
+  "widths":[2,0],
+  "comparatorProbes":[
+    {"name":"empty","left":[],"right":[]},
+    {"name":"empty-vs-nonempty","left":[],"right":[1]},
+    {"name":"shared-small127","left":[127],"right":[127]},
+    {"name":"fresh-large128","left":[128],"right":[128]},
+    {"name":"same-object-large128","left":[128],"right":[128],"sharedLarge":true},
+    {"name":"equal-last-prefix","left":[1,2],"right":[2]},
+    {"name":"differing-payload","left":[1],"right":[2]}
+  ]
+}

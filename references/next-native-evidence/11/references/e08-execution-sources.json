@@ -1,0 +1,339 @@
+{
+  "schema": "py-elk-e08-execution-sources/v1",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "status": "implemented-source-and-installed-owner-tested-awaiting-final-integration",
+  "designDocument": "docs/decisions/0007-e08-api-lifecycle.md",
+  "hostContract": "references/e08-host-contract.json",
+  "sources": [
+    {
+      "sourceId": "elkjs-api",
+      "kind": "fixed-git-blob",
+      "path": "src/js/elk-api.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+      "localWorkingTreeSha256": "c610f83a0c6e52d9a973f34ae87e7d51dad96757b528d241c29702405be2392c",
+      "localPath": ".local/upstream-elkjs/src/js/elk-api.js",
+      "encoding": "UTF-8",
+      "lineRanges": [
+        {
+          "startLine": 96,
+          "endLine": 100,
+          "canonicalUtf8Sha256": "4bb303039afabe479c74e09bf497d5425eb7a0d414925017ba90395eea797f84"
+        },
+        {
+          "startLine": 103,
+          "endLine": 157,
+          "canonicalUtf8Sha256": "bb2d2b8210f9ede26643c12545d657ea2eda488f52393cc281247241face3a61"
+        }
+      ],
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "licenseBasis": "SPDX header in fixed readable elkjs sources; generated worker release license is separately preserved in existing package notices."
+    },
+    {
+      "sourceId": "elkjs-node-entry",
+      "kind": "fixed-git-blob",
+      "path": "src/js/main-node.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+      "localWorkingTreeSha256": "66acd27f38febf60ce12e43802c3f11b0c1209cba42ca1858ab99b3069ddc382",
+      "localPath": ".local/upstream-elkjs/src/js/main-node.js",
+      "encoding": "UTF-8",
+      "lineRanges": [
+        {
+          "startLine": 16,
+          "endLine": 49,
+          "canonicalUtf8Sha256": "c62bee93cb590163849bb7ea84fcadfae1cb4b5d6a28cf833b293b83ae7c7f3f"
+        }
+      ],
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "licenseBasis": "SPDX header in fixed readable elkjs sources; generated worker release license is separately preserved in existing package notices."
+    },
+    {
+      "sourceId": "elkjs-export-dispatch",
+      "kind": "fixed-git-blob",
+      "path": "src/java/org/eclipse/elk/js/ElkJs.java",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+      "localWorkingTreeSha256": "1330df853777a75daabc99cac8aa1780b6fc7fef7ccb4d37cc3181e326ee44a5",
+      "localPath": ".local/upstream-elkjs/src/java/org/eclipse/elk/js/ElkJs.java",
+      "encoding": "UTF-8",
+      "lineRanges": [
+        {
+          "startLine": 57,
+          "endLine": 129,
+          "canonicalUtf8Sha256": "a9718e11b97695990253e89af364a77bf36202d32634e24731a57487b065e87d"
+        }
+      ],
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "licenseBasis": "SPDX header in fixed readable elkjs sources; generated worker release license is separately preserved in existing package notices."
+    },
+    {
+      "sourceId": "elkjs-api-types",
+      "kind": "fixed-git-blob",
+      "path": "typings/elk-api.d.ts",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "localWorkingTreeSha256": "46cf8bcbe6429ad1d140e30494ded1c67f5ba40fdbb0f341c49bf02551f630d3",
+      "localPath": ".local/upstream-elkjs/typings/elk-api.d.ts",
+      "encoding": "UTF-8",
+      "lineRanges": [
+        {
+          "startLine": 134,
+          "endLine": 172,
+          "canonicalUtf8Sha256": "fbb9c61700564de30e77562ed35b464def53337703ee4c1d81eacbe7ef522ff8"
+        }
+      ],
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "licenseBasis": "SPDX header in fixed readable elkjs sources; generated worker release license is separately preserved in existing package notices."
+    },
+    {
+      "sourceId": "elkjs-release-api",
+      "kind": "fixed-npm-release",
+      "path": "lib/elk-api.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "localWorkingTreeSha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "localPath": ".local/npm-elkjs/package/lib/elk-api.js",
+      "encoding": "UTF-8",
+      "lineRanges": [
+        {
+          "startLine": 116,
+          "endLine": 180,
+          "canonicalUtf8Sha256": "8bd8e4953252d07a0f921f06e27ffb8c429fa8acd56196c560cb223ef5cbea66"
+        }
+      ],
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "licenseBasis": "SPDX header in fixed readable elkjs sources; generated worker release license is separately preserved in existing package notices."
+    },
+    {
+      "sourceId": "elkjs-release-worker",
+      "kind": "fixed-npm-release",
+      "path": "lib/elk-worker.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "localWorkingTreeSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "localPath": ".local/npm-elkjs/package/lib/elk-worker.js",
+      "encoding": "UTF-8",
+      "lineRanges": [
+        {
+          "startLine": 81799,
+          "endLine": 81867,
+          "canonicalUtf8Sha256": "bafd1852f4f9f2b5ff5a9b40421141ed212625b646d3977d8b3c78a661503f45"
+        }
+      ],
+      "license": "EPL-2.0 OR GPL-3.0-or-later",
+      "licenseBasis": "SPDX header in fixed readable elkjs sources; generated worker release license is separately preserved in existing package notices."
+    }
+  ],
+  "claims": [
+    {
+      "id": "E08-B-SOURCE-01",
+      "kind": "fixed-source-behavior",
+      "sourceIds": [
+        "elkjs-api",
+        "elkjs-release-api"
+      ],
+      "description": "PromisedWorker assigns incrementing message IDs, stores per-ID resolvers, and deletes the matching resolver before forwarding data or converted error. terminate only delegates to the wrapped worker."
+    },
+    {
+      "id": "E08-B-SOURCE-02",
+      "kind": "fixed-source-behavior",
+      "sourceIds": [
+        "elkjs-export-dispatch",
+        "elkjs-release-worker"
+      ],
+      "description": "Dispatcher executes layout synchronously for a received command and returns data/error tagged with that command ID. FakeWorker delays dispatch with setTimeout and has no terminate method."
+    },
+    {
+      "id": "E08-B-SOURCE-03",
+      "kind": "fixed-source-behavior",
+      "sourceIds": [
+        "elkjs-node-entry",
+        "elkjs-api-types"
+      ],
+      "description": "Node entry can construct a real web-worker when requested and installed, otherwise supplies FakeWorker. API typings expose Promise layout and synchronous terminateWorker, without a pending bound or Python timeout/cancellation policy."
+    },
+    {
+      "id": "E08-B-HOST-01",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Per-instance single spawned Python process and bounded FIFO, total pending default16/range1..64, total submission-through-result deadline, short-lived dispatcher thread, and idle loop rebinding implement ADR0007. They are new host design, not a mechanical port of JS scheduling."
+    },
+    {
+      "id": "E08-B-HOST-02",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Strict cloned JSON snapshots cross spawn; existing create_context/validate_slice/layout_context run unchanged. Queued cancellation/timeout never spawns; active cancellation/timeout/close terminates, joins, closes handles and releases the slot before completion. Unknown/malformed envelopes and child failure remain execution errors."
+    },
+    {
+      "id": "E08-B-HOST-03",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Loop publication is the completion race boundary: an already published successful result wins later cancellation. Cancellation requested before publication cancels delivery even when native result and reaping finished. Synchronous close before publication rejects the undelivered result."
+    },
+    {
+      "id": "E08-B-HOST-04",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "ObservedTrace append only forwards small progress data and child process_time at existing pipeline phase boundaries, leaving the original trace/phase sequence/algorithm untouched. A completed previous processor is independent of mere process startup. Empty graph legitimately has zero phase trace."
+    },
+    {
+      "id": "E08-B-HOST-05",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "snapshot is independent development diagnostics, including actual process liveness, PID, exitcode/reaped and dispatcher liveness. It is not part of returned ELK JSON. No OS RAM/CPU quota or hard cleanup deadline is promised."
+    }
+  ],
+  "pythonModules": [
+    {
+      "path": "src/pyelk/execution/lifecycle.py",
+      "sha256": "c98ab0d9e9ef811cdf3f783fc3b1adfaecafe61c1a6a55a5c38335a95960495c"
+    },
+    {
+      "path": "src/pyelk/execution/worker.py",
+      "sha256": "29eee941c3633aa8eb03848e2a1043573e2c521f47169655d6498aad014e3e94"
+    },
+    {
+      "path": "src/pyelk/execution/__init__.py",
+      "sha256": "41b825bccbafe56b8385555f8c44829c05682d6fab80e2dc647255fd6862c4b6"
+    },
+    {
+      "path": "tests/execution/test_e08_lifecycle.py",
+      "sha256": "fe13e06718b5b7d0fd4927286f914ddb1ce80739b9c16d20c64b8c09669e9605"
+    }
+  ],
+  "unchangedKernel": [
+    {
+      "path": "src/pyelk/execution/context.py",
+      "sha256": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/options/resolution.py",
+      "sha256": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/options/schema.py",
+      "sha256": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/__init__.py",
+      "sha256": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/components.py",
+      "sha256": "0b9013203232d9f0ed8ac7f26462c3b79c46f20134bc6c6c1f45d83b177eb12e",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/crossing.py",
+      "sha256": "abc3bb47d06c93ed7441addb388dd0b94bef120fc334aa8836a81a496c15d088",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/cycles.py",
+      "sha256": "7261471481e3a1d7f3bfdb3972f437c28e652eab967e29e41bc0ca172a3813c7",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/directions.py",
+      "sha256": "f90ec7e1cfdd1b4d9fcd5b46a724d60cce01fbf1310276fe9610b6ab8d44f4ec",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/graph.py",
+      "sha256": "b3cb2df06f5a24199ab04c15314237a6a0c1f8cf0a9a4dd5460373fb332c8479",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/import_export.py",
+      "sha256": "1a8a7fbc9ab8f41f87b4bf59a6feab320b1c7266b02f164f48bbd31680dc9c05",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/layering.py",
+      "sha256": "53e8c3d8751377fc69fd18bcba3335356c93cda17712c946e4bdc869632eda51",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/long_edges.py",
+      "sha256": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/loops.py",
+      "sha256": "1752c18adedbc9be5b34b441cf79f4a28bc1cafba89abf817eeadad5be977124",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/phases.py",
+      "sha256": "1290c88cece977b8737a4a3efa586ee0ea50fbf875b0893e432cb0e0ce0b0436",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/pipeline.py",
+      "sha256": "abbb4667fa05e30b16f084f7ccc6975c8f640670a7e477c658fedcb76c252d9c",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/placement.py",
+      "sha256": "102d2d89b21df852b1e96468c20562b6cd474617bc5d1f483d65e4cb705166ed",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/processors.py",
+      "sha256": "26eace9a6d51bc0ae5dd2868f5e83c7822f07d62df6a4ea41b3c16249c865587",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/routing.py",
+      "sha256": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75",
+      "matchesE08StartingBaseline": true
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/scope.py",
+      "sha256": "d3cb21a6770799d5f6d739097ab9d579d278de2b4fb829d71a7f6eeda5a33059",
+      "matchesE08StartingBaseline": true
+    }
+  ],
+  "evidence": {
+    "ownerCommand": "test-runs/20261103-E08-01/B/lifecycle-tests-07/command.json",
+    "ownerCommandSha256": "fcc59e464b09a121b980e7b5b10c73695585bdff969a1e5ccfc69bfa23ca632f",
+    "ownerMethods": 28,
+    "exitCode": 0,
+    "smokeCommand": "test-runs/20261103-E08-01/B/smoke-02-command/command.json",
+    "firstFailurePreserved": "test-runs/20261103-E08-01/B/lifecycle-tests-01",
+    "additionalScopeAssertionFailurePreserved": "test-runs/20261103-E08-01/B/lifecycle-tests-04",
+    "installedOwner": {
+      "command": "test-runs/20261103-E08-01/installed-owner-tests-01/command.json",
+      "commandSha256": "4bb86c9501991b06f12654084921fcd7f1449635f2b2fcab93378bbc5de9fe4a",
+      "methods": 28,
+      "skipped": 0,
+      "exitCode": 0,
+      "isolatedFlag": true,
+      "installedReceipt": "test-runs/20261103-E08-01/candidate-build-02/installed-wheel.json",
+      "installedReceiptSha256": "92f022054d3c871583617bb0cd72096f0c11dac24dce6d438f332b96cd297a22",
+      "wheelSha256": "aeb7071779897bfbf09f2f85a80d29f8d07e6d9767d1b13b8cefe31fd3a522aa",
+      "packageFiles": 41,
+      "currentPackageStatus": "INSTALLED_WHEEL_BYTES_MATCH",
+      "scope": "Same 28 lifecycle tests actually executed using installed distribution; -I test entry refuses repository source import."
+    }
+  },
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false,
+  "limitations": [
+    "All 28 owner methods executed on Windows CPython3.13 both from source and from the actual isolated installed 41-file wheel. Cross-platform and full original-suite geometry evidence belong to root integration, not inferred from spawn APIs.",
+    "No arbitrary workerFactory, Node/JVM fallback, new input-domain/algorithm strategy or logging/timing tree is implemented.",
+    "Input JSON copying is synchronous host validation; real layout CPU, spawn/IPC and reaping are offloaded. There is no hard RAM quota.",
+    "Private synthetic CPU/worker fixtures isolate queue/crash/protocol races and are not native-layout CPU evidence; separate tests exercise genuine pipeline progress, heartbeat, overlap and cancellation.",
+    "A schema-valid message from a deliberately replaced trusted worker is not cryptographic proof of geometry. Independent V comparison checks actual outputs and preservation.",
+    "Fixed git blob hashes use canonical LF; local Windows working-tree hashes are recorded separately rather than conflated."
+  ]
+}

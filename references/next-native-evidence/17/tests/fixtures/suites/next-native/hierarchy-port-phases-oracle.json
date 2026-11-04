@@ -1,0 +1,1051 @@
+{
+  "schema": "py-elk-hierarchy-port-phases/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "83390a723e2253043e9b33dac8dadf65d045db0b00ddb5d1dfc59b72e8d94b7a",
+  "requestSha256": "899ce699a509f7a34cb700e621170ea9127afda4e6fc290f2264a561a58de851",
+  "pid": 5136,
+  "parentPid": 25136,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "ordered-north-south-four-phases",
+        "afterConstraints": {
+          "layers": [
+            [
+              "replacement:N0",
+              "replacement:N1"
+            ],
+            [
+              "W",
+              "n0",
+              "n1",
+              "E"
+            ],
+            [
+              "replacement:S"
+            ]
+          ],
+          "originalLayers": [
+            1,
+            -1,
+            -1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          "replaced": [
+            "N0",
+            "N1",
+            "S"
+          ],
+          "successors": [
+            "E",
+            "E"
+          ]
+        },
+        "afterSize": [
+          {
+            "name": "replacement:N0",
+            "width": 0,
+            "portX": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "replacement:N1",
+            "width": 10,
+            "portX": [
+              0,
+              10
+            ]
+          },
+          {
+            "name": "W",
+            "width": 6,
+            "portX": [
+              1
+            ]
+          },
+          {
+            "name": "n0",
+            "width": 10,
+            "portX": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "n1",
+            "width": 10,
+            "portX": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "replacement:S",
+            "width": 0,
+            "portX": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "E",
+            "width": 6,
+            "portX": [
+              1
+            ]
+          }
+        ],
+        "afterPosition": [
+          {
+            "name": "W",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "N0",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "N1",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "n0",
+            "pos": [
+              30,
+              20
+            ]
+          },
+          {
+            "name": "n1",
+            "pos": [
+              60,
+              40
+            ]
+          },
+          {
+            "name": "S",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "E",
+            "pos": [
+              0,
+              0
+            ]
+          }
+        ],
+        "afterOrtho": {
+          "layers": [
+            [
+              "W"
+            ],
+            [
+              "n0",
+              "n1"
+            ],
+            [
+              "E",
+              "N0",
+              "N1",
+              "S"
+            ]
+          ],
+          "size": [
+            100,
+            87
+          ],
+          "offset": [
+            3,
+            12
+          ],
+          "northHeight": 7,
+          "routes": [
+            {
+              "direction": "NORTH",
+              "slots": 1
+            },
+            {
+              "direction": "SOUTH",
+              "slots": 0
+            }
+          ],
+          "nodes": [
+            {
+              "name": "W",
+              "pos": [
+                -11,
+                0
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "EAST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            },
+            {
+              "name": "N0",
+              "pos": [
+                29,
+                -14
+              ],
+              "margin": [
+                0,
+                2,
+                4,
+                2
+              ],
+              "ports": [
+                {
+                  "side": "SOUTH",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": [
+                    {
+                      "text": "N0-port",
+                      "pos": [
+                        -3,
+                        3
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "N1",
+              "pos": [
+                49,
+                -14
+              ],
+              "margin": [
+                0,
+                2,
+                4,
+                2
+              ],
+              "ports": [
+                {
+                  "side": "SOUTH",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": [
+                    {
+                      "text": "N1-port",
+                      "pos": [
+                        -3,
+                        3
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "n0",
+              "pos": [
+                30,
+                20
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "WEST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                },
+                {
+                  "side": "EAST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            },
+            {
+              "name": "n1",
+              "pos": [
+                60,
+                40
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "WEST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                },
+                {
+                  "side": "EAST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            },
+            {
+              "name": "S",
+              "pos": [
+                39,
+                81
+              ],
+              "margin": [
+                0,
+                2,
+                4,
+                2
+              ],
+              "ports": [
+                {
+                  "side": "NORTH",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": [
+                    {
+                      "text": "S-port",
+                      "pos": [
+                        -3,
+                        3
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "E",
+              "pos": [
+                101,
+                0
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "WEST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "N0",
+              "target": "n0",
+              "bends": [
+                [
+                  30,
+                  0
+                ],
+                [
+                  11,
+                  13
+                ]
+              ]
+            },
+            {
+              "id": "e1",
+              "source": "N1",
+              "target": "n1",
+              "bends": [
+                [
+                  50,
+                  -12
+                ],
+                [
+                  32,
+                  -12
+                ],
+                [
+                  32,
+                  0
+                ],
+                [
+                  11,
+                  13
+                ]
+              ]
+            },
+            {
+              "id": "e2",
+              "source": "n0",
+              "target": "S",
+              "bends": [
+                [
+                  11,
+                  13
+                ],
+                [
+                  40,
+                  70
+                ]
+              ]
+            },
+            {
+              "id": "e3",
+              "source": "n1",
+              "target": "S",
+              "bends": [
+                [
+                  11,
+                  13
+                ],
+                [
+                  40,
+                  70
+                ]
+              ]
+            },
+            {
+              "id": "e4",
+              "source": "n0",
+              "target": "n1",
+              "bends": [
+                [
+                  11,
+                  13
+                ]
+              ]
+            },
+            {
+              "id": "e5",
+              "source": "W",
+              "target": "n0",
+              "bends": [
+                [
+                  11,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "e6",
+              "source": "n1",
+              "target": "E",
+              "bends": [
+                [
+                  11,
+                  1
+                ]
+              ]
+            },
+            {
+              "id": "e7",
+              "source": "W",
+              "target": "E",
+              "bends": [
+                [
+                  11,
+                  1
+                ]
+              ]
+            }
+          ],
+          "defaultSizePresence": [
+            true,
+            true
+          ],
+          "defaultSizeDistinct": true
+        },
+        "geometrySuppliedBetweenPhases": true,
+        "layoutExecuted": false
+      },
+      {
+        "id": "ratio-north-south-four-phases",
+        "afterConstraints": {
+          "layers": [
+            [
+              "replacement:N0",
+              "replacement:N1"
+            ],
+            [
+              "W",
+              "n0",
+              "n1",
+              "E"
+            ],
+            [
+              "replacement:S"
+            ]
+          ],
+          "originalLayers": [
+            1,
+            -1,
+            -1,
+            1,
+            1,
+            -1,
+            1
+          ],
+          "replaced": [
+            "N0",
+            "N1",
+            "S"
+          ],
+          "successors": [
+            "E",
+            "E"
+          ]
+        },
+        "afterSize": [
+          {
+            "name": "replacement:N0",
+            "width": 0,
+            "portX": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "replacement:N1",
+            "width": 10,
+            "portX": [
+              0,
+              10
+            ]
+          },
+          {
+            "name": "W",
+            "width": 6,
+            "portX": [
+              1
+            ]
+          },
+          {
+            "name": "n0",
+            "width": 10,
+            "portX": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "n1",
+            "width": 10,
+            "portX": [
+              1,
+              1
+            ]
+          },
+          {
+            "name": "replacement:S",
+            "width": 0,
+            "portX": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "E",
+            "width": 6,
+            "portX": [
+              1
+            ]
+          }
+        ],
+        "afterPosition": [
+          {
+            "name": "W",
+            "pos": [
+              0,
+              0.8000000000000007
+            ]
+          },
+          {
+            "name": "N0",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "N1",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "n0",
+            "pos": [
+              30,
+              20
+            ]
+          },
+          {
+            "name": "n1",
+            "pos": [
+              60,
+              40
+            ]
+          },
+          {
+            "name": "S",
+            "pos": [
+              0,
+              0
+            ]
+          },
+          {
+            "name": "E",
+            "pos": [
+              0,
+              97.6
+            ]
+          }
+        ],
+        "afterOrtho": {
+          "layers": [
+            [
+              "W"
+            ],
+            [
+              "n0",
+              "n1"
+            ],
+            [
+              "E",
+              "N0",
+              "N1",
+              "S"
+            ]
+          ],
+          "size": [
+            100,
+            113.39999999999999
+          ],
+          "offset": [
+            3,
+            12
+          ],
+          "northHeight": 7,
+          "routes": [
+            {
+              "direction": "NORTH",
+              "slots": 1
+            },
+            {
+              "direction": "SOUTH",
+              "slots": 1
+            }
+          ],
+          "nodes": [
+            {
+              "name": "W",
+              "pos": [
+                -11,
+                -4.799999999999999
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "EAST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            },
+            {
+              "name": "N0",
+              "pos": [
+                16,
+                -14
+              ],
+              "margin": [
+                0,
+                2,
+                4,
+                2
+              ],
+              "ports": [
+                {
+                  "side": "SOUTH",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": [
+                    {
+                      "text": "N0-port",
+                      "pos": [
+                        -3,
+                        3
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "N1",
+              "pos": [
+                72,
+                -14
+              ],
+              "margin": [
+                0,
+                2,
+                4,
+                2
+              ],
+              "ports": [
+                {
+                  "side": "SOUTH",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": [
+                    {
+                      "text": "N1-port",
+                      "pos": [
+                        -3,
+                        3
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "n0",
+              "pos": [
+                30,
+                20
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "WEST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                },
+                {
+                  "side": "EAST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            },
+            {
+              "name": "n1",
+              "pos": [
+                60,
+                40
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "WEST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                },
+                {
+                  "side": "EAST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            },
+            {
+              "name": "S",
+              "pos": [
+                44,
+                107.39999999999999
+              ],
+              "margin": [
+                0,
+                2,
+                4,
+                2
+              ],
+              "ports": [
+                {
+                  "side": "NORTH",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": [
+                    {
+                      "text": "S-port",
+                      "pos": [
+                        -3,
+                        3
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "E",
+              "pos": [
+                101,
+                107.39999999999999
+              ],
+              "margin": [
+                0,
+                0,
+                0,
+                0
+              ],
+              "ports": [
+                {
+                  "side": "WEST",
+                  "pos": [
+                    1,
+                    1
+                  ],
+                  "labels": []
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "source": "N0",
+              "target": "n0",
+              "bends": [
+                [
+                  17,
+                  -12
+                ],
+                [
+                  30,
+                  -12
+                ],
+                [
+                  30,
+                  0
+                ],
+                [
+                  11,
+                  13
+                ]
+              ]
+            },
+            {
+              "id": "e1",
+              "source": "N1",
+              "target": "n1",
+              "bends": [
+                [
+                  73,
+                  -12
+                ],
+                [
+                  32,
+                  -12
+                ],
+                [
+                  32,
+                  0
+                ],
+                [
+                  11,
+                  13
+                ]
+              ]
+            },
+            {
+              "id": "e2",
+              "source": "n0",
+              "target": "S",
+              "bends": [
+                [
+                  11,
+                  13
+                ],
+                [
+                  40,
+                  70
+                ],
+                [
+                  40,
+                  82
+                ],
+                [
+                  45,
+                  82
+                ]
+              ]
+            },
+            {
+              "id": "e3",
+              "source": "n1",
+              "target": "S",
+              "bends": [
+                [
+                  11,
+                  13
+                ],
+                [
+                  40,
+                  70
+                ],
+                [
+                  40,
+                  82
+                ],
+                [
+                  45,
+                  82
+                ]
+              ]
+            },
+            {
+              "id": "e4",
+              "source": "n0",
+              "target": "n1",
+              "bends": [
+                [
+                  11,
+                  13
+                ]
+              ]
+            },
+            {
+              "id": "e5",
+              "source": "W",
+              "target": "n0",
+              "bends": [
+                [
+                  11,
+                  -3.799999999999999
+                ]
+              ]
+            },
+            {
+              "id": "e6",
+              "source": "n1",
+              "target": "E",
+              "bends": [
+                [
+                  11,
+                  108.39999999999999
+                ]
+              ]
+            },
+            {
+              "id": "e7",
+              "source": "W",
+              "target": "E",
+              "bends": [
+                [
+                  11,
+                  108.39999999999999
+                ]
+              ]
+            }
+          ],
+          "defaultSizePresence": [
+            true,
+            true
+          ],
+          "defaultSizeDistinct": true
+        },
+        "geometrySuppliedBetweenPhases": true,
+        "layoutExecuted": false
+      }
+    ],
+    "geometrySuppliedBetweenPhases": true,
+    "layoutExecuted": false
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

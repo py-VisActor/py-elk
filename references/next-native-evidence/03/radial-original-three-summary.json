@@ -1,0 +1,48 @@
+{
+  "scope": "New independent original radial requests and real default generic micro private provider path; no full/public/installed claim",
+  "referenceRequestCount": 3,
+  "finitePositiveCases": [
+    {
+      "id": "radial-default-labels",
+      "report": "test-runs/20261104-E17-01/V/radial-default-comparison-02/report.json",
+      "passed": true,
+      "strictDifferencesRetained": true,
+      "maximumGeometryError": {
+        "absolute": 1.4210854715202004e-14,
+        "relative": 1.6119306348210752e-16,
+        "path": "/result/edges/0/sections/0/endPoint/x"
+      }
+    },
+    {
+      "id": "radial-compact-id-portlabels",
+      "report": "test-runs/20261104-E17-01/V/radial-first-comparison-01/report.json",
+      "passed": true,
+      "strictDifferencesRetained": true,
+      "maximumGeometryError": {
+        "absolute": 0,
+        "relative": 0,
+        "path": null
+      }
+    }
+  ],
+  "nonfiniteCase": {
+    "id": "radial-wedge-polar-rotate",
+    "originalOutcome": "returned",
+    "originalWireCoordinates": "JSON null",
+    "sourceWireParity": true,
+    "validFiniteGeometry": false,
+    "upstreamNonfiniteGeometry": true,
+    "actual": "test-runs/20261104-E17-01/V/radial-wire-comparison-03/report.json",
+    "note": "Only this case rerun on final-boundary change. Original first failure and native nonfinite phase diagnostic retained."
+  },
+  "initialHarnessError": "First tolerant comparison passed bare result; original profile regex requires /result wrapper. Comparator fixed without tolerance change; only affected default-labels case repeated, original strict failure retained.",
+  "sourceSnapshot": ".local/v-radial-review-01/snapshot.json",
+  "sourceSha256": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7",
+  "oldPassedCasesRepeated": false,
+  "fullValidation": false,
+  "priorSummarySha256": "2a6e5f90395a99e2ba5c251a04cd30fbfa65470fda406bbc0b5d2e99ab8fba39",
+  "validFiniteGeometryCount": 2,
+  "sourceWireParityCaseCount": 3,
+  "upstreamNonfiniteGeometryCount": 1,
+  "wireSourceSnapshot": ".local/next-wire-review-01/src"
+}

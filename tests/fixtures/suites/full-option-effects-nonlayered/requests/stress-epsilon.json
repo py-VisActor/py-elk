@@ -1,0 +1,141 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "root",
+    "width": 240,
+    "height": 180,
+    "business": {
+      "scope": "new-nonlayered-effects",
+      "preserve": [
+        false,
+        0,
+        null
+      ]
+    },
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.randomSeed": 83,
+      "org.eclipse.elk.padding": "[top=7,left=11,bottom=13,right=17]",
+      "org.eclipse.elk.spacing.nodeNode": 11,
+      "org.eclipse.elk.interactive": true,
+      "org.eclipse.elk.stress.desiredEdgeLength": 60,
+      "org.eclipse.elk.stress.iterationLimit": 6,
+      "org.eclipse.elk.stress.epsilon": 1,
+      "org.eclipse.elk.stress.dimension": "XY"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 12,
+        "x": 2,
+        "y": 0
+      },
+      {
+        "id": "n1",
+        "width": 37,
+        "height": 20,
+        "x": 54,
+        "y": 35
+      },
+      {
+        "id": "n2",
+        "width": 15,
+        "height": 30,
+        "x": 17,
+        "y": 52
+      },
+      {
+        "id": "n3",
+        "width": 42,
+        "height": 17,
+        "x": 97,
+        "y": 18
+      },
+      {
+        "id": "n4",
+        "width": 26,
+        "height": 24,
+        "x": 61,
+        "y": 81
+      },
+      {
+        "id": "n5",
+        "width": 33,
+        "height": 13,
+        "x": 140,
+        "y": 70
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ]
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n4"
+        ]
+      },
+      {
+        "id": "e5",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n5"
+        ]
+      },
+      {
+        "id": "e6",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n5"
+        ]
+      }
+    ]
+  }
+}

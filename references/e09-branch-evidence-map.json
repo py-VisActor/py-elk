@@ -1,0 +1,3514 @@
+{
+  "schema": "py-elk-e09-branch-evidence-map/v1",
+  "scope": "E09-ADR0008-revision1",
+  "matrix": "references/e09-branch-matrix.json",
+  "requiredBranchCount": 219,
+  "receiptPaths": {
+    "geometry": "references/e09-installed-check.json",
+    "api": "references/e09-installed-check.json#/apiRuntime",
+    "newcoverage": "references/e09-coverage-installed.json"
+  },
+  "rows": [
+    {
+      "declarationId": "api-registry",
+      "branch": "default-layered",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-registry",
+      "branch": "explicit-layered",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/registry",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-registry",
+      "branch": "canonical-alias-dedup",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/registry",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-registry",
+      "branch": "empty-metadata-only",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-metadata",
+      "branch": "algorithms-1",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-metadata",
+      "branch": "options-9",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-metadata",
+      "branch": "categories-1",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-metadata",
+      "branch": "fresh-independent-values",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-metadata",
+      "branch": "full-reference-12-243-8-retained",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-algorithm-errors",
+      "branch": "unknown",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-algorithm-errors",
+      "branch": "known-unimplemented",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-algorithm-errors",
+      "branch": "invalid-type",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-algorithm-errors",
+      "branch": "selected-global-before-local",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-algorithm-errors",
+      "branch": "empty-call-replaces-default",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-closed",
+      "branch": "three-metadata-queries",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-closed",
+      "branch": "layout",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/metadata",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-closed",
+      "branch": "last-trace-cleared",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/registry/closedTrace",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-worker-options",
+      "branch": "workerFactory-rejected",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors/constructorWorker",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "api-worker-options",
+      "branch": "workerUrl-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/registry",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "option-algorithm",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-algorithm/default"
+      }
+    },
+    {
+      "declarationId": "option-algorithm",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-algorithm/full-id"
+      }
+    },
+    {
+      "declarationId": "option-algorithm",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-algorithm/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-algorithm",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-algorithm/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-algorithm",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-direction",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-direction/default"
+      }
+    },
+    {
+      "declarationId": "option-direction",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-direction/full-id"
+      }
+    },
+    {
+      "declarationId": "option-direction",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-direction/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-direction",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-direction/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-direction",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-padding",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-padding/default"
+      }
+    },
+    {
+      "declarationId": "option-padding",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-padding/full-id"
+      }
+    },
+    {
+      "declarationId": "option-padding",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-padding/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-padding",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-padding/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-padding",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-spacing.nodeNode",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.nodeNode/default"
+      }
+    },
+    {
+      "declarationId": "option-spacing.nodeNode",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.nodeNode/full-id"
+      }
+    },
+    {
+      "declarationId": "option-spacing.nodeNode",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.nodeNode/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-spacing.nodeNode",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.nodeNode/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-spacing.nodeNode",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-layered.spacing.nodeNodeBetweenLayers",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-layered.spacing.nodeNodeBetweenLayers/default"
+      }
+    },
+    {
+      "declarationId": "option-layered.spacing.nodeNodeBetweenLayers",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-layered.spacing.nodeNodeBetweenLayers/full-id"
+      }
+    },
+    {
+      "declarationId": "option-layered.spacing.nodeNodeBetweenLayers",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-layered.spacing.nodeNodeBetweenLayers/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-layered.spacing.nodeNodeBetweenLayers",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-layered.spacing.nodeNodeBetweenLayers/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-layered.spacing.nodeNodeBetweenLayers",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-separateConnectedComponents",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-separateConnectedComponents/default"
+      }
+    },
+    {
+      "declarationId": "option-separateConnectedComponents",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-separateConnectedComponents/full-id"
+      }
+    },
+    {
+      "declarationId": "option-separateConnectedComponents",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-separateConnectedComponents/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-separateConnectedComponents",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-separateConnectedComponents/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-separateConnectedComponents",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-spacing.componentComponent",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.componentComponent/default"
+      }
+    },
+    {
+      "declarationId": "option-spacing.componentComponent",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.componentComponent/full-id"
+      }
+    },
+    {
+      "declarationId": "option-spacing.componentComponent",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.componentComponent/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-spacing.componentComponent",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-spacing.componentComponent/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-spacing.componentComponent",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-edgeRouting",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-edgeRouting/default"
+      }
+    },
+    {
+      "declarationId": "option-edgeRouting",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-edgeRouting/full-id"
+      }
+    },
+    {
+      "declarationId": "option-edgeRouting",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-edgeRouting/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-edgeRouting",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-edgeRouting/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-edgeRouting",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-randomSeed",
+      "branch": "default",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-randomSeed/default"
+      }
+    },
+    {
+      "declarationId": "option-randomSeed",
+      "branch": "full-id",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-randomSeed/full-id"
+      }
+    },
+    {
+      "declarationId": "option-randomSeed",
+      "branch": "elk-alias",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-randomSeed/elk-alias"
+      }
+    },
+    {
+      "declarationId": "option-randomSeed",
+      "branch": "valid-value",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-randomSeed/valid-value"
+      }
+    },
+    {
+      "declarationId": "option-randomSeed",
+      "branch": "invalid-value",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "option-scope",
+      "branch": "constructor-selected",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-scope/constructor-selected"
+      }
+    },
+    {
+      "declarationId": "option-scope",
+      "branch": "call-replaces",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-scope/call-replaces"
+      }
+    },
+    {
+      "declarationId": "option-scope",
+      "branch": "call-empty-replaces",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-scope/call-empty-replaces"
+      }
+    },
+    {
+      "declarationId": "option-scope",
+      "branch": "root-local-overrides",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "option-scope/root-local-overrides"
+      }
+    },
+    {
+      "declarationId": "option-scope",
+      "branch": "unselected-constructor-not-parsed",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/publicErrors/emptyCallReplacesBadConstructor",
+        "assertion": "Source-bound public_errors_probe calls default elk.algorithm=V_UNKNOWN with explicit layoutOptions={} and returns real geometry"
+      }
+    },
+    {
+      "declarationId": "option-scope",
+      "branch": "same-scope-alias-conflict",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public-selector",
+        "fields": [
+          "publicCases[].inputBefore/layoutOptions",
+          "publicCases[].error/name",
+          "publicCases[].error/code",
+          "publicCases[].error/path"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "nodes-0",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-bounds/nodes-0"
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "nodes-8",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-bounds/nodes-8"
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "nodes-9-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "nodes-9"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "edges-28",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-bounds/edges-28"
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "edges-29-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edges-29"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "measure-0",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-bounds/measure-0"
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "measure-1000000",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-bounds/measure-1000000"
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "over-1000000-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "measure-over",
+          "spacing-over",
+          "padding-over"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "seed-negative-boundary",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "seed-negative-boundary"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "seed-positive-boundary",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "seed-positive-boundary"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-bounds",
+      "branch": "seed-zero-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "seed-zero"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "empty",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/empty"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "singleton",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/singleton"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "chain",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/chain"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "fork",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/fork"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "join",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/join"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "diamond",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/diamond"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "long-edge",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/long-edge"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "cycle",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/cycle"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "self-loop",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/self-loop"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "parallel",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/parallel"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "disconnected",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/disconnected"
+      }
+    },
+    {
+      "declarationId": "domain-topology",
+      "branch": "mixed",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-topology/mixed"
+      }
+    },
+    {
+      "declarationId": "domain-directions",
+      "branch": "UNDEFINED",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-directions/UNDEFINED"
+      }
+    },
+    {
+      "declarationId": "domain-directions",
+      "branch": "RIGHT",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-directions/RIGHT"
+      }
+    },
+    {
+      "declarationId": "domain-directions",
+      "branch": "LEFT",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-directions/LEFT"
+      }
+    },
+    {
+      "declarationId": "domain-directions",
+      "branch": "DOWN",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-directions/DOWN"
+      }
+    },
+    {
+      "declarationId": "domain-directions",
+      "branch": "UP",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-directions/UP"
+      }
+    },
+    {
+      "declarationId": "domain-components",
+      "branch": "separate-true",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-components/separate-true"
+      }
+    },
+    {
+      "declarationId": "domain-components",
+      "branch": "separate-false",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-components/separate-false"
+      }
+    },
+    {
+      "declarationId": "domain-components",
+      "branch": "string-false",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-components/string-false"
+      }
+    },
+    {
+      "declarationId": "domain-components",
+      "branch": "zero-spacing",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-components/zero-spacing"
+      }
+    },
+    {
+      "declarationId": "domain-components",
+      "branch": "unequal-eight-isolates",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-components/unequal-eight-isolates"
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "ports",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "ports"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "labels",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "labels"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "compound",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "compound"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "edge-local-options",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-local-options"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "child-options-except-padding",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "child-local-options"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "hyperedges",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "hyperedge"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "root-endpoint",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "root-endpoint"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "legacy-properties",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "legacy-properties"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "$H",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "reference-hash"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-rejections",
+      "branch": "nonstring-id",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "nonstring-id"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "root-x-y-width-height",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "root-x",
+          "root-y",
+          "root-width",
+          "root-height"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "child-x-y",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "child-x",
+          "child-y"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "edge-sections",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-sections"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "edge-junctionPoints",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-junctionPoints"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "edge-bendPoints",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-bendPoints"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "edge-startPoint-endPoint",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-startPoint",
+          "edge-endPoint"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "edge-sourcePoint-targetPoint",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-sourcePoint",
+          "edge-targetPoint"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-existing-geometry",
+      "branch": "edge-container",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "edge-container"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-child-padding",
+      "branch": "four-side-string",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-child-padding/four-side-string"
+      }
+    },
+    {
+      "declarationId": "domain-child-padding",
+      "branch": "zero",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-child-padding/zero"
+      }
+    },
+    {
+      "declarationId": "domain-child-padding",
+      "branch": "asymmetric",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "domain-child-padding/asymmetric"
+      }
+    },
+    {
+      "declarationId": "domain-child-padding",
+      "branch": "object-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "padding-object",
+          "child-padding-object"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "domain-child-padding",
+      "branch": "other-local-option-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "child-local-options"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "diagnostic-flags",
+      "branch": "omitted",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-flags/omitted"
+      }
+    },
+    {
+      "declarationId": "diagnostic-flags",
+      "branch": "false-false",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-flags/false-false"
+      }
+    },
+    {
+      "declarationId": "diagnostic-flags",
+      "branch": "true-false",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-flags/true-false"
+      }
+    },
+    {
+      "declarationId": "diagnostic-flags",
+      "branch": "false-true",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-flags/false-true"
+      }
+    },
+    {
+      "declarationId": "diagnostic-flags",
+      "branch": "true-true",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-flags/true-true"
+      }
+    },
+    {
+      "declarationId": "diagnostic-flags",
+      "branch": "non-bool-rejected",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-public",
+        "publicCaseIds": [
+          "logging-zero",
+          "logging-one",
+          "logging-text",
+          "logging-null",
+          "measureExecutionTime-zero",
+          "measureExecutionTime-one",
+          "measureExecutionTime-text",
+          "measureExecutionTime-null"
+        ],
+        "fields": [
+          "inputBefore",
+          "constructorBefore",
+          "argumentsBefore",
+          "outcome",
+          "error/result",
+          "inputAfter",
+          "constructorAfter",
+          "argumentsAfter"
+        ]
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "absent",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/absent"
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "null",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/null"
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "business-object",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/business-object"
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "disabled-deletes-root-logging",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/disabled-deletes-root-logging"
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "enabled-rebuilds-root-logging",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/enabled-rebuilds-root-logging"
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "nested-node-edge-business-logging-preserved",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/nested-node-edge-business-logging-preserved"
+      }
+    },
+    {
+      "declarationId": "diagnostic-root-cleanup",
+      "branch": "root-business-executionTime-preserved",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-root-cleanup/root-business-executionTime-preserved"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "empty-root-only",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/empty-root-only"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "single-component-no-wrapper",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/single-component-no-wrapper"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "separated-component-wrappers",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/separated-component-wrappers"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "combined-components-no-wrapper",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/combined-components-no-wrapper"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "simplex-per-private-component",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/simplex-per-private-component"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "self-loop-extra-phases",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/self-loop-extra-phases"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "nonright-pre-post",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/nonright-pre-post"
+      }
+    },
+    {
+      "declarationId": "diagnostic-tree",
+      "branch": "duplicate-crossing-phase-order",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-tree/duplicate-crossing-phase-order"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "module-count",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/module-count"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "module-slot-order",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/module-slot-order"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "four-BK-layout-sizes",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/four-BK-layout-sizes"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "first-invalid-pair",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/first-invalid-pair"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "feasibility",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/feasibility"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "chosen-layout",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/chosen-layout"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "blocks",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/blocks"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "classes",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/classes"
+      }
+    },
+    {
+      "declarationId": "diagnostic-live-text",
+      "branch": "marked-first-successful-add",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-live-text/marked-first-successful-add"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "integer-rendering",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "negative-zero",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "decimal-1e-6",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "scientific-1e-7",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "exponent-sign-and-zero",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "shortest-roundtrip",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-number-adapter",
+      "branch": "tiny-finite",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/numberAdapter",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-identities",
+      "branch": "original-root-node-id",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-identities/original-root-node-id"
+      }
+    },
+    {
+      "declarationId": "diagnostic-identities",
+      "branch": "long-edge-dummy-layer-index",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-identities/long-edge-dummy-layer-index"
+      }
+    },
+    {
+      "declarationId": "diagnostic-identities",
+      "branch": "port-local-index",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-identities/port-local-index"
+      }
+    },
+    {
+      "declarationId": "diagnostic-identities",
+      "branch": "edge-origin-id",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-identities/edge-origin-id"
+      }
+    },
+    {
+      "declarationId": "diagnostic-identities",
+      "branch": "no-address-or-trace-id",
+      "evidence": {
+        "roles": [
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "diagnostic-identities/no-address-or-trace-id"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "integer-wall-ms",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "delta-times-1000-times-1e-9",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "float-multiplication-order",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "zero-delta",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "negative-delta-unclamped",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "disabled-no-clock-reads",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-clock",
+      "branch": "per-tree-isolation",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-collect",
+      "branch": "name-always",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-collect",
+      "branch": "logs-only-when-enabled-nonempty",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-collect",
+      "branch": "time-only-when-enabled",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-collect",
+      "branch": "children-only-when-nonempty",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-collect",
+      "branch": "insertion-order",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-collect",
+      "branch": "fresh-independent-tree",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-monitor-state",
+      "branch": "repeat-begin-returns-false",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-monitor-state",
+      "branch": "closed-begin-errors",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-monitor-state",
+      "branch": "closed-subtask-null",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-monitor-state",
+      "branch": "done-before-begin-errors",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-monitor-state",
+      "branch": "repeat-done-idempotent",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/monitorPrimitives",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-boundaries",
+      "branch": "recursive-includes-provider-import",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/kernelBoundaries",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-boundaries",
+      "branch": "layered-excludes-provider-import",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/kernelBoundaries",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-boundaries",
+      "branch": "layered-excludes-transfer",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/kernelBoundaries",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-boundaries",
+      "branch": "recursive-includes-transfer",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/kernelBoundaries",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "diagnostic-boundaries",
+      "branch": "snapshot-work-not-used-to-build-tree",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "host-primitive",
+        "pointer": "/kernelBoundaries",
+        "assertion": "validate_e09_coverage.validate_host_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "input-preservation",
+      "branch": "request",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "input-preservation/request"
+      }
+    },
+    {
+      "declarationId": "input-preservation",
+      "branch": "constructor",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "input-preservation/constructor"
+      }
+    },
+    {
+      "declarationId": "input-preservation",
+      "branch": "arguments",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "input-preservation/arguments"
+      }
+    },
+    {
+      "declarationId": "input-preservation",
+      "branch": "business-types",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "input-preservation/business-types"
+      }
+    },
+    {
+      "declarationId": "input-preservation",
+      "branch": "original-identities",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "input-preservation/original-identities"
+      }
+    },
+    {
+      "declarationId": "input-preservation",
+      "branch": "independent-output",
+      "evidence": {
+        "roles": [
+          "geometry",
+          "newcoverage"
+        ],
+        "kind": "layout-observation",
+        "fields": [
+          "original request",
+          "result",
+          "inputBefore/inputAfter",
+          "constructorBefore/constructorAfter",
+          "argumentsBefore/argumentsAfter"
+        ],
+        "assertion": "input-preservation/independent-output"
+      }
+    },
+    {
+      "declarationId": "lifecycle-fifo",
+      "branch": "single-running-slot",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/fifoRecoveryClose",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-fifo",
+      "branch": "queue-count-includes-running",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/fifoRecoveryClose",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-fifo",
+      "branch": "max-pending-1-to-64",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/capacity",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-fifo",
+      "branch": "independent-overlapping-instances",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/fifoRecoveryClose",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-cancel-close",
+      "branch": "queued-cancel-no-spawn",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/queue",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-cancel-close",
+      "branch": "running-cancel-reaped",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/queue",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-cancel-close",
+      "branch": "close-running-and-queued",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/crossThreadClose",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-cancel-close",
+      "branch": "close-idempotent",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/crossThreadClose",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-cancel-close",
+      "branch": "close-from-other-thread",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/crossThreadClose",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-timeout",
+      "branch": "includes-queue",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/queuedTimeout",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-timeout",
+      "branch": "includes-spawn",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/resourceActions/timeout",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-timeout",
+      "branch": "running-killed",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/runningTimeout",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-timeout",
+      "branch": "slot-recovers",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/runningTimeout",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-loop-trace",
+      "branch": "idle-cross-loop-allowed",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/overlapAndLoop",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-loop-trace",
+      "branch": "active-cross-loop-rejected",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/overlapAndLoop",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-loop-trace",
+      "branch": "latest-submission-trace-only",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/overlapAndLoop",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-loop-trace",
+      "branch": "failure-clears-trace",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/overlapAndLoop",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-errors",
+      "branch": "worker-crash",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/resourceActions",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-errors",
+      "branch": "protocol-error",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/faults",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-errors",
+      "branch": "internal-import-error",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/faults",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-errors",
+      "branch": "validation-error-fields",
+      "evidence": {
+        "role": "api",
+        "kind": "api-observation",
+        "pointer": "/lifecycle/resourceActions",
+        "assertion": "validate_e08_api.validate_native_observation + concrete branch predicate"
+      }
+    },
+    {
+      "declarationId": "lifecycle-errors",
+      "branch": "spawn-failure",
+      "evidence": {
+        "role": "newcoverage",
+        "kind": "lifecycle-probe",
+        "pointer": "/faults",
+        "assertion": "e09_host_lifecycle_probe.validate_lifecycle_observation + concrete branch predicate"
+      }
+    }
+  ],
+  "runtimeAccepted": false,
+  "meaning": "Frozen observation predicates; actual witnesses/pending go to separate runtime output."
+}

@@ -1,0 +1,813 @@
+{
+  "schema": "py-elk-full-performance-summary/v1",
+  "passed": true,
+  "version": "0.1.0",
+  "wheelSha256": "0e7c089b37728d6a0a10374c9df488f48bb5b96c12d92c04d8b761618fabc9d9",
+  "rawReportPath": "test-runs/full-native-closure/performance-01/installed/report.json",
+  "rawReportSha256": "695a88216445d49e726e4ff40ca2d5f66b1a3efdbee9256c421e4b6366d54db2",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "profileCount": 39,
+  "algorithms": 12,
+  "nodeCounts": [
+    8,
+    32,
+    96
+  ],
+  "formalSamples": 195,
+  "warmups": 39,
+  "iterationLimitObservations": 6,
+  "actualLayouts": 240,
+  "maxWorkerPeakBytes": 44560384,
+  "counterScope": "Worker OS peak resident/working-set high-water mark including startup/warmup; observer/parent memory not included",
+  "profiles": [
+    {
+      "algorithm": "fixed",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.0016115999897010624,
+      "maxWallSeconds": 0.002200599992647767,
+      "p95NearestRankWallSeconds": 0.002200599992647767,
+      "maxWorkerPeakBytes": 30769152,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "fixed",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.0031524000223726034,
+      "maxWallSeconds": 0.0032506999850738794,
+      "p95NearestRankWallSeconds": 0.0032506999850738794,
+      "maxWorkerPeakBytes": 30724096,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "fixed",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.0074696000083349645,
+      "maxWallSeconds": 0.008356000005733222,
+      "p95NearestRankWallSeconds": 0.008356000005733222,
+      "maxWorkerPeakBytes": 31150080,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "box",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.0015165999939199537,
+      "maxWallSeconds": 0.0016839000163599849,
+      "p95NearestRankWallSeconds": 0.0016839000163599849,
+      "maxWorkerPeakBytes": 30826496,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "box",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.0032574000069871545,
+      "maxWallSeconds": 0.0038141000259201974,
+      "p95NearestRankWallSeconds": 0.0038141000259201974,
+      "maxWorkerPeakBytes": 30789632,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "box",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.00757099999464117,
+      "maxWallSeconds": 0.008584600000176579,
+      "p95NearestRankWallSeconds": 0.008584600000176579,
+      "maxWorkerPeakBytes": 31125504,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "random",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.0012747999862767756,
+      "maxWallSeconds": 0.0018509000074118376,
+      "p95NearestRankWallSeconds": 0.0018509000074118376,
+      "maxWorkerPeakBytes": 30605312,
+      "quality": {
+        "overlappingNodePairs": 13,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "random",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.002903799992054701,
+      "maxWallSeconds": 0.003433200006838888,
+      "p95NearestRankWallSeconds": 0.003433200006838888,
+      "maxWorkerPeakBytes": 30842880,
+      "quality": {
+        "overlappingNodePairs": 27,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "random",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.007229499984532595,
+      "maxWallSeconds": 0.009290399990277365,
+      "p95NearestRankWallSeconds": 0.009290399990277365,
+      "maxWorkerPeakBytes": 31141888,
+      "quality": {
+        "overlappingNodePairs": 90,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "layered",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.007734700018772855,
+      "maxWallSeconds": 0.008724199986318126,
+      "p95NearestRankWallSeconds": 0.008724199986318126,
+      "maxWorkerPeakBytes": 35487744,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 52.67999125095016,
+        "maxEdgeLength": 82.11644848086839,
+        "normalizedGraphStress": 0.5833001626757611,
+        "stressConnectedPairs": 28
+      }
+    },
+    {
+      "algorithm": "layered",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.02550889999838546,
+      "maxWallSeconds": 0.02634750001016073,
+      "p95NearestRankWallSeconds": 0.02634750001016073,
+      "maxWorkerPeakBytes": 37675008,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 66.45277181229788,
+        "maxEdgeLength": 288.705924967104,
+        "normalizedGraphStress": 0.4019728690604197,
+        "stressConnectedPairs": 496
+      }
+    },
+    {
+      "algorithm": "layered",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.06650950000039302,
+      "maxWallSeconds": 0.06856499999412335,
+      "p95NearestRankWallSeconds": 0.06856499999412335,
+      "maxWorkerPeakBytes": 44560384,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 82.83674661550518,
+        "maxEdgeLength": 1114.2024551719096,
+        "normalizedGraphStress": 0.23794771328731495,
+        "stressConnectedPairs": 4560
+      }
+    },
+    {
+      "algorithm": "mrtree",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.003439399995841086,
+      "maxWallSeconds": 0.004196099995169789,
+      "p95NearestRankWallSeconds": 0.004196099995169789,
+      "maxWorkerPeakBytes": 31424512,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 45.49450687232101,
+        "maxEdgeLength": 56.85068161420758,
+        "normalizedGraphStress": 0.5244007160799201,
+        "stressConnectedPairs": 28
+      }
+    },
+    {
+      "algorithm": "mrtree",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.011935699993046,
+      "maxWallSeconds": 0.013944500009529293,
+      "p95NearestRankWallSeconds": 0.013944500009529293,
+      "maxWorkerPeakBytes": 33038336,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 61.466130192235774,
+        "maxEdgeLength": 179.64409258308496,
+        "normalizedGraphStress": 0.30734372643303776,
+        "stressConnectedPairs": 496
+      }
+    },
+    {
+      "algorithm": "mrtree",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.04309590000775643,
+      "maxWallSeconds": 0.04412040000897832,
+      "p95NearestRankWallSeconds": 0.04412040000897832,
+      "maxWorkerPeakBytes": 36409344,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 78.00498997698621,
+        "maxEdgeLength": 529.2258497087987,
+        "normalizedGraphStress": 0.25383664131321576,
+        "stressConnectedPairs": 4560
+      }
+    },
+    {
+      "algorithm": "radial",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.003448900009971112,
+      "maxWallSeconds": 0.004086000000825152,
+      "p95NearestRankWallSeconds": 0.004086000000825152,
+      "maxWorkerPeakBytes": 31260672,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 36.65095629102206,
+        "maxEdgeLength": 42.50586585650469,
+        "normalizedGraphStress": 0.5309978193482616,
+        "stressConnectedPairs": 28
+      }
+    },
+    {
+      "algorithm": "radial",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.013879300007829443,
+      "maxWallSeconds": 0.01422339997952804,
+      "p95NearestRankWallSeconds": 0.01422339997952804,
+      "maxWorkerPeakBytes": 31973376,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 44.108892717294836,
+        "maxEdgeLength": 49.476331955905344,
+        "normalizedGraphStress": 0.5318000839911649,
+        "stressConnectedPairs": 496
+      }
+    },
+    {
+      "algorithm": "radial",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.06302030000369996,
+      "maxWallSeconds": 0.06462369998916984,
+      "p95NearestRankWallSeconds": 0.06462369998916984,
+      "maxWorkerPeakBytes": 34656256,
+      "quality": {
+        "overlappingNodePairs": 1,
+        "meanEdgeLength": 110.78768943282407,
+        "maxEdgeLength": 231.92223654963396,
+        "normalizedGraphStress": 0.19013102472914645,
+        "stressConnectedPairs": 4560
+      }
+    },
+    {
+      "algorithm": "force",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.06593909999355674,
+      "maxWallSeconds": 0.06751209998037666,
+      "p95NearestRankWallSeconds": 0.06751209998037666,
+      "maxWorkerPeakBytes": 31416320,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 102.5613211399967,
+        "maxEdgeLength": 136.45323213966293,
+        "normalizedGraphStress": 0.2846405297421577,
+        "stressConnectedPairs": 28
+      }
+    },
+    {
+      "algorithm": "force",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 1.2008792999840807,
+      "maxWallSeconds": 1.2471250999951735,
+      "p95NearestRankWallSeconds": 1.2471250999951735,
+      "maxWorkerPeakBytes": 31993856,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 256.0986094541733,
+        "maxEdgeLength": 368.3575918431843,
+        "normalizedGraphStress": 0.21418148678661186,
+        "stressConnectedPairs": 496
+      }
+    },
+    {
+      "algorithm": "force",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 11.194175899989204,
+      "maxWallSeconds": 11.679131199984113,
+      "p95NearestRankWallSeconds": 11.679131199984113,
+      "maxWorkerPeakBytes": 34119680,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 532.086735999779,
+        "maxEdgeLength": 971.307810105794,
+        "normalizedGraphStress": 1.466372167809373,
+        "stressConnectedPairs": 4560
+      }
+    },
+    {
+      "algorithm": "stress",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.06807540002046153,
+      "maxWallSeconds": 0.06901110001490451,
+      "p95NearestRankWallSeconds": 0.06901110001490451,
+      "maxWorkerPeakBytes": 31465472,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 108.77521278221818,
+        "maxEdgeLength": 111.47965361321755,
+        "normalizedGraphStress": 0.005647462114188963,
+        "stressConnectedPairs": 28
+      }
+    },
+    {
+      "algorithm": "stress",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 1.1962994000059552,
+      "maxWallSeconds": 1.3089559999934863,
+      "p95NearestRankWallSeconds": 1.3089559999934863,
+      "maxWorkerPeakBytes": 32247808,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 118.73963790554802,
+        "maxEdgeLength": 128.4936642738767,
+        "normalizedGraphStress": 0.035323508941103275,
+        "stressConnectedPairs": 496
+      }
+    },
+    {
+      "algorithm": "stress",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 11.214990500011481,
+      "maxWallSeconds": 11.46978919999674,
+      "p95NearestRankWallSeconds": 11.46978919999674,
+      "maxWorkerPeakBytes": 34148352,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 127.7233810229525,
+        "maxEdgeLength": 151.16567705398495,
+        "normalizedGraphStress": 0.062088757674371116,
+        "stressConnectedPairs": 4560
+      }
+    },
+    {
+      "algorithm": "disco",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.017474899999797344,
+      "maxWallSeconds": 0.0176727999933064,
+      "p95NearestRankWallSeconds": 0.0176727999933064,
+      "maxWorkerPeakBytes": 31436800,
+      "quality": {
+        "overlappingNodePairs": 5,
+        "meanEdgeLength": 12.16318816241074,
+        "maxEdgeLength": 12.614277624977177,
+        "normalizedGraphStress": 0.7727499648269691,
+        "stressConnectedPairs": 7
+      }
+    },
+    {
+      "algorithm": "disco",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.10300659999484196,
+      "maxWallSeconds": 0.10702830000082031,
+      "p95NearestRankWallSeconds": 0.10702830000082031,
+      "maxWorkerPeakBytes": 32202752,
+      "quality": {
+        "overlappingNodePairs": 22,
+        "meanEdgeLength": 12.02699646885222,
+        "maxEdgeLength": 12.614277624977177,
+        "normalizedGraphStress": 0.7742914744696449,
+        "stressConnectedPairs": 31
+      }
+    },
+    {
+      "algorithm": "disco",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.45529630000237375,
+      "maxWallSeconds": 0.4620545999787282,
+      "p95NearestRankWallSeconds": 0.4620545999787282,
+      "maxWorkerPeakBytes": 35971072,
+      "quality": {
+        "overlappingNodePairs": 60,
+        "meanEdgeLength": 21.026763655444146,
+        "maxEdgeLength": 108.92387249818104,
+        "normalizedGraphStress": 0.6870378086873075,
+        "stressConnectedPairs": 96
+      }
+    },
+    {
+      "algorithm": "sporeOverlap",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.10161670000525191,
+      "maxWallSeconds": 0.10384460000204854,
+      "p95NearestRankWallSeconds": 0.10384460000204854,
+      "maxWorkerPeakBytes": 31678464,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "sporeOverlap",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.08100549998925999,
+      "maxWallSeconds": 0.08156979997875169,
+      "p95NearestRankWallSeconds": 0.08156979997875169,
+      "maxWorkerPeakBytes": 32083968,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "sporeOverlap",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 4.078459100011969,
+      "maxWallSeconds": 4.193880099977832,
+      "p95NearestRankWallSeconds": 4.193880099977832,
+      "maxWorkerPeakBytes": 36818944,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "sporeCompaction",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.003051100007724017,
+      "maxWallSeconds": 0.003732299985131249,
+      "p95NearestRankWallSeconds": 0.003732299985131249,
+      "maxWorkerPeakBytes": 31424512,
+      "quality": {
+        "overlappingNodePairs": 18,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "sporeCompaction",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.16725520000909455,
+      "maxWallSeconds": 0.17285959998844191,
+      "p95NearestRankWallSeconds": 0.17285959998844191,
+      "maxWorkerPeakBytes": 31588352,
+      "quality": {
+        "overlappingNodePairs": 119,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "sporeCompaction",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 3.1162671000056434,
+      "maxWallSeconds": 3.2155324000050314,
+      "p95NearestRankWallSeconds": 3.2155324000050314,
+      "maxWorkerPeakBytes": 34078720,
+      "quality": {
+        "overlappingNodePairs": 416,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "rectpacking",
+      "nodes": 8,
+      "options": {},
+      "medianWallSeconds": 0.003522799990605563,
+      "maxWallSeconds": 0.0037278999807313085,
+      "p95NearestRankWallSeconds": 0.0037278999807313085,
+      "maxWorkerPeakBytes": 31576064,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "rectpacking",
+      "nodes": 32,
+      "options": {},
+      "medianWallSeconds": 0.012171199981821701,
+      "maxWallSeconds": 0.013385099999140948,
+      "p95NearestRankWallSeconds": 0.013385099999140948,
+      "maxWorkerPeakBytes": 31711232,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "rectpacking",
+      "nodes": 96,
+      "options": {},
+      "medianWallSeconds": 0.03296519999275915,
+      "maxWallSeconds": 0.034039299993310124,
+      "p95NearestRankWallSeconds": 0.034039299993310124,
+      "maxWorkerPeakBytes": 33300480,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": null,
+        "maxEdgeLength": null,
+        "normalizedGraphStress": null,
+        "stressConnectedPairs": 0
+      }
+    },
+    {
+      "algorithm": "force",
+      "nodes": 8,
+      "options": {
+        "force.model": "EADES"
+      },
+      "medianWallSeconds": 0.05274370001279749,
+      "maxWallSeconds": 0.05367420002585277,
+      "p95NearestRankWallSeconds": 0.05367420002585277,
+      "maxWorkerPeakBytes": 31432704,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 120.01817276088939,
+        "maxEdgeLength": 127.42974103585014,
+        "normalizedGraphStress": 0.18137601240229778,
+        "stressConnectedPairs": 28
+      }
+    },
+    {
+      "algorithm": "force",
+      "nodes": 32,
+      "options": {
+        "force.model": "EADES"
+      },
+      "medianWallSeconds": 1.0627552999940235,
+      "maxWallSeconds": 1.1570649999775924,
+      "p95NearestRankWallSeconds": 1.1570649999775924,
+      "maxWorkerPeakBytes": 31817728,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 355.55829004874323,
+        "maxEdgeLength": 1101.9084001652468,
+        "normalizedGraphStress": 0.527511705686916,
+        "stressConnectedPairs": 496
+      }
+    },
+    {
+      "algorithm": "force",
+      "nodes": 96,
+      "options": {
+        "force.model": "EADES"
+      },
+      "medianWallSeconds": 9.85501359999762,
+      "maxWallSeconds": 10.342456899990793,
+      "p95NearestRankWallSeconds": 10.342456899990793,
+      "maxWorkerPeakBytes": 34344960,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 724.9237600366674,
+        "maxEdgeLength": 2645.4728346468837,
+        "normalizedGraphStress": 1.3285863603316563,
+        "stressConnectedPairs": 4560
+      }
+    }
+  ],
+  "convergenceObservations": [
+    {
+      "algorithm": "force",
+      "limit": 1,
+      "options": {
+        "force.iterations": 1
+      },
+      "passed": true,
+      "wallSeconds": 0.1256301999965217,
+      "quality": {
+        "overlappingNodePairs": 320,
+        "meanEdgeLength": 18.5668932392782,
+        "maxEdgeLength": 37.15098110642117,
+        "normalizedGraphStress": 0.9413551858836469,
+        "stressConnectedPairs": 496
+      },
+      "resultSha256": "7a14ae8f7d423333821b6c7330df30e91195827fd78324b5f776cc9a49efb31d",
+      "worker": {
+        "method": "GetProcessTimes/GetProcessMemoryInfo",
+        "pid": 14800,
+        "cpuSeconds": 0.125,
+        "workingSetBytes": 31539200,
+        "peakWorkingSetBytes": 31539200
+      }
+    },
+    {
+      "algorithm": "force",
+      "limit": 25,
+      "options": {
+        "force.iterations": 25
+      },
+      "passed": true,
+      "wallSeconds": 0.22044249999453314,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 766.1611135039193,
+        "maxEdgeLength": 1360.466973084457,
+        "normalizedGraphStress": 1.3213854361718385,
+        "stressConnectedPairs": 496
+      },
+      "resultSha256": "2e0d2f5116a4a7a31d7d9e176795849a4b7fab182074b87c2359fbcf6fc3f189",
+      "worker": {
+        "method": "GetProcessTimes/GetProcessMemoryInfo",
+        "pid": 27388,
+        "cpuSeconds": 0.203125,
+        "workingSetBytes": 31281152,
+        "peakWorkingSetBytes": 31281152
+      }
+    },
+    {
+      "algorithm": "force",
+      "limit": 150,
+      "options": {
+        "force.iterations": 150
+      },
+      "passed": true,
+      "wallSeconds": 0.6437926999933552,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 348.6400917701538,
+        "maxEdgeLength": 556.7643520702676,
+        "normalizedGraphStress": 0.33785200854198705,
+        "stressConnectedPairs": 496
+      },
+      "resultSha256": "428de124f4dff9d628e0be440dc4aee1437b15bab631be491db19198da88f245",
+      "worker": {
+        "method": "GetProcessTimes/GetProcessMemoryInfo",
+        "pid": 42308,
+        "cpuSeconds": 0.609375,
+        "workingSetBytes": 31399936,
+        "peakWorkingSetBytes": 31399936
+      }
+    },
+    {
+      "algorithm": "stress",
+      "limit": 1,
+      "options": {
+        "stress.iterationLimit": 1,
+        "stress.epsilon": 0
+      },
+      "passed": true,
+      "wallSeconds": 1.1689141000097152,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 136.18902031322256,
+        "maxEdgeLength": 202.30176603640743,
+        "normalizedGraphStress": 0.14600981661363546,
+        "stressConnectedPairs": 496
+      },
+      "resultSha256": "a2662bf4345106c842e6f0adea3409c181c9a0017405ecf24cb3c87248b1344d",
+      "worker": {
+        "method": "GetProcessTimes/GetProcessMemoryInfo",
+        "pid": 40080,
+        "cpuSeconds": 1.140625,
+        "workingSetBytes": 31473664,
+        "peakWorkingSetBytes": 31518720
+      }
+    },
+    {
+      "algorithm": "stress",
+      "limit": 25,
+      "options": {
+        "stress.iterationLimit": 25,
+        "stress.epsilon": 0
+      },
+      "passed": true,
+      "wallSeconds": 1.1768063000054099,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 118.69456571732941,
+        "maxEdgeLength": 128.95132825551804,
+        "normalizedGraphStress": 0.03585821780042155,
+        "stressConnectedPairs": 496
+      },
+      "resultSha256": "d1b4e5575f986509aaf487cd91426ea7912b2f5199153bb54e6f2363ad30a8b9",
+      "worker": {
+        "method": "GetProcessTimes/GetProcessMemoryInfo",
+        "pid": 25284,
+        "cpuSeconds": 1.15625,
+        "workingSetBytes": 31612928,
+        "peakWorkingSetBytes": 31612928
+      }
+    },
+    {
+      "algorithm": "stress",
+      "limit": 150,
+      "options": {
+        "stress.iterationLimit": 150,
+        "stress.epsilon": 0
+      },
+      "passed": true,
+      "wallSeconds": 1.2509600000048522,
+      "quality": {
+        "overlappingNodePairs": 0,
+        "meanEdgeLength": 118.74742732934192,
+        "maxEdgeLength": 128.44663306410823,
+        "normalizedGraphStress": 0.035005608756673294,
+        "stressConnectedPairs": 496
+      },
+      "resultSha256": "74578f16b437652816b9ced7cd208668fe46268c18a0813e6de973421a52bad4",
+      "worker": {
+        "method": "GetProcessTimes/GetProcessMemoryInfo",
+        "pid": 37636,
+        "cpuSeconds": 1.25,
+        "workingSetBytes": 31617024,
+        "peakWorkingSetBytes": 31617024
+      }
+    }
+  ],
+  "limitations": [
+    "One Windows CPython3.13 host; not a performance guarantee for other hosts/platforms",
+    "Native worker reused within a profile; cold warmup reported separately",
+    "Finite8/32/96 datasets do not establish a universal graph-size or memory bound",
+    "CPU counters have OS clock quantization; zero CPU delta does not mean no computation",
+    "Random placement, component packing and pure compaction do not generally guarantee all node pairs nonoverlapping",
+    "Graph stress below is an independent descriptive metric, not necessarily each algorithm objective",
+    "No old E10 wheel measurement is relabelled as this candidate"
+  ]
+}

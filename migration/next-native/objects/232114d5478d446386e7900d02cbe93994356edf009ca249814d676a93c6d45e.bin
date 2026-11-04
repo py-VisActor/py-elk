@@ -1,0 +1,43 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright Google Inc. and others. Adapted JSON text behavior from GWT,
+# elkjs0.12.1 worker275e6caf escapeValue/JSONArray/JSONObject/JSONString.
+# Source closure: HOST-13/root/global-options-source-proposal-01.json GO05-11.
+# Native JSON views only; no GWT runtime is included.
+"""Text used by actual global JSON options, distinct from output JSON wire."""
+from .diagnostics import number_text
+
+
+def object_keys(value):
+    """ECMAScript own string keys: array indices first, then insertion order."""
+    indices=[];others=[]
+    for key in value:
+        if key.isascii()and key.isdecimal()and str(int(key))==key and int(key)<2**32-1:
+            indices.append(key)
+        else:others.append(key)
+    return sorted(indices,key=int)+others
+
+
+def quote(value):
+    escapes={8:r'\b',9:r'\t',10:r'\n',12:r'\f',13:r'\r',34:r'\"',92:r'\\'}
+    result=[]
+    for char in value:
+        code=ord(char)
+        if code in escapes:result.append(escapes[code])
+        elif code<32:result.append('\\u'+format(code,'04X'))
+        elif (code in(173,1757,1807,6068,6069,65279)
+              or 1536<=code<=1539 or 8203<=code<=8207 or 8232<=code<=8238
+              or 8288<=code<=8292 or 8298<=code<=8303 or 65529<=code<=65531):
+            result.append('\\u'+format(code,'04x'))
+        else:result.append(char)
+    return '"'+''.join(result)+'"'
+
+
+def json_value_text(value):
+    if value is None:return 'null'
+    if type(value)is str:return quote(value)
+    if type(value)is bool:return 'true'if value else'false'
+    if type(value)in(int,float):return number_text(value)
+    if type(value)is list:return '['+','.join(json_value_text(v)for v in value)+']'
+    if type(value)is dict:
+        return '{'+', '.join(quote(k)+':'+json_value_text(value[k])for k in object_keys(value))+'}'
+    raise TypeError('Expected a native JSON value')

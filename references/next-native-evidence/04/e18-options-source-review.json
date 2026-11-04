@@ -1,0 +1,247 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "F06",
+    "F07",
+    "F08",
+    "F09",
+    "S01",
+    "S02"
+  ],
+  "filesSha256": {
+    "references/e18-force-stress-sources.json": "24c7688042a22d95179e00e446fc6a4873f4d44be3058522ea79b509c0a33f02",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "targetDeclarations": {
+    "priority": {
+      "targets": [
+        "NODES",
+        "EDGES"
+      ],
+      "source": "F07",
+      "forceDefault": 1
+    },
+    "randomSeed": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "F07",
+      "forceDefault": 1
+    },
+    "edgeLabels.inline": {
+      "targets": [
+        "LABELS"
+      ],
+      "source": "F08/F09",
+      "coreForcePropertyDefault": false,
+      "stressMetadataSupportDefault": true
+    },
+    "force.model": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "F06",
+      "default": "FRUCHTERMAN_REINGOLD"
+    },
+    "force.iterations": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "F06",
+      "default": 300
+    },
+    "force.temperature": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "F06",
+      "default": 0.001
+    },
+    "force.repulsion": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "F06",
+      "default": 5
+    },
+    "force.repulsivePower": {
+      "targets": [
+        "EDGES"
+      ],
+      "source": "F06",
+      "default": 0
+    },
+    "stress.fixed": {
+      "targets": [
+        "NODES"
+      ],
+      "source": "S01",
+      "default": false
+    },
+    "stress.desiredEdgeLength": {
+      "targets": [
+        "PARENTS",
+        "EDGES"
+      ],
+      "source": "S01 fixed27867",
+      "default": 100
+    },
+    "stress.dimension": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "S01/S02",
+      "default": "XY"
+    },
+    "stress.epsilon": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "S01",
+      "default": 0.001
+    },
+    "stress.iterationLimit": {
+      "targets": [
+        "PARENTS"
+      ],
+      "source": "S01",
+      "default": 2147483647
+    }
+  },
+  "supportObservations": [
+    {
+      "symbol": "Core aspectRatio null",
+      "startLine": 70771,
+      "endLine": 70771,
+      "sha256": "164d8226fb6b6380fb1a06482cc1e8eccb11b7a2583e4a70be86b4f459808d1b",
+      "sourceBytesBase64": "ICBBU1BFQ1RfUkFUSU9fNSA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsuYXNwZWN0UmF0aW8nLCBudWxsKTsK",
+      "role": "Core versus algorithm default support observation"
+    },
+    {
+      "symbol": "Core interactive false",
+      "startLine": 70785,
+      "endLine": 70785,
+      "sha256": "8ee2c069b671ce588c091f938fd492a77321fe9b53c368bb6fd896f308ed9236",
+      "sourceBytesBase64": "ICBJTlRFUkFDVElWRV84ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5pbnRlcmFjdGl2ZScsIGZhbHNlKTsK",
+      "role": "Core versus algorithm default support observation"
+    },
+    {
+      "symbol": "Core priority and randomSeed no default",
+      "startLine": 70791,
+      "endLine": 70792,
+      "sha256": "e943fa09efddbb212cb5e4e2714cdf7451582d98a7d182f2c2d7c39c7ab440d6",
+      "sourceBytesBase64": "ICBQUklPUklUWV8zID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucHJpb3JpdHknKTsKICBSQU5ET01fU0VFRF8xID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucmFuZG9tU2VlZCcpOwo=",
+      "role": "Core versus algorithm default support observation"
+    },
+    {
+      "symbol": "Core edgeLabel spacing2",
+      "startLine": 70830,
+      "endLine": 70830,
+      "sha256": "e56b0fc636cb35b12f178daf369a06f6808cd17ae5f5778573020fe30a29ddcd",
+      "sourceBytesBase64": "ICBTUEFDSU5HX0VER0VfTEFCRUxfMSA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsuc3BhY2luZy5lZGdlTGFiZWwnLCAyKTsK",
+      "role": "Core versus algorithm default support observation"
+    },
+    {
+      "symbol": "Core node spacing20",
+      "startLine": 70836,
+      "endLine": 70836,
+      "sha256": "077fb5979594c14156d98c7ebeb141c175489a92f9f78ac52368e620553c9b20",
+      "sourceBytesBase64": "ICBTUEFDSU5HX05PREVfTk9ERV82ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLm5vZGVOb2RlJywgMjApOwo=",
+      "role": "Core versus algorithm default support observation"
+    },
+    {
+      "symbol": "$intern_0",
+      "sha256": "99e0965bf32b30057e2c59a4ddd64f824b8e732c89fc799ad61d055901d8ffb4",
+      "sourceBytesBase64": "JGludGVybl8wID0gMjE0NzQ4MzY0Nw==",
+      "role": "fixed source numeric literal"
+    },
+    {
+      "symbol": "$intern_102",
+      "sha256": "5809803eca176831bb7f073967429d11dc7d5b3aeec278d730c176a1f77e1f83",
+      "sourceBytesBase64": "JGludGVybl8xMDIgPSAwLjAwMQ==",
+      "role": "fixed source numeric literal"
+    },
+    {
+      "symbol": "$intern_103",
+      "sha256": "2daa5d0582bf7bd0a439ad528568a30b7450cab83da06d4f29f971682254fa93",
+      "sourceBytesBase64": "JGludGVybl8xMDMgPSAxLjYwMDAwMDAyMzg0MTg1OA==",
+      "role": "fixed source numeric literal"
+    }
+  ],
+  "notes": [
+    "All13 targetDeclarations checked against actual registration/defaults. Priority NODES+EDGES and randomSeed PARENTS Core defaults None; Force1 is Property2/algorithm support override, not universal Core1. Inline LABELS Core/Forcefalse versus Stress supporttrue remains separate.",
+    "Force model enum EADES0/FRUCHTERMAN_REINGOLD1; Stress dimension XY0/X1/Y2. Only source generic enum symbol/ordinal parsing and existing strict host JSON/finite policy approved; no243 parser or model mathematics approval.",
+    "repulsivePower INT EDGES0; desiredEdgeLength DOUBLE PARENTS+EDGES100 and explicit per-edge presence precedence need real has_option semantics, not default materialization falsely becoming explicit. False/0 presence stays distinguishable.",
+    "Unused valueOf/newExclusiveBounds expressions in force clinit are not actual metadata bounds and do not authorize invented range restrictions. Temperature/epsilon .001, Force aspect1.600000023841858 and stress limitMAX signed32 sealed as source literals.",
+    "Force spacing80/5/padding50 are force defaults, Core spacing20/2/padding source stays distinct. Stress noninteractive Force initialization and interactive micro are only later caller facts; not accepted full force/stress layout.",
+    "Three Java files are provenance/license corroboration only; fixed worker sole behavior baseline and narrow ELK dual-license attribution retained."
+  ],
+  "independentTypeDeclaredDefaults": {
+    "priority": {
+      "type": "INT",
+      "declaredDefault": null,
+      "declarationOwner": "Core"
+    },
+    "randomSeed": {
+      "type": "INT",
+      "declaredDefault": null,
+      "declarationOwner": "Core"
+    },
+    "edgeLabels.inline": {
+      "type": "BOOLEAN",
+      "declaredDefault": false,
+      "declarationOwner": "Core"
+    },
+    "force.model": {
+      "type": "ENUM",
+      "declaredDefault": "FRUCHTERMAN_REINGOLD",
+      "declarationOwner": "force-metadata"
+    },
+    "force.iterations": {
+      "type": "INT",
+      "declaredDefault": 300,
+      "declarationOwner": "force-metadata"
+    },
+    "force.temperature": {
+      "type": "DOUBLE",
+      "declaredDefault": 0.001,
+      "declarationOwner": "force-metadata"
+    },
+    "force.repulsion": {
+      "type": "DOUBLE",
+      "declaredDefault": 5,
+      "declarationOwner": "force-metadata"
+    },
+    "force.repulsivePower": {
+      "type": "INT",
+      "declaredDefault": 0,
+      "declarationOwner": "force-metadata"
+    },
+    "stress.fixed": {
+      "type": "BOOLEAN",
+      "declaredDefault": false,
+      "declarationOwner": "stress-metadata"
+    },
+    "stress.desiredEdgeLength": {
+      "type": "DOUBLE",
+      "declaredDefault": 100,
+      "declarationOwner": "stress-metadata"
+    },
+    "stress.dimension": {
+      "type": "ENUM",
+      "declaredDefault": "XY",
+      "declarationOwner": "stress-metadata"
+    },
+    "stress.epsilon": {
+      "type": "DOUBLE",
+      "declaredDefault": 0.001,
+      "declarationOwner": "stress-metadata"
+    },
+    "stress.iterationLimit": {
+      "type": "INT",
+      "declaredDefault": 2147483647,
+      "declarationOwner": "stress-metadata"
+    }
+  }
+}

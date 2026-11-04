@@ -1,0 +1,21 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/options/schema.py": "0001024d11047092fff895ed260bb2f781db38739430feb66e4d18efd09154b7",
+    ".local/migration-next/src/pyelk/options/resolution.py": "50e7cc49d17fc251159d9006bf2e6916395566110044d7c84236e6deae0cde0a",
+    ".local/migration-next/src/pyelk/options/element.py": "744eff782da55f8e3e497fb67957828b738c85aaf95f4f64584063bcc3614c6c",
+    ".local/migration-next/src/pyelk/execution/context.py": "d9ea6d3645e5f0b8afcb7dac6b5e6b0066e4287ad2dbc292f5e723c6429a69c3"
+  },
+  "scope": "Private selected per-element option schema/resolution/context additions only; no E13 whole pipeline or current release package certification.",
+  "reviewedBehavior": [
+    "Five core schemas preserve enum order, None versus explicit zero, signed32 index, finite signed offset and frozen vector type.",
+    "Actual selected call layoutOptions replaces constructor defaults; parsed global properties use target membership, local selected properties override by presence.",
+    "Local vector values require serialized text; global list/vector data is serialized by the declared optsToCfg mapping. Native malformed/duplicatealias/finite errors remain explicit host differences.",
+    "Raw values are cloned, immutable value/origin maps are fresh per resolution; context owns independent original graph/constructor/arguments and frozen typed model fields.",
+    "Existing nine option resolution logic delegates only the added kinds; original algorithm admission and worker parameter handling are unchanged."
+  ],
+  "actualIndependentEvidence": "port-import-oracle-02/comparison.json confirms two real original importer states through these actual contexts without laying out the private graph.",
+  "packageChanged": false,
+  "fullValidation": false
+}

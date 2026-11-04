@@ -1,0 +1,167 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "c7d0d0897afe142b11c06b26368e50e990d97e0c09996dbfd7901b7a53a8e7bc",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "disco-components",
+    "width": 116.83750934418076,
+    "height": 78.22896027930356,
+    "layoutOptions": {
+      "elk.algorithm": "disco",
+      "elk.padding": "[top=3,left=7,bottom=11,right=13]",
+      "elk.spacing.componentComponent": 9,
+      "elk.aspectRatio": 1.4
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 5.41875467209038,
+        "y": 36.43654789641415,
+        "width": 23,
+        "height": 17,
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "x": 60.41875467209038,
+        "y": 44.43654789641415,
+        "width": 31,
+        "height": 13,
+        "$H": 279
+      },
+      {
+        "id": "c",
+        "x": 56.211167054979796,
+        "y": 5.262757009016482,
+        "width": 19,
+        "height": 29,
+        "$H": 281
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "sections": [
+          {
+            "id": "ab-old",
+            "startPoint": {
+              "x": 28.41875467209038,
+              "y": 44.43654789641415
+            },
+            "bendPoints": [
+              {
+                "x": 44.41875467209038,
+                "y": 44.43654789641415
+              }
+            ],
+            "endPoint": {
+              "x": 60.41875467209038,
+              "y": 50.43654789641415
+            },
+            "incomingShape": "a",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "disco-components"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "disco-components",
+    "width": 116.83750934418076,
+    "height": 78.22896027930356,
+    "layoutOptions": {
+      "elk.algorithm": "disco",
+      "elk.padding": "[top=3,left=7,bottom=11,right=13]",
+      "elk.spacing.componentComponent": 9,
+      "elk.aspectRatio": 1.4
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 5.41875467209038,
+        "y": 36.43654789641415,
+        "width": 23,
+        "height": 17,
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "x": 60.41875467209038,
+        "y": 44.43654789641415,
+        "width": 31,
+        "height": 13,
+        "$H": 279
+      },
+      {
+        "id": "c",
+        "x": 56.211167054979796,
+        "y": 5.262757009016482,
+        "width": 19,
+        "height": 29,
+        "$H": 281
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "sections": [
+          {
+            "id": "ab-old",
+            "startPoint": {
+              "x": 28.41875467209038,
+              "y": 44.43654789641415
+            },
+            "bendPoints": [
+              {
+                "x": 44.41875467209038,
+                "y": 44.43654789641415
+              }
+            ],
+            "endPoint": {
+              "x": 60.41875467209038,
+              "y": 50.43654789641415
+            },
+            "incomingShape": "a",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "disco-components"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

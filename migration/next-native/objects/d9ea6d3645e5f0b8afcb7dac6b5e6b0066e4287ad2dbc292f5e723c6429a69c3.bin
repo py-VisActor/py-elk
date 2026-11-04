@@ -1,0 +1,71 @@
+"""Per-call data ownership only; no scheduler, PRNG or layout implementation."""
+from collections.abc import Mapping
+
+from .._errors import OptionValidationError, UnsupportedFeatureError
+from .._json import clone_json
+from ..options import resolve_options
+
+
+class ExecutionContext:
+    """An independent work graph, original-input copies and scratch dictionary."""
+    def __init__(self, graph, constructor, arguments, working_graph, resolved_options):
+        self._original_graph = graph
+        self._original_constructor = constructor
+        self._original_arguments = arguments
+        self.working_graph = working_graph
+        self.resolved_options = resolved_options
+        self.state = {}
+        self.seed = resolved_options.values["org.eclipse.elk.randomSeed"]
+
+    @classmethod
+    def create(cls, graph, *, constructor=None, layout_arguments=None):
+        # Lazy import permits this host module to load without a runtime engine.
+        from ..model import Graph
+
+        if constructor is None:
+            constructor = {}
+        if layout_arguments is None:
+            layout_arguments = {}
+        if not isinstance(constructor, Mapping):
+            raise OptionValidationError("INVALID_OPTION_CONTAINER", "/constructor", "Expected a constructor mapping")
+        if not isinstance(layout_arguments, Mapping):
+            raise OptionValidationError("INVALID_OPTION_CONTAINER", "/layoutArguments", "Expected an argument mapping")
+        original_constructor = clone_json(constructor, path="/constructor", error_type=OptionValidationError)
+        original_arguments = clone_json(layout_arguments, path="/layoutArguments", error_type=OptionValidationError)
+        for key in ("workerUrl", "workerFactory"):
+            if key in original_constructor:
+                raise UnsupportedFeatureError("UNSUPPORTED_FEATURE", "/constructor/" + key, "Worker parameters are outside this host slice")
+        working = Graph.from_json(graph)
+        original_graph = working.to_json()
+        # Explicit null is not the outer None convenience of resolve_options.
+        if "layoutOptions" in original_graph and not isinstance(original_graph["layoutOptions"], Mapping):
+            raise OptionValidationError("INVALID_OPTION_CONTAINER", "/graph/layoutOptions", "Expected a root option mapping")
+        options = resolve_options(constructor=original_constructor, layout_arguments=original_arguments,
+                                  local=original_graph.get("layoutOptions"))
+        if "algorithms" in original_constructor:
+            algorithms = original_constructor["algorithms"]
+            if type(algorithms) is not list or any(type(value) is not str for value in algorithms):
+                raise OptionValidationError("INVALID_OPTION_VALUE", "/constructor/algorithms", "Expected a list of algorithm strings")
+            if "layered" not in algorithms:
+                raise UnsupportedFeatureError("UNSUPPORTED_FEATURE", "/constructor/algorithms", "The effective layered selection is excluded")
+        return cls(original_graph, original_constructor, original_arguments, working, options)
+
+    @property
+    def original_graph(self):
+        return clone_json(self._original_graph)
+
+    @property
+    def original_constructor(self):
+        return clone_json(self._original_constructor)
+
+    @property
+    def original_arguments(self):
+        return clone_json(self._original_arguments)
+
+    def element_options(self, element):
+        from ..options.element import resolve_element_options
+        return resolve_element_options(element, self)
+
+
+def create_context(graph, *, constructor=None, layout_arguments=None):
+    return ExecutionContext.create(graph, constructor=constructor, layout_arguments=layout_arguments)

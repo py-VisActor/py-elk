@@ -1,0 +1,41 @@
+{
+  "schema": "py-elk-e16-provider-state-interface-handoff/v1",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    ".local/migration-next/src/pyelk/algorithms/box.py": "c1188f8dd443182aacce7f46bbda0295a4d7feebca6c5a114aa6828807236df8",
+    ".local/migration-next/src/pyelk/algorithms/random.py": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d"
+  },
+  "interface": {
+    "state": "fixed._State(graph, options=None)",
+    "mutatingEntrypoints": [
+      "fixed._layout(state,node,monitor=None)",
+      "box._layout(state,node,monitor=None)",
+      "random._layout(state,node,monitor=None)"
+    ],
+    "cloneWrappersUnchanged": [
+      "layout_fixed",
+      "layout_box",
+      "layout_random"
+    ],
+    "returnSource": "state.graph after all child and parent calls",
+    "internalProperties": [
+      "cleared_constraints",
+      "computed_options"
+    ]
+  },
+  "evidence": {
+    "test-runs/20261104-E16-01/B/state-interface-smoke-01/report.json": "a37e9adbe1eee6eb43df89e9154ac596328ba4c70fcea4622367355de1f94f34",
+    "test-runs/20261104-E16-01/B/state-interface-command-01/command.json": "7328469ebc0abeeca9da7d8114a6f6c923483a2a75cec846af9940da0e9726d5",
+    "test-runs/20261104-E16-01/B/persistent-state-01/report.json": "94fd9cf0d2378aad176bef265550211dbbcbb67590ddb4cc2261c6722af24853",
+    "test-runs/20261104-E16-01/B/persistent-state-command-01/command.json": "1a3dc5d25b2d2566fa13606f9a51fef739762942c7bba84388a95eecd2f1c586"
+  },
+  "changeScope": "Only extract box/random provider body from clone wrappers; normalized mathematical AST unchanged. fixed unchanged.",
+  "actualRelatedCalls": {
+    "representativeProviders": 3,
+    "childFixedThenParentBox": 1
+  },
+  "prior17CallsRepeated": false,
+  "originalStrictDifferencesRetained": true,
+  "fullPublicEquivalenceClaimed": false,
+  "fullValidation": false
+}

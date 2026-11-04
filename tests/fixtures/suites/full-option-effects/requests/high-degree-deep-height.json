@@ -1,0 +1,293 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "effectDeepAttachedTrees",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 31,
+      "elk.layered.highDegreeNodes.treatment": true,
+      "elk.layered.highDegreeNodes.threshold": 6,
+      "elk.layered.highDegreeNodes.treeHeight": 1
+    },
+    "children": [
+      {
+        "id": "hub",
+        "width": 40,
+        "height": 32
+      },
+      {
+        "id": "entry",
+        "width": 30,
+        "height": 20
+      },
+      {
+        "id": "t0_0",
+        "width": 20,
+        "height": 16
+      },
+      {
+        "id": "t0_1",
+        "width": 24,
+        "height": 16
+      },
+      {
+        "id": "t0_2",
+        "width": 28,
+        "height": 16
+      },
+      {
+        "id": "t1_0",
+        "width": 20,
+        "height": 17
+      },
+      {
+        "id": "t1_1",
+        "width": 24,
+        "height": 17
+      },
+      {
+        "id": "t1_2",
+        "width": 28,
+        "height": 17
+      },
+      {
+        "id": "t2_0",
+        "width": 20,
+        "height": 18
+      },
+      {
+        "id": "t2_1",
+        "width": 24,
+        "height": 18
+      },
+      {
+        "id": "t2_2",
+        "width": 28,
+        "height": 18
+      },
+      {
+        "id": "t3_0",
+        "width": 20,
+        "height": 19
+      },
+      {
+        "id": "t3_1",
+        "width": 24,
+        "height": 19
+      },
+      {
+        "id": "t3_2",
+        "width": 28,
+        "height": 19
+      },
+      {
+        "id": "t4_0",
+        "width": 20,
+        "height": 20
+      },
+      {
+        "id": "t4_1",
+        "width": 24,
+        "height": 20
+      },
+      {
+        "id": "t4_2",
+        "width": 28,
+        "height": 20
+      },
+      {
+        "id": "t5_0",
+        "width": 20,
+        "height": 21
+      },
+      {
+        "id": "t5_1",
+        "width": 24,
+        "height": 21
+      },
+      {
+        "id": "t5_2",
+        "width": 28,
+        "height": 21
+      }
+    ],
+    "edges": [
+      {
+        "id": "entryEdge",
+        "sources": [
+          "entry"
+        ],
+        "targets": [
+          "hub"
+        ]
+      },
+      {
+        "id": "branch0_0",
+        "sources": [
+          "hub"
+        ],
+        "targets": [
+          "t0_0"
+        ]
+      },
+      {
+        "id": "branch0_1",
+        "sources": [
+          "t0_0"
+        ],
+        "targets": [
+          "t0_1"
+        ]
+      },
+      {
+        "id": "branch0_2",
+        "sources": [
+          "t0_1"
+        ],
+        "targets": [
+          "t0_2"
+        ]
+      },
+      {
+        "id": "branch1_0",
+        "sources": [
+          "hub"
+        ],
+        "targets": [
+          "t1_0"
+        ]
+      },
+      {
+        "id": "branch1_1",
+        "sources": [
+          "t1_0"
+        ],
+        "targets": [
+          "t1_1"
+        ]
+      },
+      {
+        "id": "branch1_2",
+        "sources": [
+          "t1_1"
+        ],
+        "targets": [
+          "t1_2"
+        ]
+      },
+      {
+        "id": "branch2_0",
+        "sources": [
+          "hub"
+        ],
+        "targets": [
+          "t2_0"
+        ]
+      },
+      {
+        "id": "branch2_1",
+        "sources": [
+          "t2_0"
+        ],
+        "targets": [
+          "t2_1"
+        ]
+      },
+      {
+        "id": "branch2_2",
+        "sources": [
+          "t2_1"
+        ],
+        "targets": [
+          "t2_2"
+        ]
+      },
+      {
+        "id": "branch3_0",
+        "sources": [
+          "hub"
+        ],
+        "targets": [
+          "t3_0"
+        ]
+      },
+      {
+        "id": "branch3_1",
+        "sources": [
+          "t3_0"
+        ],
+        "targets": [
+          "t3_1"
+        ]
+      },
+      {
+        "id": "branch3_2",
+        "sources": [
+          "t3_1"
+        ],
+        "targets": [
+          "t3_2"
+        ]
+      },
+      {
+        "id": "branch4_0",
+        "sources": [
+          "hub"
+        ],
+        "targets": [
+          "t4_0"
+        ]
+      },
+      {
+        "id": "branch4_1",
+        "sources": [
+          "t4_0"
+        ],
+        "targets": [
+          "t4_1"
+        ]
+      },
+      {
+        "id": "branch4_2",
+        "sources": [
+          "t4_1"
+        ],
+        "targets": [
+          "t4_2"
+        ]
+      },
+      {
+        "id": "branch5_0",
+        "sources": [
+          "hub"
+        ],
+        "targets": [
+          "t5_0"
+        ]
+      },
+      {
+        "id": "branch5_1",
+        "sources": [
+          "t5_0"
+        ],
+        "targets": [
+          "t5_1"
+        ]
+      },
+      {
+        "id": "branch5_2",
+        "sources": [
+          "t5_1"
+        ],
+        "targets": [
+          "t5_2"
+        ]
+      }
+    ]
+  }
+}

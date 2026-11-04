@@ -1,0 +1,118 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": "84484617",
+      "elk.separateConnectedComponents": "true",
+      "elk.padding": "[top=0.125,left=1.25,bottom=3.5,right=0]",
+      "elk.spacing.nodeNode": "0",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "20"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 31,
+        "height": 1e-07
+      },
+      {
+        "id": "n1",
+        "width": 1e-07,
+        "height": 0
+      },
+      {
+        "id": "n2",
+        "width": 17.75,
+        "height": 3.5
+      },
+      {
+        "id": "n3",
+        "width": 1000000,
+        "height": 17.75
+      },
+      {
+        "id": "n4",
+        "width": 0,
+        "height": 0.125
+      },
+      {
+        "id": "n5",
+        "width": 0.125,
+        "height": 31
+      },
+      {
+        "id": "n6",
+        "width": 1.25,
+        "height": 1000000
+      },
+      {
+        "id": "n7",
+        "width": 3.5,
+        "height": 1.25
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n2"
+        ]
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ]
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n4"
+        ]
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n5"
+        ]
+      },
+      {
+        "id": "e5",
+        "sources": [
+          "n5"
+        ],
+        "targets": [
+          "n3"
+        ]
+      }
+    ]
+  }
+}

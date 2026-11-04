@@ -1,0 +1,530 @@
+{
+  "observe": [
+    "org.eclipse.elk.algorithm",
+    "org.eclipse.elk.direction",
+    "org.eclipse.elk.randomSeed",
+    "org.eclipse.elk.padding",
+    "org.eclipse.elk.nodeSize.minimum",
+    "org.eclipse.elk.nodeSize.constraints",
+    "org.eclipse.elk.port.side",
+    "org.eclipse.elk.edgeLabels.placement",
+    "org.eclipse.elk.layered.allowNonFlowPortsToSwitchSides",
+    "org.eclipse.elk.separateConnectedComponents",
+    "org.eclipse.elk.port.anchor"
+  ],
+  "cases": [
+    {
+      "name": "core-unique-ignored-unknown",
+      "algorithms": [],
+      "options": {
+        "direction": "LEFT",
+        "unknown": {
+          "x": null
+        },
+        "randomSeed": "2147483648",
+        "padding": null
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "layered-ambiguity-legacy",
+      "algorithms": [
+        "layered"
+      ],
+      "options": {
+        "direction": "LEFT",
+        "elk.layered.northOrSouthPort": false,
+        "elk.direction": "DOWN",
+        "elk.randomSeed": 11
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "structured-vector-and-shared-set",
+      "algorithms": [],
+      "options": {
+        "elk.nodeSize.minimum": [
+          -0.0,
+          2.5
+        ],
+        "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+        "elk.port.side": "WEST",
+        "elk.edgeLabels.placement": "TAIL"
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "invalid-values-and-empty-set",
+      "algorithms": [],
+      "options": {
+        "elk.direction": "bogus",
+        "elk.randomSeed": "1.5",
+        "elk.padding": {
+          "top": 3
+        },
+        "elk.nodeSize.constraints": "",
+        "elk.nodeSize.minimum": [
+          1,
+          2,
+          3
+        ]
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "last-valid-alias-and-no-overwrite",
+      "algorithms": [],
+      "options": {
+        "elk.randomSeed": 12,
+        "randomSeed": "bad",
+        "org.eclipse.elk.randomSeed": 13,
+        "elk.direction": "UP",
+        "elk.separateConnectedComponents": true
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "complex-string-serialization",
+      "algorithms": [],
+      "options": {
+        "elk.algorithm": {
+          "10": -0.0,
+          "2": [
+            1e-07,
+            1e+21,
+            null,
+            false,
+            "\u000b\u00ad\u200b\u2028\"\\"
+          ],
+          "z": {
+            "a": 3
+          }
+        },
+        "elk.nodeSize.minimum": [
+          1e-07,
+          1e+21
+        ]
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "array-enumset-is-invalid",
+      "algorithms": [],
+      "options": {
+        "elk.nodeSize.constraints": [
+          "MINIMUM_SIZE"
+        ],
+        "elk.padding": "[top=4,left=5]",
+        "elk.port.anchor": [
+          3,
+          4
+        ]
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "null-empty-text-and-booleans",
+      "algorithms": [],
+      "options": {
+        "elk.algorithm": "",
+        "elk.direction": null,
+        "elk.randomSeed": -0.0,
+        "elk.nodeSize.constraints": "[]",
+        "elk.separateConnectedComponents": false
+      },
+      "graph": {
+        "id": "r",
+        "labels": [
+          {
+            "id": "rl",
+            "text": "root"
+          }
+        ],
+        "ports": [
+          {
+            "id": "rp",
+            "labels": [
+              {
+                "id": "pl",
+                "text": "port"
+              }
+            ]
+          }
+        ],
+        "children": [
+          {
+            "id": "a",
+            "layoutOptions": {
+              "elk.direction": "RIGHT",
+              "elk.randomSeed": 0,
+              "elk.separateConnectedComponents": false
+            }
+          },
+          {
+            "id": "b"
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ],
+            "labels": [
+              {
+                "id": "el",
+                "text": "edge"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

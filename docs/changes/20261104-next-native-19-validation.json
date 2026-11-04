@@ -1,0 +1,68 @@
+{
+  "schema": "py-elk-next-native-unified-validation/v1",
+  "iteration": "next-native-19",
+  "implementationComplete": true,
+  "technicalValidationComplete": true,
+  "packagePublished": false,
+  "activeSource": "src/pyelk",
+  "candidateVersion": "0.1.0",
+  "baselineFrozenFull": {
+    "path": "docs/releases/evidence/development-frozen/report.json",
+    "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5",
+    "executedVersion": "0.0.1a0",
+    "passed": true,
+    "steps": 37,
+    "testMethods": 917,
+    "inputsUnchanged": true
+  },
+  "candidateReadiness": "docs/releases/0.1.0-readiness.json",
+  "algorithms": {
+    "actualPublicInputs": 151,
+    "mandatoryPassed": 144,
+    "mandatoryFailed": 0,
+    "basicAlgorithms": 12,
+    "p1p2CartesianPairs": 81,
+    "sourceErrors": 5,
+    "randomTrajectoryCases": 1,
+    "sourceNonfiniteCases": 1
+  },
+  "layered": {
+    "actualPublicInputs": 72,
+    "returnedResultsMatched": 66,
+    "sourceErrors": 6,
+    "additionalExternalPortPublicInputMatched": 1,
+    "internalPreparedOrderingDifferencesRetained": 23
+  },
+  "properties": {
+    "optionDenominator": 243,
+    "actualParserCases": 306,
+    "returnedValuesMatched": 298,
+    "sourceUnavailableObjectFactories": 8,
+    "nativeExceptionNamesDifferForThese8": true
+  },
+  "platform": {
+    "executedVersion": "0.0.1a0",
+    "wheelCellsPassed": 8,
+    "sdistRepresentativeCellsPassed": 2,
+    "relabelledAs0_1_0": false
+  },
+  "candidate0_1_0": {
+    "actualNewInstalledChecks": 2,
+    "runtimeFileCount": 208,
+    "pythonModules": 196,
+    "runtimeDelta": "__version__ literal only",
+    "baselineExecutionRebound": false
+  },
+  "remaining": [
+    "Confirm actual PyPI publisher/account configuration",
+    "Publish reviewed artifacts",
+    "Download from PyPI, match uploaded artifact hashes, and isolate-install"
+  ],
+  "limitations": [
+    "Finite documented scenarios are not an exhaustive mathematical equivalence proof",
+    "Generated absent owned-shape $H differences are explicitly classified; raw differences retained",
+    "Source errors, unseeded randomness and source nonfinite results are not counted as normal coordinate PASS",
+    "Internal prepared enum/hash bucket order retains its documented native identity difference",
+    "py-mermaid integration and rendering validation remain out of scope"
+  ]
+}

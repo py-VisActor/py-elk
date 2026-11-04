@@ -1,0 +1,33 @@
+{
+  "schema": "py-elk-independent-code-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/next-presence-review-01/src/pyelk/execution/json_transfer.py": "b43289112cd9341563bc70433d6fd35f481d497e7abd967fedf96ca6e5ee8742",
+    ".local/next-numeric-review-01/src/pyelk/execution/json_transfer.py": "192e493c92db892861ed671b2bb8ee83628523b22dda7f0a93d2438422983f43",
+    "tests/fixtures/suites/next-native/compare_numeric_import.py": "f74950d9d0aca8f28cb35243b1b0501bd8098113612a417a8e21f3e2346772bf",
+    "tests/fixtures/suites/next-native/numeric-import-request.json": "01e02c0c089637c4888a18fc73281e8a14cff3faa42322fde959031f6759fdcc",
+    "tests/fixtures/suites/next-native/numeric-import-probe.cjs": "b2c347dc180bb852175cd9e5ae8a02fe11bb94577e3d77887bc457b96d7dd2f9",
+    "tests/fixtures/suites/next-native/numeric-import-oracle.json": "b457874643dc6799053fdfa810decaf37784b97560422bb3c346dadbc86ab05c",
+    "test-runs/20261104-NUMBERS-01/root/native-helper-01/command.json": "5970c929f016b0e85182163bb5d2586c904cc3feb9b325642eed516113f98cfa",
+    "test-runs/20261104-NUMBERS-01/root/native-helper-01/report.json": "6b3bbc728939e335efa2782fa4d6f860e74d683f0b00905c443d8a2eb483a486",
+    "test-runs/20261104-NUMBERS-01/V/geometry-binary64-source-review-01.json": "9e982d60a8f9100fa2270be9b0de0c4b13acd56bdb477cd612a6f9f77a5767ab"
+  },
+  "scope": "Only finite geometry import binary64 conversion, point conversion, and source comparison harness",
+  "facts": [
+    "Compared frozen presence vs numeric Session: only _geometry finite_number then float, default 0.0, and _point finite_number then float differ.",
+    "Input finite/type/nonnegative admission runs before conversion; bool/nonfinite/overflow remain rejected. No ID/business conversion, generic DOUBLE parser change, or numerical cap.",
+    "Reviewed comparator actual oracle request/probe SHA links, strict typed diff, explicit negative-zero flags, subsequent +1 arithmetic, imported float type, owned ID/business/raw preservation and before/after whole immutable tree hashes.",
+    "Existing root true -I 2-case run exits0 in0.143746 seconds; report source hashes stable, comparator SHA current. This review does not rerun it or rebind earlier layout receipts."
+  ],
+  "actualEvidence": {
+    "command": "test-runs/20261104-NUMBERS-01/root/native-helper-01/command.json",
+    "report": "test-runs/20261104-NUMBERS-01/root/native-helper-01/report.json",
+    "caseCount": 2,
+    "newExecutionByReviewer": false
+  },
+  "limitations": [
+    "No whole number layer, old bounded parser, full layout, or public integration claimed.",
+    "Preserved binary64 underflow and negative zero are source geometry facts; native input policy remains stricter than malformed upstream JSON fallback."
+  ]
+}

@@ -1,0 +1,380 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Source: elkjs0.12.1 worker275e6caf, NM01-NM07 in
+# references/next-node-micro-sources.json and node-micro-topdown-sources.json.
+# Uses the separately attributed GWT source_sort from layered.ports; see
+# NOTICE-GWT-Ports.md. No GWT/EMF runtime or text measurement is implemented.
+"""Actual generic node micro layout over one persistent JSON layout session.
+
+These adapters use the common node-size process while retaining the generic
+ElkGraphAdapter's own compound, property, ordering and margin semantics. They
+do not run the layered graph importer or select an input-size admission domain.
+"""
+from collections.abc import MutableMapping, Mapping
+import json
+import math
+
+from ..algorithms.layered.graph import Insets, Vec2
+from ..algorithms.layered.ports import _source_sort, double_compare
+from ..algorithms.layered.cell_layout import _maximum
+from ..options.schema import Padding, Vector2, VectorChainValue
+from ..options.generic import runtime_spec as generic_spec, canonical_generic_id as _canonical_id, NO_RUNTIME_DEFAULT
+from ..options.resolution import _parse
+from ..options.element import parse_mapping
+from .._errors import OptionValidationError, UnsupportedOptionError
+
+_PREFIX = 'org.eclipse.elk.'
+# Original EnumSet is not type4/Cloneable in this fixed GWT build. Its Core
+# default object is shared and requesting it does not establish hasProperty.
+_ENUMSET_DEFAULTS = {}
+_NAMES = {
+    'DIRECTION':'direction', 'PADDING':'padding', 'MARGINS':'margins',
+    'PORT_CONSTRAINTS':'portConstraints', 'PORT_SIDE':'port.side', 'PORT_INDEX':'port.index',
+    'PORT_BORDER_OFFSET':'port.borderOffset', 'PORT_ANCHOR':'port.anchor',
+    'NODE_SIZE_CONSTRAINTS':'nodeSize.constraints', 'NODE_SIZE_OPTIONS':'nodeSize.options',
+    'NODE_SIZE_MINIMUM':'nodeSize.minimum', 'NODE_SIZE_FIXED_GRAPH_SIZE':'nodeSize.fixedGraphSize',
+    'NODE_LABELS_PLACEMENT':'nodeLabels.placement', 'NODE_LABELS_PADDING':'nodeLabels.padding',
+    'PORT_LABELS_PLACEMENT':'portLabels.placement', 'PORT_LABELS_TREAT_AS_GROUP':'portLabels.treatAsGroup',
+    'PORT_ALIGNMENT_DEFAULT':'portAlignment.default',
+    **{'PORT_ALIGNMENT_'+s.upper():'portAlignment.'+s for s in ('north','east','south','west')},
+    'SPACING_PORT_PORT':'spacing.portPort', 'SPACING_LABEL_LABEL':'spacing.labelLabel',
+    'SPACING_LABEL_NODE':'spacing.labelNode', 'SPACING_LABEL_PORT_HORIZONTAL':'spacing.labelPortHorizontal',
+    'SPACING_LABEL_PORT_VERTICAL':'spacing.labelPortVertical', 'SPACING_PORTS_SURROUNDING':'spacing.portsSurrounding',
+    'SPACING_INDIVIDUAL':'spacing.individual', 'TOPDOWN_LAYOUT':'topdownLayout',
+    'INSIDE_SELF_LOOPS_ACTIVATE':'insideSelfLoops.activate', 'INSIDE_SELF_LOOPS_YO':'insideSelfLoops.yo',
+    'EDGE_LABELS_PLACEMENT':'edgeLabels.placement',
+}
+
+
+class VectorChain(list):
+    """Native mutable chain; source cloning copies the list, sharing points."""
+
+
+def _native(value):
+    if isinstance(value, Vector2): return Vec2(value.x,value.y)
+    if isinstance(value, VectorChainValue): return VectorChain(_native(point)for point in value.points)
+    if isinstance(value, Padding): return Insets(value.top,value.right,value.bottom,value.left)
+    if isinstance(value, frozenset): return set(value)
+    if isinstance(value, Mapping): return {k:_native(v) for k,v in value.items()}
+    return value
+
+
+def _minimum(*values): return -_maximum(*(-v for v in values))
+
+
+def _spec(name):
+    return generic_spec(_PREFIX+name)
+
+
+class _PropertyReader:
+    def __init__(self,state):
+        self.state=state
+        if not hasattr(state,'_micro_removed'): state._micro_removed=set()
+        if not hasattr(state,'_global_native_values'): state._global_native_values={}
+
+    def prepare(self, holders):
+        """Import local values once, then parse the selected global config once.
+
+        The raw JSON remains owned business data. Only source type4 values
+        clone when the parsed global configuration is applied to a holder.
+        """
+        local_values={}
+        for data in holders:
+            options=data.get('layoutOptions',data.get('properties',{}))
+            key='layoutOptions' if 'layoutOptions' in data else 'properties'
+            parsed,_=parse_mapping(options,self.state.paths[id(data)]+'/'+key)
+            local_values[id(data)]={name:_native(value) for name,value in parsed.items()}
+        parsed,_=parse_mapping(self.state.options,'/selectedGlobalOptions',global_options=True)
+        self.state._imported_property_values=local_values
+        self.state._global_native_values={name[len(_PREFIX):]:_native(value) for name,value in parsed.items()}
+        self.state._configured_property_ids=frozenset(parsed)
+
+    def _lookup(self,values,spec,path):
+        found=[]
+        for spelling,value in values.items():
+            if spelling==spec.id or spec.id.endswith('.'+spelling):
+                if _canonical_id(spelling,path+'/'+spelling)==spec.id: found.append(value)
+            elif spelling==spec.alias: found.append(value)
+        if len(found)>1: raise OptionValidationError('AMBIGUOUS_OPTION',path,'Two aliases for one property')
+        return (True,found[0]) if found else (False,None)
+
+    def _local(self,data,spec):
+        if hasattr(self.state,'_imported_property_values'):
+            values=self.state._imported_property_values[id(data)]
+            return (True,values[spec.id]) if spec.id in values else (False,None)
+        options=data.get('layoutOptions',data.get('properties',{}))
+        return self._lookup(options,spec,self.state.paths.get(id(data),''))
+
+    def _global(self,kind,spec):
+        targets={'node':{'NODES','PARENTS'},'port':{'PORTS'},'edge':{'EDGES'},'label':{'LABELS'}}[kind]
+        if not targets.intersection(spec.targets): return False,None
+        if hasattr(self.state,'_configured_property_ids'):
+            return ((True,self.state._global_native_values[spec.id[len(_PREFIX):]])
+                    if spec.id in self.state._configured_property_ids else (False,None))
+        return self._lookup(self.state.options,spec,'/selectedGlobalOptions')
+
+    def has(self,data,kind,name):
+        if name=='nodeSize.constraints' and id(data) in self.state.cleared_constraints: return True
+        if name in self.state.computed_options.get(id(data),{}): return True
+        if (id(data),name) in self.state._micro_removed: return False
+        if name=='spacing.individual' and kind=='node' and 'individualSpacings' in data: return True
+        spec=_spec(name)
+        return self._local(data,spec)[0] or self._global(kind,spec)[0]
+
+    def set(self,data,name,value):
+        if value is None:
+            self.remove(data,name)
+            return
+        spec=_spec(name)
+        if spec.kind=='signed_number': value=self._convert(spec,value,internal=True)
+        if name=='nodeSize.constraints': self.state.cleared_constraints.discard(id(data))
+        self.state._micro_removed.discard((id(data),name))
+        self.state.computed_options.setdefault(id(data),{})[name]=value
+
+    def remove(self,data,name):
+        if name=='nodeSize.constraints': self.state.cleared_constraints.discard(id(data))
+        self.state.computed_options.setdefault(id(data),{}).pop(name,None)
+        self.state._micro_removed.add((id(data),name))
+
+    def _convert(self,spec,value,*,internal=False,global_value=False):
+        if internal:
+            if spec.kind=='opaque':return value
+            if spec.kind=='signed_number' and type(value) in (int,float):
+                try: return float(value)
+                except OverflowError: return math.inf if value>0 else -math.inf
+            if spec.kind=='vector' and isinstance(value,Mapping): return Vec2(value['x'],value['y'])
+            if spec.kind=='insets' and isinstance(value,Mapping): return Insets(**value)
+            if spec.kind=='enumset' and type(value) is set: return value
+            if spec.kind=='enumset' and isinstance(value,(list,tuple,frozenset)): return set(value)
+            if spec.kind=='individual_spacings' and type(value) is dict: return value
+            return _native(value)
+        if global_value and type(value) in (dict,list): value=json.dumps(value,separators=(',',':'),allow_nan=False)
+        return _native(_parse(spec,value,'/microProperties/'+spec.id))
+
+    def get(self,data,kind,name):
+        spec=_spec(name);computed=self.state.computed_options.setdefault(id(data),{})
+        if name=='nodeSize.constraints' and id(data) in self.state.cleared_constraints:
+            # resizeNode assigns a fresh explicit empty EnumSet, not the Core
+            # shared default. Preserve that same set until another assignment.
+            if name not in computed: computed[name]=set()
+            else: computed[name]=self._convert(spec,computed[name],internal=True)
+            return computed[name]
+        if name in computed:
+            value=self._convert(spec,computed[name],internal=True);computed[name]=value;return value
+        removed=(id(data),name) in self.state._micro_removed
+        local,value=self._local(data,spec) if not removed else (False,None)
+        if name=='spacing.individual' and kind=='node' and 'individualSpacings' in data and not removed:
+            holder=self._convert(spec,value,internal=hasattr(self.state,'_imported_property_values')) if local else {}
+            extra,_=parse_mapping(data['individualSpacings'],'/individualSpacings')
+            holder.update({k:_native(v) for k,v in extra.items()});value=holder
+        elif local: value=self._convert(spec,value,internal=hasattr(self.state,'_imported_property_values'))
+        else:
+            present,value=self._global(kind,spec) if not removed else (False,None)
+            if present:
+                configured=self.state._global_native_values
+                if name not in configured: configured[name]=self._convert(spec,value,global_value=True)
+                value=configured[name]
+                # LayoutConfigurator clones only source type4 values. EnumSet
+                # is not one: keep the configured set shared across holders.
+                if isinstance(value,Vec2): value=Vec2(value.x,value.y)
+                elif isinstance(value,VectorChain): value=VectorChain(value)
+                elif isinstance(value,Insets): value=Insets(value.top,value.right,value.bottom,value.left)
+                elif type(value) is dict: value=dict(value)
+            elif self.state.resolve_option is not None and not removed:
+                value=self._convert(spec,self.state.resolve_option(data,name,spec.declared_default),internal=True)
+            else:
+                if spec.declared_default is NO_RUNTIME_DEFAULT:
+                    raise UnsupportedOptionError('PROPERTY_DEFAULT_OWNER_REQUIRED',
+                        self.state.paths.get(id(data),'')+'/layoutOptions/'+spec.id,
+                        'An actual Property owner or caller default is required: '+spec.id)
+                if spec.kind=='enumset':
+                    if name not in _ENUMSET_DEFAULTS: _ENUMSET_DEFAULTS[name]=_native(spec.declared_default)
+                    value=_ENUMSET_DEFAULTS[name]
+                else: value=_native(spec.declared_default)
+        # Defaults materialize only for actual source type4 objects. In this
+        # build EnumSet defaults stay absent; explicit local/global sets exist.
+        if local or self.has(data,kind,name) or isinstance(value,(Vec2,Insets,dict,VectorChain)):
+            computed[name]=value
+        return value
+
+
+class _Properties(MutableMapping):
+    def __init__(self,reader,data,kind,compound=None,inside=None):
+        self.reader=reader;self.data=data;self.kind=kind;self.compound=compound;self.inside=inside
+    def __getitem__(self,key):
+        if key=='COMPOUND_NODE' and self.compound is not None: return self.compound()
+        if key=='INSIDE_CONNECTIONS' and self.inside is not None: return self.inside()
+        if key not in _NAMES: raise KeyError(key)
+        return self.reader.get(self.data,self.kind,_NAMES[key])
+    def get(self,key,default=None):
+        try: return self[key]
+        except KeyError: return default
+    def __contains__(self,key):
+        if key=='COMPOUND_NODE': return self.compound is not None
+        if key=='INSIDE_CONNECTIONS': return self.inside is not None
+        return key in _NAMES and self.reader.has(self.data,self.kind,_NAMES[key])
+    def __setitem__(self,key,value):
+        self.reader.set(self.data,_NAMES[key],value)
+    def __delitem__(self,key):
+        self.reader.remove(self.data,_NAMES[key])
+    def __iter__(self): return (key for key in _NAMES if key in self)
+    def __len__(self): return sum(1 for _ in self)
+
+
+class _Shape:
+    def __init__(self,reader,data,kind):
+        self.data=data;self.pos=Vec2(data.get('x',0),data.get('y',0))
+        self.size=Vec2(data.get('width',0),data.get('height',0));self.id=0
+        self.properties=_Properties(reader,data,kind)
+    def commit(self):
+        self.data.update(x=self.pos.x,y=self.pos.y,width=self.size.x,height=self.size.y)
+
+
+class _Port(_Shape):
+    def __init__(self,reader,data,owner):
+        super().__init__(reader,data,'port');self.owner=owner;self.reader=reader
+        self.properties.inside=self._inside
+        self.incoming_edges=reader.state.incidence(data,True);self.outgoing_edges=reader.state.incidence(data)
+        self.labels=[_Shape(reader,raw,'label') for raw in data.get('labels',[])]
+    @property
+    def side(self): return self.properties['PORT_SIDE']
+    def _inside(self):
+        state=self.reader.state;node=self.owner.data
+        for edges,endpoints in ((self.outgoing_edges,'targets'),(self.incoming_edges,'sources')):
+            for edge in edges:
+                for identifier in edge[endpoints]:
+                    target=state.owners[id(state.shapes[(type(identifier),identifier)])]
+                    if state._ancestor(target,node): return True
+                    if endpoints=='targets' and target is node and self.reader.get(edge,'edge','insideSelfLoops.yo'): return True
+        return False
+    def commit(self):
+        super().commit()
+        for label in self.labels: label.commit()
+
+
+class _Node(_Shape):
+    def __init__(self,reader,data,graph):
+        super().__init__(reader,data,'node');self.graph=graph;self.type='NORMAL'
+        self.properties.compound=lambda: bool(data.get('children') or self.properties['INSIDE_SELF_LOOPS_ACTIVATE'])
+        self.ports=[_Port(reader,raw,self) for raw in data.get('ports',[])]
+        self.labels=[_Shape(reader,raw,'label') for raw in data.get('labels',[])]
+    @property
+    def padding(self): return self.properties['PADDING']
+    @property
+    def margin(self): return self.properties['MARGINS']
+    def commit(self):
+        super().commit()
+        for port in self.ports: port.commit()
+        for label in self.labels: label.commit()
+
+
+def _sort_ports(node):
+    if node.properties['PORT_CONSTRAINTS'] not in ('FIXED_ORDER','FIXED_RATIO','FIXED_POS'): return
+    sides=('UNDEFINED','NORTH','EAST','SOUTH','WEST')
+    def compare(first,second):
+        order=sides.index(first.side)-sides.index(second.side)
+        if order: return order
+        a,b=first.properties['PORT_INDEX'],second.properties['PORT_INDEX']
+        if a is not None and b is not None and a!=b: return a-b
+        if first.side=='NORTH': return double_compare(first.pos.x,second.pos.x)
+        if first.side=='EAST': return double_compare(first.pos.y,second.pos.y)
+        if first.side=='SOUTH': return double_compare(second.pos.x,first.pos.x)
+        if first.side=='WEST': return double_compare(second.pos.y,first.pos.y)
+        raise ValueError('Port side is undefined')
+    _source_sort(node.ports,compare)
+    if 'ports' in node.data: node.data['ports'][:]=[p.data for p in node.ports]
+
+
+def _union(box,other):
+    x1=_minimum(box[0],other[0]);y1=_minimum(box[1],other[1])
+    x2=_maximum(box[0]+box[2],other[0]+other[2]);y2=_maximum(box[1]+box[3],other[1]+other[3])
+    if x2<x1: x1,x2=x2,x1
+    if y2<y1: y1,y2=y2,y1
+    box[:]=[x1,y1,x2-x1,y2-y1]
+
+
+def _edge_label_bounds(reader,node,port,space,spacing,box):
+    state=reader.state
+    endpoints=((state.incidence(port.data),state.incidence(port.data,True)) if port is not None else
+               (state.node_edges(node.data),state.node_edges(node.data,True)))
+    for edges,incoming in ((endpoints[0],False),(endpoints[1],True)):
+        for edge in edges:
+            for raw in edge.get('labels',[]):
+                if reader.get(raw,'label','edgeLabels.placement')!=('HEAD' if incoming else 'TAIL'): continue
+                x,y=node.pos.x,node.pos.y;w,h=raw['width'],raw['height']
+                if port is None: x=x-spacing-w if incoming else x+node.size.x+spacing
+                else:
+                    x+=port.pos.x;y+=port.pos.y
+                    if port.side in ('UNDEFINED','EAST'): x+=port.size.x+spacing+space.x+spacing
+                    elif port.side=='WEST': x-=spacing+space.x+spacing+w
+                    elif port.side=='NORTH': x+=port.size.x+spacing;y-=spacing+space.y+spacing+h
+                    elif port.side=='SOUTH': x+=port.size.x+spacing;y+=port.size.y+spacing+space.y+spacing
+                _union(box,[x,y,w,h])
+
+
+def _node_margin(reader,node,spacing):
+    box=[node.pos.x,node.pos.y,node.size.x,node.size.y]
+    for label in node.labels: _union(box,[node.pos.x+label.pos.x,node.pos.y+label.pos.y,label.size.x,label.size.y])
+    for port in node.ports:
+        px,py=node.pos.x+port.pos.x,node.pos.y+port.pos.y
+        _union(box,[px,py,port.size.x,port.size.y])
+        for label in port.labels: _union(box,[px+label.pos.x,py+label.pos.y,label.size.x,label.size.y])
+        space=Vec2(-spacing,-spacing)
+        if 'OUTSIDE' in node.properties['PORT_LABELS_PLACEMENT']:
+            for label in port.labels:
+                space.x+=label.size.x+spacing;space.y+=label.size.y+spacing
+        space.x=_maximum(space.x,0);space.y=_maximum(space.y,0)
+        _edge_label_bounds(reader,node,port,space,spacing,box)
+    # This intentionally repeats port edges through the node's all-edge view,
+    # as the original margin caller does; do not deduplicate the two passes.
+    _edge_label_bounds(reader,node,None,None,spacing,box)
+    node.properties['MARGINS']=Insets(_maximum(0,node.pos.y-box[1]),
+        _maximum(0,box[0]+box[2]-(node.pos.x+node.size.x)),
+        _maximum(0,box[1]+box[3]-(node.pos.y+node.size.y)),_maximum(0,node.pos.x-box[0]))
+
+
+def label_node_minimum(state,node):
+    """Actual RectPacking parent/node adapter process(false,true) branch."""
+    from ..algorithms.layered.node_size_process import process_node_size
+    if state.kinds.get(id(node))!='node' or state.parents[id(node)] is None:
+        raise ValueError('Label minimum branch requires an imported node with a parent')
+    parent=state.parents[id(node)];reader=_PropertyReader(state)
+    class Graph:
+        properties=_Properties(reader,parent,'node')
+        options=None
+    graph=Graph()
+    return process_node_size(graph,_Node(reader,node,graph),False,True,
+                             transparent_north_south_edges=False)
+
+
+def calculate_node_margins(state,node):
+    """Run only the source NodeMarginCalculator on this parent's children.
+
+    Spore's importer requests this stage without sorting ports or changing
+    node/label/port sizes and positions. Keep the same reviewed generic views
+    and margin arithmetic used by the final stage of NodeMicroLayout.
+    """
+    reader=_PropertyReader(state)
+    class Graph:
+        properties=_Properties(reader,node,'node')
+        options=None
+    graph=Graph()
+    spacing=graph.properties['SPACING_LABEL_NODE']
+    for raw in node.get('children',[]):
+        _node_margin(reader,_Node(reader,raw,graph),spacing)
+
+
+def node_micro_layout(state,node):
+    """Run the real default generic micro pipeline on this parent's children."""
+    from ..algorithms.layered.node_size_process import process_node_size
+    reader=_PropertyReader(state)
+    class Graph:
+        properties=_Properties(reader,node,'node')
+        options=None
+    graph=Graph();children=[_Node(reader,raw,graph) for raw in node.get('children',[])]
+    for child in children: _sort_ports(child)
+    for child in children:
+        process_node_size(graph,child,True,False,transparent_north_south_edges=False)
+        child.commit()
+    spacing=graph.properties['SPACING_LABEL_NODE']
+    for child in children: _node_margin(reader,child,spacing)

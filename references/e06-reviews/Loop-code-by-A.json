@@ -1,0 +1,424 @@
+{
+  "schema": "py-elk-e06-independent-code-review/v1",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "reviewerLane": "A",
+  "ownerLane": "B",
+  "reviewedFiles": [
+    {
+      "path": "src/pyelk/algorithms/layered/loops.py",
+      "sha256": "1752c18adedbc9be5b34b441cf79f4a28bc1cafba89abf817eeadad5be977124"
+    },
+    {
+      "path": "tests/layered/test_e06_loops.py",
+      "sha256": "1c149113ac1c91091a7dae71b8d2cce992bb5c076ea9d8ac8a575fb5e0fc1c2e"
+    }
+  ],
+  "sourceDocument": {
+    "path": "references/e06-source-components-B.json",
+    "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+  },
+  "sourceReviewReceipts": [
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E06-01/A/review-B-loop-partial-final.json",
+      "sha256": "bb344fb6faf8d3dfa0a9344c6a24a6dd0abac40f89158a986ee0620c04bdbf20"
+    },
+    {
+      "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E06-01/A/review-B-loop-router-final.json",
+      "sha256": "bdedf6d859bacb115433cb93401d2462285e5ff07d6b425473314bd5b4b964fe"
+    }
+  ],
+  "actualKernelComparisons": 28,
+  "records": [
+    {
+      "case": "v1-cycle3-mixed",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "798e8e954255ea41ba87f1ecf7080ca89113e111a91ffc93114db3686cb9d074",
+      "requestSha256": "7433e32a4cb0a13deb74cddd591097038f52d0ee0a478d834aa5d5dcf87975cf",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "798e8e954255ea41ba87f1ecf7080ca89113e111a91ffc93114db3686cb9d074",
+      "requestSha256": "7433e32a4cb0a13deb74cddd591097038f52d0ee0a478d834aa5d5dcf87975cf",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "798e8e954255ea41ba87f1ecf7080ca89113e111a91ffc93114db3686cb9d074",
+      "requestSha256": "7433e32a4cb0a13deb74cddd591097038f52d0ee0a478d834aa5d5dcf87975cf",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "798e8e954255ea41ba87f1ecf7080ca89113e111a91ffc93114db3686cb9d074",
+      "requestSha256": "7433e32a4cb0a13deb74cddd591097038f52d0ee0a478d834aa5d5dcf87975cf",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-one",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "4b251ab65b87e43e15ae8ae58ac64641d41142e34d8db3a910cd8762dbeb942c",
+      "requestSha256": "373d640c3d5c2d415f8671b7cd65a4ca209067944acadf5df44d6d3513379c23",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-one",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "4b251ab65b87e43e15ae8ae58ac64641d41142e34d8db3a910cd8762dbeb942c",
+      "requestSha256": "373d640c3d5c2d415f8671b7cd65a4ca209067944acadf5df44d6d3513379c23",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-one",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "4b251ab65b87e43e15ae8ae58ac64641d41142e34d8db3a910cd8762dbeb942c",
+      "requestSha256": "373d640c3d5c2d415f8671b7cd65a4ca209067944acadf5df44d6d3513379c23",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-one",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "4b251ab65b87e43e15ae8ae58ac64641d41142e34d8db3a910cd8762dbeb942c",
+      "requestSha256": "373d640c3d5c2d415f8671b7cd65a4ca209067944acadf5df44d6d3513379c23",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-two",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "684c46aa6f99144fea54c4cf1389250827f7c56a400f6f728b6fe44dcb8f772a",
+      "requestSha256": "d04da694b6f9ff3c48a6c308b7b4a2e4f93a10f2f1318f776b1d75b6e0711bb2",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-two",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "684c46aa6f99144fea54c4cf1389250827f7c56a400f6f728b6fe44dcb8f772a",
+      "requestSha256": "d04da694b6f9ff3c48a6c308b7b4a2e4f93a10f2f1318f776b1d75b6e0711bb2",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-two",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "684c46aa6f99144fea54c4cf1389250827f7c56a400f6f728b6fe44dcb8f772a",
+      "requestSha256": "d04da694b6f9ff3c48a6c308b7b4a2e4f93a10f2f1318f776b1d75b6e0711bb2",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loop-two",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "684c46aa6f99144fea54c4cf1389250827f7c56a400f6f728b6fe44dcb8f772a",
+      "requestSha256": "d04da694b6f9ff3c48a6c308b7b4a2e4f93a10f2f1318f776b1d75b6e0711bb2",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "64d29caddff8e1d09eb826def52b62419ca1a95ddc32ea97ef10e6b205fc04e2",
+      "requestSha256": "33b880317e413721db74794d397b5d36400850b9b3b2728a00ecb92e958a077f",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "64d29caddff8e1d09eb826def52b62419ca1a95ddc32ea97ef10e6b205fc04e2",
+      "requestSha256": "33b880317e413721db74794d397b5d36400850b9b3b2728a00ecb92e958a077f",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "64d29caddff8e1d09eb826def52b62419ca1a95ddc32ea97ef10e6b205fc04e2",
+      "requestSha256": "33b880317e413721db74794d397b5d36400850b9b3b2728a00ecb92e958a077f",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "64d29caddff8e1d09eb826def52b62419ca1a95ddc32ea97ef10e6b205fc04e2",
+      "requestSha256": "33b880317e413721db74794d397b5d36400850b9b3b2728a00ecb92e958a077f",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "53e70ab4a8af8539f124e0a0ff49df14122f587673dee5aff710550ae12bb08b",
+      "requestSha256": "08c4916be265c1a9f7546fc08950b16cf2883b981808e26fd96a3a1d3f9d01ca",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "53e70ab4a8af8539f124e0a0ff49df14122f587673dee5aff710550ae12bb08b",
+      "requestSha256": "08c4916be265c1a9f7546fc08950b16cf2883b981808e26fd96a3a1d3f9d01ca",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "53e70ab4a8af8539f124e0a0ff49df14122f587673dee5aff710550ae12bb08b",
+      "requestSha256": "08c4916be265c1a9f7546fc08950b16cf2883b981808e26fd96a3a1d3f9d01ca",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "53e70ab4a8af8539f124e0a0ff49df14122f587673dee5aff710550ae12bb08b",
+      "requestSha256": "08c4916be265c1a9f7546fc08950b16cf2883b981808e26fd96a3a1d3f9d01ca",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "4c657c0882b1b0b0b7c59af317c3759b15ab04b39438a06a2f1a052f0a225da9",
+      "requestSha256": "3995e6806b553443191f4c18cd6f95a6fab4f3cafde2bbadc58bf1736aa6cd08",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "4c657c0882b1b0b0b7c59af317c3759b15ab04b39438a06a2f1a052f0a225da9",
+      "requestSha256": "3995e6806b553443191f4c18cd6f95a6fab4f3cafde2bbadc58bf1736aa6cd08",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "4c657c0882b1b0b0b7c59af317c3759b15ab04b39438a06a2f1a052f0a225da9",
+      "requestSha256": "3995e6806b553443191f4c18cd6f95a6fab4f3cafde2bbadc58bf1736aa6cd08",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "4c657c0882b1b0b0b7c59af317c3759b15ab04b39438a06a2f1a052f0a225da9",
+      "requestSha256": "3995e6806b553443191f4c18cd6f95a6fab4f3cafde2bbadc58bf1736aa6cd08",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "phase": "SelfLoopPreProcessor",
+      "captureSha256": "d85f44301186b2c88cf670f67878d2adfd4ad0928957fcbaed6c94dcdda590b1",
+      "requestSha256": "a4589fdd583264b552df2ac531723da6c8eaf5d150b3cd47ee3aa4496626d8a0",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "phase": "SelfLoopPortRestorer",
+      "captureSha256": "d85f44301186b2c88cf670f67878d2adfd4ad0928957fcbaed6c94dcdda590b1",
+      "requestSha256": "a4589fdd583264b552df2ac531723da6c8eaf5d150b3cd47ee3aa4496626d8a0",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "phase": "SelfLoopRouter",
+      "captureSha256": "d85f44301186b2c88cf670f67878d2adfd4ad0928957fcbaed6c94dcdda590b1",
+      "requestSha256": "a4589fdd583264b552df2ac531723da6c8eaf5d150b3cd47ee3aa4496626d8a0",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true,
+        "literalSourceBends": true,
+        "literalSourceMargin": true,
+        "realDependencyAndMarkState": true
+      },
+      "passed": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "phase": "SelfLoopPostProcessor",
+      "captureSha256": "d85f44301186b2c88cf670f67878d2adfd4ad0928957fcbaed6c94dcdda590b1",
+      "requestSha256": "a4589fdd583264b552df2ac531723da6c8eaf5d150b3cd47ee3aa4496626d8a0",
+      "checks": {
+        "selectedActualAfterExact": true,
+        "publicInputPreserved": true,
+        "rngExactNoDraw": true
+      },
+      "passed": true
+    }
+  ],
+  "independentMemoryControls": [
+    {
+      "kind": "skip-target-detach",
+      "phase": "SelfLoopPreProcessor",
+      "memoryOnlyWrongCodeDetected": true
+    },
+    {
+      "kind": "reverse-restored-north-block",
+      "phase": "SelfLoopPortRestorer",
+      "memoryOnlyWrongCodeDetected": true
+    },
+    {
+      "kind": "perturb-first-bend",
+      "phase": "SelfLoopRouter",
+      "memoryOnlyWrongCodeDetected": true
+    }
+  ],
+  "manualSourceToCodeChecks": [
+    "Pre capture/BFS/id/hide and exact source-null,target-null,port-owner-null order; no extraLNode/LPort.",
+    "Restorer literal split ternary, source prepend/target append and full side recompose, real anchor reset, stale cache and flags retained.",
+    "Router real dependency2/cycleweightedFIFO/marks/rawslotcompression/listgeometry; default spacing literal source constants only within approved no-custom-option scope.",
+    "Post original endpoint identity set-source,set-target then x/y offsets; no JP/side reversal."
+  ],
+  "hostAdapter": {
+    "path": "test-runs/20261103-E06-01/B/compare_loop_effects.py",
+    "sha256": "5abfbf106a4f60b328627c0582d209195baac33ca09d8cef535028d2a011fb72",
+    "role": "Read-only host before-state assembler and selected-field projector. Independent raw after and literal router arithmetic plus memory wrong-code controls prevent expected output being generated by candidate algorithm."
+  },
+  "limitations": [
+    "Selected JS observer excludes ports_by_side/occupied-sides and removed temporary segment identities; these are checked by source-to-code reading and independent state controls, not falsely certified dynamically.",
+    "Source guard excludes shared/public ports/labels/nesting/custom distribution/order/routing/options. Review grants no general loop algorithm, whole API/lifecycle or published release acceptance."
+  ],
+  "unresolved": [],
+  "productionFilesUnchangedDuringReview": true
+}

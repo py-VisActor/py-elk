@@ -1,0 +1,45 @@
+{
+  "schema": "py-elk-speed-fixture-review/v1",
+  "status": "ACCEPTED_FOR_CURRENT_AUDIT_DEPENDENCIES",
+  "reviewer": "V",
+  "owner": "A",
+  "filesSha256": {
+    "tests/audit/audit_fixture_support.py": "ce42d30ec28cf62d15799f7bae43b8e9dec97f5d20ac8936126376bcbea68860",
+    "tests/audit/test_audit_fixture_support.py": "2363270f127a4e76cb16c219904204447b317ea52833707ddb51f785c314fc02"
+  },
+  "independentGuardCommand": {
+    "path": "test-runs/20261103-E08-00-01/V/fixture-independent-command/report.json",
+    "sha256": "45c86c394f4b0085bad4bdb92a09f244a3b7ad16a2d0488cf294caddd624be2c",
+    "methods": 6
+  },
+  "additionalControls": [
+    {
+      "mutation": "new-python",
+      "positivePassed": true,
+      "targetRejected": true,
+      "error": [
+        "Installed Python/license file denominator differs"
+      ]
+    },
+    {
+      "mutation": "new-license",
+      "positivePassed": true,
+      "targetRejected": true,
+      "error": [
+        "Installed Python/license file denominator differs"
+      ]
+    }
+  ],
+  "checked": [
+    "Full source/reference schema/role proof closure remains present; whole unused oracle tree removed",
+    "Every selected raw request and complete mutable current-package denominator retained",
+    "Historical E05/E06 package+metadata material restored from literal pinned archives",
+    "copy_files independently copies bytes, disallows overwrite/escape/symlink target escape",
+    "Actual read-set observation includes io.open ZIP reads; missing indirect source dependency is rejected by a dedicated target guard",
+    "Future semantic mutations introducing new dependencies require adding those files before assertion; current closure is not a proof of arbitrary future paths"
+  ],
+  "limitations": [
+    "No independent full legacy131-method rerun claimed here; A actual command covers those, root complete run remains required",
+    "Read-set is observed finite evidence plus code inspection; it does not authenticate historical execution"
+  ]
+}

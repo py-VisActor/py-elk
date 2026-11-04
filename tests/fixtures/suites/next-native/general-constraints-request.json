@@ -1,0 +1,31 @@
+{
+  "cases":[
+    {
+      "id":"outer-and-fixed-reversal","kind":"reverse",
+      "nodes":[
+        {"id":"F","constraint":"FIRST"},
+        {"id":"L","constraint":"LAST"},
+        {"id":"M"},
+        {"id":"Q","type":"LABEL"},
+        {"id":"R","portConstraints":"FIXED_SIDE"}
+      ],
+      "edges":[["MF","M","F"],["LM","L","M"],["QF","Q","F"],["LQ","L","Q"],["MR","M","R"],["guard","M","F",true]]
+    },
+    {
+      "id":"separate-hide-and-restore","kind":"hideRestore",
+      "nodes":[
+        {"id":"F","constraint":"FIRST_SEPARATE"},
+        {"id":"M"},
+        {"id":"N","constraint":"NONE"},
+        {"id":"L","constraint":"LAST_SEPARATE"}
+      ],
+      "edges":[["FM","F","M"],["FN","F","N"],["ML","M","L"]]
+    },
+    {
+      "id":"incoming-cursor-revives","kind":"postSelfLoop",
+      "nodes":[{"id":"F","constraint":"FIRST_SEPARATE","type":"EXTERNAL_PORT"}],
+      "edges":[["loop","F",null]],
+      "preparedHiddenNodes":true
+    }
+  ]
+}

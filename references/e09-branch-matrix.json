@@ -1,0 +1,1477 @@
+{
+  "schema": "py-elk-e09-branch-matrix/v1",
+  "scope": "E09-ADR0008-revision1",
+  "status": "declarations-frozen-runtime-acceptance-separate",
+  "requiredDeclarationCount": 38,
+  "declaredBranchCount": 219,
+  "rows": [
+    {
+      "id": "api-registry",
+      "branches": [
+        "default-layered",
+        "explicit-layered",
+        "canonical-alias-dedup",
+        "empty-metadata-only"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/metadata/__init__.py",
+          "symbol": "MetadataRegistry"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/api/test_e08_metadata.py",
+          "symbol": "NativeMetadataTests.test_aliases_and_duplicate_registration_are_normalized_without_changing_input"
+        },
+        {
+          "path": "tests/api/test_e08_metadata.py",
+          "symbol": "NativeMetadataTests.test_empty_algorithm_instance_is_metadata_only_without_polluting_other_instances"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "api-metadata",
+      "branches": [
+        "algorithms-1",
+        "options-9",
+        "categories-1",
+        "fresh-independent-values",
+        "full-reference-12-243-8-retained"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.knownLayoutAlgorithms"
+        },
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.knownLayoutOptions"
+        },
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.knownLayoutCategories"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/api/test_e08_metadata.py",
+          "symbol": "NativeMetadataTests.test_all_query_children_are_independent_across_calls_and_instances"
+        },
+        {
+          "path": "tests/api/test_e08_metadata.py",
+          "symbol": "NativeMetadataTests.test_reference_catalogue_denominators_remain_separate"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "api-algorithm-errors",
+      "branches": [
+        "unknown",
+        "known-unimplemented",
+        "invalid-type",
+        "selected-global-before-local",
+        "empty-call-replaces-default"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/metadata/__init__.py",
+          "symbol": "classify_algorithm"
+        },
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.layout"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/api/test_e08_errors.py",
+          "symbol": "NativeErrorTests.test_local_selector_does_not_hide_invalid_global_that_resolver_still_parses"
+        },
+        {
+          "path": "tests/api/test_e08_errors.py",
+          "symbol": "NativeErrorTests.test_canonical_registration_and_empty_call_override_execute_real_layout"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "api-closed",
+      "branches": [
+        "three-metadata-queries",
+        "layout",
+        "last-trace-cleared"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.terminateWorker"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/api/test_e08_metadata.py",
+          "symbol": "NativeMetadataTests.test_closed_instance_rejects_all_queries_and_clears_trace"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "api-worker-options",
+      "branches": [
+        "workerFactory-rejected",
+        "workerUrl-rejected"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.__init__"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/api/test_e08_metadata.py",
+          "symbol": "NativeMetadataTests.test_explicit_worker_fields_fail_without_invoking_user_functions"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-algorithm",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_enum_names_only_and_no_unimplemented_algorithm_or_routing"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-direction",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_enum_names_only_and_no_unimplemented_algorithm_or_routing"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-padding",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_padding_has_four_explicit_sides_and_never_infers_missing_sides"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-spacing.nodeNode",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_numeric_spacing_is_finite_nonnegative_and_not_bool"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-layered.spacing.nodeNodeBetweenLayers",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_numeric_spacing_is_finite_nonnegative_and_not_bool"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-separateConnectedComponents",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_boolean_strings_are_not_python_truthiness"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-spacing.componentComponent",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_numeric_spacing_is_finite_nonnegative_and_not_bool"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-edgeRouting",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_enum_names_only_and_no_unimplemented_algorithm_or_routing"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-randomSeed",
+      "branches": [
+        "default",
+        "full-id",
+        "elk-alias",
+        "valid-value",
+        "invalid-value"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_seed_retains_signed_32_bit_integer_without_rng_claim"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_full_ids_and_elk_aliases_parse_the_same_nine_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "option-scope",
+      "branches": [
+        "constructor-selected",
+        "call-replaces",
+        "call-empty-replaces",
+        "root-local-overrides",
+        "unselected-constructor-not-parsed",
+        "same-scope-alias-conflict"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/options/resolution.py",
+          "symbol": "resolve_options"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_explicit_call_empty_mapping_replaces_constructor"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_select_global_before_local_override_without_constructor_leak"
+        },
+        {
+          "path": "tests/options/test_resolution.py",
+          "symbol": "OptionResolutionTests.test_same_scope_aliases_conflict_even_with_equal_values"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-bounds",
+      "branches": [
+        "nodes-0",
+        "nodes-8",
+        "nodes-9-rejected",
+        "edges-28",
+        "edges-29-rejected",
+        "measure-0",
+        "measure-1000000",
+        "over-1000000-rejected",
+        "seed-negative-boundary",
+        "seed-positive-boundary",
+        "seed-zero-rejected"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/scope.py",
+          "symbol": "validate_slice"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/layered/test_e07_components.py",
+          "symbol": "ComponentBoundaryTests.test_shared_port_29edges_and_nine_nodes_are_rejected_without_mutation"
+        },
+        {
+          "path": "tests/layered/test_scope.py",
+          "symbol": "SliceAdmissionTests.test_numeric_limits_zero_and_nondeterministic_seed"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-topology",
+      "branches": [
+        "empty",
+        "singleton",
+        "chain",
+        "fork",
+        "join",
+        "diamond",
+        "long-edge",
+        "cycle",
+        "self-loop",
+        "parallel",
+        "disconnected",
+        "mixed"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/pipeline.py",
+          "symbol": "layout_context"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/conformance/test_e07_native.py",
+          "symbol": "E07NativeConformance.test_all_real_native_results_match_official_contract_geometry_and_original_ids"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-directions",
+      "branches": [
+        "UNDEFINED",
+        "RIGHT",
+        "LEFT",
+        "DOWN",
+        "UP"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/directions.py",
+          "symbol": "resolve_direction"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/layered/test_e07_directions.py",
+          "symbol": "E07DirectionTests.test_undefined_resolution_and_literal_port_side_mapping"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-components",
+      "branches": [
+        "separate-true",
+        "separate-false",
+        "string-false",
+        "zero-spacing",
+        "unequal-eight-isolates"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/components.py",
+          "symbol": "split_components"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/layered/test_e07_components.py",
+          "symbol": "ComponentBoundaryTests.test_false_is_same_unsorted_graph_and_does_not_touch_scratch_ids"
+        },
+        {
+          "path": "tests/layered/test_e07_components.py",
+          "symbol": "ComponentBoundaryTests.test_official_eight_unequal_isolates_stable_area_tie_and_rows"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-rejections",
+      "branches": [
+        "ports",
+        "labels",
+        "compound",
+        "edge-local-options",
+        "child-options-except-padding",
+        "hyperedges",
+        "root-endpoint",
+        "legacy-properties",
+        "$H",
+        "nonstring-id"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/scope.py",
+          "symbol": "_validate"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/layered/test_scope.py",
+          "symbol": "SliceAdmissionTests.test_explicit_label_port_compound_and_local_options_rejected"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-existing-geometry",
+      "branches": [
+        "root-x-y-width-height",
+        "child-x-y",
+        "edge-sections",
+        "edge-junctionPoints",
+        "edge-bendPoints",
+        "edge-startPoint-endPoint",
+        "edge-sourcePoint-targetPoint",
+        "edge-container"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/scope.py",
+          "symbol": "_validate"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/layered/test_scope.py",
+          "symbol": "SliceAdmissionTests.test_all_existing_edge_geometry_keys_are_rejected_by_presence"
+        },
+        {
+          "path": "tests/layered/test_scope.py",
+          "symbol": "SliceAdmissionTests.test_preexisting_geometry_and_legacy_options_do_not_enter_wrong_branch"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "domain-child-padding",
+      "branches": [
+        "four-side-string",
+        "zero",
+        "asymmetric",
+        "object-rejected",
+        "other-local-option-rejected"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/scope.py",
+          "symbol": "_validate"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/conformance/test_e07_native.py",
+          "symbol": "E07NativeConformance.test_all_real_native_results_match_official_contract_geometry_and_original_ids"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "diagnostic-flags",
+      "branches": [
+        "omitted",
+        "false-false",
+        "true-false",
+        "false-true",
+        "true-true",
+        "non-bool-rejected"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/scope.py",
+          "symbol": "validate_slice"
+        },
+        {
+          "path": "src/pyelk/execution/worker.py",
+          "symbol": "run_job"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "PublicDiagnosticsTests.test_four_real_spawned_flag_combinations_preserve_inputs_and_business_fields"
+        },
+        {
+          "path": "tests/api/test_e08_errors.py",
+          "symbol": "NativeErrorTests.test_logging_and_execution_timing_reject_non_bool_flags"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D04-BASIC-MONITOR",
+        "E09-D05-COLLECT",
+        "E09-D06-LAYOUT-ENTRY"
+      ]
+    },
+    {
+      "id": "diagnostic-root-cleanup",
+      "branches": [
+        "absent",
+        "null",
+        "business-object",
+        "disabled-deletes-root-logging",
+        "enabled-rebuilds-root-logging",
+        "nested-node-edge-business-logging-preserved",
+        "root-business-executionTime-preserved"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/worker.py",
+          "symbol": "run_job"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "PublicDiagnosticsTests.test_four_real_spawned_flag_combinations_preserve_inputs_and_business_fields"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D03-JSON-ROOT-CLEANUP",
+        "E09-D06-LAYOUT-ENTRY"
+      ]
+    },
+    {
+      "id": "diagnostic-tree",
+      "branches": [
+        "empty-root-only",
+        "single-component-no-wrapper",
+        "separated-component-wrappers",
+        "combined-components-no-wrapper",
+        "simplex-per-private-component",
+        "self-loop-extra-phases",
+        "nonright-pre-post",
+        "duplicate-crossing-phase-order"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/pipeline.py",
+          "symbol": "layout_context"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_single_component_actual_phase_tree_and_live_bk_logs"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_actual_separated_and_combined_components_have_distinct_trees"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_empty_root_and_direction_loop_dispatch_use_real_chain"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D07-RECURSIVE-ROOT",
+        "E09-D08-RECURSIVE-DISPATCH",
+        "E09-D09-LAYERED-COMPONENTS",
+        "E09-D10-LAYERED-PHASES",
+        "E09-D11-NETWORK-SIMPLEX-MONITORS",
+        "E09-D12-NETWORK-SIMPLEX-LEAF"
+      ]
+    },
+    {
+      "id": "diagnostic-live-text",
+      "branches": [
+        "module-count",
+        "module-slot-order",
+        "four-BK-layout-sizes",
+        "first-invalid-pair",
+        "feasibility",
+        "chosen-layout",
+        "blocks",
+        "classes",
+        "marked-first-successful-add"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "log_modules"
+        },
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "log_bk_choice"
+        },
+        {
+          "path": "src/pyelk/algorithms/layered/placement.py",
+          "symbol": "bk_node_placer"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_single_component_actual_phase_tree_and_live_bk_logs"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D13-BK-MAIN",
+        "E09-D14-BK-FEASIBILITY",
+        "E09-D15-BK-MAPS",
+        "E09-D24-MARK-CONFLICTS",
+        "E09-D25-HASHSET",
+        "E09-D29-INTERNAL-MAP"
+      ]
+    },
+    {
+      "id": "diagnostic-number-adapter",
+      "branches": [
+        "integer-rendering",
+        "negative-zero",
+        "decimal-1e-6",
+        "scientific-1e-7",
+        "exponent-sign-and-zero",
+        "shortest-roundtrip",
+        "tiny-finite"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "number_text"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_single_component_actual_phase_tree_and_live_bk_logs"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D39-NUMBER-CONCAT"
+      ]
+    },
+    {
+      "id": "diagnostic-identities",
+      "branches": [
+        "original-root-node-id",
+        "long-edge-dummy-layer-index",
+        "port-local-index",
+        "edge-origin-id",
+        "no-address-or-trace-id"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "node_text"
+        },
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "edge_text"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_single_component_actual_phase_tree_and_live_bk_logs"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D17-NODE-IDENTITY",
+        "E09-D18-NODE-DESIGNATION",
+        "E09-D19-NODE-STRING",
+        "E09-D20-ORIGIN-IDENTIFIER",
+        "E09-D21-EDGE-STRING",
+        "E09-D34-PORT-DESIGNATION",
+        "E09-D35-EDGE-DESIGNATION"
+      ]
+    },
+    {
+      "id": "diagnostic-clock",
+      "branches": [
+        "integer-wall-ms",
+        "delta-times-1000-times-1e-9",
+        "float-multiplication-order",
+        "zero-delta",
+        "negative-delta-unclamped",
+        "disabled-no-clock-reads",
+        "per-tree-isolation"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "_wall_milliseconds"
+        },
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "BasicProgressMonitor.done"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_generated_tick_scale_and_binary_multiplication_order"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_wall_clock_zero_and_backwards_deltas_are_not_replaced_or_clamped"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_logging_only_and_disabled_flags_never_read_clock"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_clock_is_per_monitor_tree_and_not_shared_globally"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D01-CLOCK",
+        "E09-D02-LONG-ARITHMETIC",
+        "E09-D04-BASIC-MONITOR"
+      ]
+    },
+    {
+      "id": "diagnostic-collect",
+      "branches": [
+        "name-always",
+        "logs-only-when-enabled-nonempty",
+        "time-only-when-enabled",
+        "children-only-when-nonempty",
+        "insertion-order",
+        "fresh-independent-tree"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "BasicProgressMonitor.collect"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_empty_log_lists_are_absent_and_ordered_children_are_independent"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_four_flag_combinations_share_true_begin_child_structure"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D04-BASIC-MONITOR",
+        "E09-D05-COLLECT"
+      ]
+    },
+    {
+      "id": "diagnostic-monitor-state",
+      "branches": [
+        "repeat-begin-returns-false",
+        "closed-begin-errors",
+        "closed-subtask-null",
+        "done-before-begin-errors",
+        "repeat-done-idempotent"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "BasicProgressMonitor.begin"
+        },
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "BasicProgressMonitor.sub_task"
+        },
+        {
+          "path": "src/pyelk/execution/diagnostics.py",
+          "symbol": "BasicProgressMonitor.done"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_running_begin_is_not_renamed_or_restarted_and_done_is_idempotent"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "MonitorPrimitiveTests.test_done_before_begin_and_collect_unnamed_match_source_failure_category"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D04-BASIC-MONITOR"
+      ]
+    },
+    {
+      "id": "diagnostic-boundaries",
+      "branches": [
+        "recursive-includes-provider-import",
+        "layered-excludes-provider-import",
+        "layered-excludes-transfer",
+        "recursive-includes-transfer",
+        "snapshot-work-not-used-to-build-tree"
+      ],
+      "evidenceRole": "newcoverage",
+      "implementation": [
+        {
+          "path": "src/pyelk/algorithms/layered/import_export.py",
+          "symbol": "import_raw_graph"
+        },
+        {
+          "path": "src/pyelk/algorithms/layered/import_export.py",
+          "symbol": "export_layout"
+        },
+        {
+          "path": "src/pyelk/algorithms/layered/pipeline.py",
+          "symbol": "layout_context"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "KernelMonitorTests.test_real_timing_boundaries_and_trace_observation_do_not_choose_tree"
+        }
+      ],
+      "sourceComponents": [
+        "E09-D07-RECURSIVE-ROOT",
+        "E09-D09-LAYERED-COMPONENTS",
+        "E09-D40-PROVIDER-BOUNDARY"
+      ]
+    },
+    {
+      "id": "input-preservation",
+      "branches": [
+        "request",
+        "constructor",
+        "arguments",
+        "business-types",
+        "original-identities",
+        "independent-output"
+      ],
+      "evidenceRole": "geometry",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.layout"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/conformance/test_e07_native.py",
+          "symbol": "E07NativeConformance.test_official_repeat_three_and_all_caller_owned_inputs_are_bound"
+        },
+        {
+          "path": "tests/execution/test_e09_diagnostics.py",
+          "symbol": "PublicDiagnosticsTests.test_four_real_spawned_flag_combinations_preserve_inputs_and_business_fields"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "lifecycle-fifo",
+      "branches": [
+        "single-running-slot",
+        "queue-count-includes-running",
+        "max-pending-1-to-64",
+        "independent-overlapping-instances"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.layout"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_same_instance_fifo_single_slot_and_independent_inputs"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_pending_limit_counts_running_and_queue_and_accepts_after_cancel"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_two_instances_have_distinct_overlapping_real_kernel_processes"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "lifecycle-cancel-close",
+      "branches": [
+        "queued-cancel-no-spawn",
+        "running-cancel-reaped",
+        "close-running-and-queued",
+        "close-idempotent",
+        "close-from-other-thread"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.terminateWorker"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_queued_cancel_never_spawns_and_does_not_wait_for_running"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_running_cancel_reaps_process_and_thread_before_propagation"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_synchronous_close_stops_running_and_rejects_queued"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_close_from_another_thread_is_safely_joined"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "lifecycle-timeout",
+      "branches": [
+        "includes-queue",
+        "includes-spawn",
+        "running-killed",
+        "slot-recovers"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.layout"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_timeout_includes_spawn_and_recovers"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_queued_deadline_expires_without_spawn_before_running_ends"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_timeout_stops_running_cpu_and_releases_slot"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "lifecycle-loop-trace",
+      "branches": [
+        "idle-cross-loop-allowed",
+        "active-cross-loop-rejected",
+        "latest-submission-trace-only",
+        "failure-clears-trace"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.layout"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleBoundaryTests.test_idle_instance_rebinds_across_asyncio_run_and_closes_without_loop"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_active_cross_loop_rejected_without_poisoning_original"
+        },
+        {
+          "path": "tests/api/test_e08_errors.py",
+          "symbol": "NativeErrorTests.test_older_success_cannot_publish_trace_after_a_newer_submission"
+        },
+        {
+          "path": "tests/api/test_e08_errors.py",
+          "symbol": "NativeErrorTests.test_failure_of_latest_submission_keeps_trace_empty_when_older_job_returns"
+        }
+      ],
+      "sourceComponents": []
+    },
+    {
+      "id": "lifecycle-errors",
+      "branches": [
+        "worker-crash",
+        "protocol-error",
+        "internal-import-error",
+        "validation-error-fields",
+        "spawn-failure"
+      ],
+      "evidenceRole": "api",
+      "implementation": [
+        {
+          "path": "src/pyelk/api.py",
+          "symbol": "ELK.layout"
+        }
+      ],
+      "assertions": [
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_worker_crash_is_internal_and_next_real_layout_succeeds"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleBoundaryTests.test_protocol_rejects_wrong_kind_fields_job_types_error_class_and_progress"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_internal_import_error_does_not_become_unsupported"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleTests.test_validation_errors_preserve_exact_subclass_fields_and_recover"
+        },
+        {
+          "path": "tests/execution/test_e08_lifecycle.py",
+          "symbol": "LifecycleBoundaryTests.test_spawn_failure_is_internal_and_recoverable_without_a_live_handle"
+        }
+      ],
+      "sourceComponents": []
+    }
+  ],
+  "profile": {
+    "id": "basic-layered",
+    "inputDomain": {
+      "originalChildNodes": {
+        "minimum": 0,
+        "maximum": 8
+      },
+      "originalEdges": {
+        "minimum": 0,
+        "maximum": 28
+      },
+      "topology": "flat-directed-multigraph",
+      "ids": "nonempty strings",
+      "nodeDimensions": "given finite nonnegative numbers, at most 1000000",
+      "spacingAndPaddingMaximum": 1000000,
+      "randomSeed": "nonzero signed32; omitted defaults to 1",
+      "directions": [
+        "UNDEFINED",
+        "RIGHT",
+        "LEFT",
+        "DOWN",
+        "UP"
+      ],
+      "preexistingGeometry": false,
+      "rootLogging": "reserved; removed/replaced on returned copy",
+      "sourceDecision": "docs/decisions/0008-e09-diagnostics-coverage.md"
+    },
+    "algorithm": "org.eclipse.elk.layered",
+    "optionIds": [
+      "org.eclipse.elk.algorithm",
+      "org.eclipse.elk.direction",
+      "org.eclipse.elk.padding",
+      "org.eclipse.elk.spacing.nodeNode",
+      "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+      "org.eclipse.elk.separateConnectedComponents",
+      "org.eclipse.elk.spacing.componentComponent",
+      "org.eclipse.elk.edgeRouting",
+      "org.eclipse.elk.randomSeed"
+    ],
+    "nativeRegistryCounts": {
+      "algorithms": 1,
+      "options": 9,
+      "categories": 1
+    },
+    "fullReferenceCounts": {
+      "algorithms": 12,
+      "options": 243,
+      "categories": 8
+    }
+  },
+  "plannedEvidence": {
+    "geometry": {
+      "path": "references/e09-installed-check.json",
+      "pointer": "",
+      "validator": "validate_e08_runtime.validate_layout_receipt"
+    },
+    "api": {
+      "path": "references/e09-installed-check.json",
+      "pointer": "/apiRuntime",
+      "validator": "validate_e08_api.validate_candidate_receipt"
+    },
+    "newcoverage": {
+      "path": "references/e09-coverage-installed.json",
+      "pointer": "",
+      "validator": "validate_e09_coverage.validate_candidate_receipt"
+    }
+  },
+  "sameWheelPolicy": "All three roles must bind identical full installed receipt and candidate interpreter; source declaration does not authenticate future execution.",
+  "masterCaseCount": 25,
+  "masterCases": [
+    {
+      "id": "layered-empty",
+      "request": "tests/fixtures/validation/requests/layered-empty.json",
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-singleton",
+      "request": "tests/fixtures/validation/requests/layered-singleton.json",
+      "requestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-chain",
+      "request": "tests/fixtures/validation/requests/layered-chain.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-fork",
+      "request": "tests/fixtures/validation/requests/layered-fork.json",
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-join",
+      "request": "tests/fixtures/validation/requests/layered-join.json",
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-diamond-right",
+      "request": "tests/fixtures/validation/requests/layered-diamond-right.json",
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-diamond-left",
+      "request": "tests/fixtures/validation/requests/layered-diamond-left.json",
+      "requestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-diamond-down",
+      "request": "tests/fixtures/validation/requests/layered-diamond-down.json",
+      "requestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-diamond-up",
+      "request": "tests/fixtures/validation/requests/layered-diamond-up.json",
+      "requestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-long-edge",
+      "request": "tests/fixtures/validation/requests/layered-long-edge.json",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-cycle",
+      "request": "tests/fixtures/validation/requests/layered-cycle.json",
+      "requestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-self-loop",
+      "request": "tests/fixtures/validation/requests/layered-self-loop.json",
+      "requestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-parallel-edges",
+      "request": "tests/fixtures/validation/requests/layered-parallel-edges.json",
+      "requestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-disconnected",
+      "request": "tests/fixtures/validation/requests/layered-disconnected.json",
+      "requestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "request": "tests/fixtures/validation/requests/layered-unequal-sizes.json",
+      "requestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-zero-size",
+      "request": "tests/fixtures/validation/requests/layered-zero-size.json",
+      "requestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-custom-spacing",
+      "request": "tests/fixtures/validation/requests/layered-custom-spacing.json",
+      "requestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "layered-unseparated-components",
+      "request": "tests/fixtures/validation/requests/layered-unseparated-components.json",
+      "requestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "options-constructor-default",
+      "request": "tests/fixtures/validation/requests/options-constructor-default.json",
+      "requestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "request": "tests/fixtures/validation/requests/options-explicit-empty-replaces-default.json",
+      "requestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "options-call-replaces-default",
+      "request": "tests/fixtures/validation/requests/options-call-replaces-default.json",
+      "requestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "options-full-ids",
+      "request": "tests/fixtures/validation/requests/options-full-ids.json",
+      "requestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "classification": "supported",
+      "reason": "Inside bounded flat layered profile; geometry must be recomputed on current wheel.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "error-unknown-endpoint",
+      "request": "tests/fixtures/validation/requests/error-unknown-endpoint.json",
+      "requestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "classification": "expected-error",
+      "reason": "Invalid request; current wheel must preserve named reference error category.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "error-unknown-algorithm",
+      "request": "tests/fixtures/validation/requests/error-unknown-algorithm.json",
+      "requestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "classification": "expected-error",
+      "reason": "Invalid request; current wheel must preserve named reference error category.",
+      "evidenceRole": "newcoverage"
+    },
+    {
+      "id": "error-missing-graph",
+      "request": "tests/fixtures/validation/requests/error-missing-graph.json",
+      "requestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "classification": "expected-error",
+      "reason": "Invalid request; current wheel must preserve named reference error category.",
+      "evidenceRole": "newcoverage"
+    }
+  ],
+  "wholeAlgorithmAccepted": false,
+  "packagePublished": false,
+  "runtimeAccepted": false,
+  "coverageMeaning": "Finite first-release branch declarations, not exhaustive mathematical correctness or full upstream test coverage."
+}

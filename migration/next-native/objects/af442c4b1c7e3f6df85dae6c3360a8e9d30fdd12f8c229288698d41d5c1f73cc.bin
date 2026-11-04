@@ -1,0 +1,351 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs 0.12.1 worker F01/F02, references/e18-force-stress-sources.json.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external Java build identity remains unresolved.
+"""Native Force particles and their ordered, source-specific graph.
+
+Only independently reviewed closures are implemented. This model is shared by
+Force and Stress; it does not substitute a layered or tree layout backend.
+"""
+from __future__ import annotations
+
+from .layered.graph import Vec2
+from .radial import clip_vector, _first_section, _maximum
+from .fixed import _padding, _resize
+from .random import _hierarchical
+from .layered.components import _double_compare
+from .layered.ports import _source_sort
+import math
+
+
+class _Properties:
+    def __init__(self, state=None, origin=None):
+        self.state = state
+        self.origin = origin
+        self.properties = {}
+
+    def option(self, name, default=None):
+        if name in self.properties:
+            return self.properties[name]
+        if self.origin is not None:
+            return self.state.option(self.origin, name, default)
+        return default
+
+    def has_option(self, name):
+        return (name in self.properties or
+                (self.origin is not None and self.state.has_option(self.origin, name)))
+
+
+class FParticle(_Properties):
+    def __init__(self, state=None, origin=None):
+        super().__init__(state, origin)
+        self.displacement = Vec2()
+        self.position = Vec2()
+        self.size = Vec2()
+
+
+class FNode(FParticle):
+    def __init__(self, label='', state=None, origin=None):
+        super().__init__(state, origin)
+        self.label = label
+        self.id = 0
+
+    def __str__(self):
+        return 'n_' + (self.label if self.label else str(self.id))
+
+
+class FEdge(_Properties):
+    def __init__(self, state=None, origin=None):
+        super().__init__(state, origin)
+        self.source = None
+        self.target = None
+        self.bendpoints = []
+        self.labels = []
+
+    def distribute_bendpoints(self):
+        count = len(self.bendpoints)
+        if count:
+            source, target = self.source.position, self.target.position
+            # Source scales by the reciprocal, rather than dividing each axis.
+            scale = 1 / (count + 1)
+            dx, dy = (target.x-source.x)*scale, (target.y-source.y)*scale
+            x, y = source.x, source.y
+            for bendpoint in self.bendpoints:
+                bendpoint.position.x, bendpoint.position.y = x+dx, y+dy
+                x += dx
+                y += dy
+
+    def source_point(self):
+        source, target = self.source.position, self.target.position
+        result = clip_vector(Vec2(target.x-source.x, target.y-source.y),
+                             self.source.size.x, self.source.size.y)
+        result.x += source.x
+        result.y += source.y
+        return result
+
+    def target_point(self):
+        source, target = self.source.position, self.target.position
+        result = clip_vector(Vec2(source.x-target.x, source.y-target.y),
+                             self.target.size.x, self.target.size.y)
+        result.x += target.x
+        result.y += target.y
+        return result
+
+    def __str__(self):
+        return str(self.source) + '->' + str(self.target)
+
+
+class FBendpoint(FParticle):
+    def __init__(self, edge):
+        super().__init__(edge.state)
+        self.edge = edge
+        edge.bendpoints.append(self)
+
+
+class FLabel(FParticle):
+    def __init__(self, edge, text='', origin=None):
+        super().__init__(edge.state, origin)
+        self.edge = edge
+        self.text = text
+        edge.labels.append(self)
+
+    def refresh_position(self):
+        source, target = self.edge.source.position, self.edge.target.position
+        pos = self.position
+        if self.option('edgeLabels.inline', False):
+            pos.x = source.x + (target.x-source.x)*0.5 - self.size.x*0.5
+            pos.y = source.y + (target.y-source.y)*0.5 - self.size.y*0.5
+        else:
+            spacing = self.edge.option('spacing.edgeLabel', 5)
+            if source.x >= target.x:
+                pos.x = target.x + (source.x-target.x)/2 + spacing
+                if source.y >= target.y:
+                    pos.y = target.y + (source.y-target.y)/2 - spacing - self.size.y
+                else:
+                    pos.y = source.y + (target.y-source.y)/2 + spacing
+            else:
+                pos.x = source.x + (target.x-source.x)/2 + spacing
+                if source.y >= target.y:
+                    pos.y = target.y + (source.y-target.y)/2 - spacing - self.size.y
+                else:
+                    pos.y = source.y + (target.y-source.y)/2 - spacing - self.size.y
+
+
+class FGraph(_Properties):
+    def __init__(self, state=None, origin=None):
+        super().__init__(state, origin)
+        self.nodes = []
+        self.edges = []
+        self.labels = []
+        self.bend_points = []
+        self.adjacency = None
+
+    def particles(self):
+        yield from self.nodes
+        yield from self.labels
+        yield from self.bend_points
+
+    def calc_adjacency(self):
+        count = len(self.nodes)
+        self.adjacency = [[0 for _ in range(count)] for _ in range(count)]
+        for edge in self.edges:
+            self.adjacency[edge.source.id][edge.target.id] += edge.option('priority', 1)
+
+    def get_connection(self, first, second):
+        if isinstance(first, FNode) and isinstance(second, FNode):
+            return self.adjacency[first.id][second.id] + self.adjacency[second.id][first.id]
+        if isinstance(first, FBendpoint) and isinstance(second, FBendpoint):
+            if first.edge is second.edge:
+                return second.edge.option('priority', 1)
+        return 0
+
+
+def import_graph(state, raw):
+    """F03 actual centers, node/port encounter order and original filtering."""
+    graph = FGraph(state, raw)
+    mapped = {}
+    for index, child in enumerate(raw.get('children', [])):
+        labels = child.get('labels', [])
+        node = FNode(labels[0].get('text') if labels else '', state, child)
+        node.id = index
+        node.position.x = child['x'] + child['width']/2
+        node.position.y = child['y'] + child['height']/2
+        node.size.x, node.size.y = _maximum(child['width'], 1), _maximum(child['height'], 1)
+        graph.nodes.append(node)
+        mapped[id(child)] = node
+        # The source's UNDEFINED -> FREE local variable is dead, not a setter.
+    for child in raw.get('children', []):
+        for edge in state.node_edges(child):
+            if len(edge.get('sources', [])) > 1 or len(edge.get('targets', [])) > 1:
+                raise ValueError('Graph must not contain hyperedges.')
+            if _hierarchical(state, edge):
+                continue
+            target = state.owners[id(state.endpoint(edge, True))]
+            if child is target:
+                continue
+            new_edge = FEdge(state, edge)
+            new_edge.source, new_edge.target = mapped[id(child)], mapped[id(target)]
+            graph.edges.append(new_edge)
+            for label in edge.get('labels', []):
+                new_label = FLabel(new_edge, label.get('text'), label)
+                new_label.size.x = _maximum(label['width'], 1)
+                new_label.size.y = _maximum(label['height'], 1)
+                new_label.refresh_position()
+                graph.labels.append(new_label)
+    return graph
+
+
+def _minimum(left, right):
+    return -_maximum(-left, -right)
+
+
+def _bounds(nodes):
+    minx = miny = 2147483647
+    maxx = maxy = -2147483648
+    for node in nodes:
+        minx = _minimum(minx, node.position.x-node.size.x/2)
+        miny = _minimum(miny, node.position.y-node.size.y/2)
+        maxx = _maximum(maxx, node.position.x+node.size.x/2)
+        maxy = _maximum(maxy, node.position.y+node.size.y/2)
+    return Vec2(minx, miny), Vec2(maxx, maxy)
+
+
+def apply_layout(graph):
+    """F03 transfer bounds exclude labels and use original, unclamped node WH."""
+    state, raw = graph.state, graph.origin
+    if raw is None:
+        raise ValueError('The Force graph has no original layout graph')
+    upper, lower = _bounds([*graph.nodes, *graph.bend_points])
+    padding = _padding(state.option(raw, 'padding', 50))
+    dx, dy = padding['left']-upper.x, padding['top']-upper.y
+    for node in graph.nodes:
+        if node.origin is not None:
+            node.origin['x'] = node.position.x+dx-node.origin['width']/2
+            node.origin['y'] = node.position.y+dy-node.origin['height']/2
+    for edge in graph.edges:
+        section = _first_section(edge.origin)
+        source, target = edge.source_point(), edge.target_point()
+        section['startPoint'] = {'x': source.x+dx, 'y': source.y+dy}
+        section['endPoint'] = {'x': target.x+dx, 'y': target.y+dy}
+        section['bendPoints'] = [{'x': bend.position.x+dx, 'y': bend.position.y+dy}
+                                for bend in edge.bendpoints]
+    for label in graph.labels:
+        label.origin['x'], label.origin['y'] = label.position.x+dx, label.position.y+dy
+    width = lower.x-upper.x + (padding['left']+padding['right'])
+    height = lower.y-upper.y + (padding['top']+padding['bottom'])
+    if not state.option(raw, 'nodeSize.fixedGraphSize', False):
+        _resize(state, raw, width, height, False, True)
+    state.computed_options.setdefault(id(raw), {}).update(
+        childAreaWidth=width-(padding['left']+padding['right']),
+        childAreaHeight=height-(padding['top']+padding['bottom']))
+
+
+def split_components(graph):
+    """F04 iterative transcription of the source-specific last-node DFS."""
+    if graph.option('separateConnectedComponents', True) is False:
+        return [graph]
+    visited = [False for _ in graph.nodes]
+    incidence = [[] for _ in graph.nodes]
+    for edge in graph.edges:
+        incidence[edge.source.id].append(edge)
+        incidence[edge.target.id].append(edge)
+    components = []
+    for initial in graph.nodes:
+        if visited[initial.id]:
+            continue
+        component = FGraph(graph.state, graph.origin)
+        component.properties.update(graph.properties)  # RANDOM remains shared.
+        work = [('visit', initial, None)]
+        while work:
+            action, value, last = work.pop()
+            if action == 'append':
+                component.edges.append(value)
+                component.labels.extend(value.labels)
+            elif action == 'edge':
+                edge, node = value, last[0]
+                previous = last[1]
+                if edge.target is previous or edge.source is previous:
+                    continue
+                work.append(('append', edge, None))
+                if edge.target is not node:
+                    work.append(('visit', edge.target, node))
+                if edge.source is not node:
+                    work.append(('visit', edge.source, node))
+            elif not visited[value.id]:
+                visited[value.id] = True
+                component.nodes.append(value)
+                for edge in reversed(incidence[value.id]):
+                    work.append(('edge', edge, (value, last)))
+        components.append(component)
+    if len(components) > 1:
+        for component in components:
+            for index, node in enumerate(component.nodes):
+                node.id = index
+    return components
+
+
+def _move_graph(destination, source, x, y):
+    upper = source.properties['BB_UPLEFT']
+    dx, dy = x-upper.x, y-upper.y
+    for node in source.nodes:
+        node.position.x += dx
+        node.position.y += dy
+        destination.nodes.append(node)
+    for edge in source.edges:
+        for bendpoint in edge.bendpoints:
+            bendpoint.position.x += dx
+            bendpoint.position.y += dy
+        destination.edges.append(edge)
+    for label in source.labels:
+        label.position.x += dx
+        label.position.y += dy
+        destination.labels.append(label)
+    # Original move does not copy graph.bendPoints, even though it moves edges.
+
+
+def recombine_components(components):
+    if len(components) == 1:
+        return components[0]
+    if not components:
+        return FGraph()
+    for graph in components:
+        priority = 0
+        for node in graph.nodes:
+            priority += node.option('priority', 1)
+        graph.properties['priority'] = priority
+        graph.properties['BB_UPLEFT'], graph.properties['BB_LOWRIGHT'] = _bounds(graph.nodes)
+
+    def size(graph):
+        upper, lower = graph.properties['BB_UPLEFT'], graph.properties['BB_LOWRIGHT']
+        return Vec2(lower.x-upper.x, lower.y-upper.y)
+
+    def compare(first, second):
+        priority = second.option('priority', 1)-first.option('priority', 1)
+        if priority == 0:
+            one, two = size(first), size(second)
+            return _double_compare(one.x*one.y, two.x*two.y)
+        return priority
+
+    _source_sort(components, compare)
+    first = components[0]
+    result = FGraph(first.state, first.origin)
+    result.properties.update(first.properties)
+    max_row_width = total_area = 0
+    for graph in components:
+        extent = size(graph)
+        max_row_width = _maximum(max_row_width, extent.x)
+        total_area += extent.x*extent.y
+    square_root = math.sqrt(total_area) if total_area >= 0 else math.nan
+    max_row_width = _maximum(max_row_width, square_root*result.option('aspectRatio', 1.600000023841858))
+    spacing = result.option('spacing.nodeNode', 80)
+    xpos = ypos = highest = 0
+    for graph in components:
+        extent = size(graph)
+        if xpos+extent.x > max_row_width:
+            xpos = 0
+            ypos += highest+spacing
+            highest = 0
+        _move_graph(result, graph, xpos, ypos)
+        highest = _maximum(highest, extent.y)
+        xpos += extent.x+spacing
+    return result

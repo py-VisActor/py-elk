@@ -1,0 +1,70 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "Two calls covering the real attached-tree height guard",
+  "cases": [
+    {
+      "id": "high-degree-deep-base",
+      "request": "requests/high-degree-deep-base.json",
+      "requestSha256": "f73c2fc1a7d6b8025256a48f94164232a869eb63685eb20007b3aad9205a45c0",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "high-degree-deep-height",
+      "request": "requests/high-degree-deep-height.json",
+      "requestSha256": "5bc0980aac1e505c388180b5d9b1e0b3ede28f5f4c6ef80bd92bceda111ec3ba",
+      "baseline": "high-degree-deep-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.highDegreeNodes.treeHeight",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/children/10/x",
+            "/result/children/10/y",
+            "/result/children/11/x",
+            "/result/children/11/y",
+            "/result/children/12/x",
+            "/result/children/12/y",
+            "/result/children/13/x",
+            "/result/children/13/y",
+            "/result/children/14/x",
+            "/result/children/14/y",
+            "/result/children/15/x",
+            "/result/children/15/y",
+            "/result/children/16/x",
+            "/result/children/16/y",
+            "/result/children/17/x",
+            "/result/children/17/y",
+            "/result/children/18/x",
+            "/result/children/18/y",
+            "/result/children/19/x",
+            "/result/children/19/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "A height1 guard excludes attached depth3 trees that are accepted with height4, exposing actual tree isolation geometry"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,946 @@
+{
+  "cases": [
+    {
+      "name": "ordinary-node-margin-bends-labels",
+      "graphs": [
+        {
+          "nodes": [
+            {
+              "id": "a",
+              "pos": [
+                0,
+                0
+              ],
+              "size": [
+                10,
+                8
+              ],
+              "type": "NORMAL",
+              "side": null,
+              "margin": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "b",
+              "pos": [
+                4,
+                15
+              ],
+              "size": [
+                12,
+                6
+              ],
+              "type": "NORMAL",
+              "side": null,
+              "margin": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "ports": [
+            {
+              "id": "ao",
+              "owner": "a",
+              "side": "SOUTH",
+              "pos": [
+                4,
+                8
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "bi",
+              "owner": "b",
+              "side": "NORTH",
+              "pos": [
+                5,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "ab",
+              "source": "ao",
+              "target": "bi",
+              "bends": [
+                [
+                  4.5,
+                  11
+                ],
+                [
+                  9.5,
+                  11
+                ]
+              ],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            }
+          ],
+          "sides": []
+        },
+        {
+          "nodes": [
+            {
+              "id": "c",
+              "pos": [
+                45,
+                20
+              ],
+              "size": [
+                10,
+                9
+              ],
+              "type": "NORMAL",
+              "side": null,
+              "margin": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "d",
+              "pos": [
+                60,
+                24
+              ],
+              "size": [
+                8,
+                10
+              ],
+              "type": "NORMAL",
+              "side": null,
+              "margin": [
+                1,
+                2,
+                3,
+                4
+              ]
+            }
+          ],
+          "ports": [
+            {
+              "id": "co",
+              "owner": "c",
+              "side": "EAST",
+              "pos": [
+                10,
+                4
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "di",
+              "owner": "d",
+              "side": "WEST",
+              "pos": [
+                0,
+                3
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "cd",
+              "source": "co",
+              "target": "di",
+              "bends": [
+                [
+                  57,
+                  25
+                ],
+                [
+                  57,
+                  28
+                ]
+              ],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            }
+          ],
+          "sides": []
+        }
+      ],
+      "spacing": 7
+    },
+    {
+      "name": "four-side-extension-and-external-only-dummy",
+      "graphs": [
+        {
+          "nodes": [
+            {
+              "id": "center",
+              "pos": [
+                25,
+                25
+              ],
+              "size": [
+                10,
+                10
+              ],
+              "type": "NORMAL",
+              "side": null,
+              "margin": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "west",
+              "pos": [
+                0,
+                30
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "WEST",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "id": "east",
+              "pos": [
+                65,
+                30
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "EAST",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "id": "north",
+              "pos": [
+                30,
+                0
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "NORTH",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "id": "south",
+              "pos": [
+                30,
+                65
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "SOUTH",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            }
+          ],
+          "ports": [
+            {
+              "id": "westp",
+              "owner": "west",
+              "side": "WEST",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "westc",
+              "owner": "center",
+              "side": "WEST",
+              "pos": [
+                0,
+                5
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "eastp",
+              "owner": "east",
+              "side": "EAST",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "eastc",
+              "owner": "center",
+              "side": "EAST",
+              "pos": [
+                10,
+                5
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "northp",
+              "owner": "north",
+              "side": "NORTH",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "northc",
+              "owner": "center",
+              "side": "NORTH",
+              "pos": [
+                5,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "southp",
+              "owner": "south",
+              "side": "SOUTH",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "southc",
+              "owner": "center",
+              "side": "SOUTH",
+              "pos": [
+                5,
+                10
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "west",
+              "source": "westp",
+              "target": "westc",
+              "bends": [
+                [
+                  -2,
+                  31
+                ],
+                [
+                  15,
+                  31
+                ],
+                [
+                  15,
+                  30
+                ]
+              ],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            },
+            {
+              "id": "east",
+              "source": "eastc",
+              "target": "eastp",
+              "bends": [
+                [
+                  45,
+                  30
+                ],
+                [
+                  45,
+                  31
+                ],
+                [
+                  70,
+                  31
+                ]
+              ],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            },
+            {
+              "id": "north",
+              "source": "northp",
+              "target": "northc",
+              "bends": [
+                [
+                  30.5,
+                  -1
+                ],
+                [
+                  30.5,
+                  15
+                ],
+                [
+                  31,
+                  15
+                ]
+              ],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            },
+            {
+              "id": "south",
+              "source": "southc",
+              "target": "southp",
+              "bends": [
+                [
+                  31,
+                  45
+                ],
+                [
+                  30.5,
+                  45
+                ],
+                [
+                  30.5,
+                  70
+                ]
+              ],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            }
+          ],
+          "sides": [
+            "NORTH",
+            "EAST",
+            "SOUTH",
+            "WEST"
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "id": "only",
+              "pos": [
+                80,
+                45
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "WEST",
+              "margin": [
+                0,
+                1,
+                0,
+                1
+              ]
+            }
+          ],
+          "ports": [
+            {
+              "id": "onlyp",
+              "owner": "only",
+              "side": "WEST",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            }
+          ],
+          "edges": [],
+          "sides": [
+            "WEST"
+          ]
+        }
+      ],
+      "spacing": 7
+    },
+    {
+      "name": "four-side-straight-extensions-and-external-only-dummy",
+      "graphs": [
+        {
+          "nodes": [
+            {
+              "id": "center",
+              "pos": [
+                25,
+                25
+              ],
+              "size": [
+                10,
+                10
+              ],
+              "type": "NORMAL",
+              "side": null,
+              "margin": [
+                1,
+                2,
+                3,
+                4
+              ]
+            },
+            {
+              "id": "west",
+              "pos": [
+                0,
+                30
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "WEST",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "id": "east",
+              "pos": [
+                65,
+                30
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "EAST",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "id": "north",
+              "pos": [
+                30,
+                0
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "NORTH",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "id": "south",
+              "pos": [
+                30,
+                65
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "SOUTH",
+              "margin": [
+                2,
+                2,
+                2,
+                2
+              ]
+            }
+          ],
+          "ports": [
+            {
+              "id": "westp",
+              "owner": "west",
+              "side": "WEST",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "westc",
+              "owner": "center",
+              "side": "WEST",
+              "pos": [
+                0,
+                5
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "eastp",
+              "owner": "east",
+              "side": "EAST",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "eastc",
+              "owner": "center",
+              "side": "EAST",
+              "pos": [
+                10,
+                5
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "northp",
+              "owner": "north",
+              "side": "NORTH",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "northc",
+              "owner": "center",
+              "side": "NORTH",
+              "pos": [
+                5,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "southp",
+              "owner": "south",
+              "side": "SOUTH",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            },
+            {
+              "id": "southc",
+              "owner": "center",
+              "side": "SOUTH",
+              "pos": [
+                5,
+                10
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "west",
+              "source": "westp",
+              "target": "westc",
+              "bends": [],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            },
+            {
+              "id": "east",
+              "source": "eastc",
+              "target": "eastp",
+              "bends": [],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            },
+            {
+              "id": "north",
+              "source": "northp",
+              "target": "northc",
+              "bends": [],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            },
+            {
+              "id": "south",
+              "source": "southc",
+              "target": "southp",
+              "bends": [],
+              "thickness": 3,
+              "labelPos": [
+                4,
+                5
+              ]
+            }
+          ],
+          "sides": [
+            "NORTH",
+            "EAST",
+            "SOUTH",
+            "WEST"
+          ]
+        },
+        {
+          "nodes": [
+            {
+              "id": "only",
+              "pos": [
+                80,
+                45
+              ],
+              "size": [
+                0,
+                0
+              ],
+              "type": "EXTERNAL_PORT",
+              "side": "WEST",
+              "margin": [
+                0,
+                1,
+                0,
+                1
+              ]
+            }
+          ],
+          "ports": [
+            {
+              "id": "onlyp",
+              "owner": "only",
+              "side": "WEST",
+              "pos": [
+                0,
+                0
+              ],
+              "anchor": [
+                0.5,
+                1
+              ],
+              "size": [
+                2,
+                2
+              ]
+            }
+          ],
+          "edges": [],
+          "sides": [
+            "WEST"
+          ]
+        }
+      ],
+      "spacing": 7
+    }
+  ]
+}

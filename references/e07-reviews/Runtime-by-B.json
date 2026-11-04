@@ -1,0 +1,117 @@
+{
+  "schema": "py-elk-e07-current-runtime-independent-review/v1",
+  "reviewerLane": "B",
+  "ownerLane": "A",
+  "status": "ACCEPTED_UNDER_RECORDED_EVIDENCE_SCOPE",
+  "createdUtc": "2026-11-03T09:52:07.963739+00:00",
+  "reviewedFiles": [
+    {
+      "path": "scripts/validate_e07_runtime.py",
+      "sha256": "089092a53bcff666c6ee9e95c9f4f886670f0206016d2b9f03bc628ccfc20e5e"
+    },
+    {
+      "path": "tests/audit/test_e07_runtime.py",
+      "sha256": "afd9b96aec632f286f59330e6eb5d70166454f3b52c20fcbf265483a64fc0276"
+    }
+  ],
+  "currentAuditAtReview": {
+    "path": "references/e07-runtime-audit.json",
+    "sha256": "aac099b92d1e83888cf8cb243be0ea1fdeb5bc16b0c095227e498571762862f6"
+  },
+  "currentInstalledAtReview": {
+    "path": "references/e07-installed-check.json",
+    "sha256": "65fbd33e74e1c1e5eb8cc0eedab1f99c7b9d935607609097794f3d24f674d5d0"
+  },
+  "realPositiveBeforeEveryMutation": true,
+  "independentControls": [
+    {
+      "id": "metadata-python-requirement-rehashed",
+      "realCurrentBaselinePassed": true,
+      "shaRebound": true,
+      "rejected": true,
+      "errors": [
+        "Distribution Requires-Python differs"
+      ]
+    },
+    {
+      "id": "candidate-capture-uses-other-inputs",
+      "realCurrentBaselinePassed": true,
+      "shaRebound": true,
+      "rejected": true,
+      "errors": [
+        "Historical capture does not use the same E05 suite"
+      ]
+    },
+    {
+      "id": "both-geometries-false-despite-passed-flags",
+      "realCurrentBaselinePassed": true,
+      "shaRebound": true,
+      "rejected": true,
+      "errors": [
+        "Installed case check failed: candidateGeometry"
+      ]
+    },
+    {
+      "id": "exact-false-despite-tolerance-and-passed-flags",
+      "realCurrentBaselinePassed": true,
+      "shaRebound": true,
+      "rejected": true,
+      "errors": [
+        "Installed case check failed: nativePublicExact"
+      ]
+    },
+    {
+      "id": "one-case-only-two-compared-repetitions",
+      "realCurrentBaselinePassed": true,
+      "shaRebound": true,
+      "rejected": true,
+      "errors": [
+        "Installed repetitions differ"
+      ]
+    },
+    {
+      "id": "nested-static-execution-authentication",
+      "realCurrentBaselinePassed": true,
+      "shaRebound": true,
+      "rejected": true,
+      "errors": [
+        "Static audit cannot authenticate or prove: runtimeReexecuted"
+      ]
+    }
+  ],
+  "checkedSemantics": [
+    "Full current Python package and five source notice/license files, actual recorded METADATA name/version/python/dependencies/classifiers/README and fixed scope/denominators are checked against the same current checkout.",
+    "Source approval requires all33 exact reviewed components; current runtime audit requires same72 selected input SHA identities, three repetitions, exact/tolerant public checks, both geometry flags, input preservation and actual isolated command roles.",
+    "Historical pinned archives are separate and never certify current source. Static receipts keep runtimeReexecuted and execution-authentication/mathematical-equivalence flags false.",
+    "Independent six mutations rebind installed summary/audit and current claim audit SHA, still fail the intended semantic guard after a real passing current-copy prerequisite."
+  ],
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E07-01/B/runtime-controls-01/report.json",
+      "sha256": "357bd72e8dd84b4c185b9f67502fb304071a4d157706d81eb72ac1f840a8b9b9"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/runtime-controls-command-01/command.json",
+      "sha256": "fd1986590da8d4c04d4a813642710bcaee1568c2f5b29e7b70ff0eb0f8d301b9"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/runtime-controls-command-01/stdout.log",
+      "sha256": "679cc0551b1f9f8c9c52f287100f2137c505ca42b040a70db0a722ce8a0118fa"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/runtime-controls-command-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/independent_runtime_controls.py",
+      "sha256": "8823208e91112ec9578ec01f7bbd72939f297460d74f2763c9b27e9aee34bcf6"
+    }
+  ],
+  "limitations": [
+    "Offline consistency of recorded claims and current bytes; does not authenticate entirely forged execution chains, run layout engines or independently attest the archive hash.",
+    "Genuine installed72 execution/export and full-platform tests are separate root acceptance steps."
+  ],
+  "runtimeReexecuted": false,
+  "fullAlgorithmAccepted": false,
+  "blockers": []
+}

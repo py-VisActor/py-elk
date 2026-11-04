@@ -1,0 +1,71 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "business": {
+      "description": "preserve custom fields",
+      "weight": 1e-9
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": "7",
+      "elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "elk.spacing.nodeNode": "20",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "30",
+      "elk.separateConnectedComponents": "true",
+      "elk.spacing.componentComponent": "40",
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [],
+    "edges": [],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "business": {
+      "description": "preserve custom fields",
+      "weight": 1e-9
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": "7",
+      "elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "elk.spacing.nodeNode": "20",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "30",
+      "elk.separateConnectedComponents": "true",
+      "elk.spacing.componentComponent": "40",
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [],
+    "edges": [],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 0,
+    "height": 0
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

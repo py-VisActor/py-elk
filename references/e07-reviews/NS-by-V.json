@@ -1,0 +1,139 @@
+{
+  "schema": "py-elk-e07-component-source-review/v1",
+  "iteration": "E07",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T09:33:43.324675+00:00",
+  "sourceDocument": {
+    "path": "references/e07-source-components-A.json",
+    "sha256": "e042248ccab20113571e0423af1d5ca125827c4892fa76f8cb16098422f8dfef"
+  },
+  "approvedComponents": [
+    "phase:NETWORK_SIMPLEX"
+  ],
+  "componentSeals": {
+    "phase:NETWORK_SIMPLEX": "f4203ca3a42f25321dbb386e49a1003be2997c5f15837d72379a15dc861b8c4c"
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "sourceContextSha256": "9f62efadb94027c15791504dc745e62c1078bed439cfdc827aec55636b4087b5",
+  "componentSourceContextSha256": {
+    "phase:NETWORK_SIMPLEX": "a52deb9ab3cb3fddf649d55e282988927ca7d5fe072dab1973a31f516e50b143"
+  },
+  "componentEncoding": {
+    "encoding": "UTF-8 JSON sort_keys=True ensure_ascii=True separators=(comma,colon), no final newline",
+    "binding": "Each component embeds exact shared context/proofs and referenced immutable typed evidence; adding NS does not silently mutate already sealed directions."
+  },
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 757,
+    "functionOffsetOccurrences": 696,
+    "staticCallEdges": 294,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "literalSymbolOccurrences": 757,
+  "newSemanticLabelExceptions": 0,
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E07-01/V/A-NS-independent-final/report.json",
+    "sha256": "bfe5feaf0a5cd61b8867c4c6c643db96d2a38c2980bcce6ff4bab4c405bb92ed"
+  },
+  "checkedSemantics": [
+    {
+      "id": "NS-REAL-ORDERED-DRIVER",
+      "checked": "Canonical51977..52083 assigns current global node IDs once, visits actual ordered ports/connectedEdges, prepends only a strictly larger component than current head and otherwise appends. Every component gets its own initialized NGraph and 28*round(sqrt(n_i)) iteration budget; isolated singletons are actual solves. Cumulative LGraph layers retain prior nodes and append each current private origin in source order; clear layerless only after all solves."
+    },
+    {
+      "id": "NS-PREVIOUS-FILLING",
+      "checked": "Canonical52070..76 allocates a fresh int snapshot after each component iff total component count>1, including counts of ALL earlier assigned nodes. normalize21537..63 counts local ranks then adds previous array until local filling length. Local shorter arrays truncate previous tails; neither concatenate nor derive per-component re-seeding. balance21266..84 reads strict lower combined filling and literal minimalSpan conservative range."
+    },
+    {
+      "id": "NS-NULL-VS-COMBINED-COUNTS",
+      "checked": "Review found and owner corrected NS-G4: null previous gives nonempty current rank layers; nonnull previous preserves nonempty COMBINED/global filling and can leave a current-component-only layer empty. No claim of a locally nonempty final rank at every position is retained. Feasible local rank interval cannot expand and cardinality bounds remain valid."
+    },
+    {
+      "id": "NS-GEOMETRY-AND-SCALE",
+      "checked": "Unit-delta feasible tight tree implies private normalized range<=n_i-1. Conservative balancing retains every unit edge constraint and cannot expand the interval. Total raw n<=8/m<=28 implies <=168 long dummies, <=176 work nodes/196 segments/392 ports. Prior filling changes preference only. In original DAG components default GREEDY preserves orientation, so original reachability proves distinct ranks; strict simple ring reversal creates Hamiltonian path and bound forces all n_i ranks distinct. Incomparable DAG pairs and arbitrary SCCs receive no exemption."
+    },
+    {
+      "id": "NS-HOST-FRAME-AND-GUARDS",
+      "checked": "Driver/core read no direction/size/coordinates/RNG. Graph.DIRECTION stays original after PRE; only actual adjacency is used. CCtrue private entry remains connected after approvedsplit; CCfalse allows disconnection and runs actual driver, with all other structural guards retained. Original nodes<=8 disables source>=40 subtree removal; each private graph is connected so artificial root/makeConnected not reached."
+    },
+    {
+      "id": "NS-COMPLETE-INHERITANCE",
+      "checked": "All prior NS kernel host support comes from complete fixedE06 source/review inheritance, with exact immutableArtifact bytes/pointer and canonical functions/calls. New NS7 driver/count/frame/rank/caller proofs replace single-component/null-previous outer assumptions. Canonical symbols are literal named functions/tokens; no new semantic-label exceptions."
+    }
+  ],
+  "requiredProofIds": {
+    "phase:NETWORK_SIMPLEX": [
+      "NS7-G1-REAL-COMPONENT-DRIVER",
+      "NS-G2-FEASIBLE-TIGHT-TREE",
+      "NS-G3-CUT-EXCHANGE",
+      "NS-G4-NORMALIZE-BALANCE",
+      "NS-G5-PHASE-NUMERIC-BOUND",
+      "NS-G6-SPLIT-SCALE",
+      "NS7-G2-PREVIOUS-FILLING-DEF-USE",
+      "NS7-G3-DIRECTION-AND-NO-RNG",
+      "NS7-G4-GEOMETRY-RANK-SEPARATION",
+      "NS7-HOST-CALLER-SEPARATION"
+    ]
+  },
+  "componentDependencies": {
+    "phase:NETWORK_SIMPLEX": [
+      {
+        "componentId": "phase:GREEDY",
+        "canonicalComponentSha256": "f7f7bf9ca94787cfaac364bb1381f7f4d88e2a03c3f3e46eef82659dc6782eec",
+        "meaning": "Actual E07 GREEDY acyclic current orientation and separately renewed original-DAG/simple-ring feasibility premises"
+      }
+    ]
+  },
+  "inheritedArtifacts": [
+    {
+      "path": "references/e06-component-approvals.json",
+      "sha256": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e"
+    },
+    {
+      "path": "references/e06-source-components-A.json",
+      "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+    },
+    {
+      "path": "references/e06-source-components-B.json",
+      "sha256": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd"
+    },
+    {
+      "path": "references/e06-source-components-R.json",
+      "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+    }
+  ],
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E07-01/V/source-A-NS-independent-final-canonical.command.json",
+      "sha256": "b3fb949e82a2d1751467b7ec6b6ed9a07e90462769c4e6ff51600a1e1ddd1c16"
+    }
+  ],
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E07-01/A/ns-component-probes/manifest.json",
+      "sha256": "38c6d436ca30c8a41a651aee3b25f105d8ce6e831b773c11e58f56d0d5fd32b8"
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "id": "NS7-G4-LOCAL-VS-COMBINED",
+      "status": "resolved",
+      "oldSourceDocumentSha256": "2743b0d3f95c1a2fb524a0ba83012daea9186e49ca3a5a9d652eb0caf6a6bdea",
+      "resolution": "Corrected null-only local nonempty versus nonnull combined/global count statement before approval; first canonical report retained."
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "Remaining R components/full33 source gate, source-approved integration and real Python/installed evidence remain separate."
+  ],
+  "limitations": [
+    "Canonical757LF/696UTF16/294calls are lexical/source identity checks, not automatic mathematical equivalence.",
+    "Six actual source probes/18enginecalls corroborate finite cases; observer snapshots and unchanged public output alone do not prove complete noninterference.",
+    "Exact Java build, fullAPI/lifecycle/release are outside this source approval."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE07SourceGateApproved": false
+}

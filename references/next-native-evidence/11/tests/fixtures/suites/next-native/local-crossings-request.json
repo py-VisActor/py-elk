@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"id":"a","ports":[["a1","EAST"],["a2","EAST"]]},
+    {"id":"b","ports":[["b1","EAST"]]},
+    {"id":"r","ports":[["r1","WEST"],["r2","WEST"]]},
+    {"id":"s","ports":[["sW","WEST"],["sE","EAST"]]}
+  ],
+  "layers": [["a","b"],["r","s"]],
+  "edges": [["a1","r2"],["a2","sW"],["b1","r1"],["a1","a2"],["r1","sE"],["r1","r2"],["r2","r2"]],
+  "cases": ["ports-both-orders","nodes-both-orders","undefined-side-no-view"]
+}

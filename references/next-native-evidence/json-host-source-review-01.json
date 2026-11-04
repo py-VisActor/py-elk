@@ -1,0 +1,37 @@
+{
+  "schema": "py-elk-independent-source-review/v1",
+  "reviewer": "root",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "references/next-json-transfer-sources.json": "be79416c20587db4f75ba49ed70bfdbb55f57010e70fb117fcdf535988b2c921"
+  },
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "sourceSpansByteChecked": 87,
+  "approvedComponents": [
+    "J01-MANDATORY-TRANSFER",
+    "J02-COORDINATE-MODES",
+    "J03-ORIGIN-IMPORT",
+    "J04-EDGE-SECTION-RELATIONS",
+    "J05-CURRENT-CONTAINMENT",
+    "J06-PRIMITIVE-EDGE-IMPORT"
+  ],
+  "semanticChecks": [
+    "Two-pass nodes/ports before edges/labels; root geometry has no parent adjustment",
+    "Original JSON edge owner differs from current semantic containment",
+    "Only nonempty sections/bends/relations/junctions overwrite corresponding original keys",
+    "Old sections require IDs; one simple section auto-binds only if both shape links absent",
+    "Relations have inverse semantic links; original JSON identity and business fields retained",
+    "Primitive source/target edges import separately from modern sources/targets",
+    "GWT identity hashes are process runtime side effects, never generated per graph"
+  ],
+  "nativeBoundary": [
+    "Use accepted typed Python str/int identity and finite geometry validation; numeric GWT casts not adopted",
+    "Duplicate IDs and invalid containers retain strict native errors",
+    "Owned input copy is a native API policy; official worker may mutate its input",
+    "Central typed option parsing and recursive scheduling are separate unapproved implementation work"
+  ],
+  "implementationReviewed": false,
+  "algorithmAccepted": false,
+  "fullValidation": false
+}

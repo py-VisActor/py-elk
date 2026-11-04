@@ -1,0 +1,20 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "F01",
+    "F02"
+  ],
+  "filesSha256": {
+    "test-runs/20261104-E18-01/B/first-source-proposal-02.json": "24c7688042a22d95179e00e446fc6a4873f4d44be3058522ea79b509c0a33f02",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "scope": "Only real force data/particle/label primitives and existing clip/default helpers; no force/stress model layout",
+  "notes": [
+    "FParticle initializes separate displacement/position/size vectors; FBendpoint and FLabel auto-append only to owner edge local lists, not automatically graph-wide lists. FGraph keeps ordered nodes/edges/labels/bendPoints as separate source collections.",
+    "FEdge.setSource/setTarget are direct references, not layered edge detach/append setters. Source endpoint clip uses center-to-center vectors and actual source/target sizes, independent of intermediate bendpoints. Actual clipVector source R15 already approved.",
+    "Adjacency sums actual directed edge priority, getConnection nodes sums both directional entries; same-edge bendpoint pairs return that edge priority, otherwise0. Do not fabricate label-to-node adjacency or implicit graph counts; literal compiled JS arithmetic preserved without invented wrap.",
+    "Bendpoint distribution increments source position sequentially, retaining arithmetic order. Label inline true centers relative source/target/halfsize; otherwise all4 quadrant branches and spacing from edge force property5 kept literal, not generic always-top placement.",
+    "ELK fixed worker is sole behavior baseline; readable Java file license corroboration only. Existing primitive/clone/Vec2 helpers reused; no GWT runtime transplant approval."
+  ]
+}

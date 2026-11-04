@@ -1,0 +1,1268 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker M01-M09/M11/M12 in references/e17-tree-sources.json.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# External Java build identity remains unresolved.
+"""Native MrTree graph and reviewed treeification/root phases.
+
+The later placement/routing/provider pipeline remains pending; these real
+phases do not manufacture planar coordinates or invoke any external backend.
+"""
+from __future__ import annotations
+from collections import deque
+from dataclasses import dataclass, field
+from functools import cmp_to_key
+import math
+
+from .layered.graph import Vec2
+from .fixed import _div, _padding, _resize, _State
+from .layered.components import _double_compare
+from .radial import _maximum
+
+
+# Original host identity adapter for the observed Integer.valueOf contract.
+# No GWT cache/limb runtime is copied. Tokens never contain job results.
+_SMALL_INTEGER_IDENTITIES = {value: object() for value in range(-128, 128)}
+from .random import _hierarchical
+
+
+@dataclass(eq=False)
+class TGraph:
+    state: object
+    origin: dict | None = None
+    nodes: list = field(default_factory=list)
+    edges: list = field(default_factory=list)
+    properties: dict = field(default_factory=dict)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.state.option(self.origin, name, default) if self.origin is not None else default
+
+
+@dataclass(eq=False)
+class TNode:
+    id: int
+    graph: TGraph
+    label: str | None = ''
+    origin: dict | None = None
+    pos: Vec2 = field(default_factory=Vec2)
+    size: Vec2 = field(default_factory=Vec2)
+    outgoing_edges: list = field(default_factory=list)
+    incoming_edges: list = field(default_factory=list)
+    properties: dict = field(default_factory=dict)
+    _level_identity: object = None
+    _level_identity_value: object = None
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.graph.state.option(self.origin, name, default) if self.origin is not None else default
+
+    def get_children_copy(self):
+        return [edge.target for edge in self.outgoing_edges]
+
+    def get_parent(self):
+        return self.incoming_edges[0].source if self.incoming_edges else None
+
+    def __str__(self):
+        return 'n_'+(self.label if self.label else str(self.id))
+
+
+@dataclass(eq=False)
+class TEdge:
+    source: TNode
+    target: TNode
+    origin: dict | None = None
+    bend_points: list = field(default_factory=list)
+    properties: dict = field(default_factory=dict)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.source.graph.state.option(self.origin, name, default) if self.origin is not None else default
+
+
+def _selfloop(state, edge):
+    common = None
+    for identifier in (*edge.get('sources', []), *edge.get('targets', [])):
+        shape = state.shapes[(type(identifier), identifier)]
+        node = state.owners[id(shape)]
+        if common is None: common = node
+        elif common is not node: return False
+    return True
+
+
+def build_graph(state, node):
+    """M02 ordered import after the caller's real NodeMicroLayout."""
+    graph = TGraph(state, node); mapping = {}
+    for index, child in enumerate(node.get('children', [])):
+        labels = child.get('labels', [])
+        tree_node = TNode(index, graph, labels[0].get('text') if labels else '', child)
+        tree_node.pos = Vec2(child['x']+child['width']/2, child['y']+child['height']/2)
+        tree_node.size = Vec2(max(child['width'], 1), max(child['height'], 1))
+        graph.nodes.append(tree_node); mapping[id(child)] = tree_node
+    for child in node.get('children', []):
+        for edge in state.node_edges(child):
+            # Keep the two source hierarchy guards; no shape/topology shortcut.
+            if not _hierarchical(state, edge) and not _hierarchical(state, edge) and not _selfloop(state, edge):
+                source = mapping.get(id(child))
+                target = mapping.get(id(state.owners[id(state.endpoint(edge, True))]))
+                if source is not None and target is not None:
+                    tree_edge = TEdge(source, target, edge)
+                    source.outgoing_edges.append(tree_edge); target.incoming_edges.append(tree_edge)
+                    graph.edges.append(tree_edge)
+    return graph
+
+
+def _remove_first_identity(values, item):
+    for index, value in enumerate(values):
+        if value is item:
+            values.pop(index); return True
+    return False
+
+
+def treeify(graph, order=None, monitor=None):
+    """M03 actual source color transitions and eliminated-adjacency ordering."""
+    if monitor is not None: monitor.begin('DFS Treeifying phase', 1)
+    order = graph.option('mrtree.searchOrder', 'DFS') if order is None else order
+    visited = [0]*len(graph.nodes); eliminated = []
+    for index, node in enumerate(graph.nodes): node.id = index
+
+    def dfs(start):
+        # Explicit frames preserve source recursion order and color transitions
+        # without imposing a Python recursion-depth graph-size restriction.
+        visited[start.id] = 1; frames = [iter(start.outgoing_edges)]
+        while frames:
+            try: edge = next(frames[-1])
+            except StopIteration:
+                frames.pop(); continue
+            target = edge.target
+            if visited[target.id] == 1: eliminated.append(edge)
+            elif visited[target.id] == 2: visited[target.id] = 1
+            else:
+                visited[target.id] = 1; frames.append(iter(target.outgoing_edges))
+
+    def bfs(start):
+        queue = deque([start])
+        while queue:
+            node = queue.popleft(); visited[node.id] = 1
+            for edge in node.outgoing_edges:
+                target = edge.target
+                if visited[target.id] == 1: eliminated.append(edge)
+                elif visited[target.id] == 2: visited[target.id] = 1
+                else: queue.append(target)
+
+    for node in graph.nodes:
+        if visited[node.id] == 0:
+            if order == 'DFS': dfs(node)
+            elif order == 'BFS': bfs(node)
+            else: raise ValueError('Unknown effective treeifying order: '+str(order))
+            visited[node.id] = 2
+    for edge in eliminated:
+        _remove_first_identity(edge.source.outgoing_edges, edge)
+        _remove_first_identity(edge.target.incoming_edges, edge)
+    graph.properties['REMOVABLE_EDGES'] = eliminated
+    if monitor is not None: monitor.done()
+    return eliminated
+
+
+def find_roots(graph, monitor=None):
+    """M04 zero/one/many-root cases, including exact synthetic labels and IDs."""
+    if monitor is not None: monitor.begin('Find roots', 1)
+    roots = []
+    for node in graph.nodes:
+        if not node.incoming_edges:
+            node.properties['ROOT'] = True; roots.append(node)
+    if not roots:
+        root = TNode(0, graph, 'DUMMY_ROOT')
+        root.properties.update(ROOT=True, DUMMY=True); graph.nodes.append(root)
+    elif len(roots) == 1:
+        root = roots[0]
+    else:
+        root = TNode(0, graph, 'SUPER_ROOT')
+        for child in roots:
+            edge = TEdge(root, child); edge.properties['DUMMY'] = True
+            graph.edges.append(edge); root.outgoing_edges.append(edge); child.incoming_edges.append(edge)
+            child.properties['ROOT'] = False
+        root.properties.update(ROOT=True, DUMMY=True); graph.nodes.append(root)
+    if monitor is not None: monitor.done()
+    return root
+
+
+def untreeify(graph, monitor=None):
+    """M05 reappend every recorded eliminated edge, preserving duplicates."""
+    if monitor is not None: monitor.begin('Untreeify', 1)
+    for edge in graph.properties.get('REMOVABLE_EDGES', []):
+        edge.source.outgoing_edges.append(edge); edge.target.incoming_edges.append(edge)
+    if monitor is not None: monitor.done()
+
+
+def _sub_task(monitor, work):
+    return monitor.sub_task(work) if monitor is not None else None
+
+
+def calculate_fan(graph, monitor=None):
+    """M14 original per-level string prefixes, fan maxima and descendants."""
+    if monitor is not None: monitor.begin('Processor compute fanout', 1)
+    root = next((n for n in graph.nodes if n.properties.get('ROOT', False)), None)
+    current = [root]; fan = {}; descendants = {}
+    while current:
+        next_level = []; parent_id = None; index = 0
+        digits = math.floor(math.log10(len(current)))+1
+        for node in current:
+            inherited = node.properties.get('ID', '')
+            if parent_id != inherited:
+                parent_id = inherited; index = 0
+            node_id = (parent_id if parent_id is not None else '')+str(index).rjust(digits, '0')
+            index += 1; node.properties['ID'] = node_id
+            for child in node.get_children_copy():
+                next_level.append(child); child.properties['ID'] = node_id
+        local = {}
+        # The source uses the final node's id length for this level.
+        for offset in range(len(node_id)-digits):
+            for node in current:
+                key = node.properties['ID'][:offset+1]
+                local[key] = local.get(key, 0)+1
+        for key, count in local.items():
+            descendants[key] = descendants.get(key, 0)+count
+            if key not in fan or fan[key] < count: fan[key] = count
+        current = next_level
+    for node in graph.nodes:
+        key = node.properties.get('ID', '')
+        node.properties['FAN'] = fan.get(key, 0)
+        node.properties['DESCENDANTS'] = 1+descendants.get(key, 0)
+    if monitor is not None: monitor.done()
+
+
+def calculate_levels(graph, monitor=None):
+    """M17 uses the source internal-id map, including synthetic id collisions."""
+    if monitor is not None: monitor.begin('Processor compute fanout', 1)
+    current = [n for n in graph.nodes if n.properties.get('ROOT', False)]
+    levels = {}; level = 0
+    while current:
+        next_level = []
+        for node in current:
+            levels[node.id] = level; next_level.extend(node.get_children_copy())
+        current = next_level; level += 1
+    for node in graph.nodes: set_tree_level(node, levels.get(node.id, 0))
+    if monitor is not None: monitor.done()
+
+
+def _reorder_outgoing(node, children, reverse):
+    children.sort(key=lambda child: child.properties.get('POSITION', 0), reverse=reverse)
+    node.outgoing_edges[:] = [edge for child in children for edge in node.outgoing_edges if edge.target is child]
+
+
+def order_nodes(graph, monitor=None):
+    """M15 all four weighting modes with the literal source constraint passes."""
+    if monitor is not None: monitor.begin('Processor arrange node', 1)
+    root = next(n for n in graph.nodes if n.properties.get('ROOT', False))
+    weighting = graph.option('mrtree.weighting', 'MODEL_ORDER')
+    if weighting not in ('FAN', 'DESCENDANTS', 'CONSTRAINT'):
+        if monitor is not None: monitor.done()
+        return
+    property_name = 'DESCENDANTS' if weighting == 'DESCENDANTS' else 'FAN'
+    work = [('level', [root], _sub_task(monitor, 1))]
+    while work:
+        operation, *args = work.pop()
+        if operation == 'done':
+            level_monitor, = args
+            if level_monitor is not None: level_monitor.done()
+            continue
+        if operation == 'reorder':
+            _reorder_outgoing(*args); continue
+        if operation == 'constraint-parent':
+            node, level_monitor, count = args
+            children = node.get_children_copy()
+            work.append(('reorder', node, children, False))
+            work.append(('level', children, _sub_task(level_monitor, 1//count)))
+            continue
+        if operation == 'fan-parent':
+            node, context, level_monitor, count = args
+            node.properties['POSITION'] = context['position']; context['position'] += 1
+            children = node.get_children_copy()
+            work.append(('fan-after', node, children, context))
+            work.append(('level', children, _sub_task(level_monitor, 1//count)))
+            continue
+        if operation == 'fan-after':
+            node, children, context = args
+            _reorder_outgoing(node, children, True)
+            fill_gap = len(node.outgoing_edges); leaves = context['leaves']
+            while fill_gap > 0 and leaves:
+                leaf = leaves[-1]
+                if leaf.properties.get(property_name, 0) != 0: break
+                leaf.properties['POSITION'] = context['position']; context['position'] += 1
+                fill_gap -= 1; leaves.pop()
+            continue
+        current, level_monitor = args
+        if level_monitor is not None: level_monitor.begin('Processor arrange level', 1)
+        work.append(('done', level_monitor))
+        if weighting == 'CONSTRAINT':
+            undefined = [n for n in current if n.option('mrtree.positionConstraint', -1) < 0]
+            inbound = [n for n in current if 0 <= n.option('mrtree.positionConstraint', -1) < len(current)]
+            outbound = [n for n in current if n.option('mrtree.positionConstraint', -1) >= len(current)]
+            ordered = [None]*len(current); index = 0
+            while index < len(inbound):
+                node = inbound[index]; target = node.option('mrtree.positionConstraint', -1)
+                # The source compares to the shrinking inbound list, not ordered.
+                if 0 <= target < len(inbound) and ordered[target] is None:
+                    ordered[target] = node; inbound.pop(index)
+                else: index += 1
+            while inbound:
+                node = inbound.pop(0); target = node.option('mrtree.positionConstraint', -1); offset = 0
+                while True:
+                    plus = target+offset; minus = target-offset
+                    if 0 <= plus < len(ordered) and ordered[plus] is None:
+                        ordered[plus] = node; break
+                    if 0 <= minus < len(ordered) and ordered[minus] is None:
+                        ordered[minus] = node; break
+                    offset += 1
+            outbound.sort(key=lambda n: n.option('mrtree.positionConstraint', -1), reverse=True)
+            for index in range(len(ordered)-1, -1, -1):
+                if ordered[index] is None and outbound: ordered[index] = outbound.pop(0)
+            for index in range(len(ordered)):
+                if ordered[index] is None and undefined: ordered[index] = undefined.pop(0)
+            for index, node in enumerate(ordered): node.properties['POSITION'] = index
+            inners = [n for n in current if n.properties.get('FAN', 0) != 0]
+            for node in reversed(inners):
+                work.append(('constraint-parent', node, level_monitor, len(inners)))
+        else:
+            current.sort(key=lambda n: n.properties.get(property_name, 0))
+            first = len(current)
+            while first and current[first-1].properties.get(property_name, 0) == 0: first -= 1
+            inners, leaves = current[:first], current[first:]
+            if not inners:
+                for index, node in enumerate(leaves): node.properties['POSITION'] = index
+            else:
+                context = {'position': 0, 'leaves': leaves}
+                for node in reversed(inners): work.append(('fan-parent', node, context, level_monitor, len(inners)))
+    if monitor is not None: monitor.done()
+
+
+def calculate_level_heights(graph, monitor=None):
+    """M16 maximum dimension of each ordered level before UNDEFINED defaults."""
+    if monitor is not None: monitor.begin('Processor determine the height for each level', 1)
+    root = next((n for n in graph.nodes if n.properties.get('ROOT', False)), None)
+    current = [root] if root is not None else []; count = len(graph.nodes) or 1
+    horizontal = graph.option('direction', 'UNDEFINED') in ('LEFT', 'RIGHT')
+    while current:
+        sub = _sub_task(monitor, len(current)//count)
+        if sub is not None: sub.begin('Set neighbors in level', 1)
+        height = 0; next_level = []
+        for node in current:
+            next_level.extend(node.get_children_copy())
+            dimension = node.size.x if horizontal else node.size.y
+            if height < dimension: height = dimension
+        for node in current: node.properties['LEVELHEIGHT'] = height
+        if sub is not None: sub.done()
+        current = next_level
+    if monitor is not None: monitor.done()
+
+
+def set_neighbors(graph, monitor=None):
+    """M17 root's children start the neighbor/sibling traversal."""
+    if monitor is not None: monitor.begin('Processor set neighbors', 1)
+    root = next((n for n in graph.nodes if n.properties.get('ROOT', False)), None)
+    current = root.get_children_copy() if root is not None else []; count = len(graph.nodes) or 1
+    while current:
+        sub = _sub_task(monitor, len(current)//count)
+        if sub is not None: sub.begin('Set neighbors in level', 1)
+        previous = None; next_level = []
+        for node in current:
+            next_level.extend(node.get_children_copy())
+            if previous is not None:
+                previous.properties['RIGHTNEIGHBOR'] = node; node.properties['LEFTNEIGHBOR'] = previous
+                if node.get_parent() is previous.get_parent():
+                    previous.properties['RIGHTSIBLING'] = node; node.properties['LEFTSIBLING'] = previous
+            previous = node
+        if sub is not None: sub.done()
+        current = next_level
+    if monitor is not None: monitor.done()
+
+
+def transform_directions(graph, monitor=None):
+    """M20 transform integer center coordinates without changing node sizes."""
+    if monitor is not None: monitor.begin('Process directions', 1)
+    direction = graph.option('direction', 'UNDEFINED')
+    if direction != 'DOWN':
+        for node in graph.nodes:
+            x, y = node.properties.get('XCOOR', 0), node.properties.get('YCOOR', 0)
+            if direction == 'UP': y *= -1
+            elif direction == 'RIGHT': x, y = y, x
+            elif direction == 'LEFT': x, y = -y, x
+            node.properties.update(XCOOR=x, YCOOR=y)
+    if monitor is not None: monitor.done()
+
+
+def set_node_positions(graph, monitor=None):
+    """M17 materialize integer centers then subtract individual half sizes."""
+    if monitor is not None: monitor.begin('Processor set coordinates', 1)
+    root = next(n for n in graph.nodes if n.properties.get('ROOT', False))
+    root.pos.x = root.properties.get('XCOOR', 0); root.pos.y = root.properties.get('YCOOR', 0)
+    current = root.get_children_copy(); sub_tasks = 1; count = len(graph.nodes) or 1
+    while True:
+        # The real caller creates this subtask even though setCoordinates does
+        # not consume it; do not invent a begin/done pair for diagnostics.
+        _sub_task(monitor, sub_tasks)
+        next_level = []
+        for node in current:
+            node.pos.x = node.properties.get('XCOOR', 0); node.pos.y = node.properties.get('YCOOR', 0)
+            next_level.extend(node.get_children_copy())
+        current = next_level
+        sub_tasks = len(current)//count
+        if not current: break
+    for node in graph.nodes:
+        node.pos.x -= node.size.x/2; node.pos.y -= node.size.y/2
+    if monitor is not None: monitor.done()
+
+
+def _round_to_int32(value):
+    """Original host adapter for observed JS-round/Java-long/low32 semantics.
+
+    The GWT limb runtime is not copied. In particular floor(x + .5) changes
+    binary64 boundary values before rounding, and Python round uses ties-even.
+    """
+    if math.isnan(value): return 0
+    if value >= 9223372036854775808: integer = 9223372036854775807
+    elif value < -9223372036854775808: integer = -9223372036854775808
+    else:
+        floor = math.floor(value)
+        integer = floor+(1 if value-floor >= .5 else 0)
+    return (integer+2147483648) % 4294967296-2147483648
+
+
+def _leftmost(current, depth):
+    """M19 original breadth expansion and depth=0/negative branches."""
+    current = list(current)
+    while current:
+        if depth > 1:
+            depth -= 1
+            current = [child for node in current for child in node.get_children_copy()]
+        elif depth < 0:
+            following = [child for node in current for child in node.get_children_copy()]
+            if not following: break
+            current = following
+        else: break
+    return current[0] if current else None
+
+
+def place_nodes(graph, monitor=None):
+    """M18 Walker first/apportion/second walks with the source arithmetic."""
+    if monitor is not None: monitor.begin('Processor order nodes', 2)
+    spacing = graph.option('spacing.nodeNode', 20)
+    direction = graph.option('direction', 'UNDEFINED')
+    if direction == 'UNDEFINED':
+        direction = 'DOWN'; graph.properties['direction'] = direction
+    vertical = direction in ('UP', 'DOWN')
+
+    def mean_width(left, right):
+        width = 0
+        if left is not None: width += (left.size.x if vertical else left.size.y)/2
+        if right is not None: width += (right.size.x if vertical else right.size.y)/2
+        return width
+
+    def apportion(node):
+        children = node.get_children_copy()
+        leftmost = children[0] if children else None
+        neighbor = leftmost.properties.get('LEFTNEIGHBOR') if leftmost is not None else None
+        depth = 1
+        while leftmost is not None and neighbor is not None:
+            left_sum = 0; right_sum = 0
+            ancestor_left = leftmost; ancestor_neighbor = neighbor
+            for _ in range(depth):
+                ancestor_left = ancestor_left.get_parent(); ancestor_neighbor = ancestor_neighbor.get_parent()
+                right_sum += ancestor_left.properties.get('MODIFIER', 0)
+                left_sum += ancestor_neighbor.properties.get('MODIFIER', 0)
+            move = (neighbor.properties.get('PRELIM', 0)+left_sum+spacing
+                    +mean_width(leftmost, neighbor)-leftmost.properties.get('PRELIM', 0)-right_sum)
+            if move > 0:
+                sibling = node; sibling_count = 0
+                while sibling is not None and sibling is not ancestor_neighbor:
+                    sibling_count += 1; sibling = sibling.properties.get('LEFTSIBLING')
+                if sibling is None: return
+                portion = _div(move, sibling_count); sibling = node
+                while sibling is not ancestor_neighbor:
+                    sibling.properties['PRELIM'] = sibling.properties.get('PRELIM', 0)+move
+                    sibling.properties['MODIFIER'] = sibling.properties.get('MODIFIER', 0)+move
+                    move -= portion; sibling = sibling.properties.get('LEFTSIBLING')
+            depth += 1
+            left_children = leftmost.get_children_copy()
+            leftmost = left_children[0] if left_children else _leftmost(node.get_children_copy(), depth)
+            neighbor = leftmost.properties.get('LEFTNEIGHBOR') if leftmost is not None else None
+
+    root = next(node for node in graph.nodes if node.properties.get('ROOT', False))
+    # These frames preserve the recursive source order and repeated edge visits,
+    # without imposing an extra Python recursion-depth graph-size cap.
+    work = [(root, False)]
+    while work:
+        node, returning = work.pop()
+        if not returning:
+            node.properties['MODIFIER'] = 0
+            children = node.get_children_copy()
+            work.append((node, True))
+            for child in reversed(children): work.append((child, False))
+            continue
+        sibling = node.properties.get('LEFTSIBLING'); children = node.get_children_copy()
+        if not children:
+            node.properties['PRELIM'] = (sibling.properties.get('PRELIM', 0)+spacing+mean_width(sibling, node)
+                                         if sibling is not None else 0)
+        else:
+            midpoint = (children[-1].properties.get('PRELIM', 0)+children[0].properties.get('PRELIM', 0))/2
+            if sibling is not None:
+                node.properties['PRELIM'] = sibling.properties.get('PRELIM', 0)+spacing+mean_width(sibling, node)
+                node.properties['MODIFIER'] = node.properties['PRELIM']-midpoint
+                apportion(node)
+            else: node.properties['PRELIM'] = midpoint
+    if monitor is not None: monitor.worked(1)
+    work = [(root, -root.properties.get('LEVELHEIGHT', 0)/2, 0)]
+    while work:
+        node, y_coordinate, modifier_sum = work.pop()
+        x = node.properties.get('PRELIM', 0)+modifier_sum
+        y = y_coordinate+node.properties.get('LEVELHEIGHT', 0)/2
+        node.properties['XCOOR'] = _round_to_int32(x); node.properties['YCOOR'] = _round_to_int32(y)
+        sibling = node.properties.get('RIGHTSIBLING')
+        if sibling is not None: work.append((sibling, y_coordinate, modifier_sum))
+        children = node.get_children_copy()
+        if children:
+            work.append((children[0], y_coordinate+node.properties.get('LEVELHEIGHT', 0)+spacing,
+                         modifier_sum+node.properties.get('MODIFIER', 0)))
+    if monitor is not None:
+        monitor.worked(1); monitor.done()
+
+
+def _minimum(left, right):
+    return -_maximum(-left, -right)
+
+
+def _distinct_identity(values):
+    seen = set()
+    for value in values:
+        if id(value) not in seen:
+            seen.add(id(value)); yield value
+
+
+def split_components(graph):
+    """M28 ordered undirected DFS with genuine repeated incidence edges."""
+    if graph.option('separateConnectedComponents', True) is False: return [graph]
+    incidence = [[] for _ in graph.nodes]; visited = [False]*len(graph.nodes)
+    for edge in graph.edges:
+        incidence[edge.source.id].append(edge); incidence[edge.target.id].append(edge)
+    components = []
+    for start in graph.nodes:
+        if visited[start.id]: continue
+        component = TGraph(graph.state, graph.origin, properties=graph.properties.copy())
+        work = [('visit', start)]
+        while work:
+            operation, value = work.pop()
+            if operation == 'edge': component.edges.append(value); continue
+            node = value
+            if visited[node.id]: continue
+            visited[node.id] = True; component.nodes.append(node)
+            # Reverse the scheduled operations, not the incidence encounter order.
+            for edge in reversed(incidence[node.id]):
+                work.append(('edge', edge))
+                if edge.target is not node: work.append(('visit', edge.target))
+                if edge.source is not node: work.append(('visit', edge.source))
+        components.append(component)
+    if len(components) > 1:
+        for component in components:
+            for index, node in enumerate(component.nodes): node.id = index
+    return components
+
+
+def calculate_graph_bounds(graph, monitor=None):
+    """M29 empty stream has no optional value; it is not a zero rectangle."""
+    if monitor is not None: monitor.begin('Process graph bounds', 1)
+    if not graph.nodes: raise ValueError('No value present')
+    first = graph.nodes[0]
+    x_min, y_min = first.pos.x, first.pos.y
+    x_max, y_max = first.pos.x+first.size.x, first.pos.y+first.size.y
+    for node in graph.nodes[1:]:
+        x_min = _minimum(x_min, node.pos.x); y_min = _minimum(y_min, node.pos.y)
+        x_max = _maximum(x_max, node.pos.x+node.size.x); y_max = _maximum(y_max, node.pos.y+node.size.y)
+    graph.properties.update(GRAPH_XMIN=x_min, GRAPH_YMIN=y_min, GRAPH_XMAX=x_max, GRAPH_YMAX=y_max)
+    if monitor is not None: monitor.done()
+
+
+def move_graph(destination, source, x, y):
+    """M28 shifts retained bend chains once by distinct edge identity."""
+    top_left = source.properties.get('BB_UPLEFT')
+    offset_x = x-top_left.x; offset_y = y-top_left.y
+    for node in source.nodes:
+        node.pos.x += offset_x; node.pos.y += offset_y; destination.nodes.append(node)
+    for edge in _distinct_identity(source.edges):
+        for point in edge.bend_points:
+            point.x += offset_x; point.y += offset_y
+        destination.edges.append(edge)
+
+
+def normalize_component(graph):
+    padding = _padding(graph.option('padding', 20))
+    graph.properties['BB_UPLEFT'] = Vec2(0, 0)
+    move_graph(TGraph(graph.state), graph, padding['left']-graph.properties.get('GRAPH_XMIN', 0),
+               padding['top']-graph.properties.get('GRAPH_YMIN', 0))
+
+
+def pack_components(components):
+    """M28 priority/area sort, row packing and literal property merge."""
+    if len(components) == 1:
+        normalize_component(components[0]); return components[0]
+    if not components: return TGraph(None)
+    for graph in components:
+        priority = 0.0; x_min = y_min = 2147483647; x_max = y_max = -2147483648
+        for node in graph.nodes:
+            priority += node.option('priority', 1)
+            x_min = _minimum(x_min, node.pos.x); y_min = _minimum(y_min, node.pos.y)
+            x_max = _maximum(x_max, node.pos.x+node.size.x); y_max = _maximum(y_max, node.pos.y+node.size.y)
+        graph.properties.update(priority=priority, BB_UPLEFT=Vec2(x_min, y_min), BB_LOWRIGHT=Vec2(x_max, y_max))
+
+    def size(graph):
+        a, b = graph.properties['BB_UPLEFT'], graph.properties['BB_LOWRIGHT']
+        return b.x-a.x, b.y-a.y
+
+    def compare(a, b):
+        priority = b.option('priority', 1)-a.option('priority', 1)
+        if priority != 0: return priority
+        ax, ay = size(a); bx, by = size(b)
+        return _double_compare(ax*ay, bx*by)
+
+    components.sort(key=cmp_to_key(compare))
+    first = components[0]; result = TGraph(first.state, first.origin, properties=first.properties.copy())
+    max_width = 0; total_area = 0
+    for component in components:
+        width, height = size(component)
+        max_width = _maximum(max_width, width); total_area += width*height
+    max_width = _maximum(max_width, math.sqrt(total_area)*result.option('aspectRatio', 1.600000023841858))
+    spacing = result.option('spacing.nodeNode', 20)
+    x = y = highest = 0; broadest = spacing
+    for component in components:
+        width, height = size(component)
+        if x+width > max_width:
+            x = 0; y += highest+spacing; highest = 0
+        move_graph(result, component, x, y)
+        broadest = _maximum(broadest, x+width); highest = _maximum(highest, height)
+        x += width+spacing
+    merged = {}; debug = set()
+    defaults = {'priority': 1, 'direction': 'UNDEFINED', 'GRAPH_XMIN': 0, 'GRAPH_YMIN': 0,
+                'GRAPH_XMAX': 0, 'GRAPH_YMAX': 0, 'COMPACT_LEVEL_ASCENSION': False}
+    for component in components:
+        debugging = component.option('debugMode', False)
+        for key, value in component.properties.items():
+            # Source default comparison is identity for mutable objects. Their
+            # freshly cloned defaults never equal an already stored object.
+            default = defaults.get(key)
+            numbers = type(value) in (int, float) and type(default) in (int, float)
+            same_default = ((numbers or type(default) is type(value))
+                            and type(value) in (bool, int, float, str, type(None)) and value == default)
+            if key in merged:
+                if not same_default and not (debugging and key in debug):
+                    merged[key] = value; result.properties[key] = value
+                    if debugging: debug.add(key)
+            else:
+                merged[key] = value; result.properties[key] = value
+    calculate_graph_bounds(result); normalize_component(result)
+    return result
+
+
+def _transfer_chain(edge, points):
+    """Reviewed firstEdgeSection(true,true), then F10 applyVectorChain.
+
+    This is intentionally separate from Fixed provider's multi-section branch.
+    JSON section metadata/identity export belongs to the central host adapter.
+    """
+    sections = edge.setdefault('sections', [])
+    if not sections: sections.append({})
+    section = sections[0]
+    section.update(startPoint={'x': 0, 'y': 0}, endPoint={'x': 0, 'y': 0}, bendPoints=[])
+    del sections[1:]
+    if len(points) < 2: raise ValueError('The vector chain must contain at least a source and a target point.')
+    section['startPoint'] = {'x': points[0].x, 'y': points[0].y}
+    section['endPoint'] = {'x': points[-1].x, 'y': points[-1].y}
+    section['bendPoints'] = [{'x': point.x, 'y': point.y} for point in points[1:-1]]
+
+
+def apply_layout(graph):
+    """M28 source transfer arithmetic, preserving internal persistent options."""
+    raw = graph.origin
+    if raw is None: raise ValueError('The tree graph has no original layout graph')
+    x_min = y_min = 2147483647; x_max = y_max = -2147483648
+    for node in graph.nodes:
+        x_min = _minimum(x_min, node.pos.x-node.size.x/2)
+        y_min = _minimum(y_min, node.pos.y-node.size.y/2)
+        x_max = _maximum(x_max, node.pos.x+node.size.x/2)
+        y_max = _maximum(y_max, node.pos.y+node.size.y/2)
+    padding = _padding(graph.state.option(raw, 'padding', 20))
+    for node in graph.nodes:
+        if node.origin is not None:
+            node.origin.update(x=node.pos.x, y=node.pos.y)
+            graph.state.computed_options.setdefault(id(node.origin), {}).update(node.properties)
+    for edge in graph.edges:
+        if edge.origin is not None: _transfer_chain(edge.origin, edge.bend_points)
+    width = x_max-x_min+(padding['left']+padding['right'])
+    height = y_max-y_min+(padding['top']+padding['bottom'])
+    if not graph.state.option(raw, 'nodeSize.fixedGraphSize', False):
+        _resize(graph.state, raw, width, height, False, False)
+    graph.state.computed_options.setdefault(id(raw), {}).update(
+        childAreaWidth=width-(padding['left']+padding['right']), childAreaHeight=height-(padding['top']+padding['bottom']))
+
+
+def set_tree_level(node, value):
+    """Use at each actual source valueOf/setProperty assignment, not bare writes."""
+    node.properties['mrtree.treeLevel'] = value
+    node._level_identity = _SMALL_INTEGER_IDENTITIES[value] if -128 <= value < 128 else object()
+    node._level_identity_value = value
+
+
+def _tree_level(node):
+    return node.option('mrtree.treeLevel', 0)
+
+
+def _level_token(node):
+    value = _tree_level(node)
+    if node._level_identity is None or node._level_identity_value != value:
+        # Public provider execution has already called calculate_levels. This
+        # branch adapts an initial property; object-level callers must use the
+        # setter to represent later equal-valued source reassignments faithfully.
+        set_tree_level(node, value)
+    return node._level_identity
+
+
+def _levels_differ(a, b):
+    return _level_token(a) is not _level_token(b)
+
+
+def calculate_level_coordinates(graph, monitor=None):
+    """M30 source finite sentinels and individual level bounds."""
+    if monitor is not None: monitor.begin('Processor determine the coords for each level', 1)
+    levels = []; horizontal = graph.option('direction', 'UNDEFINED') in ('LEFT', 'RIGHT')
+    for node in graph.nodes:
+        index = _tree_level(node)
+        if index < 0: raise IndexError('Negative tree level')
+        while index > len(levels)-1: levels.append([1.7976931348623157e308, -1.7976931348623157e308])
+        position, size = (node.pos.x, node.size.x) if horizontal else (node.pos.y, node.size.y)
+        if position < levels[index][0]: levels[index][0] = position
+        if position+size > levels[index][1]: levels[index][1] = position+size
+    for node in graph.nodes:
+        minimum, maximum = levels[_tree_level(node)]
+        node.properties.update(LEVELMIN=minimum, LEVELMAX=maximum)
+    if monitor is not None: monitor.done()
+
+
+def _direction_vector(direction):
+    if direction == 'UP': return Vec2(0, -1)
+    if direction == 'RIGHT': return Vec2(1, 0)
+    if direction == 'LEFT': return Vec2(-1, 0)
+    return Vec2(0, 1)
+
+
+def _edge_text(edge):
+    return str(edge.source)+'->'+str(edge.target)
+
+
+def all_incoming_edges(node, graph):
+    """M31 id match and toString dedup, with source boxed-level identity."""
+    result = []; strings = set()
+    for edge in graph.edges:
+        text = _edge_text(edge)
+        if edge.target.id == node.id and _levels_differ(edge.source, edge.target) and text not in strings:
+            strings.add(text); result.append(edge)
+    result.sort(key=cmp_to_key(lambda a, b: _double_compare(a.source.pos.x, b.source.pos.x)))
+    return result
+
+
+def all_outgoing_edges(node, graph):
+    result = []; strings = set()
+    for edge in graph.edges:
+        text = _edge_text(edge)
+        if (edge.source.id == node.id and edge.source.label != 'SUPER_ROOT'
+                and _levels_differ(edge.source, edge.target) and text not in strings):
+            strings.add(text); result.append(edge)
+    result.sort(key=cmp_to_key(lambda a, b: _double_compare(a.target.pos.x, b.target.pos.x)))
+    return result
+
+
+def _center_projection(node, direction):
+    return (node.pos.x+node.size.x/2)*direction.x+(node.pos.y+node.size.y/2)*direction.y
+
+
+def lowest_parent(node, graph):
+    if not node.incoming_edges: return None
+    direction = _direction_vector(graph.option('direction', 'UNDEFINED'))
+    sources = {id(edge.source) for edge in node.incoming_edges}
+    parents = [parent for parent in graph.nodes if id(parent) in sources]
+    if not parents: raise ValueError('No value present')
+    maximum = _center_projection(parents[0], direction)
+    for parent in parents[1:]:
+        value = _center_projection(parent, direction)
+        if _double_compare(value, maximum) > 0: maximum = value
+    return next(parent for parent in parents if _center_projection(parent, direction) == maximum)
+
+
+def is_cycle_inducing(edge, graph):
+    direction = _direction_vector(graph.option('direction', 'UNDEFINED'))
+    return direction.x*(edge.target.pos.x-edge.source.pos.x)+direction.y*(edge.target.pos.y-edge.source.pos.y) <= 0
+
+
+def to_node_border(center, following, size):
+    half_width, half_height = size.x/2, size.y/2
+    absolute_x, absolute_y = abs(following.x-center.x), abs(following.y-center.y)
+    x_scale = y_scale = 1
+    if absolute_x > half_width: x_scale = _div(half_width, absolute_x)
+    if absolute_y > half_height: y_scale = _div(half_height, absolute_y)
+    scale = _minimum(x_scale, y_scale)
+    center.x += scale*(following.x-center.x); center.y += scale*(following.y-center.y)
+
+
+def _projection(point, direction):
+    return point.x*direction.x+point.y*direction.y
+
+
+def _collect_level_bounds(graph, horizontal):
+    levels = []
+    for node in graph.nodes:
+        index = _tree_level(node)
+        if index < 0: raise IndexError('Negative tree level')
+        while index > len(levels)-1: levels.append([1.7976931348623157e308, -1.7976931348623157e308])
+        coordinate, dimension = (node.pos.x, node.size.x) if horizontal else (node.pos.y, node.size.y)
+        if coordinate < levels[index][0]: levels[index][0] = coordinate
+        if coordinate+dimension > levels[index][1]: levels[index][1] = coordinate+dimension
+    return levels
+
+
+def _compute_constraints(graph, spacing):
+    """M32 sweep with original compare-key TreeSet semantics.
+
+    The ordered list is an original host representation: comparator-equal
+    insertion retains the old stored key, and removal uses comparator equality.
+    It is not an identity set, and no GWT TreeMap runtime is copied.
+    """
+    direction = _direction_vector(graph.option('direction', 'UNDEFINED'))
+    right = Vec2(0, 1) if direction.x != 0 else Vec2(1, 0)
+    nodes = [node for node in graph.nodes if 'SUPER_ROOT' not in node.label]
+    points = [(node, Vec2(node.pos.x-spacing, node.pos.y-spacing), True) for node in nodes]
+    points += [(node, Vec2(node.pos.x+node.size.x+spacing, node.pos.y+node.size.y+spacing), False) for node in nodes]
+    points.sort(key=cmp_to_key(lambda a, b: _double_compare(_projection(a[1], right), _projection(b[1], right))))
+    active = []; candidates = {}
+
+    def compare(a, b): return _double_compare(_projection(a.pos, direction), _projection(b.pos, direction))
+
+    for node, point, beginning in points:
+        if beginning:
+            index = 0
+            while index < len(active) and compare(active[index], node) < 0: index += 1
+            if index == len(active) or compare(active[index], node) != 0: active.insert(index, node)
+            head = [other for other in active if compare(other, node) < 0]
+            tail = [other for other in active if compare(other, node) >= 0]
+            if head: candidates[node] = head[-1]
+            if len(tail) > 1: candidates[tail[1]] = node
+        else:
+            head = [other for other in active if compare(other, node) < 0]
+            tail = [other for other in active if compare(other, node) >= 0]
+            if head and head[-1] is candidates.get(node):
+                node.properties.setdefault('COMPACT_CONSTRAINTS', []).append(head[-1])
+            if len(tail) > 1 and candidates.get(tail[1]) is node:
+                tail[1].properties.setdefault('COMPACT_CONSTRAINTS', []).append(node)
+            for index, other in enumerate(active):
+                if compare(other, node) == 0:
+                    active.pop(index); break
+
+
+def _lowest_dependent(node, direction):
+    constraints = node.properties.setdefault('COMPACT_CONSTRAINTS', [])
+    if not constraints: return None
+    if len(constraints) == 1: return constraints[0]
+    if direction == 'LEFT': value = lambda n: n.pos.x; maximize = False
+    elif direction == 'RIGHT': value = lambda n: n.pos.x+n.size.x; maximize = True
+    elif direction == 'UP': value = lambda n: n.pos.y; maximize = False
+    elif direction == 'DOWN': value = lambda n: n.pos.y+n.size.y; maximize = True
+    else: return None
+    chosen = constraints[0]
+    for candidate in constraints[1:]:
+        comparison = _double_compare(value(candidate), value(chosen))
+        if (comparison > 0 if maximize else comparison < 0): chosen = candidate
+    return chosen
+
+
+def compact_graph(graph, monitor=None):
+    """M32 full source sweep/constraints, parent and existing-level adjustment."""
+    if monitor is not None: monitor.begin('Process compaction', 1)
+    if not graph.option('mrtree.compaction', False): return
+    direction = graph.option('direction', 'UNDEFINED'); horizontal = direction in ('LEFT', 'RIGHT')
+    spacing = graph.option('spacing.nodeNode', 20)
+    levels = _collect_level_bounds(graph, horizontal)
+    _compute_constraints(graph, spacing/2/2)
+    vector = _direction_vector(direction)
+    graph.nodes.sort(key=cmp_to_key(lambda a, b: _double_compare(_projection(a.pos, vector), _projection(b.pos, vector))))
+    for node in graph.nodes:
+        if node.properties.get('ROOT', False): continue
+        dependent = _lowest_dependent(node, direction); parent = lowest_parent(node, graph)
+        position = 0; position_size = 0
+        if dependent is not None:
+            if direction == 'LEFT':
+                position = dependent.pos.x-spacing-node.size.x
+                if parent.pos.x-spacing-node.size.x < position: position = parent.pos.x-spacing-node.size.x
+                position_size = position+node.size.x
+            elif direction == 'RIGHT':
+                position = dependent.pos.x+dependent.size.x+spacing
+                if parent.pos.x+spacing > position: position = parent.pos.x+parent.size.x+spacing
+                position_size = position+node.size.x
+            elif direction == 'UP':
+                position = dependent.pos.y-spacing-node.size.y
+                if parent.pos.y-spacing-node.size.y < position: position = parent.pos.y-spacing-node.size.y
+                position_size = position+node.size.y
+            elif direction == 'DOWN':
+                position = dependent.pos.y+dependent.size.y+spacing
+                if parent.pos.y+spacing > position: position = parent.pos.y+parent.size.y+spacing
+                position_size = position+node.size.y
+        elif parent is not None:
+            if direction == 'LEFT': position = parent.pos.x-spacing-node.size.x; position_size = position+node.size.x
+            elif direction == 'RIGHT': position = parent.pos.x+parent.size.x+spacing; position_size = position+node.size.x
+            elif direction == 'UP': position = parent.pos.y-spacing-node.size.y; position_size = position+node.size.y
+            elif direction == 'DOWN': position = parent.pos.y+parent.size.y+spacing; position_size = position+node.size.y
+        if graph.option('mrtree.edgeRoutingMode', 'AVOID_OVERLAP') == 'AVOID_OVERLAP':
+            level_index = next((i for i, level in enumerate(levels) if level[0] <= position and level[1] >= position_size), None)
+            if level_index is not None:
+                if horizontal: node.pos.x = position
+                else: node.pos.y = position
+            else:
+                level_index = next((i for i in range(1, len(levels))
+                                    if (levels[i][0] <= position if direction in ('LEFT', 'UP') else levels[i][0] >= position)), None)
+                if level_index is not None:
+                    if horizontal: node.pos.x = levels[level_index][0]
+                    else: node.pos.y = levels[level_index][0]
+            if level_index is not None and level_index > 0 and level_index != _tree_level(node):
+                node.properties['COMPACT_LEVEL_ASCENSION'] = True; set_tree_level(node, level_index)
+        else:
+            if horizontal: node.pos.x = position
+            else: node.pos.y = position
+    if monitor is not None: monitor.done()
+
+
+def _mean(values):
+    """Original numeric host adapter for observed compensated stream average.
+
+    This preserves the observed plus-error final expression and infinite-naive
+    fallback, without copying the GWT stream or long-counter runtime.
+    """
+    count = 0; total = error = naive = 0.0
+    for value in values:
+        count += 1; naive += value
+        adjusted = value-error; following = total+adjusted
+        error = following-total-adjusted; total = following
+    if count == 0: raise ValueError('No value present')
+    corrected = total+error
+    if math.isnan(corrected) and math.isinf(naive): corrected = naive
+    return corrected/count
+
+
+def _extreme(values, maximum):
+    iterator = iter(values)
+    try: chosen = next(iterator)
+    except StopIteration: raise ValueError('No value present') from None
+    for value in iterator:
+        comparison = _double_compare(value, chosen)
+        if (comparison > 0 if maximum else comparison < 0): chosen = value
+    return chosen
+
+
+def middle_to_middle_edge(edge):
+    source, target = edge.source, edge.target
+    start = Vec2(source.pos.x+source.size.x/2, source.pos.y+source.size.y/2)
+    end = Vec2(target.pos.x+target.size.x/2, target.pos.y+target.size.y/2)
+    edge.bend_points.insert(0, start); edge.bend_points.append(end)
+    to_node_border(start, edge.bend_points[1], source.size)
+    to_node_border(end, edge.bend_points[-2], target.size)
+
+
+def _route_starts(graph, direction, padding):
+    horizontal = direction in ('LEFT', 'RIGHT')
+    for node in graph.nodes:
+        if node.label == 'SUPER_ROOT': continue
+        outgoing = all_outgoing_edges(node, graph)
+
+        def position(edge):
+            point = edge.bend_points[0] if edge.bend_points else edge.target.pos
+            return point.y if horizontal else point.x
+
+        outgoing.sort(key=cmp_to_key(lambda a, b: _double_compare(position(a), position(b))))
+        count = len(outgoing)
+        for index, edge in enumerate(outgoing):
+            if node.properties.get('COMPACT_LEVEL_ASCENSION', False) and not is_cycle_inducing(edge, graph): continue
+            interpolation = .5 if count == 1 else (index+1)/(count+1)
+            if direction == 'LEFT':
+                end = node.properties.get('LEVELMIN', 0); y = node.pos.y+node.size.y*interpolation
+                edge.bend_points.insert(0, Vec2(_minimum(end, node.pos.x-padding), y))
+                edge.bend_points.insert(0, Vec2(node.pos.x, y))
+            elif direction == 'RIGHT':
+                end = node.properties.get('LEVELMAX', 0)+padding; y = node.pos.y+node.size.y*interpolation
+                edge.bend_points.insert(0, Vec2(end, y)); edge.bend_points.insert(0, Vec2(node.pos.x+node.size.x, y))
+            elif direction == 'UP':
+                end = node.properties.get('LEVELMIN', 0); x = node.pos.x+node.size.x*interpolation
+                edge.bend_points.insert(0, Vec2(x, _minimum(node.pos.y-padding, end)))
+                edge.bend_points.insert(0, Vec2(x, node.pos.y))
+            else:
+                end = node.properties.get('LEVELMAX', 0)+padding; x = node.pos.x+node.size.x*interpolation
+                edge.bend_points.insert(0, Vec2(x, end)); edge.bend_points.insert(0, Vec2(x, node.pos.y+node.size.y))
+
+
+def _route_cycle(edge, direction, graph, sides, padding, texture, in_out):
+    one, two = sides; source, target = edge.source, edge.target
+    horizontal = direction in ('LEFT', 'RIGHT')
+    if horizontal:
+        middle = _mean(node.pos.y+node.size.y/2 for node in graph.nodes)
+        if source.pos.y+source.size.y/2 > middle:
+            two += 1; bend = _extreme((node.pos.y+node.size.y+padding*two for node in graph.nodes), True)
+        else:
+            one += 1; bend = _extreme((node.pos.y-padding*one for node in graph.nodes), False)
+    else:
+        middle = _mean(node.pos.x+node.size.x/2 for node in graph.nodes)
+        if source.pos.x+source.size.x/2 > middle:
+            two += 1; bend = _extreme((node.pos.x+node.size.x+padding*two for node in graph.nodes), True)
+        else:
+            one += 1; bend = _extreme((node.pos.x-padding*one for node in graph.nodes), False)
+    points = edge.bend_points
+    if direction == 'LEFT':
+        points.extend([Vec2(source.properties.get('LEVELMIN', 0)-padding, bend),
+                       Vec2(target.pos.x+target.size.x+padding+texture, bend),
+                       Vec2(target.pos.x+target.size.x+padding+texture, target.pos.y+target.size.y/2),
+                       Vec2(target.pos.x+target.size.x, target.pos.y+target.size.y/2)])
+    elif direction == 'RIGHT':
+        points.extend([Vec2(source.properties.get('LEVELMAX', 0)+padding, source.pos.y+source.size.y/2),
+                       Vec2(source.pos.x+source.size.x+padding, bend), Vec2(target.pos.x-padding-texture, bend),
+                       Vec2(target.pos.x-padding-texture, target.pos.y+target.size.y/2), Vec2(target.pos.x, target.pos.y+target.size.y/2)])
+    elif direction == 'UP':
+        points.extend([Vec2(bend, source.properties.get('LEVELMIN', 0)-padding),
+                       Vec2(bend, target.pos.y+target.size.y+padding+texture),
+                       Vec2(target.pos.x+target.size.x/2, target.pos.y+target.size.y+padding+texture),
+                       Vec2(target.pos.x+target.size.x/2, target.pos.y+target.size.y+padding)])
+    else:
+        end = source.properties.get('LEVELMAX', 0)+padding*in_out[1]
+        if points: points[-1].y = end
+        points.extend([Vec2(bend, end), Vec2(bend, target.pos.y-padding*in_out[0]-texture)])
+    return one, two
+
+
+@dataclass(eq=False)
+class _Gap:
+    first: TNode | None
+    second: TNode | None
+    entries: list
+    direction: str
+    padding: float
+    first_side: bool = False
+    last_side: bool = False
+
+    def update(self):
+        for index, (bend_one, bend_two, edge) in enumerate(self.entries):
+            ratio = (index+1)/(len(self.entries)+1)
+            first, second = self.first, self.second
+            if first is None and second is None: return
+            horizontal = self.direction in ('LEFT', 'RIGHT')
+            if first is not None and second is None:
+                self.last_side = True
+                cross = ((first.pos.y+first.size.y) if horizontal else (first.pos.x+first.size.x))+self.padding*(index+1)
+                reference = first
+            elif first is not None and second is not None:
+                cross = (second.pos.y*ratio+(first.pos.y+first.size.y)*(1-ratio) if horizontal
+                         else second.pos.x*ratio+(first.pos.x+first.size.x)*(1-ratio))
+                reference = first
+            else:
+                self.first_side = True
+                cross = (second.pos.y if horizontal else second.pos.x)-self.padding*(index+1)
+                reference = second
+            maximum = reference.properties.get('LEVELMAX', 0)+self.padding
+            minimum = reference.properties.get('LEVELMIN', 0)-self.padding
+            if self.direction == 'LEFT': bend_one.x, bend_one.y, bend_two.x, bend_two.y = maximum, cross, minimum, cross
+            elif self.direction == 'RIGHT': bend_one.x, bend_one.y, bend_two.x, bend_two.y = minimum, cross, maximum, cross
+            elif self.direction == 'UP': bend_one.x, bend_one.y, bend_two.x, bend_two.y = cross, maximum, cross, minimum
+            else: bend_one.x, bend_one.y, bend_two.x, bend_two.y = cross, minimum, cross, maximum
+
+
+def _route_special(graph, direction, padding, texture):
+    one = two = 0; gaps = {}; maximum_level = max(_tree_level(node) for node in graph.nodes)+1
+    outgoing = [0]*maximum_level; incoming = [0]*maximum_level
+    horizontal = direction in ('LEFT', 'RIGHT')
+    for edge in _distinct_identity(graph.edges):
+        source_level, target_level = _tree_level(edge.source), _tree_level(edge.target)
+        difference = target_level-source_level
+        if difference > 1:
+            for level in range(source_level+1, target_level):
+                nodes = [node for node in graph.nodes if _tree_level(node) == level]
+                nodes.sort(key=cmp_to_key(lambda a, b: _double_compare(a.pos.y if horizontal else a.pos.x,
+                                                                    b.pos.y if horizontal else b.pos.x)))
+                index = 0
+                for node in nodes:
+                    ratio = (level-source_level)/(target_level-source_level)
+                    coordinate = node.pos.y if horizontal else node.pos.x
+                    source_coordinate = edge.source.pos.y if horizontal else edge.source.pos.x
+                    target_coordinate = edge.target.pos.y if horizontal else edge.target.pos.x
+                    if coordinate > source_coordinate*(1-ratio)+target_coordinate*ratio: break
+                    index += 1
+                if nodes:
+                    start = edge.bend_points[-1] if edge.bend_points else Vec2(edge.source.pos.x, edge.source.pos.y)
+                    last = Vec2(nodes[-1].pos.x+nodes[-1].size.x, nodes[-1].pos.y+nodes[-1].size.y)
+                    first = Vec2(nodes[0].pos.x+nodes[0].size.x, nodes[0].pos.y+nodes[0].size.y)
+                    if horizontal:
+                        if index >= len(nodes)-1 and start.y > last.y and edge.target.pos.y > last.y: continue
+                        # This mixed x/y comparison is literal in the source.
+                        if index <= 0 and start.y < first.x and edge.target.pos.y < first.y: continue
+                    else:
+                        if index >= len(nodes)-1 and start.x > last.x and edge.target.pos.x > last.x: continue
+                        if index <= 0 and start.x < first.x and edge.target.pos.x < first.x: continue
+                bend_one, bend_two = Vec2(), Vec2(); edge.bend_points.extend([bend_one, bend_two])
+                entry = (bend_one, bend_two, edge)
+                # Original native encoding of the observed (level<<32)|(i&mask)
+                # equality. No GWT long limbs are copied.
+                key = (level & 0xffffffff, index & 0xffffffff)
+                if key in gaps:
+                    gap = gaps[key]; gap.entries.append(entry)
+                    gap.entries.sort(key=cmp_to_key(lambda a, b: _double_compare(
+                        a[2].target.pos.y if horizontal else a[2].target.pos.x,
+                        b[2].target.pos.y if horizontal else b[2].target.pos.x)))
+                else:
+                    gap = _Gap(nodes[index-1] if index else None, nodes[index] if index < len(nodes) else None,
+                               [entry], direction, padding); gaps[key] = gap
+                gap.update()
+                if horizontal:
+                    if gap.first_side and gap.second.pos.y <= graph.properties.get('GRAPH_YMIN', 0): one += 1
+                    if gap.last_side and gap.first.pos.y+gap.first.size.y >= graph.properties.get('GRAPH_YMAX', 0): two += 1
+                else:
+                    if gap.first_side and gap.second.pos.x <= graph.properties.get('GRAPH_XMIN', 0): one += 1
+                    if gap.last_side and gap.first.pos.x+gap.first.size.x >= graph.properties.get('GRAPH_XMAX', 0): two += 1
+        elif difference == 0: middle_to_middle_edge(edge)
+        elif difference < 0:
+            if source_level < 0 or target_level < 0: raise IndexError('Negative tree level')
+            outgoing[source_level] += 1; incoming[target_level] += 1
+            one, two = _route_cycle(edge, direction, graph, (one, two), padding, texture,
+                                    (incoming[target_level], outgoing[source_level]))
+
+
+def _route_ends(graph, direction, padding, texture):
+    horizontal = direction in ('LEFT', 'RIGHT')
+    for node in graph.nodes:
+        if node.label == 'SUPER_ROOT': continue
+        incoming = all_incoming_edges(node, graph)
+
+        def position(edge):
+            point = edge.bend_points[-1] if edge.bend_points else edge.source.pos
+            return point.y if horizontal else point.x
+
+        incoming.sort(key=cmp_to_key(lambda a, b: _double_compare(position(a), position(b))))
+        count = len(incoming)
+        for index, edge in enumerate(incoming):
+            ratio = .5 if count == 1 else (index+1)/(count+1); points = edge.bend_points
+            if direction == 'LEFT':
+                level_start = node.properties.get('LEVELMAX', 0)
+                if node.pos.x+node.size.x+texture < level_start:
+                    points.append(Vec2(level_start+padding, node.pos.y+node.size.y*ratio))
+                elif points:
+                    last = points[-1]; x = node.pos.x+node.size.x/2; y = node.pos.y+node.size.y/2
+                    if texture > 0 and _div(abs(last.y-y), abs(last.x-x)/40) > 50:
+                        points.append(Vec2(node.pos.x+node.size.x+texture/5.3,
+                                           node.pos.y+node.size.y*ratio-texture/2 if y > last.y else node.pos.y+node.size.y*ratio+texture/2))
+                points.append(Vec2(node.pos.x+node.size.x, node.pos.y+node.size.y*ratio))
+            elif direction == 'RIGHT':
+                level_start = node.properties.get('LEVELMIN', 0)
+                if node.pos.x-texture > level_start:
+                    points.append(Vec2(level_start-padding, node.pos.y+node.size.y*ratio))
+                elif points:
+                    last = points[-1]; x = node.pos.x+node.size.x/2; y = node.pos.y+node.size.y/2
+                    if texture > 0 and _div(abs(last.y-y), abs(last.x-x)/40) > 50:
+                        points.append(Vec2(node.pos.x-texture/5.3,
+                                           node.pos.y+node.size.y*ratio-texture/2 if y > last.y else node.pos.y+node.size.y*ratio+texture/2))
+                points.append(Vec2(node.pos.x, node.pos.y+node.size.y*ratio))
+            elif direction == 'UP':
+                level_start = node.properties.get('LEVELMAX', 0)
+                if node.pos.y+node.size.y+texture < level_start:
+                    points.append(Vec2(node.pos.x+node.size.x*ratio, level_start+padding))
+                elif points:
+                    last = points[-1]; x = node.pos.x+node.size.x/2; y = node.pos.y+node.size.y/2
+                    if texture > 0 and _div(abs(last.x-x), abs(last.y-y)/40) > 50:
+                        points.append(Vec2(node.pos.x+node.size.x*ratio-texture/2 if x > last.x else node.pos.x+node.size.x*ratio+texture/2,
+                                           node.pos.y+texture/5.3+node.size.y))
+                points.append(Vec2(node.pos.x+node.size.x*ratio, node.pos.y+node.size.y))
+            else:
+                level_start = node.properties.get('LEVELMIN', 0)
+                if is_cycle_inducing(edge, graph):
+                    points.append(Vec2(node.pos.x+node.size.x*ratio, points[-1].y))
+                elif node.pos.y-texture > level_start:
+                    points.append(Vec2(node.pos.x+node.size.x*ratio, level_start-padding))
+                elif points:
+                    last = points[-1]; x = node.pos.x+node.size.x/2; y = node.pos.y+node.size.y/2
+                    if texture > 0 and _div(abs(last.x-x), abs(last.y-y)/40) > 50:
+                        points.append(Vec2(node.pos.x+node.size.x*ratio-texture/2 if x > last.x else node.pos.x+node.size.x*ratio+texture/2,
+                                           node.pos.y-texture/5.3))
+                points.append(Vec2(node.pos.x+node.size.x*ratio, node.pos.y))
+
+
+def route_edges(graph, monitor=None):
+    """M33 original NONE/MIDDLE_TO_MIDDLE/AVOID_OVERLAP processors."""
+    if monitor is not None: monitor.begin('Edge routing', 1)
+    mode = graph.option('mrtree.edgeRoutingMode', 'AVOID_OVERLAP')
+    if mode == 'MIDDLE_TO_MIDDLE':
+        for edge in graph.edges: middle_to_middle_edge(edge)
+    elif mode == 'AVOID_OVERLAP':
+        next(node for node in graph.nodes if node.properties.get('ROOT', False))
+        padding = graph.option('spacing.edgeNode', 3); texture = graph.option('mrtree.edgeEndTextureLength', 7)
+        direction = graph.option('direction', 'UNDEFINED')
+        _route_starts(graph, direction, padding); _route_special(graph, direction, padding, texture)
+        _route_ends(graph, direction, padding, texture)
+        for edge in graph.edges:
+            if len(edge.bend_points) < 2: middle_to_middle_edge(edge)
+    if monitor is not None: monitor.done()
+
+
+def layout_component(graph, monitor=None):
+    """M34 observed assembled 15-processor order, not a generic assembler port."""
+    if monitor is not None: monitor.begin('Tree layout', 1)
+    layout_monitor = _sub_task(monitor, 1)
+    processors = (treeify, find_roots, calculate_fan, calculate_levels, order_nodes,
+                  set_neighbors, calculate_level_heights, place_nodes, transform_directions,
+                  set_node_positions, compact_graph, calculate_level_coordinates,
+                  calculate_graph_bounds, untreeify, route_edges)
+    if layout_monitor is not None: layout_monitor.begin('Layout', len(processors))
+    for processor in processors:
+        if layout_monitor is not None:
+            cancelled = getattr(layout_monitor, 'is_canceled', None)
+            if cancelled is not None and cancelled(): return graph
+        phase_monitor = _sub_task(layout_monitor, 1)
+        if processor is treeify: processor(graph, monitor=phase_monitor)
+        else: processor(graph, phase_monitor)
+    if layout_monitor is not None: layout_monitor.done()
+    if monitor is not None: monitor.done()
+    return graph
+
+
+def _layout(state, node, monitor=None):
+    """One source provider call on persistent State; real micro hook is required.
+
+    Until the central host supplies complete NodeMicroLayout, the default path
+    explicitly remains pending. An omit=true call is only that source branch.
+    """
+    if not state.option(node, 'omitNodeMicroLayout', False):
+        micro_layout = getattr(state, 'node_micro_layout', None)
+        if micro_layout is None:
+            raise NotImplementedError('The generic real NodeMicroLayout host hook is pending')
+        micro_layout(node)
+    phase_monitor = _sub_task(monitor, 0.10000000149011612)
+    if phase_monitor is not None: phase_monitor.begin('build tGraph', 1)
+    graph = build_graph(state, node)
+    if phase_monitor is not None: phase_monitor.done()
+    phase_monitor = _sub_task(monitor, 0.10000000149011612)
+    if phase_monitor is not None: phase_monitor.begin('Split graph', 1)
+    components = split_components(graph)
+    if phase_monitor is not None: phase_monitor.done()
+    for component in components:
+        layout_component(component, _sub_task(monitor, 0.5999999940395355/len(components)))
+    phase_monitor = _sub_task(monitor, 0.10000000149011612)
+    if phase_monitor is not None: phase_monitor.begin('Pack components', 1)
+    graph = pack_components(components)
+    if phase_monitor is not None: phase_monitor.done()
+    phase_monitor = _sub_task(monitor, 0.10000000149011612)
+    if phase_monitor is not None: phase_monitor.begin('Apply layout results', 1)
+    apply_layout(graph)
+    if phase_monitor is not None: phase_monitor.done()
+    return node
+
+
+def layout_mrtree(graph, options=None, *, monitor=None):
+    state = _State(graph, options)
+    _layout(state, state.graph, monitor)
+    return state.graph

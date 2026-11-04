@@ -1,0 +1,118 @@
+{
+  "schema": "py-elk-next-native-reference/v1",
+  "actualSourceRoot": "C:\\code\\py-visactor\\py-elk",
+  "scope": "Independent original-only probes for planned E13/E16 migration; no candidate or completed algorithm acceptance.",
+  "upstream": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "distributionSha256": {
+      "lib/elk-api.d.ts": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "lib/elk-api.js": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "lib/elk-worker.d.ts": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lib/elk-worker.min.js": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "lib/elk.bundled.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/elk.bundled.js": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "lib/main.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/main.js": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "package.json": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "README.md": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c"
+    }
+  },
+  "collector": "tools/reference/capture_layout.cjs",
+  "collectorSha256": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+  "captureDriverSha256": "75db0343318d6362fbbdd0d3ab54d0c65fe119021fc3f9c308c8acc7f24a9f39",
+  "node": "C:\\Program Files\\nodejs\\node.exe",
+  "nodeSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "nodeIdentityCommand": {
+    "command": {
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--version"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "pid": 25132,
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.025328599993372336,
+      "stdoutSha256": "bc697de995dc791df53d688ef69c08994cdffc8ce30c906b1ffc65b131ccd0eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environmentPolicy": {
+        "nodeOverridesAbsent": true
+      }
+    },
+    "stdoutBytesBase64": "djI0LjE5LjANCg==",
+    "stderrBytesBase64": ""
+  },
+  "suiteSha256": "0c60160353a6e1d2ca623c2e09fdd40a6191e7f4fe52e1f6daaaabf5a611880a",
+  "cases": [
+    {
+      "id": "random-real-unseeded",
+      "definition": {
+        "id": "random-real-unseeded",
+        "request": "request.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLA0KICAgICAgImVsay5yYW5kb21TZWVkIjogMA0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiYSIsDQogICAgICAgICJ3aWR0aCI6IDIwLA0KICAgICAgICAiaGVpZ2h0IjogMTANCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJiIiwNCiAgICAgICAgIndpZHRoIjogNTAsDQogICAgICAgICJoZWlnaHQiOiAyMA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogImMiLA0KICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgImhlaWdodCI6IDQwDQogICAgICB9DQogICAgXSwNCiAgICAiZWRnZXMiOiBbXQ0KICB9DQp9DQo=",
+      "requestSha256": "747f12cc556395a488b24adbeebabe0ca6d02edede601abbf143054af1eaf366",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 0
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20
+            },
+            {
+              "id": "c",
+              "width": 10,
+              "height": 40
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\random-unseeded-reference-01\\random-real-unseeded\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\random-unseeded-reference-01\\random-real-unseeded\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 2764,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15771280002081767,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNzQ3ZjEyY2M1NTYzOTVhNDg4YjI0YWRiZWViYWJlMGNhNmQwMmVkZWRlNjAxYWJiZjE0MzA1NGFmMWVhZjM2NiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLAogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAwCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogImEiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiA3NC43OTk4NzIwMjI2MDU0NiwKICAgICAgICAieSI6IDM3LjY3MjU3NjI5MzE1NjM5NgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImIiLAogICAgICAgICJ3aWR0aCI6IDUwLAogICAgICAgICJoZWlnaHQiOiAyMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAzNS40NDkwOTU3OTExOTMxOSwKICAgICAgICAieSI6IDIxLjA4NzQxMjM2MjcwMTk1NAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImMiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiA0MCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiA3OS4wNzM5MjA0OTEyNzY1NCwKICAgICAgICAieSI6IDE1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMTQ2LjkwMjI0NTIyNDU0NjA4LAogICAgImhlaWdodCI6IDEwMAogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsuYWxnb3JpdGhtIjogInJhbmRvbSIsCiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDAKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiYSIsCiAgICAgICAgIndpZHRoIjogMjAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDc0Ljc5OTg3MjAyMjYwNTQ2LAogICAgICAgICJ5IjogMzcuNjcyNTc2MjkzMTU2Mzk2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogNTAsCiAgICAgICAgImhlaWdodCI6IDIwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDM1LjQ0OTA5NTc5MTE5MzE5LAogICAgICAgICJ5IjogMjEuMDg3NDEyMzYyNzAxOTU0CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYyIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDQwLAogICAgICAgICIkSCI6IDI4MSwKICAgICAgICAieCI6IDc5LjA3MzkyMDQ5MTI3NjU0LAogICAgICAgICJ5IjogMTUKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFtdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxNDYuOTAyMjQ1MjI0NTQ2MDgsCiAgICAiaGVpZ2h0IjogMTAwCiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "observationSha256": "a472d13fff28bf997a0b15dc33c9aed2a50ad1234d878863f635c745c7d69f2a"
+    }
+  ],
+  "actualReferenceProcesses": 1,
+  "candidateExecuted": false,
+  "iterationsCompleted": [],
+  "fullValidation": false,
+  "historicalExecutionAuthenticated": false
+}

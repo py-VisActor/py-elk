@@ -1,0 +1,79 @@
+{
+  "schema": "py-elk-e05-component-source-review/v1",
+  "iteration": "E05",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T06:51:09.277805+00:00",
+  "sourceDocument": {
+    "path": "references/e05-source-components-A.json",
+    "sha256": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0"
+  },
+  "approvedComponents": [
+    "intermediate:EndLabelSorter"
+  ],
+  "componentSeals": {
+    "intermediate:EndLabelSorter": "65c0a40013ce45e441175c6b2ed6ebdb9df04f56a3a3669ef8a875f1457436c6"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 887,
+    "functionOffsetOccurrences": 804,
+    "staticCallEdges": 318,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E05-01/V/source-A-all-03/report.json",
+    "sha256": "d837e784b8900c37efc13dfd7346b3298cce89e8cf36d13473f660963040b822"
+  },
+  "checkedSemantics": [
+    {
+      "id": "END-REAL-DISPATCH",
+      "checked": "$process_10 flat-maps actual layer.nodes via apply_75, filters NORMAL via test_34, and invokes accept_73 for each NORMAL. accept_73 real lexical call at35938 executes $processNode_3. Its internal END_LABELS property presence guard35839 is false because no original labels and no label dummy generation. Thus sort/init callback bodies do not execute; the node callback and actual presence scan do execute. No arbitrary business JSON keys are deleted."
+    }
+  ],
+  "resolvedFindings": [
+    {
+      "id": "V-A-END-01",
+      "originalDocumentSha256": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "finding": "END-G1 misplaced END_LABELS guard into the stream filter and claimed callback never executes.",
+      "resolution": "Corrected NORMAL stream filter and actual processNode callback/presence test; added exact bounded helper and callback spans."
+    },
+    {
+      "id": "V-A-END-02",
+      "originalDocumentSha256": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "finding": "accept_73 static caller did not match descriptively named bounded span, so canonical verifier rejected linkage.",
+      "resolution": "Exact symbols apply_75/test_34/accept_73 now bind real callback ranges. Independent canonical rerun passes; no verifier relaxation."
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e04-source-components-A.json",
+      "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+    }
+  ],
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E05-01/V/source-end-filter.command.json",
+      "sha256": "a3ee53bbdceda4937a88403c7871712a7d1ecb9c8c14386ea4c1a0e1efb7f846"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-end-callback.command.json",
+      "sha256": "2648f38d74717351f6be1f7e5dbfa54254ffd382c72fd72ca420b01b672db4f1"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-A-End-canonical-corrected.command.json",
+      "sha256": "42fa89a951be9b6834e1809de1a8ae62d6da079a3da69eae6d07d039ae697545"
+    }
+  ],
+  "blockers": [],
+  "limitations": [
+    "Source component acceptance only; whole source gate requires root explicit22 approvals.",
+    "No engine/candidate executed during this final source review; callback/guard source was manually read and canonical bindings independently checked.",
+    "Earlier genuine review/canonical failures retained. Exact Java provenance and overall release license remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE05SourceGateApproved": false
+}

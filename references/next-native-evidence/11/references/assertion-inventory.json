@@ -1,0 +1,5737 @@
+{
+  "schema": "py-elk-assertion-inventory/v1",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "repository": "https://github.com/kieler/elkjs"
+  },
+  "scanner": {
+    "kind": "conservative-lexical-static-index",
+    "input": "git show <locked commit>:<path>",
+    "assertionRootKinds": [
+      "assert",
+      "expect",
+      "should-chain"
+    ],
+    "doesNotExpand": [
+      "runtime loops/conditions",
+      "parameterization",
+      "templates/eval",
+      "Chai chained assertion semantics",
+      "Java algorithm test suites"
+    ],
+    "doesNotResolve": [
+      "identifier aliasing/shadowing",
+      "arbitrary computed member calls",
+      "full JavaScript grammar"
+    ],
+    "worktreeTextUsed": false
+  },
+  "sources": [
+    {
+      "path": "test/mocha/test-bug-63.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "d362f99320d78891294604bd3e93688cf63af3ed",
+      "sha256": "ab1c82eb3979dfb86078dc943f513f84a0e8179febe925e268ef8738836e3507",
+      "byteCount": 1674,
+      "lineCount": 50,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:test-bug-63:it:001",
+          "title": "COFFMAN_GRAHAM layering should cope with selfloops.",
+          "mode": "normal",
+          "suites": [
+            "elkjs#63",
+            "#layout()"
+          ],
+          "location": {
+            "line": 26,
+            "column": 5,
+            "endLine": 29,
+            "startByte": 1010,
+            "endByte": 1158
+          },
+          "behaviorGroups": [
+            "layered-strategy",
+            "regression",
+            "self-loop"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-63:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 28,
+                "column": 10,
+                "endLine": 28,
+                "startByte": 1121,
+                "endByte": 1151
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.algorithms.layered.routing",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 27,
+              "column": 18,
+              "endLine": 27,
+              "startByte": 1098,
+              "endByte": 1104
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.layered.pipeline",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.algorithms.layered.routing",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 1,
+      "staticAssertionRootSites": 1,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/test-bug-7.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "5eda55e68fa861cf886122b0e35c99c6075e4f8a",
+      "sha256": "e419b59380d72d926ef2c66cb54f0fb7758bce16248359c4c5d471b695784239",
+      "byteCount": 22287,
+      "lineCount": 917,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:test-bug-7:it:001",
+          "title": "should not raise an error",
+          "mode": "normal",
+          "suites": [
+            "elkjs#7",
+            "#layout()"
+          ],
+          "location": {
+            "line": 26,
+            "column": 5,
+            "endLine": 29,
+            "startByte": 1009,
+            "endByte": 1131
+          },
+          "behaviorGroups": [
+            "ports",
+            "regression"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-7:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 28,
+                "column": 10,
+                "endLine": 28,
+                "startByte": 1094,
+                "endByte": 1124
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.ports",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 27,
+              "column": 18,
+              "endLine": 27,
+              "startByte": 1071,
+              "endByte": 1077
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.layered.pipeline",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.ports",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 1,
+      "staticAssertionRootSites": 1,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/test-bug-8.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "eca9cbdcb905f35c2e46ac407ff696f1d63fe00c",
+      "sha256": "f133fee72f12c3e901869a741c606af735957de5c74682a5dfb13ffd27818a49",
+      "byteCount": 4278,
+      "lineCount": 113,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:test-bug-8:it:001",
+          "title": "should not add edge sections for simple bottom-up layout ",
+          "mode": "normal",
+          "suites": [
+            "elkjs#8",
+            "#layout()"
+          ],
+          "location": {
+            "line": 27,
+            "column": 5,
+            "endLine": 38,
+            "startByte": 1032,
+            "endByte": 1717
+          },
+          "behaviorGroups": [
+            "edge-format",
+            "errors",
+            "hierarchy"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-8:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 35,
+                "column": 10,
+                "endLine": 37,
+                "startByte": 1524,
+                "endByte": 1710
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejectedWith",
+                "and",
+                "eventually",
+                "have",
+                "property",
+                "that",
+                "satisfies"
+              ],
+              "expressionSha256": "fcdebc148257f9585cf7efe80bae630fb4a1ac1e9b374c648c857cb2ced83937",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 33,
+              "column": 18,
+              "endLine": 33,
+              "startByte": 1432,
+              "endByte": 1438
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:test-bug-8:it:002",
+          "title": "should not add edge sections for simple bottom-up layout (primitive edge format)",
+          "mode": "normal",
+          "suites": [
+            "elkjs#8",
+            "#layout()"
+          ],
+          "location": {
+            "line": 40,
+            "column": 5,
+            "endLine": 48,
+            "startByte": 1723,
+            "endByte": 2204
+          },
+          "behaviorGroups": [
+            "edge-format",
+            "errors",
+            "hierarchy"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-8:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 45,
+                "column": 10,
+                "endLine": 47,
+                "startByte": 2011,
+                "endByte": 2197
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejectedWith",
+                "and",
+                "eventually",
+                "have",
+                "property",
+                "that",
+                "satisfies"
+              ],
+              "expressionSha256": "fcdebc148257f9585cf7efe80bae630fb4a1ac1e9b374c648c857cb2ced83937",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 43,
+              "column": 18,
+              "endLine": 43,
+              "startByte": 1900,
+              "endByte": 1906
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:test-bug-8:it:003",
+          "title": "should add edge sections for hierarchical layout",
+          "mode": "normal",
+          "suites": [
+            "elkjs#8",
+            "#layout()"
+          ],
+          "location": {
+            "line": 50,
+            "column": 5,
+            "endLine": 63,
+            "startByte": 2210,
+            "endByte": 2885
+          },
+          "behaviorGroups": [
+            "edge-format",
+            "errors",
+            "hierarchy"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-8:it:003:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 53,
+                "column": 10,
+                "endLine": 62,
+                "startByte": 2386,
+                "endByte": 2878
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "bcd286c7b8ac25cac37d3f59d350591f3b028f6d2928078ecb99be4c0409c35b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:003:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 57,
+                "column": 11,
+                "endLine": 57,
+                "startByte": 2597,
+                "endByte": 2626
+              },
+              "chainProperties": [
+                "to",
+                "exist"
+              ],
+              "expressionSha256": "972dceaac4d21a67b66a7c14885312b71a7774beb7f3c8bdf78be49068c58e0b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:003:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 58,
+                "column": 11,
+                "endLine": 58,
+                "startByte": 2637,
+                "endByte": 2698
+              },
+              "chainProperties": [
+                "to",
+                "have",
+                "an",
+                "that",
+                "has",
+                "lengthOf"
+              ],
+              "expressionSha256": "c6c5dac9d94530d21d4e469c6341cd9df8ef8446048f8c196a3946c9efd7d4a3",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:003:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 60,
+                "column": 11,
+                "endLine": 60,
+                "startByte": 2756,
+                "endByte": 2807
+              },
+              "chainProperties": [
+                "to",
+                "have",
+                "property"
+              ],
+              "expressionSha256": "df4b79ff5a45b38077856029f5d29cb5d6e01f82283327e46ec997843bc43d08",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:003:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 61,
+                "column": 11,
+                "endLine": 61,
+                "startByte": 2818,
+                "endByte": 2867
+              },
+              "chainProperties": [
+                "to",
+                "have",
+                "property"
+              ],
+              "expressionSha256": "912e08cb0ed0c6a92f13bd6b6dd18fd613e5ea910afe9e9a2534167fae00b736",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 51,
+              "column": 18,
+              "endLine": 51,
+              "startByte": 2295,
+              "endByte": 2301
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:test-bug-8:it:004",
+          "title": "should add edge sections for hierarchical layout (primitive edge format)",
+          "mode": "normal",
+          "suites": [
+            "elkjs#8",
+            "#layout()"
+          ],
+          "location": {
+            "line": 65,
+            "column": 5,
+            "endLine": 78,
+            "startByte": 2891,
+            "endByte": 3609
+          },
+          "behaviorGroups": [
+            "edge-format",
+            "errors",
+            "hierarchy"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-8:it:004:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 68,
+                "column": 10,
+                "endLine": 77,
+                "startByte": 3110,
+                "endByte": 3602
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "bcd286c7b8ac25cac37d3f59d350591f3b028f6d2928078ecb99be4c0409c35b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:004:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 72,
+                "column": 11,
+                "endLine": 72,
+                "startByte": 3321,
+                "endByte": 3350
+              },
+              "chainProperties": [
+                "to",
+                "exist"
+              ],
+              "expressionSha256": "972dceaac4d21a67b66a7c14885312b71a7774beb7f3c8bdf78be49068c58e0b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:004:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 73,
+                "column": 11,
+                "endLine": 73,
+                "startByte": 3361,
+                "endByte": 3422
+              },
+              "chainProperties": [
+                "to",
+                "have",
+                "an",
+                "that",
+                "has",
+                "lengthOf"
+              ],
+              "expressionSha256": "c6c5dac9d94530d21d4e469c6341cd9df8ef8446048f8c196a3946c9efd7d4a3",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:004:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 75,
+                "column": 11,
+                "endLine": 75,
+                "startByte": 3480,
+                "endByte": 3531
+              },
+              "chainProperties": [
+                "to",
+                "have",
+                "property"
+              ],
+              "expressionSha256": "df4b79ff5a45b38077856029f5d29cb5d6e01f82283327e46ec997843bc43d08",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-8:it:004:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 76,
+                "column": 11,
+                "endLine": 76,
+                "startByte": 3542,
+                "endByte": 3591
+              },
+              "chainProperties": [
+                "to",
+                "have",
+                "property"
+              ],
+              "expressionSha256": "912e08cb0ed0c6a92f13bd6b6dd18fd613e5ea910afe9e9a2534167fae00b736",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 66,
+              "column": 18,
+              "endLine": 66,
+              "startByte": 3000,
+              "endByte": 3006
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.hierarchy.layout_hierarchy",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 4,
+      "staticAssertionRootSites": 12,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/test-bug-klay-22.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "c23bb7a3352794dea7faf8ff89e84068bf78a880",
+      "sha256": "6ae62a4bb4bbc3ef07ff943c35b0fc6999be0d16e6ddd1ea16df659963232739",
+      "byteCount": 2143,
+      "lineCount": 70,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:test-bug-klay-22:it:001",
+          "title": "should place labels according to set options",
+          "mode": "normal",
+          "suites": [
+            "klayjs#22",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 54,
+            "column": 5,
+            "endLine": 67,
+            "startByte": 1571,
+            "endByte": 2134
+          },
+          "behaviorGroups": [
+            "labels",
+            "regression"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-klay-22:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 58,
+                "column": 10,
+                "endLine": 66,
+                "startByte": 1735,
+                "endByte": 2127
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "c584c09e587eac2815cbce4fd44e1dbdbdbcb39b7cbfb737dd305f1cb569a553",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.geometry.labels",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-klay-22:it:001:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 61,
+                "column": 11,
+                "endLine": 61,
+                "startByte": 1845,
+                "endByte": 1895
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "9a4ef9073f057bd2aef29756e5e149593ebd22de6fd6b4e5750fb890f08400ff",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.geometry.labels",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-klay-22:it:001:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 62,
+                "column": 11,
+                "endLine": 62,
+                "startByte": 1906,
+                "endByte": 1956
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "5265acd7c373410c5c8c147c306f0af975f4325b6d7aff919f68e7cacf9f920e",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.geometry.labels",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-klay-22:it:001:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 64,
+                "column": 11,
+                "endLine": 64,
+                "startByte": 2005,
+                "endByte": 2055
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "17cb5be2296140e825d7efe993cf65fe2737c61b8fb1964414eb47fe89b68756",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.geometry.labels",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:test-bug-klay-22:it:001:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 65,
+                "column": 11,
+                "endLine": 65,
+                "startByte": 2066,
+                "endByte": 2116
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "f4d66912d5cc10dc96e067b4956fd2cc6bdf1627ead03fc56ca2b0dbc3a7cfe3",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.geometry.labels",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 55,
+              "column": 18,
+              "endLine": 55,
+              "startByte": 1652,
+              "endByte": 1658
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.layered.pipeline",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.geometry.labels",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 1,
+      "staticAssertionRootSites": 5,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/test-bug-klay-23.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "9d2ee2f7dfa11533a3f728945a24a9528485b2bd",
+      "sha256": "4968f9fa985db6a886a0af33b4f21be39d9bcb284faa1c683eb040e4040eba15",
+      "byteCount": 1715,
+      "lineCount": 61,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:test-bug-klay-23:it:001",
+          "title": "should be fine with unspecified bendpoints",
+          "mode": "normal",
+          "suites": [
+            "klayjs#23",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 54,
+            "column": 5,
+            "endLine": 57,
+            "startByte": 1560,
+            "endByte": 1705
+          },
+          "behaviorGroups": [
+            "given-geometry",
+            "layered-strategy",
+            "regression"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-bug-klay-23:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 56,
+                "column": 10,
+                "endLine": 56,
+                "startByte": 1668,
+                "endByte": 1698
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 55,
+              "column": 18,
+              "endLine": 55,
+              "startByte": 1639,
+              "endByte": 1645
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.layered.pipeline",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 1,
+      "staticAssertionRootSites": 1,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/test-node.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "f1a06516c532298415e68583ad3787a2ed552aea",
+      "sha256": "04facf7f027f89d02315618753d70b644e6840a2bf638de5f3466804a8a3e8b7",
+      "byteCount": 1813,
+      "lineCount": 59,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:test-node:it:001",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Node.js-based layout",
+            "bundled"
+          ],
+          "location": {
+            "line": 26,
+            "column": 5,
+            "endLine": 29,
+            "startByte": 1024,
+            "endByte": 1136
+          },
+          "behaviorGroups": [
+            "host-entrypoints"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-node:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 28,
+                "column": 10,
+                "endLine": 28,
+                "startByte": 1099,
+                "endByte": 1129
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 27,
+              "column": 18,
+              "endLine": 27,
+              "startByte": 1076,
+              "endByte": 1082
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:test-node:it:002",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Node.js-based layout",
+            "webworker"
+          ],
+          "location": {
+            "line": 38,
+            "column": 5,
+            "endLine": 42,
+            "startByte": 1306,
+            "endByte": 1461
+          },
+          "behaviorGroups": [
+            "host-entrypoints"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:test-node:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 40,
+                "column": 10,
+                "endLine": 41,
+                "startByte": 1381,
+                "endByte": 1454
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "d5dd074803e949de6ec1ee22df910dbac4bed901ef29eef10739854ae5917bc1",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 39,
+              "column": 18,
+              "endLine": 39,
+              "startByte": 1358,
+              "endByte": 1364
+            },
+            {
+              "method": "terminateWorker",
+              "line": 41,
+              "column": 25,
+              "endLine": 41,
+              "startByte": 1436,
+              "endByte": 1451
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 2,
+      "staticAssertionRootSites": 2,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testChangeAwareArrayList.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "a302d2ada782778078681bb0c5760fc5f4405ff9",
+      "sha256": "d3809eac1b49abb3e9b5ee3d063b35a44eb903a768056db06a79f203cea3c62d",
+      "byteCount": 35204,
+      "lineCount": 2265,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testChangeAwareArrayList:it:001",
+          "title": "should finish",
+          "mode": "normal",
+          "suites": [
+            "ChangeAwareArrayList",
+            "#layout()"
+          ],
+          "location": {
+            "line": 26,
+            "column": 5,
+            "endLine": 32,
+            "startByte": 1018,
+            "endByte": 1242
+          },
+          "behaviorGroups": [
+            "large-graph",
+            "regression"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testChangeAwareArrayList:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 31,
+                "column": 10,
+                "endLine": 31,
+                "startByte": 1205,
+                "endByte": 1235
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.layered.pipeline",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 30,
+              "column": 18,
+              "endLine": 30,
+              "startByte": 1182,
+              "endByte": 1188
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.layered.pipeline",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 1,
+      "staticAssertionRootSites": 1,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testEntryPoints.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "77a522a02540fedc2cb6e045c0fa6bd603f70424",
+      "sha256": "b627f87a74ed9ca1f77c3a75564a7edb7e8e05a4bb76c71e1436b9edeac1246a",
+      "byteCount": 2766,
+      "lineCount": 96,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testEntryPoints:it:001",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Entry point",
+            "bundled"
+          ],
+          "location": {
+            "line": 25,
+            "column": 5,
+            "endLine": 28,
+            "startByte": 1021,
+            "endByte": 1133
+          },
+          "behaviorGroups": [
+            "host-entrypoints",
+            "lifecycle"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testEntryPoints:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 27,
+                "column": 10,
+                "endLine": 27,
+                "startByte": 1096,
+                "endByte": 1126
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 26,
+              "column": 18,
+              "endLine": 26,
+              "startByte": 1073,
+              "endByte": 1079
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testEntryPoints:it:002",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Entry point",
+            "main entry point"
+          ],
+          "location": {
+            "line": 35,
+            "column": 5,
+            "endLine": 38,
+            "startByte": 1260,
+            "endByte": 1372
+          },
+          "behaviorGroups": [
+            "host-entrypoints",
+            "lifecycle"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testEntryPoints:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 37,
+                "column": 10,
+                "endLine": 37,
+                "startByte": 1335,
+                "endByte": 1365
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 36,
+              "column": 18,
+              "endLine": 36,
+              "startByte": 1312,
+              "endByte": 1318
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testEntryPoints:it:003",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Entry point",
+            "non-minified"
+          ],
+          "location": {
+            "line": 50,
+            "column": 5,
+            "endLine": 53,
+            "startByte": 1641,
+            "endByte": 1753
+          },
+          "behaviorGroups": [
+            "host-entrypoints",
+            "lifecycle"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testEntryPoints:it:003:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 52,
+                "column": 10,
+                "endLine": 52,
+                "startByte": 1716,
+                "endByte": 1746
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 51,
+              "column": 18,
+              "endLine": 51,
+              "startByte": 1693,
+              "endByte": 1699
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testEntryPoints:it:004",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Entry point",
+            "in webworker"
+          ],
+          "location": {
+            "line": 62,
+            "column": 5,
+            "endLine": 66,
+            "startByte": 1922,
+            "endByte": 2077
+          },
+          "behaviorGroups": [
+            "host-entrypoints",
+            "lifecycle"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testEntryPoints:it:004:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 64,
+                "column": 10,
+                "endLine": 65,
+                "startByte": 1997,
+                "endByte": 2070
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "d5dd074803e949de6ec1ee22df910dbac4bed901ef29eef10739854ae5917bc1",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 63,
+              "column": 18,
+              "endLine": 63,
+              "startByte": 1974,
+              "endByte": 1980
+            },
+            {
+              "method": "terminateWorker",
+              "line": 65,
+              "column": 25,
+              "endLine": 65,
+              "startByte": 2052,
+              "endByte": 2067
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testEntryPoints:it:005",
+          "title": "should succeed.",
+          "mode": "normal",
+          "suites": [
+            "Entry point",
+            "in minified webworker"
+          ],
+          "location": {
+            "line": 75,
+            "column": 5,
+            "endLine": 79,
+            "startByte": 2259,
+            "endByte": 2414
+          },
+          "behaviorGroups": [
+            "host-entrypoints",
+            "lifecycle"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testEntryPoints:it:005:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 77,
+                "column": 10,
+                "endLine": 78,
+                "startByte": 2334,
+                "endByte": 2407
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "d5dd074803e949de6ec1ee22df910dbac4bed901ef29eef10739854ae5917bc1",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 76,
+              "column": 18,
+              "endLine": 76,
+              "startByte": 2311,
+              "endByte": 2317
+            },
+            {
+              "method": "terminateWorker",
+              "line": 78,
+              "column": 25,
+              "endLine": 78,
+              "startByte": 2389,
+              "endByte": 2404
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 5,
+      "staticAssertionRootSites": 5,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testIds.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "54f1808629358ab27a0a8c24901ec786d7687315",
+      "sha256": "af8fe72f66c8f7409a76ec17b25e8119ed31ddb1561fe3de38e907a75327bbfa",
+      "byteCount": 2100,
+      "lineCount": 63,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testIds:it:001",
+          "title": "should return no error if id is a string",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 26,
+            "column": 5,
+            "endLine": 29,
+            "startByte": 1004,
+            "endByte": 1149
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 28,
+                "column": 10,
+                "endLine": 28,
+                "startByte": 1112,
+                "endByte": 1142
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 27,
+              "column": 18,
+              "endLine": 27,
+              "startByte": 1081,
+              "endByte": 1087
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testIds:it:002",
+          "title": "should return no error if id is an integer",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 31,
+            "column": 5,
+            "endLine": 34,
+            "startByte": 1155,
+            "endByte": 1300
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 33,
+                "column": 10,
+                "endLine": 33,
+                "startByte": 1263,
+                "endByte": 1293
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 32,
+              "column": 18,
+              "endLine": 32,
+              "startByte": 1234,
+              "endByte": 1240
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testIds:it:003",
+          "title": "should return an error if id is not present",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 36,
+            "column": 5,
+            "endLine": 39,
+            "startByte": 1310,
+            "endByte": 1447
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:003:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 38,
+                "column": 10,
+                "endLine": 38,
+                "startByte": 1411,
+                "endByte": 1440
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejected"
+              ],
+              "expressionSha256": "fe3700737268cddcd2511dbe0ae8d8d5592a5718c59905e0dc44f3754f91d823",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 37,
+              "column": 18,
+              "endLine": 37,
+              "startByte": 1390,
+              "endByte": 1396
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testIds:it:004",
+          "title": "should return an error if id is a non-integral number",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 41,
+            "column": 5,
+            "endLine": 44,
+            "startByte": 1453,
+            "endByte": 1610
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:004:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 43,
+                "column": 10,
+                "endLine": 43,
+                "startByte": 1574,
+                "endByte": 1603
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejected"
+              ],
+              "expressionSha256": "fe3700737268cddcd2511dbe0ae8d8d5592a5718c59905e0dc44f3754f91d823",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 42,
+              "column": 18,
+              "endLine": 42,
+              "startByte": 1543,
+              "endByte": 1549
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testIds:it:005",
+          "title": "should return an error if id is an array",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 46,
+            "column": 5,
+            "endLine": 49,
+            "startByte": 1622,
+            "endByte": 1765
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:005:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 48,
+                "column": 10,
+                "endLine": 48,
+                "startByte": 1729,
+                "endByte": 1758
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejected"
+              ],
+              "expressionSha256": "fe3700737268cddcd2511dbe0ae8d8d5592a5718c59905e0dc44f3754f91d823",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 47,
+              "column": 18,
+              "endLine": 47,
+              "startByte": 1699,
+              "endByte": 1705
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testIds:it:006",
+          "title": "should return an error if id is an object",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 51,
+            "column": 5,
+            "endLine": 54,
+            "startByte": 1777,
+            "endByte": 1921
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:006:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 53,
+                "column": 10,
+                "endLine": 53,
+                "startByte": 1885,
+                "endByte": 1914
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejected"
+              ],
+              "expressionSha256": "fe3700737268cddcd2511dbe0ae8d8d5592a5718c59905e0dc44f3754f91d823",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 52,
+              "column": 18,
+              "endLine": 52,
+              "startByte": 1855,
+              "endByte": 1861
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testIds:it:007",
+          "title": "should return an error if id is a boolean",
+          "mode": "normal",
+          "suites": [
+            "IDs",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 56,
+            "column": 5,
+            "endLine": 59,
+            "startByte": 1933,
+            "endByte": 2079
+          },
+          "behaviorGroups": [
+            "errors",
+            "json-id-validation"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testIds:it:007:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 58,
+                "column": 10,
+                "endLine": 58,
+                "startByte": 2043,
+                "endByte": 2072
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejected"
+              ],
+              "expressionSha256": "fe3700737268cddcd2511dbe0ae8d8d5592a5718c59905e0dc44f3754f91d823",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.validation.validate_id",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 57,
+              "column": 18,
+              "endLine": 57,
+              "startByte": 2011,
+              "endByte": 2017
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.validation.validate_id",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 7,
+      "staticAssertionRootSites": 7,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testLayouters.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "1891d9602d7deb659c92dfc0aa74ebc10b14baa3",
+      "sha256": "5a697be0241fe361aba82e6f261773b6c0f2e54c6534d823417e330c9ab63b88",
+      "byteCount": 2610,
+      "lineCount": 80,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testLayouters:it:001",
+          "title": "SPOrE Compaction",
+          "mode": "normal",
+          "suites": [
+            "Layout Algorithms"
+          ],
+          "location": {
+            "line": 41,
+            "column": 3,
+            "endLine": 55,
+            "startByte": 1372,
+            "endByte": 1886
+          },
+          "behaviorGroups": [
+            "given-geometry",
+            "other-algorithms"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLayouters:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 48,
+                "column": 8,
+                "endLine": 54,
+                "startByte": 1617,
+                "endByte": 1881
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "00f501f3fb37fd0f68ad9e48f5f15b4de6dd3f3377d7a4cf3f8a06b3b6707c63",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:001:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 50,
+                "column": 9,
+                "endLine": 50,
+                "startByte": 1687,
+                "endByte": 1726
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "b62b67613a483878cd6eb95fe495116a3609f47129d46f3caded86e27608d6c5",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:001:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 51,
+                "column": 9,
+                "endLine": 51,
+                "startByte": 1735,
+                "endByte": 1774
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "f3c268417951838e6632a6e9bb14755953f9b5248fad43529e48e482f6f90fb9",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:001:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 52,
+                "column": 9,
+                "endLine": 52,
+                "startByte": 1783,
+                "endByte": 1823
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "fd74f27c3c1dd7c8ded98351d3ea753b6fc160b7b106bc9f1d8724c5ca22164b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:001:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 53,
+                "column": 9,
+                "endLine": 53,
+                "startByte": 1832,
+                "endByte": 1872
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "3d9c1148139a3b565ad0d88de72807bba6d60e55f13bcedd1cee016c16c1886a",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 42,
+              "column": 16,
+              "endLine": 42,
+              "startByte": 1423,
+              "endByte": 1429
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.registry",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLayouters:it:002",
+          "title": "SPOrE Overlap Removal",
+          "mode": "normal",
+          "suites": [
+            "Layout Algorithms"
+          ],
+          "location": {
+            "line": 57,
+            "column": 3,
+            "endLine": 70,
+            "startByte": 1890,
+            "endByte": 2411
+          },
+          "behaviorGroups": [
+            "given-geometry",
+            "other-algorithms"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLayouters:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 63,
+                "column": 8,
+                "endLine": 69,
+                "startByte": 2142,
+                "endByte": 2406
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "41a31dd1837c5ee1df901d36219bddf6070d33a9bcd31e7ee79ab824153f4bad",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:002:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 65,
+                "column": 9,
+                "endLine": 65,
+                "startByte": 2212,
+                "endByte": 2251
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "dd5b03d1519b1850ac7bb30db16155cbaf5053c23067609a4edb81c22e01fcd4",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:002:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 66,
+                "column": 9,
+                "endLine": 66,
+                "startByte": 2260,
+                "endByte": 2299
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "7fd075376915fb6cbc76569d33a8f161a4deb3d251e0596975911c34d9a760b9",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:002:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 67,
+                "column": 9,
+                "endLine": 67,
+                "startByte": 2308,
+                "endByte": 2348
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "fd74f27c3c1dd7c8ded98351d3ea753b6fc160b7b106bc9f1d8724c5ca22164b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLayouters:it:002:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 68,
+                "column": 9,
+                "endLine": 68,
+                "startByte": 2357,
+                "endByte": 2397
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "3d9c1148139a3b565ad0d88de72807bba6d60e55f13bcedd1cee016c16c1886a",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 58,
+              "column": 16,
+              "endLine": 58,
+              "startByte": 1946,
+              "endByte": 1952
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.registry",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLayouters:it:003",
+          "title": "Rectangle Packing",
+          "mode": "normal",
+          "suites": [
+            "Layout Algorithms"
+          ],
+          "location": {
+            "line": 72,
+            "column": 3,
+            "endLine": 78,
+            "startByte": 2415,
+            "endByte": 2606
+          },
+          "behaviorGroups": [
+            "given-geometry",
+            "other-algorithms"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLayouters:it:003:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 77,
+                "column": 8,
+                "endLine": 77,
+                "startByte": 2571,
+                "endByte": 2601
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.algorithms.registry",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.import_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 73,
+              "column": 16,
+              "endLine": 73,
+              "startByte": 2467,
+              "endByte": 2473
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.algorithms.registry",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.import_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 3,
+      "staticAssertionRootSites": 11,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testLogging.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "821f6c3491fa21f51a4b42b4f971aa119a60ff17",
+      "sha256": "6aea6ffe52ca8eb79a812bc00da29015826a325b88fad7c95cf9e4d493e1a177",
+      "byteCount": 3954,
+      "lineCount": 125,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testLogging:it:001",
+          "title": "should provide logs if requested to.",
+          "mode": "normal",
+          "suites": [
+            "Logging",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 44,
+            "column": 5,
+            "endLine": 59,
+            "startByte": 1357,
+            "endByte": 1929
+          },
+          "behaviorGroups": [
+            "input-side-effects",
+            "logging-and-timing"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLogging:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 51,
+                "column": 10,
+                "endLine": 58,
+                "startByte": 1560,
+                "endByte": 1922
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "b3a80269426a8af8f059a4dd96eba78902590a87e1acd27777fd4778c57a0161",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:001:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 53,
+                "column": 11,
+                "endLine": 53,
+                "startByte": 1634,
+                "endByte": 1675
+              },
+              "chainProperties": [
+                "not",
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "ffb9bec149180027bb1cfdd25790a5a35f17d4bf9eabfb5836f0aa933985dbe5",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:001:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 55,
+                "column": 11,
+                "endLine": 55,
+                "startByte": 1738,
+                "endByte": 1788
+              },
+              "chainProperties": [
+                "not",
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "4f080c67bcac290594e8dfa566a0eb2ad67b06ff24a4511cc7910c1d6884f1eb",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:001:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 57,
+                "column": 11,
+                "endLine": 57,
+                "startByte": 1860,
+                "endByte": 1911
+              },
+              "chainProperties": [
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "af63515298828798c826263a000b93a58f6c63ac98e66c9f9ae1d47620b9bf75",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 45,
+              "column": 18,
+              "endLine": 45,
+              "startByte": 1430,
+              "endByte": 1436
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.export_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLogging:it:002",
+          "title": "should not provide logs if not requested to.",
+          "mode": "normal",
+          "suites": [
+            "Logging",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 61,
+            "column": 5,
+            "endLine": 69,
+            "startByte": 1935,
+            "endByte": 2210
+          },
+          "behaviorGroups": [
+            "input-side-effects",
+            "logging-and-timing"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLogging:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 65,
+                "column": 10,
+                "endLine": 68,
+                "startByte": 2079,
+                "endByte": 2203
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "794e5c51da4cca9961ef40af8bf035f6ab42c33befeb291d83803455ff409a23",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:002:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 67,
+                "column": 13,
+                "endLine": 67,
+                "startByte": 2155,
+                "endByte": 2192
+              },
+              "chainProperties": [
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "4c718d7c84f8e18878b840faf4d544fc5c755f0f212576df9866499be96f40ad",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 62,
+              "column": 18,
+              "endLine": 62,
+              "startByte": 2016,
+              "endByte": 2022
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.export_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLogging:it:003",
+          "title": "should provide execution times if requested to.",
+          "mode": "normal",
+          "suites": [
+            "Logging",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 71,
+            "column": 5,
+            "endLine": 83,
+            "startByte": 2216,
+            "endByte": 2647
+          },
+          "behaviorGroups": [
+            "input-side-effects",
+            "logging-and-timing"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLogging:it:003:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 78,
+                "column": 10,
+                "endLine": 82,
+                "startByte": 2444,
+                "endByte": 2640
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "bea6aeb6aa3b23913d9fdb004ca116cc9190a832eaf5db6f138d09793a81a6c5",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:003:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 80,
+                "column": 13,
+                "endLine": 80,
+                "startByte": 2520,
+                "endByte": 2561
+              },
+              "chainProperties": [
+                "not",
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "ffb9bec149180027bb1cfdd25790a5a35f17d4bf9eabfb5836f0aa933985dbe5",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:003:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 81,
+                "column": 13,
+                "endLine": 81,
+                "startByte": 2574,
+                "endByte": 2629
+              },
+              "chainProperties": [
+                "not",
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "044ea907c7f90ff0a3a34bb34a4bf6e5dc5cc1e3001cd1d2742db4538b022ace",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 72,
+              "column": 18,
+              "endLine": 72,
+              "startByte": 2300,
+              "endByte": 2306
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.export_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLogging:it:004",
+          "title": "should not provide execution times if not requested to.",
+          "mode": "normal",
+          "suites": [
+            "Logging",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 85,
+            "column": 5,
+            "endLine": 93,
+            "startByte": 2653,
+            "endByte": 2952
+          },
+          "behaviorGroups": [
+            "input-side-effects",
+            "logging-and-timing"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLogging:it:004:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 89,
+                "column": 10,
+                "endLine": 92,
+                "startByte": 2821,
+                "endByte": 2945
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "794e5c51da4cca9961ef40af8bf035f6ab42c33befeb291d83803455ff409a23",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:004:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 91,
+                "column": 13,
+                "endLine": 91,
+                "startByte": 2897,
+                "endByte": 2934
+              },
+              "chainProperties": [
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "4c718d7c84f8e18878b840faf4d544fc5c755f0f212576df9866499be96f40ad",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 86,
+              "column": 18,
+              "endLine": 86,
+              "startByte": 2745,
+              "endByte": 2751
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.export_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLogging:it:005",
+          "title": "should not provide logging information by default.",
+          "mode": "normal",
+          "suites": [
+            "Logging",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 95,
+            "column": 5,
+            "endLine": 101,
+            "startByte": 2958,
+            "endByte": 3205
+          },
+          "behaviorGroups": [
+            "input-side-effects",
+            "logging-and-timing"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLogging:it:005:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 97,
+                "column": 10,
+                "endLine": 100,
+                "startByte": 3074,
+                "endByte": 3198
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "794e5c51da4cca9961ef40af8bf035f6ab42c33befeb291d83803455ff409a23",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:005:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 99,
+                "column": 13,
+                "endLine": 99,
+                "startByte": 3150,
+                "endByte": 3187
+              },
+              "chainProperties": [
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "4c718d7c84f8e18878b840faf4d544fc5c755f0f212576df9866499be96f40ad",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 96,
+              "column": 18,
+              "endLine": 96,
+              "startByte": 3045,
+              "endByte": 3051
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.export_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testLogging:it:006",
+          "title": "should clear logging information from previous layout run.",
+          "mode": "normal",
+          "suites": [
+            "Logging",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 103,
+            "column": 5,
+            "endLine": 122,
+            "startByte": 3211,
+            "endByte": 3945
+          },
+          "behaviorGroups": [
+            "input-side-effects",
+            "logging-and-timing"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testLogging:it:006:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 108,
+                "column": 10,
+                "endLine": 121,
+                "startByte": 3404,
+                "endByte": 3938
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then",
+                "then",
+                "should",
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "4c2f4ed29442dd6aab06dc838ddcda14e413e019eecd2495cce68d9465e0c344",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:006:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 111,
+                "column": 13,
+                "endLine": 111,
+                "startByte": 3582,
+                "endByte": 3629
+              },
+              "chainProperties": [
+                "not",
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "d96b0af8388afd458a66d22fad25cf48161f4243dfca2fe87c860d574304f18f",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:006:site:003",
+              "kind": "should-chain",
+              "location": {
+                "line": 118,
+                "column": 10,
+                "endLine": 121,
+                "startByte": 3814,
+                "endByte": 3938
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "e51db60f2d4829cbeb5c87f1888b41ff47d9c97ee3346c171c3a193767b7021d",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testLogging:it:006:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 120,
+                "column": 11,
+                "endLine": 120,
+                "startByte": 3884,
+                "endByte": 3927
+              },
+              "chainProperties": [
+                "to",
+                "be",
+                "undefined"
+              ],
+              "expressionSha256": "1de121e95b67d077591f93c0481ee97b504c47483eeb404d176f94546d684ca2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.execution.context.ExecutionContext",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.model.adapter.export_graph",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 105,
+              "column": 18,
+              "endLine": 105,
+              "startByte": 3342,
+              "endByte": 3348
+            },
+            {
+              "method": "layout",
+              "line": 116,
+              "column": 22,
+              "endLine": 116,
+              "startByte": 3780,
+              "endByte": 3786
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.execution.context.ExecutionContext",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.model.adapter.export_graph",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 6,
+      "staticAssertionRootSites": 17,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testOptions.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "c53f10efc49b5a56d729a5eb9bd2c3ae3e1a8c5e",
+      "sha256": "bbcd59eeaaf227d05e71238e0495aa8dc67ea10e765629a2272e537f049cc624",
+      "byteCount": 6273,
+      "lineCount": 188,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testOptions:it:001",
+          "title": "should respect \"options\"",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 44,
+            "column": 5,
+            "endLine": 55,
+            "startByte": 1398,
+            "endByte": 1906
+          },
+          "behaviorGroups": [
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 49,
+                "column": 10,
+                "endLine": 54,
+                "startByte": 1597,
+                "endByte": 1899
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "9b5324777f18b212b241b1b7cb20a5344fdf8882b6560d99eefb097e78abd683",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:001:site:002",
+              "kind": "assert",
+              "location": {
+                "line": 52,
+                "column": 11,
+                "endLine": 52,
+                "startByte": 1757,
+                "endByte": 1807
+              },
+              "chainProperties": [],
+              "expressionSha256": "e4e26ab1a09273a71a0281e23dd83f5cffbb9ebeb537eafbca35b4c5c8c46b2c",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:001:site:003",
+              "kind": "assert",
+              "location": {
+                "line": 53,
+                "column": 11,
+                "endLine": 53,
+                "startByte": 1818,
+                "endByte": 1888
+              },
+              "chainProperties": [],
+              "expressionSha256": "4e90aa4685aad4c3b520c14447963e831b71166d7a10d740389069af97697b64",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 45,
+              "column": 18,
+              "endLine": 45,
+              "startByte": 1459,
+              "endByte": 1465
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:002",
+          "title": "should not override concrete layout options",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 57,
+            "column": 5,
+            "endLine": 68,
+            "startByte": 1912,
+            "endByte": 2388
+          },
+          "behaviorGroups": [
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 62,
+                "column": 10,
+                "endLine": 67,
+                "startByte": 2106,
+                "endByte": 2381
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "bfa6218367674da9fe7924b68b9fe43b3f97129645628fe955507d3a338000dd",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:002:site:002",
+              "kind": "assert",
+              "location": {
+                "line": 64,
+                "column": 11,
+                "endLine": 64,
+                "startByte": 2180,
+                "endByte": 2235
+              },
+              "chainProperties": [],
+              "expressionSha256": "5e78a70d4d63ec04ea100e4077b95ca1801f5063fab200f781fa14705031f7f3",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:002:site:003",
+              "kind": "assert",
+              "location": {
+                "line": 65,
+                "column": 11,
+                "endLine": 65,
+                "startByte": 2246,
+                "endByte": 2309
+              },
+              "chainProperties": [],
+              "expressionSha256": "0ea727980bdd3d07c450b38f78829e2f3c6e1a5e03821b92a7a4a0c6dac9d03c",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:002:site:004",
+              "kind": "assert",
+              "location": {
+                "line": 66,
+                "column": 11,
+                "endLine": 66,
+                "startByte": 2320,
+                "endByte": 2370
+              },
+              "chainProperties": [],
+              "expressionSha256": "e4e26ab1a09273a71a0281e23dd83f5cffbb9ebeb537eafbca35b4c5c8c46b2c",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 58,
+              "column": 18,
+              "endLine": 58,
+              "startByte": 1992,
+              "endByte": 1998
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:003",
+          "title": "should correctly parse ElkPadding",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 70,
+            "column": 5,
+            "endLine": 84,
+            "startByte": 2394,
+            "endByte": 2955
+          },
+          "behaviorGroups": [
+            "defaults-and-precedence",
+            "options",
+            "padding"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:003:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 77,
+                "column": 10,
+                "endLine": 83,
+                "startByte": 2687,
+                "endByte": 2948
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "1ba103e977ca43772c1d4514619d2979a0a982f4487fa871ec877aad9d2f669b",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.geometry.padding.parse_padding",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:003:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 79,
+                "column": 11,
+                "endLine": 79,
+                "startByte": 2761,
+                "endByte": 2800
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "b62b67613a483878cd6eb95fe495116a3609f47129d46f3caded86e27608d6c5",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.geometry.padding.parse_padding",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:003:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 80,
+                "column": 11,
+                "endLine": 80,
+                "startByte": 2811,
+                "endByte": 2850
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "7fd075376915fb6cbc76569d33a8f161a4deb3d251e0596975911c34d9a760b9",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.geometry.padding.parse_padding",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:003:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 81,
+                "column": 11,
+                "endLine": 81,
+                "startByte": 2861,
+                "endByte": 2893
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "892ca8ccd8c11ae6ccaec32efc7ffe9d0b2bf9caa973564cba36b30e4ff1ac8f",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.geometry.padding.parse_padding",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:003:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 82,
+                "column": 11,
+                "endLine": 82,
+                "startByte": 2904,
+                "endByte": 2937
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "db8ceb13e37a5387a371053c7cb31e101e65e28b8b36a20c367e2ee0ddc573e6",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.geometry.padding.parse_padding",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 76,
+              "column": 18,
+              "endLine": 76,
+              "startByte": 2657,
+              "endByte": 2663
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.geometry.padding.parse_padding",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:004",
+          "title": "should correctly parse KVector",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 86,
+            "column": 5,
+            "endLine": 105,
+            "startByte": 2961,
+            "endByte": 3502
+          },
+          "behaviorGroups": [
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:004:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 100,
+                "column": 10,
+                "endLine": 104,
+                "startByte": 3333,
+                "endByte": 3495
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "0abcd4b4fec3b7ca168de6daf19284accdb4b0cacee6970eeb28e3b3ba1af727",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:004:site:002",
+              "kind": "assert",
+              "location": {
+                "line": 102,
+                "column": 11,
+                "endLine": 102,
+                "startByte": 3407,
+                "endByte": 3440
+              },
+              "chainProperties": [],
+              "expressionSha256": "be4459f02f5e6cf73c8d83a7ab29e4653529451c56b4caba0b8cca0ec1c66046",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:004:site:003",
+              "kind": "assert",
+              "location": {
+                "line": 103,
+                "column": 11,
+                "endLine": 103,
+                "startByte": 3451,
+                "endByte": 3484
+              },
+              "chainProperties": [],
+              "expressionSha256": "80a29c7d24da5ae24b16dca95650c063a8067fb02e9acb87bdee046e7822f11e",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 96,
+              "column": 18,
+              "endLine": 96,
+              "startByte": 3233,
+              "endByte": 3239
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:005",
+          "title": "should correctly parse KVectorChain",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 107,
+            "column": 5,
+            "endLine": 132,
+            "startByte": 3508,
+            "endByte": 4408
+          },
+          "behaviorGroups": [
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:005:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 125,
+                "column": 8,
+                "endLine": 131,
+                "startByte": 4053,
+                "endByte": 4401
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "e9955c525fc58fae7e28b46c9270c4b198531696d8564fe4646bab7d9f9df661",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:005:site:002",
+              "kind": "expect",
+              "location": {
+                "line": 127,
+                "column": 11,
+                "endLine": 127,
+                "startByte": 4125,
+                "endByte": 4184
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "f076d6c1206c576dbb040b68964ed1070396fff0e1fe747abbb2ee5dc9d9a6a6",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:005:site:003",
+              "kind": "expect",
+              "location": {
+                "line": 128,
+                "column": 11,
+                "endLine": 128,
+                "startByte": 4195,
+                "endByte": 4254
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "e02d23e1fa75455d50e1a840aa1ce1e14d034fd6c0e98f31454dadb23b00ac38",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:005:site:004",
+              "kind": "expect",
+              "location": {
+                "line": 129,
+                "column": 11,
+                "endLine": 129,
+                "startByte": 4265,
+                "endByte": 4322
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "98ddc7c1d8753877bcdc44a0a28dfdf96a941a7d0e5ae22fbf082479f218d8de",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:005:site:005",
+              "kind": "expect",
+              "location": {
+                "line": 130,
+                "column": 11,
+                "endLine": 130,
+                "startByte": 4333,
+                "endByte": 4390
+              },
+              "chainProperties": [
+                "to",
+                "equal"
+              ],
+              "expressionSha256": "2bc28dc6a26ec807a0f92dd9fbebab9d3ebfa330e1e8dd8f8780866e15108743",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 121,
+              "column": 18,
+              "endLine": 121,
+              "startByte": 3952,
+              "endByte": 3958
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:006",
+          "title": "should raise an exception for an invalid layouter id",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 134,
+            "column": 5,
+            "endLine": 144,
+            "startByte": 4414,
+            "endByte": 4888
+          },
+          "behaviorGroups": [
+            "algorithm-selection",
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:006:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 141,
+                "column": 10,
+                "endLine": 143,
+                "startByte": 4683,
+                "endByte": 4881
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejectedWith",
+                "and",
+                "eventually",
+                "have",
+                "property",
+                "that",
+                "satisfies"
+              ],
+              "expressionSha256": "2928d8e31dc7d5826e5c50e2689af8fce62f685a33cc9ac524babcd3ca7aa778",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.metadata.registry.resolve_algorithm",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 140,
+              "column": 18,
+              "endLine": 140,
+              "startByte": 4660,
+              "endByte": 4666
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.metadata.registry.resolve_algorithm",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:007",
+          "title": "should default to elk.layered if no layouter has been specified",
+          "mode": "normal",
+          "suites": [
+            "Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 146,
+            "column": 5,
+            "endLine": 160,
+            "startByte": 4898,
+            "endByte": 5600
+          },
+          "behaviorGroups": [
+            "algorithm-selection",
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:007:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 153,
+                "column": 10,
+                "endLine": 153,
+                "startByte": 5153,
+                "endByte": 5183
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.metadata.registry.resolve_algorithm",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 152,
+              "column": 18,
+              "endLine": 152,
+              "startByte": 5130,
+              "endByte": 5136
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.metadata.registry.resolve_algorithm",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testOptions:it:008",
+          "title": "should respect global layout\"",
+          "mode": "normal",
+          "suites": [
+            "Global Layout Options",
+            "#layout(...)"
+          ],
+          "location": {
+            "line": 177,
+            "column": 5,
+            "endLine": 185,
+            "startByte": 5854,
+            "endByte": 6264
+          },
+          "behaviorGroups": [
+            "defaults-and-precedence",
+            "options"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testOptions:it:008:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 179,
+                "column": 10,
+                "endLine": 184,
+                "startByte": 5955,
+                "endByte": 6257
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled",
+                "then"
+              ],
+              "expressionSha256": "eabad24109d33fb2dbc4b0d46d763296704b069bab7690fb7081f949ed598c22",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:008:site:002",
+              "kind": "assert",
+              "location": {
+                "line": 182,
+                "column": 11,
+                "endLine": 182,
+                "startByte": 6115,
+                "endByte": 6165
+              },
+              "chainProperties": [],
+              "expressionSha256": "e4e26ab1a09273a71a0281e23dd83f5cffbb9ebeb537eafbca35b4c5c8c46b2c",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            },
+            {
+              "id": "elkjs:testOptions:it:008:site:003",
+              "kind": "assert",
+              "location": {
+                "line": 183,
+                "column": 11,
+                "endLine": 183,
+                "startByte": 6176,
+                "endByte": 6246
+              },
+              "chainProperties": [],
+              "expressionSha256": "e031ecb015bef2fa60a19319272b59d6bdce6ca243ccc27936b7a5ebf30d7761",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.options.resolve.resolve_options",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 178,
+              "column": 24,
+              "endLine": 178,
+              "startByte": 5926,
+              "endByte": 5932
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.options.resolve.resolve_options",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 8,
+      "staticAssertionRootSites": 25,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testParameters.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "d61539e4e9b52523274ef6aa056544b86db5e255",
+      "sha256": "87af26a6feefc1e958d5ecee01b9583c8eac60e21fd19cb10aaa0e2c91dfe27a",
+      "byteCount": 1352,
+      "lineCount": 39,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testParameters:it:001",
+          "title": "should be rejected if graph is missing",
+          "mode": "normal",
+          "suites": [
+            "Parameters",
+            "#layout()"
+          ],
+          "location": {
+            "line": 26,
+            "column": 5,
+            "endLine": 29,
+            "startByte": 1008,
+            "endByte": 1148
+          },
+          "behaviorGroups": [
+            "api-parameters",
+            "errors"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testParameters:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 28,
+                "column": 10,
+                "endLine": 28,
+                "startByte": 1101,
+                "endByte": 1141
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejectedWith"
+              ],
+              "expressionSha256": "163ea476e7f3c272472831f4097cdf98dd9eae5ea21f52bffff2760e9fedb93a",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK.layout",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 27,
+              "column": 18,
+              "endLine": 27,
+              "startByte": 1083,
+              "endByte": 1089
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK.layout",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        },
+        {
+          "id": "elkjs:testParameters:it:002",
+          "title": "should succeed if a graph is specified ",
+          "mode": "normal",
+          "suites": [
+            "Parameters",
+            "#layout()"
+          ],
+          "location": {
+            "line": 31,
+            "column": 5,
+            "endLine": 34,
+            "startByte": 1154,
+            "endByte": 1294
+          },
+          "behaviorGroups": [
+            "api-parameters",
+            "errors"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testParameters:it:002:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 33,
+                "column": 10,
+                "endLine": 33,
+                "startByte": 1257,
+                "endByte": 1287
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "fulfilled"
+              ],
+              "expressionSha256": "8c1d8d8fcb1257e676ad9ac71fb22377c0d3827f3f714360272744a0e0f834a2",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.elk.ELK.layout",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 32,
+              "column": 18,
+              "endLine": 32,
+              "startByte": 1230,
+              "endByte": 1236
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.elk.ELK.layout",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 2,
+      "staticAssertionRootSites": 2,
+      "todoCommentSites": [
+        {
+          "location": {
+            "line": 36,
+            "column": 5,
+            "endLine": 36,
+            "startByte": 1300,
+            "endByte": 1343
+          },
+          "commentSha256": "bf00174138551af39b090db8d7670548904f2692e5097bca0fbd3dbdfd58b556"
+        }
+      ],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    },
+    {
+      "path": "test/mocha/testRaiseException.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "2810980eee706042e2658ddb77f638a422879954",
+      "sha256": "630f0c171d467b89d70e2f2df9e1edd96120882787f7c6b944a0590ae7897ec9",
+      "byteCount": 2067,
+      "lineCount": 57,
+      "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+      "sourceMode": "canonical-git-blob",
+      "testCases": [
+        {
+          "id": "elkjs:testRaiseException:it:001",
+          "title": "should report an unsupported configuration.",
+          "mode": "normal",
+          "suites": [
+            "Exceptions",
+            "#layout()"
+          ],
+          "location": {
+            "line": 32,
+            "column": 5,
+            "endLine": 37,
+            "startByte": 1137,
+            "endByte": 1446
+          },
+          "behaviorGroups": [
+            "algorithm-selection",
+            "errors"
+          ],
+          "assertionSites": [
+            {
+              "id": "elkjs:testRaiseException:it:001:site:001",
+              "kind": "should-chain",
+              "location": {
+                "line": 34,
+                "column": 10,
+                "endLine": 36,
+                "startByte": 1241,
+                "endByte": 1439
+              },
+              "chainProperties": [
+                "eventually",
+                "be",
+                "rejectedWith",
+                "and",
+                "eventually",
+                "have",
+                "property",
+                "that",
+                "satisfies"
+              ],
+              "expressionSha256": "2928d8e31dc7d5826e5c50e2689af8fce62f685a33cc9ac524babcd3ca7aa778",
+              "pythonTargets": [
+                {
+                  "symbol": "pyelk.errors.ELKError",
+                  "status": "planned",
+                  "existsClaimed": false
+                },
+                {
+                  "symbol": "pyelk.metadata.registry.resolve_algorithm",
+                  "status": "planned",
+                  "existsClaimed": false
+                }
+              ],
+              "executionStatus": "not_executed"
+            }
+          ],
+          "apiCallSites": [
+            {
+              "method": "layout",
+              "line": 33,
+              "column": 18,
+              "endLine": 33,
+              "startByte": 1218,
+              "endByte": 1224
+            }
+          ],
+          "controlFlowSites": [],
+          "dynamicTitle": false,
+          "pythonTargets": [
+            {
+              "symbol": "pyelk.errors.ELKError",
+              "status": "planned",
+              "existsClaimed": false
+            },
+            {
+              "symbol": "pyelk.metadata.registry.resolve_algorithm",
+              "status": "planned",
+              "existsClaimed": false
+            }
+          ],
+          "executionStatus": "not_executed"
+        }
+      ],
+      "staticTestCaseSites": 1,
+      "staticAssertionRootSites": 1,
+      "todoCommentSites": [],
+      "opaqueSyntaxSites": [],
+      "possibleDynamicRegistrationSites": []
+    }
+  ],
+  "projectFixtureManifestSha256": "73237f14b3753ff4feaff8866ea0cfbcdb39e5b269a31917486a16fda34875cc",
+  "projectCases": [
+    {
+      "id": "project:layered-empty",
+      "caseId": "layered-empty",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-empty.json",
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-singleton",
+      "caseId": "layered-singleton",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-singleton.json",
+      "requestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-chain",
+      "caseId": "layered-chain",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-chain.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-fork",
+      "caseId": "layered-fork",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-fork.json",
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-join",
+      "caseId": "layered-join",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-join.json",
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-diamond-right",
+      "caseId": "layered-diamond-right",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-diamond-right.json",
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-diamond-left",
+      "caseId": "layered-diamond-left",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-diamond-left.json",
+      "requestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-diamond-down",
+      "caseId": "layered-diamond-down",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-diamond-down.json",
+      "requestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-diamond-up",
+      "caseId": "layered-diamond-up",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-diamond-up.json",
+      "requestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-long-edge",
+      "caseId": "layered-long-edge",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-long-edge.json",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-cycle",
+      "caseId": "layered-cycle",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-cycle.json",
+      "requestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-self-loop",
+      "caseId": "layered-self-loop",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-self-loop.json",
+      "requestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "behaviorGroups": [
+        "project-basic-layered",
+        "self-loop"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:test-bug-63:it:001"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.algorithms.layered.routing",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-parallel-edges",
+      "caseId": "layered-parallel-edges",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-parallel-edges.json",
+      "requestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-disconnected",
+      "caseId": "layered-disconnected",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-disconnected.json",
+      "requestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-unequal-sizes",
+      "caseId": "layered-unequal-sizes",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-unequal-sizes.json",
+      "requestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-zero-size",
+      "caseId": "layered-zero-size",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-zero-size.json",
+      "requestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-custom-spacing",
+      "caseId": "layered-custom-spacing",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-custom-spacing.json",
+      "requestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "behaviorGroups": [
+        "options",
+        "padding",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.geometry.padding.parse_padding",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.options.resolve.resolve_options",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:layered-unseparated-components",
+      "caseId": "layered-unseparated-components",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/layered-unseparated-components.json",
+      "requestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "behaviorGroups": [
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:options-constructor-default",
+      "caseId": "options-constructor-default",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/options-constructor-default.json",
+      "requestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "behaviorGroups": [
+        "defaults-and-precedence",
+        "options",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.options.resolve.resolve_options",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:options-explicit-empty-replaces-default",
+      "caseId": "options-explicit-empty-replaces-default",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/options-explicit-empty-replaces-default.json",
+      "requestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "behaviorGroups": [
+        "defaults-and-precedence",
+        "options",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.options.resolve.resolve_options",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:options-call-replaces-default",
+      "caseId": "options-call-replaces-default",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/options-call-replaces-default.json",
+      "requestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "behaviorGroups": [
+        "defaults-and-precedence",
+        "options",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.options.resolve.resolve_options",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:options-full-ids",
+      "caseId": "options-full-ids",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/options-full-ids.json",
+      "requestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "behaviorGroups": [
+        "defaults-and-precedence",
+        "options",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:testOptions:it:001",
+        "elkjs:testOptions:it:002",
+        "elkjs:testOptions:it:003",
+        "elkjs:testOptions:it:004",
+        "elkjs:testOptions:it:005",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testOptions:it:008"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "returned",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.options.resolve.resolve_options",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:error-unknown-endpoint",
+      "caseId": "error-unknown-endpoint",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/error-unknown-endpoint.json",
+      "requestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "behaviorGroups": [
+        "errors",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:test-bug-8:it:001",
+        "elkjs:test-bug-8:it:002",
+        "elkjs:test-bug-8:it:003",
+        "elkjs:test-bug-8:it:004",
+        "elkjs:testIds:it:001",
+        "elkjs:testIds:it:002",
+        "elkjs:testIds:it:003",
+        "elkjs:testIds:it:004",
+        "elkjs:testIds:it:005",
+        "elkjs:testIds:it:006",
+        "elkjs:testIds:it:007",
+        "elkjs:testParameters:it:001",
+        "elkjs:testParameters:it:002",
+        "elkjs:testRaiseException:it:001"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "threw",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.errors.ELKError",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:error-unknown-algorithm",
+      "caseId": "error-unknown-algorithm",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/error-unknown-algorithm.json",
+      "requestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "behaviorGroups": [
+        "algorithm-selection",
+        "errors",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:test-bug-8:it:001",
+        "elkjs:test-bug-8:it:002",
+        "elkjs:test-bug-8:it:003",
+        "elkjs:test-bug-8:it:004",
+        "elkjs:testIds:it:001",
+        "elkjs:testIds:it:002",
+        "elkjs:testIds:it:003",
+        "elkjs:testIds:it:004",
+        "elkjs:testIds:it:005",
+        "elkjs:testIds:it:006",
+        "elkjs:testIds:it:007",
+        "elkjs:testOptions:it:006",
+        "elkjs:testOptions:it:007",
+        "elkjs:testParameters:it:001",
+        "elkjs:testParameters:it:002",
+        "elkjs:testRaiseException:it:001"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "threw",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.errors.ELKError",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.metadata.registry.resolve_algorithm",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    },
+    {
+      "id": "project:error-missing-graph",
+      "caseId": "error-missing-graph",
+      "origin": "project-authored",
+      "request": "tests/fixtures/validation/requests/error-missing-graph.json",
+      "requestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "behaviorGroups": [
+        "api-parameters",
+        "errors",
+        "project-basic-layered"
+      ],
+      "relatedUpstreamCaseIds": [
+        "elkjs:test-bug-8:it:001",
+        "elkjs:test-bug-8:it:002",
+        "elkjs:test-bug-8:it:003",
+        "elkjs:test-bug-8:it:004",
+        "elkjs:testIds:it:001",
+        "elkjs:testIds:it:002",
+        "elkjs:testIds:it:003",
+        "elkjs:testIds:it:004",
+        "elkjs:testIds:it:005",
+        "elkjs:testIds:it:006",
+        "elkjs:testIds:it:007",
+        "elkjs:testParameters:it:001",
+        "elkjs:testParameters:it:002",
+        "elkjs:testRaiseException:it:001"
+      ],
+      "relationship": "topic_only; not copied input, assertion coverage, or an upstream test result",
+      "expectedOutcome": "threw",
+      "pythonTargets": [
+        {
+          "symbol": "pyelk.algorithms.layered.pipeline",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.elk.ELK.layout",
+          "status": "planned",
+          "existsClaimed": false
+        },
+        {
+          "symbol": "pyelk.errors.ELKError",
+          "status": "planned",
+          "existsClaimed": false
+        }
+      ],
+      "pythonExecutionStatus": "not_implemented"
+    }
+  ],
+  "totals": {
+    "upstreamSourceFiles": 14,
+    "staticTestCaseSites": 43,
+    "staticAssertionRootSites": 91,
+    "projectCases": 25,
+    "upstreamTestsExecuted": 0,
+    "pythonAlgorithmsVerified": 0,
+    "expandedIndependentAssertionDenominator": null
+  },
+  "openItems": [
+    {
+      "id": "ASSERT-001",
+      "state": "open",
+      "nextAction": "Expand each Chai chain and dynamic registration into separately identified assertions; lexical roots are not assertion totals."
+    },
+    {
+      "id": "ASSERT-002",
+      "state": "open",
+      "nextAction": "Reproduce upstream tests with the exact entrypoint/worker and dependency versions in an isolated development run; no upstream Mocha execution is claimed here."
+    },
+    {
+      "id": "ASSERT-003",
+      "state": "open",
+      "nextAction": "Build explicit first-release assertion-to-candidate mappings; project topic links do not establish coverage, including default/empty replacement, ID edge cases and logging reuse."
+    },
+    {
+      "id": "ASSERT-004",
+      "state": "open",
+      "nextAction": "Add Java algorithm source assertions after exact component lineage is established; the fourteen JS files are not the full ELK test denominator."
+    }
+  ],
+  "limitation": "Static locations and topic links only. No upstream test pass count, complete assertion coverage, Python implementation or coordinate acceptance."
+}

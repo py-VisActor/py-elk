@@ -1,0 +1,208 @@
+{
+  "schema": "py-elk-next-triangulation-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "1a08586012c0ade3e270927e18930f46abff465117d7c9ab70e8918ae21ac2c6",
+  "requestSha256": "56024f4789d35475af957a6601d5195e4d0866247eab6998f16e3a4cf6f10932",
+  "pid": 23272,
+  "parentPid": 41884,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "value-hash-boundaries",
+      "value": {
+        "hashes": [
+          0,
+          -1,
+          2147483648,
+          2147483648
+        ],
+        "coordinates": [
+          [
+            "-0",
+            0
+          ],
+          [
+            0.75,
+            -1.75
+          ],
+          [
+            2147483648,
+            -2147483649
+          ],
+          [
+            1e+30,
+            -1e+30
+          ]
+        ],
+        "fullLayoutValidated": false
+      }
+    },
+    {
+      "id": "collision-bucket-delete-reinsert",
+      "value": {
+        "steps": [
+          [
+            0,
+            2,
+            1,
+            3
+          ],
+          [
+            2,
+            1,
+            3
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            3,
+            0
+          ],
+          [
+            1,
+            3,
+            0
+          ]
+        ],
+        "removedFirst": true,
+        "removedLastCollision": true,
+        "readded": true,
+        "duplicate": false,
+        "size": 3,
+        "fullLayoutValidated": false
+      }
+    },
+    {
+      "id": "asymmetric-degenerate-triangle-lookup",
+      "value": {
+        "broadEqualsRepeated": true,
+        "repeatedEqualsBroad": false,
+        "hashes": [
+          0,
+          0
+        ],
+        "circumcenters": [
+          [
+            "NaN",
+            "Infinity"
+          ],
+          [
+            "NaN",
+            "NaN"
+          ]
+        ],
+        "insertBroadThenRepeated": [
+          "broad",
+          "repeated"
+        ],
+        "insertRepeatedThenBroad": [
+          "repeated"
+        ],
+        "fullLayoutValidated": false
+      }
+    },
+    {
+      "id": "four-point-triangulation-order",
+      "value": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "fullLayoutValidated": false
+      }
+    },
+    {
+      "id": "collinear-duplicate-triangulation",
+      "value": {
+        "edges": [
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "fullLayoutValidated": false
+      }
+    },
+    {
+      "id": "tied-cost-naive-tree-order",
+      "value": {
+        "inputEdgeOrder": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "costCalls": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "tree": {
+          "node": 0,
+          "children": [
+            {
+              "node": 1,
+              "children": [
+                {
+                  "node": 2,
+                  "children": [
+                    {
+                      "node": 3,
+                      "children": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "fullLayoutValidated": false
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "fullLayoutValidated": false
+}

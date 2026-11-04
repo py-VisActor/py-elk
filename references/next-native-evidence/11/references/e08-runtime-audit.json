@@ -1,0 +1,52 @@
+{
+  "schema": "py-elk-e08-runtime-audit/v1",
+  "status": "E08_BOUNDED_HOST_AND_LAYOUT_VERIFIED",
+  "scope": "E08-ADR0007-revision1",
+  "filesSha256": {
+    "references/e08-api-metadata-sources.json": "8f0be362e32f88bbf348875fdf361380b0f4db1b84c41fcaef13b34fec664449",
+    "references/e08-api-validation.json": "91d4edc39a436182091b43f2230493815dc22d8704318b6cc567e967fd7c3fb4",
+    "references/e08-component-approvals.json": "786cf3c1943d70c1186900b8b42a17c07fd1ef224fb9adc46f7f31f8ed886719",
+    "references/e08-execution-sources.json": "c2d4997e4a74961b8b2feebdb4dfd762d2687cbc0d18fbb43038ba5b0be84b6d",
+    "references/e08-host-contract.json": "eb5c45ec399f7e7f27ce2beb6e06fe032ed46c4f74e69748ccb2cf2d2ec7f4fb",
+    "references/e08-installed-check.json": "a1d1be598323f8fb8cdc6bc74c19eac9a44bf9d562204199ee144ef5a7b3f260",
+    "references/e08-metadata-schema.json": "4d258ec6fb90c1a7a72a26ec300b2d9177de20c16a0dd961ebacc69e845444e3"
+  },
+  "kernelScope": "E07-ADR0006-revision1",
+  "suiteCounts": {
+    "E04": 21,
+    "E05": 36,
+    "E06": 52,
+    "E07": 72
+  },
+  "caseCount": 181,
+  "uniqueRequests": 149,
+  "repeat": 3,
+  "nativeDefaultRegistry": {
+    "algorithms": 1,
+    "options": 9,
+    "categories": 1
+  },
+  "referenceDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25
+  },
+  "runtimeReexecuted": false,
+  "historicalExecutionAuthenticated": false,
+  "pythonAlgorithmsVerified": 0,
+  "publicApiAccepted": false,
+  "fullAlgorithmAccepted": false,
+  "packagePublished": false,
+  "scopeLimitation": "Verified explicit bounded native API/host mapping, not complete elkjs API/algorithm/first-release coverage or publication.",
+  "unsupported": [
+    "logging=true",
+    "measureExecutionTime=true",
+    "advanced ports/labels/hierarchy",
+    "algorithms other than bounded layered"
+  ],
+  "resourceLimitations": [
+    "No hard OS memory or CPU quota",
+    "Full Python/platform/performance matrix remains E10"
+  ]
+}

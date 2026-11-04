@@ -1,20 +1,31 @@
 # py-elk 完整实施方案
 
+当前[全部功能已整合到正式源码，统一校验进行中](FULL_NATIVE_IMPLEMENTATION.md)。59 个中间处理器、全部主策略、其它 11 算法、JSON／元数据／递归及持久 worker 已接线；活动修复位置为 `src/pyelk`。下方第 18／19 批的“待实现”描述保留历史语境，不能覆盖机器索引和当前状态。
+
+2026-11-04 用户要求调整实施顺序：采用[先完成全部功能，再统一校验与修复](IMPLEMENTATION_FIRST.md)。实现阶段取消逐模块采集/差分/独审等待，四路同时实装全部功能，只保语法/导入/接口接线检查；统一验收完成前不提升发布及算法通过声明。下方历史审查/验证顺序以该决定为准。
+
+当前按 [19 brief](iterations/NEXT_NATIVE_19.md)执行，18 批成果与限制见[复盘](retrospectives/NEXT_NATIVE_18.md)。新增完整 Polyline、两种 LongestPath、DepthFirst、Simple 和两类非空标签调用已按范围验收；继续 Coffman–Graham、comments、其它 P1 与实际默认值桥。实现时同时核结果、调用顺序和默认值，交叉独审后尽快接真实消费者。独立重写文件使用 MIT，按[发行决定](E11_LICENSE_PROPOSAL.md)逐文件确认来源。
+
+用户最新规则：持续goal完成剩余E09–E21迁移；[变更校验政策](VALIDATION_POLICY.md) 优先。开发只运行变更相关校验，全部功能完成后再统一全量；下文旧逐轮full要求不再作为当前收口前置。
+
+执行效率改进按[E08-00准备批次](iterations/E08-00.md)落地：审计依赖复制瘦身、旧断言迁移预检、固定来源解析复用、按变更范围复验、请求执行去重及提前集成的协作方式。每项均保留原有验收门禁，收益以同机实际前后测量为准；E08公共API实现接在该批次之后。
+
 2026-11-03更新。目标是原生 Python 图布局引擎：以锁定 elkjs 0.12.1 为行为真值，逐项迁移数据、API、元数据、选项和算法，为 py-mermaid 提供布局后端。本文的阶段目标不表示已经实现。
 
 本文定义实现策略与M0–M8架构；具体执行顺序、每轮文件/任务/验收见 [ITERATION_PLAN](ITERATION_PLAN.md)，机器进度索引见 [iteration-plan.json](iteration-plan.json)。
+并行推进按 [PARALLEL_EXECUTION](PARALLEL_EXECUTION.md)：root协调/集成，A/B/V按文件独占拆分；每轮先brief/接口、再并行交付和反审、稳定验收，最后复盘并改进下一轮安排。
 
 ## 1. 边界与当前事实
 
 | 项目 | 当前约定 |
 | --- | --- |
 | 唯一行为基线 | elkjs 0.12.1 / `624ae90aa37110033a8af59c5ccbb292708b4317`，npm integrity 和发行文件 SHA 见 [UPSTREAM](../UPSTREAM.json) |
-| Python | 目标 CPython 3.11+；导入名 `pyelk`，拟定发行名 `py-elk`，版本 `0.0.1a0` 仅代表本地骨架 |
+| Python | 目标 CPython 3.11+；导入名 `pyelk`，拟定发行名 `py-elk`，版本 `0.0.1a0` 为本地实验开发包 |
 | 运行时 | Python 自行计算；不依赖 Node/JS 解释器、JVM、浏览器、`.local` 或其他布局引擎 fallback |
 | 输出 | ELK JSON 中的坐标、尺寸、端口、标签、sections、容器及诊断；不输出图像或承担文字 shaping |
-| 已有产物 | 包元信息、模块边界、来源锁/索引、默认注册元数据、覆盖账本、bootstrap/负控制与开发采集工具 |
+| 已有产物 | 包元信息、来源锁/索引、默认元数据/覆盖账本、有序模型/九项解析/context、真实ELK受限切片及安装对照工具 |
 | 验证工具 | 25例官方graph/错误/副作用、完整差分、平面正交几何、确定性、负控制；见[操作手册](LAYOUT_VALIDATION.md) |
-| 未实现 | `ELK` facade、JSON 模型/选项解析、任何布局算法、完整上游断言映射、集成及发行验收 |
+| 未完成 | 完整API/算法/断言映射、生命周期/性能、集成及正式发行验收；已实现的受限四方向/多组件见[E07手册](E07_DIRECTIONS_COMPONENTS.md) |
 | 上层关系 | py-mermaid 将其布局后端替换成 py-elk；不建立旧 ELK 兼容分支或旧版本坐标验收 |
 
 真实默认注册分母是 **12 个算法、243 个选项、8 个类别**，不是 Python 可用能力。elkjs 仓库索引有 64 个文件，其中 14 个 Mocha 测试文件；文件数不等于独立断言数，也不是 Java ELK 全部测试的数量。逐项状态见 [compatibility](compatibility.json)。
@@ -54,7 +65,7 @@ same case -> locked official elkjs -> raw JSON / error / side effects / metadata
 | `metadata` | 实际实现/注册的算法、选项、类别及适用能力 | 不把参考快照直接返回为支持列表 |
 | py-mermaid adapter（独立 I 阶段） | 上层模型到 ELK JSON、结果回填、选项映射、版本与取消传播 | 不将 Mermaid parser/theme/Canvas 迁进 py-elk |
 
-当前职责目录只有 README，尚无这些模块的实现。唯一 Python 公开成员是版本信息。内部图顺序、PRNG 状态、工作列表及 registry 的生命周期要显式定义；不能让跨实例/跨调用状态污染成为未记录行为。
+当前已有实际model/options/execution与受限layered模块，顶层公开ELK及版本；其他算法/几何公共能力与完整元数据注册仍待实现。内部图顺序、PRNG状态、工作列表及registry生命周期必须显式定义，已有每call隔离不能替代完整并发/取消/资源验收。
 
 ## 2A. Python实现策略
 
@@ -168,7 +179,7 @@ M2 门禁：原生 Python 真实计算、明确实验性范围、完整结构/�
 
 ## 6. M3：独立基础版功能闭环
 
-首版完整范围见 [FIRST_RELEASE_SCOPE](FIRST_RELEASE_SCOPE.md)和 [release-profiles](release-profiles.json)。计划首个正式版本为 0.1.0；当前 0.0.1a0 只用于本地骨架。
+首版完整范围见 [FIRST_RELEASE_SCOPE](FIRST_RELEASE_SCOPE.md)和 [release-profiles](release-profiles.json)。计划首个正式版本为0.1.0；当前0.0.1a0是本地实验开发包，受限切片不替代正式基础范围验收。
 
 基础版采用单层图、字符串 ID、给定节点尺寸、单源单目标 extended edges、基础拓扑和正交路由；冻结 9 项核心选项、完整 ID/elk.* 别名、构造/调用替换和元素优先级。输入保留、错误分类/路径、seed/顺序、async/关闭/并发边界均有独立测试。元数据查询只暴露实际实现范围。
 
@@ -245,7 +256,7 @@ flowchart TD
 
 高风险项尽早处理：Java/生成物来源、默认值、PRNG/浮点、基础路由和许可；先冻结首版范围，再扩完整目标。改变兼容语义/阈值时准备具体 case、原始差异与影响；普通实现选择直接推进。
 
-下一轮执行 [ITERATION_PLAN](ITERATION_PLAN.md) 的E01来源/默认路径审计，再E02兼容规则与E03有序模型/选项；满足组件来源与合同门禁后进入E04真实单边切片。
-已有graph capture/compare/负控制直接复用，扩展缺失的profile、切片套件与算法断言；完整M1门禁仍由 [TASKS](TASKS.md) 的M1-01…08验收。
+E01–E07已有证据：宿主基础、真实19/21/23/25调用链、受限多重图/长边、四方向与多连通分量，72输入验收以[E07记录](changes/20261103-E07.json)为准，复跑见[E07手册](E07_DIRECTIONS_COMPONENTS.md)。按[机器进度](iteration-plan.json)进入E08；新增API/调度/helper与数值分支先重核来源/版权，再机械移植，不泛化E07限定域审批。
+已有graph capture/compare/负控制和显式profile直接复用，继续扩展切片套件与算法断言；完整M1门禁仍由 [TASKS](TASKS.md) 的M1-01…08验收。
 
 每批保留修改前状态、原始失败/oracle、完整数值差异和新证据，source map、回归、双语入口、契约/任务/状态及真实例子同步更新。没有新布局能力时说明相关示例为何不变；不虚报工期或覆盖率。

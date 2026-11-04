@@ -1,0 +1,243 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright Kiel University and others. elkjs0.12.1 worker275e6caf,
+# EC01-09 / HOST14 V external-component source reviews. Native collection
+# adapters follow EC10-18 and existing ADR0010, without GWT heap emulation.
+"""Actual external-port component grouping and three concrete placers."""
+import math
+from ...execution.enum_identity import PORT_SIDE_DOMAIN,PORT_SIDE_ORDER
+from ...execution.enum_collections import EnumSetKeyMap
+from ._component_group_rules import CONSTRAINTS_RULES,MODEL_ORDER_CONSTRAINTS_RULES
+from .components_general import (SimpleRowGraphPlacer,offset_graph,move_graph,
+    _copy_properties,_read,_pending)
+from .graph import Vec2
+from .native_adapters import _read_property
+from .placement import _max as _maximum
+
+_SIDE_SETS={}
+_BASE_RULES=None
+_MODEL_RULES=None
+
+
+def _sides(symbol):
+    if symbol not in _SIDE_SETS:
+        _SIDE_SETS[symbol]=frozenset(()if symbol=='SIDES_NONE'else symbol[6:].split('_'))
+    return _SIDE_SETS[symbol]
+
+
+def _new_map():return EnumSetKeyMap(PORT_SIDE_DOMAIN,PORT_SIDE_ORDER)
+
+
+def _rule_table(rows):
+    result=_new_map()
+    for key,value in rows:
+        key,value=_sides(key),_sides(value);values=result.get(key)
+        if values is None:
+            values=_new_map();values.put(value,True);result.put(key,values)
+        else:values.put(value,True)
+    return result
+
+
+def _base_rules():
+    global _BASE_RULES
+    if _BASE_RULES is None:_BASE_RULES=_rule_table(CONSTRAINTS_RULES)
+    return _BASE_RULES
+
+
+def _model_rules():
+    global _MODEL_RULES
+    _base_rules()
+    if _MODEL_RULES is None:_MODEL_RULES=_rule_table(MODEL_ORDER_CONSTRAINTS_RULES)
+    return _MODEL_RULES
+
+
+def _connections(graph):return _read_property(graph,'EXT_PORT_CONNECTIONS')
+
+
+class ComponentGroup:
+    def __init__(self,component):
+        _base_rules();self.components=_new_map();self.add_component(component)
+    def get_components(self,sides):
+        value=self.components.get(sides)
+        return []if value is None else value
+    def can_add(self,component):
+        constraints=_base_rules().get(_connections(component))
+        if constraints is not None:
+            for sides in constraints.keys():
+                if self.get_components(sides):return False
+        return True
+    def _store(self,component):
+        key=_connections(component);values=self.components.get(key)
+        if values is None:self.components.put(key,[component])
+        else:values.append(component)
+    def add_component(self,component):
+        if not self.can_add(component):return False
+        self._store(component);return True
+    def values(self):return [g for values in self.components.values()for g in values]
+
+
+class ModelOrderComponentGroup(ComponentGroup):
+    def __init__(self,component):
+        _model_rules();self.components=_new_map();self.component_order=[]
+        self.add_component(component);self.component_order.append(component)
+    def can_add(self,component):
+        if not super().can_add(component):return False
+        constraints=_model_rules().get(_connections(component))
+        if constraints is not None:
+            for sides in constraints.keys():
+                if self.get_components(sides):return False
+        return True
+    def add_component(self,component):
+        if not super().add_component(component):return False
+        self.component_order.append(component);return True
+
+
+def _offset_graphs(graphs,x,y):
+    for graph in graphs:offset_graph(graph,x,y)
+
+
+def _horizontal(graphs,spacing):
+    size=Vec2()
+    for graph in graphs:
+        offset_graph(graph,size.x,0.0)
+        size.x+=graph.size.x+spacing;size.y=_maximum(size.y,graph.size.y)
+    if size.y>0:size.y+=spacing
+    return size
+
+
+def _vertical(graphs,spacing):
+    size=Vec2()
+    for graph in graphs:
+        offset_graph(graph,0.0,size.y)
+        size.y+=graph.size.y+spacing;size.x=_maximum(size.x,graph.size.x)
+    if size.x>0:size.x+=spacing
+    return size
+
+
+def _rows(graphs,spacing):
+    if not graphs:return Vec2()
+    width=area=0.0
+    for graph in graphs:
+        width=_maximum(width,graph.size.x);area+=graph.size.x*graph.size.y
+    root=math.sqrt(area)if area>=0 else math.nan
+    width=_maximum(width,root*_read(graphs[0],'ASPECT_RATIO','ASPECT_RATIO_1'))
+    x=y=highest=0.0;broadest=spacing
+    for graph in graphs:
+        if x+graph.size.x>width:x=0.0;y+=highest+spacing;highest=0.0
+        offset_graph(graph,x,y);broadest=_maximum(broadest,x+graph.size.x)
+        highest=_maximum(highest,graph.size.y);x+=graph.size.x+spacing
+    return Vec2(broadest+spacing,y+highest+spacing)
+
+
+def _maxd(*values):
+    result=-1.7976931348623157e308
+    for value in values:
+        if value>result:result=value
+    return result
+
+
+def place_components(group,spacing):
+    def items(name):return group.get_components(_sides('SIDES_'+name))
+    c=_rows(items('NONE'),spacing)
+    n=_horizontal(items('NORTH'),spacing);s=_horizontal(items('SOUTH'),spacing)
+    w=_vertical(items('WEST'),spacing);e=_vertical(items('EAST'),spacing)
+    nw=_horizontal(items('NORTH_WEST'),spacing);ne=_horizontal(items('NORTH_EAST'),spacing)
+    sw=_horizontal(items('SOUTH_WEST'),spacing);se=_horizontal(items('EAST_SOUTH'),spacing)
+    we=_vertical(items('EAST_WEST'),spacing);ns=_horizontal(items('NORTH_SOUTH'),spacing)
+    nwe=_horizontal(items('NORTH_EAST_WEST'),spacing);swe=_horizontal(items('EAST_SOUTH_WEST'),spacing)
+    wns=_vertical(items('NORTH_SOUTH_WEST'),spacing);ens=_vertical(items('NORTH_EAST_SOUTH'),spacing)
+    nesw=_horizontal(items('NORTH_EAST_SOUTH_WEST'),spacing)
+    left=_maxd(nw.x,w.x,sw.x,wns.x);mid=_maxd(n.x,c.x,s.x,nesw.x);ns_width=ns.x
+    right=_maxd(ne.x,e.x,se.x,ens.x);top=_maxd(nw.y,n.y,ne.y,nwe.y)
+    middle=_maxd(w.y,c.y,e.y,nesw.y);we_height=we.y;bottom=_maxd(sw.y,s.y,se.y,swe.y)
+    for name,x,y in(('NONE',left+ns_width,top+we_height),('NORTH_EAST_SOUTH_WEST',left+ns_width,top+we_height),
+      ('NORTH',left+ns_width,0.0),('SOUTH',left+ns_width,top+we_height+middle),
+      ('WEST',0.0,top+we_height),('EAST',left+ns_width+mid,top+we_height),
+      ('NORTH_EAST',left+ns_width+mid,0.0),('SOUTH_WEST',0.0,top+we_height+middle),
+      ('EAST_SOUTH',left+ns_width+mid,top+we_height+middle),('EAST_WEST',0.0,top),
+      ('NORTH_SOUTH',left,0.0),('EAST_SOUTH_WEST',0.0,top+we_height+middle),
+      ('NORTH_EAST_SOUTH',left+ns_width+mid,0.0)):
+        _offset_graphs(items(name),x,y)
+    return Vec2(_maxd(left+mid+ns_width+right,we.x,nwe.x,swe.x),
+                _maxd(top+middle+we_height+bottom,ns.y,wns.y,ens.y))
+
+
+def _compact_if_requested(components,first,target,spacing):
+    if (_read(first,'COMPACTION_CONNECTED_COMPONENTS','COMPACTION_CONNECTED_COMPONENTS_0')
+            and _read(first,'EDGE_ROUTING','EDGE_ROUTING')=='ORTHOGONAL'):
+        from .connected_compactor import compact_components
+        compact_components(components,target,spacing,include_offsets=True)
+
+
+class ComponentGroupGraphPlacer:
+    def __init__(self):self.component_groups=[]
+    def add_component(self,component):
+        for group in self.component_groups:
+            if group.add_component(component):return
+        self.component_groups.append(ComponentGroup(component))
+    def combine(self,components,target):
+        self.component_groups.clear();target.layerless_nodes.clear()
+        if not components:target.size.x=0.0;target.size.y=0.0;return
+        first=components[0];_copy_properties(target,first)
+        for graph in components:self.add_component(graph)
+        offset=Vec2();spacing=_read(first,'SPACING_COMPONENT_COMPONENT','SPACING_COMPONENT_COMPONENT_0')
+        for group in self.component_groups:
+            size=place_components(group,spacing);_offset_graphs(group.values(),offset.x,offset.y)
+            offset.x+=size.x;offset.y+=size.y
+        target.size.x=offset.x-spacing;target.size.y=offset.y-spacing
+        _compact_if_requested(components,first,target,spacing)
+        for group in self.component_groups:
+            for graph in group.values():move_graph(target,graph)
+
+
+class ComponentGroupModelOrderGraphPlacer(ComponentGroupGraphPlacer):
+    def add_component(self,component):
+        if self.component_groups and self.component_groups[-1].add_component(component):return
+        self.component_groups.append(ModelOrderComponentGroup(component))
+    def combine(self,components,target):
+        self.component_groups.clear();target.layerless_nodes.clear()
+        if not components:target.size.x=0.0;target.size.y=0.0;return
+        first=components[0];_copy_properties(target,first)
+        for graph in components:self.add_component(graph)
+        south=Vec2();blocked=Vec2();offset=Vec2();maximum=Vec2()
+        spacing=_read(first,'SPACING_COMPONENT_COMPONENT','SPACING_COMPONENT_COMPONENT_0')
+        def horizontal():return _read_property(target,'DIRECTION')in('LEFT','RIGHT')
+        def vertical():return _read_property(target,'DIRECTION')in('UP','DOWN')
+        def has(group,side):return any(side in key for key in group.components.keys())
+        for group in self.component_groups:
+            if horizontal():
+                offset.x=south.x
+                if has(group,'NORTH'):offset.x=blocked.x
+            elif vertical():
+                offset.y=south.y
+                if has(group,'WEST'):offset.y=blocked.y
+            size=place_components(group,spacing);_offset_graphs(group.values(),offset.x,offset.y)
+            if horizontal():
+                blocked.x=offset.x+size.x;maximum.x=_maximum(maximum.x,blocked.x)
+                if has(group,'SOUTH'):south.x=offset.x+size.x
+                blocked.y=offset.y+size.y;offset.y=blocked.y;maximum.y=_maximum(maximum.y,offset.y)
+            elif vertical():
+                blocked.y=offset.y+size.y;maximum.y=_maximum(maximum.y,blocked.y)
+                if has(group,'EAST'):south.y=offset.y+size.y
+                blocked.x=offset.x+size.x;offset.x=blocked.x;maximum.x=_maximum(maximum.x,offset.x)
+        target.size.x=maximum.x-spacing;target.size.y=maximum.y-spacing
+        _compact_if_requested(components,first,target,spacing)
+        for group in self.component_groups:
+            for graph in group.values():move_graph(target,graph)
+
+
+class ModelOrderRowGraphPlacer(SimpleRowGraphPlacer):
+    def sort_components(self,components,target):pass  # Actual Source31307 empty callback.
+    def place_components(self,components,target,max_row_width,spacing):
+        x=y=highest=start=0.0;broadest=spacing;last=None
+        for graph in components:
+            sides=_connections(graph)
+            if (x+graph.size.x>max_row_width and'NORTH'not in sides
+                    or last is not None and'EAST'in _connections(last)or'WEST'in sides):
+                x=start;y+=highest+spacing;highest=0.0
+            if 'NORTH'in sides:x=broadest+spacing
+            offset_graph(graph,x+graph.offset.x,y+graph.offset.y)
+            broadest=_maximum(broadest,x+graph.size.x)
+            if 'SOUTH'in sides:start=_maximum(start,x+graph.size.x+spacing)
+            graph.offset.x=0.0;graph.offset.y=0.0
+            highest=_maximum(highest,graph.size.y);x+=graph.size.x+spacing;last=graph
+        target.size.x=broadest;target.size.y=y+highest

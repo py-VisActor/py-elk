@@ -1,0 +1,18 @@
+{
+  "parseCases": [
+    {"id": "position", "option": "org.eclipse.elk.position", "value": "(4,5)"},
+    {"id": "chain-pairs", "option": "org.eclipse.elk.bendPoints", "value": "(1,2;3,4)"},
+    {"id": "chain-odd-tail", "option": "org.eclipse.elk.bendPoints", "value": "(1,2,3)"},
+    {"id": "chain-empty", "option": "org.eclipse.elk.junctionPoints", "value": "()"},
+    {"id": "chain-negative-zero", "option": "org.eclipse.elk.bendPoints", "value": "{-0,0;2d,3F}"}
+  ],
+  "graph": {
+    "id": "r",
+    "children": [{"id": "a"}, {"id": "b"}, {"id": "c"}],
+    "edges": [
+      {"id": "e1", "sources": ["a"], "targets": ["b"]},
+      {"id": "e2", "sources": ["b"], "targets": ["c"]}
+    ]
+  },
+  "globalOptions": {"elk.bendPoints": "(1,2;3,4)"}
+}

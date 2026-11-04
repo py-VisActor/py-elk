@@ -1,0 +1,669 @@
+{
+  "schema": "py-elk-native-contract/v1",
+  "profileId": "native-basic-layered-v1",
+  "status": "frozen-design",
+  "revision": 1,
+  "frozenOn": "2026-11-03",
+  "decisionDocument": "docs/decisions/0001-native-contract.md",
+  "baseline": {
+    "upstreamVersion": "0.12.1",
+    "upstreamCommit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "validationScope": "Comparison tooling and source/probe-backed design; no native runtime acceptance",
+  "requestContext": {
+    "requiredForNative": true,
+    "acceptedPythonTypes": [
+      "pathlib.Path",
+      "bytes"
+    ],
+    "encoding": "UTF-8 JSON",
+    "schema": "py-elk-layout-request/v1",
+    "requiredFields": [
+      "schema",
+      "constructor",
+      "graph",
+      "layoutArguments"
+    ],
+    "fingerprint": "SHA256 of original bytes, recomputed by comparator and required to match both observations",
+    "reject": [
+      "missing request",
+      "dict-only or canonically reserialized substitutes",
+      "duplicate JSON keys",
+      "nonfinite numbers",
+      "wrong schema",
+      "fingerprint mismatch"
+    ],
+    "mutation": "Request and observation objects must not be modified by comparison"
+  },
+  "scope": {
+    "successfulGraphs": "Flat root and child nodes with string identity, given finite nonnegative sizes and single-source/single-target extended root edges",
+    "shapeMapping": "Root maps to root; children preserve IDs, count and order; no sorting or positional remapping to another ID",
+    "optionalShapeCollections": "Absent or empty typed arrays may be accepted; nonempty ports/labels/nested child graphs are outside v1",
+    "constructorAndArguments": "Mappings only, as required by the existing layout request schema",
+    "optionContainers": "constructor.defaultLayoutOptions, layoutArguments.layoutOptions and root layoutOptions must be absent or mappings; explicit null/falsy scalars are outside successful native-profile scope even when JS accepts them",
+    "selectors": {
+      "algorithm": {
+        "keys": [
+          "org.eclipse.elk.algorithm",
+          "elk.algorithm"
+        ],
+        "successfulValues": [
+          "org.eclipse.elk.layered",
+          "layered"
+        ],
+        "missing": "Default layered fallback when registered"
+      },
+      "edgeRouting": {
+        "keys": [
+          "org.eclipse.elk.edgeRouting",
+          "elk.edgeRouting"
+        ],
+        "successfulValues": [
+          "ORTHOGONAL"
+        ],
+        "missing": "Layered ORTHOGONAL default"
+      },
+      "scopeOrder": [
+        "root local layoutOptions",
+        "explicit call layoutOptions; an empty mapping replaces constructor defaults",
+        "constructor defaultLayoutOptions only when call layoutOptions is absent"
+      ],
+      "sameScopeMultipleAliases": "Reject in v1 even if values match; this profile does not silently reproduce an unverified resolver",
+      "bareSuffixSelectors": "Outside v1",
+      "unknownSelectorForms": "Fail closed",
+      "successfulNonLayeredAlgorithm": "Outside v1"
+    },
+    "workerParameters": "Any explicit constructor workerUrl or workerFactory key, including null/false, is outside native profile scope",
+    "loggingAndTiming": "Absent or valid boolean flags may be diagnosed; all result logging/timing fields remain exact and are never ignored",
+    "errorCases": "Compare exact named errors with preserved inputs; invalid graph values are not converted by truthiness; only the explicitly described generated shape-hash reference mutation may be projected",
+    "alternateCoordinateFrames": "No acceptance claim for non-default flat coordinate frames",
+    "unsupported": "Fail closed without changing the raw strict report; do not infer runtime rejection of business data from a comparison profile scope failure",
+    "existingUserHashPolicy": "For each original root/child shape with a $H key, reference and candidate result/inputAfter must preserve its original key/value exactly. Any reference overwrite is a native precondition failure even if candidate copies the same overwritten value. This profile rejection does not authorize a runtime to drop or reject caller business data.",
+    "constructorAlgorithmRegistration": "For a successful observation, an explicit constructor.algorithms must be a list of strings including literal short name layered. Additional string entries are layout-diagnostic context only, not evidence of any other algorithm registration or metadata compatibility. Missing list uses the reference default.",
+    "coordinateFrameControls": "Check global and every root/child shape layoutOptions; explicit json.shapeCoords/json.edgeCoords accept only INHERIT in v1. Non-INHERIT frame values and INCLUDE_CHILDREN hierarchy handling are outside v1; do not infer a default frame from truthiness."
+  },
+  "adaptations": [
+    {
+      "id": "NATIVE-INPUT-01",
+      "kind": "native-input-preservation",
+      "referencePath": "/inputAfter",
+      "candidatePath": "/inputAfter",
+      "expectedPublicValue": "Original request.graph",
+      "candidateRequirement": "Exact original graph, including every business field, user-provided geometry and key presence",
+      "referenceSuccessPreconditions": [
+        "Both observations returned",
+        "Reference inputAfter exactly equals its returned result",
+        "Reference constructorAfter and argumentsAfter exactly equal request constructor and layoutArguments"
+      ],
+      "referenceErrorPreconditions": [
+        "Both observations threw",
+        "Reference graph is exactly original after removing only verified newly added root/child shape $H fields",
+        "Reference constructorAfter and argumentsAfter exactly equal original request values"
+      ],
+      "reporting": "Retain complete raw differences and list this explicit input-ownership adaptation; never project candidate input mutations away"
+    },
+    {
+      "id": "GWT-SHAPE-HASH-01",
+      "kind": "reference-generated-field",
+      "allowedReferencePaths": [
+        "/result/$H",
+        "/result/children/<original-index>/$H"
+      ],
+      "errorInputPaths": [
+        "/inputAfter/$H",
+        "/inputAfter/children/<original-index>/$H"
+      ],
+      "preconditions": [
+        "Corresponding original shape had no $H key",
+        "Reference added a finite integer $H; bool is excluded",
+        "Original/reference/candidate shape identity and child order match",
+        "Candidate must not contain an unrequested shape $H"
+      ],
+      "action": "Project only the qualifying reference-added shape field for public-contract comparison, report each actual path/value/rule; keep raw observation intact",
+      "neverAdapt": [
+        "Any user-provided $H, including 0/false/null",
+        "Business/data/options/logging/edge/section or arbitrary nested $H",
+        "Candidate-generated $H, even if equal to reference",
+        "Generated section IDs",
+        "Any other unknown field"
+      ]
+    }
+  ],
+  "protectedFields": {
+    "businessFields": "Full recursive strict equality outside declared geometry numeric paths",
+    "modelArrays": "Original order and identity; no sorting",
+    "sectionIds": "Exact",
+    "errorNameAndMessage": "Exact",
+    "coordinates": "Existing geometric path tolerance only: abs=1e-6, rel=1e-9; no translation/scaling",
+    "candidateThreeInputs": "graph, constructor and layout arguments exact to original request; coordinate tolerance does not apply to input preservation"
+  },
+  "errorContract": {
+    "requiredFields": [
+      "name",
+      "message"
+    ],
+    "comparison": "Exact, with no generic exception-class normalization or message stripping",
+    "pythonDesign": "Future compatibility exceptions may expose an explicit JS-compatible name; Python internal imports/adapter failures must remain harness failures",
+    "runtimeImplementation": "not_implemented",
+    "unknownError": "Remain a raw mismatch or out-of-scope result; never count as compatible by category alone"
+  },
+  "reportContract": {
+    "legacyExactAndCoordinateTolerance": "Retain raw strict meanings for backward compatibility",
+    "fields": [
+      "profile",
+      "exact",
+      "coordinateTolerance",
+      "rawStrict",
+      "publicContract",
+      "adaptations",
+      "inputPreservation",
+      "passed",
+      "lifecycleObservations"
+    ],
+    "strictDefault": "strict",
+    "nativePassedRequires": [
+      "Valid original-byte request fingerprint and supported scope",
+      "Every adaptation precondition satisfied",
+      "Public returned result or named error within existing coordinate policy",
+      "Candidate graph/constructor/arguments exactly unchanged"
+    ],
+    "rawStrict": "Full contract exact and tolerance differences remain independently visible",
+    "lifecycleAcceptance": "NOT_ASSESSED",
+    "geometryAndDeterminism": "Separate checks; profile pass alone does not establish either",
+    "profileDefinition": "Require status frozen-design and revision exactly integer 1, excluding bool; draft/unrecognized definitions are rejected."
+  },
+  "hostDesign": {
+    "status": "design-only; implementation and lifecycle tests belong to E03/E08",
+    "missingVersusNull": "Use key-presence/sentinels, not truthiness. JSON null/false/0/empty string are distinct from omitted/undefined. The request schema does not represent JS undefined; contract probes record its kind separately.",
+    "pythonConvenienceNone": "The planned options=None/args=None Python conveniences denote omitted outer options. This explicit host API design is not a claim that JS null has the same semantics, and is not accepted as null in the JSON request profile.",
+    "optionsPrecedence": "Call layoutOptions replaces constructor defaultLayoutOptions, even {}; root local options win. Unsupported scalar option containers are rejected by the v1 comparison scope rather than silently merged/coerced.",
+    "inputOwnership": "Run on a separate per-call work graph; preserve caller graph, options and arguments; return geometry/logging in the result. Repeated-call contract assertions must inspect returned results and original inputs separately.",
+    "workerParameters": "Future Python API explicitly rejects supplied workerUrl/workerFactory; no JS worker or fallback backend is executed.",
+    "termination": {
+      "target": "Native close operation is idempotent, stops accepting new layout work and releases owned execution resources; not a promise to reproduce FakeWorker TypeError",
+      "futureClosedCall": "Explicit native closed-resource error",
+      "runningAndQueuedPolicy": "Must be implemented and tested with the actual E08 execution model before being publicly claimed",
+      "accepted": false
+    },
+    "concurrency": {
+      "target": "Separate per-call state; same-instance ordering/serialization must be explicit; separate instances must not share mutable layout state",
+      "cpuParallelismClaim": false,
+      "accepted": false
+    },
+    "cancellation": {
+      "target": "Propagate cancellation at defined dispatch/cooperative points; no preemptive CPU-phase latency guarantee from async syntax",
+      "pointsAndRecovery": "E08 implementation/tests required",
+      "accepted": false
+    }
+  },
+  "sourceEvidence": [
+    {
+      "sourceId": "elkjs-api",
+      "path": "src/js/elk-api.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 18,
+          "endLine": 80
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-node-entry",
+      "path": "src/js/main-node.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 19,
+          "endLine": 47
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-java-bridge",
+      "path": "src/java/org/eclipse/elk/js/ElkJs.java",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 162,
+          "endLine": 212
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-worker-identity-hash",
+      "path": "lib/elk-worker.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 19739,
+          "endLine": 19745
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-logging-reuse-test",
+      "path": "test/mocha/testLogging.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "6aea6ffe52ca8eb79a812bc00da29015826a325b88fad7c95cf9e4d493e1a177",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 103,
+          "endLine": 122
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-options-test",
+      "path": "test/mocha/testOptions.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "bbcd59eeaaf227d05e71238e0495aa8dc67ea10e765629a2272e537f049cc624",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 44,
+          "endLine": 82
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-worker-layered-defaults",
+      "path": "lib/elk-worker.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "kind": "canonical-git-blob",
+      "lineRanges": [
+        {
+          "startLine": 48845,
+          "endLine": 48845
+        },
+        {
+          "startLine": 49110,
+          "endLine": 49175
+        },
+        {
+          "startLine": 70766,
+          "endLine": 70836
+        },
+        {
+          "startLine": 32724,
+          "endLine": 32732
+        }
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "id": "OBS-NULL-01",
+      "kind": "official-bundled-probe",
+      "fact": "JS null outer constructor/arguments throw synchronously in the locked bundled entry; they are not equivalent to omission.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "constructor-null",
+          "requestSha256": "0309d633d433f430aa91517077cf2448f1b8f8aeb62d4d0c2b6abcfb7344afc4",
+          "rawObservationSha256": "b8967dc6e9fea4f22ada026d85eddcbeec74e58e8ebdef551bdbe4361db10507"
+        },
+        {
+          "probeId": "layout-arguments-null",
+          "requestSha256": "4c8bfbc48b38d0d0038977accbe69e1a11cee0768babf5f5ca8944f0b597a3a1",
+          "rawObservationSha256": "405b9a170b530fe9d22e386e6e336946635a6ebfc2ab289556f797e3cb029b33"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-api",
+        "elkjs-node-entry"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-FALSY-01",
+      "kind": "official-bundled-probe",
+      "fact": "Several falsy scalar forms are accepted by JS coercion, but that is not automatic native-profile support.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "constructor-false",
+          "requestSha256": "07f33fb6cb347536ea3ee60b7d4b6a30387480908eb523864895cb806faa7fc5",
+          "rawObservationSha256": "f8d99633cfaa2fb1bcd784a4f96f64629f559e76baf12d2ca14c2c13ff9dab16"
+        },
+        {
+          "probeId": "constructor-zero",
+          "requestSha256": "411ca358b9a07cc8272b4604cc2728fe86c6053743a293ef421a99155702748d",
+          "rawObservationSha256": "848bb946a4fc94c431b55b0cd0e2f7e2f7f62448832576fcd55cf809430a5088"
+        },
+        {
+          "probeId": "constructor-empty-string",
+          "requestSha256": "28115d8d98c5567b7b830fcf44f9dd9869ca3553b4a7dfac0c094e382c460317",
+          "rawObservationSha256": "f95609c81a73a92786a4784fc827f10c4923d8deaad3cebd2f0076f1d9991381"
+        },
+        {
+          "probeId": "layout-options-null",
+          "requestSha256": "f758a1797c016d22d6ffbd9181b89033c670afe77483c30ddd009431afd16b80",
+          "rawObservationSha256": "cd370a9031abb7eeaf540c57f451c6e1ddc5a29556771e615017f6b5273b2a0c"
+        },
+        {
+          "probeId": "layout-options-false",
+          "requestSha256": "640e025cd46023cf3e76c27446d34bf50f00bbf4b8f0c31eeaa40e861c968f52",
+          "rawObservationSha256": "835e137bc066464079904968e14018423a2ddd450b63b968de65f8f370616ab6"
+        },
+        {
+          "probeId": "layout-options-zero",
+          "requestSha256": "af69d1c8a23a5c371bd1772ac1c35f3b02bef24d7cd98667a4dcbc90b3cab099",
+          "rawObservationSha256": "84bf12099affb6c0bb87b6644a177e1ef4bb01d0889a391751ee9a2efd96e38b"
+        },
+        {
+          "probeId": "layout-options-empty-string",
+          "requestSha256": "342b50654c5226df1c9cb7370fd628f0dbdcc83744c7f2e50d1e09d3d6f9c2fb",
+          "rawObservationSha256": "31c4ffe05b5e65cd7ffc3dab9233504ab0d902039829ba67cf9c60b983f034cd"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-api",
+        "elkjs-node-entry"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-PRECEDENCE-01",
+      "kind": "official-bundled-probe",
+      "fact": "Call option mappings replace constructor defaults; root local direction overrides the selected global mapping.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "precedence-constructor-default",
+          "requestSha256": "9c65a2d8700481677ccb04182ea55de0085775dd573daba36a19d4eeca2801c2",
+          "rawObservationSha256": "ab33a9625108da7b10051ec37e7603822fa58211b1606f23c6686f690c68b107"
+        },
+        {
+          "probeId": "precedence-empty-call-replaces",
+          "requestSha256": "856d9d12cf45dca1c933ca1fe7176848943e68362a90f250e2e0da0c8570c1a9",
+          "rawObservationSha256": "6b693bffad63a3f0d005199609499a116a83ddbd07e68cf18e6001250e4b1e1f"
+        },
+        {
+          "probeId": "precedence-call-replaces",
+          "requestSha256": "b1174f52ab6196472b2f525460c9fb0ef53f0e67737531888a30a291581753fa",
+          "rawObservationSha256": "5426e12bf73b562c2ccbe556011bf7c91dcff4f31d9554631134c99aeb9c1f64"
+        },
+        {
+          "probeId": "precedence-root-local-wins",
+          "requestSha256": "df982d0eaffc7a7c8b1f1519ddbc39764e25b5c8047adf033ba5b24989ffa4ea",
+          "rawObservationSha256": "108dc4795b23d00003d0e99cebf338dce24606839279986df916597c62e5eed8"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-api"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-LOGGING-REUSE-01",
+      "kind": "official-bundled-probe",
+      "fact": "The same JS graph is mutated: logging appears for the enabled call and is cleared by a subsequent default call; successful inputAfter equals result.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "logging-same-graph-reuse",
+          "requestSha256": "86b5b87429bad1854091fb7aec9239d856a140efe2382ded1dcd32d989836136",
+          "rawObservationSha256": "0b6bed6ad90d8ca9097eb3334c62a5857b7c215a6315c0026f0d6cac25db1b26"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-java-bridge",
+        "elkjs-logging-reuse-test"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-USER-HASH-COLLISION-01",
+      "kind": "official-bundled-probe",
+      "fact": "User-provided falsy root/child $H values are overwritten by the reference. These existing keys are never stripped or adapted by v1; fail closed and preserve the collision differences.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "user-hash-root-zero",
+          "requestSha256": "f299d0456a375c8c56bfef3e36c8589c7c96ff7c72495e9522bc3dec07282652",
+          "rawObservationSha256": "5fdb028e69f4993e39d17eb240cc99be7424f5a7269e46df20e79dc9e95f208d"
+        },
+        {
+          "probeId": "user-hash-child-zero",
+          "requestSha256": "b344d0ceeb7b512b80e93c2456b23026024d1ac260d85c00065dd8e6b9cc93f0",
+          "rawObservationSha256": "04059e77528e960e70b049f4b4a14f01cacd08479e9be700eef351d08950ca95"
+        },
+        {
+          "probeId": "user-hash-root-false",
+          "requestSha256": "491ddbb46817f6b4836a521928d161d12e66c9c09e058b85b993ebc2eed68406",
+          "rawObservationSha256": "dad3ca01e1ed0032920c8df78426361e5529b569e5c5db07512df6d7291c3fc2"
+        },
+        {
+          "probeId": "user-hash-child-false",
+          "requestSha256": "db1cadbed5875bc7f732bf320d61e4e198454b944e21f096a518f51a59d16ff2",
+          "rawObservationSha256": "2ee82b39a8c9999d7a43a7a7bf73b4fe252f150351259578f3eec1766534e7b7"
+        },
+        {
+          "probeId": "user-hash-root-null",
+          "requestSha256": "ee5fa72f3eb06684970d3c414dddf58469c030a48779e7c41139ccfd6380f766",
+          "rawObservationSha256": "0c08f438032295f22920209e13133986ec3eceec0557a7973c6074802103a0ef"
+        },
+        {
+          "probeId": "user-hash-child-null",
+          "requestSha256": "e05ddab000e3280ed6e6d9321578a9efe0a474eca4d453d8afa1474e53af4324",
+          "rawObservationSha256": "58584d499429e62ffd61747e4cd9bca31de986eb44f8308396d39acbb395201a"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-worker-identity-hash"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-USER-HASH-PRESERVED-01",
+      "kind": "official-bundled-probe",
+      "fact": "Truthy user root/child hashes and tested nested business/data hashes are preserved; all remain strict fields.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "user-hash-root-string",
+          "requestSha256": "38fa4fe50d102bcbf6ddd8a63b26bfe0eb6340d49a4827557f2a10abf0c0f8ac",
+          "rawObservationSha256": "680d7ac193989d3b9a6b70247bb86ebbca3de49a6988620b8c1313bce425f565"
+        },
+        {
+          "probeId": "user-hash-child-string",
+          "requestSha256": "5753fb7100b1991fe626fab017defae4aaf1cd832d9a2dfde6e52203d1d5162e",
+          "rawObservationSha256": "d016941905c3f8cef1fee95b8fff428e92fe82bc36417884af1259272884581b"
+        },
+        {
+          "probeId": "user-hash-root-positive-integer",
+          "requestSha256": "21961181e0f5c46c3b3b2452a2fcdf293a4ae8efbb2d48b15c224d27fe57686b",
+          "rawObservationSha256": "045a806e7590710f9d34882027d31f405d13efc3fe5664a8edd3a743c1a44996"
+        },
+        {
+          "probeId": "user-hash-child-positive-integer",
+          "requestSha256": "495c7ee347baa1a08ced7912fe944e8230709f1294cafc1728d808a025e95452",
+          "rawObservationSha256": "6d4f7cef15a3686de4bce5a7d5c7da0f6dc58aa2bd706dc638daa48f0ec64be3"
+        },
+        {
+          "probeId": "user-hash-nested-business",
+          "requestSha256": "0069cf5a8f17854aae88d0713505fa75a44783147858350e20cdc4cc2341ba59",
+          "rawObservationSha256": "041c06a8b0c54c0d92ff8ac708157fe44085097acd486396b007daf3b159cb5f"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-worker-identity-hash"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-ERROR-INPUT-01",
+      "kind": "official-bundled-probe",
+      "fact": "Tested layout errors add only previously missing shape hashes; original graph content is restored exactly when those verified new keys are removed.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "error-unknown-endpoint",
+          "requestSha256": "fa8279d920a4bb7695253e83c59da5eb486faa5047bb2852a6cf79bd458d2a75",
+          "rawObservationSha256": "f0eb9430214add1c947bf05f3c10fc602e9aaf77508658928e6543ef8f367e78"
+        },
+        {
+          "probeId": "error-unknown-algorithm",
+          "requestSha256": "3efc13f412d9d431ecf952977e7d8085bdbfe698a45852b54a0fdcaa3d98ac7a",
+          "rawObservationSha256": "ecd39b4d6d8bbf517b3f8da6783f6b81628734ba2c49b7388c15a3842e644abc"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-java-bridge",
+        "elkjs-worker-identity-hash"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-FAKEWORKER-LIFECYCLE-01",
+      "kind": "official-bundled-probe",
+      "fact": "Locked FakeWorker terminate throws TypeError and subsequent layout still succeeds; this is not a native close contract or lifecycle parity proof.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "lifecycle-terminate-before-layout",
+          "requestSha256": "bb1825509353faa43f6484dcb560271951d8b2f110065170b2c226e7918ba6ea",
+          "rawObservationSha256": "72a9ab77973679cbaa6e4ba9a8051291263061a95550a318f7520a73f0355011"
+        },
+        {
+          "probeId": "lifecycle-repeat-terminate",
+          "requestSha256": "51cfda606b3f1e8116dd97ad4a101cf0c3dbbb8288bbce3825eff17b2649e813",
+          "rawObservationSha256": "0ce7f88ae30e41365e1ff4ffefab432eff5bc9f373dd323715f148df475039c1"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-api",
+        "elkjs-node-entry"
+      ],
+      "pythonRuntimeTested": false
+    },
+    {
+      "id": "OBS-CONSTRUCTOR-DEFAULT-OPTIONS-01",
+      "kind": "official-bundled-probe",
+      "fact": "The tested constructor defaultLayoutOptions undefined/empty/null/false/zero/empty-string shapes all return successfully in JS; non-mapping explicit values remain outside the conservative native successful profile.",
+      "probeManifest": "references/e02-contract-probes.json",
+      "probes": [
+        {
+          "probeId": "constructor-default-options-undefined",
+          "requestSha256": "7d50db4f19e6f1e3d68c0dabb832c87643a5b4ad813d512bf77e9450fb2bb14e",
+          "rawObservationSha256": "5619cc48a6e288577aea31614538c32910146edcc822d42a7b12563ca5963fac"
+        },
+        {
+          "probeId": "constructor-default-options-empty-object",
+          "requestSha256": "c8770761ee98f00505275fe6f2eabc3e578399aaab2ec99ae17964465cd3a2e8",
+          "rawObservationSha256": "9c910a84c352c632696155a3641d6ddceca02609541dcd5b8134b2f5941b73ee"
+        },
+        {
+          "probeId": "constructor-default-options-null",
+          "requestSha256": "01b2f360cd12e4e3d69b460e9b0cd628195d445fe3c20120a2c9d87778d9fca4",
+          "rawObservationSha256": "2510db9b0eabc9679fa2f6e467e762250f7eff5b1982e51f8418bc1943384297"
+        },
+        {
+          "probeId": "constructor-default-options-false",
+          "requestSha256": "229fd810f51c4cdd07a340f2bbdf28a38001f8ca157faef4ce4abe8149347e61",
+          "rawObservationSha256": "a98d4a02986793c350137b2c9a61b79651e2285b0a4f297fc68ad5b9efa87abb"
+        },
+        {
+          "probeId": "constructor-default-options-zero",
+          "requestSha256": "4f307da573d3bc3b8d4f693276de152711a816f447c1a0a79ee9e98834751189",
+          "rawObservationSha256": "7db84e035608e613baa1d2477f9c82fef1d7585e163333e2f6a70ac90e72334c"
+        },
+        {
+          "probeId": "constructor-default-options-empty-string",
+          "requestSha256": "bfc3f95d057c895156c4690af14377fa444f9e6ba9f63dd963afba7f676b242f",
+          "rawObservationSha256": "712af084d41e8f10d0d4e22c62b5eb192d454d2580a52a084b3f2c2f0a9ff2f5"
+        }
+      ],
+      "sourceIds": [
+        "elkjs-api",
+        "elkjs-node-entry"
+      ],
+      "pythonRuntimeTested": false
+    }
+  ],
+  "runtimeClaims": {
+    "implementationAvailable": false,
+    "pythonAlgorithmAccepted": false,
+    "publicApiAccepted": false,
+    "lifecycleAccepted": false,
+    "concurrencyAccepted": false,
+    "cancellationAccepted": false
+  },
+  "pythonAlgorithmsVerified": 0,
+  "unresolved": [
+    {
+      "id": "NATIVE-OPEN-01",
+      "topic": "Actual native API and execution lifecycle",
+      "nextAction": "Implement per-call model/option semantics in E03 and API/state/cancellation/resource behavior in E08, then test actual native calls."
+    },
+    {
+      "id": "NATIVE-OPEN-02",
+      "topic": "Wider coercion, aliases, selectors and feature domains",
+      "nextAction": "Add source/probe-backed resolver support in E03 or a separately versioned profile; do not expand v1 by truthiness or silent ignores."
+    },
+    {
+      "id": "NATIVE-OPEN-03",
+      "topic": "Reference collision with caller-supplied falsy shape $H",
+      "nextAction": "Keep raw collision differences and native input ownership; evaluate a separately documented compatibility policy if required, without dropping caller fields or claiming v1 acceptance."
+    },
+    {
+      "id": "NATIVE-OPEN-04",
+      "topic": "Metadata registration, logging strategy names, timing and advanced graph geometry",
+      "nextAction": "Verify separately in the implementation rounds; this profile does not provide omissions, timestamp tolerance or capability registration proof."
+    }
+  ],
+  "limitation": "Frozen design and comparison-tool profile only. Official probe facts and native design choices are separate. No native ELK API, algorithm, lifecycle or package-release acceptance.",
+  "evidenceSealStatus": "sealed",
+  "defaultFacts": {
+    "kind": "E01 fixed-source and official-default-probe facts; not a resolver implementation",
+    "sourceId": "elkjs-worker-layered-defaults",
+    "algorithmDeclaredDefault": null,
+    "algorithmFallback": "org.eclipse.elk.layered when registered",
+    "directionDeclaredDefault": "UNDEFINED",
+    "directionResolution": "RIGHT when aspect ratio >=1, otherwise DOWN; not a constant RIGHT property default",
+    "padding": {
+      "top": 12,
+      "left": 12,
+      "bottom": 12,
+      "right": 12
+    },
+    "nodeNode": 20,
+    "nodeNodeBetweenLayers": 20,
+    "componentComponent": 20,
+    "separateConnectedComponents": true,
+    "edgeRouting": "ORTHOGONAL",
+    "randomSeed": 1,
+    "projectFixtureExplicitValuesNotDefaults": {
+      "nodeNodeBetweenLayers": 30,
+      "componentComponent": 40,
+      "randomSeed": 7
+    }
+  },
+  "evidenceSeal": {
+    "probeManifestPath": "references/e02-contract-probes.json",
+    "probeManifestSha256": "3ca993ac1747466215f88b22abf8626ea65afefb2dad1a37ade826d1fd84efaa",
+    "probeCount": 56,
+    "probeTool": {
+      "path": "tools/reference/capture_contracts.cjs",
+      "sha256": "563483d28ad38a171bb8a76b96978436d7879906610c9b330a64278d947cbc91"
+    },
+    "allRequestBytesAndRawObservationHashesChecked": true,
+    "ruleHashAlgorithm": "SHA256 of UTF8 compact sorted-key JSON over requestContext/scope/adaptations/protectedFields/errorContract/reportContract/hostDesign",
+    "rulesSha256": "b9b9ecc3623eefbf69b4e78a336c15ec8a8ed184c6e29eb9e77ca319c93cba22",
+    "receiptRevision": 2,
+    "recaptureReason": "Collector cleanup timeout/synchronous-error classification fix; 56 requests and normalized semantic observations remain unchanged, raw evidence identities refreshed explicitly"
+  }
+}

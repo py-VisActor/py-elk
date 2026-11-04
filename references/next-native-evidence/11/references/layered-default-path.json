@@ -1,0 +1,4356 @@
+{
+  "schema": "py-elk-layered-default-path/v1",
+  "status": "E01_AUDITED",
+  "baseline": {
+    "package": "elkjs",
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "bundledSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "sources": [
+    {
+      "id": "elkjs-api",
+      "kind": "git-source",
+      "repository": "https://github.com/kieler/elkjs",
+      "path": "src/js/elk-api.js",
+      "localPath": ".local/upstream-elkjs/src/js/elk-api.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "e0ab45141f2aa338a40a3adde0f5267f296ef66e",
+      "sha256": "0257ec535add79d9e613b3f07417d1e3c603f8d48d6154cd62c6d4326d9b4add",
+      "hashMethod": "canonical git show bytes"
+    },
+    {
+      "id": "elkjs-main-node",
+      "kind": "git-source",
+      "repository": "https://github.com/kieler/elkjs",
+      "path": "src/js/main-node.js",
+      "localPath": ".local/upstream-elkjs/src/js/main-node.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "88ded7e67fe0d431b62e2c4f6d023576893dc765",
+      "sha256": "c1050410d698ebab5cd9fa3e92ab2cbf02c8fccfb3a975e903bf479689ada16c",
+      "hashMethod": "canonical git show bytes"
+    },
+    {
+      "id": "elkjs-java-facade",
+      "kind": "git-source",
+      "repository": "https://github.com/kieler/elkjs",
+      "path": "src/java/org/eclipse/elk/js/ElkJs.java",
+      "localPath": ".local/upstream-elkjs/src/java/org/eclipse/elk/js/ElkJs.java",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "22d4b0c2d148d33c694da7a7b5f0b0ddcc4dc6db",
+      "sha256": "8006b0bee9c363776699e08e71cb01de19a46e2ea8c79c93189d78098976761c",
+      "hashMethod": "canonical git show bytes"
+    },
+    {
+      "id": "elkjs-json-adapter",
+      "kind": "git-source",
+      "repository": "https://github.com/kieler/elkjs",
+      "path": "src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend",
+      "localPath": ".local/upstream-elkjs/src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "550adf7a46fd3e8f6453c3e9a9be6dae494020e6",
+      "sha256": "c968d1589ae1bbe74bf9ee75b45043da8c5b51dcd63e4e16e0cfa43fdf2d0c19",
+      "hashMethod": "canonical git show bytes"
+    },
+    {
+      "id": "npm-worker",
+      "kind": "npm-distribution",
+      "package": "elkjs",
+      "version": "0.12.1",
+      "path": "lib/elk-worker.js",
+      "localPath": ".local/npm-elkjs/package/lib/elk-worker.js",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+    },
+    {
+      "id": "npm-bundled",
+      "kind": "npm-distribution",
+      "package": "elkjs",
+      "version": "0.12.1",
+      "path": "lib/elk.bundled.js",
+      "localPath": ".local/npm-elkjs/package/lib/elk.bundled.js",
+      "sha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+    },
+    {
+      "id": "npm-api",
+      "kind": "npm-distribution",
+      "package": "elkjs",
+      "version": "0.12.1",
+      "path": "lib/elk-api.js",
+      "localPath": ".local/npm-elkjs/package/lib/elk-api.js",
+      "sha256": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d"
+    }
+  ],
+  "entryPath": [
+    {
+      "id": "api-layout",
+      "behavior": "Call layoutOptions replaces constructor defaults, including explicit empty mapping; local graph options are transferred separately",
+      "evidence": [
+        {
+          "sourceId": "elkjs-api",
+          "symbol": "  layout(graph, {",
+          "lineStart": 65,
+          "lineEnd": 86,
+          "spanSha256": "86a733688c9de543e3098f2f7e2345f32695ca2dc120670cd54738523bc4c409",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "elkjs-java-facade",
+          "symbol": "    private static LayoutConfigurator optsToCfg(final JSONObject opts) {",
+          "lineStart": 278,
+          "lineEnd": 282,
+          "spanSha256": "e92f948818463363778cfb1dbc17891c6efab13fa9614138f7c3377dc434507d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "node-worker",
+      "behavior": "Node wrapper uses bundled minified FakeWorker unless explicit workerFactory is supplied",
+      "evidence": [
+        {
+          "sourceId": "elkjs-main-node",
+          "symbol": "    if (!optionsClone.workerFactory) {",
+          "lineStart": 40,
+          "lineEnd": 44,
+          "spanSha256": "1c428bec242230767930cae9fad883787f9ebdaa32054e1b472af6e617e74676",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "json-recursive-layout-export",
+      "behavior": "JsonImporter transforms JSON; global options use NO_OVERWRITE; recursive engine layouts; importer transfers layout into original JSON",
+      "evidence": [
+        {
+          "sourceId": "elkjs-java-facade",
+          "symbol": "    public static void layout(final JavaScriptObject graphObj,",
+          "lineStart": 162,
+          "lineEnd": 221,
+          "spanSha256": "68d391e991790d66d16eb2c31bbe39ed7d6ce1c2dd28dfc0e6271808ddc61589",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function layout_11(graphObj, layoutOptionsObj, optionsObj){",
+          "lineStart": 81878,
+          "lineEnd": 81907,
+          "spanSha256": "1bce2fb0fc147a5562d7bdcce74e15881a55423841982a2562316887b38e5c92",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "algorithm-resolver",
+      "behavior": "Unconfigured nonempty node falls back to org.eclipse.elk.layered if registered; unknown requested algorithm is rejected",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $resolveAlgorithm(node){",
+          "lineStart": 69155,
+          "lineEnd": 69175,
+          "spanSha256": "711ae547f7e93f4a1e2abd8d60691b09ad56341f0540324001ceebc1cf8d5c37",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "layered-provider",
+      "behavior": "ELK graph imports into LGraph; flat/hierarchical branch selected; geometry transfers back unless canceled",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "_.layout = function layout_2(elkgraph, progressMonitor){",
+          "lineStart": 28537,
+          "lineEnd": 28542,
+          "spanSha256": "f86bad3972154ef855ad308b44e0c4c6a5244a46d2614b8e1d87f2775ab2c130",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $importGraph_1(this$static, elkgraph){",
+          "lineStart": 34105,
+          "lineEnd": 34110,
+          "spanSha256": "189c18f2ac0aade6eb27d703f154fee5ee4c0280551e005660a1827408361a88",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $applyLayout_2(this$static, lgraph){",
+          "lineStart": 34610,
+          "lineEnd": 34615,
+          "spanSha256": "36ae23cd94881901234f86b54dbf0ec453594816bc147a96b3f8ca94cc13c5aa",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "flat-coordinator",
+      "behavior": "Prepare graph, split components, run per-component processor list, combine components, resize root",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $doLayout(this$static, lgraph, monitor){",
+          "lineStart": 28205,
+          "lineEnd": 28228,
+          "spanSha256": "8154afd17bf573d03b1a283f6ee0f181b88e3d411534e624db02f726d51f186d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $split_2(this$static, graph){",
+          "lineStart": 30954,
+          "lineEnd": 30991,
+          "spanSha256": "2134c2fa4bb6b77d64389e6e174fb3dd3fe75762e6f166f9212992344f64ada2",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $resizeGraph(lgraph){",
+          "lineStart": 28314,
+          "lineEnd": 28329,
+          "spanSha256": "5384cef7a06c0a414192fe7ea69c4958fbdb416582331ba7e76f4be2780c531d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "assembler",
+      "behavior": "Five enum phases; union phase-specific and graph-configurator additions; sort processors within slots with enum factory comparator; execute each processor in assembled order",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $prepareGraphForLayout(this$static, lgraph){",
+          "lineStart": 28450,
+          "lineEnd": 28472,
+          "spanSha256": "6e38d924b1e97880aee50c5f39874ac84ebd32a92c8b577354d42b37b423cfdc",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $build_0(this$static, graph){",
+          "lineStart": 68772,
+          "lineEnd": 68800,
+          "spanSha256": "6209fb92b622ffde2d9b7897f43a61b8169125e69758d37511ec7cb0d3cabc39",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $retrieveProcessors(this$static, factories){",
+          "lineStart": 68826,
+          "lineEnd": 68831,
+          "spanSha256": "adf39d0468deec3f2a142bf9a15514595baa5bd613a1361d5cbf44d3ddc8ad0f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $layout_1(lgraph, monitor){",
+          "lineStart": 28277,
+          "lineEnd": 28312,
+          "spanSha256": "94124432646edf173bb5c29282089ec2312165c13cabfa6db254f89c950ee84a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    }
+  ],
+  "phases": [
+    {
+      "id": "P1_CYCLE_BREAKING",
+      "defaultStrategy": "GREEDY",
+      "generatedClass": "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+      "evidenceKind": "locked-generated-source-and-runtime-trace",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "CYCLE_BREAKING_STRATEGY_DEFAULT =",
+          "lineStart": 48785,
+          "lineEnd": 48785,
+          "spanSha256": "2a6bfe16273f180658bd4a5520930405b11e1b0fbc321444a7342b0c1f6961d9",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p1cycles', 'GreedyCycleBreaker',",
+          "lineStart": 50541,
+          "lineEnd": 50541,
+          "spanSha256": "59ac0f667c58fba5aa4817f8467702a3c6db36378fb2194407108136927adf40",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "P2_LAYERING",
+      "defaultStrategy": "NETWORK_SIMPLEX",
+      "generatedClass": "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+      "evidenceKind": "locked-generated-source-and-runtime-trace",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "LAYERING_STRATEGY_DEFAULT =",
+          "lineStart": 48787,
+          "lineEnd": 48787,
+          "spanSha256": "866afbb06793c686dac03a9b5664709bf3b4990c770c1b48a2c5cf379004584b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p2layers', 'NetworkSimplexLayerer',",
+          "lineStart": 52100,
+          "lineEnd": 52100,
+          "spanSha256": "54d9c83353cd416529f74c2a7e0514124bb383d34aba6f39fd7e07439e19e861",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "P3_NODE_ORDERING",
+      "defaultStrategy": "LAYER_SWEEP",
+      "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+      "evidenceKind": "locked-generated-source-and-runtime-trace",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "CROSSING_MINIMIZATION_STRATEGY_DEFAULT =",
+          "lineStart": 48804,
+          "lineEnd": 48804,
+          "spanSha256": "6aa54d9cf1f793a3e13b855fb4800ecc1429f38627e07be1ff274d8f8e1e03cb",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+          "lineStart": 53744,
+          "lineEnd": 53744,
+          "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "P4_NODE_PLACEMENT",
+      "defaultStrategy": "BRANDES_KOEPF",
+      "generatedClass": "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+      "evidenceKind": "locked-generated-source-and-runtime-trace",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "NODE_PLACEMENT_STRATEGY_DEFAULT =",
+          "lineStart": 48821,
+          "lineEnd": 48821,
+          "spanSha256": "ca7aba4da6698bf93e83703b25800d2889064ed101a3c285e9a666bea0a50cc0",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p4nodes.bk', 'BKNodePlacer',",
+          "lineStart": 57730,
+          "lineEnd": 57730,
+          "spanSha256": "9adec88eb05685a348cb038125566ff3c0e93a11ec5721a418e7dca1a912f3ca",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "id": "P5_EDGE_ROUTING",
+      "defaultStrategy": "ORTHOGONAL",
+      "generatedClass": "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+      "evidenceKind": "locked-generated-source-and-runtime-trace",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  EDGE_ROUTING_DEFAULT =",
+          "lineStart": 49158,
+          "lineEnd": 49158,
+          "spanSha256": "9a4a339340e0a18dbe7568616cb08adf5586cdfeb92ae9bfbf4e54754e6d228b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p5edges', 'OrthogonalEdgeRouter',",
+          "lineStart": 58156,
+          "lineEnd": 58156,
+          "spanSha256": "490e7dd27a282b3a714ae8d689276239050c39c7daa1f32258031ec5fe9eb17d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    }
+  ],
+  "defaultFlatProcessorSequence": [
+    {
+      "defaultSlot": 0,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EdgeAndLayerConstraintEdgeReverser',",
+        "lineStart": 35425,
+        "lineEnd": 35425,
+        "spanSha256": "d81de6afc9dda21bc8d26cb5c9e90bdc6540a9ff3c287bc78971155ed6fe4ef8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EdgeAndLayerConstraintEdgeReverser',",
+          "lineStart": 35425,
+          "lineEnd": 35425,
+          "spanSha256": "d81de6afc9dda21bc8d26cb5c9e90bdc6540a9ff3c287bc78971155ed6fe4ef8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function EdgeAndLayerConstraintEdgeReverser(){",
+          "lineStart": 35417,
+          "lineEnd": 35418,
+          "spanSha256": "6efa59da10f43d837f418cbfe7bf379ae4ab1ec1ece730e32e3114f51ae97d07",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_5(layeredGraph, monitor){",
+          "lineStart": 35421,
+          "lineEnd": 35424,
+          "spanSha256": "59868a3d85e7800b1b95cb16a71c693af2f2e15cf7c813f1ee5165bd8a860afd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_7",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_7(layeredGraph, monitor){",
+          "lineStart": 35388,
+          "lineEnd": 35394,
+          "spanSha256": "e7c231a5cda6ec01a63a4e9f602aa1a28c117ba6fd2d4d3fc9091493b38d041c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 1,
+      "generatedClass": "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+      "role": "main-phase",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p1cycles', 'GreedyCycleBreaker',",
+        "lineStart": 50541,
+        "lineEnd": 50541,
+        "spanSha256": "59ac0f667c58fba5aa4817f8467702a3c6db36378fb2194407108136927adf40",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p1cycles', 'GreedyCycleBreaker',",
+          "lineStart": 50541,
+          "lineEnd": 50541,
+          "spanSha256": "59ac0f667c58fba5aa4817f8467702a3c6db36378fb2194407108136927adf40",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function GreedyCycleBreaker(){",
+          "lineStart": 50521,
+          "lineEnd": 50525,
+          "spanSha256": "96d04e73c06295fc0ead8d8dac70c93f5ab1e953c0a6310d43b306a5331fc66f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_59(layeredGraph, monitor){",
+          "lineStart": 50532,
+          "lineEnd": 50535,
+          "spanSha256": "8eb1a6fb065184a701c99e26c0185727c751863cfe753635e3cf164bd0dd8ad8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_62",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_62(this$static, layeredGraph, monitor){",
+          "lineStart": 50392,
+          "lineEnd": 50491,
+          "spanSha256": "bf09a7475896ca23d4e2b039a4fe1bc6a464229f4e42566a18434218fc1ef91d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 2,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPreprocessor',",
+        "lineStart": 39880,
+        "lineEnd": 39880,
+        "spanSha256": "d5f5239e7a75d19d68cd09c49f070c19f1bf084b6a71e4ea02d95fbf2a60cc41",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPreprocessor',",
+          "lineStart": 39880,
+          "lineEnd": 39880,
+          "spanSha256": "d5f5239e7a75d19d68cd09c49f070c19f1bf084b6a71e4ea02d95fbf2a60cc41",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LayerConstraintPreprocessor(){",
+          "lineStart": 39870,
+          "lineEnd": 39872,
+          "spanSha256": "fbebc93dd5aa159575246f771cbf4cc89366bfefefafeeb2f5560b3e41c00493",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_30(layeredGraph, monitor){",
+          "lineStart": 39875,
+          "lineEnd": 39878,
+          "spanSha256": "1b7d85d449c4ee6988ffce4a17340eadecbef9ac85d12e3bef2a883629fbc836",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_32",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_32(layeredGraph, monitor){",
+          "lineStart": 39834,
+          "lineEnd": 39849,
+          "spanSha256": "edddce66e838384e0909d1768eea50112721cd4eca8d9a51f1419913de0ce54c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 3,
+      "generatedClass": "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+      "role": "main-phase",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p2layers', 'NetworkSimplexLayerer',",
+        "lineStart": 52100,
+        "lineEnd": 52100,
+        "spanSha256": "54d9c83353cd416529f74c2a7e0514124bb383d34aba6f39fd7e07439e19e861",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p2layers', 'NetworkSimplexLayerer',",
+          "lineStart": 52100,
+          "lineEnd": 52100,
+          "spanSha256": "54d9c83353cd416529f74c2a7e0514124bb383d34aba6f39fd7e07439e19e861",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function NetworkSimplexLayerer(){",
+          "lineStart": 52086,
+          "lineEnd": 52088,
+          "spanSha256": "1aac23c79ccd1bc64a512ffb39589194501abe6d50e1bc9a40a5da2c625ff6c1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_70(theLayeredGraph, monitor){",
+          "lineStart": 52095,
+          "lineEnd": 52098,
+          "spanSha256": "1ddf920e413b7d7b89fe320d069b6549fa3aa95a9335b14b0e024b8f11e61ae7",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_73",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_73(this$static, theLayeredGraph, monitor){",
+          "lineStart": 52044,
+          "lineEnd": 52084,
+          "spanSha256": "c8052655710c38b9ee66e9518dd2022b46a0d035c4d940c759b88773407d16c0",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 4,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPostprocessor',",
+        "lineStart": 39778,
+        "lineEnd": 39778,
+        "spanSha256": "4f3743caf428ec1d732a62bb537758a665e700fcd7e3f39de4e6b33b54609262",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPostprocessor',",
+          "lineStart": 39778,
+          "lineEnd": 39778,
+          "spanSha256": "4f3743caf428ec1d732a62bb537758a665e700fcd7e3f39de4e6b33b54609262",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LayerConstraintPostprocessor(){",
+          "lineStart": 39770,
+          "lineEnd": 39771,
+          "spanSha256": "ea911bd5984d1fe4a785c5c873d443d38e573fe947c148d75067799f907a39ce",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_29(layeredGraph, monitor){",
+          "lineStart": 39774,
+          "lineEnd": 39777,
+          "spanSha256": "b10960f3781f2cc72e54b5fe0ce73ea3d5c1ab8ec345747abff549e94aa70608",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_31",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_31(layeredGraph, monitor){",
+          "lineStart": 39704,
+          "lineEnd": 39725,
+          "spanSha256": "7f13374eb87cd75cb785058a78d2409ad1b9ff56b5756ec788a6f72ff8624c1b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 5,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeSplitter',",
+        "lineStart": 40144,
+        "lineEnd": 40144,
+        "spanSha256": "e84e26ca6bc24806bd8334f9222a616f518da596a8b749014ae8c720df0594b8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeSplitter',",
+          "lineStart": 40144,
+          "lineEnd": 40144,
+          "spanSha256": "e84e26ca6bc24806bd8334f9222a616f518da596a8b749014ae8c720df0594b8",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LongEdgeSplitter(){",
+          "lineStart": 40068,
+          "lineEnd": 40069,
+          "spanSha256": "c8dbc09a82f57a51afa5bb01cd43aaf195b0c52ad921b88948226061532aa0e3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_33(layeredGraph, monitor){",
+          "lineStart": 40140,
+          "lineEnd": 40143,
+          "spanSha256": "c9e241e984ddd04d212b463dd5a62d0b366d3125bfa91b32ee76dab393ffba2d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_35",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_35(layeredGraph, monitor){",
+          "lineStart": 40040,
+          "lineEnd": 40066,
+          "spanSha256": "1864b50a98e1299971ce0088e9ee9642bbf4337dc8628ca709d7f3142eb605c9",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 6,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortSideProcessor',",
+        "lineStart": 41549,
+        "lineEnd": 41549,
+        "spanSha256": "ac2d22717085d8a61a480c8bebea05ce13b161e756e693ebbb9f9ca4c9c18058",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortSideProcessor',",
+          "lineStart": 41549,
+          "lineEnd": 41549,
+          "spanSha256": "ac2d22717085d8a61a480c8bebea05ce13b161e756e693ebbb9f9ca4c9c18058",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function PortSideProcessor(){",
+          "lineStart": 41541,
+          "lineEnd": 41542,
+          "spanSha256": "a7ebb7467d50cd456d83787daddd2c62f584ba5e60fd36d0887df4106793ccea",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_42(layeredGraph, monitor){",
+          "lineStart": 41545,
+          "lineEnd": 41548,
+          "spanSha256": "ccafeeb0e99bcb08f92158ed9341e01cb2d224deeb1219abef4ec6f0d9cf38e4",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_44",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_44(layeredGraph, monitor){",
+          "lineStart": 41506,
+          "lineEnd": 41521,
+          "spanSha256": "3fdbec403a30f2582e782ff080b39fe37bd0a62dd0fc40d42492096b3cd76ce3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 7,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortListSorter',",
+        "lineStart": 41436,
+        "lineEnd": 41436,
+        "spanSha256": "0dc3a2d875ca2def67da626357ff36fa1ccb8c86589db8c6472686d15743c215",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortListSorter',",
+          "lineStart": 41436,
+          "lineEnd": 41436,
+          "spanSha256": "0dc3a2d875ca2def67da626357ff36fa1ccb8c86589db8c6472686d15743c215",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function PortListSorter(){",
+          "lineStart": 41359,
+          "lineEnd": 41361,
+          "spanSha256": "31455c8e3edc19f4f17839e58c491cec6dffda588d2c3ed0f2ccd92090c48b36",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_41(layeredGraph, monitor){",
+          "lineStart": 41431,
+          "lineEnd": 41434,
+          "spanSha256": "259b73bbb4a3624831a3eeb749aac43a114c416a74ae11652cb530394115385a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_43",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_43(layeredGraph, monitor){",
+          "lineStart": 41307,
+          "lineEnd": 41332,
+          "spanSha256": "fa2f3a8e92e6cdd7548aef3904f57ca970130953adfc61648901300453c5dc51",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 8,
+      "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+      "role": "main-phase",
+      "notes": "Main P3 instance uses BARYCENTER; the same class is also used by the optional greedy-switch pass.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+        "lineStart": 53744,
+        "lineEnd": 53744,
+        "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+          "lineStart": 53744,
+          "lineEnd": 53744,
+          "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LayerSweepCrossingMinimizer(cT){",
+          "lineStart": 53727,
+          "lineEnd": 53730,
+          "spanSha256": "de1508a9607f9a707c73dca4f4097f7008ab3ba56c7329f976e86fdcb940e58d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_73(layeredGraph, progressMonitor){",
+          "lineStart": 53738,
+          "lineEnd": 53741,
+          "spanSha256": "ecedd944681b39af1bd6a785d1ee44046daecff3dd827798485e6b52050f01b5",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_76",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_76(this$static, layeredGraph, progressMonitor){",
+          "lineStart": 53616,
+          "lineEnd": 53631,
+          "spanSha256": "1dff3a9e537dfa9f36d3a69394d4ce5bf74a7f43a71bc77bbcb5260da2636712",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 9,
+      "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+      "role": "additional-crossing-pass",
+      "notes": "Second instance is TWO_SIDED_GREEDY_SWITCH, distinguish from BARYCENTER by public monitor task name.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+        "lineStart": 53744,
+        "lineEnd": 53744,
+        "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+          "lineStart": 53744,
+          "lineEnd": 53744,
+          "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LayerSweepCrossingMinimizer(cT){",
+          "lineStart": 53727,
+          "lineEnd": 53730,
+          "spanSha256": "de1508a9607f9a707c73dca4f4097f7008ab3ba56c7329f976e86fdcb940e58d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_73(layeredGraph, progressMonitor){",
+          "lineStart": 53738,
+          "lineEnd": 53741,
+          "spanSha256": "ecedd944681b39af1bd6a785d1ee44046daecff3dd827798485e6b52050f01b5",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_76",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_76(this$static, layeredGraph, progressMonitor){",
+          "lineStart": 53616,
+          "lineEnd": 53631,
+          "spanSha256": "1dff3a9e537dfa9f36d3a69394d4ce5bf74a7f43a71bc77bbcb5260da2636712",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function activateGreedySwitchFor(lgraph){",
+          "lineStart": 28479,
+          "lineEnd": 28489,
+          "spanSha256": "4cd0971bfa4921cf9f7fdb7612739757941a0e5a72b53a00bdb2656f4a9670e0",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "    $addBefore(configuration, ($clinit_LayeredPhases() , P4_NODE_PLACEMENT), internalGreedyType);",
+          "lineStart": 28435,
+          "lineEnd": 28435,
+          "spanSha256": "8ad422dfffa412597b00161024cb21f1efde3a52cac4e363f226a66476db74fb",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ]
+    },
+    {
+      "defaultSlot": 10,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InLayerConstraintProcessor',",
+        "lineStart": 38128,
+        "lineEnd": 38128,
+        "spanSha256": "50ff78582337e655581e88e17f8f3c72fdb60fe0e2f0a744cf223d10fc65259b",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InLayerConstraintProcessor',",
+          "lineStart": 38128,
+          "lineEnd": 38128,
+          "spanSha256": "50ff78582337e655581e88e17f8f3c72fdb60fe0e2f0a744cf223d10fc65259b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function InLayerConstraintProcessor(){",
+          "lineStart": 38120,
+          "lineEnd": 38121,
+          "spanSha256": "79e6dd803f9ab6fb738bdde3f268d26b24d075920cc247cd4593dd2210a53021",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_19(layeredGraph, monitor){",
+          "lineStart": 38124,
+          "lineEnd": 38127,
+          "spanSha256": "71d0ba57503bcaf69f325e91e28836083bdd7dd2b426ad3e4d014a396350e304",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_21",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_21(layeredGraph, monitor){",
+          "lineStart": 38090,
+          "lineEnd": 38118,
+          "spanSha256": "f6b4bc93c55f4d7e39f85a955fe01ae4654cb9f2d85632b798e74d06c3ba3958",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 11,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LabelAndNodeSizeProcessor',",
+        "lineStart": 38816,
+        "lineEnd": 38816,
+        "spanSha256": "b3a7bf9e12d0330b791b1f8a138fa985f27c8206f4cc17bd651e9305009dab1a",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LabelAndNodeSizeProcessor',",
+          "lineStart": 38816,
+          "lineEnd": 38816,
+          "spanSha256": "b3a7bf9e12d0330b791b1f8a138fa985f27c8206f4cc17bd651e9305009dab1a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LabelAndNodeSizeProcessor(){",
+          "lineStart": 38808,
+          "lineEnd": 38809,
+          "spanSha256": "c95d4e0d9df7989bf6f05ddc24d08f47225f892a8397ec279363f63a78d9a326",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_23(layeredGraph, monitor){",
+          "lineStart": 38812,
+          "lineEnd": 38815,
+          "spanSha256": "75dfce12f9dbe04e339ba81e20dd5097bf6293c3837bae3bf52baee7f0f11838",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_25",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_25(layeredGraph, monitor){",
+          "lineStart": 38792,
+          "lineEnd": 38806,
+          "spanSha256": "9ef115d7e0c14a81c83078388dcd6f6fc0575ff6c112361a03fe95d164ac80b4",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 12,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InnermostNodeMarginCalculator',",
+        "lineStart": 38143,
+        "lineEnd": 38143,
+        "spanSha256": "755b9c8d75a724e8a9baa7e43ef618fd5ff0e03fb8b10e5fdd7012883da823a3",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InnermostNodeMarginCalculator',",
+          "lineStart": 38143,
+          "lineEnd": 38143,
+          "spanSha256": "755b9c8d75a724e8a9baa7e43ef618fd5ff0e03fb8b10e5fdd7012883da823a3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function InnermostNodeMarginCalculator(){",
+          "lineStart": 38135,
+          "lineEnd": 38136,
+          "spanSha256": "99192146d1c5e27b00f4d16286623df39998dcf43c7c7aaf6d210b648608d51f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_20(layeredGraph, monitor){",
+          "lineStart": 38139,
+          "lineEnd": 38142,
+          "spanSha256": "0c4a9d95006bf9e0efde89a8c47156b79783f568f87227f814901950f75b493b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_22",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_22(layeredGraph, monitor){",
+          "lineStart": 38129,
+          "lineEnd": 38133,
+          "spanSha256": "fc47a532b65db9fa4b6a74e7c13111839710c4fb7bc93ff3c8c3de5f3533165f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 13,
+      "generatedClass": "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+      "role": "main-phase",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p4nodes.bk', 'BKNodePlacer',",
+        "lineStart": 57730,
+        "lineEnd": 57730,
+        "spanSha256": "9adec88eb05685a348cb038125566ff3c0e93a11ec5721a418e7dca1a912f3ca",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p4nodes.bk', 'BKNodePlacer',",
+          "lineStart": 57730,
+          "lineEnd": 57730,
+          "spanSha256": "9adec88eb05685a348cb038125566ff3c0e93a11ec5721a418e7dca1a912f3ca",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function BKNodePlacer(){",
+          "lineStart": 57661,
+          "lineEnd": 57664,
+          "spanSha256": "562ed943949b98c8ff9a80c181557b3fcc7ee2015d04ceaacf0b1021fc76f690",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_79(layeredGraph, monitor){",
+          "lineStart": 57724,
+          "lineEnd": 57727,
+          "spanSha256": "0965fce31f8d0626f4004286aa33a0a1efc4f907b2a20d713115793dcdd8297a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_82",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_82(this$static, layeredGraph, monitor){",
+          "lineStart": 57564,
+          "lineEnd": 57659,
+          "spanSha256": "6904f26a5f4ce98c5fa9c9aef1738fbb56b19be586b10bcc79fcf415097aec9e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 14,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerSizeAndGraphHeightCalculator',",
+        "lineStart": 39972,
+        "lineEnd": 39972,
+        "spanSha256": "f3d4987f28b5c1da848a8f8a14a248545168c2cbd5a90cd778122f7c14fff16e",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerSizeAndGraphHeightCalculator',",
+          "lineStart": 39972,
+          "lineEnd": 39972,
+          "spanSha256": "f3d4987f28b5c1da848a8f8a14a248545168c2cbd5a90cd778122f7c14fff16e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LayerSizeAndGraphHeightCalculator(){",
+          "lineStart": 39964,
+          "lineEnd": 39965,
+          "spanSha256": "28511783c042e133fe77360dd14cff5b68fa6fa658e2e3e1a11481f5a09807fd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_31(layeredGraph, monitor){",
+          "lineStart": 39968,
+          "lineEnd": 39971,
+          "spanSha256": "3fa6327987dac7bee35cbd2704e600f206714eacc24d67b366fd8512cc76ca17",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_33",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_33(layeredGraph, monitor){",
+          "lineStart": 39924,
+          "lineEnd": 39962,
+          "spanSha256": "3a3c36aacd544e027219bb5d63a69b90f42b610e7953d1ebf8bb555dd55ea4c3",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 15,
+      "generatedClass": "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+      "role": "main-phase",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p5edges', 'OrthogonalEdgeRouter',",
+        "lineStart": 58156,
+        "lineEnd": 58156,
+        "spanSha256": "490e7dd27a282b3a714ae8d689276239050c39c7daa1f32258031ec5fe9eb17d",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.p5edges', 'OrthogonalEdgeRouter',",
+          "lineStart": 58156,
+          "lineEnd": 58156,
+          "spanSha256": "490e7dd27a282b3a714ae8d689276239050c39c7daa1f32258031ec5fe9eb17d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function OrthogonalEdgeRouter(){",
+          "lineStart": 58142,
+          "lineEnd": 58144,
+          "spanSha256": "6618a3b7cec5edaf598df437e85d7a81b8024e219138328ca8f6c9a508715dff",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_80(layeredGraph, monitor){",
+          "lineStart": 58151,
+          "lineEnd": 58154,
+          "spanSha256": "e0b68f11e47dfa5ff8cd2cea55938a67e7c4b22820ea10ffcad66566bd375723",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_84",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_84(layeredGraph, monitor){",
+          "lineStart": 58101,
+          "lineEnd": 58140,
+          "spanSha256": "ede3b815c5955d3978064ec257f61b00f7695ca35019d355bf398ce4c067e369",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 16,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeJoiner',",
+        "lineStart": 40039,
+        "lineEnd": 40039,
+        "spanSha256": "d0a1ef44853969a8441e098586adf55940937cd0ada1c518574266e4184da157",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeJoiner',",
+          "lineStart": 40039,
+          "lineEnd": 40039,
+          "spanSha256": "d0a1ef44853969a8441e098586adf55940937cd0ada1c518574266e4184da157",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function LongEdgeJoiner(){",
+          "lineStart": 39991,
+          "lineEnd": 39992,
+          "spanSha256": "718c53f01c97143cbbe125be4ec0d56e26a5c3e0d20917683c0f140644246964",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_32(layeredGraph, monitor){",
+          "lineStart": 40035,
+          "lineEnd": 40038,
+          "spanSha256": "098f1d1ac5a2f98af97e8cf237e3e320053bacfccf2007fd8f1245a7617cdf73",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_34",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_34(layeredGraph, monitor){",
+          "lineStart": 39973,
+          "lineEnd": 39989,
+          "spanSha256": "af40e3f81711535c25e865479ab1dd0808df79acee99adf88428b76d547260dd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 17,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EndLabelSorter',",
+        "lineStart": 35876,
+        "lineEnd": 35876,
+        "spanSha256": "449b65dacfc30388e5f5200d715a298fbc1ce4e4c69e2adb7f16b8e089866986",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EndLabelSorter',",
+          "lineStart": 35876,
+          "lineEnd": 35876,
+          "spanSha256": "449b65dacfc30388e5f5200d715a298fbc1ce4e4c69e2adb7f16b8e089866986",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function EndLabelSorter(){",
+          "lineStart": 35866,
+          "lineEnd": 35868,
+          "spanSha256": "b532462a1da19c9eccfe2f0297e182f0050e66848891a13bfe9687190796170b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_8(layeredGraph, monitor){",
+          "lineStart": 35871,
+          "lineEnd": 35874,
+          "spanSha256": "e89d5fd947c481f33ec7d30d3e9a9f954367fc5f84b5c67b181df83671138b2d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_10",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_10(layeredGraph, monitor){",
+          "lineStart": 35830,
+          "lineEnd": 35834,
+          "spanSha256": "d3c80ff2add272315f6a63d7e003150ed72e2ffa5d099536c7911912bdbe1cdd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    },
+    {
+      "defaultSlot": 18,
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+      "role": "intermediate",
+      "notes": "Invoked in the default flat two-node request; invocation does not prove nonempty work in its body.",
+      "source": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'ReversedEdgeRestorer',",
+        "lineStart": 41578,
+        "lineEnd": 41578,
+        "spanSha256": "0f852ea53f5d308bce9ae7bd70d052b95a41312901085d490a47c329842476d1",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "implementation": {
+        "generatedClass": "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "classIdentity": {
+          "sourceId": "npm-worker",
+          "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'ReversedEdgeRestorer',",
+          "lineStart": 41578,
+          "lineEnd": 41578,
+          "spanSha256": "0f852ea53f5d308bce9ae7bd70d052b95a41312901085d490a47c329842476d1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "constructor": {
+          "sourceId": "npm-worker",
+          "symbol": "function ReversedEdgeRestorer(){",
+          "lineStart": 41570,
+          "lineEnd": 41571,
+          "spanSha256": "17877096b8c04a2b568c198c13e0ed386ba14eb33c139474af9184d461448338",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processDispatch": {
+          "sourceId": "npm-worker",
+          "symbol": "_.process = function process_43(layeredGraph, monitor){",
+          "lineStart": 41574,
+          "lineEnd": 41577,
+          "spanSha256": "cf2d0528e3b87cf08646cb561db36b400b46d1627197e0c4cd53ae29b5d64715",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "processSymbol": "$process_46",
+        "processImplementation": {
+          "sourceId": "npm-worker",
+          "symbol": "function $process_46(layeredGraph, monitor){",
+          "lineStart": 41550,
+          "lineEnd": 41568,
+          "spanSha256": "d85bb870bdb5fef6c0cdc4640d815820b2c6337473088cca1f570f3db86e7c81",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+      },
+      "conditionEvidence": []
+    }
+  ],
+  "processorCatalog": [
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EdgeAndLayerConstraintEdgeReverser',",
+        "lineStart": 35425,
+        "lineEnd": 35425,
+        "spanSha256": "d81de6afc9dda21bc8d26cb5c9e90bdc6540a9ff3c287bc78971155ed6fe4ef8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function EdgeAndLayerConstraintEdgeReverser(){",
+        "lineStart": 35417,
+        "lineEnd": 35418,
+        "spanSha256": "6efa59da10f43d837f418cbfe7bf379ae4ab1ec1ece730e32e3114f51ae97d07",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_5(layeredGraph, monitor){",
+        "lineStart": 35421,
+        "lineEnd": 35424,
+        "spanSha256": "59868a3d85e7800b1b95cb16a71c693af2f2e15cf7c813f1ee5165bd8a860afd",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_7",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_7(layeredGraph, monitor){",
+        "lineStart": 35388,
+        "lineEnd": 35394,
+        "spanSha256": "e7c231a5cda6ec01a63a4e9f602aa1a28c117ba6fd2d4d3fc9091493b38d041c",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'EndLabelSorter',",
+        "lineStart": 35876,
+        "lineEnd": 35876,
+        "spanSha256": "449b65dacfc30388e5f5200d715a298fbc1ce4e4c69e2adb7f16b8e089866986",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function EndLabelSorter(){",
+        "lineStart": 35866,
+        "lineEnd": 35868,
+        "spanSha256": "b532462a1da19c9eccfe2f0297e182f0050e66848891a13bfe9687190796170b",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_8(layeredGraph, monitor){",
+        "lineStart": 35871,
+        "lineEnd": 35874,
+        "spanSha256": "e89d5fd947c481f33ec7d30d3e9a9f954367fc5f84b5c67b181df83671138b2d",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_10",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_10(layeredGraph, monitor){",
+        "lineStart": 35830,
+        "lineEnd": 35834,
+        "spanSha256": "d3c80ff2add272315f6a63d7e003150ed72e2ffa5d099536c7911912bdbe1cdd",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'GraphTransformer',",
+        "lineStart": 36792,
+        "lineEnd": 36792,
+        "spanSha256": "7a92b89b98763d9d50e09a8946d85e0aa73f91ca8afaf602ec16e3a6345739c2",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function GraphTransformer(themode){",
+        "lineStart": 36783,
+        "lineEnd": 36785,
+        "spanSha256": "42d2ea624726164d639e4612646e496dabc400c0f6fb6a8c64837a3f164a1d21",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_10(layeredGraph, monitor){",
+        "lineStart": 36788,
+        "lineEnd": 36791,
+        "spanSha256": "45caa9ebad945b562debc6b4825d09f2c8453798e902e28498d6812cb9be19d8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_12",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_12(this$static, layeredGraph, monitor){",
+        "lineStart": 36556,
+        "lineEnd": 36618,
+        "spanSha256": "6aa90476a3758fb513d52edeb6fb811ce3ae21b9f27d0213ec3cfa8f6ca4ea9c",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InLayerConstraintProcessor',",
+        "lineStart": 38128,
+        "lineEnd": 38128,
+        "spanSha256": "50ff78582337e655581e88e17f8f3c72fdb60fe0e2f0a744cf223d10fc65259b",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function InLayerConstraintProcessor(){",
+        "lineStart": 38120,
+        "lineEnd": 38121,
+        "spanSha256": "79e6dd803f9ab6fb738bdde3f268d26b24d075920cc247cd4593dd2210a53021",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_19(layeredGraph, monitor){",
+        "lineStart": 38124,
+        "lineEnd": 38127,
+        "spanSha256": "71d0ba57503bcaf69f325e91e28836083bdd7dd2b426ad3e4d014a396350e304",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_21",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_21(layeredGraph, monitor){",
+        "lineStart": 38090,
+        "lineEnd": 38118,
+        "spanSha256": "f6b4bc93c55f4d7e39f85a955fe01ae4654cb9f2d85632b798e74d06c3ba3958",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'InnermostNodeMarginCalculator',",
+        "lineStart": 38143,
+        "lineEnd": 38143,
+        "spanSha256": "755b9c8d75a724e8a9baa7e43ef618fd5ff0e03fb8b10e5fdd7012883da823a3",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function InnermostNodeMarginCalculator(){",
+        "lineStart": 38135,
+        "lineEnd": 38136,
+        "spanSha256": "99192146d1c5e27b00f4d16286623df39998dcf43c7c7aaf6d210b648608d51f",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_20(layeredGraph, monitor){",
+        "lineStart": 38139,
+        "lineEnd": 38142,
+        "spanSha256": "0c4a9d95006bf9e0efde89a8c47156b79783f568f87227f814901950f75b493b",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_22",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_22(layeredGraph, monitor){",
+        "lineStart": 38129,
+        "lineEnd": 38133,
+        "spanSha256": "fc47a532b65db9fa4b6a74e7c13111839710c4fb7bc93ff3c8c3de5f3533165f",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LabelAndNodeSizeProcessor',",
+        "lineStart": 38816,
+        "lineEnd": 38816,
+        "spanSha256": "b3a7bf9e12d0330b791b1f8a138fa985f27c8206f4cc17bd651e9305009dab1a",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LabelAndNodeSizeProcessor(){",
+        "lineStart": 38808,
+        "lineEnd": 38809,
+        "spanSha256": "c95d4e0d9df7989bf6f05ddc24d08f47225f892a8397ec279363f63a78d9a326",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_23(layeredGraph, monitor){",
+        "lineStart": 38812,
+        "lineEnd": 38815,
+        "spanSha256": "75dfce12f9dbe04e339ba81e20dd5097bf6293c3837bae3bf52baee7f0f11838",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_25",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_25(layeredGraph, monitor){",
+        "lineStart": 38792,
+        "lineEnd": 38806,
+        "spanSha256": "9ef115d7e0c14a81c83078388dcd6f6fc0575ff6c112361a03fe95d164ac80b4",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPostprocessor',",
+        "lineStart": 39778,
+        "lineEnd": 39778,
+        "spanSha256": "4f3743caf428ec1d732a62bb537758a665e700fcd7e3f39de4e6b33b54609262",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LayerConstraintPostprocessor(){",
+        "lineStart": 39770,
+        "lineEnd": 39771,
+        "spanSha256": "ea911bd5984d1fe4a785c5c873d443d38e573fe947c148d75067799f907a39ce",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_29(layeredGraph, monitor){",
+        "lineStart": 39774,
+        "lineEnd": 39777,
+        "spanSha256": "b10960f3781f2cc72e54b5fe0ce73ea3d5c1ab8ec345747abff549e94aa70608",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_31",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_31(layeredGraph, monitor){",
+        "lineStart": 39704,
+        "lineEnd": 39725,
+        "spanSha256": "7f13374eb87cd75cb785058a78d2409ad1b9ff56b5756ec788a6f72ff8624c1b",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerConstraintPreprocessor',",
+        "lineStart": 39880,
+        "lineEnd": 39880,
+        "spanSha256": "d5f5239e7a75d19d68cd09c49f070c19f1bf084b6a71e4ea02d95fbf2a60cc41",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LayerConstraintPreprocessor(){",
+        "lineStart": 39870,
+        "lineEnd": 39872,
+        "spanSha256": "fbebc93dd5aa159575246f771cbf4cc89366bfefefafeeb2f5560b3e41c00493",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_30(layeredGraph, monitor){",
+        "lineStart": 39875,
+        "lineEnd": 39878,
+        "spanSha256": "1b7d85d449c4ee6988ffce4a17340eadecbef9ac85d12e3bef2a883629fbc836",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_32",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_32(layeredGraph, monitor){",
+        "lineStart": 39834,
+        "lineEnd": 39849,
+        "spanSha256": "edddce66e838384e0909d1768eea50112721cd4eca8d9a51f1419913de0ce54c",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LayerSizeAndGraphHeightCalculator',",
+        "lineStart": 39972,
+        "lineEnd": 39972,
+        "spanSha256": "f3d4987f28b5c1da848a8f8a14a248545168c2cbd5a90cd778122f7c14fff16e",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LayerSizeAndGraphHeightCalculator(){",
+        "lineStart": 39964,
+        "lineEnd": 39965,
+        "spanSha256": "28511783c042e133fe77360dd14cff5b68fa6fa658e2e3e1a11481f5a09807fd",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_31(layeredGraph, monitor){",
+        "lineStart": 39968,
+        "lineEnd": 39971,
+        "spanSha256": "3fa6327987dac7bee35cbd2704e600f206714eacc24d67b366fd8512cc76ca17",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_33",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_33(layeredGraph, monitor){",
+        "lineStart": 39924,
+        "lineEnd": 39962,
+        "spanSha256": "3a3c36aacd544e027219bb5d63a69b90f42b610e7953d1ebf8bb555dd55ea4c3",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeJoiner',",
+        "lineStart": 40039,
+        "lineEnd": 40039,
+        "spanSha256": "d0a1ef44853969a8441e098586adf55940937cd0ada1c518574266e4184da157",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LongEdgeJoiner(){",
+        "lineStart": 39991,
+        "lineEnd": 39992,
+        "spanSha256": "718c53f01c97143cbbe125be4ec0d56e26a5c3e0d20917683c0f140644246964",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_32(layeredGraph, monitor){",
+        "lineStart": 40035,
+        "lineEnd": 40038,
+        "spanSha256": "098f1d1ac5a2f98af97e8cf237e3e320053bacfccf2007fd8f1245a7617cdf73",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_34",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_34(layeredGraph, monitor){",
+        "lineStart": 39973,
+        "lineEnd": 39989,
+        "spanSha256": "af40e3f81711535c25e865479ab1dd0808df79acee99adf88428b76d547260dd",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'LongEdgeSplitter',",
+        "lineStart": 40144,
+        "lineEnd": 40144,
+        "spanSha256": "e84e26ca6bc24806bd8334f9222a616f518da596a8b749014ae8c720df0594b8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LongEdgeSplitter(){",
+        "lineStart": 40068,
+        "lineEnd": 40069,
+        "spanSha256": "c8dbc09a82f57a51afa5bb01cd43aaf195b0c52ad921b88948226061532aa0e3",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_33(layeredGraph, monitor){",
+        "lineStart": 40140,
+        "lineEnd": 40143,
+        "spanSha256": "c9e241e984ddd04d212b463dd5a62d0b366d3125bfa91b32ee76dab393ffba2d",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_35",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_35(layeredGraph, monitor){",
+        "lineStart": 40040,
+        "lineEnd": 40066,
+        "spanSha256": "1864b50a98e1299971ce0088e9ee9642bbf4337dc8628ca709d7f3142eb605c9",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortListSorter',",
+        "lineStart": 41436,
+        "lineEnd": 41436,
+        "spanSha256": "0dc3a2d875ca2def67da626357ff36fa1ccb8c86589db8c6472686d15743c215",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function PortListSorter(){",
+        "lineStart": 41359,
+        "lineEnd": 41361,
+        "spanSha256": "31455c8e3edc19f4f17839e58c491cec6dffda588d2c3ed0f2ccd92090c48b36",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_41(layeredGraph, monitor){",
+        "lineStart": 41431,
+        "lineEnd": 41434,
+        "spanSha256": "259b73bbb4a3624831a3eeb749aac43a114c416a74ae11652cb530394115385a",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_43",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_43(layeredGraph, monitor){",
+        "lineStart": 41307,
+        "lineEnd": 41332,
+        "spanSha256": "fa2f3a8e92e6cdd7548aef3904f57ca970130953adfc61648901300453c5dc51",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'PortSideProcessor',",
+        "lineStart": 41549,
+        "lineEnd": 41549,
+        "spanSha256": "ac2d22717085d8a61a480c8bebea05ce13b161e756e693ebbb9f9ca4c9c18058",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function PortSideProcessor(){",
+        "lineStart": 41541,
+        "lineEnd": 41542,
+        "spanSha256": "a7ebb7467d50cd456d83787daddd2c62f584ba5e60fd36d0887df4106793ccea",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_42(layeredGraph, monitor){",
+        "lineStart": 41545,
+        "lineEnd": 41548,
+        "spanSha256": "ccafeeb0e99bcb08f92158ed9341e01cb2d224deeb1219abef4ec6f0d9cf38e4",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_44",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_44(layeredGraph, monitor){",
+        "lineStart": 41506,
+        "lineEnd": 41521,
+        "spanSha256": "3fdbec403a30f2582e782ff080b39fe37bd0a62dd0fc40d42492096b3cd76ce3",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'ReversedEdgeRestorer',",
+        "lineStart": 41578,
+        "lineEnd": 41578,
+        "spanSha256": "0f852ea53f5d308bce9ae7bd70d052b95a41312901085d490a47c329842476d1",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function ReversedEdgeRestorer(){",
+        "lineStart": 41570,
+        "lineEnd": 41571,
+        "spanSha256": "17877096b8c04a2b568c198c13e0ed386ba14eb33c139474af9184d461448338",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_43(layeredGraph, monitor){",
+        "lineStart": 41574,
+        "lineEnd": 41577,
+        "spanSha256": "cf2d0528e3b87cf08646cb561db36b400b46d1627197e0c4cd53ae29b5d64715",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_46",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_46(layeredGraph, monitor){",
+        "lineStart": 41550,
+        "lineEnd": 41568,
+        "spanSha256": "d85bb870bdb5fef6c0cdc4640d815820b2c6337473088cca1f570f3db86e7c81",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.SelfLoopPortRestorer",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopPortRestorer',",
+        "lineStart": 41610,
+        "lineEnd": 41610,
+        "spanSha256": "7b258c9f7c605bab824f7d8d44297a89b0f3881f893196b4c36b271a9fc6351a",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function SelfLoopPortRestorer(){",
+        "lineStart": 41601,
+        "lineEnd": 41603,
+        "spanSha256": "85f2610b2f34570efcfce0f17039537c92918d11cb9b9a543e8236ceb1227cfc",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_44(graph, progressMonitor){",
+        "lineStart": 41606,
+        "lineEnd": 41609,
+        "spanSha256": "dde57fcd9d9aaba62c6abf776ea9c45d31ce1090d93417267f3f8148e9a2dd01",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_47",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_47(this$static, graph, progressMonitor){",
+        "lineStart": 41579,
+        "lineEnd": 41583,
+        "spanSha256": "2a927b3a0bfcacae6b5974b634311917c8f31973208a411e710fdfa5b1dfaf59",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.SelfLoopPostProcessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopPostProcessor',",
+        "lineStart": 41699,
+        "lineEnd": 41699,
+        "spanSha256": "073b88a5bda56c0a818eb0b1c49636827d7955899bef818832d0b1cff592631b",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function SelfLoopPostProcessor(){",
+        "lineStart": 41687,
+        "lineEnd": 41688,
+        "spanSha256": "d92c996bfc23f39244ea417226f1e430dad03c3232abdb9d8715b41129c30bf8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_45(graph, progressMonitor){",
+        "lineStart": 41695,
+        "lineEnd": 41698,
+        "spanSha256": "c11ef34ff94aecbd0458cddda4ff9299748aac39268e5b3d8e3e4252508dc374",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_48",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_48(graph, progressMonitor){",
+        "lineStart": 41666,
+        "lineEnd": 41670,
+        "spanSha256": "8d570871fbc487c1e7525d5203539b9354693e6fdbca6214a2c2ac5e3234fc7f",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.SelfLoopPreProcessor",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopPreProcessor',",
+        "lineStart": 41821,
+        "lineEnd": 41821,
+        "spanSha256": "82c7e4e298c51c634d274f75ca4e0cd342ceb9d71d7ab46d6bfbb86c5c10ec82",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function SelfLoopPreProcessor(){",
+        "lineStart": 41813,
+        "lineEnd": 41814,
+        "spanSha256": "0b983481f4254665a9866a8ecfb6c691a4c355271b004ecae0a391ac8a78dadf",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_46(graph, progressMonitor){",
+        "lineStart": 41817,
+        "lineEnd": 41820,
+        "spanSha256": "8cc5a0e1d815747e2b3486083fce6a919f7a6e52dbc870a532a2e99fb67ccf28",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_49",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_49(graph, progressMonitor){",
+        "lineStart": 41799,
+        "lineEnd": 41811,
+        "spanSha256": "e362a62810b66f27f19214313c68353d7a908a7a8eee6c1b76a8c018f3607335",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.SelfLoopRouter",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.intermediate', 'SelfLoopRouter',",
+        "lineStart": 41885,
+        "lineEnd": 41885,
+        "spanSha256": "c553be15c1956f70fe418f01fa8bff8f6ffde98fb5149552c4ffcafe32c6dfe4",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function SelfLoopRouter(){",
+        "lineStart": 41875,
+        "lineEnd": 41878,
+        "spanSha256": "76a93b08fabc742685d638634a258a5466c4552a72e5ca36ec1ca11d31f0ad0a",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_47(graph, progressMonitor){",
+        "lineStart": 41881,
+        "lineEnd": 41884,
+        "spanSha256": "0c72d6a5d0fb10d3fb871fbe1f3c399d1f329fcb42507f766ea88348dcc1be22",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_50",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_50(this$static, graph, progressMonitor){",
+        "lineStart": 41856,
+        "lineEnd": 41863,
+        "spanSha256": "b1355c3deed511758295ff876d68fa3c3fb117184518e930ab7ae387679e4244",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p1cycles', 'GreedyCycleBreaker',",
+        "lineStart": 50541,
+        "lineEnd": 50541,
+        "spanSha256": "59ac0f667c58fba5aa4817f8467702a3c6db36378fb2194407108136927adf40",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function GreedyCycleBreaker(){",
+        "lineStart": 50521,
+        "lineEnd": 50525,
+        "spanSha256": "96d04e73c06295fc0ead8d8dac70c93f5ab1e953c0a6310d43b306a5331fc66f",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_59(layeredGraph, monitor){",
+        "lineStart": 50532,
+        "lineEnd": 50535,
+        "spanSha256": "8eb1a6fb065184a701c99e26c0185727c751863cfe753635e3cf164bd0dd8ad8",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_62",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_62(this$static, layeredGraph, monitor){",
+        "lineStart": 50392,
+        "lineEnd": 50491,
+        "spanSha256": "bf09a7475896ca23d4e2b039a4fe1bc6a464229f4e42566a18434218fc1ef91d",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p2layers', 'NetworkSimplexLayerer',",
+        "lineStart": 52100,
+        "lineEnd": 52100,
+        "spanSha256": "54d9c83353cd416529f74c2a7e0514124bb383d34aba6f39fd7e07439e19e861",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function NetworkSimplexLayerer(){",
+        "lineStart": 52086,
+        "lineEnd": 52088,
+        "spanSha256": "1aac23c79ccd1bc64a512ffb39589194501abe6d50e1bc9a40a5da2c625ff6c1",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_70(theLayeredGraph, monitor){",
+        "lineStart": 52095,
+        "lineEnd": 52098,
+        "spanSha256": "1ddf920e413b7d7b89fe320d069b6549fa3aa95a9335b14b0e024b8f11e61ae7",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_73",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_73(this$static, theLayeredGraph, monitor){",
+        "lineStart": 52044,
+        "lineEnd": 52084,
+        "spanSha256": "c8052655710c38b9ee66e9518dd2022b46a0d035c4d940c759b88773407d16c0",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p3order', 'LayerSweepCrossingMinimizer',",
+        "lineStart": 53744,
+        "lineEnd": 53744,
+        "spanSha256": "9fee86448cc111ff874e421650919f7664c483a4ca982aaddb66beb37d776414",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function LayerSweepCrossingMinimizer(cT){",
+        "lineStart": 53727,
+        "lineEnd": 53730,
+        "spanSha256": "de1508a9607f9a707c73dca4f4097f7008ab3ba56c7329f976e86fdcb940e58d",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_73(layeredGraph, progressMonitor){",
+        "lineStart": 53738,
+        "lineEnd": 53741,
+        "spanSha256": "ecedd944681b39af1bd6a785d1ee44046daecff3dd827798485e6b52050f01b5",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_76",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_76(this$static, layeredGraph, progressMonitor){",
+        "lineStart": 53616,
+        "lineEnd": 53631,
+        "spanSha256": "1dff3a9e537dfa9f36d3a69394d4ce5bf74a7f43a71bc77bbcb5260da2636712",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p4nodes.bk', 'BKNodePlacer',",
+        "lineStart": 57730,
+        "lineEnd": 57730,
+        "spanSha256": "9adec88eb05685a348cb038125566ff3c0e93a11ec5721a418e7dca1a912f3ca",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function BKNodePlacer(){",
+        "lineStart": 57661,
+        "lineEnd": 57664,
+        "spanSha256": "562ed943949b98c8ff9a80c181557b3fcc7ee2015d04ceaacf0b1021fc76f690",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_79(layeredGraph, monitor){",
+        "lineStart": 57724,
+        "lineEnd": 57727,
+        "spanSha256": "0965fce31f8d0626f4004286aa33a0a1efc4f907b2a20d713115793dcdd8297a",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_82",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_82(this$static, layeredGraph, monitor){",
+        "lineStart": 57564,
+        "lineEnd": 57659,
+        "spanSha256": "6904f26a5f4ce98c5fa9c9aef1738fbb56b19be586b10bcc79fcf415097aec9e",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    },
+    {
+      "generatedClass": "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+      "classIdentity": {
+        "sourceId": "npm-worker",
+        "symbol": "createForClass('org.eclipse.elk.alg.layered.p5edges', 'OrthogonalEdgeRouter',",
+        "lineStart": 58156,
+        "lineEnd": 58156,
+        "spanSha256": "490e7dd27a282b3a714ae8d689276239050c39c7daa1f32258031ec5fe9eb17d",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "constructor": {
+        "sourceId": "npm-worker",
+        "symbol": "function OrthogonalEdgeRouter(){",
+        "lineStart": 58142,
+        "lineEnd": 58144,
+        "spanSha256": "6618a3b7cec5edaf598df437e85d7a81b8024e219138328ca8f6c9a508715dff",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processDispatch": {
+        "sourceId": "npm-worker",
+        "symbol": "_.process = function process_80(layeredGraph, monitor){",
+        "lineStart": 58151,
+        "lineEnd": 58154,
+        "spanSha256": "e0b68f11e47dfa5ff8cd2cea55938a67e7c4b22820ea10ffcad66566bd375723",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "processSymbol": "$process_84",
+      "processImplementation": {
+        "sourceId": "npm-worker",
+        "symbol": "function $process_84(layeredGraph, monitor){",
+        "lineStart": 58101,
+        "lineEnd": 58140,
+        "spanSha256": "ede3b815c5955d3978064ec257f61b00f7695ca35019d355bf398ce4c067e369",
+        "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+      },
+      "limitation": "Entry implementation span only; transitive helper/source-to-Java closure requires separate mapping."
+    }
+  ],
+  "processors": [
+    {
+      "id": "direction-transform",
+      "condition": "Direction LEFT/DOWN/UP adds pre/post direction processors; RIGHT does not",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  switch (castTo($getProperty(lgraph, DIRECTION), 88).ordinal) {",
+          "lineStart": 28416,
+          "lineEnd": 28421,
+          "spanSha256": "c07e4a76aa59bbdc825cc9972a31eb11ba203868996e3ef9f6032d7fa994edf9",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "observedCases": [
+        "layered-diamond-left",
+        "layered-diamond-down",
+        "layered-diamond-up"
+      ],
+      "generatedClass": "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+    },
+    {
+      "id": "greedy-switch",
+      "condition": "Flat graph: not semi-interactive/interactive; greedySwitch not OFF; threshold==0 or threshold>pre-layering graph node count; default TWO_SIDED and threshold40",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function activateGreedySwitchFor(lgraph){",
+          "lineStart": 28479,
+          "lineEnd": 28489,
+          "spanSha256": "4cd0971bfa4921cf9f7fdb7612739757941a0e5a72b53a00bdb2656f4a9670e0",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  CROSSING_MINIMIZATION_GREEDY_SWITCH_TYPE_DEFAULT =",
+          "lineStart": 48817,
+          "lineEnd": 48819,
+          "spanSha256": "34d959e34eaa3b5387aff3ae57a356335acdc6c8ac5dd1556136f24edecaae31",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  CROSSING_MINIMIZATION_GREEDY_SWITCH_ACTIVATION_THRESHOLD = new Property_1(",
+          "lineStart": 48816,
+          "lineEnd": 48816,
+          "spanSha256": "560f47c6fd8155170a4c95c9f0641328e18ff7a756b10fa988f0e411846e6cac",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "observedCases": [
+        "two-node-defaults",
+        "layered-diamond-right"
+      ],
+      "generatedClass": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer"
+    },
+    {
+      "id": "orthogonal-self-loops",
+      "condition": "SELF_LOOPS graph property adds SelfLoopPreProcessor, SelfLoopPortRestorer, SelfLoopRouter, SelfLoopPostProcessor",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SELF_LOOP_PROCESSING_ADDITIONS =",
+          "lineStart": 58075,
+          "lineEnd": 58075,
+          "spanSha256": "aedad1e90f907697806e9470d4a8a140054c789fe571873e20c249a648eb156f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  graphProperties.contains(SELF_LOOPS) && $addAll_6(configuration, SELF_LOOP_PROCESSING_ADDITIONS);",
+          "lineStart": 58094,
+          "lineEnd": 58094,
+          "spanSha256": "7359e8a25de05d3cd4993ff5b41798e2f60c8f094a120f56fee0ea3d18bb05dd",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "observedCases": [
+        "layered-self-loop"
+      ]
+    },
+    {
+      "id": "separate-components",
+      "condition": "Separate flag and compatible external-port constraints permit DFS component split; each component runs the configured processor list before combining",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $split_2(this$static, graph){",
+          "lineStart": 30954,
+          "lineEnd": 30991,
+          "spanSha256": "2134c2fa4bb6b77d64389e6e174fb3dd3fe75762e6f166f9212992344f64ada2",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $doLayout(this$static, lgraph, monitor){",
+          "lineStart": 28205,
+          "lineEnd": 28228,
+          "spanSha256": "8154afd17bf573d03b1a283f6ee0f181b88e3d411534e624db02f726d51f186d",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "observedCases": [
+        "layered-disconnected",
+        "layered-unseparated-components"
+      ]
+    },
+    {
+      "id": "additional-features-not-traced",
+      "condition": "Hierarchy, comments, partitions, labels, hyperedges/ports, node promotion, wrapping, compaction, node flexibility may add further processors",
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $getPhaseIndependentLayoutProcessorConfiguration(lgraph){",
+          "lineStart": 28407,
+          "lineEnd": 28448,
+          "spanSha256": "77933cb7f1180e16e7d2b6a2e7cdf41db9036b9129f68448696569fc8990c16a",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $getLayoutProcessorConfiguration_0(graph){",
+          "lineStart": 58081,
+          "lineEnd": 58099,
+          "spanSha256": "f68f8561e5683d1301aa9132c3950d1e871bbc6ce7440308ad4a7a41508de69b",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "observedCases": [],
+      "status": "static-located-not-runtime-covered"
+    }
+  ],
+  "options": [
+    {
+      "id": "org.eclipse.elk.algorithm",
+      "layeredDeclaredDefault": null,
+      "interpretation": "Fallback org.eclipse.elk.layered for unconfigured nonempty nodes when registered",
+      "metadataType": "STRING",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  ALGORITHM = new Property('org.eclipse.elk.algorithm');",
+          "lineStart": 70766,
+          "lineEnd": 70766,
+          "spanSha256": "d874faf363b6393135dc1ee53e4a0d08ed17d1ce0f36708ee733b2f1aeda8065",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $resolveAlgorithm(node){",
+          "lineStart": 69155,
+          "lineEnd": 69175,
+          "spanSha256": "711ae547f7e93f4a1e2abd8d60691b09ad56341f0540324001ceebc1cf8d5c37",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.direction",
+      "layeredDeclaredDefault": "UNDEFINED",
+      "interpretation": "Resolved by getDirection_1: aspectRatio>=1 gives RIGHT, otherwise DOWN; baseline probe observed RIGHT",
+      "metadataType": "ENUM",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  DIRECTION_DEFAULT =",
+          "lineStart": 49175,
+          "lineEnd": 49175,
+          "spanSha256": "d372d11259c0306817b650e50b5f7630e45e00be4e4512ae6db783e0350138aa",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function getDirection_1(graph){",
+          "lineStart": 32724,
+          "lineEnd": 32732,
+          "spanSha256": "6a0684bb41cf963217cc6b9ca1ddc3d044887fc07bf1f60955a7d9e5eef19b9c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.padding",
+      "layeredDeclaredDefault": {
+        "top": 12,
+        "left": 12,
+        "bottom": 12,
+        "right": 12
+      },
+      "interpretation": "Layered and core default padding is 12 on all sides",
+      "metadataType": "OBJECT",
+      "metadataTargets": [
+        "PARENTS",
+        "NODES"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  PADDING_DEFAULT_0 =",
+          "lineStart": 49156,
+          "lineEnd": 49157,
+          "spanSha256": "da300ca674989e521e6f7b65ccda66e9483818eb19c42cb7b98e6059bfb3fae1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.nodeNode",
+      "layeredDeclaredDefault": 20,
+      "interpretation": "Core default copied into layered option alias",
+      "metadataType": "DOUBLE",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_NODE_NODE_6 = new Property_1(",
+          "lineStart": 70836,
+          "lineEnd": 70836,
+          "spanSha256": "077fb5979594c14156d98c7ebeb141c175489a92f9f78ac52368e620553c9b20",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_NODE_NODE_0 = SPACING_NODE_NODE_6;",
+          "lineStart": 49118,
+          "lineEnd": 49118,
+          "spanSha256": "d839a33b34cbf5194c07b240b8ac3a0f32d51762db0dd3319e82e688113d235e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+      "layeredDeclaredDefault": 20,
+      "interpretation": "Layered spacing default",
+      "metadataType": "DOUBLE",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_NODE_NODE_BETWEEN_LAYERS = new Property_1(",
+          "lineStart": 48845,
+          "lineEnd": 48845,
+          "spanSha256": "df11b2b7b66f8fbc14367aec9274cbe12611ff2f2cb95b91302f18780264d946",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.separateConnectedComponents",
+      "layeredDeclaredDefault": true,
+      "interpretation": "Layered overrides absent core property default to true; split additionally considers external ports",
+      "metadataType": "BOOLEAN",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SEPARATE_CONNECTED_COMPONENTS_0 =",
+          "lineStart": 49169,
+          "lineEnd": 49169,
+          "spanSha256": "ee1ef0db84a4a9ecc0dfdd986a9e5e76bd97ceefac9e160fa4c70ac08d0f0d0c",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $split_2(this$static, graph){",
+          "lineStart": 30954,
+          "lineEnd": 30963,
+          "spanSha256": "cd811dd1f744c0de801b27ff75fffa84f262d088c536a7d06ba1c0e5548bf5df",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.componentComponent",
+      "layeredDeclaredDefault": 20,
+      "interpretation": "Core component spacing default copied into layered alias",
+      "metadataType": "DOUBLE",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_COMPONENT_COMPONENT_1 = new Property_1(",
+          "lineStart": 70828,
+          "lineEnd": 70828,
+          "spanSha256": "13a2bb1658f5852f2426c2241e16d2f711eba25fcccb0701a5dab61b88fcbc5e",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  SPACING_COMPONENT_COMPONENT_0 = SPACING_COMPONENT_COMPONENT_1;",
+          "lineStart": 49110,
+          "lineEnd": 49110,
+          "spanSha256": "cc1f6ae00ade16ab20c2ca0a1a92f50a94260cbd0dae849873a044ed5ec7c715",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.edgeRouting",
+      "layeredDeclaredDefault": "ORTHOGONAL",
+      "interpretation": "Layered overrides core UNDEFINED to ORTHOGONAL",
+      "metadataType": "ENUM",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  EDGE_ROUTING_DEFAULT =",
+          "lineStart": 49158,
+          "lineEnd": 49159,
+          "spanSha256": "6d7896aa96cf45b67adf14589152da78a07b8a62070a85ed2397bb93962ed3d1",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $create_7(this$static){",
+          "lineStart": 58034,
+          "lineEnd": 58046,
+          "spanSha256": "325368067650166c4266cba7eb312ef86c6ce72a6d9131267bea2eddddceb167",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    },
+    {
+      "id": "org.eclipse.elk.randomSeed",
+      "layeredDeclaredDefault": 1,
+      "interpretation": "Layered default1; seed0 constructs unseeded Random, nonzero constructs Random_0(seed)",
+      "metadataType": "INT",
+      "metadataTargets": [
+        "PARENTS"
+      ],
+      "evidence": [
+        {
+          "sourceId": "npm-worker",
+          "symbol": "  RANDOM_SEED_0 = new Property_2(",
+          "lineStart": 49161,
+          "lineEnd": 49161,
+          "spanSha256": "216990ea0d5c1188c861d90cda30a06fed70c1d144f55ba632e6faf9f22dbb5f",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        },
+        {
+          "sourceId": "npm-worker",
+          "symbol": "function $prepareGraphForLayout(this$static, lgraph){",
+          "lineStart": 28450,
+          "lineEnd": 28459,
+          "spanSha256": "a041b785e86447069b0ce13d317f3bcd648e3b9a0942688200ce8b51444a30bc",
+          "spanEncoding": "UTF-8 LF, inclusive lines, final newline"
+        }
+      ],
+      "status": "source-audited-not-python-implemented"
+    }
+  ],
+  "observations": [
+    {
+      "id": "layered-empty",
+      "requestPath": "tests/fixtures/validation/requests/layered-empty.json",
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-empty-final/report.json",
+      "reportSha256": "c5faa3b59844eab62b0c915811e0b25c4eccd649549e58089d42622530919f27",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [],
+      "processorCalls": 0,
+      "processorClassSequence": [],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-singleton",
+      "requestPath": "tests/fixtures/validation/requests/layered-singleton.json",
+      "requestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-singleton-final/report.json",
+      "reportSha256": "a1a89e66b87ebbed998c7e96fd421ae5dd8a0b678f26485031dc5e090eaf4cdb",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-chain",
+      "requestPath": "tests/fixtures/validation/requests/layered-chain.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-chain-final/report.json",
+      "reportSha256": "51f2230d45f4a8fd82c2c9ebbfe664a68439ebb1e567e214da12474fb784371b",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-fork",
+      "requestPath": "tests/fixtures/validation/requests/layered-fork.json",
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-fork-final/report.json",
+      "reportSha256": "c30feb5bce02c85f6bccec8376d10aeaa5a0204d053a01dea3d060839bb7d624",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-join",
+      "requestPath": "tests/fixtures/validation/requests/layered-join.json",
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-join-final/report.json",
+      "reportSha256": "1a402e68c533ef884b0ad63e08735faac481e62b7f008aca5dc4aee222ffe3d1",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-diamond-right",
+      "requestPath": "tests/fixtures/validation/requests/layered-diamond-right.json",
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-diamond-right-final/report.json",
+      "reportSha256": "e502b52a52578ac3b322a062510dfdbb695e818b1f04a2c51ae48d9d6b07299b",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-diamond-left",
+      "requestPath": "tests/fixtures/validation/requests/layered-diamond-left.json",
+      "requestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-diamond-left-final/report.json",
+      "reportSha256": "26c96ab42a77d6476fcd528cde8383ce707f0325246a4c900976d17d6dec686a",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "LEFT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 21,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-diamond-down",
+      "requestPath": "tests/fixtures/validation/requests/layered-diamond-down.json",
+      "requestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-diamond-down-final/report.json",
+      "reportSha256": "9091a92650bb858675d9d0877be5e5fee65e66e536f9d3e11df6774ebdcf4d60",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "DOWN",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 21,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-diamond-up",
+      "requestPath": "tests/fixtures/validation/requests/layered-diamond-up.json",
+      "requestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-diamond-up-final/report.json",
+      "reportSha256": "11eaf594b943ace6c45ee0832330f5ee27fbfe6b3b5ecd82849ef854ff2becc5",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "UP",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 21,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-long-edge",
+      "requestPath": "tests/fixtures/validation/requests/layered-long-edge.json",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-long-edge-final/report.json",
+      "reportSha256": "ebb8e5c4d3447154da23732df5b56969d5fb67c78cfd1c6378a8389a58b38cd9",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-cycle",
+      "requestPath": "tests/fixtures/validation/requests/layered-cycle.json",
+      "requestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-cycle-final/report.json",
+      "reportSha256": "666ea7b4b758a999287428ffab789599582e8ab94d64132fd8667023ddebcab5",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-self-loop",
+      "requestPath": "tests/fixtures/validation/requests/layered-self-loop.json",
+      "requestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-self-loop-final/report.json",
+      "reportSha256": "887205c8726c08b65399cf1eaa7d6a79cc67dd924cad46feb353065a31bf7224",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 23,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.intermediate.SelfLoopPreProcessor",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.SelfLoopPortRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.intermediate.SelfLoopRouter",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.SelfLoopPostProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-parallel-edges",
+      "requestPath": "tests/fixtures/validation/requests/layered-parallel-edges.json",
+      "requestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-parallel-edges-final/report.json",
+      "reportSha256": "0102f386eeacde4ff2ac50b6534d9b425957f3950eafe21bb1655efbd01f10d1",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-disconnected",
+      "requestPath": "tests/fixtures/validation/requests/layered-disconnected.json",
+      "requestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-disconnected-final/report.json",
+      "reportSha256": "1f34dc24866de2a612b22faa471668d9f688b716fe02684a2089aa86f5752730",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 38,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "requestPath": "tests/fixtures/validation/requests/layered-unequal-sizes.json",
+      "requestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-unequal-sizes-final/report.json",
+      "reportSha256": "4f3df0f0d34be7324935cc59aa48ea6b50b43c452776127c06a6d6025aebc2d6",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-zero-size",
+      "requestPath": "tests/fixtures/validation/requests/layered-zero-size.json",
+      "requestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-zero-size-final/report.json",
+      "reportSha256": "a9179a70019b77b5f19c333bda74bf9def8029e9d55b799e6d96e50bf3ee838e",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-custom-spacing",
+      "requestPath": "tests/fixtures/validation/requests/layered-custom-spacing.json",
+      "requestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-custom-spacing-final/report.json",
+      "reportSha256": "d3de47047efd0fd136d0dd60af9ab11950a59e9aa305579a862734334c623309",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 11,
+            "left": 17,
+            "bottom": 23,
+            "right": 31
+          },
+          "nodeNode": 37,
+          "betweenLayers": 53,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "layered-unseparated-components",
+      "requestPath": "tests/fixtures/validation/requests/layered-unseparated-components.json",
+      "requestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-layered-unseparated-components-final/report.json",
+      "reportSha256": "8cdc0c01223d3251a3234ac5eba30165ef0abd1494c26b2aadee63f8616f7445",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": false,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "options-constructor-default",
+      "requestPath": "tests/fixtures/validation/requests/options-constructor-default.json",
+      "requestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-options-constructor-default-final/report.json",
+      "reportSha256": "7a1fe920a5127001896ea5809786d6cbb640df05b23465d0f8eba3622d465cb7",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "DOWN",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 20,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 21,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "requestPath": "tests/fixtures/validation/requests/options-explicit-empty-replaces-default.json",
+      "requestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-options-explicit-empty-replaces-default-final/report.json",
+      "reportSha256": "fa61f2fed2e72df6cf7387d5ed2b7d91df05f0684ebbc0d5632d09f2a710fdaa",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "layoutOptions": {},
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 20,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "options-call-replaces-default",
+      "requestPath": "tests/fixtures/validation/requests/options-call-replaces-default.json",
+      "requestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-options-call-replaces-default-final/report.json",
+      "reportSha256": "8edd6b1db5b3654228fef788482827c866a6b48cdd6e3f0cde838cd7e087cdb2",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "layoutOptions": {
+          "elk.direction": "LEFT"
+        },
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "LEFT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 20,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 21,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+        "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "options-full-ids",
+      "requestPath": "tests/fixtures/validation/requests/options-full-ids.json",
+      "requestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-options-full-ids-final/report.json",
+      "reportSha256": "323b05f2cbe321988992cd74419cd29f1dc7936a14fb4b0b5caf202b904399b3",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 7,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 30,
+          "componentComponent": 40,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    },
+    {
+      "id": "two-node-defaults",
+      "requestPath": "test-runs/20261103-E01-01/B/two-node-defaults-request.json",
+      "requestSha256": "d3c8855328809ee09f7777185a80411434682b24e3509cd157b59545416044c3",
+      "reportPath": "test-runs/20261103-E01-01/B/trace-two-node-defaults-final/report.json",
+      "reportSha256": "754d9dfde6c8b39ee732b14751a208b4cec132f0cb1067c86fb5315e68e5b3df",
+      "outcomes": {
+        "bundled": "returned",
+        "pretty": "returned",
+        "instrumented-pretty": "returned"
+      },
+      "argumentOverrides": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "traceDomain": "Flat root/children, no explicit ports/labels; single-source/target extended edges; component processor loop only",
+      "effectiveArguments": {
+        "logging": true,
+        "measureExecutionTime": false
+      },
+      "configuredOptions": [
+        {
+          "event": "configured-options",
+          "direction": "RIGHT",
+          "edgeRouting": "ORTHOGONAL",
+          "randomSeed": 1,
+          "padding": {
+            "top": 12,
+            "left": 12,
+            "bottom": 12,
+            "right": 12
+          },
+          "nodeNode": 20,
+          "betweenLayers": 20,
+          "componentComponent": 20,
+          "separateConnectedComponents": true,
+          "cycleBreaking": "GREEDY",
+          "layering": "NETWORK_SIMPLEX",
+          "crossingMinimization": "LAYER_SWEEP",
+          "nodePlacement": "BRANDES_KOEPF"
+        }
+      ],
+      "processorCalls": 19,
+      "processorClassSequence": [
+        "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+        "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+        "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+        "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+        "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+        "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+        "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+        "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+        "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+        "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+        "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+        "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      ],
+      "passed": true,
+      "comparisons": {
+        "prettyVersusBundledResultExact": true,
+        "instrumentedVersusPrettyResultExact": true,
+        "callNamesMatchPublicLogging": true,
+        "beforeAfterNamesMatch": true
+      }
+    }
+  ],
+  "defaultProbeRequest": {
+    "kind": "embedded-original-request",
+    "encoding": "utf-8",
+    "sha256": "d3c8855328809ee09f7777185a80411434682b24e3509cd157b59545416044c3",
+    "originalBytesUtf8": "{\n  \"schema\": \"py-elk-layout-request/v1\",\n  \"constructor\": {},\n  \"layoutArguments\": {},\n  \"graph\": {\n    \"id\": \"root\",\n    \"layoutOptions\": {\n      \"elk.algorithm\": \"layered\"\n    },\n    \"children\": [\n      {\n        \"id\": \"a\",\n        \"width\": 40,\n        \"height\": 30\n      },\n      {\n        \"id\": \"b\",\n        \"width\": 40,\n        \"height\": 30\n      }\n    ],\n    \"edges\": [\n      {\n        \"id\": \"ab\",\n        \"sources\": [\n          \"a\"\n        ],\n        \"targets\": [\n          \"b\"\n        ]\n      }\n    ]\n  }\n}\n"
+  },
+  "traceMethod": {
+    "tool": "tools/reference/trace_layered_path.cjs",
+    "toolSha256": "c16ecaf704b09ceb939f25080074c91d0164c4346e8e22744f7a32d0a0db9970",
+    "memoryOnly": true,
+    "enginesPerCase": [
+      "bundled",
+      "pretty",
+      "instrumented-pretty"
+    ],
+    "argumentOverrides": {
+      "logging": true,
+      "measureExecutionTime": false
+    },
+    "requestSha256Meaning": "Original request bytes; effectiveArguments include the recorded logging overrides",
+    "hookKinds": [
+      "component-entry",
+      "processor-call-before-and-after",
+      "configured-options"
+    ],
+    "sourceAndTransformationRecords": "Each instrumented-pretty.json saves original worker hash and exact replacement anchors/replacements",
+    "equivalence": "Full result object exact equality, including logging and private fields, for all sampled cases",
+    "notEstablished": [
+      "Same-engine repeated determinism",
+      "Exact Java source commit",
+      "All strategy/processor combinations",
+      "Python behavior"
+    ]
+  },
+  "findings": [
+    {
+      "id": "five-phases-plus-processors",
+      "certainty": "verified",
+      "claim": "Default small flat single-edge/chain/diamond/cycle executions invoke19 modules, including two different LayerSweepCrossingMinimizer instances."
+    },
+    {
+      "id": "additional-greedy-pass",
+      "certainty": "verified",
+      "claim": "Default P3 is LAYER_SWEEP/BARYCENTER; default TWO_SIDED greedy-switch adds another same-class invocation before placement for small flat graphs."
+    },
+    {
+      "id": "node-only-internal-processors",
+      "certainty": "verified",
+      "claim": "Node-only JSON still invokes port ordering, node/label sizing and margin processors; invocation can be a no-op for absent features."
+    },
+    {
+      "id": "case-dependent-sequence",
+      "certainty": "verified",
+      "claim": "Observed counts: empty0, ordinary connected19, non-RIGHT direction21, self-loop23, two separated components38."
+    },
+    {
+      "id": "all-sampled-output-invariant",
+      "certainty": "verified",
+      "claim": "All23 sampled requests preserve full result equality across bundled, PRETTY and memory-instrumented PRETTY with logging enabled."
+    }
+  ],
+  "unresolved": [
+    {
+      "id": "exact-java-source",
+      "status": "unresolved",
+      "nextAction": "Use A lane lineage investigation to map generated classes to an exact readable Java/Xtend source revision before mechanical porting."
+    },
+    {
+      "id": "processor-combination-completeness",
+      "status": "open",
+      "nextAction": "Enumerate all additional graph properties and strategy factories in M1/M6; current runtime sampling covers only the listed flat cases."
+    },
+    {
+      "id": "host-contract",
+      "status": "deferred-E02",
+      "nextAction": "Freeze native input mutation/private-field/error/lifecycle adaptation; preserve the observed raw bundled behavior."
+    }
+  ],
+  "totals": {
+    "sampledRequests": 23,
+    "freshEngineProcesses": 69,
+    "processorBeforeCalls": 451,
+    "processorAfterCalls": 451,
+    "uniqueProcessorClasses": 23,
+    "singleEdgeDefaultModules": 19
+  },
+  "pythonAlgorithmsVerified": 0,
+  "limitation": "Locked artifact path audit and sampled instrumentation only, not a Python implementation or complete upstream compatibility claim."
+}

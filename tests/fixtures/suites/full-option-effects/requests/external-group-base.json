@@ -1,0 +1,68 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "outer",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 41
+    },
+    "children": [
+      {
+        "id": "container",
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.portLabels.placement": "[OUTSIDE,NEXT_TO_PORT_IF_POSSIBLE]",
+          "elk.portLabels.treatAsGroup": true
+        },
+        "children": [
+          {
+            "id": "inner",
+            "width": 30,
+            "height": 20
+          }
+        ],
+        "ports": [
+          {
+            "id": "external",
+            "width": 4,
+            "height": 4,
+            "layoutOptions": {
+              "elk.port.side": "WEST"
+            },
+            "labels": [
+              {
+                "id": "extl0",
+                "text": "one",
+                "width": 8,
+                "height": 6
+              },
+              {
+                "id": "extl1",
+                "text": "two",
+                "width": 27,
+                "height": 10
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "entry",
+            "sources": [
+              "external"
+            ],
+            "targets": [
+              "inner"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

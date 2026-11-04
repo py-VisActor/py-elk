@@ -1,0 +1,2993 @@
+{
+  "schema": "py-elk-e07-component-sources/v1",
+  "lane": "B",
+  "status": "source-proposal-ready-for-independent-review",
+  "baseline": {
+    "package": "elkjs",
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "sources": [
+    {
+      "sourceId": "elkjs-generated-worker",
+      "path": "lib/elk-worker.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "gitBlob": "13d07b8601ca22b5de216ca7e8f497a61335a22d",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "role": "direct-generated-algorithm-source",
+      "localPath": ".local/npm-elkjs/package/lib/elk-worker.js"
+    },
+    {
+      "sourceId": "elkjs-license",
+      "path": "LICENSE.md",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "role": "upstream-original-license",
+      "gitBlob": "91dd37eefbe62d3d9fb7a1e7e2c7a9a1e2cdcbcc"
+    }
+  ],
+  "sourceContext": {
+    "lane": "B",
+    "input": "Prepared layerless target graph or completed/post-direction component graph; opaque source properties are shallow references, no per-component prepare.",
+    "maximumComponentCount": 8,
+    "localOperationProofOnly": true,
+    "rootPhaseContentsAssessedByB": false,
+    "specificGuards": {
+      "maximumOriginalNodes": 8,
+      "maximumOriginalEdges": 28,
+      "maximumWeakComponents": 8,
+      "topology": "flat NORMAL original nodes, implicit distinct endpoint ports; disconnected/isolated/cycle/loop/parallel allowed only after the relevant E07 phase dependencies are approved",
+      "directions": [
+        "UNDEFINED",
+        "RIGHT",
+        "LEFT",
+        "DOWN",
+        "UP"
+      ],
+      "separateConnectedComponents": [
+        true,
+        false
+      ],
+      "compactionConnectedComponents": false,
+      "componentModelOrder": "NONE",
+      "priority": 0,
+      "externalPorts": false,
+      "publicPortsLabelsHierarchy": false,
+      "extraSizingAlignmentBaseSpacingOptions": false,
+      "coordinateInput": "Post-transform component size/offset, local nodes/ports/bends; source component padding restored by reviewed A post-transform before packing."
+    },
+    "sourceLicense": {
+      "path": "references/licenses/elkjs-LICENSE.md",
+      "sha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9"
+    },
+    "notice": {
+      "path": "src/pyelk/_licenses/NOTICE-E07.md",
+      "sha256": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef"
+    },
+    "randomPolicy": "No component RNG initialization or drawing; global JavaRandom reference passed unchanged."
+  },
+  "components": [
+    {
+      "componentId": "components:split",
+      "generatedClass": "org.eclipse.elk.alg.layered.components.ComponentsProcessor",
+      "role": "components:split",
+      "entrySpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$split_2",
+          "startLine": 30954,
+          "endLine": 30992,
+          "spanSha256": "26f409fe971a8391bfe1017b23c94400d9477842c129a053d16882166523c5e2",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1169601,
+          "functionEndOffset": 1172486,
+          "functionSha256": "0b83fd4267839e8e095dbbe2a061479530f07950120bc564907cfdac0a8790b6",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "helperSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$dfs_1",
+          "startLine": 30930,
+          "endLine": 30952,
+          "spanSha256": "cfef67b8d25f12f312a0890d5bf3d5b0787eba100aa2806b6be01ac20282dce9",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1168292,
+          "functionEndOffset": 1169599,
+          "functionSha256": "808dfd37a170648f4f3ea7ff147677d66b6a5daed71b8f37ec4b1b0f670606f4",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "LGraph",
+          "startLine": 32068,
+          "endLine": 32074,
+          "spanSha256": "019d25a66e3bedbeed8cebc49ec596d25e469258f919e4bd980a4d20e21b1449",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1228652,
+          "functionEndOffset": 1228831,
+          "functionSha256": "fab9571321a87d80697e10b82e8d9207c8996b64388954c3648e573eb71a6b57",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "ComponentsProcessor_0",
+          "startLine": 30994,
+          "endLine": 30999,
+          "spanSha256": "6e082213a357618f42d352244e96dcfbd2bcd04a9818ff1177d66f1f74e48510",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1172488,
+          "functionEndOffset": 1172795,
+          "functionSha256": "f4ba72f2bea85a756439e3c70c26e67909751e9b4e2fd79b774f717cfc6bb192",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "SimpleRowGraphPlacer",
+          "startLine": 31179,
+          "endLine": 31180,
+          "spanSha256": "474c78c1a589204fa995fa1ca215b4ce8c932d8ffe7085e7251c3f7831868b6a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1182391,
+          "functionEndOffset": 1182425,
+          "functionSha256": "70a6405a1baccfde086af92bdb1c496ba028c6d57508bc1acaaf85edbfe0c3ed",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$copyProperties",
+          "startLine": 25418,
+          "endLine": 25426,
+          "spanSha256": "d266fa85b29bf64566678c23b13dcd2c697ef8183d40c8769a7b0ce58c00e5ab",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 888624,
+          "functionEndOffset": 888939,
+          "functionSha256": "dcb449d84b09108ea2dfd1b4191116912040fe52c45c3c56582b3cc170c1a086",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "HashMap_1",
+          "startLine": 15892,
+          "endLine": 15895,
+          "spanSha256": "1552fb11581d015adca72742578f90c216b2777ff90992a12897597808df1b88",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 496108,
+          "functionEndOffset": 496186,
+          "functionSha256": "5b4f3bc3b4fc6389f69c6295755ff978cd8cf6e70653172518e14cc75721b1d1",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$putAll",
+          "startLine": 1251,
+          "endLine": 1258,
+          "spanSha256": "d028cbc813d5ca00c8d80ec8d2f37525f6699be64d2196aa6d7b84df41fe44ea",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 43273,
+          "functionEndOffset": 43536,
+          "functionSha256": "a41e7c7af08c1bba3b6d4eb0f375bb077189a9eeed559c610d7edb4fd41f6f3b",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$copy",
+          "startLine": 33059,
+          "endLine": 33065,
+          "spanSha256": "44de87205be06d3488608d0b14f7165cfd5a85a992141700329b3ddc0fb4725a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1267438,
+          "functionEndOffset": 1267637,
+          "functionSha256": "16c49664fbba7663597cd7255e9830dff80d657088b85cde29ca40fab715bf2b",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$getProperty",
+          "startLine": 25432,
+          "endLine": 25441,
+          "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 889104,
+          "functionEndOffset": 889736,
+          "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "getDefault",
+          "startLine": 69799,
+          "endLine": 69811,
+          "spanSha256": "2ecc6351e7c9c8fa9f64f61b1c0de5e5fad9fe0933063b8f0dbc81698d0ff5a6",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3243801,
+          "functionEndOffset": 3244327,
+          "functionSha256": "d6ef52e94a7d1b084a7ed40abcbfa4fb42fb1da29d4ad8103ba8b144133b8b28",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$setProperty_0",
+          "startLine": 25451,
+          "endLine": 25454,
+          "spanSha256": "3580ea3c9e89755bf43b2a9e84034155b5d11ba46c72a1893803f3ed1abc5799",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 890214,
+          "functionEndOffset": 890553,
+          "functionSha256": "c615082e9c39de3b00df2cf89afd2b7eb54af8bda84600bd774a65039588a8ab",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "LPort$1",
+          "startLine": 33564,
+          "endLine": 33566,
+          "spanSha256": "ef158c8821de5c6bf2f45db5ecd0be382fd31cf5f146974d21a6a0d8b1841481",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1286513,
+          "functionEndOffset": 1286565,
+          "functionSha256": "37a4d13aa6af95c6e2e214d1c9eb7877c125dfe8e411f02d7d4f16fd3513dbd2",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "LPort$2",
+          "startLine": 33602,
+          "endLine": 33604,
+          "spanSha256": "05f59174b838fdb3e6aed86f2b37e4d6029d49a125b825d399465125c56337cf",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1287572,
+          "functionEndOffset": 1287624,
+          "functionSha256": "4ee9b2c802ce3db153eebebc8e7a28d3c2a3bded017c579db730a11a3fa59945",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "LPort$1$1",
+          "startLine": 33580,
+          "endLine": 33582,
+          "spanSha256": "bb2df34ab2b370fe3e8b6017713442822338ee9215b6a0b9837d7333cf7174be",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1286967,
+          "functionEndOffset": 1287042,
+          "functionSha256": "4cf81936cf12fea216f81aff5744d50db5b743451f31ce37ea1d3b8fbb8da547",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "LPort$2$1",
+          "startLine": 33617,
+          "endLine": 33619,
+          "spanSha256": "912e8c1dd5d69197e33af6c3738c0a6b791e68a5b6bf57b1b35248f03df414db",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1288025,
+          "functionEndOffset": 1288100,
+          "functionSha256": "2f88f0be4596b219067f28a6878f37ee697d3c3c1d4c05141736ee41cd9185c6",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "iterator_69",
+          "startLine": 33573,
+          "endLine": 33577,
+          "spanSha256": "4f22ecd675560b85ee93ac64b159b10c0e4e1fcf3e49d84c74a37fe3f13fa52f",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1286699,
+          "functionEndOffset": 1286835,
+          "functionSha256": "0aa8076e6f7e8912247a3002bc60ecdaa9787458d3d104703b5c1b1bba80a8b7",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "iterator_70",
+          "startLine": 33611,
+          "endLine": 33614,
+          "spanSha256": "1263d89ae9d7511a18b188828fed4bd1c5917c4d86140a716d1ba976df6978d8",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1287758,
+          "functionEndOffset": 1287893,
+          "functionSha256": "e666f820f84e105b9b4ed4b5ba3e652589dae5d9b7286d50e69bf5fe209e3fc4",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "next_37",
+          "startLine": 33589,
+          "endLine": 33591,
+          "spanSha256": "b6ff71283f6f0c44c07356740b55287734a264b7c5dff4170c6dfd1e2b2b722d",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1287201,
+          "functionEndOffset": 1287280,
+          "functionSha256": "5d76cb172d08f11e068f9f16cb637b49a3a1486509eb7467035bf06c7a07993e",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "next_38",
+          "startLine": 33626,
+          "endLine": 33628,
+          "spanSha256": "d0fd0f32be8aa0108f700f94a6983b2f87e623ab5f7dffdcce59bcb947a49810",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1288258,
+          "functionEndOffset": 1288337,
+          "functionSha256": "27ef14d910893d5ddbb5ed6a5ce310fbb5b581d476cb2413e5d55e813f5c7c57",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "hasNext_36",
+          "startLine": 33593,
+          "endLine": 33595,
+          "spanSha256": "6c612a1272243b8a34e045c668bcfc14bce8af95fa9840ba6b61676e3f5862d0",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1287297,
+          "functionEndOffset": 1287363,
+          "functionSha256": "79840ed79bef828d42a07e1e013c6c00c8276f910f77fffccecfd8f250c38a60",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "hasNext_37",
+          "startLine": 33630,
+          "endLine": 33632,
+          "spanSha256": "5911e1991049bc510c4fc96124786710725e5dfbccf3edc82076fcd2e8a46a6a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1288354,
+          "functionEndOffset": 1288420,
+          "functionSha256": "b1b2039c4186a8f317eedafd01fe5830074decbd483c43e2a33f72f1a226d3da",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "EnumSet$EnumSetImpl",
+          "startLine": 15806,
+          "endLine": 15810,
+          "spanSha256": "f3c7e33a9804cec7783cac1f0e523e979ec21587df772315006e7f8ca638dbb8",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 494055,
+          "functionEndOffset": 494170,
+          "functionSha256": "a4244115a4615936ece0e683b0c57328db52f7e752bda8df5c8699a773ca8384",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "staticCallEdges": [
+        {
+          "caller": "$split_2",
+          "callee": "$dfs_1",
+          "callSiteLines": [
+            30970
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$dfs_1",
+            "startLine": 30930,
+            "endLine": 30952,
+            "spanSha256": "cfef67b8d25f12f312a0890d5bf3d5b0787eba100aa2806b6be01ac20282dce9",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1168292,
+            "functionEndOffset": 1169599,
+            "functionSha256": "808dfd37a170648f4f3ea7ff147677d66b6a5daed71b8f37ec4b1b0f670606f4",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$split_2",
+          "callee": "$copyProperties",
+          "callSiteLines": [
+            30973
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$copyProperties",
+            "startLine": 25418,
+            "endLine": 25426,
+            "spanSha256": "d266fa85b29bf64566678c23b13dcd2c697ef8183d40c8769a7b0ce58c00e5ab",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 888624,
+            "functionEndOffset": 888939,
+            "functionSha256": "dcb449d84b09108ea2dfd1b4191116912040fe52c45c3c56582b3cc170c1a086",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$split_2",
+          "callee": "$copy",
+          "callSiteLines": [
+            30975
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$copy",
+            "startLine": 33059,
+            "endLine": 33065,
+            "spanSha256": "44de87205be06d3488608d0b14f7165cfd5a85a992141700329b3ddc0fb4725a",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1267438,
+            "functionEndOffset": 1267637,
+            "functionSha256": "16c49664fbba7663597cd7255e9830dff80d657088b85cde29ca40fab715bf2b",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$split_2",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            30957,
+            30959,
+            30960,
+            30985,
+            30990
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$split_2",
+          "callee": "$setProperty_0",
+          "callSiteLines": [
+            30974,
+            30976
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$setProperty_0",
+            "startLine": 25451,
+            "endLine": 25454,
+            "spanSha256": "3580ea3c9e89755bf43b2a9e84034155b5d11ba46c72a1893803f3ed1abc5799",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 890214,
+            "functionEndOffset": 890553,
+            "functionSha256": "c615082e9c39de3b00df2cf89afd2b7eb54af8bda84600bd774a65039588a8ab",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$dfs_1",
+          "callee": "$dfs_1",
+          "callSiteLines": [
+            30946
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$dfs_1",
+            "startLine": 30930,
+            "endLine": 30952,
+            "spanSha256": "cfef67b8d25f12f312a0890d5bf3d5b0787eba100aa2806b6be01ac20282dce9",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1168292,
+            "functionEndOffset": 1169599,
+            "functionSha256": "808dfd37a170648f4f3ea7ff147677d66b6a5daed71b8f37ec4b1b0f670606f4",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$dfs_1",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            30941
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$dfs_1",
+          "callee": "LPort$1",
+          "callSiteLines": [
+            30944
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "LPort$1",
+            "startLine": 33564,
+            "endLine": 33566,
+            "spanSha256": "ef158c8821de5c6bf2f45db5ecd0be382fd31cf5f146974d21a6a0d8b1841481",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1286513,
+            "functionEndOffset": 1286565,
+            "functionSha256": "37a4d13aa6af95c6e2e214d1c9eb7877c125dfe8e411f02d7d4f16fd3513dbd2",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$dfs_1",
+          "callee": "LPort$2",
+          "callSiteLines": [
+            30944
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "LPort$2",
+            "startLine": 33602,
+            "endLine": 33604,
+            "spanSha256": "05f59174b838fdb3e6aed86f2b37e4d6029d49a125b825d399465125c56337cf",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1287572,
+            "functionEndOffset": 1287624,
+            "functionSha256": "4ee9b2c802ce3db153eebebc8e7a28d3c2a3bded017c579db730a11a3fa59945",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$dfs_1",
+          "callee": "EnumSet$EnumSetImpl",
+          "callSiteLines": [
+            30937
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "EnumSet$EnumSetImpl",
+            "startLine": 15806,
+            "endLine": 15810,
+            "spanSha256": "f3c7e33a9804cec7783cac1f0e523e979ec21587df772315006e7f8ca638dbb8",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 494055,
+            "functionEndOffset": 494170,
+            "functionSha256": "a4244115a4615936ece0e683b0c57328db52f7e752bda8df5c8699a773ca8384",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$copyProperties",
+          "callee": "HashMap_1",
+          "callSiteLines": [
+            25424
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "HashMap_1",
+            "startLine": 15892,
+            "endLine": 15895,
+            "spanSha256": "1552fb11581d015adca72742578f90c216b2777ff90992a12897597808df1b88",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 496108,
+            "functionEndOffset": 496186,
+            "functionSha256": "5b4f3bc3b4fc6389f69c6295755ff978cd8cf6e70653172518e14cc75721b1d1",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$copyProperties",
+          "callee": "$putAll",
+          "callSiteLines": [
+            25424
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$putAll",
+            "startLine": 1251,
+            "endLine": 1258,
+            "spanSha256": "d028cbc813d5ca00c8d80ec8d2f37525f6699be64d2196aa6d7b84df41fe44ea",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 43273,
+            "functionEndOffset": 43536,
+            "functionSha256": "a41e7c7af08c1bba3b6d4eb0f375bb077189a9eeed559c610d7edb4fd41f6f3b",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "HashMap_1",
+          "callee": "$putAll",
+          "callSiteLines": [
+            15894
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$putAll",
+            "startLine": 1251,
+            "endLine": 1258,
+            "spanSha256": "d028cbc813d5ca00c8d80ec8d2f37525f6699be64d2196aa6d7b84df41fe44ea",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 43273,
+            "functionEndOffset": 43536,
+            "functionSha256": "a41e7c7af08c1bba3b6d4eb0f375bb077189a9eeed559c610d7edb4fd41f6f3b",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$getProperty",
+          "callee": "getDefault",
+          "callSiteLines": [
+            25438
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "getDefault",
+            "startLine": 69799,
+            "endLine": 69811,
+            "spanSha256": "2ecc6351e7c9c8fa9f64f61b1c0de5e5fad9fe0933063b8f0dbc81698d0ff5a6",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3243801,
+            "functionEndOffset": 3244327,
+            "functionSha256": "d6ef52e94a7d1b084a7ed40abcbfa4fb42fb1da29d4ad8103ba8b144133b8b28",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "iterator_69",
+          "callee": "LPort$1$1",
+          "callSiteLines": [
+            33576
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "LPort$1$1",
+            "startLine": 33580,
+            "endLine": 33582,
+            "spanSha256": "bb2df34ab2b370fe3e8b6017713442822338ee9215b6a0b9837d7333cf7174be",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1286967,
+            "functionEndOffset": 1287042,
+            "functionSha256": "4cf81936cf12fea216f81aff5744d50db5b743451f31ce37ea1d3b8fbb8da547",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "iterator_70",
+          "callee": "LPort$2$1",
+          "callSiteLines": [
+            33613
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "LPort$2$1",
+            "startLine": 33617,
+            "endLine": 33619,
+            "spanSha256": "912e8c1dd5d69197e33af6c3738c0a6b791e68a5b6bf57b1b35248f03df414db",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1288025,
+            "functionEndOffset": 1288100,
+            "functionSha256": "2f88f0be4596b219067f28a6878f37ee697d3c3c1d4c05141736ee41cd9185c6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        }
+      ],
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumOriginalEdges": 28,
+        "maximumWeakComponents": 8,
+        "topology": "flat NORMAL original nodes, implicit distinct endpoint ports; disconnected/isolated/cycle/loop/parallel allowed only after the relevant E07 phase dependencies are approved",
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "separateConnectedComponents": [
+          true,
+          false
+        ],
+        "compactionConnectedComponents": false,
+        "componentModelOrder": "NONE",
+        "priority": 0,
+        "externalPorts": false,
+        "publicPortsLabelsHierarchy": false,
+        "extraSizingAlignmentBaseSpacingOptions": false,
+        "coordinateInput": "Post-transform component size/offset, local nodes/ports/bends; source component padding restored by reviewed A post-transform before packing."
+      },
+      "guardProofs": [
+        {
+          "id": "CP-SPLIT1",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$split_2",
+            "$dfs_1",
+            "iterator_69",
+            "iterator_70",
+            "next_37",
+            "next_38"
+          ],
+          "claim": "separate=true uses original layerless node order; reset each node.id0 then DFS mark1, iterate each actual port in order, incoming source ports before outgoing target ports. Self-loop recursion terminates by mark1. Each original node enters exactly one component, repeated edges do not duplicate it. No port or edge is replaced."
+        },
+        {
+          "id": "CP-SPLIT2",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$split_2",
+            "LGraph",
+            "$copyProperties",
+            "HashMap_1",
+            "$putAll",
+            "$copy",
+            "$setProperty_0"
+          ],
+          "claim": "For every discovered component allocate fresh LGraph/list/size/offset/padding; shallow-copy all property values, assign fresh empty EXT_PORT_CONNECTIONS set, copy four padding scalars, remove explicit NODE_SIZE_MINIMUM. Append original nodes and reassign node.graph. Original target.layerlessNodes is intentionally not cleared here. Thus RANDOM/PROCESSORS/GRAPH_PROPERTIES references remain globally shared and component padding/offset objects remain independent."
+        },
+        {
+          "id": "CP-SPLIT3",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$split_2"
+          ],
+          "claim": "separate=false returns singleton array containing the original graph object; no scratch reset, DFS, new LGraph, padding copy or reorder occurs. No external ports and default componentOrdering NONE make alternate component-group placers and minimal-model-order sorting unreachable. False disconnected kernels require separate E07 source approval, not this split lemma."
+        },
+        {
+          "id": "CP-SPLIT4",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$split_2",
+            "$dfs_1"
+          ],
+          "claim": "At split time there are only0..8 original NORMAL nodes and at most56 distinct raw endpoint ports; no phase has created long-edge dummies yet. Recursion depth<=8; result count<=8. Each component has n_i<=8,e_i<=28 with sum n_i<=8,sum e_i<=28. No old connected-only guard is inherited for false or multi-component cases."
+        }
+      ],
+      "reads": [
+        "original ordered layerless nodes/ports/incoming/outgoing",
+        "global prepared property map and padding",
+        "separate flag"
+      ],
+      "writes": [
+        "true-only node.id0 then1",
+        "new graph-owned ordered node lists",
+        "node.graph ownership",
+        "new EXT_PORT_CONNECTIONS empty set and removal of NODE_SIZE_MINIMUM"
+      ],
+      "guardedOutBranches": [
+        "external-port component grouping/fixed-order compatibility branch",
+        "nondefault component model ordering"
+      ],
+      "hostMappingRefs": [
+        {
+          "artifact": {
+            "path": "references/e04-source-components-A.json",
+            "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+          },
+          "jsonPointer": "/hostSupportPolicy",
+          "scope": "Ordered identity lists, source setters, finite f64 arithmetic and bounded property map host semantics only; topology/phase source gates are not inherited."
+        }
+      ],
+      "hostMappingDelta": {
+        "identity": "New LGraphs only for separate=true; original LNode/LPort/LEdge/origin identities are retained. Property dictionaries shallow-copy object references; padding vectors copy scalar sides.",
+        "lists": "Ordered lists, deterministic bounded DFS and stable comparator sort. No hash-set iteration selects component order.",
+        "properties": "Do not materialize absent scalar/default EnumSet reads. JUNCTION_POINTS uses the approved unique A getter and its genuine clone/store behavior.",
+        "float": "Literal operation order, JS finite max signed-zero semantics and Double.compare signed-zero ordering; preserve source binary default aspect1.600000023841858, not decimal1.6."
+      },
+      "numericSemantics": {
+        "finiteInputBound": 1000000,
+        "componentCountBound": 8,
+        "integerState": "DFS scratch0/1 and priority default0; collection sizes are bounded by8 original nodes and56 original ports before kernel layout.",
+        "random": "No random calls in split/combine/finalization. One RANDOM object is prepared globally and shallow-shared; all per-phase seed resets/draws are owned by the phase source proofs.",
+        "packing": "No overflow/NaN is introduced by at most8 finite component rectangles; exact per-kernel extent bound is an explicit dependent E07 proof, not inferred from finite samples."
+      },
+      "evidence": [
+        {
+          "path": "test-runs/20261103-E07-01/B/component-observations-draft.json",
+          "sha256": "8180b2bc6452350caf48f86c8e399c9fd53943295b452c0af28db8ecbbf55c3a"
+        },
+        {
+          "path": "tools/reference/trace_e07_components.cjs",
+          "sha256": "a7206a037a452d9f7898416eb32bd9dbf08168e7d63295be612064e807f1dcd3",
+          "role": "Development-only observer, never runtime dependency"
+        }
+      ],
+      "licenseRefs": [
+        "elkjs-license"
+      ],
+      "closureStatus": "closed-under-explicit-component-operation-guards",
+      "unresolved": [],
+      "nativeRuntimeAccepted": false,
+      "dynamicDispatchSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 31008,
+          "endLine": 31008,
+          "spanSha256": "3be7f7e04405f3b0baca25c607622d2fad65fc450981af4f05be425747dab402",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "ComponentsProcessor constructor type"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 31182,
+          "endLine": 31182,
+          "spanSha256": "1a831339853b2b69eb94f31e7667268cb182261eeb92175528202bd7270b249f",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "SimpleRowGraphPlacer method dispatch"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 33568,
+          "endLine": 33568,
+          "spanSha256": "2730ffd11d81820c5f59c8ccf5f642dccdd31a8fa641258a293d9259ae4811b3",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "incoming iterable type"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 33584,
+          "endLine": 33584,
+          "spanSha256": "f9c75303c2fc75b7040448febabec4203f5f69bab5bc7d9f8071894742676e05",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "incoming iterator type"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 33606,
+          "endLine": 33606,
+          "spanSha256": "ccd866d9c2419169f40430026d665919e85d105223768b545a1b814e682287e8",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "outgoing iterable type"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 33621,
+          "endLine": 33621,
+          "spanSha256": "7fbb67650c35a5782b8f890b2184a703e15b8c1496e2367f10dfb2d7d0b929c7",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "outgoing iterator type"
+        }
+      ],
+      "supportDefaultSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "SEPARATE_CONNECTED_COMPONENTS_0",
+          "startLine": 49169,
+          "endLine": 49169,
+          "spanSha256": "ee1ef0db84a4a9ecc0dfdd986a9e5e76bd97ceefac9e160fa4c70ac08d0f0d0c",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "CONSIDER_MODEL_ORDER_COMPONENTS_DEFAULT",
+          "startLine": 48894,
+          "endLine": 48894,
+          "spanSha256": "b7a9dd7f3a9619e268099c7c99f129dc30dc8fc0de55c1d3014a4412e5ba77b0",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "EXT_PORT_CONNECTIONS",
+          "startLine": 48670,
+          "endLine": 48670,
+          "spanSha256": "2062a999abaed6516455fb655053ba40ae4a3ea8b5af1f349d13710bbc09ca92",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 32076,
+          "endLine": 32076,
+          "spanSha256": "f73ade63be2eb6a9d1f7b6205c6db435c0ddf63eee50bb1dfa9e0187086a027a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "LGraph concrete host type"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 15765,
+          "endLine": 15765,
+          "spanSha256": "02322aefd89287a14af4bc6a9907a456906bdfe5b2743d334de58612a5677402",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "EnumSet actual cast table has no Cloneable4"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 15812,
+          "endLine": 15812,
+          "spanSha256": "67f775b834d3783015b51fd594852f7cce3318fd13a10a250525c28bf9fca475",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "EnumSetImpl actual cast table has no Cloneable4"
+        }
+      ],
+      "commonSourceContext": {
+        "scopeId": "E07-ADR0006-revision1",
+        "scopeDocument": "docs/decisions/0006-e07-directions-components.md",
+        "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+        "baselinePassedMethods": 597,
+        "originalNodeMaximum": 8,
+        "originalEdgeMaximum": 28,
+        "internalNodeMaximum": 176,
+        "internalSegmentMaximum": 196,
+        "internalPortMaximum": 392,
+        "routingPrivateSegmentsPerBoundary": 56,
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "edgeRouting": "ORTHOGONAL",
+        "separateConnectedComponents": [
+          true,
+          false
+        ],
+        "numericMaximum": 1000000,
+        "licenseSha256": {
+          "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+          "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+          "src/pyelk/_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+          "src/pyelk/_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+          "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6"
+        },
+        "inheritedSourceArtifactsSha256": {
+          "references/e06-component-approvals.json": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e",
+          "references/e06-source-components-A.json": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54",
+          "references/e06-source-components-B.json": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd",
+          "references/e06-source-components-R.json": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f",
+          "docs/decisions/0005-e06-multigraph.md": "2343855ce1ce902eb4d45a273f799f16c6d92194a602f22bf07fb6b7c429f13c"
+        },
+        "sourcePolicy": "Renew every E06 component under E07 domain; old RIGHT/connected guard assumptions do not automatically carry. New clone/getter/type facts and source symbol bindings require independent review."
+      },
+      "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d"
+    },
+    {
+      "componentId": "components:simple-row-combine",
+      "generatedClass": "org.eclipse.elk.alg.layered.components.SimpleRowGraphPlacer",
+      "role": "components:simple-row-combine",
+      "entrySpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$combine",
+          "startLine": 30926,
+          "endLine": 30928,
+          "spanSha256": "381e3927bbb67b1fbaced5a97658503745b3d6a2db12afa5b495697bf3e363c2",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1168182,
+          "functionEndOffset": 1168290,
+          "functionSha256": "840fbf437300b11de99b875126055cebc79a0c13a1e87e3163fd1f38dd1e064c",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "combine_1",
+          "startLine": 31183,
+          "endLine": 31228,
+          "spanSha256": "625c5a2248d72a585e46bf4058ebe15fa75a214d52a14befde8b4fc47e72c7ed",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1182490,
+          "functionEndOffset": 1184516,
+          "functionSha256": "03e148e873aa59ed02e21758ae851348410ed7d724ad2e63354a20a6f54b3393",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "helperSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "placeComponents",
+          "startLine": 31230,
+          "endLine": 31253,
+          "spanSha256": "c971cef10996478b69106db8b114140aa29dc44a9a6eaab1c46a4d7aa6d646bb",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1184539,
+          "functionEndOffset": 1185419,
+          "functionSha256": "be50edee7b95defe41d0978539b1fa1b8f459d8de33fd404dce3b63faba03e2e",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "sortComponents",
+          "startLine": 31255,
+          "endLine": 31270,
+          "spanSha256": "d02ddba864bd786160134842eb5152bdf811f60ca7b21b779a13620d327d7c34",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1185441,
+          "functionEndOffset": 1186243,
+          "functionSha256": "16cb171f7a18d26c5e6b095073984a390e01e94bec17693c5213477248bc8d0b",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$compare_8",
+          "startLine": 31311,
+          "endLine": 31320,
+          "spanSha256": "4c5b298be4ac20c63af6ddeebf74c11ed49434d7524ffe96a922c233e1bddc67",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1188528,
+          "functionEndOffset": 1188804,
+          "functionSha256": "0b313e08aec378847b267178fdfaa5249456a5a62870f2316707709d24992279",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "compare_38",
+          "startLine": 31326,
+          "endLine": 31328,
+          "spanSha256": "c8abb60497adafff04d9cd764cadf7a94c0fb80a11d5a12cc8d7636e162b3a80",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1188916,
+          "functionEndOffset": 1189015,
+          "functionSha256": "6bb0c56b5cf54b18df9405163f27136d34fb8928d2d9f8f52100232eebfcd4ee",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "SimpleRowGraphPlacer$1",
+          "startLine": 31322,
+          "endLine": 31323,
+          "spanSha256": "e9f8e20593635d5b50b099d316e11f46cfa18f754b88980a1af05392854022b5",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1188806,
+          "functionEndOffset": 1188842,
+          "functionSha256": "2a610073882b9733d682f971ac88c66373cb714a075906916e86d6edb895748c",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$sort",
+          "startLine": 14192,
+          "endLine": 14194,
+          "spanSha256": "b82b5d73f25932ff3c6e735d0d8866014419a17377a2f382bb1af990b7e6a6e1",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 447866,
+          "functionEndOffset": 447957,
+          "functionSha256": "2b89409a02be42cb00bd4a17270bbaf66e8de54bded29553243a385a5d7203c4",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "sort_3",
+          "startLine": 14286,
+          "endLine": 14288,
+          "spanSha256": "d05ebffb3ea15aeee8995606f913edb45b40bedfa858ff7263ff1089733ec103",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 449844,
+          "functionEndOffset": 449883,
+          "functionSha256": "80040d816ae70d02fda920a161db2f6b60c1b028509c10e7d5449b151c26cd66",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "sort_4",
+          "startLine": 14523,
+          "endLine": 14526,
+          "spanSha256": "201db6bb0a897b56801f7ace8ccefe7c57f51fa3d8e70656b7549dd68d31484c",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 456770,
+          "functionEndOffset": 456892,
+          "functionSha256": "39bacc0d39fe0be3294a21e167e3e3df3519c394ee703b031864d939ca0cb5e0",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "mergeSort",
+          "startLine": 14495,
+          "endLine": 14500,
+          "spanSha256": "7a41dcea45cc61cdae9e7025c6ca6d71a4fa0ef07ba4d46e9e20e7a1fc1c13f7",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 455880,
+          "functionEndOffset": 456118,
+          "functionSha256": "291840045c6d950b096e8fb5a61322df91676ad8ed7f46faae300d4b37fd8f36",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "mergeSort_0",
+          "startLine": 14502,
+          "endLine": 14521,
+          "spanSha256": "1e50312f6ad13a117c0b87520c6c9cdedc1d6e9708608bbeb588640980606e90",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 456120,
+          "functionEndOffset": 456768,
+          "functionSha256": "1c28f5f59255d3dbcdccf48399c446ec8ad4bdd22253706f524b6843a47b2ece",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "insertionSort",
+          "startLine": 14476,
+          "endLine": 14485,
+          "spanSha256": "4e88a69b027d128507692f02992ceb5be632a33e67d77e8d272f0ba472d16e5a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 455263,
+          "functionEndOffset": 455545,
+          "functionSha256": "a988e5445055214106c411eff4029d578226520744b5a148fb4ec7b01c02252e",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "merge_1",
+          "startLine": 14487,
+          "endLine": 14493,
+          "spanSha256": "a84f038985f6a815e759280d285b2bda00fae8c480f0cbbef314787e86bdff4a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 455547,
+          "functionEndOffset": 455878,
+          "functionSha256": "1b558e1be65989b2cc40ae874338edc6d50e22c27fca8ae44ad4af9dfb1b20c6",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "compare_3",
+          "startLine": 11187,
+          "endLine": 11198,
+          "spanSha256": "23abd9a2bfdd569e30bd76649aeeb3dcfa52da71efb04086966675f0d982208f",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 354517,
+          "functionEndOffset": 354737,
+          "functionSha256": "8c946e9f8c98c15988be6558fae7c56ac0caec4f2e5e345a68ad9e7df58296d4",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$moveGraph_0",
+          "startLine": 29973,
+          "endLine": 29995,
+          "spanSha256": "9165ab5bed4a0526e6789fe74ebbbf8730e6460db5b89b5254f65cafb2ddb84a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1118271,
+          "functionEndOffset": 1119605,
+          "functionSha256": "f3cbc79c25ad032c40add326db8a32691705f689a566fa82030bd2916b984442",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$moveGraphs",
+          "startLine": 29997,
+          "endLine": 30003,
+          "spanSha256": "676c52724ab04a58ba895b0ba1bccdd0d6c4bca7cf2c08548010fa283b7f79dd",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1119607,
+          "functionEndOffset": 1119903,
+          "functionSha256": "83285e21c386dbfb75f3bacab5fa7ca77df0a459a3ba68f1fa5515d2670c1d59",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$offsetGraph",
+          "startLine": 30005,
+          "endLine": 30025,
+          "spanSha256": "0c3047c2d743183f591494db370c0523c0968234d19174526a55973924e34c9e",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1119905,
+          "functionEndOffset": 1121128,
+          "functionSha256": "7686ee2ab50bfddf648150ef7704375ae21ea208a0851ed6ed01bb0591be2a17",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$offset_2",
+          "startLine": 70551,
+          "endLine": 70559,
+          "spanSha256": "26d20aaeb34ba57e3de58d568a8fc3069ffba331340da105da67d8ce6f01d614",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3268346,
+          "functionEndOffset": 3268677,
+          "functionSha256": "210252b574e54cf6ee6f32df94e0071ec96bbeded7ec7def6f54635c7ba052d7",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$add_18",
+          "startLine": 70318,
+          "endLine": 70322,
+          "spanSha256": "f453059a06f445110709a96d615da155ed8473f8ad64bd6d2270d8e390499a97",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3262031,
+          "functionEndOffset": 3262143,
+          "functionSha256": "f05c92e33c6b4f3786d05be163bf833936384ccc8015b9ce5fd9b9484ea28232",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$add_19",
+          "startLine": 70324,
+          "endLine": 70328,
+          "spanSha256": "82bfae9e4e36c58b8eeceba34713c9d473bc86ccdc8669fd29f9a5bd10dc3c55",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3262145,
+          "functionEndOffset": 3262258,
+          "functionSha256": "ea084ef6066438bda50e4b1a8d25b9fd4abca424bdd61c8209bb9e0a97a8532a",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$reset_5",
+          "startLine": 70385,
+          "endLine": 70389,
+          "spanSha256": "72b9634bd7161c3ca542fbd5578349b695932420863ec6b2df9651f8485455e5",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3263831,
+          "functionEndOffset": 3263932,
+          "functionSha256": "15dd7c622400e00c8688e6b79015d6c20e76fdb4175dcfa15bf59338e9282a17",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$copyProperties",
+          "startLine": 25418,
+          "endLine": 25426,
+          "spanSha256": "d266fa85b29bf64566678c23b13dcd2c697ef8183d40c8769a7b0ce58c00e5ab",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 888624,
+          "functionEndOffset": 888939,
+          "functionSha256": "dcb449d84b09108ea2dfd1b4191116912040fe52c45c3c56582b3cc170c1a086",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$copy",
+          "startLine": 33059,
+          "endLine": 33065,
+          "spanSha256": "44de87205be06d3488608d0b14f7165cfd5a85a992141700329b3ddc0fb4725a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1267438,
+          "functionEndOffset": 1267637,
+          "functionSha256": "16c49664fbba7663597cd7255e9830dff80d657088b85cde29ca40fab715bf2b",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$getProperty",
+          "startLine": 25432,
+          "endLine": 25441,
+          "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 889104,
+          "functionEndOffset": 889736,
+          "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "getDefault",
+          "startLine": 69799,
+          "endLine": 69811,
+          "spanSha256": "2ecc6351e7c9c8fa9f64f61b1c0de5e5fad9fe0933063b8f0dbc81698d0ff5a6",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3243801,
+          "functionEndOffset": 3244327,
+          "functionSha256": "d6ef52e94a7d1b084a7ed40abcbfa4fb42fb1da29d4ad8103ba8b144133b8b28",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "staticCallEdges": [
+        {
+          "caller": "combine_1",
+          "callee": "placeComponents",
+          "callSiteLines": [
+            31217
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "placeComponents",
+            "startLine": 31230,
+            "endLine": 31253,
+            "spanSha256": "c971cef10996478b69106db8b114140aa29dc44a9a6eaab1c46a4d7aa6d646bb",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1184539,
+            "functionEndOffset": 1185419,
+            "functionSha256": "be50edee7b95defe41d0978539b1fa1b8f459d8de33fd404dce3b63faba03e2e",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "sortComponents",
+          "callSiteLines": [
+            31203
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "sortComponents",
+            "startLine": 31255,
+            "endLine": 31270,
+            "spanSha256": "d02ddba864bd786160134842eb5152bdf811f60ca7b21b779a13620d327d7c34",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1185441,
+            "functionEndOffset": 1186243,
+            "functionSha256": "16cb171f7a18d26c5e6b095073984a390e01e94bec17693c5213477248bc8d0b",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$moveGraph_0",
+          "callSiteLines": [
+            31189
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$moveGraph_0",
+            "startLine": 29973,
+            "endLine": 29995,
+            "spanSha256": "9165ab5bed4a0526e6789fe74ebbbf8730e6460db5b89b5254f65cafb2ddb84a",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1118271,
+            "functionEndOffset": 1119605,
+            "functionSha256": "f3cbc79c25ad032c40add326db8a32691705f689a566fa82030bd2916b984442",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$moveGraphs",
+          "callSiteLines": [
+            31227
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$moveGraphs",
+            "startLine": 29997,
+            "endLine": 30003,
+            "spanSha256": "676c52724ab04a58ba895b0ba1bccdd0d6c4bca7cf2c08548010fa283b7f79dd",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1119607,
+            "functionEndOffset": 1119903,
+            "functionSha256": "83285e21c386dbfb75f3bacab5fa7ca77df0a459a3ba68f1fa5515d2670c1d59",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$add_19",
+          "callSiteLines": [
+            31223,
+            31225
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$add_19",
+            "startLine": 70324,
+            "endLine": 70328,
+            "spanSha256": "82bfae9e4e36c58b8eeceba34713c9d473bc86ccdc8669fd29f9a5bd10dc3c55",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3262145,
+            "functionEndOffset": 3262258,
+            "functionSha256": "ea084ef6066438bda50e4b1a8d25b9fd4abca424bdd61c8209bb9e0a97a8532a",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$reset_5",
+          "callSiteLines": [
+            31223,
+            31225
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$reset_5",
+            "startLine": 70385,
+            "endLine": 70389,
+            "spanSha256": "72b9634bd7161c3ca542fbd5578349b695932420863ec6b2df9651f8485455e5",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3263831,
+            "functionEndOffset": 3263932,
+            "functionSha256": "15dd7c622400e00c8688e6b79015d6c20e76fdb4175dcfa15bf59338e9282a17",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$copyProperties",
+          "callSiteLines": [
+            31190,
+            31206
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$copyProperties",
+            "startLine": 25418,
+            "endLine": 25426,
+            "spanSha256": "d266fa85b29bf64566678c23b13dcd2c697ef8183d40c8769a7b0ce58c00e5ab",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 888624,
+            "functionEndOffset": 888939,
+            "functionSha256": "dcb449d84b09108ea2dfd1b4191116912040fe52c45c3c56582b3cc170c1a086",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$copy",
+          "callSiteLines": [
+            31191
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$copy",
+            "startLine": 33059,
+            "endLine": 33065,
+            "spanSha256": "44de87205be06d3488608d0b14f7165cfd5a85a992141700329b3ddc0fb4725a",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1267438,
+            "functionEndOffset": 1267637,
+            "functionSha256": "16c49664fbba7663597cd7255e9830dff80d657088b85cde29ca40fab715bf2b",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "combine_1",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            31215,
+            31216,
+            31218
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "placeComponents",
+          "callee": "$offsetGraph",
+          "callSiteLines": [
+            31245
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$offsetGraph",
+            "startLine": 30005,
+            "endLine": 30025,
+            "spanSha256": "0c3047c2d743183f591494db370c0523c0968234d19174526a55973924e34c9e",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1119905,
+            "functionEndOffset": 1121128,
+            "functionSha256": "7686ee2ab50bfddf648150ef7704375ae21ea208a0851ed6ed01bb0591be2a17",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "placeComponents",
+          "callee": "$reset_5",
+          "callSiteLines": [
+            31246
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$reset_5",
+            "startLine": 70385,
+            "endLine": 70389,
+            "spanSha256": "72b9634bd7161c3ca542fbd5578349b695932420863ec6b2df9651f8485455e5",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3263831,
+            "functionEndOffset": 3263932,
+            "functionSha256": "15dd7c622400e00c8688e6b79015d6c20e76fdb4175dcfa15bf59338e9282a17",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "sortComponents",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            31257,
+            31263
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$compare_8",
+          "callee": "compare_3",
+          "callSiteLines": [
+            31317
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "compare_3",
+            "startLine": 11187,
+            "endLine": 11198,
+            "spanSha256": "23abd9a2bfdd569e30bd76649aeeb3dcfa52da71efb04086966675f0d982208f",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 354517,
+            "functionEndOffset": 354737,
+            "functionSha256": "8c946e9f8c98c15988be6558fae7c56ac0caec4f2e5e345a68ad9e7df58296d4",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "compare_38",
+          "callee": "$compare_8",
+          "callSiteLines": [
+            31327
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$compare_8",
+            "startLine": 31311,
+            "endLine": 31320,
+            "spanSha256": "4c5b298be4ac20c63af6ddeebf74c11ed49434d7524ffe96a922c233e1bddc67",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1188528,
+            "functionEndOffset": 1188804,
+            "functionSha256": "0b313e08aec378847b267178fdfaa5249456a5a62870f2316707709d24992279",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$sort",
+          "callee": "sort_4",
+          "callSiteLines": [
+            14193
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "sort_4",
+            "startLine": 14523,
+            "endLine": 14526,
+            "spanSha256": "201db6bb0a897b56801f7ace8ccefe7c57f51fa3d8e70656b7549dd68d31484c",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 456770,
+            "functionEndOffset": 456892,
+            "functionSha256": "39bacc0d39fe0be3294a21e167e3e3df3519c394ee703b031864d939ca0cb5e0",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "sort_3",
+          "callee": "$sort",
+          "callSiteLines": [
+            14287
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$sort",
+            "startLine": 14192,
+            "endLine": 14194,
+            "spanSha256": "b82b5d73f25932ff3c6e735d0d8866014419a17377a2f382bb1af990b7e6a6e1",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 447866,
+            "functionEndOffset": 447957,
+            "functionSha256": "2b89409a02be42cb00bd4a17270bbaf66e8de54bded29553243a385a5d7203c4",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "sort_4",
+          "callee": "mergeSort",
+          "callSiteLines": [
+            14525
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "mergeSort",
+            "startLine": 14495,
+            "endLine": 14500,
+            "spanSha256": "7a41dcea45cc61cdae9e7025c6ca6d71a4fa0ef07ba4d46e9e20e7a1fc1c13f7",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 455880,
+            "functionEndOffset": 456118,
+            "functionSha256": "291840045c6d950b096e8fb5a61322df91676ad8ed7f46faae300d4b37fd8f36",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "mergeSort",
+          "callee": "mergeSort_0",
+          "callSiteLines": [
+            14499
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "mergeSort_0",
+            "startLine": 14502,
+            "endLine": 14521,
+            "spanSha256": "1e50312f6ad13a117c0b87520c6c9cdedc1d6e9708608bbeb588640980606e90",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 456120,
+            "functionEndOffset": 456768,
+            "functionSha256": "1c28f5f59255d3dbcdccf48399c446ec8ad4bdd22253706f524b6843a47b2ece",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "mergeSort_0",
+          "callee": "mergeSort_0",
+          "callSiteLines": [
+            14512,
+            14513
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "mergeSort_0",
+            "startLine": 14502,
+            "endLine": 14521,
+            "spanSha256": "1e50312f6ad13a117c0b87520c6c9cdedc1d6e9708608bbeb588640980606e90",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 456120,
+            "functionEndOffset": 456768,
+            "functionSha256": "1c28f5f59255d3dbcdccf48399c446ec8ad4bdd22253706f524b6843a47b2ece",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "mergeSort_0",
+          "callee": "insertionSort",
+          "callSiteLines": [
+            14506
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "insertionSort",
+            "startLine": 14476,
+            "endLine": 14485,
+            "spanSha256": "4e88a69b027d128507692f02992ceb5be632a33e67d77e8d272f0ba472d16e5a",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 455263,
+            "functionEndOffset": 455545,
+            "functionSha256": "a988e5445055214106c411eff4029d578226520744b5a148fb4ec7b01c02252e",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "mergeSort_0",
+          "callee": "merge_1",
+          "callSiteLines": [
+            14520
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "merge_1",
+            "startLine": 14487,
+            "endLine": 14493,
+            "spanSha256": "a84f038985f6a815e759280d285b2bda00fae8c480f0cbbef314787e86bdff4a",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 455547,
+            "functionEndOffset": 455878,
+            "functionSha256": "1b558e1be65989b2cc40ae874338edc6d50e22c27fca8ae44ad4af9dfb1b20c6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "compare_3",
+          "callee": "compare_3",
+          "callSiteLines": [
+            11195
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "compare_3",
+            "startLine": 11187,
+            "endLine": 11198,
+            "spanSha256": "23abd9a2bfdd569e30bd76649aeeb3dcfa52da71efb04086966675f0d982208f",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 354517,
+            "functionEndOffset": 354737,
+            "functionSha256": "8c946e9f8c98c15988be6558fae7c56ac0caec4f2e5e345a68ad9e7df58296d4",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$moveGraph_0",
+          "callee": "$offset_2",
+          "callSiteLines": [
+            29983,
+            29985
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$offset_2",
+            "startLine": 70551,
+            "endLine": 70559,
+            "spanSha256": "26d20aaeb34ba57e3de58d568a8fc3069ffba331340da105da67d8ce6f01d614",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3268346,
+            "functionEndOffset": 3268677,
+            "functionSha256": "210252b574e54cf6ee6f32df94e0071ec96bbeded7ec7def6f54635c7ba052d7",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$moveGraph_0",
+          "callee": "$add_18",
+          "callSiteLines": [
+            29975
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$add_18",
+            "startLine": 70318,
+            "endLine": 70322,
+            "spanSha256": "f453059a06f445110709a96d615da155ed8473f8ad64bd6d2270d8e390499a97",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3262031,
+            "functionEndOffset": 3262143,
+            "functionSha256": "f05c92e33c6b4f3786d05be163bf833936384ccc8015b9ce5fd9b9484ea28232",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$moveGraph_0",
+          "callee": "$add_19",
+          "callSiteLines": [
+            29978,
+            29988
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$add_19",
+            "startLine": 70324,
+            "endLine": 70328,
+            "spanSha256": "82bfae9e4e36c58b8eeceba34713c9d473bc86ccdc8669fd29f9a5bd10dc3c55",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3262145,
+            "functionEndOffset": 3262258,
+            "functionSha256": "ea084ef6066438bda50e4b1a8d25b9fd4abca424bdd61c8209bb9e0a97a8532a",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$moveGraph_0",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            29984
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$moveGraphs",
+          "callee": "$moveGraph_0",
+          "callSiteLines": [
+            30001
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$moveGraph_0",
+            "startLine": 29973,
+            "endLine": 29995,
+            "spanSha256": "9165ab5bed4a0526e6789fe74ebbbf8730e6460db5b89b5254f65cafb2ddb84a",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1118271,
+            "functionEndOffset": 1119605,
+            "functionSha256": "f3cbc79c25ad032c40add326db8a32691705f689a566fa82030bd2916b984442",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$offsetGraph",
+          "callee": "$offset_2",
+          "callSiteLines": [
+            30015,
+            30017
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$offset_2",
+            "startLine": 70551,
+            "endLine": 70559,
+            "spanSha256": "26d20aaeb34ba57e3de58d568a8fc3069ffba331340da105da67d8ce6f01d614",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3268346,
+            "functionEndOffset": 3268677,
+            "functionSha256": "210252b574e54cf6ee6f32df94e0071ec96bbeded7ec7def6f54635c7ba052d7",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$offsetGraph",
+          "callee": "$add_19",
+          "callSiteLines": [
+            30010,
+            30020
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$add_19",
+            "startLine": 70324,
+            "endLine": 70328,
+            "spanSha256": "82bfae9e4e36c58b8eeceba34713c9d473bc86ccdc8669fd29f9a5bd10dc3c55",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3262145,
+            "functionEndOffset": 3262258,
+            "functionSha256": "ea084ef6066438bda50e4b1a8d25b9fd4abca424bdd61c8209bb9e0a97a8532a",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$offsetGraph",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            30016
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$getProperty",
+          "callee": "getDefault",
+          "callSiteLines": [
+            25438
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "getDefault",
+            "startLine": 69799,
+            "endLine": 69811,
+            "spanSha256": "2ecc6351e7c9c8fa9f64f61b1c0de5e5fad9fe0933063b8f0dbc81698d0ff5a6",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3243801,
+            "functionEndOffset": 3244327,
+            "functionSha256": "d6ef52e94a7d1b084a7ed40abcbfa4fb42fb1da29d4ad8103ba8b144133b8b28",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        }
+      ],
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumOriginalEdges": 28,
+        "maximumWeakComponents": 8,
+        "topology": "flat NORMAL original nodes, implicit distinct endpoint ports; disconnected/isolated/cycle/loop/parallel allowed only after the relevant E07 phase dependencies are approved",
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "separateConnectedComponents": [
+          true,
+          false
+        ],
+        "compactionConnectedComponents": false,
+        "componentModelOrder": "NONE",
+        "priority": 0,
+        "externalPorts": false,
+        "publicPortsLabelsHierarchy": false,
+        "extraSizingAlignmentBaseSpacingOptions": false,
+        "coordinateInput": "Post-transform component size/offset, local nodes/ports/bends; source component padding restored by reviewed A post-transform before packing."
+      },
+      "guardProofs": [
+        {
+          "id": "CP-COMBINE1",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "combine_1",
+            "$moveGraph_0",
+            "$copyProperties",
+            "$copy"
+          ],
+          "claim": "Singleton source==target is an identity no-op, preserving its offset. Singleton distinct source first clears target nodes, moveGraph adds source.offset by actual add_18(0,0), then adds that same vector to nodes/bends/junctions and changes node.graph; this read/write cannot be replaced by a copied offset or skipped zero add; then copies properties/padding/size. Empty list clears target nodes and zeros size. These branches do not sort or pack."
+        },
+        {
+          "id": "CP-COMBINE2",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "combine_1",
+            "sortComponents",
+            "$compare_8",
+            "compare_38",
+            "mergeSort_0",
+            "insertionSort",
+            "merge_1",
+            "compare_3"
+          ],
+          "claim": "For2..8 components, default NONE computes graph.id as sum node priorities (all0 in this scope), then stable sort by descending priority and ascending component.size.x*size.y. Ties keep DFS discovery order. Source sort<7 insertion /7..8 merge uses >0 swaps and <=0 left selection; Python stable comparator sorting is equivalent because these reads have no state/RNG side effect. Double.compare distinguishes signed zero; it is not an epsilon comparison."
+        },
+        {
+          "id": "CP-COMBINE3",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "combine_1",
+            "placeComponents",
+            "$offsetGraph",
+            "$reset_5",
+            "$moveGraphs",
+            "$moveGraph_0"
+          ],
+          "claim": "After sort copy first component properties into target, compute maxRowWidth=max(max component width,sqrt(sum width*height)*1.600000023841858). componentSpacing is resolved independently/default20. Start xpos=ypos=highestBox0,broadestRow=spacing. For every graph if xpos+width>maxRowWidth set xpos0,ypos+=highestBox+spacing,highestBox0; offset nodes/outgoing-edge bends/junctions by(xpos+graph.offset.x,ypos+graph.offset.y), reset graph.offset, update row width/height then xpos+=width+spacing. target size=(broadestRow,ypos+highestBox); moveGraphs still calls moveGraph_0(0,0) on each graph after offset reset, performing a second real node/bend/junction addition even when the offset is +0 (do not optimize away signed-zero effects), then appends actual sorted component layerless lists and changes graph owners, materializing JUNCTION_POINTS through the unique inherited getter where the source really reads it."
+        },
+        {
+          "id": "CP-COMBINE4",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "combine_1",
+            "$offsetGraph",
+            "$moveGraph_0"
+          ],
+          "claim": "No labels/external ports/compaction/model-order options are admitted. Default compaction.connectedComponents false bypasses compactor entirely. Placement reads post-direction component extents/offsets, does not add per-component padding, and does not change original port local geometry, edge origins or public model order. Output JSON ordering remains the importer/exporter's origin mapping responsibility."
+        }
+      ],
+      "reads": [
+        "post-direction component sizes/offsets/layerless order",
+        "default node priority0",
+        "component spacing",
+        "default aspect float-expanded constant"
+      ],
+      "writes": [
+        "component order and graph.id priority scratch",
+        "actual node/bend/junction offsets",
+        "component.offset reset",
+        "target size/properties/layerless/owners"
+      ],
+      "guardedOutBranches": [
+        "connected component compaction",
+        "alternate graph placers/model order",
+        "edge label offsets under no-label guard"
+      ],
+      "hostMappingRefs": [
+        {
+          "artifact": {
+            "path": "references/e04-source-components-A.json",
+            "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+          },
+          "jsonPointer": "/hostSupportPolicy",
+          "scope": "Ordered identity lists, source setters, finite f64 arithmetic and bounded property map host semantics only; topology/phase source gates are not inherited."
+        }
+      ],
+      "hostMappingDelta": {
+        "identity": "New LGraphs only for separate=true; original LNode/LPort/LEdge/origin identities are retained. Property dictionaries shallow-copy object references; padding vectors copy scalar sides.",
+        "lists": "Ordered lists, deterministic bounded DFS and stable comparator sort. No hash-set iteration selects component order.",
+        "properties": "Do not materialize absent scalar/default EnumSet reads. JUNCTION_POINTS uses the approved unique A getter and its genuine clone/store behavior.",
+        "float": "Literal operation order, JS finite max signed-zero semantics and Double.compare signed-zero ordering; preserve source binary default aspect1.600000023841858, not decimal1.6."
+      },
+      "numericSemantics": {
+        "finiteInputBound": 1000000,
+        "componentCountBound": 8,
+        "integerState": "DFS scratch0/1 and priority default0; collection sizes are bounded by8 original nodes and56 original ports before kernel layout.",
+        "random": "No random calls in split/combine/finalization. One RANDOM object is prepared globally and shallow-shared; all per-phase seed resets/draws are owned by the phase source proofs.",
+        "packing": "No overflow/NaN is introduced by at most8 finite component rectangles; exact per-kernel extent bound is an explicit dependent E07 proof, not inferred from finite samples."
+      },
+      "evidence": [
+        {
+          "path": "test-runs/20261103-E07-01/B/component-observations-draft.json",
+          "sha256": "8180b2bc6452350caf48f86c8e399c9fd53943295b452c0af28db8ecbbf55c3a"
+        },
+        {
+          "path": "tools/reference/trace_e07_components.cjs",
+          "sha256": "a7206a037a452d9f7898416eb32bd9dbf08168e7d63295be612064e807f1dcd3",
+          "role": "Development-only observer, never runtime dependency"
+        }
+      ],
+      "licenseRefs": [
+        "elkjs-license"
+      ],
+      "closureStatus": "closed-under-explicit-component-operation-guards",
+      "unresolved": [],
+      "nativeRuntimeAccepted": false,
+      "dynamicDispatchSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 31182,
+          "endLine": 31182,
+          "spanSha256": "1a831339853b2b69eb94f31e7667268cb182261eeb92175528202bd7270b249f",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "simple row combine/place/sort methods"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 31325,
+          "endLine": 31325,
+          "spanSha256": "bc2846663fbe9ffd4a046745983e9b9699898af9931bf16cbc95fb450ad01de1",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "SimpleRowGraphPlacer comparator compare_38"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 14221,
+          "endLine": 14221,
+          "spanSha256": "16a91035353c62bceb4114c5b27be48bd4b771c5ffbca14078c7e953cb50d8ac",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "ArrayList sort_3 dispatch"
+        }
+      ],
+      "supportDefaultSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$intern_103",
+          "startLine": 19,
+          "endLine": 19,
+          "spanSha256": "78cafc11589ae67ecf2eda16c799635da44f9826193a367c860ab5435fc9e4f6",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "binary32-expanded default aspect ratio1.600000023841858"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "ASPECT_RATIO_1",
+          "startLine": 49162,
+          "endLine": 49162,
+          "spanSha256": "f75f51680158cfbac867a665a74f76187a870bde9d6781c78a2d2c8be246ba08",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "SPACING_COMPONENT_COMPONENT_0",
+          "startLine": 49110,
+          "endLine": 49110,
+          "spanSha256": "cc1f6ae00ade16ab20c2ca0a1a92f50a94260cbd0dae849873a044ed5ec7c715",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "SPACING_COMPONENT_COMPONENT_1",
+          "startLine": 70828,
+          "endLine": 70828,
+          "spanSha256": "13a2bb1658f5852f2426c2241e16d2f711eba25fcccb0701a5dab61b88fcbc5e",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "PRIORITY_0",
+          "startLine": 49126,
+          "endLine": 49126,
+          "spanSha256": "ce52382c5ed405cae0fa44c19e91cf90f223731a3f347bdb9ff245719d024300",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "COMPACTION_CONNECTED_COMPONENTS",
+          "startLine": 48852,
+          "endLine": 48852,
+          "spanSha256": "a99c74b48f87c9507eb1836a6884c0f9ec50f9ef96d0140770af271bd3af665d",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "COMPACTION_CONNECTED_COMPONENTS_0",
+          "startLine": 49213,
+          "endLine": 49213,
+          "spanSha256": "691c067f0ee80c462f9db29a25cc1142fe012842f99c324f74e6fe384a569678",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "SPACING_BASE_VALUE_0",
+          "startLine": 34120,
+          "endLine": 34120,
+          "spanSha256": "c811af1f431c1908632b8c22939f6672574a52e9735bcdaf58d7d28a943ee0e6",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "Only explicit unsupported baseValue activates LayeredSpacings builder; nodeNode alone does not derive component spacing"
+        }
+      ],
+      "commonSourceContext": {
+        "scopeId": "E07-ADR0006-revision1",
+        "scopeDocument": "docs/decisions/0006-e07-directions-components.md",
+        "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+        "baselinePassedMethods": 597,
+        "originalNodeMaximum": 8,
+        "originalEdgeMaximum": 28,
+        "internalNodeMaximum": 176,
+        "internalSegmentMaximum": 196,
+        "internalPortMaximum": 392,
+        "routingPrivateSegmentsPerBoundary": 56,
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "edgeRouting": "ORTHOGONAL",
+        "separateConnectedComponents": [
+          true,
+          false
+        ],
+        "numericMaximum": 1000000,
+        "licenseSha256": {
+          "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+          "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+          "src/pyelk/_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+          "src/pyelk/_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+          "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6"
+        },
+        "inheritedSourceArtifactsSha256": {
+          "references/e06-component-approvals.json": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e",
+          "references/e06-source-components-A.json": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54",
+          "references/e06-source-components-B.json": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd",
+          "references/e06-source-components-R.json": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f",
+          "docs/decisions/0005-e06-multigraph.md": "2343855ce1ce902eb4d45a273f799f16c6d92194a602f22bf07fb6b7c429f13c"
+        },
+        "sourcePolicy": "Renew every E06 component under E07 domain; old RIGHT/connected guard assumptions do not automatically carry. New clone/getter/type facts and source symbol bindings require independent review."
+      },
+      "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+      "inheritedArtifacts": [
+        {
+          "artifact": {
+            "path": "references/e06-source-components-A.json",
+            "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+          },
+          "jsonPointer": "/components/5/hostMappings/1",
+          "selectedSha256": "2737ac5280487fb8bb4a554edeadf9704b17ed5360ad38d506afdbea11c20fc7",
+          "role": "JUNCTION_POINTS mutable default getter support only",
+          "scope": "Reuse the approved unique long_edges.get_junction_points implementation and exact clone/store dispatch proof only; no single-component, connected-topology or whole-Joiner algorithm guard is inherited."
+        }
+      ]
+    },
+    {
+      "componentId": "components:layout-finalization",
+      "generatedClass": "org.eclipse.elk.alg.layered.ElkLayered",
+      "role": "components:layout-finalization",
+      "entrySpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$layout_1",
+          "startLine": 28277,
+          "endLine": 28312,
+          "spanSha256": "94124432646edf173bb5c29282089ec2312165c13cabfa6db254f89c950ee84a",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1033893,
+          "functionEndOffset": 1035706,
+          "functionSha256": "6a62546faf03e16bf7c59f1508be9cdee5e288457fdc57682985aa4a47291b4e",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$resizeGraph",
+          "startLine": 28314,
+          "endLine": 28330,
+          "spanSha256": "5959d81c6a04f28244d41234c04c264d223f0df780ba15d8b4084ca903eed7c4",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1035708,
+          "functionEndOffset": 1036825,
+          "functionSha256": "4190c8bd5fe1fcd3ba707489c2637bab70944f3b92f9df925f02cee770b1ae86",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "helperSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$setLayer_0",
+          "startLine": 33359,
+          "endLine": 33363,
+          "spanSha256": "296b34db1fbb3845f5a1875ed8f257c85ac8ec7cf01ca6be3f198aec2c4dd518",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1278091,
+          "functionEndOffset": 1278315,
+          "functionSha256": "7b175f598d35e6dee3225b1a5ecde91800336124c538bc8658b953c5e9354520",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$addAll_2",
+          "startLine": 14127,
+          "endLine": 14136,
+          "spanSha256": "5c1c0c154a8bfd1fdf44bc2e02d9c179bacf2c98ca30056ca75105166ca4b980",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 446172,
+          "functionEndOffset": 446395,
+          "functionSha256": "3bf665101178427fa3eaf2bfd7bc7d539c6f0e94e511bfa5fee4042903c865bd",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "instanceOf",
+          "startLine": 220,
+          "endLine": 222,
+          "spanSha256": "685199a51214c85a826e2279cde4df6e2a0aa063dbd22e59aa132ae44a01d598",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 12645,
+          "functionEndOffset": 12730,
+          "functionSha256": "7e749f2f7e3cbd98a68e62ca8c948c73c71468706934850dd59adbd9cb319275",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$resizeGraphNoReallyIMeanIt",
+          "startLine": 28332,
+          "endLine": 28349,
+          "spanSha256": "33e66e18138a1d1b26248a3d9f9574ef4768a9f78086336d2e55041cbc9703ef",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1036827,
+          "functionEndOffset": 1038423,
+          "functionSha256": "dfdf05358b1a175349a1ac2499057a48e4e2cceadf408e7c9e3eb6ec50de6c1c",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$getProperty",
+          "startLine": 25432,
+          "endLine": 25441,
+          "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 889104,
+          "functionEndOffset": 889736,
+          "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "getDefault",
+          "startLine": 69799,
+          "endLine": 69811,
+          "spanSha256": "2ecc6351e7c9c8fa9f64f61b1c0de5e5fad9fe0933063b8f0dbc81698d0ff5a6",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3243801,
+          "functionEndOffset": 3244327,
+          "functionSha256": "d6ef52e94a7d1b084a7ed40abcbfa4fb42fb1da29d4ad8103ba8b144133b8b28",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "KVector_1",
+          "startLine": 70444,
+          "endLine": 70447,
+          "spanSha256": "9b6698df9293fc79e8a91b9debd12ba56e989ea3106054f9261b7373e31c0ea8",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3264970,
+          "functionEndOffset": 3265041,
+          "functionSha256": "1b589ee88e762066c9bc6e23fd15fa0e1671db8cce647d04bfc6f42dc65a5c41",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "KVector_2",
+          "startLine": 70449,
+          "endLine": 70452,
+          "spanSha256": "a600393419c2c272b024f2484f9817b6f91b0b7408de9123d7986f11a8b9afae",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 3265043,
+          "functionEndOffset": 3265107,
+          "functionSha256": "f2c5b90facb03db5a43a16dc3cb735c48c9d32522f13b9ed2d7d3abaecc4e9f3",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "staticCallEdges": [
+        {
+          "caller": "$layout_1",
+          "callee": "$setLayer_0",
+          "callSiteLines": [
+            28308
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$setLayer_0",
+            "startLine": 33359,
+            "endLine": 33363,
+            "spanSha256": "296b34db1fbb3845f5a1875ed8f257c85ac8ec7cf01ca6be3f198aec2c4dd518",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1278091,
+            "functionEndOffset": 1278315,
+            "functionSha256": "7b175f598d35e6dee3225b1a5ecde91800336124c538bc8658b953c5e9354520",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$layout_1",
+          "callee": "$addAll_2",
+          "callSiteLines": [
+            28303
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$addAll_2",
+            "startLine": 14127,
+            "endLine": 14136,
+            "spanSha256": "5c1c0c154a8bfd1fdf44bc2e02d9c179bacf2c98ca30056ca75105166ca4b980",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 446172,
+            "functionEndOffset": 446395,
+            "functionSha256": "3bf665101178427fa3eaf2bfd7bc7d539c6f0e94e511bfa5fee4042903c865bd",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$layout_1",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            28281
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$resizeGraph",
+          "callee": "$resizeGraphNoReallyIMeanIt",
+          "callSiteLines": [
+            28329
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$resizeGraphNoReallyIMeanIt",
+            "startLine": 28332,
+            "endLine": 28349,
+            "spanSha256": "33e66e18138a1d1b26248a3d9f9574ef4768a9f78086336d2e55041cbc9703ef",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 1036827,
+            "functionEndOffset": 1038423,
+            "functionSha256": "dfdf05358b1a175349a1ac2499057a48e4e2cceadf408e7c9e3eb6ec50de6c1c",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$resizeGraph",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            28316,
+            28317,
+            28321,
+            28329
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$resizeGraph",
+          "callee": "KVector_1",
+          "callSiteLines": [
+            28318
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "KVector_1",
+            "startLine": 70444,
+            "endLine": 70447,
+            "spanSha256": "9b6698df9293fc79e8a91b9debd12ba56e989ea3106054f9261b7373e31c0ea8",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3264970,
+            "functionEndOffset": 3265041,
+            "functionSha256": "1b589ee88e762066c9bc6e23fd15fa0e1671db8cce647d04bfc6f42dc65a5c41",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$resizeGraph",
+          "callee": "KVector_2",
+          "callSiteLines": [
+            28319
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "KVector_2",
+            "startLine": 70449,
+            "endLine": 70452,
+            "spanSha256": "a600393419c2c272b024f2484f9817b6f91b0b7408de9123d7986f11a8b9afae",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3265043,
+            "functionEndOffset": 3265107,
+            "functionSha256": "f2c5b90facb03db5a43a16dc3cb735c48c9d32522f13b9ed2d7d3abaecc4e9f3",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$resizeGraphNoReallyIMeanIt",
+          "callee": "$getProperty",
+          "callSiteLines": [
+            28334,
+            28337,
+            28341
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "$getProperty",
+            "startLine": 25432,
+            "endLine": 25441,
+            "spanSha256": "35500b503b3ab1a95c39f24a53f710b9d7768a03081ae9173cdcce62ed484685",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 889104,
+            "functionEndOffset": 889736,
+            "functionSha256": "45201c494b70834ee2623a884818888cacc683fd613896990af062fdefacd5d6",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$getProperty",
+          "callee": "instanceOf",
+          "callSiteLines": [
+            25439
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "instanceOf",
+            "startLine": 220,
+            "endLine": 222,
+            "spanSha256": "685199a51214c85a826e2279cde4df6e2a0aa063dbd22e59aa132ae44a01d598",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 12645,
+            "functionEndOffset": 12730,
+            "functionSha256": "7e749f2f7e3cbd98a68e62ca8c948c73c71468706934850dd59adbd9cb319275",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "$getProperty",
+          "callee": "getDefault",
+          "callSiteLines": [
+            25438
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "getDefault",
+            "startLine": 69799,
+            "endLine": 69811,
+            "spanSha256": "2ecc6351e7c9c8fa9f64f61b1c0de5e5fad9fe0933063b8f0dbc81698d0ff5a6",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 3243801,
+            "functionEndOffset": 3244327,
+            "functionSha256": "d6ef52e94a7d1b084a7ed40abcbfa4fb42fb1da29d4ad8103ba8b144133b8b28",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        },
+        {
+          "caller": "getDefault",
+          "callee": "instanceOf",
+          "callSiteLines": [
+            69801
+          ],
+          "calleeSpan": {
+            "sourceId": "elkjs-generated-worker",
+            "symbol": "instanceOf",
+            "startLine": 220,
+            "endLine": 222,
+            "spanSha256": "685199a51214c85a826e2279cde4df6e2a0aa063dbd22e59aa132ae44a01d598",
+            "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+            "functionStartOffset": 12645,
+            "functionEndOffset": 12730,
+            "functionSha256": "7e749f2f7e3cbd98a68e62ca8c948c73c71468706934850dd59adbd9cb319275",
+            "offsetUnit": "UTF-16 code units"
+          },
+          "kind": "canonical lexical callsite"
+        }
+      ],
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumOriginalEdges": 28,
+        "maximumWeakComponents": 8,
+        "topology": "flat NORMAL original nodes, implicit distinct endpoint ports; disconnected/isolated/cycle/loop/parallel allowed only after the relevant E07 phase dependencies are approved",
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "separateConnectedComponents": [
+          true,
+          false
+        ],
+        "compactionConnectedComponents": false,
+        "componentModelOrder": "NONE",
+        "priority": 0,
+        "externalPorts": false,
+        "publicPortsLabelsHierarchy": false,
+        "extraSizingAlignmentBaseSpacingOptions": false,
+        "coordinateInput": "Post-transform component size/offset, local nodes/ports/bends; source component padding restored by reviewed A post-transform before packing."
+      },
+      "guardProofs": [
+        {
+          "id": "CP-FINAL1",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$layout_1",
+            "$setLayer_0"
+          ],
+          "claim": "After the reviewed selected processor sequence (including post-direction transform), append every layer's ordered nodes to layerless, clear each layer's list, then set every layerless node.layer null and finally clear graph.layers. This cleanup occurs for each work graph before global sorting/packing. Shared PROCESSORS selection is global; it is not recomputed from local SELF_LOOPS. Dispatch and phase contents are separately approved E07 dependencies."
+        },
+        {
+          "id": "CP-FINAL2",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$resizeGraph",
+            "$resizeGraphNoReallyIMeanIt",
+            "$getProperty",
+            "getDefault"
+          ],
+          "claim": "Default graph nodeSize.constraints is empty EnumSet, options contains DEFAULT_MINIMUM_SIZE, contentAlignment V_TOP/H_LEFT; fixedGraphSize=false. EnumSet184/166 casts lack Cloneable4, so Property.getDefault does not clone these defaults and getProperty does not store them. Reads preserve missing property presence. No minimum-size growth branch executes. Retain literal calculatedSize=size+left+right/top+bottom, clone adjustedSize, call resizeGraphNoReally; no growth means no offset change, no external node movement; final size=newSize-left-right/top-bottom. Root padding is then added only once by the separately approved final JSON transfer."
+        },
+        {
+          "id": "CP-FINAL3",
+          "kind": "fixed-source deduction under explicit input guards",
+          "sourceSymbols": [
+            "$resizeGraph",
+            "$resizeGraphNoReallyIMeanIt"
+          ],
+          "claim": "Empty public graph is skipped by the outer recursive engine and remains zero geometry regardless of padding. Private combine(empty) and resize helpers are not misreported as public empty phases. A size/offset direction transformation source gate and root false-disconnected phase gate are required before this lifecycle is public."
+        }
+      ],
+      "reads": [
+        "actual layers/nodes after all selected phases",
+        "root size/padding and three default sizing/alignment reads"
+      ],
+      "writes": [
+        "per-component layerless append/order",
+        "node.layer null and layer lists clear",
+        "root content size with literal add/subtract order"
+      ],
+      "guardedOutBranches": [
+        "MINIMUM_SIZE/default-minimum correction",
+        "fixed graph size",
+        "non-default content alignment growth",
+        "external ports resize"
+      ],
+      "hostMappingRefs": [
+        {
+          "artifact": {
+            "path": "references/e04-source-components-A.json",
+            "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+          },
+          "jsonPointer": "/hostSupportPolicy",
+          "scope": "Ordered identity lists, source setters, finite f64 arithmetic and bounded property map host semantics only; topology/phase source gates are not inherited."
+        }
+      ],
+      "hostMappingDelta": {
+        "identity": "New LGraphs only for separate=true; original LNode/LPort/LEdge/origin identities are retained. Property dictionaries shallow-copy object references; padding vectors copy scalar sides.",
+        "lists": "Ordered lists, deterministic bounded DFS and stable comparator sort. No hash-set iteration selects component order.",
+        "properties": "Do not materialize absent scalar/default EnumSet reads. JUNCTION_POINTS uses the approved unique A getter and its genuine clone/store behavior.",
+        "float": "Literal operation order, JS finite max signed-zero semantics and Double.compare signed-zero ordering; preserve source binary default aspect1.600000023841858, not decimal1.6."
+      },
+      "numericSemantics": {
+        "finiteInputBound": 1000000,
+        "componentCountBound": 8,
+        "integerState": "DFS scratch0/1 and priority default0; collection sizes are bounded by8 original nodes and56 original ports before kernel layout.",
+        "random": "No random calls in split/combine/finalization. One RANDOM object is prepared globally and shallow-shared; all per-phase seed resets/draws are owned by the phase source proofs.",
+        "packing": "No overflow/NaN is introduced by at most8 finite component rectangles; exact per-kernel extent bound is an explicit dependent E07 proof, not inferred from finite samples."
+      },
+      "evidence": [
+        {
+          "path": "test-runs/20261103-E07-01/B/component-observations-draft.json",
+          "sha256": "8180b2bc6452350caf48f86c8e399c9fd53943295b452c0af28db8ecbbf55c3a"
+        },
+        {
+          "path": "tools/reference/trace_e07_components.cjs",
+          "sha256": "a7206a037a452d9f7898416eb32bd9dbf08168e7d63295be612064e807f1dcd3",
+          "role": "Development-only observer, never runtime dependency"
+        }
+      ],
+      "licenseRefs": [
+        "elkjs-license"
+      ],
+      "closureStatus": "closed-under-explicit-component-operation-guards",
+      "unresolved": [],
+      "nativeRuntimeAccepted": false,
+      "supportDefaultSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "NODE_SIZE_CONSTRAINTS_1",
+          "startLine": 49172,
+          "endLine": 49172,
+          "spanSha256": "2e124e874b52a3fd238c2a305c9a9dae4c2d6f742e4c67dff92b9f03acf3af3b",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "NODE_SIZE_OPTIONS_1",
+          "startLine": 49173,
+          "endLine": 49173,
+          "spanSha256": "d766d4257d0afe90d7f22d49140f72d8d467b8b110a89bfbceb5ef5e7b6d2675",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "NODE_SIZE_FIXED_GRAPH_SIZE_0",
+          "startLine": 49174,
+          "endLine": 49174,
+          "spanSha256": "11193ae4262171cfbb587b84304dfb6589ef9a9addef6c0127b64683060d92c3",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "CONTENT_ALIGNMENT",
+          "startLine": 49209,
+          "endLine": 49209,
+          "spanSha256": "f08046d397176c8334ddfa5dda07ebb5308db332d59ec7af7889bd54fd6efe49",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "NODE_SIZE_CONSTRAINTS_DEFAULT",
+          "startLine": 70855,
+          "endLine": 70856,
+          "spanSha256": "8fb0175c4d1248d98ef8437ba529c80de974c2eb53102eca0677fc16f38ba811",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "NODE_SIZE_OPTIONS_DEFAULT",
+          "startLine": 70857,
+          "endLine": 70858,
+          "spanSha256": "4b10ddf9cd140a86b25b56426a9d6f475c5d1f69638ecbd843015dfe56c87754",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "NODE_SIZE_FIXED_GRAPH_SIZE_3",
+          "startLine": 70861,
+          "endLine": 70861,
+          "spanSha256": "6a3bcf3283230d8f1aec0175a9cc4d49b2117ca94e9fd3a8c5c37f91691fc15f",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "CONTENT_ALIGNMENT_DEFAULT",
+          "startLine": 70773,
+          "endLine": 70774,
+          "spanSha256": "2876144a166c83fb024f5413f8b3b9082ddf07901584e16860f066d4b41df1e8",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 15765,
+          "endLine": 15765,
+          "spanSha256": "02322aefd89287a14af4bc6a9907a456906bdfe5b2743d334de58612a5677402",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "Default EnumSet no type4"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "defineClass",
+          "startLine": 15812,
+          "endLine": 15812,
+          "spanSha256": "67f775b834d3783015b51fd594852f7cce3318fd13a10a250525c28bf9fca475",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "role": "Concrete EnumSetImpl no type4"
+        }
+      ],
+      "driverSpans": [
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$doLayout",
+          "startLine": 28205,
+          "endLine": 28228,
+          "spanSha256": "8154afd17bf573d03b1a283f6ee0f181b88e3d411534e624db02f726d51f186d",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1030800,
+          "functionEndOffset": 1031704,
+          "functionSha256": "3e5677714177f547a2b40409212f3650c85bf6dc6fa567bfd2f8fcf4937c0867",
+          "offsetUnit": "UTF-16 code units"
+        },
+        {
+          "sourceId": "elkjs-generated-worker",
+          "symbol": "$prepareGraphForLayout",
+          "startLine": 28450,
+          "endLine": 28472,
+          "spanSha256": "6e38d924b1e97880aee50c5f39874ac84ebd32a92c8b577354d42b37b423cfdc",
+          "spanEncoding": "UTF-8 LF inclusive lines with final newline",
+          "functionStartOffset": 1047287,
+          "functionEndOffset": 1049731,
+          "functionSha256": "aef2bb9c267f904dde4d07c222c04106ace9aa421320cdf10f4b4073bc937bcd",
+          "offsetUnit": "UTF-16 code units"
+        }
+      ],
+      "commonSourceContext": {
+        "scopeId": "E07-ADR0006-revision1",
+        "scopeDocument": "docs/decisions/0006-e07-directions-components.md",
+        "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+        "baselinePassedMethods": 597,
+        "originalNodeMaximum": 8,
+        "originalEdgeMaximum": 28,
+        "internalNodeMaximum": 176,
+        "internalSegmentMaximum": 196,
+        "internalPortMaximum": 392,
+        "routingPrivateSegmentsPerBoundary": 56,
+        "directions": [
+          "UNDEFINED",
+          "RIGHT",
+          "LEFT",
+          "DOWN",
+          "UP"
+        ],
+        "edgeRouting": "ORTHOGONAL",
+        "separateConnectedComponents": [
+          true,
+          false
+        ],
+        "numericMaximum": 1000000,
+        "licenseSha256": {
+          "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+          "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+          "src/pyelk/_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+          "src/pyelk/_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+          "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6"
+        },
+        "inheritedSourceArtifactsSha256": {
+          "references/e06-component-approvals.json": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e",
+          "references/e06-source-components-A.json": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54",
+          "references/e06-source-components-B.json": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd",
+          "references/e06-source-components-R.json": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f",
+          "docs/decisions/0005-e06-multigraph.md": "2343855ce1ce902eb4d45a273f799f16c6d92194a602f22bf07fb6b7c429f13c"
+        },
+        "sourcePolicy": "Renew every E06 component under E07 domain; old RIGHT/connected guard assumptions do not automatically carry. New clone/getter/type facts and source symbol bindings require independent review."
+      },
+      "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d"
+    }
+  ],
+  "protocolProposal": {
+    "module": "src/pyelk/algorithms/layered/components.py",
+    "functions": [
+      "split_components(target)->list[LGraph]",
+      "finish_component(component)->None",
+      "combine_components(components,target)->None",
+      "resize_graph(target)->None"
+    ],
+    "callOrder": "global import/prepare -> split -> each selected phase sequence -> finish_component -> combine -> resize -> origin JSON export",
+    "random": "Each work graph shares the globally prepared JavaRandom instance; no new component seed or reset. Processor-owned resets remain actual phase effects.",
+    "propertyDefaultsCorrection": "The early EnumSet clone/store hypothesis is withdrawn; actual type maps and hasProperty-before/after prove no clone/materialization for these graph defaults."
+  },
+  "unresolved": [
+    "Full E07 runtime gate remains pending other lane components; this document proves only guarded local component operations.",
+    "Exact external Java build identity remains unresolved."
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "nativeLayoutImplemented": false,
+  "algorithmSourceGate": "unverified",
+  "commonSourceContext": {
+    "scopeId": "E07-ADR0006-revision1",
+    "scopeDocument": "docs/decisions/0006-e07-directions-components.md",
+    "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "baselinePassedMethods": 597,
+    "originalNodeMaximum": 8,
+    "originalEdgeMaximum": 28,
+    "internalNodeMaximum": 176,
+    "internalSegmentMaximum": 196,
+    "internalPortMaximum": 392,
+    "routingPrivateSegmentsPerBoundary": 56,
+    "directions": [
+      "UNDEFINED",
+      "RIGHT",
+      "LEFT",
+      "DOWN",
+      "UP"
+    ],
+    "edgeRouting": "ORTHOGONAL",
+    "separateConnectedComponents": [
+      true,
+      false
+    ],
+    "numericMaximum": 1000000,
+    "licenseSha256": {
+      "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+      "src/pyelk/_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+      "src/pyelk/_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+      "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6"
+    },
+    "inheritedSourceArtifactsSha256": {
+      "references/e06-component-approvals.json": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e",
+      "references/e06-source-components-A.json": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54",
+      "references/e06-source-components-B.json": "f29eff99bc8548b3f2861a7052f19b19a76907a17ae1eed57ae37acb3f174bfd",
+      "references/e06-source-components-R.json": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f",
+      "docs/decisions/0005-e06-multigraph.md": "2343855ce1ce902eb4d45a273f799f16c6d92194a602f22bf07fb6b7c429f13c"
+    },
+    "sourcePolicy": "Renew every E06 component under E07 domain; old RIGHT/connected guard assumptions do not automatically carry. New clone/getter/type facts and source symbol bindings require independent review."
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "formalObserverObservations": [
+    {
+      "case": "two-chains-one-loop",
+      "summary": {
+        "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-one-loop/summary.json",
+        "sha256": "73356b2982a386345a63f26eb872f12513c9be6cbfa3e5fb05e9e9cf3f699505"
+      },
+      "request": {
+        "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-one-loop/request.json",
+        "sha256": "25b7c4316977e668611d91688c2ec73c695c274318c0c91874f4dc51b07a3c7c"
+      },
+      "raw": [
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-one-loop/bundled.json",
+          "sha256": "a58430a2862f0ce0daa45aa63b7cbec14e229e13c49c5e62d435c0f9319d4d13"
+        },
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-one-loop/pretty.json",
+          "sha256": "3f1fded334ce52170f8c9c3caadff3b915bb039fd67f003f614bde833f9052f7"
+        },
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-one-loop/instrumented.json",
+          "sha256": "10b88f0632a86efe6980bc7a1d88c0f9b2e22c55c8cf73901d3d58c95a1af894"
+        }
+      ],
+      "toolSha256": "a7206a037a452d9f7898416eb32bd9dbf08168e7d63295be612064e807f1dcd3",
+      "rawFilesSha256": {
+        "bundled.json": "a58430a2862f0ce0daa45aa63b7cbec14e229e13c49c5e62d435c0f9319d4d13",
+        "pretty.json": "3f1fded334ce52170f8c9c3caadff3b915bb039fd67f003f614bde833f9052f7",
+        "instrumented.json": "10b88f0632a86efe6980bc7a1d88c0f9b2e22c55c8cf73901d3d58c95a1af894",
+        "request.json": "25b7c4316977e668611d91688c2ec73c695c274318c0c91874f4dc51b07a3c7c"
+      },
+      "actualLayoutArguments": {},
+      "argumentOverrides": {
+        "layoutArguments": null,
+        "constructorWorkerFactory": "development PRETTY engine plumbing only"
+      },
+      "publicAndInputThreeEngineExact": true
+    },
+    {
+      "case": "two-chains-up",
+      "summary": {
+        "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-up/summary.json",
+        "sha256": "975fe796dc430519023ae5bc4d46f6f4d873beaaf328ef36322b1781aeff5480"
+      },
+      "request": {
+        "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-up/request.json",
+        "sha256": "0fa27bfe160a132324cb036b389ce54850d2958e068f22f83ff82c898b7209a6"
+      },
+      "raw": [
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-up/bundled.json",
+          "sha256": "e84eaf8b706dff1696fdec979ab08377d4f67da601dbb0ca306e6fe3ca511c57"
+        },
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-up/pretty.json",
+          "sha256": "2872f49584d5a6e68fb6e85141b915c87bd05fb1ca7a08e7fc51e99061c0aa36"
+        },
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-chains-up/instrumented.json",
+          "sha256": "84d515124f84597235a4adcd6de59b22204bdfeede4020fdcc737c1ca2a6b8ed"
+        }
+      ],
+      "toolSha256": "a7206a037a452d9f7898416eb32bd9dbf08168e7d63295be612064e807f1dcd3",
+      "rawFilesSha256": {
+        "bundled.json": "e84eaf8b706dff1696fdec979ab08377d4f67da601dbb0ca306e6fe3ca511c57",
+        "pretty.json": "2872f49584d5a6e68fb6e85141b915c87bd05fb1ca7a08e7fc51e99061c0aa36",
+        "instrumented.json": "84d515124f84597235a4adcd6de59b22204bdfeede4020fdcc737c1ca2a6b8ed",
+        "request.json": "0fa27bfe160a132324cb036b389ce54850d2958e068f22f83ff82c898b7209a6"
+      },
+      "actualLayoutArguments": {},
+      "argumentOverrides": {
+        "layoutArguments": null,
+        "constructorWorkerFactory": "development PRETTY engine plumbing only"
+      },
+      "publicAndInputThreeEngineExact": true
+    },
+    {
+      "case": "two-components-false",
+      "summary": {
+        "path": "test-runs/20261103-E07-01/B/formal-captures/two-components-false/summary.json",
+        "sha256": "3fbb50795140b428f60c8f757c00f9f8977fd87f1a9078137b1a2b82c521e7f1"
+      },
+      "request": {
+        "path": "test-runs/20261103-E07-01/B/formal-captures/two-components-false/request.json",
+        "sha256": "194c90296b32597f358044138f43ad77b2f55c4141fa5d0bbedde8e66e80209c"
+      },
+      "raw": [
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-components-false/bundled.json",
+          "sha256": "e38d2a0b4bb25b89de4e5f099ebfcf14fc0db8d06a050982e60410a85cb3ce2a"
+        },
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-components-false/pretty.json",
+          "sha256": "e62c1c67def4c11872a0c88d497e09bc0efca2b81718316c9a267d221cd61741"
+        },
+        {
+          "path": "test-runs/20261103-E07-01/B/formal-captures/two-components-false/instrumented.json",
+          "sha256": "440b01653ecd6d7dcf32963f855c4ccdbd92f7ea7d5271d6996114cabd05aac2"
+        }
+      ],
+      "toolSha256": "a7206a037a452d9f7898416eb32bd9dbf08168e7d63295be612064e807f1dcd3",
+      "rawFilesSha256": {
+        "bundled.json": "e38d2a0b4bb25b89de4e5f099ebfcf14fc0db8d06a050982e60410a85cb3ce2a",
+        "pretty.json": "e62c1c67def4c11872a0c88d497e09bc0efca2b81718316c9a267d221cd61741",
+        "instrumented.json": "440b01653ecd6d7dcf32963f855c4ccdbd92f7ea7d5271d6996114cabd05aac2",
+        "request.json": "194c90296b32597f358044138f43ad77b2f55c4141fa5d0bbedde8e66e80209c"
+      },
+      "actualLayoutArguments": {},
+      "argumentOverrides": {
+        "layoutArguments": null,
+        "constructorWorkerFactory": "development PRETTY engine plumbing only"
+      },
+      "publicAndInputThreeEngineExact": true
+    }
+  ],
+  "componentSeals": {
+    "components:split": "4d130819d010e1ef4405c17c5245abfed9e1c8835b5b6ffd89ab4fa7a8bb77bd",
+    "components:simple-row-combine": "a1710aa1d900ea3f1c29c929d27f5889d66dbb1821505b77a620d57a459f7c8e",
+    "components:layout-finalization": "cab226eb9545a2e88f9561803f8962c028b9e0a7ec2bebb5c646ba2361d45064"
+  }
+}

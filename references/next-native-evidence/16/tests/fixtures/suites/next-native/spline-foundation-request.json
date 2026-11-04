@@ -1,0 +1,172 @@
+{
+  "segments": [
+    {
+      "name": "ordered-fractional-anchor",
+      "ports": [
+        {
+          "side": "EAST",
+          "type": "NORMAL",
+          "nodeY": 1e+16,
+          "portY": -1e+16,
+          "anchorY": 0.125
+        },
+        {
+          "side": "WEST",
+          "type": "BREAKING_POINT",
+          "nodeY": 10.25,
+          "portY": 3.5,
+          "anchorY": 0.75
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "sides": [
+        "LEFT",
+        "RIGHT"
+      ]
+    },
+    {
+      "name": "north-south-private-y",
+      "ports": [
+        {
+          "side": "NORTH",
+          "type": "NORMAL",
+          "nodeY": 900,
+          "portY": 3,
+          "anchorY": 1,
+          "nsY": -17.25
+        },
+        {
+          "side": "SOUTH",
+          "type": "LONG_EDGE",
+          "nodeY": -500,
+          "portY": 4,
+          "anchorY": 2,
+          "nsY": 14.5
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "sides": [
+        "RIGHT",
+        "LEFT"
+      ]
+    },
+    {
+      "name": "hyper-targets",
+      "ports": [
+        {
+          "side": "EAST",
+          "type": "BREAKING_POINT",
+          "nodeY": 5.25,
+          "portY": 3.5,
+          "anchorY": 0.25
+        },
+        {
+          "side": "WEST",
+          "type": "NORMAL",
+          "nodeY": -5,
+          "portY": -1.5,
+          "anchorY": 0.25
+        },
+        {
+          "side": "WEST",
+          "type": "LONG_EDGE",
+          "nodeY": 40,
+          "portY": 5,
+          "anchorY": 0.5
+        },
+        {
+          "side": "EAST",
+          "type": "EXTERNAL_PORT",
+          "nodeY": 8,
+          "portY": 2,
+          "anchorY": -0.25
+        }
+      ],
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "pairSides": [
+        "RIGHT",
+        "RIGHT",
+        "LEFT"
+      ],
+      "single": 0,
+      "singleSide": "LEFT"
+    }
+  ],
+  "dependencies": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      4
+    ]
+  ],
+  "between": [
+    [
+      3.1,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      1e-09,
+      0,
+      1
+    ],
+    [
+      1e-08,
+      0,
+      1
+    ],
+    [
+      -1e-08,
+      0,
+      1
+    ],
+    [
+      0.5,
+      1,
+      0
+    ],
+    [
+      0.25,
+      0.25,
+      0.25
+    ]
+  ]
+}

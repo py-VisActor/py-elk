@@ -1,0 +1,16 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "test-runs/20261104-NUMBERS-01/root/source-proposal-01.json": "e67b96ce23d30aca74c95ebf60b29761a1f797844ee69998b930a030f859f040",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "verifiedSpanCount": 11,
+  "scope": "Only source binary64 representation of native-accepted finite geometry at semantic import/point boundary",
+  "notes": [
+    "Actual JSONNumber/optDouble and shape4 lambdas preserve accepted Number as JS binary64 before setter arithmetic. Native int inputs may lose low bits for geometry exactly as source; coordinate IDs and original business data remain separately typed/owned under host contract.",
+    "Do not copy original NaN/Inf-to0 input admission: existing strict finite input validation stays. Original missing/null nonnumber helper fallback differs from host strict policy and is not extended by this representation approval.",
+    "Native conversion must preserve finite extreme/subnormal/negativeZero source semantics and keep rejected huge nonfinite inputs rejected; add no new arbitrary bound or signed32 geometry clamp. This is not a complete DOUBLE parser or runtime NSNumber normalization review.",
+    "Original probe2 cases reused as source evidence, not rerun by V. Eleven exact spans verified and no math/provider acceptance claimed."
+  ]
+}

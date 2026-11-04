@@ -1,0 +1,196 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright Kiel University and others. Fixed elkjs0.12.1 worker275e6caf,
+# LGraphAdapters32102-32474; HOST12/root native-adapter source reviews.
+"""Live native Layered adapter views, separate from raw JSON adapters.
+
+Geometry getters expose the actual native vectors. Collection adapters cache
+their first snapshot, just as their source counterparts do. No geometry is
+reconstructed from ORIGIN or from the older raw node_micro adapter.
+"""
+from collections.abc import MutableMapping
+
+from ..._errors import UnsupportedOptionError,UnsupportedFeatureError
+from ...execution.properties import PropertySnapshot
+from ...options._core_defaults import CORE_SCALAR_DEFAULTS
+from .native_properties import canonical_property_key,CanonicalPropertyMap
+from .graph import Insets
+
+_ABSENT=object()
+_EMPTY=()
+
+
+def _properties(element,create=False):
+    values=getattr(element,'properties',None)
+    if values is None and create:
+        values=CanonicalPropertyMap();element.properties=values
+    return values
+
+
+def _stored_key(element,name):
+    values=_properties(element);canonical=canonical_property_key(name)
+    if values is None:return None
+    if canonical in values:return canonical
+    for key in values:
+        if canonical_property_key(key)==canonical:return key
+    return None
+
+
+def _has_property(element,name):return _stored_key(element,name)is not None
+
+
+def _read_property(element,name):
+    key=_stored_key(element,name);values=_properties(element,True)
+    if key is not None and values[key]is not None:return values[key]
+    canonical=canonical_property_key(name)
+    # Actual owner declarations, never generic metadata-declared defaults.
+    # Additional structured/internal owners are integrated after their own
+    # independent source closure; absent unported owners fail explicitly.
+    if canonical not in CORE_SCALAR_DEFAULTS:
+        raise UnsupportedOptionError('NATIVE_PROPERTY_DEFAULT_PENDING','/nativeProperties/'+canonical,
+                                     'An actual reviewed native Property owner is required')
+    temporary=PropertySnapshot({});value=temporary.read_native(canonical)
+    if temporary.has(canonical):values[canonical]=value
+    return value
+
+
+class _PropertyView(MutableMapping):
+    def __init__(self,element):self.element=element
+    def __getitem__(self,key):return _read_property(self.element,key)
+    def __contains__(self,key):return _has_property(self.element,key)
+    def __setitem__(self,key,value):
+        values=_properties(self.element,True);actual=_stored_key(self.element,key)
+        if actual is not None:del values[actual]
+        if value is not None:values[canonical_property_key(key)]=value
+    def __delitem__(self,key):
+        actual=_stored_key(self.element,key)
+        if actual is None:raise KeyError(key)
+        del _properties(self.element)[actual]
+    def __iter__(self):return iter(_properties(self.element)or{})
+    def __len__(self):return len(_properties(self.element)or{})
+
+
+class AbstractShapeAdapter:
+    def __init__(self,element):self.element=element;self.properties=_PropertyView(element)
+    @property
+    def pos(self):return self.element.pos
+    @pos.setter
+    def pos(self,value):self.element.pos.x=value.x;self.element.pos.y=value.y
+    @property
+    def size(self):return self.element.size
+    @size.setter
+    def size(self,value):self.element.size.x=value.x;self.element.size.y=value.y
+    @property
+    def id(self):return self.element.id
+    @id.setter
+    def id(self,value):self.element.id=value
+    def get_position(self):return self.pos
+    def set_position(self,value):self.pos=value
+    def get_size(self):return self.size
+    def set_size(self,value):self.size=value
+    def get_volatile_id(self):return self.id
+    def set_volatile_id(self,value):self.id=value
+    def get_property(self,name):return self.properties[name]
+    def has_property(self,name):return name in self.properties
+
+
+class LLabelAdapter(AbstractShapeAdapter):pass
+
+
+class LEdgeAdapter:
+    def __init__(self,element):self.element=element;self._labels=None
+    @property
+    def labels(self):
+        if self._labels is None:self._labels=[LLabelAdapter(label)for label in getattr(self.element,'labels',())]
+        return self._labels
+    def get_labels(self):return self.labels
+
+
+class LPortAdapter(AbstractShapeAdapter):
+    def __init__(self,*args,**kwargs):
+        raise UnsupportedFeatureError('NATIVE_PORT_ADAPTER_PENDING','',
+                                      'Native port adapter source closure is pending')
+
+
+class LNodeAdapter(AbstractShapeAdapter):
+    def __init__(self,parent,element,transparent_north_south_edges=False):
+        super().__init__(element);self.graph=parent
+        self.transparent_north_south_edges=transparent_north_south_edges
+        self._labels=None;self._ports=None
+    @property
+    def type(self):return self.element.type
+    @property
+    def labels(self):
+        if self._labels is None:self._labels=[LLabelAdapter(label)for label in getattr(self.element,'labels',())]
+        return self._labels
+    @property
+    def ports(self):
+        if self._ports is None:self._ports=[LPortAdapter(port,self.transparent_north_south_edges,self)for port in self.element.ports]
+        return self._ports
+    @property
+    def incoming_edges(self):return _EMPTY
+    @property
+    def outgoing_edges(self):return _EMPTY
+    @property
+    def margin(self):
+        value=self.element.margin;return Insets(value.top,value.right,value.bottom,value.left)
+    @margin.setter
+    def margin(self,value):
+        target=self.element.margin;target.left=value.left;target.top=value.top
+        target.right=value.right;target.bottom=value.bottom
+    @property
+    def padding(self):return self.element.padding
+    @padding.setter
+    def padding(self,value):
+        target=self.element.padding;target.left=value.left;target.top=value.top
+        target.right=value.right;target.bottom=value.bottom
+    def get_graph(self):return self.graph
+    def get_labels(self):return self.labels
+    def get_ports(self):return self.ports
+    def get_incoming_edges(self):return self.incoming_edges
+    def get_outgoing_edges(self):return self.outgoing_edges
+    def get_margin(self):return self.margin
+    def set_margin(self,value):self.margin=value
+    def set_padding(self,value):self.padding=value
+    def is_compound_node(self):return self.properties['COMPOUND_NODE']
+    def sort_port_list(self):
+        raise UnsupportedFeatureError('NATIVE_PORT_COMPARATOR_PENDING','',
+                                      'Native adapter PortComparator source closure is pending')
+
+
+class LGraphAdapter:
+    def __init__(self,element,transparent_north_south_edges=False,transparent_comment_nodes=False,node_filter=None):
+        self.element=element;self.properties=_PropertyView(element);self.options=None
+        self.transparent_north_south_edges=transparent_north_south_edges
+        self.transparent_comment_nodes=transparent_comment_nodes
+        self.node_filter=(lambda node:True)if node_filter is None else node_filter
+        self._nodes=None
+    @property
+    def nodes(self):
+        if self._nodes is None:
+            self._nodes=[]
+            for layer in self.element.layers:
+                for node in layer.nodes:
+                    if self.node_filter(node):
+                        self._nodes.append(LNodeAdapter(self,node,self.transparent_north_south_edges))
+                        if self.transparent_comment_nodes:
+                            for key in('TOP_COMMENTS','BOTTOM_COMMENTS'):
+                                if _has_property(node,key):
+                                    for comment in _read_property(node,key):self._nodes.append(LNodeAdapter(self,comment,False))
+        return self._nodes
+    @property
+    def size(self):return self.element.size
+    @size.setter
+    def size(self,value):self.element.size.x=value.x;self.element.size.y=value.y
+    @property
+    def id(self):return self.element.id
+    @id.setter
+    def id(self,value):self.element.id=value
+    def get_nodes(self):return self.nodes
+    def get_size(self):return self.size
+    def set_size(self,value):self.size=value
+    def get_volatile_id(self):return self.id
+    def set_volatile_id(self,value):self.id=value
+    def get_property(self,name):return self.properties[name]
+    def has_property(self,name):return name in self.properties
+    def get_position(self):raise NotImplementedError('Not supported by LGraph')
+    def set_position(self,value):raise NotImplementedError('Not supported by LGraph')

@@ -1,0 +1,67 @@
+{
+  "schema": "py-elk-tooling-independent-review/v1",
+  "batch": "E08-00",
+  "reviewerLane": "A",
+  "reviewedLane": "B",
+  "status": "ACCEPTED_UNDER_READ_ONLY_SCOPE_CONTRACT",
+  "reviewedUtc": "2026-11-03T11:40:02.996075+00:00",
+  "filesSha256": {
+    "scripts/source_read_cache.py": "751c14bc0983c32bf5237c270b3fbce442dfe9b082c9f997cb8d10ebaefc781e",
+    "scripts/layout_checks.py": "96ffe92f28177b7e155e7b7c1719d998259dd84cf853c4fbe288ae6c545c36c3",
+    "scripts/validate_e04_source_bindings.py": "fee199d0e91c2069130552cef22d922b222d362141452b7f0b91754664e8774c",
+    "scripts/validate_e05_source_bindings.py": "3ff4ef258cdc8669b9449a3ffc428e13307f56e78526589e9097f61fff050352",
+    "scripts/validate_e06_source_bindings.py": "1698eefa098d6503cf5a2a5308fef82800899bc4f88581e80b6a64aeac92556b",
+    "scripts/validate_e07_source_bindings.py": "94126b72943c7b73e7ba8a50d3e1cd81a79dc7bafc8ab00991a1c244e4ec9870",
+    "tests/validation/test_source_read_cache.py": "5f937c333a2b0470e17441df53e9f16fbee2f8aa49babe8b8cc68f1da9cf25ca"
+  },
+  "independentControls": 9,
+  "legacyOwnerAndSourceTestsPassed": 131,
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E08-00-01/A/cache-independent-controls-01/report.json",
+      "sha256": "beb4f85b74031257e6f1071789537995e5317ad27e40eb7cb609ba0dedfb1e6f"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/legacy-owner-tests-01/report.json",
+      "sha256": "9dda036b05644d8216745a9c2b4a075e47970b1805ff6c2652f3dddd71705e6e"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/fixture-owner-tests-02/report.json",
+      "sha256": "9dd0c642369fd5e487d5165da7ce6b45856e2373cde53d7be7e14f70e38e5fd8"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/sparse-positive-02.json",
+      "sha256": "f8e8de399d91f825183e56e82b5602b490e66868c32dd76ab27172ef0f97919f"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/copy-volume-01.json",
+      "sha256": "c2d19a67d9d1190b455622ad60ad3d4100434d97a482933f362f7163c80fdea6"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/cache-independent-controls-02/report.json",
+      "sha256": "39e4dbdfbab87ad8fd21cee716be8a17657141c36abf2c5db4cb5a72fcc627e0"
+    },
+    {
+      "path": "test-runs/20261103-E08-00-01/A/cache-independent-controls-02-command/command.json",
+      "sha256": "b4a2174ae54f772a747f211aa4376c97b098a3cfd7b35d3254447be92b8fa4ca"
+    }
+  ],
+  "checked": [
+    "No cache of PASS or source-gate decisions; every outer check constructs a fresh context and nested checks reuse only inputs.",
+    "Outside ordinary load stays mutable/fresh; thread/task owner blocks inherited scope reuse.",
+    "Exit rereads raw bytes/path target and uncached JSON serialization; changed input or mutation clears success gate/canonical flags.",
+    "Same size and restored mtime do not preserve stale bytes across calls; returned parsed object mutation does not taint a future context.",
+    "File deletion/recreation, duplicate JSON keys, intra-check file/object changes independently reject or refresh as expected.",
+    "131 unchanged runtime/source owner methods still pass; original SHA-rebound proof/role/context/symbol guards remain active.",
+    "Current strict JSON taint check separately rejects tuple/list and integer/string-key substitutions that serialize identically; process ID is also part of scope ownership."
+  ],
+  "blockers": [],
+  "limitations": [
+    "Finite tooling controls, not authenticated execution or mathematical equivalence.",
+    "Windows symlink and fork controls are conditionally unavailable; Linux full run should exercise both.",
+    "131 legacy owner methods were exercised on the initial scope revision; final complete benchmark must validate them on the current frozen strict-type revision. Current revision independently passes all9 targeted controls."
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "runtimeReexecuted": false,
+  "packagePublished": false
+}

@@ -1,0 +1,28 @@
+{
+  "steps": [
+    {
+      "operation": "construct",
+      "id": "first"
+    },
+    {
+      "operation": "mutate-query",
+      "id": "first",
+      "method": "knownLayoutCategories",
+      "nested": true
+    },
+    {
+      "operation": "construct",
+      "id": "second"
+    },
+    {
+      "operation": "knownLayoutCategories",
+      "id": "second"
+    },
+    {
+      "operation": "knownLayoutCategories",
+      "id": "first"
+    }
+  ],
+  "schema": "py-elk-e08-api-request/v1",
+  "id": "sequence-mutation-knownLayoutCategories"
+}

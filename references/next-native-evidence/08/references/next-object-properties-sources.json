@@ -1,0 +1,610 @@
+{
+  "schema": "py-elk-object-properties-source-proposal/v1",
+  "sourceApproved": false,
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "objectDeclarations": [
+    {
+      "id": "org.eclipse.elk.resolvedAlgorithm",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.data.LayoutAlgorithmData",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.resolvedAlgorithm'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.bendPoints",
+      "type": "OBJECT",
+      "targets": [
+        "EDGES"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.math.KVectorChain",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "sequence": []
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.padding",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS",
+        "NODES"
+      ],
+      "declaredDefault": {
+        "insets": [
+          12,
+          12,
+          12,
+          12
+        ]
+      },
+      "clazz": "org.eclipse.elk.core.math.ElkPadding",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "insets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.position",
+      "type": "OBJECT",
+      "targets": [
+        "NODES",
+        "PORTS",
+        "LABELS"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.math.KVector",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "vector": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.junctionPoints",
+      "type": "OBJECT",
+      "targets": [
+        "EDGES"
+      ],
+      "declaredDefault": {
+        "sequence": []
+      },
+      "clazz": "org.eclipse.elk.core.math.KVectorChain",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "sequence": []
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.labelManager",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS",
+        "LABELS"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.labels.ILabelManager",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.labelManager'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.margins",
+      "type": "OBJECT",
+      "targets": [
+        "NODES"
+      ],
+      "declaredDefault": {
+        "insets": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "clazz": "org.eclipse.elk.core.math.ElkMargin",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "insets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.spacing.individual",
+      "type": "OBJECT",
+      "targets": [
+        "NODES",
+        "EDGES",
+        "PORTS",
+        "LABELS"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.util.IndividualSpacings",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "unmappedDefault": true,
+          "text": ""
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.spacing.portsSurrounding",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": {
+        "insets": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "clazz": "org.eclipse.elk.core.math.ElkMargin",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "insets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.nodeLabels.padding",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": {
+        "insets": [
+          5,
+          5,
+          5,
+          5
+        ]
+      },
+      "clazz": "org.eclipse.elk.core.math.ElkPadding",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "insets": [
+            0,
+            0,
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.nodeSize.minimum",
+      "type": "OBJECT",
+      "targets": [
+        "NODES"
+      ],
+      "declaredDefault": {
+        "vector": [
+          0,
+          0
+        ]
+      },
+      "clazz": "org.eclipse.elk.core.math.KVector",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "vector": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.port.anchor",
+      "type": "OBJECT",
+      "targets": [
+        "PORTS"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.math.KVector",
+      "enumValues": [],
+      "factory": {
+        "outcome": "returned",
+        "value": {
+          "vector": [
+            0,
+            0
+          ]
+        }
+      }
+    },
+    {
+      "id": "org.eclipse.elk.topdown.sizeApproximator",
+      "type": "OBJECT",
+      "targets": [
+        "NODES"
+      ],
+      "declaredDefault": null,
+      "clazz": "org.eclipse.elk.core.options.ITopdownSizeApproximator",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.topdown.sizeApproximator'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.layered.wrapping.cutting.cuts",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": null,
+      "clazz": "java.util.List",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.layered.wrapping.cutting.cuts'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.layered.wrapping.validify.forbiddenIndices",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": null,
+      "clazz": "java.util.List",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.layered.wrapping.validify.forbiddenIndices'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmEnforcedGroupOrders",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": {
+        "sequence": [
+          1,
+          2,
+          6,
+          7,
+          10,
+          11
+        ]
+      },
+      "clazz": "java.util.List",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmEnforcedGroupOrders'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.disco.debug.discoGraph",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": null,
+      "clazz": "java.lang.Object",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.disco.debug.discoGraph'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    },
+    {
+      "id": "org.eclipse.elk.disco.debug.discoPolys",
+      "type": "OBJECT",
+      "targets": [
+        "PARENTS"
+      ],
+      "declaredDefault": null,
+      "clazz": "java.lang.Object",
+      "enumValues": [],
+      "factory": {
+        "outcome": "threw",
+        "text": "Error: java.lang.IllegalStateException: Couldn't create new instance of property 'org.eclipse.elk.disco.debug.discoPolys'. Make sure its type is registered with the ElkReflect utility class."
+      }
+    }
+  ],
+  "sourceSpans": [
+    {
+      "symbol": "KVectorChain-class-parse-cloneable",
+      "startLine": 70572,
+      "endLine": 70641,
+      "role": "Actual parser, constructor and type4 cast",
+      "sha256": "929b11955fa24220d830e88b4eaa7144cd7fb340512a5774e90214dec8249c19",
+      "sourceBytesBase64": "ZnVuY3Rpb24gS1ZlY3RvckNoYWluKCl7CiAgTGlua2VkTGlzdC5jYWxsKHRoaXMpOwp9CgpmdW5jdGlvbiBLVmVjdG9yQ2hhaW5fMChjb2xsZWN0aW9uKXsKICBMaW5rZWRMaXN0XzAuY2FsbCh0aGlzLCBjb2xsZWN0aW9uKTsKfQoKZnVuY3Rpb24gS1ZlY3RvckNoYWluXzEodmVjdG9ycyl7CiAgTGlua2VkTGlzdC5jYWxsKHRoaXMpOwogICRhZGRBbGxfNyh0aGlzLCB2ZWN0b3JzKTsKfQoKZnVuY3Rpb24gcmV2ZXJzZV8zKGNoYWluKXsKICB2YXIgcmVzdWx0LCB2ZWN0b3IsIHZlY3RvciRpdGVyYXRvcjsKICByZXN1bHQgPSBuZXcgS1ZlY3RvckNoYWluOwogIGZvciAodmVjdG9yJGl0ZXJhdG9yID0gJGxpc3RJdGVyYXRvcl8yKGNoYWluLCAwKTsgdmVjdG9yJGl0ZXJhdG9yLmN1cnJlbnROb2RlICE9IHZlY3RvciRpdGVyYXRvci50aGlzJDAxLnRhaWw7KSB7CiAgICB2ZWN0b3IgPSBjYXN0VG8oJG5leHRfOSh2ZWN0b3IkaXRlcmF0b3IpLCA4KTsKICAgICRhZGRfMChyZXN1bHQsIDAsIG5ldyBLVmVjdG9yXzIodmVjdG9yKSk7CiAgfQogIHJldHVybiByZXN1bHQ7Cn0KCmRlZmluZUNsYXNzKDc1LCA2NSwgezM6MSwgNDoxLCAyMjoxLCAzMToxLCA1NjoxLCAxNzoxLCA2NToxLCAxNjoxLCA3NToxLCA0Mjk6MX0sIEtWZWN0b3JDaGFpbiwgS1ZlY3RvckNoYWluXzAsIEtWZWN0b3JDaGFpbl8xKTsKXy50b0FycmF5ID0gZnVuY3Rpb24gdG9BcnJheV8yNSgpewogIHJldHVybiAkdG9BcnJheV83KHRoaXMpOwp9CjsKXy5wYXJzZV8wID0gZnVuY3Rpb24gcGFyc2VfMihzdHJpbmcpewogIHZhciBleGNlcHRpb24sIGksIHRva2VucywgeF8wLCB4eSwgeV8wOwogIHRva2VucyA9ICRzcGxpdF8wKHN0cmluZywgJyx8O3xcXCh8XFwpfFxcW3xcXF18XFx7fFxcfXwgfFx0fFxuJyk7CiAgJHJlc2V0XzAodGhpcyk7CiAgdHJ5IHsKICAgIGkgPSAwOwogICAgeHkgPSAwOwogICAgeF8wID0gMDsKICAgIHlfMCA9IDA7CiAgICB3aGlsZSAoaSA8IHRva2Vucy5sZW5ndGgpIHsKICAgICAgaWYgKHRva2Vuc1tpXSAhPSBudWxsICYmICR0cmltKHRva2Vuc1tpXSkubGVuZ3RoID4gMCkgewogICAgICAgIHh5ICUgMiA9PSAwPyh4XzAgPSBfX3BhcnNlQW5kVmFsaWRhdGVEb3VibGUodG9rZW5zW2ldKSk6KHlfMCA9IF9fcGFyc2VBbmRWYWxpZGF0ZURvdWJsZSh0b2tlbnNbaV0pKTsKICAgICAgICB4eSA+IDAgJiYgeHkgJSAyICE9IDAgJiYgJGFkZF83KHRoaXMsIG5ldyBLVmVjdG9yXzEoeF8wLCB5XzApKTsKICAgICAgICArK3h5OwogICAgICB9CiAgICAgICsraTsKICAgIH0KICB9CiAgIGNhdGNoICgkZTApIHsKICAgICRlMCA9IHRvSmF2YSgkZTApOwogICAgaWYgKGluc3RhbmNlT2YoJGUwLCAxMzEpKSB7CiAgICAgIGV4Y2VwdGlvbiA9ICRlMDsKICAgICAgdGhyb3cgdG9KcyhuZXcgSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uXzAoJ1RoZSBnaXZlbiBzdHJpbmcgZG9lcyBub3QgbWF0Y2ggdGhlIGV4cGVjdGVkIGZvcm1hdCBmb3IgdmVjdG9ycy4nICsgZXhjZXB0aW9uKSk7CiAgICB9CiAgICAgZWxzZSAKICAgICAgdGhyb3cgdG9KcygkZTApOwogIH0KfQo7Cl8udG9TdHJpbmdfMCA9IGZ1bmN0aW9uIHRvU3RyaW5nXzExNigpewogIHZhciBidWlsZGVyLCBpdGVyLCB2ZWN0b3I7CiAgYnVpbGRlciA9IG5ldyBTdHJpbmdCdWlsZGVyXzEoJygnKTsKICBpdGVyID0gJGxpc3RJdGVyYXRvcl8yKHRoaXMsIDApOwogIHdoaWxlIChpdGVyLmN1cnJlbnROb2RlICE9IGl0ZXIudGhpcyQwMS50YWlsKSB7CiAgICB2ZWN0b3IgPSBjYXN0VG8oJG5leHRfOShpdGVyKSwgOCk7CiAgICAkYXBwZW5kXzExKGJ1aWxkZXIsIHZlY3Rvci54XzAgKyAnLCcgKyB2ZWN0b3IueV8wKTsKICAgIGl0ZXIuY3VycmVudE5vZGUgIT0gaXRlci50aGlzJDAxLnRhaWwgJiYgKGJ1aWxkZXIuc3RyaW5nICs9ICc7ICcgLCBidWlsZGVyKTsKICB9CiAgcmV0dXJuIChidWlsZGVyLnN0cmluZyArPSAnKScgLCBidWlsZGVyKS5zdHJpbmc7Cn0KOwp2YXIgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfS1ZlY3RvckNoYWluXzJfY2xhc3NMaXQgPSBjcmVhdGVGb3JDbGFzcygnb3JnLmVjbGlwc2UuZWxrLmNvcmUubWF0aCcsICdLVmVjdG9yQ2hhaW4nLCA3NSk7Cg=="
+    },
+    {
+      "symbol": "chain-new-shallow-clone",
+      "startLine": 69569,
+      "endLine": 69586,
+      "role": "Actual new factory and shallow collection-copy clone",
+      "sha256": "1d018adeca69bb6c47d5bfd310ee4328f35548b296b7c08469bef09471d2fc82",
+      "sourceBytesBase64": "ZnVuY3Rpb24gTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQyJFR5cGUoKXsKfQoKZGVmaW5lQ2xhc3MoOTI4LCAxLCAkaW50ZXJuXzEzMywgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQyJFR5cGUpOwpfLm5ld0luc3RhbmNlID0gZnVuY3Rpb24gbmV3SW5zdGFuY2VfNigpewogIHJldHVybiBuZXcgS1ZlY3RvckNoYWluOwp9CjsKdmFyIExvcmdfZWNsaXBzZV9lbGtfY29yZV9kYXRhX0xheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMiRUeXBlXzJfY2xhc3NMaXQgPSBjcmVhdGVGb3JDbGFzcygnb3JnLmVjbGlwc2UuZWxrLmNvcmUuZGF0YScsICdMYXlvdXRNZXRhRGF0YVNlcnZpY2UvbGFtYmRhJDIkVHlwZScsIDkyOCk7CmZ1bmN0aW9uIExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMyRUeXBlKCl7Cn0KCmRlZmluZUNsYXNzKDkyOSwgMSwgJGludGVybl8xMzQsIExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMyRUeXBlKTsKXy5jbG9uZSA9IGZ1bmN0aW9uIGNsb25lXzcoYXJnMCl7CiAgcmV0dXJuIG5ldyBLVmVjdG9yQ2hhaW5fMChjYXN0VG8oYXJnMCwgNzUpKTsKfQo7CnZhciBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDMkVHlwZV8yX2NsYXNzTGl0ID0gY3JlYXRlRm9yQ2xhc3MoJ29yZy5lY2xpcHNlLmVsay5jb3JlLmRhdGEnLCAnTGF5b3V0TWV0YURhdGFTZXJ2aWNlL2xhbWJkYSQzJFR5cGUnLCA5MjkpOwo="
+    },
+    {
+      "symbol": "register-object-factories",
+      "startLine": 69344,
+      "endLine": 69361,
+      "role": "Exact runtime class registration, including missing interface classes",
+      "sha256": "04599135e93be2ca3dec6d553cd3568275b9c2f5f97e016eb7e9b6bfacfc2ba3",
+      "sourceBytesBase64": "ZnVuY3Rpb24gTGF5b3V0TWV0YURhdGFTZXJ2aWNlKCl7CiAgdGhpcy5sYXlvdXRBbGdvcml0aG1NYXAgPSBuZXcgTGlua2VkSGFzaE1hcDsKICB0aGlzLmxheW91dE9wdGlvbk1hcCA9IG5ldyBMaW5rZWRIYXNoTWFwOwogIHRoaXMubGVnYWN5TGF5b3V0T3B0aW9uTWFwID0gbmV3IExpbmtlZEhhc2hNYXA7CiAgdGhpcy5sYXlvdXRDYXRlZ29yeU1hcCA9IG5ldyBMaW5rZWRIYXNoTWFwOwogIHRoaXMuYWxnb3JpdGhtU3VmZml4TWFwID0gbmV3IEhhc2hNYXA7CiAgdGhpcy5vcHRpb25TdWZmaXhNYXAgPSBuZXcgSGFzaE1hcDsKICByZWdpc3RlcihMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9LVmVjdG9yXzJfY2xhc3NMaXQsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDAkVHlwZSwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMSRUeXBlKTsKICByZWdpc3RlcihMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9LVmVjdG9yQ2hhaW5fMl9jbGFzc0xpdCwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMiRUeXBlLCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQzJFR5cGUpOwogIHJlZ2lzdGVyKExvcmdfZWNsaXBzZV9lbGtfY29yZV9tYXRoX0Vsa01hcmdpbl8yX2NsYXNzTGl0LCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ0JFR5cGUsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDUkVHlwZSk7CiAgcmVnaXN0ZXIoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfRWxrUGFkZGluZ18yX2NsYXNzTGl0LCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ2JFR5cGUsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDckVHlwZSk7CiAgcmVnaXN0ZXIoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX3V0aWxfSW5kaXZpZHVhbFNwYWNpbmdzXzJfY2xhc3NMaXQsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDgkVHlwZSwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkOSRUeXBlKTsKICByZWdpc3RlcihMamF2YV91dGlsX0FycmF5TGlzdF8yX2NsYXNzTGl0LCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQxMCRUeXBlLCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQxMSRUeXBlKTsKICByZWdpc3RlcihMamF2YV91dGlsX0xpbmtlZExpc3RfMl9jbGFzc0xpdCwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMTIkVHlwZSwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMTMkVHlwZSk7CiAgcmVnaXN0ZXIoTGphdmFfdXRpbF9IYXNoU2V0XzJfY2xhc3NMaXQsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDE0JFR5cGUsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDE1JFR5cGUpOwogIHJlZ2lzdGVyKExqYXZhX3V0aWxfTGlua2VkSGFzaFNldF8yX2NsYXNzTGl0LCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQxNiRUeXBlLCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQxNyRUeXBlKTsKICByZWdpc3RlcihMamF2YV91dGlsX1RyZWVTZXRfMl9jbGFzc0xpdCwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMTgkVHlwZSwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMTkkVHlwZSk7Cn0K"
+    },
+    {
+      "symbol": "split",
+      "startLine": 11638,
+      "endLine": 11678,
+      "role": "Existing trailing-empty split rule; no new Java runtime implementation",
+      "sha256": "84b28c68f1d9c1ae4f91f50f4b965fa546db00c35325c400af81f15f68e5db91",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHNwbGl0XzAodGhpcyRzdGF0aWMsIHJlZ2V4KXsKICB2YXIgY29tcGlsZWQsIGNvdW50LCBsYXN0Tm9uRW1wdHksIGxhc3RUcmFpbCwgbWF0Y2hJbmRleCwgbWF0Y2hPYmosIG91dCwgdHJhaWw7CiAgY29tcGlsZWQgPSBuZXcgUmVnRXhwKHJlZ2V4LCAnZycpOwogIG91dCA9IGluaXRVbmlkaW1lbnNpb25hbEFycmF5KExqYXZhX2xhbmdfU3RyaW5nXzJfY2xhc3NMaXQsICRpbnRlcm5fMTYsIDIsIDAsIDYsIDEpOwogIGNvdW50ID0gMDsKICB0cmFpbCA9IHRoaXMkc3RhdGljOwogIGxhc3RUcmFpbCA9IG51bGw7CiAgd2hpbGUgKHRydWUpIHsKICAgIG1hdGNoT2JqID0gY29tcGlsZWQuZXhlYyh0cmFpbCk7CiAgICBpZiAobWF0Y2hPYmogPT0gbnVsbCB8fCB0cmFpbCA9PSAnJykgewogICAgICBvdXRbY291bnRdID0gdHJhaWw7CiAgICAgIGJyZWFrOwogICAgfQogICAgIGVsc2UgewogICAgICBtYXRjaEluZGV4ID0gbWF0Y2hPYmouaW5kZXg7CiAgICAgIGlmIChsYXN0VHJhaWwgPT0gbnVsbCAmJiBtYXRjaEluZGV4ID09IDAgJiYgbWF0Y2hPYmpbMF0ubGVuZ3RoID09IDApIHsKICAgICAgICB0cmFpbCA9ICRzdWJzdHJpbmdfMSh0cmFpbCwgbWF0Y2hJbmRleCArIG1hdGNoT2JqWzBdLmxlbmd0aCwgdHJhaWwubGVuZ3RoKTsKICAgICAgICBjb21waWxlZC5sYXN0SW5kZXggPSAwOwogICAgICAgIGxhc3RUcmFpbCA9IHRyYWlsOwogICAgICAgIGNvbnRpbnVlOwogICAgICB9CiAgICAgIG91dFtjb3VudF0gPSAoY2hlY2tDcml0aWNhbFN0cmluZ0JvdW5kcygwLCBtYXRjaEluZGV4LCB0cmFpbC5sZW5ndGgpICwgdHJhaWwuc3Vic3RyKDAsIG1hdGNoSW5kZXgpKTsKICAgICAgdHJhaWwgPSAkc3Vic3RyaW5nXzEodHJhaWwsIG1hdGNoSW5kZXggKyBtYXRjaE9ialswXS5sZW5ndGgsIHRyYWlsLmxlbmd0aCk7CiAgICAgIGNvbXBpbGVkLmxhc3RJbmRleCA9IDA7CiAgICAgIGlmIChsYXN0VHJhaWwgPT0gdHJhaWwpIHsKICAgICAgICBvdXRbY291bnRdID0gKGNoZWNrQ3JpdGljYWxTdHJpbmdCb3VuZHMoMCwgMSwgdHJhaWwubGVuZ3RoKSAsIHRyYWlsLnN1YnN0cigwLCAxKSk7CiAgICAgICAgdHJhaWwgPSAoY2hlY2tDcml0aWNhbFN0cmluZ0VsZW1lbnRJbmRleCgxLCB0cmFpbC5sZW5ndGggKyAxKSAsIHRyYWlsLnN1YnN0cigxKSk7CiAgICAgIH0KICAgICAgbGFzdFRyYWlsID0gdHJhaWw7CiAgICAgICsrY291bnQ7CiAgICB9CiAgfQogIGlmICh0aGlzJHN0YXRpYy5sZW5ndGggPiAwKSB7CiAgICBsYXN0Tm9uRW1wdHkgPSBvdXQubGVuZ3RoOwogICAgd2hpbGUgKGxhc3ROb25FbXB0eSA+IDAgJiYgb3V0W2xhc3ROb25FbXB0eSAtIDFdID09ICcnKSB7CiAgICAgIC0tbGFzdE5vbkVtcHR5OwogICAgfQogICAgbGFzdE5vbkVtcHR5IDwgb3V0Lmxlbmd0aCAmJiAob3V0Lmxlbmd0aCA9IGxhc3ROb25FbXB0eSk7CiAgfQogIHJldHVybiBvdXQ7Cn0K"
+    },
+    {
+      "symbol": "parse-object-value",
+      "startLine": 69712,
+      "endLine": 69774,
+      "role": "Caller catches IllegalArgumentException only",
+      "sha256": "ea00e303b16657fd597aa353062386a52c4102f3324ea9f48eaccdcef4273f05",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHBhcnNlVmFsdWUodGhpcyRzdGF0aWMsIHZhbHVlU3RyaW5nKXsKICB2YXIgdmFsdWVfMDsKICBpZiAodmFsdWVTdHJpbmcgPT0gbnVsbCB8fCAkZXF1YWxzXzUodmFsdWVTdHJpbmcsICdudWxsJykpIHsKICAgIHJldHVybiBudWxsOwogIH0KICBpZiAodmFsdWVTdHJpbmcubGVuZ3RoID09IDAgJiYgdGhpcyRzdGF0aWMudHlwZV8wICE9ICgkY2xpbml0X0xheW91dE9wdGlvbkRhdGEkVHlwZSgpICwgRU5VTVNFVCkpIHsKICAgIHJldHVybiBudWxsOwogIH0KICBzd2l0Y2ggKHRoaXMkc3RhdGljLnR5cGVfMC5vcmRpbmFsKSB7CiAgICBjYXNlIDE6CiAgICAgIHJldHVybiAkZXF1YWxzSWdub3JlQ2FzZSh2YWx1ZVN0cmluZywgJ3RydWUnKT8oJGNsaW5pdF9Cb29sZWFuKCkgLCBUUlVFXzApOiRlcXVhbHNJZ25vcmVDYXNlKHZhbHVlU3RyaW5nLCAnZmFsc2UnKT8oJGNsaW5pdF9Cb29sZWFuKCkgLCBGQUxTRV8wKTpudWxsOwogICAgY2FzZSAyOgogICAgICB0cnkgewogICAgICAgIHJldHVybiB2YWx1ZU9mXzMoX19wYXJzZUFuZFZhbGlkYXRlSW50KHZhbHVlU3RyaW5nLCAkaW50ZXJuXzQ0LCAkaW50ZXJuXzApKTsKICAgICAgfQogICAgICAgY2F0Y2ggKCRlMCkgewogICAgICAgICRlMCA9IHRvSmF2YSgkZTApOwogICAgICAgIGlmIChpbnN0YW5jZU9mKCRlMCwgMTMxKSkgewogICAgICAgICAgcmV0dXJuIG51bGw7CiAgICAgICAgfQogICAgICAgICBlbHNlIAogICAgICAgICAgdGhyb3cgdG9KcygkZTApOwogICAgICB9CgogICAgY2FzZSA0OgogICAgICB0cnkgewogICAgICAgIHJldHVybiBfX3BhcnNlQW5kVmFsaWRhdGVEb3VibGUodmFsdWVTdHJpbmcpOwogICAgICB9CiAgICAgICBjYXRjaCAoJGUxKSB7CiAgICAgICAgJGUxID0gdG9KYXZhKCRlMSk7CiAgICAgICAgaWYgKGluc3RhbmNlT2YoJGUxLCAxMzEpKSB7CiAgICAgICAgICByZXR1cm4gbnVsbDsKICAgICAgICB9CiAgICAgICAgIGVsc2UgCiAgICAgICAgICB0aHJvdyB0b0pzKCRlMSk7CiAgICAgIH0KCiAgICBjYXNlIDM6CiAgICAgIHJldHVybiB2YWx1ZVN0cmluZzsKICAgIGNhc2UgNToKICAgICAgJGNoZWNrRW51bUNsYXNzKHRoaXMkc3RhdGljKTsKICAgICAgcmV0dXJuICRlbnVtRm9yU3RyaW5nKHRoaXMkc3RhdGljLCB2YWx1ZVN0cmluZyk7CiAgICBjYXNlIDY6CiAgICAgICRjaGVja0VudW1DbGFzcyh0aGlzJHN0YXRpYyk7CiAgICAgIHJldHVybiAkZW51bVNldEZvclN0cmluZ0FycmF5KHRoaXMkc3RhdGljLCB0aGlzJHN0YXRpYy5jbGF6eiwgdmFsdWVTdHJpbmcpOwogICAgY2FzZSA3OgogICAgICB0cnkgewogICAgICAgIHZhbHVlXzAgPSAkY3JlYXRlRGF0YUluc3RhbmNlKHRoaXMkc3RhdGljKTsKICAgICAgICB2YWx1ZV8wLnBhcnNlXzAodmFsdWVTdHJpbmcpOwogICAgICAgIHJldHVybiB2YWx1ZV8wOwogICAgICB9CiAgICAgICBjYXRjaCAoJGUyKSB7CiAgICAgICAgJGUyID0gdG9KYXZhKCRlMik7CiAgICAgICAgaWYgKGluc3RhbmNlT2YoJGUyLCAzMykpIHsKICAgICAgICAgIHJldHVybiBudWxsOwogICAgICAgIH0KICAgICAgICAgZWxzZSAKICAgICAgICAgIHRocm93IHRvSnMoJGUyKTsKICAgICAgfQoKICAgIGRlZmF1bHQ6dGhyb3cgdG9KcyhuZXcgSWxsZWdhbFN0YXRlRXhjZXB0aW9uXzAoJ0ludmFsaWQgdHlwZSBzZXQgZm9yIHRoaXMgbGF5b3V0IG9wdGlvbi4nKSk7CiAgfQp9Cg=="
+    },
+    {
+      "symbol": "create-data-instance",
+      "startLine": 69652,
+      "endLine": 69662,
+      "role": "Actual factory lookup and missing-constructor failure",
+      "sha256": "c46e89d86b19d2d0e50a1ccc85f990a18b813390ba0c1973c74fddb5358ed75f",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGNyZWF0ZURhdGFJbnN0YW5jZSh0aGlzJHN0YXRpYyl7CiAgdmFyIGluc3RhbmNlOwogIGlmICghdGhpcyRzdGF0aWMuY2xhenopIHsKICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxTdGF0ZUV4Y2VwdGlvbl8wKCdJRGF0YVR5cGUgY2xhc3MgZXhwZWN0ZWQgZm9yIGxheW91dCBvcHRpb24gJyArIHRoaXMkc3RhdGljLmlkXzApKTsKICB9CiAgaW5zdGFuY2UgPSBuZXdJbnN0YW5jZV8xMCh0aGlzJHN0YXRpYy5jbGF6eik7CiAgaWYgKGluc3RhbmNlID09IG51bGwpIHsKICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxTdGF0ZUV4Y2VwdGlvbl8wKCJDb3VsZG4ndCBjcmVhdGUgbmV3IGluc3RhbmNlIG9mIHByb3BlcnR5ICciICsgdGhpcyRzdGF0aWMuaWRfMCArICInLiAiICsgJ01ha2Ugc3VyZSBpdHMgdHlwZSBpcyByZWdpc3RlcmVkIHdpdGggdGhlICcgKyAoJGVuc3VyZU5hbWVzQXJlSW5pdGlhbGl6ZWQoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF91dGlsX0Vsa1JlZmxlY3RfMl9jbGFzc0xpdCkgLCBMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX3V0aWxfRWxrUmVmbGVjdF8yX2NsYXNzTGl0LnNpbXBsZU5hbWUpICsgJyB1dGlsaXR5IGNsYXNzLicpKTsKICB9CiAgcmV0dXJuIGNhc3RUbyhpbnN0YW5jZSwgNDI5KTsKfQo="
+    },
+    {
+      "symbol": "reflect-factories",
+      "startLine": 81717,
+      "endLine": 81744,
+      "role": "Exact-class construction and clone lookup",
+      "sha256": "6ec88971481b4c39c767423df11675c8411515563d217c7214289b1087304b15",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9FbGtSZWZsZWN0KCl7CiAgJGNsaW5pdF9FbGtSZWZsZWN0ID0gZW1wdHlNZXRob2Q7CiAgUkVHSVNUUllfTkVXID0gbmV3IEhhc2hNYXA7CiAgUkVHSVNUUllfQ0xPTkUgPSBuZXcgSGFzaE1hcDsKICByZWdpc3RlckNsb25lKExqYXZhX3V0aWxfRW51bVNldF8yX2NsYXNzTGl0LCBuZXcgRWxrUmVmbGVjdCRsYW1iZGEkMCRUeXBlKTsKfQoKZnVuY3Rpb24gY2xvbmVfMTEoY2xvbmVlKXsKICAkY2xpbml0X0Vsa1JlZmxlY3QoKTsKICBpZiAoaW5zdGFuY2VPZihjbG9uZWUsIDE2NikpIHsKICAgIHJldHVybiBjYXN0VG8oJGdldF8xMChSRUdJU1RSWV9DTE9ORSwgTGphdmFfdXRpbF9FbnVtU2V0XzJfY2xhc3NMaXQpLCAzMDEpLmNsb25lKGNsb25lZSk7CiAgfQogIGlmICgkY29udGFpbnNLZXlfMyhSRUdJU1RSWV9DTE9ORSwgZ2V0Q2xhc3NfX0xqYXZhX2xhbmdfQ2xhc3NfX19kZXZpcnR1YWwkKGNsb25lZSkpKSB7CiAgICByZXR1cm4gY2FzdFRvKCRnZXRfMTAoUkVHSVNUUllfQ0xPTkUsIGdldENsYXNzX19MamF2YV9sYW5nX0NsYXNzX19fZGV2aXJ0dWFsJChjbG9uZWUpKSwgMzAxKS5jbG9uZShjbG9uZWUpOwogIH0KICByZXR1cm4gbnVsbDsKfQoKZnVuY3Rpb24gbmV3SW5zdGFuY2VfMTAoY2xhenopewogICRjbGluaXRfRWxrUmVmbGVjdCgpOwogIHJldHVybiAkY29udGFpbnNLZXlfMyhSRUdJU1RSWV9ORVcsIGNsYXp6KT9jYXN0VG8oJGdldF8xMChSRUdJU1RSWV9ORVcsIGNsYXp6KSwgMzQ5KS5uZXdJbnN0YW5jZSgpOm51bGw7Cn0KCmZ1bmN0aW9uIHJlZ2lzdGVyKGNsYXp6LCBuZXdGdW4sIGNsb25lRnVuKXsKICAkY2xpbml0X0Vsa1JlZmxlY3QoKTsKICAhIWNsYXp6ICYmICRwdXRfNihSRUdJU1RSWV9ORVcsIGNsYXp6LCBuZXdGdW4pOwogICEhY2xhenogJiYgJHB1dF82KFJFR0lTVFJZX0NMT05FLCBjbGF6eiwgY2xvbmVGdW4pOwp9Cg=="
+    },
+    {
+      "symbol": "core-chain-defaults",
+      "startLine": 70766,
+      "endLine": 70795,
+      "role": "Actual Core bendPoints, position and junctionPoints defaults",
+      "sha256": "433f902538bbec12b61aa4ec87a6dad498a629dcca07cd436077e34468b1c227",
+      "sourceBytesBase64": "ICBBTEdPUklUSE0gPSBuZXcgUHJvcGVydHkoJ29yZy5lY2xpcHNlLmVsay5hbGdvcml0aG0nKTsKICBSRVNPTFZFRF9BTEdPUklUSE0gPSBuZXcgUHJvcGVydHkoJ29yZy5lY2xpcHNlLmVsay5yZXNvbHZlZEFsZ29yaXRobScpOwogIEFMSUdOTUVOVF9ERUZBVUxUID0gKCRjbGluaXRfQWxpZ25tZW50KCkgLCBBVVRPTUFUSUMpOwogIEFMSUdOTUVOVF8wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5hbGlnbm1lbnQnLCBBTElHTk1FTlRfREVGQVVMVCk7CiAgbmV3IEV4Y2x1c2l2ZUJvdW5kcyRFeGNsdXNpdmVMb3dlckJvdW5kOwogIEFTUEVDVF9SQVRJT181ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5hc3BlY3RSYXRpbycsIG51bGwpOwogIEJFTkRfUE9JTlRTID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsuYmVuZFBvaW50cycpOwogIENPTlRFTlRfQUxJR05NRU5UX0RFRkFVTFQgPSAoJGNsaW5pdF9Db250ZW50QWxpZ25tZW50KCkgLCBvZl8yKFZfVE9QLCBzdGFtcEphdmFUeXBlSW5mbyhnZXRDbGFzc0xpdGVyYWxGb3JBcnJheShMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Db250ZW50QWxpZ25tZW50XzJfY2xhc3NMaXQsIDEpLCAkaW50ZXJuXzM4LCAzMDUsIDAsIFtIX0xFRlRdKSkpOwogIENPTlRFTlRfQUxJR05NRU5UXzIgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLmNvbnRlbnRBbGlnbm1lbnQnLCBDT05URU5UX0FMSUdOTUVOVF9ERUZBVUxUKTsKICBERUJVR19NT0RFXzMgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLmRlYnVnTW9kZScsICgkY2xpbml0X0Jvb2xlYW4oKSAsIGZhbHNlKSk7CiAgRElSRUNUSU9OX0RFRkFVTFRfMSA9ICgkY2xpbml0X0RpcmVjdGlvbl8wKCkgLCBVTkRFRklORURfMik7CiAgRElSRUNUSU9OXzEgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLmRpcmVjdGlvbicsIERJUkVDVElPTl9ERUZBVUxUXzEpOwogIEVER0VfUk9VVElOR19ERUZBVUxUXzAgPSAoJGNsaW5pdF9FZGdlUm91dGluZygpICwgVU5ERUZJTkVEXzMpOwogIEVER0VfUk9VVElOR18wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5lZGdlUm91dGluZycsIEVER0VfUk9VVElOR19ERUZBVUxUXzApOwogIEVYUEFORF9OT0RFU18wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5leHBhbmROb2RlcycsIGZhbHNlKTsKICBISUVSQVJDSFlfSEFORExJTkdfREVGQVVMVCA9ICgkY2xpbml0X0hpZXJhcmNoeUhhbmRsaW5nKCkgLCBJTkhFUklUXzApOwogIEhJRVJBUkNIWV9IQU5ETElOR18wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5oaWVyYXJjaHlIYW5kbGluZycsIEhJRVJBUkNIWV9IQU5ETElOR19ERUZBVUxUKTsKICBQQURESU5HX0RFRkFVTFRfNiA9IG5ldyBFbGtQYWRkaW5nXzAoMTIpOwogIFBBRERJTkdfNiA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsucGFkZGluZycsIFBBRERJTkdfREVGQVVMVF82KTsKICBJTlRFUkFDVElWRV84ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5pbnRlcmFjdGl2ZScsIGZhbHNlKTsKICBJTlRFUkFDVElWRV9MQVlPVVRfMiA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsuaW50ZXJhY3RpdmVMYXlvdXQnLCBmYWxzZSk7CiAgT01JVF9OT0RFX01JQ1JPX0xBWU9VVF80ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5vbWl0Tm9kZU1pY3JvTGF5b3V0JywgZmFsc2UpOwogIFBPUlRfQ09OU1RSQUlOVFNfREVGQVVMVCA9ICgkY2xpbml0X1BvcnRDb25zdHJhaW50cygpICwgVU5ERUZJTkVEXzQpOwogIFBPUlRfQ09OU1RSQUlOVFNfMSA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsucG9ydENvbnN0cmFpbnRzJywgUE9SVF9DT05TVFJBSU5UU19ERUZBVUxUKTsKICBQT1NJVElPTl8yID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucG9zaXRpb24nKTsKICBQUklPUklUWV8zID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucHJpb3JpdHknKTsKICBSQU5ET01fU0VFRF8xID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucmFuZG9tU2VlZCcpOwogIFNFUEFSQVRFX0NPTk5FQ1RFRF9DT01QT05FTlRTXzIgPSBuZXcgUHJvcGVydHkoJ29yZy5lY2xpcHNlLmVsay5zZXBhcmF0ZUNvbm5lY3RlZENvbXBvbmVudHMnKTsKICBKVU5DVElPTl9QT0lOVFNfREVGQVVMVCA9IG5ldyBLVmVjdG9yQ2hhaW47CiAgSlVOQ1RJT05fUE9JTlRTXzAgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLmp1bmN0aW9uUG9pbnRzJywgSlVOQ1RJT05fUE9JTlRTX0RFRkFVTFQpOwo="
+    },
+    {
+      "symbol": "core-position-default",
+      "startLine": 70788,
+      "endLine": 70793,
+      "role": "Actual Core position property without supplied default",
+      "sha256": "7bb37f03eaa41c164de865e17c97bf3a0685caaa5a4c9b0173cf7391d78a590e",
+      "sourceBytesBase64": "ICBQT1JUX0NPTlNUUkFJTlRTX0RFRkFVTFQgPSAoJGNsaW5pdF9Qb3J0Q29uc3RyYWludHMoKSAsIFVOREVGSU5FRF80KTsKICBQT1JUX0NPTlNUUkFJTlRTXzEgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLnBvcnRDb25zdHJhaW50cycsIFBPUlRfQ09OU1RSQUlOVFNfREVGQVVMVCk7CiAgUE9TSVRJT05fMiA9IG5ldyBQcm9wZXJ0eSgnb3JnLmVjbGlwc2UuZWxrLnBvc2l0aW9uJyk7CiAgUFJJT1JJVFlfMyA9IG5ldyBQcm9wZXJ0eSgnb3JnLmVjbGlwc2UuZWxrLnByaW9yaXR5Jyk7CiAgUkFORE9NX1NFRURfMSA9IG5ldyBQcm9wZXJ0eSgnb3JnLmVjbGlwc2UuZWxrLnJhbmRvbVNlZWQnKTsKICBTRVBBUkFURV9DT05ORUNURURfQ09NUE9ORU5UU18yID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsuc2VwYXJhdGVDb25uZWN0ZWRDb21wb25lbnRzJyk7Cg=="
+    },
+    {
+      "symbol": "linked-list-shallow-constructor",
+      "startLine": 16538,
+      "endLine": 16542,
+      "role": "Collection copy preserves vector references",
+      "sha256": "dd8643af8c62582e223f26946559b7f2a03400135b6ac440d627bd74d6accccf",
+      "sourceBytesBase64": "ZnVuY3Rpb24gTGlua2VkTGlzdF8wKGMpewogICQkaW5pdF8zKHRoaXMpOwogICRyZXNldF8wKHRoaXMpOwogICRhZGRBbGwodGhpcywgYyk7Cn0K"
+    },
+    {
+      "symbol": "KVector-factory-clone",
+      "startLine": 69461,
+      "endLine": 69478,
+      "role": "New position uses same previously ported KVector factory/parser/clone as anchor",
+      "sha256": "ba2e10917f45cbcf8bbfe707ad01da3e53d30c7ed55f4babf4f63fac4b633cfb",
+      "sourceBytesBase64": "ZnVuY3Rpb24gTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQwJFR5cGUoKXsKfQoKZGVmaW5lQ2xhc3MoOTI2LCAxLCAkaW50ZXJuXzEzMywgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQwJFR5cGUpOwpfLm5ld0luc3RhbmNlID0gZnVuY3Rpb24gbmV3SW5zdGFuY2VfMCgpewogIHJldHVybiBuZXcgS1ZlY3RvcjsKfQo7CnZhciBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDAkVHlwZV8yX2NsYXNzTGl0ID0gY3JlYXRlRm9yQ2xhc3MoJ29yZy5lY2xpcHNlLmVsay5jb3JlLmRhdGEnLCAnTGF5b3V0TWV0YURhdGFTZXJ2aWNlL2xhbWJkYSQwJFR5cGUnLCA5MjYpOwpmdW5jdGlvbiBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDEkVHlwZSgpewp9CgpkZWZpbmVDbGFzcyg5MjcsIDEsICRpbnRlcm5fMTM0LCBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDEkVHlwZSk7Cl8uY2xvbmUgPSBmdW5jdGlvbiBjbG9uZV8xKGFyZzApewogIHJldHVybiAkY2xvbmVfMShjYXN0VG8oYXJnMCwgOCkpOwp9CjsKdmFyIExvcmdfZWNsaXBzZV9lbGtfY29yZV9kYXRhX0xheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMSRUeXBlXzJfY2xhc3NMaXQgPSBjcmVhdGVGb3JDbGFzcygnb3JnLmVjbGlwc2UuZWxrLmNvcmUuZGF0YScsICdMYXlvdXRNZXRhRGF0YVNlcnZpY2UvbGFtYmRhJDEkVHlwZScsIDkyNyk7Cg=="
+    },
+    {
+      "symbol": "org.eclipse.elk.resolvedAlgorithm",
+      "startLine": 70907,
+      "endLine": 70907,
+      "role": "actual option registration",
+      "sha256": "0843be3421d14ad9df29a387b342f953320ed87d51a88a946154321bb804373f",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucmVzb2x2ZWRBbGdvcml0aG0nKSwgJycpLCAnUmVzb2x2ZWQgTGF5b3V0IEFsZ29yaXRobScpLCAnTWV0YSBkYXRhIGFzc29jaWF0ZWQgd2l0aCB0aGUgc2VsZWN0ZWQgYWxnb3JpdGhtLicpLCBPQkpFQ1QpLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRBbGdvcml0aG1EYXRhXzJfY2xhc3NMaXQpLCBvZl8xKFBBUkVOVFMpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.bendPoints",
+      "startLine": 70910,
+      "endLine": 70910,
+      "role": "actual option registration",
+      "sha256": "7553fa05f37008ae6f5320f405f4ffe55de438075f6d1d451b516004e94e3c78",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsuYmVuZFBvaW50cycpLCAnJyksICdCZW5kIFBvaW50cycpLCAiQSBmaXhlZCBsaXN0IG9mIGJlbmQgcG9pbnRzIGZvciB0aGUgZWRnZS4gVGhpcyBpcyB1c2VkIGJ5IHRoZSAnRml4ZWQgTGF5b3V0JyBhbGdvcml0aG0gdG8gc3BlY2lmeSBhIHByZS1kZWZpbmVkIHJvdXRpbmcgZm9yIGFuIGVkZ2UuIFRoZSB2ZWN0b3IgY2hhaW4gbXVzdCBpbmNsdWRlIHRoZSBzb3VyY2UgcG9pbnQsIGFueSBiZW5kIHBvaW50cywgYW5kIHRoZSB0YXJnZXQgcG9pbnQsIHNvIGl0IG11c3QgaGF2ZSBhdCBsZWFzdCB0d28gcG9pbnRzLiIpLCBPQkpFQ1QpLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9LVmVjdG9yQ2hhaW5fMl9jbGFzc0xpdCksIG9mXzEoRURHRVMpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.padding",
+      "startLine": 70917,
+      "endLine": 70917,
+      "role": "actual option registration",
+      "sha256": "255d40c7c7e3d62cd6e59d4b30676cc0ad8cbda56c779b28b2d267d93c636dbd",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5wYWRkaW5nJyksICcnKSwgJ1BhZGRpbmcnKSwgIlRoZSBwYWRkaW5nIHRvIGJlIGxlZnQgdG8gYSBwYXJlbnQgZWxlbWVudCdzIGJvcmRlciB3aGVuIHBsYWNpbmcgY2hpbGQgZWxlbWVudHMuIFRoaXMgY2FuIGFsc28gc2VydmUgYXMgYW4gb3V0cHV0IG9wdGlvbiBvZiBhIGxheW91dCBhbGdvcml0aG0gaWYgbm9kZSBzaXplIGNhbGN1bGF0aW9uIGlzIHNldHVwIGFwcHJvcHJpYXRlbHkuIiksIFBBRERJTkdfREVGQVVMVF82KSwgT0JKRUNUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfRWxrUGFkZGluZ18yX2NsYXNzTGl0KSwgb2ZfMihQQVJFTlRTLCBzdGFtcEphdmFUeXBlSW5mbyhnZXRDbGFzc0xpdGVyYWxGb3JBcnJheShMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRPcHRpb25EYXRhJFRhcmdldF8yX2NsYXNzTGl0LCAxKSwgJGludGVybl8zOCwgMTYxLCAwLCBbTk9ERVNdKSkpKSk7Cg=="
+    },
+    {
+      "symbol": "org.eclipse.elk.position",
+      "startLine": 70922,
+      "endLine": 70922,
+      "role": "actual option registration",
+      "sha256": "9d47a6cfd4b7411a35c6afe35249bafd7c7a59eb4f6ba6bc0d14eed9d6c4d16d",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucG9zaXRpb24nKSwgJycpLCAnUG9zaXRpb24nKSwgIlRoZSBwb3NpdGlvbiBvZiBhIG5vZGUsIHBvcnQsIG9yIGxhYmVsLiBUaGlzIGlzIHVzZWQgYnkgdGhlICdGaXhlZCBMYXlvdXQnIGFsZ29yaXRobSB0byBzcGVjaWZ5IGEgcHJlLWRlZmluZWQgcG9zaXRpb24uIiksIE9CSkVDVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV9tYXRoX0tWZWN0b3JfMl9jbGFzc0xpdCksIG9mXzIoTk9ERVMsIHN0YW1wSmF2YVR5cGVJbmZvKGdldENsYXNzTGl0ZXJhbEZvckFycmF5KExvcmdfZWNsaXBzZV9lbGtfY29yZV9kYXRhX0xheW91dE9wdGlvbkRhdGEkVGFyZ2V0XzJfY2xhc3NMaXQsIDEpLCAkaW50ZXJuXzM4LCAxNjEsIDAsIFtQT1JUUywgTEFCRUxTXSkpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.junctionPoints",
+      "startLine": 70926,
+      "endLine": 70926,
+      "role": "actual option registration",
+      "sha256": "82759077a71f53830383e01018463065ba52dccd64a33d31308109d3c2b73f45",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5qdW5jdGlvblBvaW50cycpLCAnJyksICdKdW5jdGlvbiBQb2ludHMnKSwgJ1RoaXMgb3B0aW9uIGlzIG5vdCB1c2VkIGFzIG9wdGlvbiwgYnV0IGFzIG91dHB1dCBvZiB0aGUgbGF5b3V0IGFsZ29yaXRobXMuIEl0IGlzIGF0dGFjaGVkIHRvIGVkZ2VzIGFuZCBkZXRlcm1pbmVzIHRoZSBwb2ludHMgd2hlcmUganVuY3Rpb24gc3ltYm9scyBzaG91bGQgYmUgZHJhd24gaW4gb3JkZXIgdG8gcmVwcmVzZW50IGh5cGVyZWRnZXMgd2l0aCBvcnRob2dvbmFsIHJvdXRpbmcuIFdoZXRoZXIgc3VjaCBwb2ludHMgYXJlIGNvbXB1dGVkIGRlcGVuZHMgb24gdGhlIGNob3NlbiBsYXlvdXQgYWxnb3JpdGhtIGFuZCBlZGdlIHJvdXRpbmcgc3R5bGUuIFRoZSBwb2ludHMgYXJlIHB1dCBpbnRvIHRoZSB2ZWN0b3IgY2hhaW4gd2l0aCBubyBzcGVjaWZpYyBvcmRlci4nKSwgSlVOQ1RJT05fUE9JTlRTX0RFRkFVTFQpLCBPQkpFQ1QpLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9LVmVjdG9yQ2hhaW5fMl9jbGFzc0xpdCksIG9mXzEoRURHRVMpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.labelManager",
+      "startLine": 70929,
+      "endLine": 70929,
+      "role": "actual option registration",
+      "sha256": "8359119d6bbf6153e91fd4832f17bf3b19e1186e28f8b89c1dcefa454cec07cb",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsubGFiZWxNYW5hZ2VyJyksICcnKSwgJ0xhYmVsIE1hbmFnZXInKSwgIkxhYmVsIG1hbmFnZXJzIGNhbiBzaG9ydGVuIGxhYmVscyB1cG9uIGEgbGF5b3V0IGFsZ29yaXRobSdzIHJlcXVlc3QuIiksIE9CSkVDVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV9sYWJlbHNfSUxhYmVsTWFuYWdlcl8yX2NsYXNzTGl0KSwgb2ZfMihQQVJFTlRTLCBzdGFtcEphdmFUeXBlSW5mbyhnZXRDbGFzc0xpdGVyYWxGb3JBcnJheShMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRPcHRpb25EYXRhJFRhcmdldF8yX2NsYXNzTGl0LCAxKSwgJGludGVybl8zOCwgMTYxLCAwLCBbTEFCRUxTXSkpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.margins",
+      "startLine": 70931,
+      "endLine": 70931,
+      "role": "actual option registration",
+      "sha256": "99e7f0c4fec64a3fcbf9a1666b8804bf08679d76c38feb1c2d3f3f8711ee68fd",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5tYXJnaW5zJyksICcnKSwgJ01hcmdpbnMnKSwgIk1hcmdpbnMgZGVmaW5lIGFkZGl0aW9uYWwgc3BhY2UgYXJvdW5kIHRoZSBhY3R1YWwgYm91bmRzIG9mIGEgZ3JhcGggZWxlbWVudC4gRm9yIGluc3RhbmNlLCBwb3J0cyBvciBsYWJlbHMgYmVpbmcgcGxhY2VkIG9uIHRoZSBvdXRzaWRlIG9mIGEgbm9kZSdzIGJvcmRlciBtaWdodCBpbnRyb2R1Y2Ugc3VjaCBhIG1hcmdpbi4gVGhlIG1hcmdpbiBpcyB1c2VkIHRvIGd1YXJhbnRlZSBub24tb3ZlcmxhcCBvZiBvdGhlciBncmFwaCBlbGVtZW50cyB3aXRoIHRob3NlIHBvcnRzIG9yIGxhYmVscy4iKSwgTUFSR0lOU19ERUZBVUxUKSwgT0JKRUNUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfRWxrTWFyZ2luXzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK"
+    },
+    {
+      "symbol": "org.eclipse.elk.spacing.individual",
+      "startLine": 70963,
+      "endLine": 70963,
+      "role": "actual option registration",
+      "sha256": "1d3c50028184caccdefdc0a85899f82466cb132d08ea4bcd07eff73b356dea0e",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsuc3BhY2luZy5pbmRpdmlkdWFsJyksICdzcGFjaW5nJyksICdJbmRpdmlkdWFsIFNwYWNpbmcnKSwgIkFsbG93cyB0byBzcGVjaWZ5IGluZGl2aWR1YWwgc3BhY2luZyB2YWx1ZXMgZm9yIGdyYXBoIGVsZW1lbnRzIHRoYXQgc2hhbGwgYmUgZGlmZmVyZW50IGZyb20gdGhlIHZhbHVlIHNwZWNpZmllZCBmb3IgdGhlIGVsZW1lbnQncyBwYXJlbnQuIiksIE9CSkVDVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV91dGlsX0luZGl2aWR1YWxTcGFjaW5nc18yX2NsYXNzTGl0KSwgb2ZfMihOT0RFUywgc3RhbXBKYXZhVHlwZUluZm8oZ2V0Q2xhc3NMaXRlcmFsRm9yQXJyYXkoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX2RhdGFfTGF5b3V0T3B0aW9uRGF0YSRUYXJnZXRfMl9jbGFzc0xpdCwgMSksICRpbnRlcm5fMzgsIDE2MSwgMCwgW0VER0VTLCBQT1JUUywgTEFCRUxTXSkpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.spacing.portsSurrounding",
+      "startLine": 70964,
+      "endLine": 70964,
+      "role": "actual option registration",
+      "sha256": "15e703e6e5b0d3f4ccdda35d7f29e4d51fb134e3c087fa893cf417299a6bcf89",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLnBvcnRzU3Vycm91bmRpbmcnKSwgJ3NwYWNpbmcnKSwgJ0FkZGl0aW9uYWwgUG9ydCBTcGFjZScpLCAnQWRkaXRpb25hbCBzcGFjZSBhcm91bmQgdGhlIHNldHMgb2YgcG9ydHMgb24gZWFjaCBub2RlIHNpZGUuIEZvciBlYWNoIHNpZGUgb2YgYSBub2RlLCB0aGlzIG9wdGlvbiBjYW4gcmVzZXJ2ZSBhZGRpdGlvbmFsIHNwYWNlIGJlZm9yZSBhbmQgYWZ0ZXIgdGhlIHBvcnRzIG9uIGVhY2ggc2lkZS4gRm9yIGV4YW1wbGUsIGEgdG9wIHNwYWNpbmcgb2YgMjAgbWFrZXMgc3VyZSB0aGF0IHRoZSBmaXJzdCBwb3J0IG9uIHRoZSB3ZXN0ZXJuIGFuZCBlYXN0ZXJuIHNpZGUgaXMgMjAgdW5pdHMgYXdheSBmcm9tIHRoZSBub3J0aGVybiBib3JkZXIuJyksIFNQQUNJTkdfUE9SVFNfU1VSUk9VTkRJTkdfREVGQVVMVCksIE9CSkVDVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV9tYXRoX0Vsa01hcmdpbl8yX2NsYXNzTGl0KSwgb2ZfMShQQVJFTlRTKSkpKTsK"
+    },
+    {
+      "symbol": "org.eclipse.elk.nodeLabels.padding",
+      "startLine": 70968,
+      "endLine": 70968,
+      "role": "actual option registration",
+      "sha256": "f90f3e22fc07ff7b6c4e1abaf1fa33e48860d3efdedc5f3950e5d7db4f6946ac",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlTGFiZWxzLnBhZGRpbmcnKSwgJ25vZGVMYWJlbHMnKSwgJ05vZGUgTGFiZWwgUGFkZGluZycpLCAnRGVmaW5lIHBhZGRpbmcgZm9yIG5vZGUgbGFiZWxzIHRoYXQgYXJlIHBsYWNlZCBpbnNpZGUgb2YgYSBub2RlLicpLCBOT0RFX0xBQkVMU19QQURESU5HX0RFRkFVTFQpLCBPQkpFQ1QpLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9FbGtQYWRkaW5nXzJfY2xhc3NMaXQpLCBvZl8xKFBBUkVOVFMpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.nodeSize.minimum",
+      "startLine": 70977,
+      "endLine": 70977,
+      "role": "actual option registration",
+      "sha256": "fb9a4a5249a5534aca851abbb37e8824ad8d86f9bac7fc4dc942a2cf54db01b1",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5taW5pbXVtJyksICdub2RlU2l6ZScpLCAnTm9kZSBTaXplIE1pbmltdW0nKSwgJ1RoZSBtaW5pbWFsIHNpemUgdG8gd2hpY2ggYSBub2RlIGNhbiBiZSByZWR1Y2VkLicpLCBOT0RFX1NJWkVfTUlOSU1VTV9ERUZBVUxUKSwgT0JKRUNUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfS1ZlY3Rvcl8yX2NsYXNzTGl0KSwgb2ZfMShOT0RFUykpKSk7Cg=="
+    },
+    {
+      "symbol": "org.eclipse.elk.port.anchor",
+      "startLine": 70983,
+      "endLine": 70983,
+      "role": "actual option registration",
+      "sha256": "6f518e70bf12d30745a753e74ee83048960a45ab2a503c7ef4ffae596fb8aa3e",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucG9ydC5hbmNob3InKSwgJ3BvcnQnKSwgJ1BvcnQgQW5jaG9yIE9mZnNldCcpLCAnVGhlIG9mZnNldCB0byB0aGUgcG9ydCBwb3NpdGlvbiB3aGVyZSBjb25uZWN0aW9ucyBzaGFsbCBiZSBhdHRhY2hlZC4nKSwgT0JKRUNUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfS1ZlY3Rvcl8yX2NsYXNzTGl0KSwgb2ZfMShQT1JUUykpKSk7Cg=="
+    },
+    {
+      "symbol": "org.eclipse.elk.topdown.sizeApproximator",
+      "startLine": 70996,
+      "endLine": 70996,
+      "role": "actual option registration",
+      "sha256": "860a9861b1b0aaa23c0b43be3540570d20adac1347afdd1766f416306f6d6821",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay50b3Bkb3duLnNpemVBcHByb3hpbWF0b3InKSwgJ3RvcGRvd24nKSwgJ1RvcGRvd24gU2l6ZSBBcHByb3hpbWF0b3InKSwgJ1RoZSBzaXplIGFwcHJveGltYXRvciB0byBiZSB1c2VkIHRvIHNldCBzaXplcyBvZiBoaWVyYXJjaGljYWwgbm9kZXMgZHVyaW5nIHRvcGRvd24gbGF5b3V0LiBUaGUgZGVmYXVsdCB2YWx1ZSBpcyBudWxsLCB3aGljaCByZXN1bHRzIGluIG5vZGVzIGtlZXBpbmcgd2hhdGV2ZXIgc2l6ZSBpcyBkZWZpbmVkIGZvciB0aGVtIGUuZy4gdGhyb3VnaCBwYXJlbnQgcGFyYWxsZWwgbm9kZSBvciBieSBtYW51YWxseSBzZXR0aW5nIHRoZSBzaXplLicpLCBudWxsKSwgT0JKRUNUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX29wdGlvbnNfSVRvcGRvd25TaXplQXBwcm94aW1hdG9yXzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK"
+    },
+    {
+      "symbol": "org.eclipse.elk.layered.wrapping.cutting.cuts",
+      "startLine": 49053,
+      "endLine": 49053,
+      "role": "actual option registration",
+      "sha256": "f6b6032cc55df7eba79948a972fcf061d6ec6e80e28db03d128e9e7323ede8f0",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsubGF5ZXJlZC53cmFwcGluZy5jdXR0aW5nLmN1dHMnKSwgJ3dyYXBwaW5nLmN1dHRpbmcnKSwgJ01hbnVhbGx5IFNwZWNpZmllZCBDdXRzJyksICdBbGxvd3MgdGhlIHVzZXIgdG8gc3BlY2lmeSBoZXIgb3duIGN1dHMgZm9yIGEgY2VydGFpbiBncmFwaC4nKSwgT0JKRUNUKSwgTGphdmFfdXRpbF9MaXN0XzJfY2xhc3NMaXQpLCBvZl8xKFBBUkVOVFMpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.layered.wrapping.validify.forbiddenIndices",
+      "startLine": 49060,
+      "endLine": 49060,
+      "role": "actual option registration",
+      "sha256": "f1580eee0231c068e296945951a677694b430fcf5fa9384b8d78d5048b77fb31",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsubGF5ZXJlZC53cmFwcGluZy52YWxpZGlmeS5mb3JiaWRkZW5JbmRpY2VzJyksICd3cmFwcGluZy52YWxpZGlmeScpLCAnVmFsaWQgSW5kaWNlcyBmb3IgV3JhcHBpbmcnKSwgbnVsbCksIE9CSkVDVCksIExqYXZhX3V0aWxfTGlzdF8yX2NsYXNzTGl0KSwgb2ZfMShQQVJFTlRTKSkpKTsK"
+    },
+    {
+      "symbol": "org.eclipse.elk.layered.considerModelOrder.groupModelOrder.cmEnforcedGroupOrders",
+      "startLine": 49100,
+      "endLine": 49100,
+      "role": "actual option registration",
+      "sha256": "81bcb4586fed61e3d1c7006f9f641a19cfc4f67d5f7974712d69fcdc778f7280",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkLmNvbnNpZGVyTW9kZWxPcmRlci5ncm91cE1vZGVsT3JkZXIuY21FbmZvcmNlZEdyb3VwT3JkZXJzJyksICdjb25zaWRlck1vZGVsT3JkZXIuZ3JvdXBNb2RlbE9yZGVyJyksICdDcm9zc2luZyBNaW5pbWl6YXRpb24gRW5mb3JjZWQgR3JvdXAgT3JkZXJzJyksICdIb2xkcyBhbGwgZ3JvdXAgaWRzIHdoaWNoIGFyZSBlbmZvcmNpbmcgdGhlaXIgb3JkZXIgZHVyaW5nIGNyb3NzaW5nIG1pbmltaXphdGlvbiBzdHJhdGVnaWVzLiBFLmcuIGlmIG9ubHkgZ3JvdXBzIDIgYW5kIC0xIChkZWZhdWx0KSBlbmZvcmNlIHRoZWlyIG9yZGVyaW5nLiBPdGhlciBncm91cHMgZS5nLiB0aGUgZ3JvdXAgb2YgdGltZXIgbm9kZXMgY2FuIGJlIG9yZGVyZWQgYXJiaXRyYXJpbHkgaWYgaXQgaGVscHMgYW5kIHRoZSBtZW50aW9uZWQgZ3JvdXBzIG1heSBub3QgY2hhbmdlIHRoZWlyIG9yZGVyLicpLCBDT05TSURFUl9NT0RFTF9PUkRFUl9HUk9VUF9NT0RFTF9PUkRFUl9DTV9FTkZPUkNFRF9HUk9VUF9PUkRFUlNfREVGQVVMVCksIE9CSkVDVCksIExqYXZhX3V0aWxfTGlzdF8yX2NsYXNzTGl0KSwgb2ZfMShQQVJFTlRTKSkpKTsK"
+    },
+    {
+      "symbol": "org.eclipse.elk.disco.debug.discoGraph",
+      "startLine": 26211,
+      "endLine": 26211,
+      "role": "actual option registration",
+      "sha256": "5b7ad02894ba616b43ad75d97cb36aa6ea43f65693baaf4d274c211096878593",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsuZGlzY28uZGVidWcuZGlzY29HcmFwaCcpLCAnZGVidWcnKSwgJ0RDR3JhcGgnKSwgJ0FjY2VzcyB0byB0aGUgRENHcmFwaCBpcyBpbnRlbmRlZCBmb3IgdGhlIGRlYnVnIHZpZXcsJyksIE9CSkVDVCksIExqYXZhX2xhbmdfT2JqZWN0XzJfY2xhc3NMaXQpLCBvZl8xKFBBUkVOVFMpKSkpOwo="
+    },
+    {
+      "symbol": "org.eclipse.elk.disco.debug.discoPolys",
+      "startLine": 26212,
+      "endLine": 26212,
+      "role": "actual option registration",
+      "sha256": "4ef2c17113bcb3fe5e8533362c70fde252350c011379fed9f672cef44d6420da",
+      "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsuZGlzY28uZGVidWcuZGlzY29Qb2x5cycpLCAnZGVidWcnKSwgJ0xpc3Qgb2YgUG9seW9taW5vZXMnKSwgJ0FjY2VzcyB0byB0aGUgcG9seW9taW5vZXMgaXMgaW50ZW5kZWQgZm9yIHRoZSBkZWJ1ZyB2aWV3LCcpLCBPQkpFQ1QpLCBMamF2YV9sYW5nX09iamVjdF8yX2NsYXNzTGl0KSwgb2ZfMShQQVJFTlRTKSkpKTsK"
+    }
+  ],
+  "dependencies": [
+    "Previously reviewed KVector/Insets/IndividualSpacings parsers and finite native input contract",
+    "Previously reviewed source type4 default/global clone/presence semantics"
+  ],
+  "scope": "All18 OBJECT metadata/factory identities, new position/two KVectorChain typed properties and unavailable raw-factory error branches; runtime owner defaults remain separate",
+  "nativeInputPolicy": "Preserve finite numeric/JSON and explicit errors; retain source odd final coordinate ignore and exact delimiter set for valid input; never silently replace shallow chain cloning with deep point cloning",
+  "runtimeImplemented": false,
+  "fullValidation": false,
+  "metadataSource": {
+    "path": "references/next-property-schemas-sources.json",
+    "sha256": "01db5f1abf3657e588c4f7e7508c5e5d50d5bbaee95c3adc35cfc37cbbfec274"
+  },
+  "originalFactoryObservation": {
+    "path": "test-runs/20261104-SCHEMAS-06/root/original-metadata-01/observation.json",
+    "sha256": "128c087df53bf47583785ee015d7e9b7b3e14eb0687e280ecb88f703cf31fe62"
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "schema": "py-elk-next-hierarchical-import/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "8f42883c8b9dd14d00742242bd6e82ecac213c8b4c2a1f0adb900d94705af840",
+  "requestSha256": "3ae570e74363728fea216763baf6443c0d65da8acac73cd90cddeb3d8e23c9f1",
+  "pid": 29816,
+  "parentPid": 25296,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "two-pass-hierarchy-and-coordinate-origin",
+        "events": [
+          "graph:r",
+          "graph:a",
+          "node:a",
+          "node:b",
+          "node:x",
+          "node:y",
+          "check:cross",
+          "edge:cross",
+          "check:cross",
+          "check:ignored",
+          "check:ancestor",
+          "edge:ancestor",
+          "check:ancestor",
+          "check:xy",
+          "edge:xy",
+          "check:xy"
+        ],
+        "rawOrders": [
+          {
+            "id": "r",
+            "order": null
+          },
+          {
+            "id": "a",
+            "order": 0
+          },
+          {
+            "id": "x",
+            "order": 3
+          },
+          {
+            "id": "y",
+            "order": 4
+          },
+          {
+            "id": "hidden",
+            "order": 1
+          },
+          {
+            "id": "b",
+            "order": 2
+          },
+          {
+            "id": "cross",
+            "order": 0
+          },
+          {
+            "id": "ignored",
+            "order": 1
+          },
+          {
+            "id": "ancestor",
+            "order": 2
+          },
+          {
+            "id": "xy",
+            "order": 3
+          }
+        ],
+        "maxOrder": 5,
+        "groups": 1,
+        "nodes": [
+          {
+            "id": "a",
+            "imported": true,
+            "graph": "r",
+            "nested": "a",
+            "nestedDirection": "RIGHT",
+            "parentIdentity": true
+          },
+          {
+            "id": "x",
+            "imported": true,
+            "graph": "a",
+            "nested": null,
+            "nestedDirection": null,
+            "parentIdentity": false
+          },
+          {
+            "id": "y",
+            "imported": true,
+            "graph": "a",
+            "nested": null,
+            "nestedDirection": null,
+            "parentIdentity": false
+          },
+          {
+            "id": "hidden",
+            "imported": false,
+            "graph": null,
+            "nested": null,
+            "nestedDirection": null,
+            "parentIdentity": false
+          },
+          {
+            "id": "b",
+            "imported": true,
+            "graph": "r",
+            "nested": null,
+            "nestedDirection": null,
+            "parentIdentity": false
+          }
+        ],
+        "edges": [
+          {
+            "id": "cross",
+            "graph": "r",
+            "coordinateOrigin": "r",
+            "coordinatePresent": true
+          },
+          {
+            "id": "ancestor",
+            "graph": "a",
+            "coordinateOrigin": null,
+            "coordinatePresent": false
+          },
+          {
+            "id": "xy",
+            "graph": "a",
+            "coordinateOrigin": null,
+            "coordinatePresent": false
+          }
+        ],
+        "layoutExecuted": false
+      }
+    ],
+    "layoutExecuted": false
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

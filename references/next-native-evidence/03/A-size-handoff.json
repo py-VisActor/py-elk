@@ -1,0 +1,58 @@
+{
+  "schema": "py-elk-e13-A-checkpoint-handoff/v1",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    ".local/migration-next/src/pyelk/algorithms/layered/ports.py": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18",
+    ".local/migration-next/src/pyelk/algorithms/layered/import_export.py": "6d942b624a32a5f3b2ab34fa4bc23033b870ed94b853c9504b88503f84fe0351",
+    ".local/migration-next/src/pyelk/algorithms/layered/scope.py": "06726d1c824d74e3cf9ef253f455842433f219dcc1877c0c702837701bc132f9",
+    ".local/migration-next/src/pyelk/algorithms/layered/node_size.py": "986caba11f52dbecfb972c13dc0788840933cb1db18dcbc9846bb777b5d3008d",
+    ".local/migration-next/src/pyelk/algorithms/layered/node_size_math.py": "3b3e4ccb55d71d891c489355675f23c42b1bc9b399c8d15e9d3ae3ad9953cc03",
+    ".local/migration-next/src/pyelk/algorithms/layered/node_size_cells.py": "decb0e95f0847a2fec8e7d4234f559986ad08566fdcce14c570645111cfd69d1",
+    ".local/migration-next/src/pyelk/_licenses/NOTICE-GWT-Ports.md": "052dd362bb910eebe9bf98c8baf1ac5825c1fe42fdcd132b4d27edb5f4bdc61c",
+    ".local/migration-next/src/pyelk/_licenses/NOTICE-Guava-DoubleMath.md": "a134f56de906546ef4dfbcdb04b2069bdff5ee87f2247a94ac946de05ba153ba",
+    "references/e13-ports-sources.json": "12b2baa803a92a9708927ed0fa6b5c9443c35c6bd66f277c274c729b902b8f35",
+    "docs/iterations/E13-preparation.md": "91067bcbdd67dd1a5d88c01cb6ed07fe1d4bb8e89903d97f1e93b4dbb0066de4",
+    "tools/reference/compare_next_ports.py": "7a9df065b9999d9468f78adb47a5d6241205e57d039c7a5f03c82133ab16eaad",
+    ".local/migration-next/src/pyelk/algorithms/layered/port_label_placement.py": "c2e816104d23b63be7bd270db8962fc2e2e3350518c60974fbea35492168a334",
+    ".local/migration-next/src/pyelk/algorithms/layered/node_size_process.py": "ae64d268af49b49a4be561d178e837513b7dcc58bc610412281631f3af5b53f6"
+  },
+  "componentStatus": {
+    "P01-P02-P02S-P03-P04A-P04B": "source+scoped code independently reviewed; original primitive observations already saved, not recaptured",
+    "P04C": "Source d7e479 accepted; private3b3e implemented,14 own targeted checks and6 independently captured original worker math DTO typed-exact PASS. Only supplied-cell sizing, not full process.",
+    "P04D": "source accepted V f49b500; implemented private cell creators/padding;5 new targeted checks PASS, independent runtime/code review pending",
+    "P04E": "Source f47e5fff accepted; real portlabel+overlap source implemented c2e816;5 new own targeted PASS, independent code/runtime review pending.",
+    "wholePipeline": "pending; old guarded kernel domain not expanded by these helpers",
+    "bounded-admission-compatibility": "Parent independently accepted b8231fad; two parent-targeted bounded/parse-only witnesses PASS, no full.",
+    "typed20-native-bridge": "Root2161cc independently accepted central interface; native importer mapping now implemented,6 new targeted checks PASS, V mapping delta review pending.",
+    "strict-primitive-comparator": "Parent independently accepted4f315af0; two type mutants+one actual adapter CLI positive PASS; olddd69/23 preserved.",
+    "P04F": "Source ca643560 accepted; actual process orchestration ABI graph,node,... implemented ae64d268;3 new own targeted PASS, independent code/process runtime review pending."
+  },
+  "newTargetedCommands": [
+    "test-runs/20261104-E13-01/A/size-math-targeted-02/command.json",
+    "test-runs/20261104-E13-01/A/size-cells-targeted-01/command.json",
+    "test-runs/20261104-E13-01/A/ports-strict-delta-01/command.json",
+    "test-runs/20261104-E13-01/A/size-options-bridge-02/command.json",
+    "test-runs/20261104-E13-01/A/labels-process-targeted-01/labels/command.json",
+    "test-runs/20261104-E13-01/A/labels-process-targeted-01/process/command.json"
+  ],
+  "firstFailurePreserved": "test-runs/20261104-E13-01/A/size-math-first-attempt.json",
+  "sourceReviews": {
+    "test-runs/20261104-E13-01/V/size-math-source-review-01.json": "d7e479484099d7da4c0c46b21fb04a7d4f491dfa091914a500e40397fb620c3d",
+    "test-runs/20261104-E13-01/V/size-cells-source-review-01.json": "f49b5009e2afe2130468698dbf33d658381f78b458f988dd3abc9830b509d563",
+    "test-runs/20261104-E13-01/V/port-label-source-review-01.json": "f47e5fff86bcd1ec039430b7414ff22ee3cb40a2389f5c16053f75c2f49bf1eb",
+    "test-runs/20261104-E13-01/V/size-process-source-review-01.json": "ca643560b46fa5420d4a46128de2d9af49a98bfce730fae8a6d5fb509e2a3f2c"
+  },
+  "noFullOrReferenceRecapture": true,
+  "mainReleaseSourceChanged": false,
+  "frozenRunnerSha256": "7a9df065b9999d9468f78adb47a5d6241205e57d039c7a5f03c82133ab16eaad",
+  "previousHandoffSha256": "eca5ce2ee39f96e05a574db6e107f5384ade2438fd11c004afedb7614c0d9116",
+  "newFirstFailures": {
+    "size-options-bridge-01": "Test incorrectly assumed root local minimum inherited by child; corrected only test to true constructor global. Original command/log preserved.",
+    "size-math-first-attempt.json": "Existing recorded test expectation error; production unchanged."
+  },
+  "independentMathComparison": {
+    "test-runs/20261104-E13-01/V/size-math-comparison-03/command.json": "88dd982d6fe4c818aa70154dac4f2d0f2b4d0edea175a3c10c97d9a14f9d494c",
+    "test-runs/20261104-E13-01/V/size-math-comparison-03/report.json": "0fb5c717ba4b7db4b4a406a6b18ee20c77fcb708c36ae7fd292b8c19fba5fcd1"
+  },
+  "wholeLayeredKernelExpanded": false
+}

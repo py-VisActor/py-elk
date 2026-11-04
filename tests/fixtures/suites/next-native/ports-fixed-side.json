@@ -1,0 +1,61 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 7
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE"
+        },
+        "ports": [
+          {
+            "id": "a.out",
+            "width": 6,
+            "height": 4,
+            "layoutOptions": {
+              "elk.port.side": "EAST"
+            }
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 40,
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE"
+        },
+        "ports": [
+          {
+            "id": "b.in",
+            "width": 8,
+            "height": 6,
+            "layoutOptions": {
+              "elk.port.side": "WEST"
+            }
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "a.out"
+        ],
+        "targets": [
+          "b.in"
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "layers": [["c", "b", "a"], ["z", "y", "x"]],
+  "nodes": [
+    {"id": "a", "order": 0, "constraint": "FIXED_RATIO", "side": "EAST", "ports": [["a2", 2], ["a0", 0], ["a1", 1]]},
+    {"id": "b", "order": 1, "constraint": "FIXED_ORDER", "side": "EAST", "ports": [["b2", 2], ["b0", 0], ["b1", 1]]},
+    {"id": "c", "order": 2, "constraint": "FIXED_POS", "side": "EAST", "ports": [["c2", 2], ["c0", 0], ["c1", 1]]},
+    {"id": "x", "order": 3, "constraint": "FREE", "side": "WEST", "ports": [["x2", 2], ["x0", 0], ["x1", 1]]},
+    {"id": "y", "order": 4, "constraint": "FIXED_SIDE", "side": "WEST", "ports": [["y2", 2], ["y0", 0], ["y1", 1]]},
+    {"id": "z", "order": 5, "constraint": "UNDEFINED", "side": "WEST", "ports": [["z2", 2], ["z0", 0], ["z1", 1]]}
+  ],
+  "edges": [["a1", "x1", 0], ["a0", "y1", 1], ["b0", "x0", 2], ["c0", "z2", 3]]
+}

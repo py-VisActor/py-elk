@@ -1,0 +1,201 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "Caller-precondition contrasts for free BK alignment and connected model-order costs",
+  "cases": [
+    {
+      "id": "p4-free-align-base",
+      "request": "requests/p4-free-align-base.json",
+      "requestSha256": "9794bde94352202b7ca26eebf4d2c18d50c50a62054972e4cd298547b89fa9b5",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p4-free-favor-straight",
+      "request": "requests/p4-free-favor-straight.json",
+      "requestSha256": "643bc141c7ab3ee0c599b7466f1fce5770992e89d928f43ce299e391c6fa1a9f",
+      "baseline": "p4-free-align-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.favorStraightEdges",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "With fixedAlignment NONE, the selected BK rule may change actual placement; no effect is inferred merely from property reads"
+        }
+      ]
+    },
+    {
+      "id": "p4-free-straightening",
+      "request": "requests/p4-free-straightening.json",
+      "requestSha256": "e731a2c2f9d629f686784a1424f6e5bcd5d4d2300d7db650ce7b6ff9d3d03290",
+      "baseline": "p4-free-align-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.nodePlacement.bk.edgeStraightening",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/0/width",
+            "/result/children/0/height",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/1/width",
+            "/result/children/1/height",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/2/width",
+            "/result/children/2/height",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/3/width",
+            "/result/children/3/height",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/4/width",
+            "/result/children/4/height",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/5/width",
+            "/result/children/5/height",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/6/width",
+            "/result/children/6/height",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/7/width",
+            "/result/children/7/height"
+          ],
+          "claim": "With fixedAlignment NONE, the selected BK rule may change actual placement; no effect is inferred merely from property reads"
+        }
+      ]
+    },
+    {
+      "id": "p3-connected-cost-base",
+      "request": "requests/p3-connected-cost-base.json",
+      "requestSha256": "4a01b75228cac2058d82b6398c6298b8956c35d82120ba7eb3abf6b7fca47e8a",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p3-connected-node-cost",
+      "request": "requests/p3-connected-node-cost.json",
+      "requestSha256": "b4749135bce1bc5e6e70e5c544370df0897e406a9c3474aa34a2e98e553393a6",
+      "baseline": "p3-connected-cost-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.crossingCounterNodeInfluence",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y"
+          ],
+          "claim": "A connected cyclic bipartite ordering conflict exposes actual order/cost tradeoffs; independent two-node components cannot exercise that tradeoff"
+        }
+      ]
+    },
+    {
+      "id": "p3-connected-force-order",
+      "request": "requests/p3-connected-force-order.json",
+      "requestSha256": "89ae7f06986195996a720bda1a78bbf50ae2c09bc0f8b12e68aad00226ce1dd0",
+      "baseline": "p3-connected-cost-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.crossingMinimization.forceNodeModelOrder",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y"
+          ],
+          "claim": "A connected cyclic bipartite ordering conflict exposes actual order/cost tradeoffs; independent two-node components cannot exercise that tradeoff"
+        }
+      ]
+    },
+    {
+      "id": "p3-target-port-cost-base",
+      "request": "requests/p3-target-port-cost-base.json",
+      "requestSha256": "bb5c4f3114d061aa47cd0ae7403ffd06dc700108f178cd0ef9065d10bd37036b",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p3-target-port-cost",
+      "request": "requests/p3-target-port-cost.json",
+      "requestSha256": "b1d69ba2c09969e7833ad3cc96db402cdd6f6436dafb16888961ca51f05f0f88",
+      "baseline": "p3-target-port-cost-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.crossingCounterPortInfluence",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/0/ports/0/y",
+            "/result/children/0/ports/1/y",
+            "/result/children/0/ports/2/y"
+          ],
+          "claim": "Port-order versus node-order costs are selected against three distinct target owners, not three ports on the same target node"
+        }
+      ]
+    }
+  ]
+}

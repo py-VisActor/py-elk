@@ -2,10 +2,11 @@
   "schema": "py-elk-compatibility/v1",
   "upstreamVersion": "0.12.1",
   "upstreamCommit": "624ae90aa37110033a8af59c5ccbb292708b4317",
-  "status": "bootstrap",
+  "status": "full-native-implementation-targeted-validation-and-release-closure",
   "stages": [
     "planned",
     "inventoried",
+    "experimental",
     "api_verified",
     "semantics_verified",
     "coordinates_verified",
@@ -14,33 +15,69 @@
   "api": [
     {
       "id": "ELK.constructor",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "ELK.layout",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "ELK.knownLayoutAlgorithms",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "ELK.knownLayoutOptions",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "ELK.knownLayoutCategories",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "ELK.terminateWorker",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     }
   ],
   "algorithms": [
@@ -70,11 +107,17 @@
     },
     {
       "id": "org.eclipse.elk.layered",
-      "status": "inventoried",
+      "status": "experimental",
       "api": "planned",
       "semantics": "planned",
       "coordinates": "planned",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "references/e07-runtime-audit.json",
+          "sha256": "aac099b92d1e83888cf8cb243be0ea1fdeb5bc16b0c095227e498571762862f6"
+        }
+      ],
+      "scope": "E07-ADR0006-revision1"
     },
     {
       "id": "org.eclipse.elk.stress",
@@ -1453,18 +1496,36 @@
     },
     {
       "id": "async-concurrency-cancellation-lifecycle",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "errors-logging-and-timing",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "metadata-and-registration",
-      "status": "planned",
-      "evidence": []
+      "status": "experimental",
+      "evidence": [
+        {
+          "path": "references/e09-runtime-audit.json",
+          "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+        }
+      ],
+      "scope": "E09-ADR0008-revision1"
     },
     {
       "id": "offline-packaging-and-platforms",
@@ -1490,5 +1551,70 @@
       "description": "Experimental result with coordinate differences; not coordinate compatibility."
     }
   },
-  "limitation": "All algorithms, options and public Python API remain unimplemented. Metadata presence is a denominator, never a capability registry."
+  "limitation": "Complete algorithms, options and public API acceptance remain pending. The explicitly bounded native layered slice is experimental; metadata presence remains a denominator, never a capability registry.",
+  "stageDefinitions": {
+    "experimental": "Runnable restricted slice only; not complete API/semantics/coordinate or release acceptance."
+  },
+  "experimentalSlice": {
+    "id": "E07-ADR0006-revision1",
+    "algorithm": "org.eclipse.elk.layered",
+    "casesVerified": 72,
+    "fullAlgorithmAccepted": false,
+    "publicApiAccepted": false,
+    "lifecycleAccepted": false,
+    "evidence": [
+      {
+        "path": "references/e09-runtime-audit.json",
+        "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+      }
+    ],
+    "hostScope": "E09-ADR0008-revision1"
+  },
+  "nativeHost": {
+    "scope": "E09-ADR0008-revision1",
+    "layoutScope": "E07-ADR0006-revision1",
+    "status": "bounded-native-host-and-diagnostics-verified",
+    "defaultRegistryCounts": {
+      "algorithms": 1,
+      "options": 9,
+      "categories": 1
+    },
+    "loggingTrueSupported": true,
+    "measureExecutionTimeTrueSupported": true,
+    "verifiedCapabilities": [
+      "bounded layered geometry",
+      "instance-local async metadata",
+      "FIFO cancellation/close/recovery",
+      "real source monitor tree/live BK logs",
+      "source generated clock scaling",
+      "current installed finite behavior witnesses"
+    ],
+    "maxPendingDefault": 16,
+    "maxPendingRange": [
+      1,
+      64
+    ],
+    "timeoutDefault": null,
+    "hardMemoryQuota": false,
+    "requiredDeclarationCount": 38,
+    "verifiedBehaviorItems": 219,
+    "evidence": {
+      "path": "references/e09-runtime-audit.json",
+      "sha256": "2eb9ded65618bc869bee6de03410b95cc203b989c7542a255e761f05c76bbd80"
+    },
+    "fullAlgorithmAccepted": false,
+    "packagePublished": false
+  },
+  "currentImplementation": {
+    "activeSourceDirectory": "src/pyelk",
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "allFeaturesImplemented": true,
+    "wholeScopeCorrectnessVerified": false,
+    "published": false,
+    "currentOptionLedger": "docs/option-coverage.json",
+    "currentCandidate": "docs/releases/0.1.0-readiness.json",
+    "historicalRowPolicy": "Existing api/algorithm/option stage rows retain their original slice scope. They are not current full-runtime statuses; the current option ledger separately distinguishes metadata, parser, scoped runtime/geometry evidence and unverified scope."
+  }
 }

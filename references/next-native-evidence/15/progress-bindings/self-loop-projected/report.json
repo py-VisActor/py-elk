@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "rawStrict": {
+    "passed": false,
+    "differences": [
+      {
+        "path": "/$H",
+        "kind": "missing",
+        "expected": 13
+      },
+      {
+        "path": "/children/0/$H",
+        "kind": "missing",
+        "expected": 277
+      },
+      {
+        "path": "/children/1/$H",
+        "kind": "missing",
+        "expected": 279
+      },
+      {
+        "path": "/children/2/$H",
+        "kind": "missing",
+        "expected": 281
+      }
+    ],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "comparison": {
+    "passed": true,
+    "differences": [],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "adaptations": [
+    {
+      "rule": "GWT-SHAPE-HASH-01",
+      "path": "/result/$H",
+      "referenceValue": 13,
+      "action": "omit_reference_added_shape_field",
+      "candidateRequirement": "absent"
+    },
+    {
+      "rule": "GWT-SHAPE-HASH-01",
+      "path": "/result/children/0/$H",
+      "referenceValue": 277,
+      "action": "omit_reference_added_shape_field",
+      "candidateRequirement": "absent"
+    },
+    {
+      "rule": "GWT-SHAPE-HASH-01",
+      "path": "/result/children/1/$H",
+      "referenceValue": 279,
+      "action": "omit_reference_added_shape_field",
+      "candidateRequirement": "absent"
+    },
+    {
+      "rule": "GWT-SHAPE-HASH-01",
+      "path": "/result/children/2/$H",
+      "referenceValue": 281,
+      "action": "omit_reference_added_shape_field",
+      "candidateRequirement": "absent"
+    }
+  ],
+  "violations": [],
+  "projectionOptedIn": true,
+  "validationScope": "saved-json-result-delta-only",
+  "runtimeExecutions": 0,
+  "nativeExecutionVerified": false,
+  "inputPreservationVerified": false,
+  "wholeAlgorithmAccepted": false,
+  "fullValidation": false,
+  "filesSha256": {
+    "test-runs\\20261104-HOST-15\\A\\layered-self-loop-full-original-01\\request.json": "93a578d2120f109a21f4e687a279c3e5a4ab5c127c3e45bb91df17f54a26e325",
+    "test-runs\\20261104-HOST-15\\A\\layered-self-loop-full-original-01\\observation.json": "7dccd6719afa1cca3da58837515ec7b947f1eb7e2f72cc2000ccc45e97d3dc39",
+    "test-runs\\20261104-HOST-15\\A\\self-loop-full-native-01\\result.json": "5d9a349dd556b0c3453f0c52668acc73b6efe84ebc01170229c367f0ae0b6800",
+    "C:\\code\\py-visactor\\py-elk\\scripts\\iteration\\check_layered_saved.py": "5213969728e790298a2180a5524dddecb9146d229a4359d7033631f594464020"
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "root",
+    "business": {
+      "description": "preserve custom fields",
+      "weight": 1e-09
+    },
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "org.eclipse.elk.layered",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.direction": "RIGHT",
+      "org.eclipse.elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "org.eclipse.elk.spacing.nodeNode": 20,
+      "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers": 30,
+      "org.eclipse.elk.separateConnectedComponents": true,
+      "org.eclipse.elk.spacing.componentComponent": 40,
+      "org.eclipse.elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      },
+      {
+        "id": "b",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      },
+      {
+        "id": "c",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      },
+      {
+        "id": "d",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "c"
+        ]
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "d"
+        ]
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ]
+      }
+    ]
+  }
+}

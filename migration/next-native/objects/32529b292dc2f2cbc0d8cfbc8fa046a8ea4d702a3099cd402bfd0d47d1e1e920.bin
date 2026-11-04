@@ -1,0 +1,88 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs 0.12.1 worker SP01/SP02/SP02b/SP03/SP04, source-reviewed in
+# references/e19-packing-sources.json. Worker SHA256:
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external Java/GWT build identity remains unresolved.
+"""Native shared SPOrE node and geometric foundation.
+
+Import, triangulation, tree/execution phases and provider integration are
+separate pending source closures. No placeholder coordinates are produced.
+"""
+from __future__ import annotations
+
+import math
+from .layered.graph import Vec2
+from .layered.cell_layout import Rectangle
+from .radial import _maximum
+from .fixed import _div
+
+
+def _minimum(first, second):
+    return -_maximum(-first, -second)
+
+
+def _center(rectangle):
+    return Vec2(rectangle.x+rectangle.width/2, rectangle.y+rectangle.height/2)
+
+
+class SporeNode:
+    def __init__(self, vertex, rectangle):
+        self.original_vertex = vertex
+        self.vertex = Vec2(vertex.x, vertex.y)
+        self.rect = Rectangle(rectangle.x, rectangle.y, rectangle.width, rectangle.height)
+
+    def translate(self, vector):
+        self.vertex.x += vector.x
+        self.vertex.y += vector.y
+        self.rect.x += vector.x
+        self.rect.y += vector.y
+
+    def set_center_position(self, position):
+        self.translate(Vec2(position.x-self.vertex.x, position.y-self.vertex.y))
+
+    def underlap(self, other):
+        first, second = _center(self.rect), _center(other.rect)
+        horizontal = abs(first.x-second.x)
+        vertical = abs(first.y-second.y)
+        horizontal_scale = vertical_scale = 1
+        if horizontal > self.rect.width/2+other.rect.width/2:
+            gap = _minimum(abs(self.rect.x-(other.rect.x+other.rect.width)),
+                           abs(self.rect.x+self.rect.width-other.rect.x))
+            horizontal_scale = 1-_div(gap, horizontal)
+        if vertical > self.rect.height/2+other.rect.height/2:
+            gap = _minimum(abs(self.rect.y-(other.rect.y+other.rect.height)),
+                           abs(self.rect.y+self.rect.height-other.rect.y))
+            vertical_scale = 1-_div(gap, vertical)
+        scale = _minimum(horizontal_scale, vertical_scale)
+        return (1-scale)*math.sqrt(horizontal*horizontal+vertical*vertical)
+
+
+class SporeGraph:
+    def __init__(self, cost_function, tree_strategy, compaction_strategy):
+        self.vertices = []
+        self.cost_function = cost_function
+        self.tree_construction_strategy = tree_strategy
+        self.compaction_strategy = compaction_strategy
+        self.orthogonal_compaction = False
+        self.properties = {}
+
+
+def overlap_factor(first, second):
+    """SP04 original rectangle scale ratio, including coincident center zero."""
+    horizontal_overlap = _minimum(abs(first.x-(second.x+second.width)),
+                                  abs(first.x+first.width-second.x))
+    vertical_overlap = _minimum(abs(first.y-(second.y+second.height)),
+                                abs(first.y+first.height-second.y))
+    horizontal = abs(first.x+first.width/2-(second.x+second.width/2))
+    if horizontal > first.width/2+second.width/2:
+        return 1
+    vertical = abs(first.y+first.height/2-(second.y+second.height/2))
+    if vertical > first.height/2+second.height/2:
+        return 1
+    if horizontal == 0 and vertical == 0:
+        return 0
+    if horizontal == 0:
+        return _div(vertical_overlap, vertical)+1
+    if vertical == 0:
+        return _div(horizontal_overlap, horizontal)+1
+    return _minimum(_div(horizontal_overlap, horizontal), _div(vertical_overlap, vertical))+1

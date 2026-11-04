@@ -1,0 +1,80 @@
+{
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "8b34fbbe13ba3f821e91213d0766836bd4d6cd80c14c037eed3bf4352069df57",
+  "requestSha256": "aee03d85d1dfae3eb9aeeef327426e65c8375050cb7ceb436804b4d3bc6dc176",
+  "pid": 29948,
+  "parentPid": 28708,
+  "node": "v24.19.0",
+  "cases": [
+    {
+      "id": "empty",
+      "firstActualDirections": [],
+      "secondActualDirections": [],
+      "outcome": "returned",
+      "value": 0
+    },
+    {
+      "id": "single",
+      "firstActualDirections": [
+        "EAST"
+      ],
+      "secondActualDirections": [],
+      "outcome": "returned",
+      "value": 0
+    },
+    {
+      "id": "two-vertical",
+      "firstActualDirections": [
+        "NORTH",
+        "SOUTH"
+      ],
+      "secondActualDirections": [],
+      "outcome": "returned",
+      "value": 0
+    },
+    {
+      "id": "two-horizontal",
+      "firstActualDirections": [
+        "EAST",
+        "WEST"
+      ],
+      "secondActualDirections": [],
+      "outcome": "returned",
+      "value": 0
+    },
+    {
+      "id": "corner-first",
+      "firstActualDirections": [
+        "NORTH",
+        "EAST"
+      ],
+      "secondActualDirections": [],
+      "outcome": "returned",
+      "value": 1
+    },
+    {
+      "id": "corner-second",
+      "firstActualDirections": [],
+      "secondActualDirections": [
+        "SOUTH",
+        "WEST"
+      ],
+      "outcome": "returned",
+      "value": -1
+    },
+    {
+      "id": "three",
+      "firstActualDirections": [
+        "NORTH",
+        "EAST",
+        "SOUTH"
+      ],
+      "secondActualDirections": [],
+      "outcome": "returned",
+      "value": 0
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false,
+  "fullValidation": false
+}

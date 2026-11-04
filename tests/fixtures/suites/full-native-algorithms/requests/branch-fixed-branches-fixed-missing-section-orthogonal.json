@@ -1,0 +1,39 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      },
+      {
+        "id": "b",
+        "x": 60,
+        "y": 0,
+        "width": 20,
+        "height": 20
+      }
+    ],
+    "edges": [
+      {
+        "id": "e",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ]
+      }
+    ]
+  }
+}

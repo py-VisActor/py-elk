@@ -1,0 +1,572 @@
+{
+  "schema": "py-elk-next-native-reference/v1",
+  "actualSourceRoot": "C:\\code\\py-visactor\\py-elk",
+  "scope": "Independent original-only probes for planned E13/E16 migration; no candidate or completed algorithm acceptance.",
+  "upstream": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "distributionSha256": {
+      "lib/elk-api.d.ts": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "lib/elk-api.js": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "lib/elk-worker.d.ts": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lib/elk-worker.min.js": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "lib/elk.bundled.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/elk.bundled.js": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "lib/main.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/main.js": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "package.json": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "README.md": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c"
+    }
+  },
+  "collector": "tools/reference/capture_layout.cjs",
+  "collectorSha256": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+  "captureDriverSha256": "75db0343318d6362fbbdd0d3ab54d0c65fe119021fc3f9c308c8acc7f24a9f39",
+  "node": "C:\\Program Files\\nodejs\\node.exe",
+  "nodeSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "nodeIdentityCommand": {
+    "command": {
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--version"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "pid": 42712,
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.027894899976672605,
+      "stdoutSha256": "bc697de995dc791df53d688ef69c08994cdffc8ce30c906b1ffc65b131ccd0eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environmentPolicy": {
+        "nodeOverridesAbsent": true
+      }
+    },
+    "stdoutBytesBase64": "djI0LjE5LjANCg==",
+    "stderrBytesBase64": ""
+  },
+  "suiteSha256": "86ba8a87f9582b2c02bd5e0dbf5d968f4e4346d7d17af3d08d0c193fb7101db4",
+  "cases": [
+    {
+      "id": "default-inherit",
+      "definition": {
+        "id": "default-inherit",
+        "request": "default-inherit.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgIngiOiAxNywNCiAgICAieSI6IDI5LA0KICAgICJ3aWR0aCI6IDUwMCwNCiAgICAiaGVpZ2h0IjogNDAwLA0KICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsDQogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiSU5IRVJJVCIsDQogICAgICAiZWxrLmpzb24uZWRnZUNvb3JkcyI6ICJJTkhFUklUIg0KICAgIH0sDQogICAgImJ1c2luZXNzIjogew0KICAgICAgImtlZXAiOiAicm9vdCINCiAgICB9LA0KICAgICJjaGlsZHJlbiI6IFsNCiAgICAgIHsNCiAgICAgICAgImlkIjogImNvbXBvdW5kIiwNCiAgICAgICAgIngiOiAyMCwNCiAgICAgICAgInkiOiAzMCwNCiAgICAgICAgIndpZHRoIjogODAsDQogICAgICAgICJoZWlnaHQiOiA3MCwNCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlDQogICAgICAgIH0sDQogICAgICAgICJjaGlsZHJlbiI6IFsNCiAgICAgICAgICB7DQogICAgICAgICAgICAiaWQiOiAiaW5zaWRlIiwNCiAgICAgICAgICAgICJ4IjogNSwNCiAgICAgICAgICAgICJ5IjogNywNCiAgICAgICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAgICAgImhlaWdodCI6IDgsDQogICAgICAgICAgICAibGFiZWxzIjogWw0KICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgInRleHQiOiAibm9kZSIsDQogICAgICAgICAgICAgICAgIngiOiAxLA0KICAgICAgICAgICAgICAgICJ5IjogMiwNCiAgICAgICAgICAgICAgICAid2lkdGgiOiAzLA0KICAgICAgICAgICAgICAgICJoZWlnaHQiOiA0LA0KICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJub2RlLWxhYmVsIg0KICAgICAgICAgICAgICB9DQogICAgICAgICAgICBdDQogICAgICAgICAgfQ0KICAgICAgICBdLA0KICAgICAgICAiZWRnZXMiOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogImNyb3NzIiwNCiAgICAgICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICAgICAiaW5zaWRlIg0KICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICJ0YXJnZXRzIjogWw0KICAgICAgICAgICAgICAic2libGluZyINCiAgICAgICAgICAgIF0sDQogICAgICAgICAgICAic2VjdGlvbnMiOiBbDQogICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAiaWQiOiAia2VwdC1zZWN0aW9uIiwNCiAgICAgICAgICAgICAgICAic3RhcnRQb2ludCI6IHsNCiAgICAgICAgICAgICAgICAgICJ4IjogMTUsDQogICAgICAgICAgICAgICAgICAieSI6IDExDQogICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAiZW5kUG9pbnQiOiB7DQogICAgICAgICAgICAgICAgICAieCI6IDEwMCwNCiAgICAgICAgICAgICAgICAgICJ5IjogNDYNCiAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICJiZW5kUG9pbnRzIjogW10sDQogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogInNlY3Rpb24iDQogICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIF0sDQogICAgICAgICAgICAibGFiZWxzIjogWw0KICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgInRleHQiOiAiZWRnZSIsDQogICAgICAgICAgICAgICAgIngiOiAzLA0KICAgICAgICAgICAgICAgICJ5IjogNCwNCiAgICAgICAgICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNSwNCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZS1sYWJlbCINCiAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlIg0KICAgICAgICAgIH0NCiAgICAgICAgXQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogInNpYmxpbmciLA0KICAgICAgICAieCI6IDEwMCwNCiAgICAgICAgInkiOiA0MCwNCiAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICJoZWlnaHQiOiAxMg0KICAgICAgfQ0KICAgIF0NCiAgfQ0KfQ0K",
+      "requestSha256": "08affa22eacd0bdd41f229755258f2b606469aae22ab37b583a6d9397d5a7120",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "x": 17,
+          "y": 29,
+          "width": 500,
+          "height": 400,
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.nodeSize.fixedGraphSize": true,
+            "elk.json.shapeCoords": "INHERIT",
+            "elk.json.edgeCoords": "INHERIT"
+          },
+          "business": {
+            "keep": "root"
+          },
+          "children": [
+            {
+              "id": "compound",
+              "x": 20,
+              "y": 30,
+              "width": 80,
+              "height": 70,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true
+              },
+              "children": [
+                {
+                  "id": "inside",
+                  "x": 5,
+                  "y": 7,
+                  "width": 10,
+                  "height": 8,
+                  "labels": [
+                    {
+                      "text": "node",
+                      "x": 1,
+                      "y": 2,
+                      "width": 3,
+                      "height": 4,
+                      "business": "node-label"
+                    }
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "id": "cross",
+                  "sources": [
+                    "inside"
+                  ],
+                  "targets": [
+                    "sibling"
+                  ],
+                  "sections": [
+                    {
+                      "id": "kept-section",
+                      "startPoint": {
+                        "x": 15,
+                        "y": 11
+                      },
+                      "endPoint": {
+                        "x": 100,
+                        "y": 46
+                      },
+                      "bendPoints": [],
+                      "business": "section"
+                    }
+                  ],
+                  "labels": [
+                    {
+                      "text": "edge",
+                      "x": 3,
+                      "y": 4,
+                      "width": 10,
+                      "height": 5,
+                      "business": "edge-label"
+                    }
+                  ],
+                  "business": "edge"
+                }
+              ]
+            },
+            {
+              "id": "sibling",
+              "x": 100,
+              "y": 40,
+              "width": 10,
+              "height": 12
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\default-inherit\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\default-inherit\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 33356,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.16224499998497777,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMDhhZmZhMjJlYWNkMGJkZDQxZjIyOTc1NTI1OGYyYjYwNjQ2OWFhZTIyYWIzN2I1ODNhNmQ5Mzk3ZDVhNzEyMCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJ4IjogMTcsCiAgICAieSI6IDI5LAogICAgIndpZHRoIjogNTAwLAogICAgImhlaWdodCI6IDQwMCwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiSU5IRVJJVCIsCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIklOSEVSSVQiCiAgICB9LAogICAgImJ1c2luZXNzIjogewogICAgICAia2VlcCI6ICJyb290IgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJjb21wb3VuZCIsCiAgICAgICAgIngiOiAyMCwKICAgICAgICAieSI6IDMwLAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA3MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbnNpZGUiLAogICAgICAgICAgICAieCI6IDUsCiAgICAgICAgICAgICJ5IjogNywKICAgICAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgICAgICJoZWlnaHQiOiA4LAogICAgICAgICAgICAibGFiZWxzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0ZXh0IjogIm5vZGUiLAogICAgICAgICAgICAgICAgIngiOiAxLAogICAgICAgICAgICAgICAgInkiOiAyLAogICAgICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA0LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogIm5vZGUtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiJEgiOiAyNzkKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJlZGdlcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImNyb3NzIiwKICAgICAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAgICAgImluc2lkZSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAgICAgInNpYmxpbmciCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAiZWRnZSIsCiAgICAgICAgICAgICAgICAieCI6IDMsCiAgICAgICAgICAgICAgICAieSI6IDQsCiAgICAgICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZSIsCiAgICAgICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaWQiOiAia2VwdC1zZWN0aW9uIiwKICAgICAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDE1LAogICAgICAgICAgICAgICAgICAieSI6IDExCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDEwMCwKICAgICAgICAgICAgICAgICAgInkiOiA0NgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJiZW5kUG9pbnRzIjogW10sCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAic2VjdGlvbiIsCiAgICAgICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJpbnNpZGUiLAogICAgICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAic2libGluZyIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICIkSCI6IDI3NwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogInNpYmxpbmciLAogICAgICAgICJ4IjogMTAwLAogICAgICAgICJ5IjogNDAsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEyLAogICAgICAgICIkSCI6IDI4MwogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJ4IjogMTcsCiAgICAieSI6IDI5LAogICAgIndpZHRoIjogNTAwLAogICAgImhlaWdodCI6IDQwMCwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiSU5IRVJJVCIsCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIklOSEVSSVQiCiAgICB9LAogICAgImJ1c2luZXNzIjogewogICAgICAia2VlcCI6ICJyb290IgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJjb21wb3VuZCIsCiAgICAgICAgIngiOiAyMCwKICAgICAgICAieSI6IDMwLAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA3MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbnNpZGUiLAogICAgICAgICAgICAieCI6IDUsCiAgICAgICAgICAgICJ5IjogNywKICAgICAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgICAgICJoZWlnaHQiOiA4LAogICAgICAgICAgICAibGFiZWxzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0ZXh0IjogIm5vZGUiLAogICAgICAgICAgICAgICAgIngiOiAxLAogICAgICAgICAgICAgICAgInkiOiAyLAogICAgICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA0LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogIm5vZGUtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiJEgiOiAyNzkKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJlZGdlcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImNyb3NzIiwKICAgICAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAgICAgImluc2lkZSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAgICAgInNpYmxpbmciCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAiZWRnZSIsCiAgICAgICAgICAgICAgICAieCI6IDMsCiAgICAgICAgICAgICAgICAieSI6IDQsCiAgICAgICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZSIsCiAgICAgICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaWQiOiAia2VwdC1zZWN0aW9uIiwKICAgICAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDE1LAogICAgICAgICAgICAgICAgICAieSI6IDExCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDEwMCwKICAgICAgICAgICAgICAgICAgInkiOiA0NgogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJiZW5kUG9pbnRzIjogW10sCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAic2VjdGlvbiIsCiAgICAgICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJpbnNpZGUiLAogICAgICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAic2libGluZyIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJjb250YWluZXIiOiAicm9vdCIKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICIkSCI6IDI3NwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogInNpYmxpbmciLAogICAgICAgICJ4IjogMTAwLAogICAgICAgICJ5IjogNDAsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEyLAogICAgICAgICIkSCI6IDI4MwogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "observationSha256": "16ca88df809fd543b8dbfaf0c4d89fc28f9641f6211fafc49368758f0037b7aa"
+    },
+    {
+      "id": "root-root",
+      "definition": {
+        "id": "root-root",
+        "request": "root-root.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgIngiOiAxNywNCiAgICAieSI6IDI5LA0KICAgICJ3aWR0aCI6IDUwMCwNCiAgICAiaGVpZ2h0IjogNDAwLA0KICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsDQogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUk9PVCIsDQogICAgICAiZWxrLmpzb24uZWRnZUNvb3JkcyI6ICJST09UIg0KICAgIH0sDQogICAgImJ1c2luZXNzIjogew0KICAgICAgImtlZXAiOiAicm9vdCINCiAgICB9LA0KICAgICJjaGlsZHJlbiI6IFsNCiAgICAgIHsNCiAgICAgICAgImlkIjogImNvbXBvdW5kIiwNCiAgICAgICAgIngiOiAyMCwNCiAgICAgICAgInkiOiAzMCwNCiAgICAgICAgIndpZHRoIjogODAsDQogICAgICAgICJoZWlnaHQiOiA3MCwNCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlDQogICAgICAgIH0sDQogICAgICAgICJjaGlsZHJlbiI6IFsNCiAgICAgICAgICB7DQogICAgICAgICAgICAiaWQiOiAiaW5zaWRlIiwNCiAgICAgICAgICAgICJ4IjogNSwNCiAgICAgICAgICAgICJ5IjogNywNCiAgICAgICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAgICAgImhlaWdodCI6IDgsDQogICAgICAgICAgICAibGFiZWxzIjogWw0KICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgInRleHQiOiAibm9kZSIsDQogICAgICAgICAgICAgICAgIngiOiAxLA0KICAgICAgICAgICAgICAgICJ5IjogMiwNCiAgICAgICAgICAgICAgICAid2lkdGgiOiAzLA0KICAgICAgICAgICAgICAgICJoZWlnaHQiOiA0LA0KICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJub2RlLWxhYmVsIg0KICAgICAgICAgICAgICB9DQogICAgICAgICAgICBdDQogICAgICAgICAgfQ0KICAgICAgICBdLA0KICAgICAgICAiZWRnZXMiOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogImNyb3NzIiwNCiAgICAgICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICAgICAiaW5zaWRlIg0KICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICJ0YXJnZXRzIjogWw0KICAgICAgICAgICAgICAic2libGluZyINCiAgICAgICAgICAgIF0sDQogICAgICAgICAgICAic2VjdGlvbnMiOiBbDQogICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAiaWQiOiAia2VwdC1zZWN0aW9uIiwNCiAgICAgICAgICAgICAgICAic3RhcnRQb2ludCI6IHsNCiAgICAgICAgICAgICAgICAgICJ4IjogMTUsDQogICAgICAgICAgICAgICAgICAieSI6IDExDQogICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAiZW5kUG9pbnQiOiB7DQogICAgICAgICAgICAgICAgICAieCI6IDEwMCwNCiAgICAgICAgICAgICAgICAgICJ5IjogNDYNCiAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICJiZW5kUG9pbnRzIjogW10sDQogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogInNlY3Rpb24iDQogICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIF0sDQogICAgICAgICAgICAibGFiZWxzIjogWw0KICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgInRleHQiOiAiZWRnZSIsDQogICAgICAgICAgICAgICAgIngiOiAzLA0KICAgICAgICAgICAgICAgICJ5IjogNCwNCiAgICAgICAgICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNSwNCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZS1sYWJlbCINCiAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlIg0KICAgICAgICAgIH0NCiAgICAgICAgXQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogInNpYmxpbmciLA0KICAgICAgICAieCI6IDEwMCwNCiAgICAgICAgInkiOiA0MCwNCiAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICJoZWlnaHQiOiAxMg0KICAgICAgfQ0KICAgIF0NCiAgfQ0KfQ0K",
+      "requestSha256": "a76c06f273d967a0bbcb7d4d5d4125128f37a94faad2e7989d5130d39e8ec188",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "x": 17,
+          "y": 29,
+          "width": 500,
+          "height": 400,
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.nodeSize.fixedGraphSize": true,
+            "elk.json.shapeCoords": "ROOT",
+            "elk.json.edgeCoords": "ROOT"
+          },
+          "business": {
+            "keep": "root"
+          },
+          "children": [
+            {
+              "id": "compound",
+              "x": 20,
+              "y": 30,
+              "width": 80,
+              "height": 70,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true
+              },
+              "children": [
+                {
+                  "id": "inside",
+                  "x": 5,
+                  "y": 7,
+                  "width": 10,
+                  "height": 8,
+                  "labels": [
+                    {
+                      "text": "node",
+                      "x": 1,
+                      "y": 2,
+                      "width": 3,
+                      "height": 4,
+                      "business": "node-label"
+                    }
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "id": "cross",
+                  "sources": [
+                    "inside"
+                  ],
+                  "targets": [
+                    "sibling"
+                  ],
+                  "sections": [
+                    {
+                      "id": "kept-section",
+                      "startPoint": {
+                        "x": 15,
+                        "y": 11
+                      },
+                      "endPoint": {
+                        "x": 100,
+                        "y": 46
+                      },
+                      "bendPoints": [],
+                      "business": "section"
+                    }
+                  ],
+                  "labels": [
+                    {
+                      "text": "edge",
+                      "x": 3,
+                      "y": 4,
+                      "width": 10,
+                      "height": 5,
+                      "business": "edge-label"
+                    }
+                  ],
+                  "business": "edge"
+                }
+              ]
+            },
+            {
+              "id": "sibling",
+              "x": 100,
+              "y": 40,
+              "width": 10,
+              "height": 12
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\root-root\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\root-root\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 17544,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.1557256999949459,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiYTc2YzA2ZjI3M2Q5NjdhMGJiY2I3ZDRkNWQ0MTI1MTI4ZjM3YTk0ZmFhZDJlNzk4OWQ1MTMwZDM5ZThlYzE4OCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJ4IjogMTcsCiAgICAieSI6IDI5LAogICAgIndpZHRoIjogNTAwLAogICAgImhlaWdodCI6IDQwMCwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUk9PVCIsCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIlJPT1QiCiAgICB9LAogICAgImJ1c2luZXNzIjogewogICAgICAia2VlcCI6ICJyb290IgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJjb21wb3VuZCIsCiAgICAgICAgIngiOiAzNywKICAgICAgICAieSI6IDU5LAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA3MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbnNpZGUiLAogICAgICAgICAgICAieCI6IDQyLAogICAgICAgICAgICAieSI6IDY2LAogICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgImhlaWdodCI6IDgsCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAibm9kZSIsCiAgICAgICAgICAgICAgICAieCI6IDQzLAogICAgICAgICAgICAgICAgInkiOiA2OCwKICAgICAgICAgICAgICAgICJ3aWR0aCI6IDMsCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJub2RlLWxhYmVsIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgIiRIIjogMjc5CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZWRnZXMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJjcm9zcyIsCiAgICAgICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgICAgICJpbnNpZGUiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgICAgICJzaWJsaW5nIgogICAgICAgICAgICBdLAogICAgICAgICAgICAibGFiZWxzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0ZXh0IjogImVkZ2UiLAogICAgICAgICAgICAgICAgIngiOiAyMCwKICAgICAgICAgICAgICAgICJ5IjogMzMsCiAgICAgICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZSIsCiAgICAgICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaWQiOiAia2VwdC1zZWN0aW9uIiwKICAgICAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDMyLAogICAgICAgICAgICAgICAgICAieSI6IDQwCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDExNywKICAgICAgICAgICAgICAgICAgInkiOiA3NQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJiZW5kUG9pbnRzIjogW10sCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAic2VjdGlvbiIsCiAgICAgICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJpbnNpZGUiLAogICAgICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAic2libGluZyIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0KICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICIkSCI6IDI3NwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogInNpYmxpbmciLAogICAgICAgICJ4IjogMTE3LAogICAgICAgICJ5IjogNjksCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEyLAogICAgICAgICIkSCI6IDI4MwogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJ4IjogMTcsCiAgICAieSI6IDI5LAogICAgIndpZHRoIjogNTAwLAogICAgImhlaWdodCI6IDQwMCwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUk9PVCIsCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIlJPT1QiCiAgICB9LAogICAgImJ1c2luZXNzIjogewogICAgICAia2VlcCI6ICJyb290IgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJjb21wb3VuZCIsCiAgICAgICAgIngiOiAzNywKICAgICAgICAieSI6IDU5LAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA3MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbnNpZGUiLAogICAgICAgICAgICAieCI6IDQyLAogICAgICAgICAgICAieSI6IDY2LAogICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgImhlaWdodCI6IDgsCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAibm9kZSIsCiAgICAgICAgICAgICAgICAieCI6IDQzLAogICAgICAgICAgICAgICAgInkiOiA2OCwKICAgICAgICAgICAgICAgICJ3aWR0aCI6IDMsCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJub2RlLWxhYmVsIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgIiRIIjogMjc5CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZWRnZXMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJjcm9zcyIsCiAgICAgICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgICAgICJpbnNpZGUiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgICAgICJzaWJsaW5nIgogICAgICAgICAgICBdLAogICAgICAgICAgICAibGFiZWxzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0ZXh0IjogImVkZ2UiLAogICAgICAgICAgICAgICAgIngiOiAyMCwKICAgICAgICAgICAgICAgICJ5IjogMzMsCiAgICAgICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZSIsCiAgICAgICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAiaWQiOiAia2VwdC1zZWN0aW9uIiwKICAgICAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDMyLAogICAgICAgICAgICAgICAgICAieSI6IDQwCiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDExNywKICAgICAgICAgICAgICAgICAgInkiOiA3NQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJiZW5kUG9pbnRzIjogW10sCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAic2VjdGlvbiIsCiAgICAgICAgICAgICAgICAiaW5jb21pbmdTaGFwZSI6ICJpbnNpZGUiLAogICAgICAgICAgICAgICAgIm91dGdvaW5nU2hhcGUiOiAic2libGluZyIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0KICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICIkSCI6IDI3NwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogInNpYmxpbmciLAogICAgICAgICJ4IjogMTE3LAogICAgICAgICJ5IjogNjksCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEyLAogICAgICAgICIkSCI6IDI4MwogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "observationSha256": "1fd3caf9529f2648667d7e0ae609caecd844c8150458ac37dfc974760466edf7"
+    },
+    {
+      "id": "root-parent",
+      "definition": {
+        "id": "root-parent",
+        "request": "root-parent.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgIngiOiAxNywNCiAgICAieSI6IDI5LA0KICAgICJ3aWR0aCI6IDUwMCwNCiAgICAiaGVpZ2h0IjogNDAwLA0KICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsDQogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUk9PVCIsDQogICAgICAiZWxrLmpzb24uZWRnZUNvb3JkcyI6ICJQQVJFTlQiDQogICAgfSwNCiAgICAiYnVzaW5lc3MiOiB7DQogICAgICAia2VlcCI6ICJyb290Ig0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiY29tcG91bmQiLA0KICAgICAgICAieCI6IDIwLA0KICAgICAgICAieSI6IDMwLA0KICAgICAgICAid2lkdGgiOiA4MCwNCiAgICAgICAgImhlaWdodCI6IDcwLA0KICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsNCiAgICAgICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsDQogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUNCiAgICAgICAgfSwNCiAgICAgICAgImNoaWxkcmVuIjogWw0KICAgICAgICAgIHsNCiAgICAgICAgICAgICJpZCI6ICJpbnNpZGUiLA0KICAgICAgICAgICAgIngiOiA1LA0KICAgICAgICAgICAgInkiOiA3LA0KICAgICAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICAgICAiaGVpZ2h0IjogOCwNCiAgICAgICAgICAgICJsYWJlbHMiOiBbDQogICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAidGV4dCI6ICJub2RlIiwNCiAgICAgICAgICAgICAgICAieCI6IDEsDQogICAgICAgICAgICAgICAgInkiOiAyLA0KICAgICAgICAgICAgICAgICJ3aWR0aCI6IDMsDQogICAgICAgICAgICAgICAgImhlaWdodCI6IDQsDQogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogIm5vZGUtbGFiZWwiDQogICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIF0NCiAgICAgICAgICB9DQogICAgICAgIF0sDQogICAgICAgICJlZGdlcyI6IFsNCiAgICAgICAgICB7DQogICAgICAgICAgICAiaWQiOiAiY3Jvc3MiLA0KICAgICAgICAgICAgInNvdXJjZXMiOiBbDQogICAgICAgICAgICAgICJpbnNpZGUiDQogICAgICAgICAgICBdLA0KICAgICAgICAgICAgInRhcmdldHMiOiBbDQogICAgICAgICAgICAgICJzaWJsaW5nIg0KICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICJzZWN0aW9ucyI6IFsNCiAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICJpZCI6ICJrZXB0LXNlY3Rpb24iLA0KICAgICAgICAgICAgICAgICJzdGFydFBvaW50Ijogew0KICAgICAgICAgICAgICAgICAgIngiOiAxNSwNCiAgICAgICAgICAgICAgICAgICJ5IjogMTENCiAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICJlbmRQb2ludCI6IHsNCiAgICAgICAgICAgICAgICAgICJ4IjogMTAwLA0KICAgICAgICAgICAgICAgICAgInkiOiA0Ng0KICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgImJlbmRQb2ludHMiOiBbXSwNCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAic2VjdGlvbiINCiAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICJsYWJlbHMiOiBbDQogICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAidGV4dCI6ICJlZGdlIiwNCiAgICAgICAgICAgICAgICAieCI6IDMsDQogICAgICAgICAgICAgICAgInkiOiA0LA0KICAgICAgICAgICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAgICAgICAgICJoZWlnaHQiOiA1LA0KICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlLWxhYmVsIg0KICAgICAgICAgICAgICB9DQogICAgICAgICAgICBdLA0KICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UiDQogICAgICAgICAgfQ0KICAgICAgICBdDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAic2libGluZyIsDQogICAgICAgICJ4IjogMTAwLA0KICAgICAgICAieSI6IDQwLA0KICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgImhlaWdodCI6IDEyDQogICAgICB9DQogICAgXQ0KICB9DQp9DQo=",
+      "requestSha256": "abe95a96b680e2f013f855df9ae563a6ab8a69cbb6fa00765fcb4f1f4231421d",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "x": 17,
+          "y": 29,
+          "width": 500,
+          "height": 400,
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.nodeSize.fixedGraphSize": true,
+            "elk.json.shapeCoords": "ROOT",
+            "elk.json.edgeCoords": "PARENT"
+          },
+          "business": {
+            "keep": "root"
+          },
+          "children": [
+            {
+              "id": "compound",
+              "x": 20,
+              "y": 30,
+              "width": 80,
+              "height": 70,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true
+              },
+              "children": [
+                {
+                  "id": "inside",
+                  "x": 5,
+                  "y": 7,
+                  "width": 10,
+                  "height": 8,
+                  "labels": [
+                    {
+                      "text": "node",
+                      "x": 1,
+                      "y": 2,
+                      "width": 3,
+                      "height": 4,
+                      "business": "node-label"
+                    }
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "id": "cross",
+                  "sources": [
+                    "inside"
+                  ],
+                  "targets": [
+                    "sibling"
+                  ],
+                  "sections": [
+                    {
+                      "id": "kept-section",
+                      "startPoint": {
+                        "x": 15,
+                        "y": 11
+                      },
+                      "endPoint": {
+                        "x": 100,
+                        "y": 46
+                      },
+                      "bendPoints": [],
+                      "business": "section"
+                    }
+                  ],
+                  "labels": [
+                    {
+                      "text": "edge",
+                      "x": 3,
+                      "y": 4,
+                      "width": 10,
+                      "height": 5,
+                      "business": "edge-label"
+                    }
+                  ],
+                  "business": "edge"
+                }
+              ]
+            },
+            {
+              "id": "sibling",
+              "x": 100,
+              "y": 40,
+              "width": 10,
+              "height": 12
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\root-parent\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\root-parent\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 31212,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.1524333999841474,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiYWJlOTVhOTZiNjgwZTJmMDEzZjg1NWRmOWFlNTYzYTZhYjhhNjljYmI2ZmEwMDc2NWZjYjRmMWY0MjMxNDIxZCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJ4IjogMTcsCiAgICAieSI6IDI5LAogICAgIndpZHRoIjogNTAwLAogICAgImhlaWdodCI6IDQwMCwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUk9PVCIsCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIlBBUkVOVCIKICAgIH0sCiAgICAiYnVzaW5lc3MiOiB7CiAgICAgICJrZWVwIjogInJvb3QiCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogImNvbXBvdW5kIiwKICAgICAgICAieCI6IDM3LAogICAgICAgICJ5IjogNTksCiAgICAgICAgIndpZHRoIjogODAsCiAgICAgICAgImhlaWdodCI6IDcwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUKICAgICAgICB9LAogICAgICAgICJjaGlsZHJlbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImluc2lkZSIsCiAgICAgICAgICAgICJ4IjogNDIsCiAgICAgICAgICAgICJ5IjogNjYsCiAgICAgICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICAgICAiaGVpZ2h0IjogOCwKICAgICAgICAgICAgImxhYmVscyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAidGV4dCI6ICJub2RlIiwKICAgICAgICAgICAgICAgICJ4IjogNDMsCiAgICAgICAgICAgICAgICAieSI6IDY4LAogICAgICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgICAgICJoZWlnaHQiOiA0LAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogIm5vZGUtbGFiZWwiCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiJEgiOiAyNzkKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICJlZGdlcyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImNyb3NzIiwKICAgICAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAgICAgImluc2lkZSIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAgICAgInNpYmxpbmciCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAiZWRnZSIsCiAgICAgICAgICAgICAgICAieCI6IC0xNywKICAgICAgICAgICAgICAgICJ5IjogLTI2LAogICAgICAgICAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNSwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlLWxhYmVsIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UiLAogICAgICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImlkIjogImtlcHQtc2VjdGlvbiIsCiAgICAgICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAgICAgIngiOiAtNSwKICAgICAgICAgICAgICAgICAgInkiOiAtMTkKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgICAgICJ4IjogODAsCiAgICAgICAgICAgICAgICAgICJ5IjogMTYKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAiYmVuZFBvaW50cyI6IFtdLAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogInNlY3Rpb24iLAogICAgICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAiaW5zaWRlIiwKICAgICAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogInNpYmxpbmciCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyNzcKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJzaWJsaW5nIiwKICAgICAgICAieCI6IDExNywKICAgICAgICAieSI6IDY5LAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMiwKICAgICAgICAiJEgiOiAyODMKICAgICAgfQogICAgXSwKICAgICIkSCI6IDEzCiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAieCI6IDE3LAogICAgInkiOiAyOSwKICAgICJ3aWR0aCI6IDUwMCwKICAgICJoZWlnaHQiOiA0MDAsCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwKICAgICAgImVsay5qc29uLnNoYXBlQ29vcmRzIjogIlJPT1QiLAogICAgICAiZWxrLmpzb24uZWRnZUNvb3JkcyI6ICJQQVJFTlQiCiAgICB9LAogICAgImJ1c2luZXNzIjogewogICAgICAia2VlcCI6ICJyb290IgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJjb21wb3VuZCIsCiAgICAgICAgIngiOiAzNywKICAgICAgICAieSI6IDU5LAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA3MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbnNpZGUiLAogICAgICAgICAgICAieCI6IDQyLAogICAgICAgICAgICAieSI6IDY2LAogICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgImhlaWdodCI6IDgsCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAibm9kZSIsCiAgICAgICAgICAgICAgICAieCI6IDQzLAogICAgICAgICAgICAgICAgInkiOiA2OCwKICAgICAgICAgICAgICAgICJ3aWR0aCI6IDMsCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJub2RlLWxhYmVsIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgIiRIIjogMjc5CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZWRnZXMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJjcm9zcyIsCiAgICAgICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgICAgICJpbnNpZGUiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgICAgICJzaWJsaW5nIgogICAgICAgICAgICBdLAogICAgICAgICAgICAibGFiZWxzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0ZXh0IjogImVkZ2UiLAogICAgICAgICAgICAgICAgIngiOiAtMTcsCiAgICAgICAgICAgICAgICAieSI6IC0yNiwKICAgICAgICAgICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICAgICAgICAgImhlaWdodCI6IDUsCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZS1sYWJlbCIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlIiwKICAgICAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJpZCI6ICJrZXB0LXNlY3Rpb24iLAogICAgICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgICAgICJ4IjogLTUsCiAgICAgICAgICAgICAgICAgICJ5IjogLTE5CiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICAgICAieCI6IDgwLAogICAgICAgICAgICAgICAgICAieSI6IDE2CiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImJlbmRQb2ludHMiOiBbXSwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJzZWN0aW9uIiwKICAgICAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogImluc2lkZSIsCiAgICAgICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJzaWJsaW5nIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjc3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAic2libGluZyIsCiAgICAgICAgIngiOiAxMTcsCiAgICAgICAgInkiOiA2OSwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMTIsCiAgICAgICAgIiRIIjogMjgzCiAgICAgIH0KICAgIF0sCiAgICAiJEgiOiAxMwogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "observationSha256": "618d4c67cde96d15a0c47e2c2c54a45702421a2396e31b6ab0af78eecb7dd5e7"
+    },
+    {
+      "id": "parent-container",
+      "definition": {
+        "id": "parent-container",
+        "request": "parent-container.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgIngiOiAxNywNCiAgICAieSI6IDI5LA0KICAgICJ3aWR0aCI6IDUwMCwNCiAgICAiaGVpZ2h0IjogNDAwLA0KICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsDQogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUEFSRU5UIiwNCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIkNPTlRBSU5FUiINCiAgICB9LA0KICAgICJidXNpbmVzcyI6IHsNCiAgICAgICJrZWVwIjogInJvb3QiDQogICAgfSwNCiAgICAiY2hpbGRyZW4iOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICJjb21wb3VuZCIsDQogICAgICAgICJ4IjogMjAsDQogICAgICAgICJ5IjogMzAsDQogICAgICAgICJ3aWR0aCI6IDgwLA0KICAgICAgICAiaGVpZ2h0IjogNzAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwNCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZQ0KICAgICAgICB9LA0KICAgICAgICAiY2hpbGRyZW4iOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogImluc2lkZSIsDQogICAgICAgICAgICAieCI6IDUsDQogICAgICAgICAgICAieSI6IDcsDQogICAgICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgICAgICJoZWlnaHQiOiA4LA0KICAgICAgICAgICAgImxhYmVscyI6IFsNCiAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICJ0ZXh0IjogIm5vZGUiLA0KICAgICAgICAgICAgICAgICJ4IjogMSwNCiAgICAgICAgICAgICAgICAieSI6IDIsDQogICAgICAgICAgICAgICAgIndpZHRoIjogMywNCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNCwNCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAibm9kZS1sYWJlbCINCiAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgXQ0KICAgICAgICAgIH0NCiAgICAgICAgXSwNCiAgICAgICAgImVkZ2VzIjogWw0KICAgICAgICAgIHsNCiAgICAgICAgICAgICJpZCI6ICJjcm9zcyIsDQogICAgICAgICAgICAic291cmNlcyI6IFsNCiAgICAgICAgICAgICAgImluc2lkZSINCiAgICAgICAgICAgIF0sDQogICAgICAgICAgICAidGFyZ2V0cyI6IFsNCiAgICAgICAgICAgICAgInNpYmxpbmciDQogICAgICAgICAgICBdLA0KICAgICAgICAgICAgInNlY3Rpb25zIjogWw0KICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgImlkIjogImtlcHQtc2VjdGlvbiIsDQogICAgICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7DQogICAgICAgICAgICAgICAgICAieCI6IDE1LA0KICAgICAgICAgICAgICAgICAgInkiOiAxMQ0KICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgImVuZFBvaW50Ijogew0KICAgICAgICAgICAgICAgICAgIngiOiAxMDAsDQogICAgICAgICAgICAgICAgICAieSI6IDQ2DQogICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAiYmVuZFBvaW50cyI6IFtdLA0KICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJzZWN0aW9uIg0KICAgICAgICAgICAgICB9DQogICAgICAgICAgICBdLA0KICAgICAgICAgICAgImxhYmVscyI6IFsNCiAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICJ0ZXh0IjogImVkZ2UiLA0KICAgICAgICAgICAgICAgICJ4IjogMywNCiAgICAgICAgICAgICAgICAieSI6IDQsDQogICAgICAgICAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICAgICAgICAgImhlaWdodCI6IDUsDQogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UtbGFiZWwiDQogICAgICAgICAgICAgIH0NCiAgICAgICAgICAgIF0sDQogICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZSINCiAgICAgICAgICB9DQogICAgICAgIF0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJzaWJsaW5nIiwNCiAgICAgICAgIngiOiAxMDAsDQogICAgICAgICJ5IjogNDAsDQogICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAiaGVpZ2h0IjogMTINCiAgICAgIH0NCiAgICBdDQogIH0NCn0NCg==",
+      "requestSha256": "7d9d0739adb43f4a8ce699e22b93ed139a737eb63768eb0a88f7cab36e7b47f1",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "x": 17,
+          "y": 29,
+          "width": 500,
+          "height": 400,
+          "layoutOptions": {
+            "elk.algorithm": "fixed",
+            "elk.nodeSize.fixedGraphSize": true,
+            "elk.json.shapeCoords": "PARENT",
+            "elk.json.edgeCoords": "CONTAINER"
+          },
+          "business": {
+            "keep": "root"
+          },
+          "children": [
+            {
+              "id": "compound",
+              "x": 20,
+              "y": 30,
+              "width": 80,
+              "height": 70,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true
+              },
+              "children": [
+                {
+                  "id": "inside",
+                  "x": 5,
+                  "y": 7,
+                  "width": 10,
+                  "height": 8,
+                  "labels": [
+                    {
+                      "text": "node",
+                      "x": 1,
+                      "y": 2,
+                      "width": 3,
+                      "height": 4,
+                      "business": "node-label"
+                    }
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "id": "cross",
+                  "sources": [
+                    "inside"
+                  ],
+                  "targets": [
+                    "sibling"
+                  ],
+                  "sections": [
+                    {
+                      "id": "kept-section",
+                      "startPoint": {
+                        "x": 15,
+                        "y": 11
+                      },
+                      "endPoint": {
+                        "x": 100,
+                        "y": 46
+                      },
+                      "bendPoints": [],
+                      "business": "section"
+                    }
+                  ],
+                  "labels": [
+                    {
+                      "text": "edge",
+                      "x": 3,
+                      "y": 4,
+                      "width": 10,
+                      "height": 5,
+                      "business": "edge-label"
+                    }
+                  ],
+                  "business": "edge"
+                }
+              ]
+            },
+            {
+              "id": "sibling",
+              "x": 100,
+              "y": 40,
+              "width": 10,
+              "height": 12
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\parent-container\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\parent-container\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 5924,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15735249998397194,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiN2Q5ZDA3MzlhZGI0M2Y0YThjZTY5OWUyMmI5M2VkMTM5YTczN2ViNjM3NjhlYjBhODhmN2NhYjM2ZTdiNDdmMSIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJ4IjogMTcsCiAgICAieSI6IDI5LAogICAgIndpZHRoIjogNTAwLAogICAgImhlaWdodCI6IDQwMCwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAiZWxrLmpzb24uc2hhcGVDb29yZHMiOiAiUEFSRU5UIiwKICAgICAgImVsay5qc29uLmVkZ2VDb29yZHMiOiAiQ09OVEFJTkVSIgogICAgfSwKICAgICJidXNpbmVzcyI6IHsKICAgICAgImtlZXAiOiAicm9vdCIKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiY29tcG91bmQiLAogICAgICAgICJ4IjogMjAsCiAgICAgICAgInkiOiAzMCwKICAgICAgICAid2lkdGgiOiA4MCwKICAgICAgICAiaGVpZ2h0IjogNzAsCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZQogICAgICAgIH0sCiAgICAgICAgImNoaWxkcmVuIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiaW5zaWRlIiwKICAgICAgICAgICAgIngiOiA1LAogICAgICAgICAgICAieSI6IDcsCiAgICAgICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICAgICAiaGVpZ2h0IjogOCwKICAgICAgICAgICAgImxhYmVscyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAidGV4dCI6ICJub2RlIiwKICAgICAgICAgICAgICAgICJ4IjogMSwKICAgICAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgICAgICJ3aWR0aCI6IDMsCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJub2RlLWxhYmVsIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgIiRIIjogMjc5CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiZWRnZXMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJjcm9zcyIsCiAgICAgICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgICAgICJpbnNpZGUiCiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgICAgICJzaWJsaW5nIgogICAgICAgICAgICBdLAogICAgICAgICAgICAibGFiZWxzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ0ZXh0IjogImVkZ2UiLAogICAgICAgICAgICAgICAgIngiOiAzLAogICAgICAgICAgICAgICAgInkiOiA0LAogICAgICAgICAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgICAgICAgICAiaGVpZ2h0IjogNSwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlLWxhYmVsIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgImJ1c2luZXNzIjogImVkZ2UiLAogICAgICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgImlkIjogImtlcHQtc2VjdGlvbiIsCiAgICAgICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAgICAgIngiOiAxNSwKICAgICAgICAgICAgICAgICAgInkiOiAxMQogICAgICAgICAgICAgICAgfSwKICAgICAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAgICAgIngiOiAxMDAsCiAgICAgICAgICAgICAgICAgICJ5IjogNDYKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAiYmVuZFBvaW50cyI6IFtdLAogICAgICAgICAgICAgICAgImJ1c2luZXNzIjogInNlY3Rpb24iLAogICAgICAgICAgICAgICAgImluY29taW5nU2hhcGUiOiAiaW5zaWRlIiwKICAgICAgICAgICAgICAgICJvdXRnb2luZ1NoYXBlIjogInNpYmxpbmciCiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdLAogICAgICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyNzcKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJzaWJsaW5nIiwKICAgICAgICAieCI6IDEwMCwKICAgICAgICAieSI6IDQwLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMiwKICAgICAgICAiJEgiOiAyODMKICAgICAgfQogICAgXSwKICAgICIkSCI6IDEzCiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAieCI6IDE3LAogICAgInkiOiAyOSwKICAgICJ3aWR0aCI6IDUwMCwKICAgICJoZWlnaHQiOiA0MDAsCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwKICAgICAgImVsay5qc29uLnNoYXBlQ29vcmRzIjogIlBBUkVOVCIsCiAgICAgICJlbGsuanNvbi5lZGdlQ29vcmRzIjogIkNPTlRBSU5FUiIKICAgIH0sCiAgICAiYnVzaW5lc3MiOiB7CiAgICAgICJrZWVwIjogInJvb3QiCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogImNvbXBvdW5kIiwKICAgICAgICAieCI6IDIwLAogICAgICAgICJ5IjogMzAsCiAgICAgICAgIndpZHRoIjogODAsCiAgICAgICAgImhlaWdodCI6IDcwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUKICAgICAgICB9LAogICAgICAgICJjaGlsZHJlbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImluc2lkZSIsCiAgICAgICAgICAgICJ4IjogNSwKICAgICAgICAgICAgInkiOiA3LAogICAgICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAgICAgImhlaWdodCI6IDgsCiAgICAgICAgICAgICJsYWJlbHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgInRleHQiOiAibm9kZSIsCiAgICAgICAgICAgICAgICAieCI6IDEsCiAgICAgICAgICAgICAgICAieSI6IDIsCiAgICAgICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAibm9kZS1sYWJlbCIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICIkSCI6IDI3OQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImVkZ2VzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiY3Jvc3MiLAogICAgICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICAgICAiaW5zaWRlIgogICAgICAgICAgICBdLAogICAgICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICAgICAic2libGluZyIKICAgICAgICAgICAgXSwKICAgICAgICAgICAgImxhYmVscyI6IFsKICAgICAgICAgICAgICB7CiAgICAgICAgICAgICAgICAidGV4dCI6ICJlZGdlIiwKICAgICAgICAgICAgICAgICJ4IjogMywKICAgICAgICAgICAgICAgICJ5IjogNCwKICAgICAgICAgICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICAgICAgICAgImhlaWdodCI6IDUsCiAgICAgICAgICAgICAgICAiYnVzaW5lc3MiOiAiZWRnZS1sYWJlbCIKICAgICAgICAgICAgICB9CiAgICAgICAgICAgIF0sCiAgICAgICAgICAgICJidXNpbmVzcyI6ICJlZGdlIiwKICAgICAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJpZCI6ICJrZXB0LXNlY3Rpb24iLAogICAgICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgICAgICJ4IjogMTUsCiAgICAgICAgICAgICAgICAgICJ5IjogMTEKICAgICAgICAgICAgICAgIH0sCiAgICAgICAgICAgICAgICAiZW5kUG9pbnQiOiB7CiAgICAgICAgICAgICAgICAgICJ4IjogMTAwLAogICAgICAgICAgICAgICAgICAieSI6IDQ2CiAgICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgICAgImJlbmRQb2ludHMiOiBbXSwKICAgICAgICAgICAgICAgICJidXNpbmVzcyI6ICJzZWN0aW9uIiwKICAgICAgICAgICAgICAgICJpbmNvbWluZ1NoYXBlIjogImluc2lkZSIsCiAgICAgICAgICAgICAgICAib3V0Z29pbmdTaGFwZSI6ICJzaWJsaW5nIgogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXSwKICAgICAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjc3CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAic2libGluZyIsCiAgICAgICAgIngiOiAxMDAsCiAgICAgICAgInkiOiA0MCwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMTIsCiAgICAgICAgIiRIIjogMjgzCiAgICAgIH0KICAgIF0sCiAgICAiJEgiOiAxMwogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "observationSha256": "eb274d8b627e71f4ba711d631b14b11e056e9faf5637d6cb34d3fb521ea55711"
+    }
+  ],
+  "actualReferenceProcesses": 4,
+  "candidateExecuted": false,
+  "iterationsCompleted": [],
+  "fullValidation": false,
+  "historicalExecutionAuthenticated": false
+}

@@ -1,0 +1,46 @@
+{
+  "steps": [
+    {
+      "operation": "construct",
+      "id": "first"
+    },
+    {
+      "operation": "layout",
+      "id": "first",
+      "graph": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "layered"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 30,
+            "height": 20
+          },
+          {
+            "id": "b",
+            "width": 30,
+            "height": 20
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ]
+          }
+        ]
+      },
+      "arguments": {
+        "logging": true
+      }
+    }
+  ],
+  "schema": "py-elk-e08-api-request/v1",
+  "id": "alias-logging-true"
+}

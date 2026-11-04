@@ -1,0 +1,216 @@
+{
+  "schema": "py-elk-next-native-reference/v1",
+  "actualSourceRoot": "C:\\code\\py-visactor\\py-elk",
+  "scope": "Independent original-only probes for planned E13/E16 migration; no candidate or completed algorithm acceptance.",
+  "upstream": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "distributionSha256": {
+      "lib/elk-api.d.ts": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "lib/elk-api.js": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "lib/elk-worker.d.ts": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lib/elk-worker.min.js": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "lib/elk.bundled.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/elk.bundled.js": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "lib/main.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/main.js": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "package.json": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "README.md": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c"
+    }
+  },
+  "collector": "tools/reference/capture_layout.cjs",
+  "collectorSha256": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+  "captureDriverSha256": "75db0343318d6362fbbdd0d3ab54d0c65fe119021fc3f9c308c8acc7f24a9f39",
+  "node": "C:\\Program Files\\nodejs\\node.exe",
+  "nodeSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "nodeIdentityCommand": {
+    "command": {
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--version"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "pid": 17336,
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.02659019999555312,
+      "stdoutSha256": "bc697de995dc791df53d688ef69c08994cdffc8ce30c906b1ffc65b131ccd0eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environmentPolicy": {
+        "nodeOverridesAbsent": true
+      }
+    },
+    "stdoutBytesBase64": "djI0LjE5LjANCg==",
+    "stderrBytesBase64": ""
+  },
+  "suiteSha256": "a04625b128e790958064183e32af9026c634d6c1429ae4a1e6d149f2edeec764",
+  "cases": [
+    {
+      "id": "mrtree-tree-right-timing",
+      "definition": {
+        "id": "mrtree-tree-right-timing",
+        "request": "tree-right-timing.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjogew0KICAgICJtZWFzdXJlRXhlY3V0aW9uVGltZSI6IHRydWUNCiAgfSwNCiAgImdyYXBoIjogew0KICAgICJpZCI6ICJyb290IiwNCiAgICAibGF5b3V0T3B0aW9ucyI6IHsNCiAgICAgICJlbGsuYWxnb3JpdGhtIjogIm1ydHJlZSIsDQogICAgICAiZWxrLmRpcmVjdGlvbiI6ICJSSUdIVCIsDQogICAgICAiZWxrLm1ydHJlZS5zZWFyY2hPcmRlciI6ICJERlMiLA0KICAgICAgImVsay5yYW5kb21TZWVkIjogNw0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAibjAiLA0KICAgICAgICAid2lkdGgiOiAyMCwNCiAgICAgICAgImhlaWdodCI6IDE0LA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiAwDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJuMSIsDQogICAgICAgICJ3aWR0aCI6IDIzLA0KICAgICAgICAiaGVpZ2h0IjogMTYsDQogICAgICAgICJidXNpbmVzcyI6IHsNCiAgICAgICAgICAib3JkaW5hbCI6IDENCiAgICAgICAgfQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIm4yIiwNCiAgICAgICAgIndpZHRoIjogMjYsDQogICAgICAgICJoZWlnaHQiOiAxOCwNCiAgICAgICAgImJ1c2luZXNzIjogew0KICAgICAgICAgICJvcmRpbmFsIjogMg0KICAgICAgICB9DQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAibjMiLA0KICAgICAgICAid2lkdGgiOiAyOSwNCiAgICAgICAgImhlaWdodCI6IDIwLA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiAzDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJuNCIsDQogICAgICAgICJ3aWR0aCI6IDMyLA0KICAgICAgICAiaGVpZ2h0IjogMjIsDQogICAgICAgICJidXNpbmVzcyI6IHsNCiAgICAgICAgICAib3JkaW5hbCI6IDQNCiAgICAgICAgfQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIm41IiwNCiAgICAgICAgIndpZHRoIjogMzUsDQogICAgICAgICJoZWlnaHQiOiAyNCwNCiAgICAgICAgImJ1c2luZXNzIjogew0KICAgICAgICAgICJvcmRpbmFsIjogNQ0KICAgICAgICB9DQogICAgICB9DQogICAgXSwNCiAgICAiZWRnZXMiOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICJlMCIsDQogICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICJuMCINCiAgICAgICAgXSwNCiAgICAgICAgInRhcmdldHMiOiBbDQogICAgICAgICAgIm4xIg0KICAgICAgICBdLA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiAwDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJlMSIsDQogICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICJuMCINCiAgICAgICAgXSwNCiAgICAgICAgInRhcmdldHMiOiBbDQogICAgICAgICAgIm4yIg0KICAgICAgICBdLA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiAxDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJlMiIsDQogICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICJuMSINCiAgICAgICAgXSwNCiAgICAgICAgInRhcmdldHMiOiBbDQogICAgICAgICAgIm4zIg0KICAgICAgICBdLA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiAyDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJlMyIsDQogICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICJuMSINCiAgICAgICAgXSwNCiAgICAgICAgInRhcmdldHMiOiBbDQogICAgICAgICAgIm40Ig0KICAgICAgICBdLA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiAzDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJlNCIsDQogICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICJuMiINCiAgICAgICAgXSwNCiAgICAgICAgInRhcmdldHMiOiBbDQogICAgICAgICAgIm41Ig0KICAgICAgICBdLA0KICAgICAgICAiYnVzaW5lc3MiOiB7DQogICAgICAgICAgIm9yZGluYWwiOiA0DQogICAgICAgIH0NCiAgICAgIH0NCiAgICBdDQogIH0NCn0NCg==",
+      "requestSha256": "5c4685c9fdcd1095aa3ba566e6f77097f4e8e74fa6867714c47190cd3247eec6",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {
+          "measureExecutionTime": true
+        },
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "mrtree",
+            "elk.direction": "RIGHT",
+            "elk.mrtree.searchOrder": "DFS",
+            "elk.randomSeed": 7
+          },
+          "children": [
+            {
+              "id": "n0",
+              "width": 20,
+              "height": 14,
+              "business": {
+                "ordinal": 0
+              }
+            },
+            {
+              "id": "n1",
+              "width": 23,
+              "height": 16,
+              "business": {
+                "ordinal": 1
+              }
+            },
+            {
+              "id": "n2",
+              "width": 26,
+              "height": 18,
+              "business": {
+                "ordinal": 2
+              }
+            },
+            {
+              "id": "n3",
+              "width": 29,
+              "height": 20,
+              "business": {
+                "ordinal": 3
+              }
+            },
+            {
+              "id": "n4",
+              "width": 32,
+              "height": 22,
+              "business": {
+                "ordinal": 4
+              }
+            },
+            {
+              "id": "n5",
+              "width": 35,
+              "height": 24,
+              "business": {
+                "ordinal": 5
+              }
+            }
+          ],
+          "edges": [
+            {
+              "id": "e0",
+              "sources": [
+                "n0"
+              ],
+              "targets": [
+                "n1"
+              ],
+              "business": {
+                "ordinal": 0
+              }
+            },
+            {
+              "id": "e1",
+              "sources": [
+                "n0"
+              ],
+              "targets": [
+                "n2"
+              ],
+              "business": {
+                "ordinal": 1
+              }
+            },
+            {
+              "id": "e2",
+              "sources": [
+                "n1"
+              ],
+              "targets": [
+                "n3"
+              ],
+              "business": {
+                "ordinal": 2
+              }
+            },
+            {
+              "id": "e3",
+              "sources": [
+                "n1"
+              ],
+              "targets": [
+                "n4"
+              ],
+              "business": {
+                "ordinal": 3
+              }
+            },
+            {
+              "id": "e4",
+              "sources": [
+                "n2"
+              ],
+              "targets": [
+                "n5"
+              ],
+              "business": {
+                "ordinal": 4
+              }
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E17-01\\V\\mrtree-diagnostics-reference-01\\mrtree-tree-right-timing\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E17-01\\V\\mrtree-diagnostics-reference-01\\mrtree-tree-right-timing\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 37260,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.1918162000074517,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNWM0Njg1YzlmZGNkMTA5NWFhM2JhNTY2ZTZmNzcwOTdmNGU4ZTc0ZmE2ODY3NzE0YzQ3MTkwY2QzMjQ3ZWVjNiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgIm91dGNvbWUiOiAidGhyZXciLAogICJlcnJvciI6IHsKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJqYXZhLmxhbmcuTnVsbFBvaW50ZXJFeGNlcHRpb24iCiAgfSwKICAiZGlhZ25vc3RpY3MiOiB7CiAgICAiZXJyb3JTdGFjayI6ICJUeXBlRXJyb3I6IGphdmEubGFuZy5OdWxsUG9pbnRlckV4Y2VwdGlvblxuICAgIGF0IF9nYi5iaGIgW2FzIGVlXSAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjY2ODQ6MTAwNjYwKVxuICAgIGF0IF9nYi52eiBbYXMgamVdIChDOlxcY29kZVxccHktdmlzYWN0b3JcXHB5LWVsa1xcLmxvY2FsXFxucG0tZWxranNcXHBhY2thZ2VcXGxpYlxcZWxrLmJ1bmRsZWQuanM6NjY4NDo5MzcwNSlcbiAgICBhdCBfZ2IubXogKEM6XFxjb2RlXFxweS12aXNhY3RvclxccHktZWxrXFwubG9jYWxcXG5wbS1lbGtqc1xccGFja2FnZVxcbGliXFxlbGsuYnVuZGxlZC5qczoyMjMzOjM4KVxuICAgIGF0IF9nYi54eiAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjEzNDE6MTgpXG4gICAgYXQgbmV3IF9nYiAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjEzNDg6MTkpXG4gICAgYXQgbmV3IENDIChDOlxcY29kZVxccHktdmlzYWN0b3JcXHB5LWVsa1xcLmxvY2FsXFxucG0tZWxranNcXHBhY2thZ2VcXGxpYlxcZWxrLmJ1bmRsZWQuanM6Mjk5MDozOClcbiAgICBhdCBJTmQgKEM6XFxjb2RlXFxweS12aXNhY3RvclxccHktZWxrXFwubG9jYWxcXG5wbS1lbGtqc1xccGFja2FnZVxcbGliXFxlbGsuYnVuZGxlZC5qczo2MTkzOjUxKVxuICAgIGF0IElOZCAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjYxOTM6Mzk1KVxuICAgIGF0IExOZCAoQzpcXGNvZGVcXHB5LXZpc2FjdG9yXFxweS1lbGtcXC5sb2NhbFxcbnBtLWVsa2pzXFxwYWNrYWdlXFxsaWJcXGVsay5idW5kbGVkLmpzOjYzNjg6NDcxKVxuICAgIGF0IGguZGlzcGF0Y2ggKEM6XFxjb2RlXFxweS12aXNhY3RvclxccHktZWxrXFwubG9jYWxcXG5wbS1lbGtqc1xccGFja2FnZVxcbGliXFxlbGsuYnVuZGxlZC5qczo2NTk5OjQ3MykiCiAgfSwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJtcnRyZWUiLAogICAgICAiZWxrLmRpcmVjdGlvbiI6ICJSSUdIVCIsCiAgICAgICJlbGsubXJ0cmVlLnNlYXJjaE9yZGVyIjogIkRGUyIsCiAgICAgICJlbGsucmFuZG9tU2VlZCI6IDcKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAibjAiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiAxNCwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDAKICAgICAgICB9LAogICAgICAgICIkSCI6IDI3NwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm4xIiwKICAgICAgICAid2lkdGgiOiAyMywKICAgICAgICAiaGVpZ2h0IjogMTYsCiAgICAgICAgImJ1c2luZXNzIjogewogICAgICAgICAgIm9yZGluYWwiOiAxCiAgICAgICAgfSwKICAgICAgICAiJEgiOiAyNzkKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuMiIsCiAgICAgICAgIndpZHRoIjogMjYsCiAgICAgICAgImhlaWdodCI6IDE4LAogICAgICAgICJidXNpbmVzcyI6IHsKICAgICAgICAgICJvcmRpbmFsIjogMgogICAgICAgIH0sCiAgICAgICAgIiRIIjogMjgxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAibjMiLAogICAgICAgICJ3aWR0aCI6IDI5LAogICAgICAgICJoZWlnaHQiOiAyMCwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDMKICAgICAgICB9LAogICAgICAgICIkSCI6IDI4MwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIm40IiwKICAgICAgICAid2lkdGgiOiAzMiwKICAgICAgICAiaGVpZ2h0IjogMjIsCiAgICAgICAgImJ1c2luZXNzIjogewogICAgICAgICAgIm9yZGluYWwiOiA0CiAgICAgICAgfSwKICAgICAgICAiJEgiOiAyODUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJuNSIsCiAgICAgICAgIndpZHRoIjogMzUsCiAgICAgICAgImhlaWdodCI6IDI0LAogICAgICAgICJidXNpbmVzcyI6IHsKICAgICAgICAgICJvcmRpbmFsIjogNQogICAgICAgIH0sCiAgICAgICAgIiRIIjogMjg3CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTAiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjEiCiAgICAgICAgXSwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDAKICAgICAgICB9CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTEiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4wIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjIiCiAgICAgICAgXSwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDEKICAgICAgICB9CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTIiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjMiCiAgICAgICAgXSwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDIKICAgICAgICB9CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTMiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4xIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjQiCiAgICAgICAgXSwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDMKICAgICAgICB9CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZTQiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgIm4yIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAibjUiCiAgICAgICAgXSwKICAgICAgICAiYnVzaW5lc3MiOiB7CiAgICAgICAgICAib3JkaW5hbCI6IDQKICAgICAgICB9CiAgICAgIH0KICAgIF0sCiAgICAiJEgiOiAxMwogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7CiAgICAibWVhc3VyZUV4ZWN1dGlvblRpbWUiOiB0cnVlCiAgfSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "observationSha256": "930f9e33aaefcd6a79f6ba07304fd4c3346d942035c8279d661fbcded05a33a6"
+    }
+  ],
+  "actualReferenceProcesses": 1,
+  "candidateExecuted": false,
+  "iterationsCompleted": [],
+  "fullValidation": false,
+  "historicalExecutionAuthenticated": false
+}

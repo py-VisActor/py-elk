@@ -1,0 +1,97 @@
+{
+  "schema": "py-elk-independent-code-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/v-force-review-01/src/pyelk/algorithms/force.py": "ac02bbf04bae1d62e8db492091da63b9fa0ac59c703d2d2a566ff310605e9f30",
+    ".local/v-stress-review-01/src/pyelk/algorithms/stress.py": "e214e3c0bdd08cb772e2037b4d0d7e4fdc05b3a2e8efc421af53163d566bcb33",
+    "tests/fixtures/suites/next-native/compare_force_stress.py": "cbaa6feefd7e0fcadc48d801702e6b154e6ac3a0dd1aada58fc4cb7d7addea7c",
+    "tests/fixtures/suites/next-native/force-stress-first/oracle.json": "51c28c7bfd58d48ecd60580ae7ebb127cd264709df8a4ee8c50902718913a930",
+    "test-runs/20261104-E18-01/V/force-first-comparison-01.json": "73f807f4d6c9e0feda197ef879a84dccb63a51c98b45f50c315de8de4a02ee04",
+    "test-runs/20261104-E18-01/V/stress-first-comparison-01.json": "0dcf87947340647f42b10977c31064df4b0eb037844b5476c2fe79e4d0be4c30",
+    "test-runs/20261104-E18-01/V/stress-first-comparison-01-command/command.json": "7704e111b7d6b6c253af4191501f7ccad4fffa0b6f1983900b260539f49cba50",
+    "test-runs/20261104-E18-01/V/force-first-comparison-01-command/command.json": "4175e33b2fece1208b5dd4750a5e5831171da0c717032d71dda96bdc1289e057",
+    "test-runs/20261104-E18-01/V/import-transfer-source-review-02.json": "af0e6e21ee1b70c9ea90e2a079da2e887897796f0eb68d438ec563e6315fb387",
+    "test-runs/20261104-E18-01/V/force-provider-source-review-01.json": "7b13aac85e8b049b45d153a5f56e72e783f8553d408813ba2aa5875bc7f98b66",
+    "test-runs/20261104-E18-01/V/force-model-source-review-01.json": "ce2b2e5c97c3c817a29e1b1564d66fbf4df328365db4a3d5a1e9f17d5620437b",
+    "test-runs/20261104-E18-01/V/stress-model-source-review-01.json": "0d7eff60c3468fa27a570b9a296e993d5c3ef55ac2bb9c1397d3f65f37e98887",
+    "test-runs/20261104-E18-01/root/f04-source-01/review.json": "cfc51d8ed88d33af5e05e094788d85d2dc8656e08249380702e9317f308436c8"
+  },
+  "scope": "New native Force/Stress math, source-specific components, ordered import/transfer, and actual default micro orchestration",
+  "facts": [
+    "Read full Force ac02 and Stress e214 native implementations against independently accepted F/S source blocks; exact GWT sort/PQ support reused or scoped with correct Apache notice.",
+    "Force math retains distinct particle storage, weighted adjacency, original clipping/top-left label quadrants, ordered pair processing, avoidSamePosition inline mutation, FR floating cooling and source-specific component duplicate edges/last-node skipping.",
+    "Stress retains explicit has_option edge precedence, mutable-comparator queue downward-only repair/ties, INTMAX unreachable distances, Infinity diagonal weights, sequential same-vector Gauss-Seidel and postincrement convergence.",
+    "Compared four independently constructed requests with fixed original Node; Force EADES weighted+ports+labels+repulsive bends and FR three components; Stress interactive X fixed/explicit edge length and noninteractive Force-init Y. All four exact geometry/business, strict differences solely generated runtime hash absences.",
+    "Each actual native case called real default generic NodeMicro exactly once; immutable71/72file snapshots exclude concurrent owner drift. No repeated old cases or full validation.",
+    "Comparison tool preserves raw strict differences, classifies only generated node/port hash absences absent from original request, selects established tolerance through /result wrapper, and separately reports sourceWireParity versus finite geometry. Raw reference termination TypeError remains explicit, so geometry is not lifecycle parity."
+  ],
+  "actualCases": [
+    {
+      "id": "force-eades-weighted-labels",
+      "receipt": "test-runs/20261104-E18-01/V/force-first-comparison-01.json",
+      "requestSha256": "f35bb6560557c6cc414a746d101e7247f2453ce71f0a1ed21293d174f0cfb6eb",
+      "observationSha256": "8cde25e9ee8570ad048cba1fabff0514cee2853c255b97d298e57f2d937172dc",
+      "strictDifferenceCount": 4,
+      "mandatoryDifferenceCount": 0,
+      "defaultMicroCalls": 1,
+      "validFiniteGeometry": true,
+      "originalTermination": {
+        "outcome": "threw",
+        "name": "TypeError",
+        "message": "this.worker.terminate is not a function"
+      }
+    },
+    {
+      "id": "force-fr-components",
+      "receipt": "test-runs/20261104-E18-01/V/force-first-comparison-01.json",
+      "requestSha256": "da57c2c5d5521b31f4f48aa4b9c34feb3cb80bcb46ee0ac609da3c07fc66dae4",
+      "observationSha256": "befcd1ff9f7f7b4478d625c9d7d9b0c373ce1cfdf3c44bff0cddcbc90077fe71",
+      "strictDifferenceCount": 5,
+      "mandatoryDifferenceCount": 0,
+      "defaultMicroCalls": 1,
+      "validFiniteGeometry": true,
+      "originalTermination": {
+        "outcome": "threw",
+        "name": "TypeError",
+        "message": "this.worker.terminate is not a function"
+      }
+    },
+    {
+      "id": "stress-force-init-y",
+      "receipt": "test-runs/20261104-E18-01/V/stress-first-comparison-01.json",
+      "requestSha256": "1806c4e000f3ad020c5f8b0e5be7d165efd1adf3b608be8575eb0c7bdc019b64",
+      "observationSha256": "44b18d76bc47b73999bfffee957a3805eba6f1e71804aa65ebed43824bef6325",
+      "strictDifferenceCount": 4,
+      "mandatoryDifferenceCount": 0,
+      "defaultMicroCalls": 1,
+      "validFiniteGeometry": true,
+      "originalTermination": {
+        "outcome": "threw",
+        "name": "TypeError",
+        "message": "this.worker.terminate is not a function"
+      }
+    },
+    {
+      "id": "stress-interactive-x-fixed",
+      "receipt": "test-runs/20261104-E18-01/V/stress-first-comparison-01.json",
+      "requestSha256": "be3c777123e8cf147c9ac0214c709f31a0e4ff2a3ff26246d114b2c61e07da0e",
+      "observationSha256": "7581eb24d08f3031d9f049e37431f0d7bff7c1878dc6e975b1247e18b9aa84f1",
+      "strictDifferenceCount": 4,
+      "mandatoryDifferenceCount": 0,
+      "defaultMicroCalls": 1,
+      "validFiniteGeometry": true,
+      "originalTermination": {
+        "outcome": "threw",
+        "name": "TypeError",
+        "message": "this.worker.terminate is not a function"
+      }
+    }
+  ],
+  "limitations": [
+    "Four targeted finite cases are not complete Force/Stress coverage, public option243 support, recursive coordinator or installed package certification.",
+    "No synthetic geometry, reference output rewrite, random seed counter or candidate-derived expected values.",
+    "First Force parent command record is archived from actual exec_command API response, without invented subprocess PID; Stress parent uses actual Popen receipt.",
+    "No whole/full test suite or original old graph set executed."
+  ]
+}

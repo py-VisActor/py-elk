@@ -1,0 +1,97 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "x": 17,
+    "y": 29,
+    "width": 500,
+    "height": 400,
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.nodeSize.fixedGraphSize": true,
+      "elk.json.shapeCoords": "ROOT",
+      "elk.json.edgeCoords": "PARENT"
+    },
+    "business": {
+      "keep": "root"
+    },
+    "children": [
+      {
+        "id": "compound",
+        "x": 20,
+        "y": 30,
+        "width": 80,
+        "height": 70,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true
+        },
+        "children": [
+          {
+            "id": "inside",
+            "x": 5,
+            "y": 7,
+            "width": 10,
+            "height": 8,
+            "labels": [
+              {
+                "text": "node",
+                "x": 1,
+                "y": 2,
+                "width": 3,
+                "height": 4,
+                "business": "node-label"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "cross",
+            "sources": [
+              "inside"
+            ],
+            "targets": [
+              "sibling"
+            ],
+            "sections": [
+              {
+                "id": "kept-section",
+                "startPoint": {
+                  "x": 15,
+                  "y": 11
+                },
+                "endPoint": {
+                  "x": 100,
+                  "y": 46
+                },
+                "bendPoints": [],
+                "business": "section"
+              }
+            ],
+            "labels": [
+              {
+                "text": "edge",
+                "x": 3,
+                "y": 4,
+                "width": 10,
+                "height": 5,
+                "business": "edge-label"
+              }
+            ],
+            "business": "edge"
+          }
+        ]
+      },
+      {
+        "id": "sibling",
+        "x": 100,
+        "y": 40,
+        "width": 10,
+        "height": 12
+      }
+    ]
+  }
+}

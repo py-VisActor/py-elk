@@ -1,0 +1,139 @@
+{
+  "schema": "py-elk-e07-root-code-independent-review/v1",
+  "reviewerLane": "B",
+  "ownerLane": "root",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T09:52:07.962034+00:00",
+  "reviewedFiles": [
+    {
+      "path": "src/pyelk/algorithms/layered/scope.py",
+      "sha256": "d3cb21a6770799d5f6d739097ab9d579d278de2b4fb829d71a7f6eeda5a33059"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/import_export.py",
+      "sha256": "1a8a7fbc9ab8f41f87b4bf59a6feab320b1c7266b02f164f48bbd31680dc9c05"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/pipeline.py",
+      "sha256": "abbb4667fa05e30b16f084f7ccc6975c8f640670a7e477c658fedcb76c252d9c"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/processors.py",
+      "sha256": "26eace9a6d51bc0ae5dd2868f5e83c7822f07d62df6a4ea41b3c16249c865587"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/cycles.py",
+      "sha256": "7261471481e3a1d7f3bfdb3972f437c28e652eab967e29e41bc0ca172a3813c7"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/crossing.py",
+      "sha256": "abc3bb47d06c93ed7441addb388dd0b94bef120fc334aa8836a81a496c15d088"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/directions.py",
+      "sha256": "f90ec7e1cfdd1b4d9fcd5b46a724d60cce01fbf1310276fe9610b6ab8d44f4ec"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/layering.py",
+      "sha256": "53e8c3d8751377fc69fd18bcba3335356c93cda17712c946e4bdc869632eda51"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/components.py",
+      "sha256": "0b9013203232d9f0ed8ac7f26462c3b79c46f20134bc6c6c1f45d83b177eb12e"
+    }
+  ],
+  "actualPublicRequests": 3,
+  "actualProcessorBoundaries": 111,
+  "checkedSemantics": [
+    "Public raw import allocates original-order NORMAL nodes/independent endpoint ports using actual resolved original direction. Global prepare chooses19/23 or21/25 chain once; graph DIRECTION remains original.",
+    "Actual split objects shallow-share RANDOM/PROCESSORS/GRAPH_PROPERTIES/SPACINGS. Every component executes the one global chain, including no-local-loop components when another component requires the loop processors. false separation returns the original graph.",
+    "Each component performs the approved direction pre/body/post sequence and one Bfinish. Global combine+resize execute once, followed by export_layout(finish=False); historical private E06 import/finish wrappers are not called by the public path.",
+    "Original nodes/edge IDs/order/endpoints survive. Export applies root padding once and preserves given width/height and original caller data. Candidate code imports no oracle/reference engine.",
+    "The genuine native public requests match source public results after ONLY the fixed finite added shape-$H projection. All111 before/after RNG states match original worker phases exactly, and state/draw counters are continuous between components; object sharing is independently observed."
+  ],
+  "actualCases": [
+    {
+      "id": "two-chains-one-loop",
+      "components": 2,
+      "processorCount": 46,
+      "lifecycleCalls": {
+        "split": 1,
+        "finish": 2,
+        "combine": 1,
+        "resize": 1,
+        "export": 1
+      },
+      "originalDirection": "RIGHT",
+      "exactPublicResultAfterFrozenShapeProjection": true,
+      "sharedActualRandomProcessorsFlagsSpacings": true,
+      "phaseRandomStatesExactToOfficial": true,
+      "randomContinuousBetweenComponents": true,
+      "subprocessLaunchBlocked": true
+    },
+    {
+      "id": "two-chains-up",
+      "components": 2,
+      "processorCount": 42,
+      "lifecycleCalls": {
+        "split": 1,
+        "finish": 2,
+        "combine": 1,
+        "resize": 1,
+        "export": 1
+      },
+      "originalDirection": "UP",
+      "exactPublicResultAfterFrozenShapeProjection": true,
+      "sharedActualRandomProcessorsFlagsSpacings": true,
+      "phaseRandomStatesExactToOfficial": true,
+      "randomContinuousBetweenComponents": true,
+      "subprocessLaunchBlocked": true
+    },
+    {
+      "id": "two-components-false",
+      "components": 1,
+      "processorCount": 23,
+      "lifecycleCalls": {
+        "split": 1,
+        "finish": 1,
+        "combine": 1,
+        "resize": 1,
+        "export": 1
+      },
+      "originalDirection": "RIGHT",
+      "exactPublicResultAfterFrozenShapeProjection": true,
+      "sharedActualRandomProcessorsFlagsSpacings": true,
+      "phaseRandomStatesExactToOfficial": true,
+      "randomContinuousBetweenComponents": true,
+      "subprocessLaunchBlocked": true
+    }
+  ],
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E07-01/B/public-pipeline-01/report.json",
+      "sha256": "d620411067be38ab7bdbc8a65b904293f1ecbabb8c06307f5fe08bb4a429152c"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/public-pipeline-command-01/command.json",
+      "sha256": "9638789d2fda524cd0fc096cca6e294dc77eaf39398361d32317f613e24bcfe7"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/public-pipeline-command-01/stdout.log",
+      "sha256": "fee6a445de025d8a39b4e4d715456da0afe445677f26e049a07511ec19b080b5"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/public-pipeline-command-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/check_public_pipeline.py",
+      "sha256": "5bdb6a651c45b232fc5fb58ddbf1a43e77a87b6b295fd2765fd892fd978e98c8"
+    }
+  ],
+  "limitations": [
+    "Three focused source-boundary/public requests do not replace same72 installed conformance or the whole iteration acceptance.",
+    "Default constraints/strategy, finite original/internal bounds and all33 source approvals remain required. Exact Java/release and full API/lifecycle/algorithm gates stay open."
+  ],
+  "runtimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "blockers": []
+}

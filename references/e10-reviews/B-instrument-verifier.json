@@ -1,0 +1,64 @@
+{
+  "schema": "py-elk-review/v1",
+  "reviewer": "B",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "scripts/iteration/e10_instrument.py": "0e0355f8a1df23f469b9127b00fa38a408932a80bad4bfcace9c65919695aaf4"
+  },
+  "evidence": {
+    "test-runs/20261103-E10-01/B/instrument-02/receipt.json": "eb83f72dbd75fa36cda298e961267564920768d1953d32e080ea4723c4cdb621",
+    "test-runs/20261103-E10-01/B/benchmark-public-02/receipt.json": "f1fa0348a66931e4a1ba6a199db770e1b04a9af909035252db19940f901829fb",
+    "test-runs/20261103-E10-01/V/instrument-cli-01/report.json": "68b7d2b62c2eeef5fe4e70c4f994271f4c0d481d377b51333a9a858164fdb2cb",
+    "test-runs/20261103-E10-01/V/instrument-cli-01/validation.json": "b58f01d2ece9a6653b9655c04359978fe9f967d175623bbb32bb09622730f53b"
+  },
+  "checks": [
+    "Read complete validator source and current original 3 instrumented/18 public receipt data.",
+    "Strict embedded JSON/raw SHA and observed collector dependencies retained; fixed 3-case instrument denominator.",
+    "Actual sidecar worker PID and observed driver direct/shim process relation checked.",
+    "75 uniquely ordered spans: exact integer wall/CPU intervals, non-reversal and ordered parent containment; actual import/export/routing boundaries and whole-worker role.",
+    "Request/input/constructor/arguments/result/trace exact against retained public first samples.",
+    "Pure recomputation of existing data PASS and cases exactly equal retained CLI output; no worker or tests launched.",
+    "Instrumented clocks converted from nanoseconds, nested spans never aggregated into public throughput."
+  ],
+  "result": {
+    "passed": true,
+    "errors": [],
+    "cases": [
+      {
+        "caseId": "small",
+        "spanCount": 25,
+        "workerElapsedSeconds": 0.005823141,
+        "workerCpuSeconds": 0.005820692,
+        "resultAndTraceExact": true,
+        "nestedIntervalsContained": true
+      },
+      {
+        "caseId": "medium",
+        "spanCount": 25,
+        "workerElapsedSeconds": 0.008403027,
+        "workerCpuSeconds": 0.00836506,
+        "resultAndTraceExact": true,
+        "nestedIntervalsContained": true
+      },
+      {
+        "caseId": "large",
+        "spanCount": 25,
+        "workerElapsedSeconds": 0.050031625,
+        "workerCpuSeconds": 0.048048727,
+        "resultAndTraceExact": true,
+        "nestedIntervalsContained": true
+      }
+    ],
+    "fullValidation": false,
+    "runtimeReexecuted": false,
+    "historicalExecutionAuthenticated": false,
+    "limitation": "Nested intervals overlap, including routing within phases. Do not sum parent/child costs or include these instrumented observations in public throughput statistics. Public receipt acceptance is checked separately."
+  },
+  "limitations": [
+    "Public18 acceptance/package/reference geometry is separately checked by root public checker; this wrapper compares against those retained originals.",
+    "This review adds no controls, runtime samples or historical execution authentication."
+  ],
+  "runtimeReexecuted": false,
+  "fullValidation": false
+}

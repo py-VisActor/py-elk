@@ -1,0 +1,86 @@
+{
+  "schema": "py-elk-e01-audit/v1",
+  "status": "AUDIT_BATCH_COMPLETE",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "pythonRepositoryCommit": "01830431b621c04959120f8e992d8b08c9d5ca8d"
+  },
+  "filesSha256": {
+    "references/e01-source-lineage.json": "1b81e042ce53df5d05e45c3e6b742bed5ecad00b46274d83c86ed077d0539c2d",
+    "references/e01-source-lineage.md": "19eb0297663ff381c869aca35c9b8b36f608a81944cef9e646bd0147f8e61cf8",
+    "references/layered-default-path.json": "245e791b04ef74962ef79c18b1d2bea1afd74d70a95dc95b4100d4761563608f",
+    "references/e01-layered-path-notes.md": "d675db5de3200af0371a12e7f38136ed5863e0cb711b410506f2ff53c73d7304",
+    "references/assertion-inventory.json": "1af55baa8b23f6f88ed5259ec7d8cbedc3fff91b19dd77cae843942857034eaa",
+    "references/port-map.json": "68308aa2d4c182c6562b102ed56d3a61fe0d8e19ba62f5884b8e0b300ca8b053"
+  },
+  "sourceGateAssessment": {
+    "gate": "algorithm-source",
+    "status": "unverified",
+    "verifiedScope": [
+      "fixed generated artifact and JS/adapter source identities",
+      "official readable Java candidate identity and selected headers"
+    ],
+    "openScope": [
+      "exact Java build checkout",
+      "resolved generation inputs",
+      "component-specific port and notice handling"
+    ],
+    "auditCompletionDoesNotVerifyGate": true
+  },
+  "exactJavaCommit": {
+    "status": "unresolved",
+    "commit": null,
+    "pinnedReadableCandidate": {
+      "repository": "https://github.com/eclipse-elk/elk",
+      "tag": "v0.12.1",
+      "commit": "3aa3b9fb98d8f9a41285b3061cff5efe79ed2ba4"
+    },
+    "reason": "Release version declaration and tracked generated code identity do not establish the earlier external Java build checkout."
+  },
+  "pathTraceTotals": {
+    "sampledRequests": 23,
+    "freshEngineProcesses": 69,
+    "processorBeforeCalls": 451,
+    "processorAfterCalls": 451,
+    "uniqueProcessorClasses": 23,
+    "singleEdgeDefaultModules": 19
+  },
+  "staticAssertionTotals": {
+    "upstreamSourceFiles": 14,
+    "staticTestCaseSites": 43,
+    "staticAssertionRootSites": 91,
+    "projectCases": 25,
+    "upstreamTestsExecuted": 0,
+    "pythonAlgorithmsVerified": 0,
+    "expandedIndependentAssertionDenominator": null
+  },
+  "pythonAlgorithmsVerified": 0,
+  "parallelExecution": {
+    "agentLanes": {
+      "A": "source_lineage",
+      "B": "layered_path",
+      "V": "assertion_inventory"
+    },
+    "maxSubagents": 3,
+    "rootRole": "integration and independent validator",
+    "sharedFileOwnership": "one writer per file",
+    "crossReviews": [
+      "A reviews V",
+      "V reviews A",
+      "B reviews root"
+    ],
+    "speedupMeasured": false
+  },
+  "evidenceRun": "test-runs/20261103-E01-01",
+  "limitation": "Audit batch only. Source spans, parsed provenance and sampled paths do not prove exact Java build lineage, a complete assertion denominator, Python layout or publication.",
+  "completedUtc": "2026-11-03T03:22:25.836161+00:00",
+  "retrospective": "docs/retrospectives/E01.md",
+  "nextIteration": "E02",
+  "validationReports": {
+    "test-runs/20261103-E01-01/integration/report.json": "470ccad141cbef62e3ce214839e121c45baa3b7f921ffe71220cbc8ffe84f1cd",
+    "test-runs/20261103-E01-01/integration/replay.json": "8db82c3ef5f28f1a1b63137ec8252bc021a34abd667b4d14ce3b081b5975ca6e",
+    "test-runs/20261103-E01-01/fresh-session/test-runs/offline/report.json": "61ff6e09c1beb29decace018c5deb68dc4f7136b44646c2875a2ea1af794b731",
+    "test-runs/20261103-E01-01/linux-offline/report.json": "9a04e384db435b1bd9f61b8800c26fb2121ccdd2ba27de584961bec042f69e51"
+  }
+}

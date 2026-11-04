@@ -1,0 +1,812 @@
+{
+  "scope": "Instrumented phase-side observation only; delegates all original native functions without replacing math",
+  "actual": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "radial",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.radial.compactor": "WEDGE_COMPACTION",
+      "org.eclipse.elk.radial.sorter": "POLAR_COORDINATE",
+      "org.eclipse.elk.radial.rotate": true,
+      "org.eclipse.elk.radial.rotation.targetAngle": 0.4,
+      "org.eclipse.elk.radial.rotation.computeAdditionalWedgeSpace": true,
+      "org.eclipse.elk.radial.rotation.outgoingEdgeAngles": true,
+      "org.eclipse.elk.radial.centerOnRoot": true,
+      "org.eclipse.elk.spacing.nodeNode": 10
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 14,
+        "business": {
+          "ordinal": 0
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(10,8)"
+        },
+        "x": {
+          "nonfinite": "nan"
+        },
+        "y": {
+          "nonfinite": "nan"
+        }
+      },
+      {
+        "id": "n1",
+        "width": 23,
+        "height": 16,
+        "business": {
+          "ordinal": 1
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(23,-1)"
+        },
+        "x": {
+          "nonfinite": "nan"
+        },
+        "y": {
+          "nonfinite": "nan"
+        }
+      },
+      {
+        "id": "n2",
+        "width": 26,
+        "height": 18,
+        "business": {
+          "ordinal": 2
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(36,-10)"
+        },
+        "x": {
+          "nonfinite": "nan"
+        },
+        "y": {
+          "nonfinite": "nan"
+        }
+      },
+      {
+        "id": "n3",
+        "width": 29,
+        "height": 20,
+        "business": {
+          "ordinal": 3
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(49,-19)"
+        },
+        "x": {
+          "nonfinite": "nan"
+        },
+        "y": {
+          "nonfinite": "nan"
+        }
+      },
+      {
+        "id": "n4",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "ordinal": 4
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(62,-28)"
+        },
+        "x": {
+          "nonfinite": "nan"
+        },
+        "y": {
+          "nonfinite": "nan"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "business": {
+          "edge": 0
+        },
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            },
+            "endPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ],
+        "business": {
+          "edge": 1
+        },
+        "sections": [
+          {
+            "id": "e1_s0",
+            "startPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            },
+            "endPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ],
+        "business": {
+          "edge": 2
+        },
+        "sections": [
+          {
+            "id": "e2_s0",
+            "startPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            },
+            "endPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n4"
+        ],
+        "business": {
+          "edge": 3
+        },
+        "sections": [
+          {
+            "id": "e3_s0",
+            "startPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            },
+            "endPoint": {
+              "x": {
+                "nonfinite": "nan"
+              },
+              "y": {
+                "nonfinite": "nan"
+              }
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "x": 0,
+    "y": 0,
+    "width": {
+      "nonfinite": "nan"
+    },
+    "height": {
+      "nonfinite": "nan"
+    }
+  },
+  "expected": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "radial",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.radial.compactor": "WEDGE_COMPACTION",
+      "org.eclipse.elk.radial.sorter": "POLAR_COORDINATE",
+      "org.eclipse.elk.radial.rotate": true,
+      "org.eclipse.elk.radial.rotation.targetAngle": 0.4,
+      "org.eclipse.elk.radial.rotation.computeAdditionalWedgeSpace": true,
+      "org.eclipse.elk.radial.rotation.outgoingEdgeAngles": true,
+      "org.eclipse.elk.radial.centerOnRoot": true,
+      "org.eclipse.elk.spacing.nodeNode": 10
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 14,
+        "business": {
+          "ordinal": 0
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(10,8)"
+        },
+        "$H": 277,
+        "x": null,
+        "y": null
+      },
+      {
+        "id": "n1",
+        "width": 23,
+        "height": 16,
+        "business": {
+          "ordinal": 1
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(23,-1)"
+        },
+        "$H": 279,
+        "x": null,
+        "y": null
+      },
+      {
+        "id": "n2",
+        "width": 26,
+        "height": 18,
+        "business": {
+          "ordinal": 2
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(36,-10)"
+        },
+        "$H": 281,
+        "x": null,
+        "y": null
+      },
+      {
+        "id": "n3",
+        "width": 29,
+        "height": 20,
+        "business": {
+          "ordinal": 3
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(49,-19)"
+        },
+        "$H": 283,
+        "x": null,
+        "y": null
+      },
+      {
+        "id": "n4",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "ordinal": 4
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.position": "(62,-28)"
+        },
+        "$H": 285,
+        "x": null,
+        "y": null
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "business": {
+          "edge": 0
+        },
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": null,
+              "y": null
+            },
+            "endPoint": {
+              "x": null,
+              "y": null
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ],
+        "business": {
+          "edge": 1
+        },
+        "sections": [
+          {
+            "id": "e1_s0",
+            "startPoint": {
+              "x": null,
+              "y": null
+            },
+            "endPoint": {
+              "x": null,
+              "y": null
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ],
+        "business": {
+          "edge": 2
+        },
+        "sections": [
+          {
+            "id": "e2_s0",
+            "startPoint": {
+              "x": null,
+              "y": null
+            },
+            "endPoint": {
+              "x": null,
+              "y": null
+            }
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n4"
+        ],
+        "business": {
+          "edge": 3
+        },
+        "sections": [
+          {
+            "id": "e3_s0",
+            "startPoint": {
+              "x": null,
+              "y": null
+            },
+            "endPoint": {
+              "x": null,
+              "y": null
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": null,
+    "height": null
+  },
+  "events": [
+    {
+      "phase": "eades_layout",
+      "children": [
+        {
+          "id": "n0",
+          "x": -10.0,
+          "y": -7.0,
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": -34.40224022825912,
+          "y": -39.36060255363583,
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": 9.902240228259107,
+          "y": 22.360602553635836,
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": 24.333037302844176,
+          "y": -77.26065130398243,
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": -93.22040481828196,
+          "y": -2.6928296213057674,
+          "width": 32,
+          "height": 22
+        }
+      ]
+    },
+    {
+      "phase": "remove_overlaps",
+      "children": [
+        {
+          "id": "n0",
+          "x": -10.0,
+          "y": -7.0,
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": -34.40224022825912,
+          "y": -39.36060255363583,
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": 9.902240228259107,
+          "y": 22.360602553635836,
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": 24.333037302844176,
+          "y": -77.26065130398243,
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": -93.22040481828196,
+          "y": -2.6928296213057674,
+          "width": 32,
+          "height": 22
+        }
+      ]
+    },
+    {
+      "phase": "compact_graph",
+      "children": [
+        {
+          "id": "n0",
+          "x": -10.0,
+          "y": -7.0,
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": -30.27390139253426,
+          "y": -33.70756633780937,
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": 6.363664083352074,
+          "y": 17.515142940070277,
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": 2.833003183995892,
+          "y": -40.02157863979848,
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": -50.467083070185524,
+          "y": -7.2921208171023455,
+          "width": 32,
+          "height": 22
+        }
+      ]
+    },
+    {
+      "phase": "rotate_graph",
+      "children": [
+        {
+          "id": "n0",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 32,
+          "height": 22
+        }
+      ]
+    },
+    {
+      "phase": "calculate_graph_size",
+      "children": [
+        {
+          "id": "n0",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 32,
+          "height": 22
+        }
+      ]
+    },
+    {
+      "phase": "route_edges",
+      "children": [
+        {
+          "id": "n0",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 32,
+          "height": 22
+        }
+      ]
+    },
+    {
+      "phase": "outgoing_edge_angles",
+      "children": [
+        {
+          "id": "n0",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 20,
+          "height": 14
+        },
+        {
+          "id": "n1",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 23,
+          "height": 16
+        },
+        {
+          "id": "n2",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 26,
+          "height": 18
+        },
+        {
+          "id": "n3",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 29,
+          "height": 20
+        },
+        {
+          "id": "n4",
+          "x": {
+            "nonfinite": "nan"
+          },
+          "y": {
+            "nonfinite": "nan"
+          },
+          "width": 32,
+          "height": 22
+        }
+      ]
+    }
+  ],
+  "sourceSha256": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7"
+}

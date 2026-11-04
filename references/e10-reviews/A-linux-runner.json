@@ -1,0 +1,230 @@
+{
+  "schema": "py-elk-e10-independent-runner-review/v1",
+  "reviewer": "A, independent of B Linux runner implementation",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "tools/platform/linux_e10.py": "026139fae321ebf35e1fbc8937965048225c11831310ddd330215c6643166767"
+  },
+  "reviewBasis": [
+    "Read complete Linux acquisition/runner/sdist source; root immutable PBS API original SHA/tag/asset digest/size are checked before download/extraction.",
+    "Archive extraction confines members/link targets to Python root and uses data filter; actual interpreter version/implementation and executable SHA are recorded. No global install or PATH change.",
+    "Fresh venv installation invokes exact artifact offline without runtime dependencies; the collector independently enforces repository-external cwd, installed wheel43file/METADATA match, -I, empty PATH and absent overrides.",
+    "candidatePython keeps venv/bin/python identity and does not resolve its symlink to the base interpreter.",
+    "Actual argv/cwd/Popen PID/environment policy/stdout/stderr/exit and original observation bytes are preserved; failed process output is retained rather than synthesized as success.",
+    "Linux representative sdist builds with fixed offline3dependencies into a real wheel then installs/observes it; source archive and derived wheel identities are kept separate.",
+    "Independently recomputed V validate_cell for all four final Linux wheel raw receipts, each six cases+metadata+real running cancellation PASS. No new platform computation or full suite run."
+  ],
+  "actualPortableReceiptChecks": [
+    {
+      "path": "references/e10/linux-3.11.json",
+      "sha256": "cc34f4a1644bdfb29309f0aee539c10e1935e99118c88f073be7b47627233632",
+      "validation": {
+        "passed": true,
+        "errors": [],
+        "id": "linux-cpython-3.11",
+        "os": "Linux",
+        "pythonMinor": "3.11",
+        "artifactKind": "wheel",
+        "installationSourceValidated": true,
+        "caseCount": 6,
+        "cases": [
+          {
+            "id": "layered-empty",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-chain",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-diamond-up-flags-11",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "generated-07",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-endpoint",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-algorithm",
+            "passed": true,
+            "rawStrictPassed": false
+          }
+        ],
+        "metadataValidated": true,
+        "realRunningCancellationValidated": true,
+        "wheelSha256": "739f04ebce2782894023dd58b3f1e2e35efda8717f8bdd956c3f7967acedc593",
+        "fullValidation": false,
+        "historicalExecutionAuthenticated": false
+      }
+    },
+    {
+      "path": "references/e10/linux-3.12.json",
+      "sha256": "64913d60710382e71e9102fe36fcb2871b136c841cc196ad36790a1cb6ec55eb",
+      "validation": {
+        "passed": true,
+        "errors": [],
+        "id": "linux-cpython-3.12",
+        "os": "Linux",
+        "pythonMinor": "3.12",
+        "artifactKind": "wheel",
+        "installationSourceValidated": true,
+        "caseCount": 6,
+        "cases": [
+          {
+            "id": "layered-empty",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-chain",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-diamond-up-flags-11",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "generated-07",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-endpoint",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-algorithm",
+            "passed": true,
+            "rawStrictPassed": false
+          }
+        ],
+        "metadataValidated": true,
+        "realRunningCancellationValidated": true,
+        "wheelSha256": "739f04ebce2782894023dd58b3f1e2e35efda8717f8bdd956c3f7967acedc593",
+        "fullValidation": false,
+        "historicalExecutionAuthenticated": false
+      }
+    },
+    {
+      "path": "references/e10/linux-3.13.json",
+      "sha256": "5668e85a3395889693ddcba2d27ab01a530fd6fdd04826d90e3b812acd5be86e",
+      "validation": {
+        "passed": true,
+        "errors": [],
+        "id": "linux-cpython-3.13",
+        "os": "Linux",
+        "pythonMinor": "3.13",
+        "artifactKind": "wheel",
+        "installationSourceValidated": true,
+        "caseCount": 6,
+        "cases": [
+          {
+            "id": "layered-empty",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-chain",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-diamond-up-flags-11",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "generated-07",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-endpoint",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-algorithm",
+            "passed": true,
+            "rawStrictPassed": false
+          }
+        ],
+        "metadataValidated": true,
+        "realRunningCancellationValidated": true,
+        "wheelSha256": "739f04ebce2782894023dd58b3f1e2e35efda8717f8bdd956c3f7967acedc593",
+        "fullValidation": false,
+        "historicalExecutionAuthenticated": false
+      }
+    },
+    {
+      "path": "references/e10/linux-3.14.json",
+      "sha256": "62876b6a120ead2e76756a5d7330bcabedb617ad33fef5d52ba9473b99eae811",
+      "validation": {
+        "passed": true,
+        "errors": [],
+        "id": "linux-cpython-3.14",
+        "os": "Linux",
+        "pythonMinor": "3.14",
+        "artifactKind": "wheel",
+        "installationSourceValidated": true,
+        "caseCount": 6,
+        "cases": [
+          {
+            "id": "layered-empty",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-chain",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "layered-diamond-up-flags-11",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "generated-07",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-endpoint",
+            "passed": true,
+            "rawStrictPassed": false
+          },
+          {
+            "id": "error-unknown-algorithm",
+            "passed": true,
+            "rawStrictPassed": false
+          }
+        ],
+        "metadataValidated": true,
+        "realRunningCancellationValidated": true,
+        "wheelSha256": "739f04ebce2782894023dd58b3f1e2e35efda8717f8bdd956c3f7967acedc593",
+        "fullValidation": false,
+        "historicalExecutionAuthenticated": false
+      }
+    }
+  ],
+  "collectorReviewedSeparately": true,
+  "fullValidation": false,
+  "limitations": [
+    "Acquisition digest/provenance and executable observations do not claim external interpreter filesystem attestation.",
+    "This review covers Linux runner only, not the separately implemented benchmark or a formal release."
+  ]
+}

@@ -1,0 +1,9 @@
+# 06批复盘
+
+交付87文件固定检查点、389份原始证据、共享运行层新hook及Spore两个真实私有布局对照。A闭合barycenter/Forster/model-order与真实port ranks/distribution局部链，B闭合Spore并开始DisCo/RectPacking，root补共享宿主，V独立审source、实现与新原控。完整算法验收仍0，公开包未切换。
+
+有效的协作方式是先交付最小source闭包，审过后立即写真实消费者；root归档与A/B后续实现同时推进。V的实测发现端口默认值被通用DOUBLE分支覆盖、EnumSet被误认为type4以及非空constraints在读取时被清空。修复只复验失败和受影响leaf，成功的旧provider组不重跑，不重绑原执行SHA。
+
+下批继续保持源审分块：A交SweepCopy/counter/sweep，B交polygon/raster/Polyomino与RectPacking阶段，root交完整属性注册/盒身份与协调器。共享类型身份必须核原cast和真实调用，不能由“可变对象”统一推断clone策略。fixture装配错误保留首败，再独立修装配；不改生产逻辑去迁就错误fixture。
+
+文档及时更新默认值例外与运行支持数量；原始243行元数据不等于243项parser完成。中文修改使用apply_patch，避免Windows管道编码损坏。此次未做新的端到端同分母性能实测，不宣称整体提速百分比；开发期继续只做变更校验，最终全量留全部功能完成后。

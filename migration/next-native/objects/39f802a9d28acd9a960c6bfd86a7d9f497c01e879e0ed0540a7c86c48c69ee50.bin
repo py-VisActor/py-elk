@@ -1,0 +1,341 @@
+# SPDX-License-Identifier: (EPL-2.0 OR GPL-3.0-or-later) AND Apache-2.0
+# Guava fuzzy scalar comparison: Copyright (C) 2011 The Guava Authors,
+# Apache-2.0. Narrow native scalar adaptation; not the entire Guava runtime.
+# Fixed elkjs 0.12.1 worker SP01-SP12, independently reviewed E19 closures.
+# Source inventory: references/e19-packing-sources.json. Worker SHA256:
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external Java/GWT build identity remains unresolved.
+"""Native shared SPOrE geometry, import, costs and transfer.
+
+Triangulation, tree/execution phases and provider integration are staged
+separately. No placeholder coordinates are produced.
+"""
+from __future__ import annotations
+
+import math
+from .layered.graph import Vec2
+from .layered.cell_layout import Rectangle
+from .radial import _maximum
+from .fixed import _div
+from .fixed import _padding, _resize
+from .triangulation import TEdge
+
+
+def _minimum(first, second):
+    return -_maximum(-first, -second)
+
+
+def _center(rectangle):
+    return Vec2(rectangle.x+rectangle.width/2, rectangle.y+rectangle.height/2)
+
+
+class SporeNode:
+    def __init__(self, vertex, rectangle):
+        self.original_vertex = vertex
+        self.vertex = Vec2(vertex.x, vertex.y)
+        self.rect = Rectangle(rectangle.x, rectangle.y, rectangle.width, rectangle.height)
+
+    def translate(self, vector):
+        self.vertex.x += vector.x
+        self.vertex.y += vector.y
+        self.rect.x += vector.x
+        self.rect.y += vector.y
+
+    def set_center_position(self, position):
+        self.translate(Vec2(position.x-self.vertex.x, position.y-self.vertex.y))
+
+    def underlap(self, other):
+        first, second = _center(self.rect), _center(other.rect)
+        horizontal = abs(first.x-second.x)
+        vertical = abs(first.y-second.y)
+        horizontal_scale = vertical_scale = 1
+        if horizontal > self.rect.width/2+other.rect.width/2:
+            gap = _minimum(abs(self.rect.x-(other.rect.x+other.rect.width)),
+                           abs(self.rect.x+self.rect.width-other.rect.x))
+            horizontal_scale = 1-_div(gap, horizontal)
+        if vertical > self.rect.height/2+other.rect.height/2:
+            gap = _minimum(abs(self.rect.y-(other.rect.y+other.rect.height)),
+                           abs(self.rect.y+self.rect.height-other.rect.y))
+            vertical_scale = 1-_div(gap, vertical)
+        scale = _minimum(horizontal_scale, vertical_scale)
+        return (1-scale)*math.sqrt(horizontal*horizontal+vertical*vertical)
+
+    def directional_distance(self, other, vector):
+        result = math.inf
+        for first in rectangle_edges(self.rect):
+            for second in rectangle_edges(other.rect):
+                distance = segment_distance(first.u, first.v, second.u, second.v, vector)
+                result = _minimum(result, distance)
+        return result
+
+
+class SporeGraph:
+    def __init__(self, cost_function, tree_strategy, compaction_strategy):
+        self.vertices = []
+        self.cost_function = cost_function
+        self.tree_construction_strategy = tree_strategy
+        self.compaction_strategy = compaction_strategy
+        self.orthogonal_compaction = False
+        self.properties = {}
+        self.preferred_root = None
+        self.t_edges = None
+        self.tree = None
+
+
+def overlap_factor(first, second):
+    """SP04 original rectangle scale ratio, including coincident center zero."""
+    horizontal_overlap = _minimum(abs(first.x-(second.x+second.width)),
+                                  abs(first.x+first.width-second.x))
+    vertical_overlap = _minimum(abs(first.y-(second.y+second.height)),
+                                abs(first.y+first.height-second.y))
+    horizontal = abs(first.x+first.width/2-(second.x+second.width/2))
+    if horizontal > first.width/2+second.width/2:
+        return 1
+    vertical = abs(first.y+first.height/2-(second.y+second.height/2))
+    if vertical > first.height/2+second.height/2:
+        return 1
+    if horizontal == 0 and vertical == 0:
+        return 0
+    if horizontal == 0:
+        return _div(vertical_overlap, vertical)+1
+    if vertical == 0:
+        return _div(horizontal_overlap, horizontal)+1
+    return _minimum(_div(horizontal_overlap, horizontal), _div(vertical_overlap, vertical))+1
+
+
+def _distance(first, second):
+    dx, dy = first.x-second.x, first.y-second.y
+    return math.sqrt(dx*dx+dy*dy)
+
+
+def _fuzzy_compare(first, second, tolerance=1e-4):
+    """Original narrow scalar adapter to observed Guava comparison semantics."""
+    if (abs(first-second) <= tolerance or first == second
+            or math.isnan(first) and math.isnan(second)):
+        return 0
+    if first < second: return -1
+    if first > second: return 1
+    return int(math.isnan(first))-int(math.isnan(second))
+
+
+def shortest_rectangle_distance(first, second):
+    horizontal = _maximum(first.x-(second.x+second.width), second.x-(first.x+first.width))
+    vertical = _maximum(first.y-(second.y+second.height), second.y-(first.y+first.height))
+    if (_fuzzy_compare(horizontal, 0, 1e-5) >= 0) != (_fuzzy_compare(vertical, 0, 1e-5) >= 0):
+        return _maximum(vertical, horizontal)
+    distance = math.sqrt(vertical*vertical+horizontal*horizontal)
+    return distance if _fuzzy_compare(horizontal, 0, 1e-5) > 0 else -distance
+
+
+def rectangle_edges(rectangle):
+    x, y, width, height = rectangle.x, rectangle.y, rectangle.width, rectangle.height
+    return [TEdge(Vec2(x, y), Vec2(x+width, y)),
+            TEdge(Vec2(x, y), Vec2(x, y+height)),
+            TEdge(Vec2(x+width, y+height), Vec2(x+width, y)),
+            TEdge(Vec2(x+width, y+height), Vec2(x, y+height))]
+
+
+def intersects_segments(point, direction, other, other_direction):
+    px, py = other.x-point.x, other.y-point.y
+    p_cross_r = px*direction.y-py*direction.x
+    r_cross_s = direction.x*other_direction.y-direction.y*other_direction.x
+    t = _div(px*other_direction.y-py*other_direction.x, r_cross_s)
+    u = _div(p_cross_r, r_cross_s)
+    if r_cross_s == 0:
+        if p_cross_r == 0:
+            center = Vec2(other.x+other_direction.x*0.5, other.y+other_direction.y*0.5)
+            end = Vec2(point.x+direction.x, point.y+direction.y)
+            first, second = _distance(point, center), _distance(end, center)
+            half_length = math.sqrt(other_direction.x*other_direction.x+other_direction.y*other_direction.y)*0.5
+            if first < second and first <= half_length:
+                return Vec2(point.x, point.y)
+            if second <= half_length:
+                return end
+        return None
+    if 0 <= t <= 1 and 0 <= u <= 1:
+        return Vec2(point.x+direction.x*t, point.y+direction.y*t)
+    return None
+
+
+def _near(first, second):
+    return abs(first.x-second.x) <= 0.05 and abs(first.y-second.y) <= 0.05
+
+
+def trace_rays(a1, a2, b1, b2, vector):
+    result, endpoint_hit = math.inf, False
+    direction = Vec2(a2.x-a1.x, a2.y-a1.y)
+    intersection = intersects_segments(a1, direction, Vec2(b1.x+vector.x, b1.y+vector.y),
+                                      Vec2(b2.x-b1.x, b2.y-b1.y))
+    edge_case = intersection is not None and not (_near(intersection, a1) or _near(intersection, a2))
+    intersection = intersects_segments(a1, direction, b1, vector)
+    if intersection is not None:
+        if (_near(intersection, a1) == _near(intersection, a2)) or edge_case:
+            result = _minimum(result, _distance(intersection, b1))
+        else:
+            endpoint_hit = True
+    intersection = intersects_segments(a1, direction, b2, vector)
+    if intersection is not None and (endpoint_hit or
+            (_near(intersection, a1) == _near(intersection, a2)) or edge_case):
+        result = _minimum(result, _distance(intersection, b2))
+    return result
+
+
+def segment_distance(a1, a2, b1, b2, vector):
+    return _minimum(trace_rays(a1, a2, b1, b2, vector),
+                    trace_rays(b1, b2, a1, a2, Vec2(-vector.x, -vector.y)))
+
+
+def _point_equals(first, second):
+    return first is second or first.x == second.x and first.y == second.y
+
+
+class _PointMap:
+    """Narrow original host value-key lookup; no map iteration is exposed.
+
+    Source importer keys are inserted after jitter and never mutated in this
+    holder. Exact value/identity lookup is independent of bucket traversal.
+    Delaunay's separately reviewed bucket iteration is not approximated here.
+    """
+    def __init__(self):
+        self.entries = []
+
+    def contains(self, key):
+        return any(_point_equals(key, stored) for stored, value in self.entries)
+
+    def get(self, key):
+        for stored, value in self.entries:
+            if _point_equals(key, stored):
+                return value
+        return None
+
+    def put(self, key, value):
+        for index, (stored, previous) in enumerate(self.entries):
+            if _point_equals(key, stored):
+                self.entries[index] = stored, value
+                return
+        self.entries.append((key, value))
+
+
+class SporeImporter:
+    def import_graph(self, state, raw):
+        self.state, self.raw = state, raw
+        self.node_map = _PointMap()
+        state.calculate_node_margins(raw)
+        preferred = state.option(raw, 'processingOrder.preferredRoot')
+        cost_name = state.option(raw, 'processingOrder.spanningTreeCostFunction', 'CIRCLE_UNDERLAP')
+        tree_strategy = state.option(raw, 'processingOrder.treeConstruction', 'MINIMUM_SPANNING_TREE')
+        compaction = state.option(raw, 'compaction.compactionStrategy', 'DEPTH_FIRST')
+        root_selection = state.option(raw, 'processingOrder.rootSelection', 'CENTER_NODE')
+        self.spacing = state.option(raw, 'spacing.nodeNode', 8)
+        costs = {'CENTER_DISTANCE': self.center_distance, 'CIRCLE_UNDERLAP': self.circle_underlap,
+                 'RECTANGLE_UNDERLAP': self.rectangle_underlap, 'INVERTED_OVERLAP': self.inverted_overlap,
+                 'MINIMUM_ROOT_DISTANCE': self.minimum_root_distance}
+        if cost_name not in costs:
+            raise ValueError('No implementation available for '+str(cost_name))
+        graph = self.graph = SporeGraph(costs[cost_name], tree_strategy, compaction)
+        graph.properties['debugSVG'] = state.option(raw, 'debugMode', False)
+        graph.orthogonal_compaction = state.option(raw, 'compaction.orthogonal', False)
+        if not raw.get('children', []):
+            return graph
+        for child in raw.get('children', []):
+            half_width, half_height = child['width']/2, child['height']/2
+            vertex = Vec2(child['x']+half_width, child['y']+half_height)
+            while self.node_map.contains(vertex):
+                vertex.x += (state.random_unit()-0.5)*0.001
+                vertex.y += (state.random_unit()-0.5)*0.001
+            margin = _padding(state.option(child, 'margins', 0))
+            rectangle = Rectangle(vertex.x-half_width-self.spacing/2-margin['left'],
+                vertex.y-half_height-self.spacing/2-margin['top'],
+                child['width']+self.spacing+(margin['left']+margin['right']),
+                child['height']+self.spacing+(margin['top']+margin['bottom']))
+            node = SporeNode(vertex, rectangle)
+            graph.vertices.append(node)
+            self.node_map.put(vertex, (node, child))
+        if root_selection == 'FIXED':
+            if preferred is None:
+                graph.preferred_root = graph.vertices[0]
+            else:
+                for node in graph.vertices:
+                    identifier = self.node_map.get(node.original_vertex)[1].get('id')
+                    if identifier is not None and type(identifier) is str and identifier == preferred:
+                        graph.preferred_root = node
+        elif root_selection == 'CENTER_NODE':
+            center = Vec2(raw['width']*0.5, raw['height']*0.5)
+            center.x += raw['x']
+            center.y += raw['y']
+            closest = math.inf
+            for node in graph.vertices:
+                distance = _distance(node.original_vertex, center)
+                if distance < closest:
+                    closest = distance
+                    graph.preferred_root = node
+        else:
+            raise ValueError('No implementation available for '+str(root_selection))
+        return graph
+
+    def center_distance(self, edge):
+        return _distance(edge.u, edge.v)
+
+    def minimum_root_distance(self, edge):
+        return _minimum(_distance(edge.u, self.graph.preferred_root.vertex),
+                        _distance(edge.v, self.graph.preferred_root.vertex))
+
+    def circle_underlap(self, edge):
+        first, second = self.node_map.get(edge.u)[0], self.node_map.get(edge.v)[0]
+        return (_distance(edge.u, edge.v)-_distance(edge.u, Vec2(first.rect.x, first.rect.y))
+                -_distance(edge.v, Vec2(second.rect.x, second.rect.y)))
+
+    def rectangle_underlap(self, edge):
+        return self.node_map.get(edge.u)[0].underlap(self.node_map.get(edge.v)[0])
+
+    def inverted_overlap(self, edge):
+        first, second = self.node_map.get(edge.u)[0].rect, self.node_map.get(edge.v)[0].rect
+        distance = shortest_rectangle_distance(first, second)
+        if distance >= 0:
+            return distance
+        dx = second.x+second.width/2-(first.x+first.width/2)
+        dy = second.y+second.height/2-(first.y+first.height/2)
+        scale = math.sqrt(dx*dx+dy*dy)
+        return -(overlap_factor(first, second)-1)*scale
+
+    def update_graph(self, graph):
+        updated = _PointMap()
+        graph.t_edges = graph.tree = None
+        for node in graph.vertices:
+            original = self.node_map.get(node.original_vertex)
+            node.original_vertex = _center(node.rect)
+            updated.put(node.original_vertex, original)
+        self.node_map = updated
+
+    def apply_positions(self, graph):
+        raw, state = self.raw, self.state
+        minx = miny = math.inf
+        maxx = maxy = -math.inf
+        for node in graph.vertices:
+            child = self.node_map.get(node.original_vertex)[1]
+            child['x'], child['y'] = node.rect.x, node.rect.y
+            minx, miny = _minimum(minx, child['x']), _minimum(miny, child['y'])
+            maxx = _maximum(maxx, child['x']+child['width'])
+            maxy = _maximum(maxy, child['y']+child['height'])
+        padding = _padding(state.option(raw, 'padding', 8))
+        _resize(state, raw, maxx-minx+(padding['left']+padding['right']),
+                maxy-miny+(padding['top']+padding['bottom']), True, True)
+        from .box import _translate
+        # Real imported containment can differ from the user's JSON edge array.
+        _translate(dict(raw, edges=list(state.contained_edges(raw))),
+                   -minx+padding['left'], -miny+padding['top'])
+        from .radial import clip_vector, _first_section
+        for edge in state.contained_edges(raw):
+            section = _first_section(edge)
+            source = state.owners[id(state.endpoint(edge))]
+            target = state.owners[id(state.endpoint(edge, True))]
+            start = Vec2(source['x']+source['width']/2, source['y']+source['height']/2)
+            end = Vec2(target['x']+target['width']/2, target['y']+target['height']/2)
+            vector = clip_vector(Vec2(end.x-start.x, end.y-start.y), source['width'], source['height'])
+            start.x += vector.x
+            start.y += vector.y
+            vector = clip_vector(Vec2(start.x-end.x, start.y-end.y), target['width'], target['height'])
+            end.x += vector.x
+            end.y += vector.y
+            section['startPoint'] = {'x': start.x, 'y': start.y}
+            section['endPoint'] = {'x': end.x, 'y': end.y}

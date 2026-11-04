@@ -1,0 +1,53 @@
+{
+  "graph": {
+    "id": "r",
+    "layoutOptions": {
+      "elk.algorithm": "box",
+      "elk.padding": "[top=8,left=8,bottom=8,right=8]"
+    },
+    "children": [
+      {
+        "id": "c",
+        "layoutOptions": {
+          "elk.algorithm": "box",
+          "elk.padding": "[top=4,left=4,bottom=4,right=4]",
+          "elk.scaleFactor": 1.5
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10
+          },
+          {
+            "id": "b",
+            "width": 10,
+            "height": 20
+          }
+        ]
+      },
+      {
+        "id": "skip",
+        "x": 70,
+        "y": 5,
+        "width": 12,
+        "height": 9,
+        "layoutOptions": {
+          "elk.noLayout": true
+        },
+        "children": [
+          {
+            "id": "untouched",
+            "x": 3,
+            "y": 4,
+            "width": 6,
+            "height": 8,
+            "layoutOptions": {
+              "elk.algorithm": "fixed"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

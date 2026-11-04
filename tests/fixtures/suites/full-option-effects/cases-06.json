@@ -1,0 +1,360 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "One finite whitespace compaction / real wrapping / high-degree family batch",
+  "cases": [
+    {
+      "id": "horizontal-holes-base",
+      "request": "requests/horizontal-holes-base.json",
+      "requestSha256": "dfd157f84aba1f373b02502ff188e54c18f0a8e57e0317f6c489c965f15ab142",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "horizontal-holes-left",
+      "request": "requests/horizontal-holes-left.json",
+      "requestSha256": "2bfd3a7248b5ead4d9a5e0c6ed9fc3e871a5c56cda3267cbd0baddf4b39a46af",
+      "baseline": "horizontal-holes-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.compaction.postCompaction.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Compaction changes actual node coordinates/width in alternating wide/narrow parallel chains"
+        }
+      ]
+    },
+    {
+      "id": "horizontal-holes-edge-length",
+      "request": "requests/horizontal-holes-edge-length.json",
+      "requestSha256": "883c7652bdbd37886ffb13cdfe0ad4139a0bdb3da4f9595a4ebf6e447a8a31d6",
+      "baseline": "horizontal-holes-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.compaction.postCompaction.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Compaction changes actual node coordinates/width in alternating wide/narrow parallel chains"
+        }
+      ]
+    },
+    {
+      "id": "horizontal-holes-quadratic",
+      "request": "requests/horizontal-holes-quadratic.json",
+      "requestSha256": "56a6cae68d020cfca51df04b2e69f032f596c44bea557f5e5fc125d89c0055cd",
+      "baseline": "horizontal-holes-left",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.compaction.postCompaction.constraints",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Changing the actual constraint producer may change compacted geometry; an equal result is retained as not demonstrated"
+        }
+      ]
+    },
+    {
+      "id": "wrapping-control-base",
+      "request": "requests/wrapping-control-base.json",
+      "requestSha256": "331054d4c6fc27a96c02e6553f47d908fd73f3be29741a24dcc44dbae0039b3c",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "wrapping-control-msd",
+      "request": "requests/wrapping-control-msd.json",
+      "requestSha256": "f02403f9405373bc10b0f66c1b44930f5321ac221d15af40c5e1125cc0363790",
+      "baseline": "wrapping-control-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.wrapping.cutting.strategy",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual wrapped row allocation and/or edge improvement changes node coordinates or root size"
+        }
+      ]
+    },
+    {
+      "id": "wrapping-control-correction",
+      "request": "requests/wrapping-control-correction.json",
+      "requestSha256": "cb821c2f3e982de7fa9dcdbbe36b8bb1587bd3cfffe5f9247355460c57637d18",
+      "baseline": "wrapping-control-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.wrapping.correctionFactor",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual wrapped row allocation and/or edge improvement changes node coordinates or root size"
+        }
+      ]
+    },
+    {
+      "id": "wrapping-control-improve",
+      "request": "requests/wrapping-control-improve.json",
+      "requestSha256": "0ec069c8cf4b6ad9ad96a1fe6fd142e53772d2a19e807f338f91acf87ce32c65",
+      "baseline": "wrapping-control-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.wrapping.multiEdge.improveWrappedEdges",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "Actual wrapped row allocation and/or edge improvement changes node coordinates or root size"
+        }
+      ]
+    },
+    {
+      "id": "high-degree-control-base",
+      "request": "requests/high-degree-control-base.json",
+      "requestSha256": "63ae9415c6f094dc9f35b60ef93f5489ea2b5489284786c1698eef4242f46197",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "high-degree-disable",
+      "request": "requests/high-degree-disable.json",
+      "requestSha256": "d39e1c9f676daf0bd7658523ac0f3d081da3b270bc432b3c75c60e497ee1321c",
+      "baseline": "high-degree-control-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.highDegreeNodes.treatment",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/children/10/x",
+            "/result/children/10/y",
+            "/result/children/11/x",
+            "/result/children/11/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "The real degree/height guard changes whether eligible attached trees are pulled into inserted layers"
+        }
+      ]
+    },
+    {
+      "id": "high-degree-threshold",
+      "request": "requests/high-degree-threshold.json",
+      "requestSha256": "b837dabed25c4b86bd918436326431e998ded2d4d20c1935673dbe1f78ab1949",
+      "baseline": "high-degree-control-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.highDegreeNodes.threshold",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/children/10/x",
+            "/result/children/10/y",
+            "/result/children/11/x",
+            "/result/children/11/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "The real degree/height guard changes whether eligible attached trees are pulled into inserted layers"
+        }
+      ]
+    },
+    {
+      "id": "high-degree-height",
+      "request": "requests/high-degree-height.json",
+      "requestSha256": "cffeecf3b568661f301d76b970fa8a122aa6d02f9d645a9ab665b6b154816ad9",
+      "baseline": "high-degree-control-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.highDegreeNodes.treeHeight",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y",
+            "/result/children/6/x",
+            "/result/children/6/y",
+            "/result/children/7/x",
+            "/result/children/7/y",
+            "/result/children/8/x",
+            "/result/children/8/y",
+            "/result/children/9/x",
+            "/result/children/9/y",
+            "/result/children/10/x",
+            "/result/children/10/y",
+            "/result/children/11/x",
+            "/result/children/11/y",
+            "/result/width",
+            "/result/height"
+          ],
+          "claim": "The real degree/height guard changes whether eligible attached trees are pulled into inserted layers"
+        }
+      ]
+    }
+  ]
+}

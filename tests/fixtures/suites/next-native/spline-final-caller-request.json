@@ -1,0 +1,133 @@
+{
+  "cases": [
+    {
+      "name": "sloppy-final-neighbor-shortcuts",
+      "mode": "SLOPPY",
+      "layers": [
+        [
+          {
+            "name": "s0",
+            "y": -10,
+            "w": 24
+          },
+          {
+            "name": "s1",
+            "y": 40,
+            "w": 18
+          },
+          {
+            "name": "s2",
+            "y": 90,
+            "w": 28
+          }
+        ],
+        [
+          {
+            "name": "t0",
+            "y": 0,
+            "w": 20
+          },
+          {
+            "name": "t1",
+            "y": 100,
+            "w": 26
+          },
+          {
+            "name": "t2",
+            "y": 160,
+            "w": 22
+          }
+        ]
+      ],
+      "edges": [
+        [
+          "s0",
+          "EAST",
+          "t2",
+          "WEST"
+        ],
+        [
+          "s1",
+          "EAST",
+          "t0",
+          "WEST"
+        ],
+        [
+          "s2",
+          "EAST",
+          "t1",
+          "WEST"
+        ],
+        [
+          "t2",
+          "WEST",
+          "t0",
+          "WEST"
+        ]
+      ]
+    },
+    {
+      "name": "conservative-final-hyper-three-layers",
+      "mode": "CONSERVATIVE",
+      "layers": [
+        [
+          {
+            "name": "u",
+            "y": 0,
+            "w": 21
+          }
+        ],
+        [
+          {
+            "name": "v0",
+            "y": 10,
+            "w": 17
+          },
+          {
+            "name": "v1",
+            "y": 100,
+            "w": 29
+          }
+        ],
+        [
+          {
+            "name": "w0",
+            "y": 30,
+            "w": 25
+          },
+          {
+            "name": "w1",
+            "y": 160,
+            "w": 19
+          }
+        ]
+      ],
+      "edges": [
+        [
+          "u",
+          "EAST",
+          "v0",
+          "WEST"
+        ],
+        [
+          "u",
+          "EAST",
+          "v1",
+          "WEST"
+        ],
+        [
+          "v0",
+          "EAST",
+          "w1",
+          "WEST"
+        ],
+        [
+          "v1",
+          "EAST",
+          "w0",
+          "WEST"
+        ]
+      ]
+    }
+  ]
+}

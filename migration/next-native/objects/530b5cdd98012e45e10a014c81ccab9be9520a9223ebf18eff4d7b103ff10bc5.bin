@@ -1,0 +1,61 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed worker InstancePool and executeAlgorithm, independently reviewed in
+# HOST11/V/pool-deprecated-source-review-01.json. Worker SHA256
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+"""Native FIFO provider reuse and direct execution; no extra monitor subtask."""
+from collections import deque
+from .providers import load_provider_body
+
+
+class InstancePool:
+    def __init__(self,factory):
+        self.instances=deque()
+        self.factory=factory
+        self.limit=-1
+
+    def fetch(self):
+        return self.instances.popleft()if self.instances else self.factory.create()
+
+    def release(self,instance):
+        if self.limit<0 or len(self.instances)<self.limit:
+            self.instances.append(instance)
+        else:self.factory.destroy(instance)
+
+
+class NativeProvider:
+    """An owned provider instance invoking its actual native algorithm body."""
+    def __init__(self,algorithm):
+        self.algorithm=algorithm
+        self.body=load_provider_body(algorithm)
+
+    def layout(self,state,node,monitor):
+        return self.body(state,node,monitor)
+
+
+class NativeProviderFactory:
+    def __init__(self,algorithm):self.algorithm=algorithm
+    def create(self):return NativeProvider(self.algorithm)
+    def destroy(self,instance):
+        # This native adapter owns only an id and a function; algorithm state
+        # belongs to the actual call, with no external resources to destroy.
+        return None
+
+
+class ProviderPools:
+    """A pool per descriptor reference, independent of its id-based equality."""
+    def __init__(self):self._pools={}
+
+    def pool_for(self,descriptor):
+        key=id(descriptor)
+        if key not in self._pools:
+            self._pools[key]=(descriptor,InstancePool(NativeProviderFactory(descriptor.id)))
+        return self._pools[key][1]
+
+
+def execute_algorithm(state,node,descriptor,monitor,pools):
+    pool=pools.pool_for(descriptor)
+    provider=pool.fetch()
+    # Fetch is before the source try. Only successful layout is released:
+    # neither layout nor release failure is followed by a finally-release.
+    provider.layout(state,node,monitor)
+    pool.release(provider)

@@ -1,0 +1,430 @@
+{
+  "schema": "py-elk-next-phase-factory-configurations/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "d0c1fd8ec47a6650d8bf76aa751270a585aa92daa16bc7b30050aad4712f28a1",
+  "requestSha256": "f32c164f0cc5caf312acec3a704314ac68e27b03c3675449421819e772424cff",
+  "pid": 38088,
+  "parentPid": 41820,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "missing-properties",
+        "phases": [
+          {
+            "configuration": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                "REVERSED_EDGE_RESTORER"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [
+                "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+              ],
+              [
+                "LAYER_CONSTRAINT_PREPROCESSOR"
+              ],
+              [
+                "LAYER_CONSTRAINT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "LONG_EDGE_SPLITTER",
+                "PORT_LIST_SORTER"
+              ],
+              [
+                "IN_LAYER_CONSTRAINT_PROCESSOR"
+              ],
+              [],
+              [
+                "LONG_EDGE_JOINER"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": null,
+            "sameConfiguration": true,
+            "bucketsIndependent": null,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 2
+          }
+        ],
+        "graphPropertiesPresent": false
+      },
+      {
+        "id": "ns-alone-does-not-add-processors",
+        "phases": [
+          {
+            "configuration": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                "REVERSED_EDGE_RESTORER"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [
+                "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+              ],
+              [
+                "LAYER_CONSTRAINT_PREPROCESSOR"
+              ],
+              [
+                "LAYER_CONSTRAINT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "LONG_EDGE_SPLITTER",
+                "PORT_LIST_SORTER"
+              ],
+              [
+                "IN_LAYER_CONSTRAINT_PROCESSOR"
+              ],
+              [],
+              [
+                "LONG_EDGE_JOINER"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": null,
+            "sameConfiguration": true,
+            "bucketsIndependent": null,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 2
+          }
+        ],
+        "graphPropertiesPresent": true
+      },
+      {
+        "id": "fixed-ns-skips-feedback-getter",
+        "phases": [
+          {
+            "configuration": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                "REVERSED_EDGE_RESTORER"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [
+                "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+              ],
+              [
+                "LAYER_CONSTRAINT_PREPROCESSOR"
+              ],
+              [
+                "LAYER_CONSTRAINT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "LONG_EDGE_SPLITTER",
+                "PORT_LIST_SORTER"
+              ],
+              [
+                "IN_LAYER_CONSTRAINT_PROCESSOR"
+              ],
+              [],
+              [
+                "LONG_EDGE_JOINER"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": null,
+            "sameConfiguration": true,
+            "bucketsIndependent": null,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "INVERTED_PORT_PROCESSOR",
+                "NORTH_SOUTH_PORT_PREPROCESSOR"
+              ],
+              [],
+              [],
+              [
+                "NORTH_SOUTH_PORT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          }
+        ],
+        "graphPropertiesPresent": true
+      },
+      {
+        "id": "all-orthogonal-additions",
+        "phases": [
+          {
+            "configuration": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                "REVERSED_EDGE_RESTORER"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [
+                "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+              ],
+              [
+                "LAYER_CONSTRAINT_PREPROCESSOR"
+              ],
+              [
+                "LAYER_CONSTRAINT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "LONG_EDGE_SPLITTER",
+                "PORT_LIST_SORTER"
+              ],
+              [
+                "IN_LAYER_CONSTRAINT_PROCESSOR"
+              ],
+              [],
+              [
+                "LONG_EDGE_JOINER"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [],
+              [],
+              [
+                "HIERARCHICAL_PORT_POSITION_PROCESSOR"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [
+                "SELF_LOOP_PREPROCESSOR"
+              ],
+              [
+                "LABEL_DUMMY_INSERTER"
+              ],
+              [
+                "HIERARCHICAL_PORT_CONSTRAINT_PROCESSOR",
+                "INVERTED_PORT_PROCESSOR",
+                "NORTH_SOUTH_PORT_PREPROCESSOR"
+              ],
+              [
+                "SELF_LOOP_PORT_RESTORER",
+                "SELF_LOOP_ROUTER",
+                "END_LABEL_PREPROCESSOR",
+                "LABEL_DUMMY_SWITCHER",
+                "LABEL_SIDE_SELECTOR",
+                "HYPEREDGE_DUMMY_MERGER",
+                "HIERARCHICAL_PORT_DUMMY_SIZE_PROCESSOR"
+              ],
+              [],
+              [
+                "HYPERNODE_PROCESSOR",
+                "HIERARCHICAL_PORT_ORTHOGONAL_EDGE_ROUTER",
+                "SELF_LOOP_POSTPROCESSOR",
+                "NORTH_SOUTH_PORT_POSTPROCESSOR",
+                "LABEL_DUMMY_REMOVER",
+                "END_LABEL_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          }
+        ],
+        "graphPropertiesPresent": true
+      },
+      {
+        "id": "feedback-enables-ns",
+        "phases": [
+          {
+            "configuration": [
+              [],
+              [],
+              [],
+              [],
+              [],
+              [
+                "REVERSED_EDGE_RESTORER"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [
+                "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER"
+              ],
+              [
+                "LAYER_CONSTRAINT_PREPROCESSOR"
+              ],
+              [
+                "LAYER_CONSTRAINT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": true,
+            "bucketsIndependent": false,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "LONG_EDGE_SPLITTER",
+                "PORT_LIST_SORTER"
+              ],
+              [
+                "IN_LAYER_CONSTRAINT_PROCESSOR"
+              ],
+              [],
+              [
+                "LONG_EDGE_JOINER"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": null,
+            "sameConfiguration": true,
+            "bucketsIndependent": null,
+            "feedbackReads": 0
+          },
+          {
+            "configuration": [
+              [],
+              [],
+              [
+                "INVERTED_PORT_PROCESSOR",
+                "NORTH_SOUTH_PORT_PREPROCESSOR"
+              ],
+              [],
+              [],
+              [
+                "NORTH_SOUTH_PORT_POSTPROCESSOR"
+              ]
+            ],
+            "sameConfiguration": false,
+            "bucketsIndependent": true,
+            "feedbackReads": 2
+          }
+        ],
+        "graphPropertiesPresent": true
+      }
+    ],
+    "edgeFactoryIdentity": {
+      "sameUndefined": true,
+      "undefinedVsOrthoDistinct": true,
+      "orthoVsPolylineDistinct": true
+    },
+    "sourceObjectApi": true,
+    "phaseMathExecuted": false,
+    "layoutExecuted": false
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

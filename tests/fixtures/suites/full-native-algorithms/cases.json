@@ -1,0 +1,1249 @@
+{
+  "schema": "py-elk-full-algorithms-suite/v1",
+  "algorithms": [
+    "layered",
+    "fixed",
+    "box",
+    "random",
+    "mrtree",
+    "radial",
+    "force",
+    "stress",
+    "disco",
+    "rectpacking",
+    "sporeOverlap",
+    "sporeCompaction"
+  ],
+  "p1": [
+    "GREEDY",
+    "DEPTH_FIRST",
+    "INTERACTIVE",
+    "MODEL_ORDER",
+    "GREEDY_MODEL_ORDER",
+    "SCC_CONNECTIVITY",
+    "SCC_NODE_TYPE",
+    "DFS_NODE_ORDER",
+    "BFS_NODE_ORDER"
+  ],
+  "p2": [
+    "NETWORK_SIMPLEX",
+    "LONGEST_PATH",
+    "LONGEST_PATH_SOURCE",
+    "COFFMAN_GRAHAM",
+    "BF_MODEL_ORDER",
+    "DF_MODEL_ORDER",
+    "INTERACTIVE",
+    "MIN_WIDTH",
+    "STRETCH_WIDTH"
+  ],
+  "cases": [
+    {
+      "id": "basic-layered",
+      "request": "requests/basic-layered.json",
+      "requestSha256": "96189d3d61d0f1391d0ebe767bfefe04df8bb51d0a89d1fd27aa53dd4e9f82dd",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-fixed",
+      "request": "requests/basic-fixed.json",
+      "requestSha256": "1a40978497ef1d7da07523215e3f0d6962e80ff30e07451a6c8a79ad0a945e04",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-box",
+      "request": "requests/basic-box.json",
+      "requestSha256": "45394f188b31e8d6b40446cfb3877173259431ccfac26cffb26c4624de75d225",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-random",
+      "request": "requests/basic-random.json",
+      "requestSha256": "9cb24426c0c8722d01c83f347a71189b8eb577eeb4153e5a8462a49538137e9d",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-mrtree",
+      "request": "requests/basic-mrtree.json",
+      "requestSha256": "dbffca7c7f0332a23b5f96197941c5a5ab3206fee69247554a25c2e8f66b1c91",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-radial",
+      "request": "requests/basic-radial.json",
+      "requestSha256": "81374a229fbc7dd279b2014969edff0e847444bb1a4bdf2070ff4239e77d29c6",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-force",
+      "request": "requests/basic-force.json",
+      "requestSha256": "7193c0d631099ff73d7d6db28be480ce53206676c8222c323c07532cbeabee62",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-stress",
+      "request": "requests/basic-stress.json",
+      "requestSha256": "5e8f29431d4a1aa7245a49f0d9b9748d0c9edb1a126b00b15ea49a0e48e5b565",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-disco",
+      "request": "requests/basic-disco.json",
+      "requestSha256": "ca999ba03e803420834201d99dd10191b528b2a6cf607baa53e68db7c7fc66a4",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-rectpacking",
+      "request": "requests/basic-rectpacking.json",
+      "requestSha256": "fe53cf340baec29b67d65db43fbff0ea1197a9e7c8bcf928767444baeef1d74d",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-sporeOverlap",
+      "request": "requests/basic-sporeOverlap.json",
+      "requestSha256": "0ef5366bd6ee27855f17315cdbc674a19748591347c34c4bd4cec8d684e45985",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "basic-sporeCompaction",
+      "request": "requests/basic-sporeCompaction.json",
+      "requestSha256": "e7faf5a88e75e0d90808c43466d3eec05c3dfae9db38c3f856ba75f6de1491f9",
+      "group": "algorithm-basic",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-network_simplex",
+      "request": "requests/p1-greedy--p2-network_simplex.json",
+      "requestSha256": "258454dd813000d9e5a5ad7381eff12ee43584a5daf44b4bf9349b1aab5d99a7",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-longest_path",
+      "request": "requests/p1-greedy--p2-longest_path.json",
+      "requestSha256": "1959f453d342fa2a12b0df9be07dccc5539b7b977a70e0a64aa419a418ff9e91",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-longest_path_source",
+      "request": "requests/p1-greedy--p2-longest_path_source.json",
+      "requestSha256": "61524b2fd03453701404f1232d68f067458db2f3d604325958a52bdb8465b0c5",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-coffman_graham",
+      "request": "requests/p1-greedy--p2-coffman_graham.json",
+      "requestSha256": "1389ccc61e3a388d5cb386de44330a1683ba0806e7aa4b5b98c4862cbfa3a767",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-bf_model_order",
+      "request": "requests/p1-greedy--p2-bf_model_order.json",
+      "requestSha256": "04d5d0f98945bfacf32616c5277c558dfcef7fbdef639c678ccee6738ca80d99",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-df_model_order",
+      "request": "requests/p1-greedy--p2-df_model_order.json",
+      "requestSha256": "0f9d2a3cbcab528f24cab1401a2c55b1df76a3d18099872c86837c9eea9ab036",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-interactive",
+      "request": "requests/p1-greedy--p2-interactive.json",
+      "requestSha256": "efe1c1afe2b594483f64a7b1620961373728169009d1341e15613fe0e2f0fb5b",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-min_width",
+      "request": "requests/p1-greedy--p2-min_width.json",
+      "requestSha256": "5023589f6e869b97bce6f298754d60a4845a413ab0d3ed21bd6a4096d349a8df",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy--p2-stretch_width",
+      "request": "requests/p1-greedy--p2-stretch_width.json",
+      "requestSha256": "af8f366030873fb277e359530d0e8cfc96abbb21eac618d0c868295ecedb64e6",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-network_simplex",
+      "request": "requests/p1-depth_first--p2-network_simplex.json",
+      "requestSha256": "a7f84976c90cc7d613181c16b061a72ee6c2f64d9626ec92f828db9b0902dee3",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-longest_path",
+      "request": "requests/p1-depth_first--p2-longest_path.json",
+      "requestSha256": "0d4748d692801ae56ebb8e558d1d22355f55b6c32a49e51e54ab1f4d7f93656d",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-longest_path_source",
+      "request": "requests/p1-depth_first--p2-longest_path_source.json",
+      "requestSha256": "6a56c725f56f8293ff883695bd65582dd59ec3324e9f8d3454013629a625d087",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-coffman_graham",
+      "request": "requests/p1-depth_first--p2-coffman_graham.json",
+      "requestSha256": "9a676185ad29eeb63d130ca3b60245f3c95986d6cb0dcad08040dffca0a5f0c0",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-bf_model_order",
+      "request": "requests/p1-depth_first--p2-bf_model_order.json",
+      "requestSha256": "486bc6fce8bb004ae1f6c50c2c675a977409abb5652bc5d4633f8acbb24b0382",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-df_model_order",
+      "request": "requests/p1-depth_first--p2-df_model_order.json",
+      "requestSha256": "33840e1fea2e54e525cfff54eba3e0a137bbdb5c7a6fc0b0db0eead5a76675c4",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-interactive",
+      "request": "requests/p1-depth_first--p2-interactive.json",
+      "requestSha256": "fff0b83bb68a8db47e182bd67cffea03b418b2b0ba4f511af183628631554d4d",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-min_width",
+      "request": "requests/p1-depth_first--p2-min_width.json",
+      "requestSha256": "c95b155e31afd855a564d9a39cffe6dd6cbebc1cf1d780a42f04f6a71b541358",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-depth_first--p2-stretch_width",
+      "request": "requests/p1-depth_first--p2-stretch_width.json",
+      "requestSha256": "9cf276b6390fe75790782fa839e8800411f6e2c386b610eeab572c38c54b25dc",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-network_simplex",
+      "request": "requests/p1-interactive--p2-network_simplex.json",
+      "requestSha256": "0f8d614a76d2207c11e6f8889097dda9977bd9fdfda93e1b27173695224fb6d6",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-longest_path",
+      "request": "requests/p1-interactive--p2-longest_path.json",
+      "requestSha256": "13a698f246612942d0ee63919c0a8ea5ffe1a0bbd676c0ba8d49b16b6bfd7095",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-longest_path_source",
+      "request": "requests/p1-interactive--p2-longest_path_source.json",
+      "requestSha256": "fbe29f4b2eddedcff842a93483168ae555c524da62d78b31144e6a189c35a3c7",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-coffman_graham",
+      "request": "requests/p1-interactive--p2-coffman_graham.json",
+      "requestSha256": "2e9011f6e9db4a0daa0877d522b58f6447c4de1f442d7647a3f94570979ba7ce",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-bf_model_order",
+      "request": "requests/p1-interactive--p2-bf_model_order.json",
+      "requestSha256": "bc173146bcba14f6314320a2ceed3f3944c140ce1d0510042e3f8f96b25c94ed",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-df_model_order",
+      "request": "requests/p1-interactive--p2-df_model_order.json",
+      "requestSha256": "bb8c71849253e330f985862539b8e75404aac2d84d219692e55f0639a92abc09",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-interactive",
+      "request": "requests/p1-interactive--p2-interactive.json",
+      "requestSha256": "c0e03e50ef6e35990ad49fdfb8d234999b3406d700d057964b8920badc5faf11",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-min_width",
+      "request": "requests/p1-interactive--p2-min_width.json",
+      "requestSha256": "42927745c52aec0d940dad4667f72a2139983d43f7cb92b87a503eb4c64aada3",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-interactive--p2-stretch_width",
+      "request": "requests/p1-interactive--p2-stretch_width.json",
+      "requestSha256": "7f7822465ae58d28792615301f9cd27fb2c2fd9843fc3851b455033ae4d6e548",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-network_simplex",
+      "request": "requests/p1-model_order--p2-network_simplex.json",
+      "requestSha256": "70c8c8f680512069760fafb10d09ab89f8506f3bad2fa248c30689a4d8f945f7",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-longest_path",
+      "request": "requests/p1-model_order--p2-longest_path.json",
+      "requestSha256": "7236fd23fde6c8253faddb6aaa2b94e77faa99e81d5324b06b9b8ffbcafcd635",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-longest_path_source",
+      "request": "requests/p1-model_order--p2-longest_path_source.json",
+      "requestSha256": "5444a800cd39ea76e364e6eeca92df4ef58155c37f3376426cfae4e9d9a91cb5",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-coffman_graham",
+      "request": "requests/p1-model_order--p2-coffman_graham.json",
+      "requestSha256": "a7fa177ca7b61a9493d957e60f3e5cc9d1e3c054889cb4ce102d7f02230a2e2b",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-bf_model_order",
+      "request": "requests/p1-model_order--p2-bf_model_order.json",
+      "requestSha256": "68c30d2201c7ce1e61abde461419d797afb00f0662d8feb1602374211400a3b3",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-df_model_order",
+      "request": "requests/p1-model_order--p2-df_model_order.json",
+      "requestSha256": "24c3652ca29743b53d7dfc24af931913c136e65fc4634d175de7e1907f8b2a28",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-interactive",
+      "request": "requests/p1-model_order--p2-interactive.json",
+      "requestSha256": "10e8e9292fcd23d8aa6592002cf3cdf335be65448858c8ba1796248ef8b1888b",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-min_width",
+      "request": "requests/p1-model_order--p2-min_width.json",
+      "requestSha256": "4a6e033619821952791a6972f32e031b6e40e8164b932eac5e1ee31e4f806ab2",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-model_order--p2-stretch_width",
+      "request": "requests/p1-model_order--p2-stretch_width.json",
+      "requestSha256": "d010fc374f088caf4dacebea846bcc41de03d51e989ab4425b1276fe5219cb81",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-network_simplex",
+      "request": "requests/p1-greedy_model_order--p2-network_simplex.json",
+      "requestSha256": "ad088d65120ea4afc2b2201bdfe6396f9ad18d053bafa39a93aceb4c60a9b59a",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-longest_path",
+      "request": "requests/p1-greedy_model_order--p2-longest_path.json",
+      "requestSha256": "65432bd32092a87e68c7aed0d9933498d89a0358ee1506821c8ef281725acb18",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-longest_path_source",
+      "request": "requests/p1-greedy_model_order--p2-longest_path_source.json",
+      "requestSha256": "345298992385b4c23611f444aecc22e40e03b710f30fb22beaab6586422c888a",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-coffman_graham",
+      "request": "requests/p1-greedy_model_order--p2-coffman_graham.json",
+      "requestSha256": "dacc982e38223cf8cf6f376d1ce365fdaf98a4154e68a0a8b841caabb3866555",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-bf_model_order",
+      "request": "requests/p1-greedy_model_order--p2-bf_model_order.json",
+      "requestSha256": "a9d87865325ab438b1fdba282804ac8dd7db2e3e80e5295cdb7edc930cb974ae",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-df_model_order",
+      "request": "requests/p1-greedy_model_order--p2-df_model_order.json",
+      "requestSha256": "2864931cbfa3f166dce6833fec8190886dfcfa82cbd7c00051a2f76c0e15777d",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-interactive",
+      "request": "requests/p1-greedy_model_order--p2-interactive.json",
+      "requestSha256": "11ce5d349a8f51f221dd8f11e0a9a18d063136e6932faaf40f46b96f642c647f",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-min_width",
+      "request": "requests/p1-greedy_model_order--p2-min_width.json",
+      "requestSha256": "e153cae7cc83aaf9e588943d7e77159ec9c667ffd951f3ac93aa651c6f26af20",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-greedy_model_order--p2-stretch_width",
+      "request": "requests/p1-greedy_model_order--p2-stretch_width.json",
+      "requestSha256": "3fecf616d479528103d60608794a4dc93aa4c1fd1a01608da8d0e7595071e454",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-network_simplex",
+      "request": "requests/p1-scc_connectivity--p2-network_simplex.json",
+      "requestSha256": "1cacf93e2820d03b26d94813eae068e60246124ed708a90d9290e6d779c6026d",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-longest_path",
+      "request": "requests/p1-scc_connectivity--p2-longest_path.json",
+      "requestSha256": "b737ee1404c9202484afbb822b8829b383e7edcf7b411a3d7c430114b403d790",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-longest_path_source",
+      "request": "requests/p1-scc_connectivity--p2-longest_path_source.json",
+      "requestSha256": "1c493a5c1714f4925a8978bfdaa15a561ff328d2b6dbf7d72a9456be278679f2",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-coffman_graham",
+      "request": "requests/p1-scc_connectivity--p2-coffman_graham.json",
+      "requestSha256": "c7e2505e03f8456f531eea9c85b1fbe88e7c38e843305fc32bebd45b89806bee",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-bf_model_order",
+      "request": "requests/p1-scc_connectivity--p2-bf_model_order.json",
+      "requestSha256": "cde9e16592752075a61abd75546bc7189ab6fe7ffa385024e6cec3e815124cde",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-df_model_order",
+      "request": "requests/p1-scc_connectivity--p2-df_model_order.json",
+      "requestSha256": "1897c52953ef0393a3bb80c8defda8ddad76eb2ad5b9557afae1c9c60775f447",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-interactive",
+      "request": "requests/p1-scc_connectivity--p2-interactive.json",
+      "requestSha256": "c42ce213a8fc8c151a3b43fbd459d438e622bf2ac6b709d726d16158f58852e5",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-min_width",
+      "request": "requests/p1-scc_connectivity--p2-min_width.json",
+      "requestSha256": "ea58a120b78b5dbb0fcd445638d5518ac94ac84389077a3284a691465c908da5",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_connectivity--p2-stretch_width",
+      "request": "requests/p1-scc_connectivity--p2-stretch_width.json",
+      "requestSha256": "7030696ceff7e3456e98d6666d7db4c062b0cb8b4808ecee7146df633d746291",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-network_simplex",
+      "request": "requests/p1-scc_node_type--p2-network_simplex.json",
+      "requestSha256": "95a4eaf34db478e101e12b009c26653a635a9d2cbd3a34b9b6f22c46432bb98a",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-longest_path",
+      "request": "requests/p1-scc_node_type--p2-longest_path.json",
+      "requestSha256": "a5fb39c0b63f5a225a3c452f1b5c4e0b6077e5387103e9f52dc91dcf7db18f7c",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-longest_path_source",
+      "request": "requests/p1-scc_node_type--p2-longest_path_source.json",
+      "requestSha256": "ea2b193995e0f67ee219910da53b43f7dd2e0966f16897ac64f10da3c7551b1f",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-coffman_graham",
+      "request": "requests/p1-scc_node_type--p2-coffman_graham.json",
+      "requestSha256": "337363c172102c4a4127fc2eccab2c7257451ed2a3519d18316922a9779fbfb8",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-bf_model_order",
+      "request": "requests/p1-scc_node_type--p2-bf_model_order.json",
+      "requestSha256": "531aeb0523d9ec49e600c44639a3acc6a4c3502d820500104188beaa0522b691",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-df_model_order",
+      "request": "requests/p1-scc_node_type--p2-df_model_order.json",
+      "requestSha256": "f0e245371ecc9c675b365382d8ab8652c2195bd65920ab5c61a8756bbf72e27a",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-interactive",
+      "request": "requests/p1-scc_node_type--p2-interactive.json",
+      "requestSha256": "f4b63404380e5a7d228ac0df959383c75ccbce1707d09a5fa4bbf78235094daf",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-min_width",
+      "request": "requests/p1-scc_node_type--p2-min_width.json",
+      "requestSha256": "f4626c28b36f3acec06e8ea2661b712559aef600c5b6ef19cd35ee62f6defdca",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-scc_node_type--p2-stretch_width",
+      "request": "requests/p1-scc_node_type--p2-stretch_width.json",
+      "requestSha256": "7504c2dfac07dcf1a97f043d38e585ed8f05dc532d2d5d77b2824326005703a0",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-network_simplex",
+      "request": "requests/p1-dfs_node_order--p2-network_simplex.json",
+      "requestSha256": "ec1fbc93ce870752019b02621d632b32bf4963a5d44765e8db81c7f0141835f3",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-longest_path",
+      "request": "requests/p1-dfs_node_order--p2-longest_path.json",
+      "requestSha256": "6af03d63a45e71322d5a3017d2e720edfd61bbb3fe154db01400df1de1762834",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-longest_path_source",
+      "request": "requests/p1-dfs_node_order--p2-longest_path_source.json",
+      "requestSha256": "e50d3c7ab3e363aeaef3d9edcf70ab9c2aafff1528f576de5e04b330e0678701",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-coffman_graham",
+      "request": "requests/p1-dfs_node_order--p2-coffman_graham.json",
+      "requestSha256": "15a65c804f2937b98640810d6465547ce02c487c608e7f57791c818eac43efe0",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-bf_model_order",
+      "request": "requests/p1-dfs_node_order--p2-bf_model_order.json",
+      "requestSha256": "48f1e621e157ca4fa18b123982a2f663cf5dd17eb3de8026837a1dd84f553658",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-df_model_order",
+      "request": "requests/p1-dfs_node_order--p2-df_model_order.json",
+      "requestSha256": "37772a17a3f687f5520fcc1f46351bc5a496e0a6c58aa12c5c8dae90716bc414",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-interactive",
+      "request": "requests/p1-dfs_node_order--p2-interactive.json",
+      "requestSha256": "08037a4960226d6d1af00790ba02a459c6770b3644801c1377b31b0902c8f066",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-min_width",
+      "request": "requests/p1-dfs_node_order--p2-min_width.json",
+      "requestSha256": "e861b0cd0aa0dda2a2ec099b5669ae45c80673c45c6e88a43432494e3592438b",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-dfs_node_order--p2-stretch_width",
+      "request": "requests/p1-dfs_node_order--p2-stretch_width.json",
+      "requestSha256": "eea0c59938d201eca6aea6fff01ae2276db19789cb4c6d827cb36c6812f2a760",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-network_simplex",
+      "request": "requests/p1-bfs_node_order--p2-network_simplex.json",
+      "requestSha256": "a1d43a6a48302f5a988d30e16a804619766e86fa2a2912278ac33bd7e2a153bb",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-longest_path",
+      "request": "requests/p1-bfs_node_order--p2-longest_path.json",
+      "requestSha256": "6d176b452cac6d5b74f48bd029d072923da56488d3f2a81bbca3a2684644980d",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-longest_path_source",
+      "request": "requests/p1-bfs_node_order--p2-longest_path_source.json",
+      "requestSha256": "446dee95a9edb5cdcbeb57d564e79ab31fc1175a4a2b56d6be744e45c5b33b59",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-coffman_graham",
+      "request": "requests/p1-bfs_node_order--p2-coffman_graham.json",
+      "requestSha256": "c84146f8aa6701ea3bd9a08823fab61ac816cea2da958f20e9428da8ad9959ce",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-bf_model_order",
+      "request": "requests/p1-bfs_node_order--p2-bf_model_order.json",
+      "requestSha256": "729e43f5343209a482fc64b0c847e61f068d51505bc1b11aa7a24ceba572cbc4",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-df_model_order",
+      "request": "requests/p1-bfs_node_order--p2-df_model_order.json",
+      "requestSha256": "b0280b8e3afbdb3a3400031fc838f2446c228fc9e98aab882d3c2f3f17fff5d1",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-interactive",
+      "request": "requests/p1-bfs_node_order--p2-interactive.json",
+      "requestSha256": "062e04e5c67672bf82316d34d6c12e3916ee69a97b7972c8db7c194c7ad08d84",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-min_width",
+      "request": "requests/p1-bfs_node_order--p2-min_width.json",
+      "requestSha256": "e8df240ec5de12fc2be30d86619b23de198f7aa12df7b7b62159e98bd0c325d8",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "p1-bfs_node_order--p2-stretch_width",
+      "request": "requests/p1-bfs_node_order--p2-stretch_width.json",
+      "requestSha256": "a873141177bdc58e832b02fbdfe5b0984b8eec7e08bcd5da3bf12f04b1b9fc43",
+      "group": "p1-p2-cartesian",
+      "comparisonMode": "deterministic",
+      "origin": null
+    },
+    {
+      "id": "branch-fixed-branches-fixed-position-minimum",
+      "request": "requests/branch-fixed-branches-fixed-position-minimum.json",
+      "requestSha256": "830821ced059dc5dde7eee49db37880217155593bf3ec1907ff9855ea83e2cda",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/fixed-branches/fixed-position-minimum.json"
+    },
+    {
+      "id": "branch-fixed-branches-fixed-port-label-size",
+      "request": "requests/branch-fixed-branches-fixed-port-label-size.json",
+      "requestSha256": "cf856ec6b1f5bcc7d61883e8309e215e98e60f72fffb91e2158d6fd72689b078",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/fixed-branches/fixed-port-label-size.json"
+    },
+    {
+      "id": "branch-fixed-branches-fixed-bend-option",
+      "request": "requests/branch-fixed-branches-fixed-bend-option.json",
+      "requestSha256": "c8b4c2e288f42c4c1af512b665566a8ba7c239de3d001895cba4ef762319877a",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/fixed-branches/fixed-bend-option.json"
+    },
+    {
+      "id": "branch-fixed-branches-fixed-shared-port-junction",
+      "request": "requests/branch-fixed-branches-fixed-shared-port-junction.json",
+      "requestSha256": "8d10ecf0c47e7cba4b174885655f3ce2d659ef75c0457f88899f1efaeb269971",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/fixed-branches/fixed-shared-port-junction.json"
+    },
+    {
+      "id": "branch-fixed-branches-fixed-missing-section-orthogonal",
+      "request": "requests/branch-fixed-branches-fixed-missing-section-orthogonal.json",
+      "requestSha256": "a9c7cd675625f9b36f9287b65cd8d4746afbf57f4a2f97462aa1e660d9a69055",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/fixed-branches/fixed-missing-section-orthogonal.json"
+    },
+    {
+      "id": "branch-fixed-branches-fixed-preserve-root-size",
+      "request": "requests/branch-fixed-branches-fixed-preserve-root-size.json",
+      "requestSha256": "6d855d54cbbe7a951c5f378004bc486a761f62c34a01dff8ec6e73adc61d18e6",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/fixed-branches/fixed-preserve-root-size.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-group_dec",
+      "request": "requests/branch-box-random-branches-box-group_dec.json",
+      "requestSha256": "f654925492701a9241b1deef552f83e2505bbd0fbfd05dd4b41d4a378308debd",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-group_dec.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-group_inc",
+      "request": "requests/branch-box-random-branches-box-group_inc.json",
+      "requestSha256": "1b8e7d8b329401f0a780074e5053cb53fce57da3fd0ec3758e4360a72b6aa435",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-group_inc.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-group_mixed",
+      "request": "requests/branch-box-random-branches-box-group_mixed.json",
+      "requestSha256": "b0a456d9f0398abf88fd996cc99091e5de7a057c5b3190b563f902ceae38197e",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-group_mixed.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-priority-interactive",
+      "request": "requests/branch-box-random-branches-box-priority-interactive.json",
+      "requestSha256": "0adf5f75f039d4a98cc99e718c8953caf278d7d10419f9781aabbdbf438a88a5",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-priority-interactive.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-simple-expand-minimum",
+      "request": "requests/branch-box-random-branches-box-simple-expand-minimum.json",
+      "requestSha256": "e36d44517e0629ec9b677dd9e5aca48e5bfef12a50d180426abc302edfde686b",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-simple-expand-minimum.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-mixed-expand-minimum",
+      "request": "requests/branch-box-random-branches-box-mixed-expand-minimum.json",
+      "requestSha256": "fa5099995393f4419621da1c057e917da46c658c817db56f62494b8c59c46135",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-mixed-expand-minimum.json"
+    },
+    {
+      "id": "branch-box-random-branches-box-noninteger-options",
+      "request": "requests/branch-box-random-branches-box-noninteger-options.json",
+      "requestSha256": "fcd2e80995caf6c07762b66d4ab7b331dcb2802092d2ee731df17f1c4bc08ef0",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/box-noninteger-options.json"
+    },
+    {
+      "id": "branch-box-random-branches-random-edge-asymmetric",
+      "request": "requests/branch-box-random-branches-random-edge-asymmetric.json",
+      "requestSha256": "5a6795b7e8242f3248e66c3ff5d99aa8a3816bddbbe933c9df3ff7d3b883a33c",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/random-edge-asymmetric.json"
+    },
+    {
+      "id": "branch-box-random-branches-random-port-source",
+      "request": "requests/branch-box-random-branches-random-port-source.json",
+      "requestSha256": "d1b89819a3f519859678d0eb10e8cb6b8cd0b7aedc60678a9cc01700c597b342",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/random-port-source.json"
+    },
+    {
+      "id": "branch-box-random-branches-random-negative-seed",
+      "request": "requests/branch-box-random-branches-random-negative-seed.json",
+      "requestSha256": "cf9762dd81977b73fcc0db4266775823fee5134f23da44f27f5201be3afce1d0",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/box-random-branches/random-negative-seed.json"
+    },
+    {
+      "id": "branch-mrtree-first-tree-right-dfs",
+      "request": "requests/branch-mrtree-first-tree-right-dfs.json",
+      "requestSha256": "0eaa93fa23afeb8180cb459609b1eda3cdc54b684bd5cce3ed28fc76a29b8185",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/mrtree-first/tree-right-dfs.json"
+    },
+    {
+      "id": "branch-mrtree-first-star-down-bfs",
+      "request": "requests/branch-mrtree-first-star-down-bfs.json",
+      "requestSha256": "92f5583887491c96d36ad36774e1cb6f5cb2163a1878ab9e35eaca05b90dafa8",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/mrtree-first/star-down-bfs.json"
+    },
+    {
+      "id": "branch-mrtree-first-forest-left-dfs",
+      "request": "requests/branch-mrtree-first-forest-left-dfs.json",
+      "requestSha256": "77be313078fe9488131487d5465c83d8dc00f8010c4f5f12a103aa4242d73001",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/mrtree-first/forest-left-dfs.json"
+    },
+    {
+      "id": "branch-mrtree-first-cyclic-up-bfs",
+      "request": "requests/branch-mrtree-first-cyclic-up-bfs.json",
+      "requestSha256": "0a912bc07ffd6d29346a76dfad5edd9eecf2fe465a3cbc1e271392c34a3105f5",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/mrtree-first/cyclic-up-bfs.json"
+    },
+    {
+      "id": "branch-radial-first-radial-default-labels",
+      "request": "requests/branch-radial-first-radial-default-labels.json",
+      "requestSha256": "52a1425ceee4506dc712c3fd9856b1626946d94647df7084d184e55ef00ccda0",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/radial-first/radial-default-labels.json"
+    },
+    {
+      "id": "branch-radial-first-radial-compact-id-portlabels",
+      "request": "requests/branch-radial-first-radial-compact-id-portlabels.json",
+      "requestSha256": "e44a72d2e3af6327bb67cc17bae9e9edcaec0432b21a141b59fb80d32e84277f",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/radial-first/radial-compact-id-portlabels.json"
+    },
+    {
+      "id": "branch-radial-first-radial-wedge-polar-rotate",
+      "request": "requests/branch-radial-first-radial-wedge-polar-rotate.json",
+      "requestSha256": "9f2e77b0fb10dd57209470aec5e7139f35c0600b56d54c9bcd89733b20730a03",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/radial-first/radial-wedge-polar-rotate.json"
+    },
+    {
+      "id": "branch-force-stress-first-force-eades-weighted-labels",
+      "request": "requests/branch-force-stress-first-force-eades-weighted-labels.json",
+      "requestSha256": "b36defdda862bb8ec9428df77da34064dab2cd98161e0aea68044b11475acbac",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/force-stress-first/force-eades-weighted-labels.json"
+    },
+    {
+      "id": "branch-force-stress-first-force-fr-components",
+      "request": "requests/branch-force-stress-first-force-fr-components.json",
+      "requestSha256": "6481325c2496d2a04364e7a850959b1844ebbaef6be88adf8ab2466b5176feb4",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/force-stress-first/force-fr-components.json"
+    },
+    {
+      "id": "branch-force-stress-first-stress-force-init-y",
+      "request": "requests/branch-force-stress-first-stress-force-init-y.json",
+      "requestSha256": "bfc69d9092ee4b753d5a581cb0e5a500494de98f2aedc1b89c02457fc0777479",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/force-stress-first/stress-force-init-y.json"
+    },
+    {
+      "id": "branch-force-stress-first-stress-interactive-x-fixed",
+      "request": "requests/branch-force-stress-first-stress-interactive-x-fixed.json",
+      "requestSha256": "b32bb9194cdf8b1effa6cc125c3bd6291ef26ccc4453b48c239f632ffa2eafa3",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/force-stress-first/stress-interactive-x-fixed.json"
+    },
+    {
+      "id": "branch-spore-providers-sporeOverlap-four-overlapping",
+      "request": "requests/branch-spore-providers-sporeOverlap-four-overlapping.json",
+      "requestSha256": "830a2d9cb26ae8b9469c371fa7272f110640f1d5722316b42fb0a90e300b2314",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/spore-providers/overlap.json"
+    },
+    {
+      "id": "branch-spore-providers-sporeCompaction-four-spread",
+      "request": "requests/branch-spore-providers-sporeCompaction-four-spread.json",
+      "requestSha256": "1af88cff8eded459c03c79ec636771e870b306d0b49e7f5599db37fcd5e41b12",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/spore-providers/compaction.json"
+    },
+    {
+      "id": "branch-random-unseeded-random-real-unseeded",
+      "request": "requests/branch-random-unseeded-random-real-unseeded.json",
+      "requestSha256": "c1cb70f757bf82c80ff561e3259625ce282eeb8163cf7c270176cd7746df3a74",
+      "group": "algorithm-option",
+      "comparisonMode": "nondeterministic",
+      "origin": "tests/fixtures/suites/next-native/random-unseeded/request.json"
+    },
+    {
+      "id": "branch-provider-state-fixed-child-box-parent-state",
+      "request": "requests/branch-provider-state-fixed-child-box-parent-state.json",
+      "requestSha256": "1b3f1e634f08bce88a8373dc53b47973e7ca0890286799a60cfcdda8293d79b0",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/provider-state/request.json"
+    },
+    {
+      "id": "branch-stress-inline-default-stress-interactive-label-default",
+      "request": "requests/branch-stress-inline-default-stress-interactive-label-default.json",
+      "requestSha256": "d14eadd3e28d6f4cb7bbb8da2fc9e1e06987cd2102aa268e8329d3cbd58134a6",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/stress-inline-default/interactive-label-default.json"
+    },
+    {
+      "id": "branch-mrtree-diagnostics-mrtree-tree-right-timing",
+      "request": "requests/branch-mrtree-diagnostics-mrtree-tree-right-timing.json",
+      "requestSha256": "9d53fd09c73f8d47e5f7c4f2430f07f5eacdf2f14e02aa2d831c5aa8d2300fac",
+      "group": "algorithm-option",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/next-native/mrtree-diagnostics/tree-right-timing.json"
+    },
+    {
+      "id": "master-layered-empty",
+      "request": "requests/master-layered-empty.json",
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-empty.json"
+    },
+    {
+      "id": "master-layered-singleton",
+      "request": "requests/master-layered-singleton.json",
+      "requestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-singleton.json"
+    },
+    {
+      "id": "master-layered-chain",
+      "request": "requests/master-layered-chain.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-chain.json"
+    },
+    {
+      "id": "master-layered-fork",
+      "request": "requests/master-layered-fork.json",
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-fork.json"
+    },
+    {
+      "id": "master-layered-join",
+      "request": "requests/master-layered-join.json",
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-join.json"
+    },
+    {
+      "id": "master-layered-diamond-right",
+      "request": "requests/master-layered-diamond-right.json",
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-diamond-right.json"
+    },
+    {
+      "id": "master-layered-diamond-left",
+      "request": "requests/master-layered-diamond-left.json",
+      "requestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-diamond-left.json"
+    },
+    {
+      "id": "master-layered-diamond-down",
+      "request": "requests/master-layered-diamond-down.json",
+      "requestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-diamond-down.json"
+    },
+    {
+      "id": "master-layered-diamond-up",
+      "request": "requests/master-layered-diamond-up.json",
+      "requestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-diamond-up.json"
+    },
+    {
+      "id": "master-layered-long-edge",
+      "request": "requests/master-layered-long-edge.json",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-long-edge.json"
+    },
+    {
+      "id": "master-layered-cycle",
+      "request": "requests/master-layered-cycle.json",
+      "requestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-cycle.json"
+    },
+    {
+      "id": "master-layered-self-loop",
+      "request": "requests/master-layered-self-loop.json",
+      "requestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-self-loop.json"
+    },
+    {
+      "id": "master-layered-parallel-edges",
+      "request": "requests/master-layered-parallel-edges.json",
+      "requestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-parallel-edges.json"
+    },
+    {
+      "id": "master-layered-disconnected",
+      "request": "requests/master-layered-disconnected.json",
+      "requestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-disconnected.json"
+    },
+    {
+      "id": "master-layered-unequal-sizes",
+      "request": "requests/master-layered-unequal-sizes.json",
+      "requestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-unequal-sizes.json"
+    },
+    {
+      "id": "master-layered-zero-size",
+      "request": "requests/master-layered-zero-size.json",
+      "requestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-zero-size.json"
+    },
+    {
+      "id": "master-layered-custom-spacing",
+      "request": "requests/master-layered-custom-spacing.json",
+      "requestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-custom-spacing.json"
+    },
+    {
+      "id": "master-layered-unseparated-components",
+      "request": "requests/master-layered-unseparated-components.json",
+      "requestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/layered-unseparated-components.json"
+    },
+    {
+      "id": "master-options-constructor-default",
+      "request": "requests/master-options-constructor-default.json",
+      "requestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/options-constructor-default.json"
+    },
+    {
+      "id": "master-options-explicit-empty-replaces-default",
+      "request": "requests/master-options-explicit-empty-replaces-default.json",
+      "requestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/options-explicit-empty-replaces-default.json"
+    },
+    {
+      "id": "master-options-call-replaces-default",
+      "request": "requests/master-options-call-replaces-default.json",
+      "requestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/options-call-replaces-default.json"
+    },
+    {
+      "id": "master-options-full-ids",
+      "request": "requests/master-options-full-ids.json",
+      "requestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/options-full-ids.json"
+    },
+    {
+      "id": "master-error-unknown-endpoint",
+      "request": "requests/master-error-unknown-endpoint.json",
+      "requestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/error-unknown-endpoint.json"
+    },
+    {
+      "id": "master-error-unknown-algorithm",
+      "request": "requests/master-error-unknown-algorithm.json",
+      "requestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/error-unknown-algorithm.json"
+    },
+    {
+      "id": "master-error-missing-graph",
+      "request": "requests/master-error-missing-graph.json",
+      "requestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "group": "master",
+      "comparisonMode": "deterministic",
+      "origin": "tests/fixtures/suites/E09/requests/error-missing-graph.json"
+    }
+  ]
+}

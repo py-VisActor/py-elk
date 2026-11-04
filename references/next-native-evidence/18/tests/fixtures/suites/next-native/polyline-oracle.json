@@ -1,0 +1,472 @@
+{
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "5ef5f2beafd4a3748b02dd049237b4c1e5ef91c1376acf1603b00bb92d7695ab",
+  "requestSha256": "28da851aec2da6cda30ec382fa131acd076b89a0af3e2b46cb287f0cbc468ee2",
+  "pid": 25528,
+  "parentPid": 39416,
+  "node": "v24.19.0",
+  "value": {
+    "cases": [
+      {
+        "name": "mixed-same-layer-junction-ns",
+        "width": 172,
+        "nodes": [
+          {
+            "name": "a",
+            "position": [
+              37.916666666666664,
+              10
+            ]
+          },
+          {
+            "name": "b",
+            "position": [
+              24.166666666666664,
+              70
+            ]
+          },
+          {
+            "name": "d",
+            "position": [
+              69.75,
+              40
+            ]
+          },
+          {
+            "name": "c",
+            "position": [
+              114,
+              30
+            ]
+          },
+          {
+            "name": "s",
+            "position": [
+              49.166666666666664,
+              100
+            ]
+          },
+          {
+            "name": "l",
+            "position": [
+              105.5,
+              50
+            ]
+          },
+          {
+            "name": "x",
+            "position": [
+              169.75,
+              30
+            ]
+          }
+        ],
+        "before": [
+          {
+            "bends": [
+              [
+                1.25,
+                -2.5
+              ]
+            ],
+            "junctionPresent": true
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          },
+          {
+            "bends": [],
+            "junctionPresent": false
+          }
+        ],
+        "edges": [
+          {
+            "id": 0,
+            "bends": [
+              [
+                72,
+                15
+              ],
+              [
+                1.25,
+                -2.5
+              ],
+              [
+                104,
+                35
+              ]
+            ],
+            "junctionPresent": true,
+            "junctions": [
+              [
+                9,
+                8
+              ]
+            ]
+          },
+          {
+            "id": 1,
+            "bends": [
+              [
+                72,
+                15
+              ]
+            ],
+            "junctionPresent": false,
+            "junctions": null
+          },
+          {
+            "id": 2,
+            "bends": [
+              [
+                72,
+                15
+              ],
+              [
+                84,
+                45
+              ],
+              [
+                12,
+                75
+              ]
+            ],
+            "junctionPresent": true,
+            "junctions": [
+              [
+                12,
+                75
+              ]
+            ]
+          },
+          {
+            "id": 3,
+            "bends": [
+              [
+                12,
+                75
+              ],
+              [
+                0,
+                45
+              ],
+              [
+                72,
+                15
+              ]
+            ],
+            "junctionPresent": true,
+            "junctions": [
+              [
+                72,
+                15
+              ]
+            ]
+          },
+          {
+            "id": 4,
+            "bends": [
+              [
+                12,
+                45
+              ],
+              [
+                6,
+                60
+              ],
+              [
+                72,
+                75
+              ]
+            ],
+            "junctionPresent": false,
+            "junctions": null
+          },
+          {
+            "id": 5,
+            "bends": [
+              [
+                104,
+                105
+              ],
+              [
+                72,
+                15
+              ]
+            ],
+            "junctionPresent": false,
+            "junctions": null
+          },
+          {
+            "id": 6,
+            "bends": [],
+            "junctionPresent": false,
+            "junctions": null
+          },
+          {
+            "id": 7,
+            "bends": [],
+            "junctionPresent": false,
+            "junctions": null
+          }
+        ],
+        "configurationRaw": [
+          [
+            {
+              "name": "SELF_LOOP_PREPROCESSOR",
+              "ordinal": 6
+            }
+          ],
+          [
+            {
+              "name": "LABEL_DUMMY_INSERTER",
+              "ordinal": 5
+            }
+          ],
+          [
+            {
+              "name": "INVERTED_PORT_PROCESSOR",
+              "ordinal": 18
+            },
+            {
+              "name": "NORTH_SOUTH_PORT_PREPROCESSOR",
+              "ordinal": 21
+            }
+          ],
+          [
+            {
+              "name": "SELF_LOOP_PORT_RESTORER",
+              "ordinal": 25
+            },
+            {
+              "name": "SELF_LOOP_ROUTER",
+              "ordinal": 32
+            },
+            {
+              "name": "LABEL_DUMMY_SWITCHER",
+              "ordinal": 35
+            },
+            {
+              "name": "LABEL_SIDE_SELECTOR",
+              "ordinal": 37
+            },
+            {
+              "name": "END_LABEL_PREPROCESSOR",
+              "ordinal": 34
+            }
+          ],
+          [],
+          [
+            {
+              "name": "NORTH_SOUTH_PORT_POSTPROCESSOR",
+              "ordinal": 50
+            },
+            {
+              "name": "SELF_LOOP_POSTPROCESSOR",
+              "ordinal": 48
+            },
+            {
+              "name": "LABEL_DUMMY_REMOVER",
+              "ordinal": 52
+            },
+            {
+              "name": "END_LABEL_POSTPROCESSOR",
+              "ordinal": 56
+            }
+          ]
+        ],
+        "configurationByOrdinal": [
+          [
+            "SELF_LOOP_PREPROCESSOR"
+          ],
+          [
+            "LABEL_DUMMY_INSERTER"
+          ],
+          [
+            "INVERTED_PORT_PROCESSOR",
+            "NORTH_SOUTH_PORT_PREPROCESSOR"
+          ],
+          [
+            "SELF_LOOP_PORT_RESTORER",
+            "SELF_LOOP_ROUTER",
+            "END_LABEL_PREPROCESSOR",
+            "LABEL_DUMMY_SWITCHER",
+            "LABEL_SIDE_SELECTOR"
+          ],
+          [],
+          [
+            "SELF_LOOP_POSTPROCESSOR",
+            "NORTH_SOUTH_PORT_POSTPROCESSOR",
+            "LABEL_DUMMY_REMOVER",
+            "END_LABEL_POSTPROCESSOR"
+          ]
+        ],
+        "monitorRunning": false,
+        "monitorClosed": true,
+        "samePersistentSet": true,
+        "junctionSetSize": 0
+      },
+      {
+        "name": "empty-layer-and-external-offset",
+        "width": 36,
+        "nodes": [
+          {
+            "name": "q",
+            "position": [
+              7.75,
+              5
+            ]
+          },
+          {
+            "name": "z",
+            "position": [
+              33.75,
+              85
+            ]
+          }
+        ],
+        "before": [
+          {
+            "bends": [],
+            "junctionPresent": false
+          }
+        ],
+        "edges": [
+          {
+            "id": 0,
+            "bends": [],
+            "junctionPresent": false,
+            "junctions": null
+          }
+        ],
+        "configurationRaw": [
+          [
+            {
+              "name": "SELF_LOOP_PREPROCESSOR",
+              "ordinal": 6
+            }
+          ],
+          [
+            {
+              "name": "LABEL_DUMMY_INSERTER",
+              "ordinal": 5
+            }
+          ],
+          [
+            {
+              "name": "INVERTED_PORT_PROCESSOR",
+              "ordinal": 18
+            },
+            {
+              "name": "NORTH_SOUTH_PORT_PREPROCESSOR",
+              "ordinal": 21
+            }
+          ],
+          [
+            {
+              "name": "SELF_LOOP_PORT_RESTORER",
+              "ordinal": 25
+            },
+            {
+              "name": "SELF_LOOP_ROUTER",
+              "ordinal": 32
+            },
+            {
+              "name": "LABEL_DUMMY_SWITCHER",
+              "ordinal": 35
+            },
+            {
+              "name": "LABEL_SIDE_SELECTOR",
+              "ordinal": 37
+            },
+            {
+              "name": "END_LABEL_PREPROCESSOR",
+              "ordinal": 34
+            }
+          ],
+          [],
+          [
+            {
+              "name": "NORTH_SOUTH_PORT_POSTPROCESSOR",
+              "ordinal": 50
+            },
+            {
+              "name": "SELF_LOOP_POSTPROCESSOR",
+              "ordinal": 48
+            },
+            {
+              "name": "LABEL_DUMMY_REMOVER",
+              "ordinal": 52
+            },
+            {
+              "name": "END_LABEL_POSTPROCESSOR",
+              "ordinal": 56
+            }
+          ]
+        ],
+        "configurationByOrdinal": [
+          [
+            "SELF_LOOP_PREPROCESSOR"
+          ],
+          [
+            "LABEL_DUMMY_INSERTER"
+          ],
+          [
+            "INVERTED_PORT_PROCESSOR",
+            "NORTH_SOUTH_PORT_PREPROCESSOR"
+          ],
+          [
+            "SELF_LOOP_PORT_RESTORER",
+            "SELF_LOOP_ROUTER",
+            "END_LABEL_PREPROCESSOR",
+            "LABEL_DUMMY_SWITCHER",
+            "LABEL_SIDE_SELECTOR"
+          ],
+          [],
+          [
+            "SELF_LOOP_POSTPROCESSOR",
+            "NORTH_SOUTH_PORT_POSTPROCESSOR",
+            "LABEL_DUMMY_REMOVER",
+            "END_LABEL_POSTPROCESSOR"
+          ]
+        ],
+        "monitorRunning": false,
+        "monitorClosed": true,
+        "samePersistentSet": true,
+        "junctionSetSize": 0
+      }
+    ],
+    "empty": {
+      "width": 0,
+      "optionReads": 3,
+      "running": false,
+      "closed": true,
+      "samePersistentSet": true,
+      "junctionSetSize": 0
+    }
+  },
+  "actualProcess85Executed": true,
+  "layoutExecuted": false,
+  "nativeExecuted": false
+}

@@ -1,0 +1,121 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Source behavior: elkjs0.12.1 worker275e6caf, source review
+# references/e13-element-options-sources.json. Copyright Kiel University and others.
+# Strict native errors and finite parsing reuse the explicit host contract.
+"""Presence-aware element properties for private E13 migration work.
+
+Core defaults remain separate from algorithm-specific overrides. A default
+None is not an explicitly supplied property, and an explicit zero is retained.
+"""
+from __future__ import annotations
+from collections.abc import Mapping
+import json
+import math
+import re
+from types import MappingProxyType
+
+from .._errors import OptionValidationError
+from .._json import clone_json, pointer
+from ..model import Node, Port, Edge
+from .schema import OPTION_SPECS, Vector2
+from .resolution import ResolvedOptions, _canonical_id, _container, _parse, _DECIMAL, _INTEGER
+
+
+def invalid(path, message):
+    raise OptionValidationError('INVALID_OPTION_VALUE', path, message)
+
+
+def integer(value, path):
+    if type(value) is str and _INTEGER.fullmatch(value):
+        try:value=int(value)
+        except ValueError:invalid(path,'Expected a signed32 integer')
+    elif type(value) is float and math.isfinite(value) and value.is_integer():
+        value=int(value)
+    if type(value) is not int or not -(2**31)<=value<2**31:
+        invalid(path,'Expected a signed32 integer')
+    return value
+
+
+def signed_number(value, path):
+    if type(value) is str:
+        value=value.strip()
+        if not _DECIMAL.fullmatch(value):invalid(path,'Expected a finite decimal number')
+        try:value=float(value)
+        except (ValueError,OverflowError):invalid(path,'Expected a finite number')
+    try:valid=type(value) in (int,float) and math.isfinite(value)
+    except OverflowError:valid=False
+    if not valid:invalid(path,'Expected a finite number')
+    return value
+
+
+def parse_extended(spec, value, path):
+    if spec.kind=='enum_ordinal':
+        if type(value) is str and value in spec.accepted_values:return value
+        ordinal=integer(value,path)
+        if not 0<=ordinal<len(spec.accepted_values):invalid(path,'Enum ordinal is outside its source range')
+        return spec.accepted_values[ordinal]
+    if spec.kind=='integer':return integer(value,path)
+    if spec.kind=='signed_number':return signed_number(value,path)
+    if spec.kind=='vector':
+        if type(value) is not str:invalid(path,'Element vector values require a serialized string')
+        # Fixed KVector.parse delimiter sets and exactly-two-token rule.
+        text=value.lstrip('([{\"\' \t\r\n').rstrip(')]}\"\' \t\r\n')
+        tokens=re.split('[,;\r\n]',text)
+        if len(tokens)!=2:invalid(path,'Vector requires exactly two numbers')
+        return Vector2(signed_number(tokens[0],path),signed_number(tokens[1],path))
+    raise AssertionError('Unknown extended option kind')
+
+
+def parse_mapping(raw, path, *, global_options=False):
+    raw=_container(raw,path);parsed={};original={}
+    for spelling,value in raw.items():
+        where=pointer(path,spelling);canonical=_canonical_id(spelling,where)
+        if canonical in parsed:
+            raise OptionValidationError('AMBIGUOUS_OPTION',where,'Two aliases for the same option in one scope')
+        spec=OPTION_SPECS[canonical]
+        # optsToCfg serializes complex global data; local JsonImporter accepts
+        # scalar JSON values only. Preserve the original raw value separately.
+        adapted=value
+        if global_options and spec.kind=='vector' and type(value) in (list,dict):
+            adapted=json.dumps(value,separators=(',',':'),ensure_ascii=False,allow_nan=False)
+        parsed[canonical]=_parse(spec,adapted,where)
+        original[canonical]=clone_json(value,path=where,error_type=OptionValidationError)
+    return parsed,original
+
+
+def selected_global(context):
+    key='_E13_SELECTED_GLOBAL_PROPERTIES'
+    if key not in context.state:
+        arguments=context.original_arguments;constructor=context.original_constructor
+        if 'layoutOptions' in arguments:
+            raw=arguments['layoutOptions'];label='call';path='/layoutArguments/layoutOptions'
+        elif 'defaultLayoutOptions' in constructor:
+            raw=constructor['defaultLayoutOptions'];label='constructor';path='/constructor/defaultLayoutOptions'
+        else:raw={};label='default';path='/constructor/defaultLayoutOptions'
+        values,original=parse_mapping(raw,path,global_options=True)
+        context.state[key]=(values,original,label)
+    return context.state[key]
+
+
+def resolve_element_options(element, context):
+    if isinstance(element,Port):targets={'PORTS'}
+    elif isinstance(element,Node):targets={'NODES','PARENTS'}
+    elif isinstance(element,Edge):targets={'EDGES'}
+    else:raise TypeError('Expected a native graph node, port or edge')
+    specs={key:spec for key,spec in OPTION_SPECS.items() if targets.intersection(spec.targets)}
+    values={key:spec.declared_default for key,spec in specs.items()}
+    origins={key:'default' for key in values};raw={}
+    global_values,global_raw,label=selected_global(context)
+    for key,value in global_values.items():
+        if key in specs:values[key]=value;origins[key]=label;raw[key]=global_raw[key]
+    data=element._data  # Owned private model; only the option mapping is cloned.
+    if 'layoutOptions' in data:
+        local=data['layoutOptions'];path=element.path+'/layoutOptions'
+    elif 'properties' in data and isinstance(data['properties'],Mapping):
+        local=data['properties'];path=element.path+'/properties'
+    else:local={};path=element.path+'/layoutOptions'
+    local_values,local_raw=parse_mapping(local,path)
+    # The source imports local properties directly, without the global target
+    # filter. Algorithms choose which of those properties they actually use.
+    values.update(local_values);origins.update({key:'local' for key in local_values});raw.update(local_raw)
+    return ResolvedOptions(MappingProxyType(values),MappingProxyType(origins),label,raw)

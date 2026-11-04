@@ -1,0 +1,181 @@
+{
+  "schema": "py-elk-e07-validator-independent-review/v1",
+  "reviewerLane": "B",
+  "ownerLane": "V",
+  "status": "ACCEPTED_UNDER_DECLARED_CHECKER_SCOPE",
+  "createdUtc": "2026-11-03T09:46:00.698852+00:00",
+  "reviewedFiles": [
+    {
+      "path": "scripts/validate_e07_source_bindings.py",
+      "sha256": "85639823dc33f8d55f88668147a25fbe5ccd2a7be1ff77b20889d334637e81f2"
+    },
+    {
+      "path": "tests/audit/test_e07_source_bindings.py",
+      "sha256": "7d164c8b15435f3ceda82ac3a6d46cdcf890a0240df4449fc77eb8441b641811"
+    }
+  ],
+  "normalFull33Passed": true,
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "controls": [
+    {
+      "id": "missing-required-new-proof",
+      "rejected": true,
+      "errors": [
+        "Required component proof ID denominator differs: intermediate:SelfLoopPreProcessor"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "duplicate-required-new-proof",
+      "rejected": true,
+      "errors": [
+        "Required component proof ID denominator differs: intermediate:SelfLoopPreProcessor"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "omitted-inherited-sourceDerivation",
+      "rejected": true,
+      "errors": [
+        "Complete inherited proof IDs are missing or differ"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "borrowed-wrong-component-role",
+      "rejected": true,
+      "errors": [
+        "Wrong inherited E06 component role"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "borrowed-JP-support-role-resealed",
+      "rejected": true,
+      "errors": [
+        "Required inherited support selector/role denominator differs"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "removed-complete-NS-kernel-selector",
+      "rejected": true,
+      "errors": [
+        "NS omits complete inherited kernel role"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "changed-common-context-resealed",
+      "rejected": true,
+      "errors": [
+        "Common source guards/context differ"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "changed-lane-context-resealed",
+      "rejected": true,
+      "errors": [
+        "Lane source context differs"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "reviewer-role-reassigned-with-all-rows",
+      "rejected": true,
+      "errors": [
+        "Independent reviewer role/blockers differ"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "foreign-component-added-to-review-set",
+      "rejected": true,
+      "errors": [
+        "Review component set crosses fixed independent reviewer roles"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "required-component-omitted-from-review-set",
+      "rejected": true,
+      "errors": [
+        "Review component/seal set differs"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "required-typed-dependency-removed",
+      "rejected": true,
+      "errors": [
+        "Required typed source dependencies differ: phase:GREEDY"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "runtime-claim-promoted-and-resealed",
+      "rejected": true,
+      "errors": [
+        "Source-only metadata promotes runtime capability: nativeRuntimeAccepted"
+      ],
+      "allNewComponentDependencyDocumentReviewApprovalHashesRebound": true
+    },
+    {
+      "id": "new-false-semantic-function-symbol",
+      "rejected": true,
+      "errors": [
+        "Actual function symbol differs"
+      ],
+      "mode": "fixed-canonical-blob literal helper"
+    },
+    {
+      "id": "new-false-semantic-line-token",
+      "rejected": true,
+      "errors": [
+        "Literal source token is absent"
+      ],
+      "mode": "fixed-canonical-blob literal helper"
+    }
+  ],
+  "checkedSemantics": [
+    "Complete immutable E06 source/review inheritance is validated before current33. Required proof IDs include old guardProofs or sourceDerivation, not an empty optional selector.",
+    "Exact A/B support-selector roles, selected proof digest and full kernel inheritance, fixed common/lane contexts, required typed dependencies and reviewer/component ownership inventory are mandatory despite complete new hash rebinding.",
+    "Every reviewed component/seal/dependency set is checked, including foreign entries. B-owned14 R review is distinct from V R review roles; A directions/NS and B operation source roles stay fixed.",
+    "Every new canonical function has its actual named function/token inside the bounded source bytes; no new semantic-label exception or inherited old alias silently applies.",
+    "Offline metadata consistency and actual canonical identity are separate from source mathematics, runtime execution, full algorithm/API/lifecycle and project release acceptance."
+  ],
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E07-01/B/source-checker-controls-01/report.json",
+      "sha256": "e9fc3cd0deb1f5b059117cea246c133ce27bea2ce95cad8cf21ed87d359649e2"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/source-checker-controls-01/baseline-result.json",
+      "sha256": "e26a287a4658926334629487ae1c526c8d3147ff11c22c648ca411d83eb952e4"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/source-checker-controls-command-01/command.json",
+      "sha256": "c5a4dfb5b0c9d79eda5432758f0f727a14715fde491e710359dc384bd9bc4886"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/source-checker-controls-command-01/stdout.log",
+      "sha256": "70ac40ee664a1c4ef0691eeacb26f2c11bb6e3ac4ddd8f11ad59095635c296d9"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/source-checker-controls-command-01/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/B/independent_source_checker_controls.py",
+      "sha256": "1f9b2f918d7c551e0703f68f27ae67fb39cec1daa9d6a287fe92bcac5ff42471"
+    }
+  ],
+  "limitations": [
+    "The first13 controls consistently reseal all new component/dependency/document/review/approval/final-document hashes around one defect; the last2 call the actual canonical blob literal checker.",
+    "These controls validate mandatory checker invariants, not mathematical equivalence or historical execution authenticity. Complete fabricated source/review systems cannot be authenticated by offline metadata alone."
+  ],
+  "runtimeAccepted": false,
+  "fullAlgorithmAccepted": false,
+  "blockers": []
+}

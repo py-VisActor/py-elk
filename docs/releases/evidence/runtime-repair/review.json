@@ -1,0 +1,24 @@
+{
+  "schema": "pyelk-runtime-repair-review/v1",
+  "repairId": "mrtree-second-walk-active-path/v1",
+  "approved": true,
+  "beforeModuleSha256": "9ec544e06e5d1882581b1c9ff6a66bed7d9abf6f18cee12195a368c5feae4c29",
+  "afterModuleSha256": "4cb5f83db016783e12a5c79dc25676a1ecd9d489c9f82dd74a961a7dc8915813",
+  "expectedNativeError": {
+    "name": "RecursionError",
+    "message": "Cyclic sibling/child dependency in MrTree second walk",
+    "code": null,
+    "path": null
+  },
+  "diff": {
+    "path": "docs/releases/evidence/runtime-repair/mrtree.diff",
+    "sha256": "2f8ecdad0c606f213e453a48940a2d2da7991fffeb5d7e7fc1531c26b3ad88ac"
+  },
+  "scope": "Only second Walker invocation path; repeated visits after return retained; no graph-size or iteration cutoff.",
+  "validPhaseRegression": {
+    "path": "docs/releases/evidence/runtime-repair/valid-phase-report.json",
+    "sha256": "756eb9400c8877f48ab5bf22426841341a6a61322338f974efb7a3b91723676a"
+  },
+  "exceptionClassParity": false,
+  "exceptionMessageParity": false
+}

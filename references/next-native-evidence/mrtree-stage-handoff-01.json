@@ -1,0 +1,30 @@
+{
+  "schema": "py-elk-e17-stage-handoff/v1",
+  "status": "real graph/treeify/root/order/Walker phases implemented and independently compared; full providers pending",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/mrtree.py": "e4ddb290febfdc87e8962ceb45e0ff93265c4a032a9f910bdede4d50ecbd6d2e",
+    ".local/migration-next/src/pyelk/algorithms/radial.py": "07c04f2cbb6b80c80295d19e5775df4d90e4f83350b27cefb7dbf823c4c00f6f",
+    "references/e17-tree-sources.json": "b4f767e057ccad9126f2dcaf3713f5a0bed30fecfcc95a7cc92f993fe444ee07",
+    "docs/iterations/E17-preparation.md": "1fe1e1a99c19bd73b8587c2717c52241987c1aa6557087fdeedf90a05a774cce"
+  },
+  "evidenceSha256": {
+    "test-runs/20261104-E17-01/V/first-source-review-01.json": "3c4d7db3ab3817520365854d7ed08858a2e0b8a044daacea2469a79b45206bee",
+    "test-runs/20261104-E17-01/V/ordering-source-review-01.json": "7a1c97e7c2709709a4cbfe1065db83f93e530b4e84e555e5647006f6dc846789",
+    "test-runs/20261104-E17-01/root/placement-source-review-01.json": "ef4edb6c62082d994b28df84fbbd172dc753a1ee619a07f3ecddcb96ced08494",
+    "test-runs/20261104-E17-01/V/stage-comparison-01/report.json": "d5bdf52afeec9ee79d16963e731d53b911d8c3746a316aa1552dab688ffcefca",
+    "test-runs/20261104-E17-01/B/placement-owner-01/command.json": "2e6afa8515abba55c1885252a8302c41358b3fa3e4c10b43b230fab23cb25eb2",
+    "test-runs/20261104-E17-01/B/placement-smoke-01.json": "57350718a1cc85b862cb4dd8331da64290f2b3c72b1439b34a634d8b32eabb81",
+    "test-runs/20261104-E17-01/B/stage-smoke-01.json": "fec8cdddc46a925c07bb3f3cacd05004a8dbef77824229c2f609d1037089086e"
+  },
+  "independentStageCases": 9,
+  "independentPrimitiveCases": 12,
+  "geometryClaim": "Object-level phase output only; not final JSON provider or all options",
+  "pending": [
+    "real edge-router both modes and all branches",
+    "full compaction",
+    "components split/pack/transfer",
+    "generic default NodeMicroLayout from root/A",
+    "radial Eades/sort/compaction/rotation/all provider stages"
+  ],
+  "scope": "No new full run, no old17/API4 recapture; original failures retained. GWT support only observed; numeric adapter original."
+}

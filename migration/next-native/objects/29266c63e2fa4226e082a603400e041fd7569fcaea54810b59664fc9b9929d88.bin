@@ -1,0 +1,81 @@
+"""Original native snapshots of stored typed properties, with shallow values.
+
+Source copy semantics: next-property-snapshot-sources.json, worker275e6caf.
+Geometry, graph ownership, IDs and endpoints are separate from this interface.
+No source runtime, serialized-option reparse or default injection is involved.
+"""
+from .._errors import UnknownOptionError
+from ..options.generic import RUNTIME_PROPERTY_SPECS, canonical_generic_id
+
+_PREFIX='org.eclipse.elk.'
+
+
+def property_key(name):
+    if _PREFIX+name in RUNTIME_PROPERTY_SPECS:return name
+    try:return canonical_generic_id(name,'/internalProperties/'+name)[len(_PREFIX):]
+    except UnknownOptionError:return name
+
+
+class PropertySnapshot:
+    """Independent key map; each value retains its actual native identity.
+
+    ``get`` presents the existing provider scalar view; ``get_native`` returns
+    the stored object itself. Integer identity provenance is a separate map;
+    an absent token is not inferred from Python integer identity.
+    """
+    def __init__(self,values,integer_boxes=None):
+        self.values=dict(values)
+        self.integer_boxes=dict(integer_boxes or {})
+
+    def copy(self):return PropertySnapshot(self.values,self.integer_boxes)
+
+    def has(self,name):return property_key(name) in self.values
+
+    def get_native(self,name,default=None):return self.values.get(property_key(name),default)
+
+    def get(self,name,default=None):
+        from .json_transfer import JsonLayoutSession
+        return JsonLayoutSession._provider_value(self.get_native(name,default))
+
+    def set(self,name,value,*,integer_box=None):
+        key=property_key(name)
+        if value is None:
+            self.remove(key)
+            return
+        from .node_micro import _PropertyReader
+        canonical=_PREFIX+key
+        if canonical in RUNTIME_PROPERTY_SPECS:
+            value=_PropertyReader._convert(RUNTIME_PROPERTY_SPECS[canonical],value,internal=True)
+        self.values[key]=value
+        if integer_box is None:self.integer_boxes.pop(key,None)
+        else:self.integer_boxes[key]=integer_box
+
+    def remove(self,name):
+        key=property_key(name)
+        self.values.pop(key,None);self.integer_boxes.pop(key,None)
+
+
+def snapshot_properties(state,element):
+    if id(element) not in state.kinds:raise ValueError('Property holder is not part of this layout session')
+    from .node_micro import _PropertyReader
+    reader=_PropertyReader(state);kind=state.kinds[id(element)]
+    names=set(state._imported_property_values[id(element)])
+    names.update(state._configured_property_ids)
+    values={}
+    # Read only properties that are actually present. Applicable configured
+    # type4 values realize their already imported per-holder clone here.
+    for canonical in names:
+        name=canonical[len(_PREFIX):]
+        if reader.has(element,kind,name):values[name]=reader.get(element,kind,name)
+    if kind=='node' and reader.has(element,kind,'spacing.individual'):
+        values['spacing.individual']=reader.get(element,kind,'spacing.individual')
+    if id(element)in state.cleared_constraints:
+        values['nodeSize.constraints']=reader.get(element,kind,'nodeSize.constraints')
+    for name,value in list(state.computed_options.get(id(element),{}).items()):
+        if _PREFIX+name in RUNTIME_PROPERTY_SPECS:value=reader.get(element,kind,name)
+        values[name]=value
+    for holder,name in state._micro_removed:
+        if holder==id(element)and not reader.has(element,kind,name):values.pop(name,None)
+    boxes=dict(getattr(state,'_property_integer_boxes',{}).get(id(element),{}))
+    boxes.update(getattr(state,'_computed_integer_boxes',{}).get(id(element),{}))
+    return PropertySnapshot(values,{name:box for name,box in boxes.items()if name in values})

@@ -1,0 +1,40 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "outer",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 41
+    },
+    "children": [
+      {
+        "id": "container",
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.nodeLabels.placement": "[INSIDE,H_CENTER,V_TOP]",
+          "elk.nodeLabels.padding": "[top=15,left=15,bottom=15,right=15]"
+        },
+        "labels": [
+          {
+            "id": "containerLabel",
+            "text": "parent",
+            "width": 60,
+            "height": 12
+          }
+        ],
+        "children": [
+          {
+            "id": "inner",
+            "width": 30,
+            "height": 20
+          }
+        ]
+      }
+    ]
+  }
+}

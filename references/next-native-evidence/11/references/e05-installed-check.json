@@ -1,0 +1,1204 @@
+{
+  "schema": "py-elk-e05-installed-evidence/v1",
+  "iteration": "E05",
+  "status": "E05_INSTALLED_SLICE_PASS",
+  "passed": true,
+  "historicalEvidenceOnly": true,
+  "runDirectory": "test-runs/20261103-E05-01/native-installed-01",
+  "wheelSha256": "13d677684eabe65fdc9c9f003178c775a16b2e26f08372fd76043f3d5e810b03",
+  "wheelVersion": "0.0.1a0",
+  "installedInterpreter": "3.13.15 (tags/v3.13.15:4061bc4, Aug  5 2026, 13:05:39) [MSC v.1944 64 bit (AMD64)]",
+  "isolatedInterpreter": true,
+  "packageFilesSha256": {
+    "__init__.py": "ecf5616031230a0505175d06998874a2af9ff52465c6afa4878630b179201544",
+    "_errors.py": "1611c957b017e8b4ffea931dabedad56328ec1deec238489e86da5a57c755fe9",
+    "_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "api.py": "f1f0452e70488beb7587fba00199748e6ffa437c18e1a4de7a141150bcdff5ea",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+    "_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6",
+    "_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "algorithms/layered/crossing.py": "efc9844daf92f426fcc268e15988763d4a3ef8232963b0386579d2263088eb75",
+    "algorithms/layered/graph.py": "b3cb2df06f5a24199ab04c15314237a6a0c1f8cf0a9a4dd5460373fb332c8479",
+    "algorithms/layered/import_export.py": "be89fb56f75ac43e4c3fb5cce78597154174bd74f94c82e42f8620d5233790bf",
+    "algorithms/layered/layering.py": "503a1c6b7d1af77a2955b11c68d57f579186868b9ab662fb8f61c626ba54da5e",
+    "algorithms/layered/long_edges.py": "92febc815d270828bf0bb301a1a5f18d808828f3bad646be7b818b1f8a036f91",
+    "algorithms/layered/phases.py": "e46afe44c8d6ef00395d06490cbe8dde09e0e237736f158dfe289e9d3b043985",
+    "algorithms/layered/pipeline.py": "9a0be77266132ce2e9cce6e67542dc65722b744df73427ef8b90641e16f64f7f",
+    "algorithms/layered/placement.py": "61e47699793c108f35f6c0daf32add6d9f42d518406d014240d84f1aae6170f5",
+    "algorithms/layered/processors.py": "ce9d8fcaa4dc04f7a8a6eb44595a7eda149ecdf42b15d7b7591ef0cdc53c026a",
+    "algorithms/layered/routing.py": "370d40e470d9a44fb8b4b289616c8d289887fc740435a0d5717670e142584258",
+    "algorithms/layered/scope.py": "3770657b8cfc7c7e55d2af640ef4922d87b6d4495c2793b9d0592b10da14ce67",
+    "execution/__init__.py": "001b74f3300f958c072dabaf36e697443ad57ce3e99acbfa16702f89e77f86c2",
+    "execution/context.py": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+    "model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "options/resolution.py": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+    "options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e"
+  },
+  "suiteSha256": "ceb6dd9b2bbe5a3f6d9cdf784202e9930f53273be52dfcba40de5c2d993dade6",
+  "profile": "native-basic-layered-v1",
+  "determinismPolicy": "elkjs-0.12.1-default-seed-v1",
+  "tolerance": {
+    "absolute": 1e-06,
+    "relative": 1e-09,
+    "appliesTo": "geometry numeric paths only"
+  },
+  "caseCount": 36,
+  "repeat": 3,
+  "commands": [
+    {
+      "name": "suite",
+      "environmentPolicy": "inherited",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/build_e05_suite.py",
+        "check",
+        "--suite",
+        "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\E05"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.099291,
+      "stdoutSha256": "8d45f892a41ea028a7252e4e5602265cdfe93f9e76d4d21ffc80a2defa6298ac",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "source-approval",
+      "environmentPolicy": "inherited",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/validate_e05_source_bindings.py",
+        "--require-approved"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 1.479122,
+      "stdoutSha256": "e252df8c1fbbe2dbb8d956dbcc3feb752e8cd90f072075c4584ee074ee975e5e",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "installed-wheel",
+      "environmentPolicy": "EMPTY_PATH_NO_PYTHON_OVERRIDES",
+      "argv": [
+        "C:\\code\\py-visactor\\py-elk\\.local\\e05-candidate\\Scripts\\python.exe",
+        "-I",
+        "C:\\code\\py-visactor\\py-elk\\scripts\\verify_installed_wheel.py",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\candidate-build-01\\dist\\py_elk-0.0.1a0-py3-none-any.whl",
+        "--out",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\installed-wheel.json"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.099454,
+      "stdoutSha256": "78cd8f19c45f14f5a1b6515616c4aa65ce37186b86189dccab88789cc0d1001a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "candidate-command",
+      "environmentPolicy": "inherited",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/validate_layout.py",
+        "candidate-command",
+        "--python",
+        "C:\\code\\py-visactor\\py-elk\\.local\\e05-candidate\\Scripts\\python.exe",
+        "--out",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\candidate-command.json"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.05388,
+      "stdoutSha256": "a37bffeb969952f44006e0eb5ff66078c33457e2253b4b65e1aab07114506406",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "reference",
+      "environmentPolicy": "inherited",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/validate_layout.py",
+        "reference",
+        "--cases",
+        "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\E05\\cases.json",
+        "--package",
+        "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+        "--repeat",
+        "3",
+        "--out",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\reference"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 19.732589,
+      "stdoutSha256": "002b7ff1caad18bd1d10a330f814b0ceef74ab8cfe324d3d23e2b78f6a6a2f78",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "candidate",
+      "environmentPolicy": "EMPTY_PATH_NO_PYTHON_OVERRIDES",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/validate_layout.py",
+        "candidate",
+        "--cases",
+        "C:\\code\\py-visactor\\py-elk\\tests\\fixtures\\suites\\E05\\cases.json",
+        "--command-json",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\candidate-command.json",
+        "--repeat",
+        "3",
+        "--out",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\candidate"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 18.376129,
+      "stdoutSha256": "077f32818d414ca50c232c8b02c1ae3dab089e8f957853a6b901791c9a0528e8",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "compare",
+      "environmentPolicy": "inherited",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "scripts/validate_layout.py",
+        "compare",
+        "--profile",
+        "native-basic-layered-v1",
+        "--determinism-policy",
+        "elkjs-0.12.1-default-seed-v1",
+        "--reference",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\reference",
+        "--candidate",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\candidate",
+        "--out",
+        "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E05-01\\native-installed-01\\comparison.json"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.886904,
+      "stdoutSha256": "017e8db53b1fce525c9de13d81d1d20c95a001c1e47eaf669a79c793e0ecdf7d",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "sourceSha256AtExecution": {
+    "scripts/audit_assertions.py": "db62e7162763646267c8ad1e658f5c2b02122fc006cfffb574136d3f78bf4dc5",
+    "scripts/build_e05_suite.py": "4203d4b4156e28ec6be9e6b4db956c97571a4f58fbf3eef0831d5efda0c9bbe9",
+    "scripts/build_slice_suite.py": "40fcd9ee7093d18394b36799984efc486e2b63966f99c0f620a37a59b932ac66",
+    "scripts/check.py": "971508455d4674a0b671935c4d67bf69657f013a45dec50488ea63ec23374bfd",
+    "scripts/check_e04_slice.py": "7f54569131a378c939351fdcca85f60bbef129042ccdde933362bee7ae42ab81",
+    "scripts/check_e05_slice.py": "f2bb7b6d9a1f2c539d88bddef702a24f3b4a6868d71fc7e0eec1eab4abd45fbf",
+    "scripts/check_fresh_copy.py": "7219b48e8ae53760ee22fabd04a7b2e9bace27e397ee1ecf3eb230a3918d1c65",
+    "scripts/export_e05_installed_evidence.py": "3e43a627967b263361d303279643044550b7d6b08be9f68c90895e6e0b9acd31",
+    "scripts/export_e05_phase_observations.py": "8da1f44e3ef8b2128025b379308e8a2085fa5c6984ce3f99719b4d145ef2031c",
+    "scripts/generate_validation_cases.py": "722fe05ca76f946283e81999589ed81d239872384b4b68941be41cc5d8ecf2b3",
+    "scripts/layout_checks.py": "63619805acd22081a2430c6c8173011501ae669a8ecccf77aa9fee4724b915fe",
+    "scripts/run_pyelk_candidate.py": "d57b0ed6a6076815a667465015897d8fcb9bd9b74439c254467700ddd7e933b7",
+    "scripts/upstream.py": "fdb0af88917d4b717bc25e4c7181ebfc8c5d6f2697ec07085a4d547e65df4325",
+    "scripts/validate_bootstrap.py": "6b8cda8d2ccfe011e9db979ee7d48f5f9b490d49e1d21df483e8548ad01cabfe",
+    "scripts/validate_e01_audit.py": "ba14a3ffb3615af4a8a0818009e9b62b0fcc48fbefae034b18bec6e02dae1a9d",
+    "scripts/validate_e02_contract.py": "62fd7714d2ea8e4c230b0b0fa7ebb96eecac5dfccee8d761f4da8954d5fad146",
+    "scripts/validate_e03_foundations.py": "0eb10aa02d3754fad0fd8d3c464ce679d17f5cd7ae17d7ab8d5e18b6b3e31799",
+    "scripts/validate_e04_runtime.py": "abc88f60af7ac79c188b7f2968e13cc35e8e4fe1a89247695c7cac28402e0822",
+    "scripts/validate_e04_source_bindings.py": "2cc82a97cd06db73427b13cc97edbe777686105ffbc023a9f3c77b41f69c1258",
+    "scripts/validate_e05_runtime.py": "878e4474dd6d9fc29521debd405737d776924d1ba679685cd9642eef0c035bd9",
+    "scripts/validate_e05_source_bindings.py": "f0362324562d92d732ef3d87a29d5d62513b629da5fffba575da6862b12ab1a8",
+    "scripts/validate_layout.py": "c65f32999e5a6b782192ee20c3f9b97cf15180de38f6243f08a802b0a0106168",
+    "scripts/verify_installed_wheel.py": "fc1e046d8bd1ff75c4ba8b77d691cad15f1c7e7a0a3b8cf0f93f9e8362460821",
+    "src/pyelk/__init__.py": "ecf5616031230a0505175d06998874a2af9ff52465c6afa4878630b179201544",
+    "src/pyelk/_errors.py": "1611c957b017e8b4ffea931dabedad56328ec1deec238489e86da5a57c755fe9",
+    "src/pyelk/_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "src/pyelk/_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "src/pyelk/algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "src/pyelk/algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9",
+    "src/pyelk/algorithms/layered/crossing.py": "efc9844daf92f426fcc268e15988763d4a3ef8232963b0386579d2263088eb75",
+    "src/pyelk/algorithms/layered/graph.py": "b3cb2df06f5a24199ab04c15314237a6a0c1f8cf0a9a4dd5460373fb332c8479",
+    "src/pyelk/algorithms/layered/import_export.py": "be89fb56f75ac43e4c3fb5cce78597154174bd74f94c82e42f8620d5233790bf",
+    "src/pyelk/algorithms/layered/layering.py": "503a1c6b7d1af77a2955b11c68d57f579186868b9ab662fb8f61c626ba54da5e",
+    "src/pyelk/algorithms/layered/long_edges.py": "92febc815d270828bf0bb301a1a5f18d808828f3bad646be7b818b1f8a036f91",
+    "src/pyelk/algorithms/layered/phases.py": "e46afe44c8d6ef00395d06490cbe8dde09e0e237736f158dfe289e9d3b043985",
+    "src/pyelk/algorithms/layered/pipeline.py": "9a0be77266132ce2e9cce6e67542dc65722b744df73427ef8b90641e16f64f7f",
+    "src/pyelk/algorithms/layered/placement.py": "61e47699793c108f35f6c0daf32add6d9f42d518406d014240d84f1aae6170f5",
+    "src/pyelk/algorithms/layered/processors.py": "ce9d8fcaa4dc04f7a8a6eb44595a7eda149ecdf42b15d7b7591ef0cdc53c026a",
+    "src/pyelk/algorithms/layered/routing.py": "370d40e470d9a44fb8b4b289616c8d289887fc740435a0d5717670e142584258",
+    "src/pyelk/algorithms/layered/scope.py": "3770657b8cfc7c7e55d2af640ef4922d87b6d4495c2793b9d0592b10da14ce67",
+    "src/pyelk/api.py": "f1f0452e70488beb7587fba00199748e6ffa437c18e1a4de7a141150bcdff5ea",
+    "src/pyelk/execution/__init__.py": "001b74f3300f958c072dabaf36e697443ad57ce3e99acbfa16702f89e77f86c2",
+    "src/pyelk/execution/context.py": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+    "src/pyelk/model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "src/pyelk/model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "src/pyelk/options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "src/pyelk/options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "src/pyelk/options/resolution.py": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+    "src/pyelk/options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+    "tools/reference/capture_contracts.cjs": "563483d28ad38a171bb8a76b96978436d7879906610c9b330a64278d947cbc91",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+    "tools/reference/capture_metadata.cjs": "4077cedf9ba9afaae20919388711a30d3628c7b513e152654377a36138d19623",
+    "tools/reference/probe_e04_rng.cjs": "9c67bc265151ed6993290c3dd75a6420a9e3a1a8feaffb5de572a17de3a0dc38",
+    "tools/reference/probe_e05_routing_helpers.cjs": "c62eab57eb66e8c7340eb021f4ca593af633e5c9d55daf1a316c6ba5f0d455bb",
+    "tools/reference/trace_e04_slice.cjs": "67711fc45e1fbf6076ad82b4ffe8d5afd1545986a6e33d6e748cc361e7ab7160",
+    "tools/reference/trace_e05_dag.cjs": "48afbe2e2a169e068fc220cc73d5236dddc7de20ff499ed2440781b2e69c362f",
+    "tools/reference/trace_layered_path.cjs": "c16ecaf704b09ceb939f25080074c91d0164c4346e8e22744f7a32d0a0db9970"
+  },
+  "originalFilesSha256": {
+    "report.json": "bc5668f29ccc1b524937bec716cb1e5c45586cfa27a0e9ca05494f996d44113d",
+    "comparison.json": "d4f07f56ae986e78e3d9aec7feadabbd046481d099ae2f3530916622b9ddf641",
+    "installed-wheel.json": "0fe5296554377fc0799eee5642f5cb22d3dc312f72ecd50520e2837690f859f3",
+    "reference/index.json": "9d3d8ba033e1b515bbd5f15b6622cf358288a7d6e59d6fe3ea219cbdc5643b1f",
+    "candidate/index.json": "24bc14aab64f192547cbf9ad4a638d8c14bf4a2df90e6ab6c423431f25167c69"
+  },
+  "cases": [
+    {
+      "id": "layered-empty",
+      "passed": true,
+      "requestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-singleton",
+      "passed": true,
+      "requestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-chain",
+      "passed": true,
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-fork",
+      "passed": true,
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-join",
+      "passed": true,
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-diamond-right",
+      "passed": true,
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-long-edge",
+      "passed": true,
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "passed": true,
+      "requestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-zero-size",
+      "passed": true,
+      "requestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "layered-custom-spacing",
+      "passed": true,
+      "requestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "passed": true,
+      "requestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "options-full-ids",
+      "passed": true,
+      "requestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "e05-fork-default",
+      "passed": true,
+      "requestSha256": "d930b6f5e3e4e0025aee909946ac3b1be37ae8e1745c97b17461e371e0331ddb",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-join-default",
+      "passed": true,
+      "requestSha256": "079f8b33580667c791fc44281ba3b047e4949c23fc092e0532c371a24e8558c8",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-diamond-default",
+      "passed": true,
+      "requestSha256": "e9c6058177154b833f04cfbbb53251799adcc49dac084712accc2f27f5813e5c",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-skip-one-dummy",
+      "passed": true,
+      "requestSha256": "9681ebe9c74ad293cb2580b15971b741f9f1a093afe6ad37b2220e86a7e8674d",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-skip-two-dummies",
+      "passed": true,
+      "requestSha256": "a5633fb96e2745759fb4c59df01b577b9a131dc6ab34f2328a8a5493bf11fd32",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-skip-four-dummies",
+      "passed": true,
+      "requestSha256": "50608a3b18e0cffadf29d55dd1e8ac57a7e2aff3b09ff8fc29aca0c5e26f79ed",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-multiple-skip-six",
+      "passed": true,
+      "requestSha256": "a621c4d6d505f4781b5c822b1b2db168e3a5bc125a6feaa7d583d0f3d1819d2e",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-fanout-four",
+      "passed": true,
+      "requestSha256": "e3ab41a0caaabbc16ce2c39627873b1263338166912d1325d54fc494e0f3b9e9",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-fanin-four",
+      "passed": true,
+      "requestSha256": "20d11e5920b63225dacf0ddc8b0e2701e5d4423daab6348426f70607900ab772",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-two-source-five",
+      "passed": true,
+      "requestSha256": "96b80c67efa44e5cd1c8a952bc1583c99d9a0008a3902fa5ff0406b58557ee0e",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-two-sink-five",
+      "passed": true,
+      "requestSha256": "584ed9e8c8cb58193fa74352e3f0ee48374d10994b45608cde106011de5400b5",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-crossing-six",
+      "passed": true,
+      "requestSha256": "19269714c8a1ac4617eb75f53b5ab0f34526ac1423e0d907a44a4601662fa377",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-diamond-unequal",
+      "passed": true,
+      "requestSha256": "598ff5ad13a08cf59ac305eee5f96fcf6247bfcbc278d92f649e30c6b83a5753",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-fork-zero",
+      "passed": true,
+      "requestSha256": "6be8cd2d7d72581c4eb8d37e966bd86b2065ca8be3cd6110de77b502bb572a67",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-join-mixed-zero",
+      "passed": true,
+      "requestSha256": "1de879e5845bfb53ca82cc66fdcda9007b1e9060ba443428d625f7a49668a8fa",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-diamond-decimal",
+      "passed": true,
+      "requestSha256": "9429bab0886f599f834df114bdc354aae0764e38f1a578fe74beeb0e5712b959",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-long-edge-decimal",
+      "passed": true,
+      "requestSha256": "ceb2a109656ccd1edd27da284f24d0cc4af95a7799f5b27670801493d1ce623c",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-diamond-node-order",
+      "passed": true,
+      "requestSha256": "6050981c99b18e04f4048f61190d08143251c4c80ab1c81e5da7e705645fd453",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-diamond-edge-order",
+      "passed": true,
+      "requestSha256": "05d1b6c5867758369a09f382873d7d523ebd3341ba57905833991a53ac7d8f7f",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 1,
+        "seedSource": "fixed-source-default"
+      }
+    },
+    {
+      "id": "e05-multiskip-permuted-eight",
+      "passed": true,
+      "requestSha256": "5d8cd33d005828ee7141fd8dbe802d03858cfc5e67e83890da7713d3e5809f24",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 17,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 17,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "e05-diamond-seed17",
+      "passed": true,
+      "requestSha256": "cc7724fe8048bb0d838c888d9c5515db98c57669aa3e9a9884260a6c083cf197",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 17,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 17,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "e05-diamond-seed-negative17",
+      "passed": true,
+      "requestSha256": "a2ed823d8cfd6547aa97760ccb9e9de0e58ec14d59676a7a9564d64df373617d",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": -17,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": -17,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "e05-fork-custom-spacing",
+      "passed": true,
+      "requestSha256": "abb1ddbed2ccfee859e9ae9358e382758906522264474814e9e4d0433b9bd8af",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    },
+    {
+      "id": "e05-diamond-option-precedence",
+      "passed": true,
+      "requestSha256": "ba793bf62539d9ad0348388884446f23537acfac5ad9dba0c3b61b8033d91e7d",
+      "repetitionsCompared": 3,
+      "nativePublicExact": true,
+      "nativePublicTolerance": true,
+      "strictPassed": false,
+      "candidateGeometry": true,
+      "referenceGeometry": true,
+      "candidateInputPreserved": true,
+      "referenceDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      },
+      "candidateDeterminism": {
+        "passed": true,
+        "status": "CHECKED",
+        "repeats": 3,
+        "seed": 7,
+        "seedSource": "explicit-request"
+      }
+    }
+  ],
+  "pythonAlgorithmsVerified": 0,
+  "fullAlgorithmAccepted": false,
+  "packagePublished": false,
+  "limitation": "Condensed actual installed-run receipt. Raw strict differences remain in the original run; this receipt alone does not authenticate historical execution or accept the full algorithm/API/release."
+}

@@ -1,0 +1,38 @@
+{
+  "schema": "pyelk-mrtree-cycle-termination/v1",
+  "passed": true,
+  "candidateModuleSha256": "4cb5f83db016783e12a5c79dc25676a1ecd9d489c9f82dd74a961a7dc8915813",
+  "beforeModuleSha256": "9ec544e06e5d1882581b1c9ff6a66bed7d9abf6f18cee12195a368c5feae4c29",
+  "request": {
+    "path": "tests/fixtures/suites/full-option-effects-nonlayered/requests/mrtree-cycle-bfs.json",
+    "sha256": "08c95a4806fdfdc23348f1eb6dc45ae6c086b98de53ad7a0952ce8e56f5e9840"
+  },
+  "reference": {
+    "path": "test-runs/full-native-closure/B/nonlayered-effects-reference-01/mrtree-cycle-bfs.json",
+    "sha256": "6a9221e71e7163df76813842f856be93398a47f67a2af35a312673d7d4646aa1"
+  },
+  "native": {
+    "path": "test-runs/full-native-closure/B/mrtree-secondwalk-repair-01/cycle-native-commanded.json",
+    "sha256": "7df89ae4c063915d9c74e759486cad4903d457a0ef6597aed221c59b2420b369"
+  },
+  "command": {
+    "path": "test-runs/full-native-closure/B/mrtree-secondwalk-repair-01/cycle-api-command/command.json",
+    "sha256": "6dd019d5fcec5c06b543bc960dab48bf52cf7505387cc0193542369ae4cad69c"
+  },
+  "sourceOutcome": "threw",
+  "sourceError": {
+    "name": "RangeError",
+    "message": "Maximum call stack size exceeded"
+  },
+  "nativeOutcome": "threw",
+  "nativeError": {
+    "name": "RecursionError",
+    "message": "Cyclic sibling/child dependency in MrTree second walk",
+    "code": null,
+    "path": null
+  },
+  "nativeTimedOut": false,
+  "exceptionClassParity": false,
+  "exceptionMessageParity": false,
+  "sourceRecaptured": false
+}

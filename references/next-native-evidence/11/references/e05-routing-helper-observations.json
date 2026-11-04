@@ -1,0 +1,3010 @@
+{
+  "schema": "py-elk-e05-routing-original-helper-observations/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "instrumentedSourceSha256": "3e855c06ca761b70cc5aab50b14d05ac0245566fef2a73ce4f3621f8d5616660",
+  "toolSha256": "21f84ad94b537c4379c7e9c16da3961124fdd08136400f59e221384026901b6d",
+  "memoryOnlyBridge": "\nmodule.exports.__E05RoutingHelperBridge={\n  run: function(input){\n    const make=row=>{const value=new HyperEdgeSegment(null);for(const x of row.incoming)$add_7(value.incomingConnectionCoordinates,x);for(const x of row.outgoing)$add_7(value.outgoingConnectionCoordinates,x);$recomputeExtent(value);return value;};\n    const source=make(input.segment),causing=make(input.causing);source.splitBy=causing;\n    const others=input.others.map(make);\n    for(let i=0;i<others.length;i++){new HyperEdgeSegmentDependency(($clinit_HyperEdgeSegmentDependency$DependencyType(),REGULAR),i%2?source:others[i],i%2?others[i]:source,1);}\n    const areas=new ArrayList;for(const x of input.areas)areas.array.push(new HyperEdgeSegmentSplitter$FreeArea(x[0],x[1]));\n    const split=new HyperEdgeSegment(null),partner=new HyperEdgeSegment(null);\n    $addAll(split.incomingConnectionCoordinates,source.incomingConnectionCoordinates);split.splitBy=causing;split.splitPartner=partner;$recomputeExtent(split);\n    $addAll(partner.outgoingConnectionCoordinates,source.outgoingConnectionCoordinates);partner.splitPartner=split;$recomputeExtent(partner);\n    const ratings=[];for(const area of areas.array){const r=$rateArea(source,split,partner,area);ratings.push([r.dependencies,r.crossings]);}\n    const chosen=$chooseBestAreaIndex(source,areas,0,areas.array.length-1);\n    const position=$computePositionToSplitAndUpdateFreeAreas(source,areas,input.threshold);\n    return {ratings,chosen,position,remainingAreas:areas.array.map(a=>[a.startPosition,a.endPosition]),extent:[source.startPosition,source.endPosition]};\n  }\n};\n",
+  "records": [
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            1
+          ]
+        },
+        "causing": {
+          "incoming": [
+            0.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              5
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              -2
+            ]
+          },
+          {
+            "incoming": [
+              1
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -4.501,
+            -4.499
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 1,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -4.501,
+            -4.499
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          1
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            3
+          ]
+        },
+        "causing": {
+          "incoming": [
+            2.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              7
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              0
+            ]
+          },
+          {
+            "incoming": [
+              3
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -3.451,
+            -3.4490000000000003
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 3,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -3.451,
+            -3.4490000000000003
+          ],
+          [
+            2,
+            2.8
+          ],
+          [
+            3.2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          3
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            5
+          ]
+        },
+        "causing": {
+          "incoming": [
+            4.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              9
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              2
+            ]
+          },
+          {
+            "incoming": [
+              5
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -2.4010000000000002,
+            -2.3990000000000005
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 5,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -2.4010000000000002,
+            -2.3990000000000005
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            7
+          ]
+        },
+        "causing": {
+          "incoming": [
+            6.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              11
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              4
+            ]
+          },
+          {
+            "incoming": [
+              7
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -1.501,
+            -1.499
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 7,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -1.501,
+            -1.499
+          ],
+          [
+            6,
+            6.8
+          ],
+          [
+            7.2,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            1
+          ]
+        },
+        "causing": {
+          "incoming": [
+            0.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              5
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              -2
+            ]
+          },
+          {
+            "incoming": [
+              1
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -4.4510000000000005,
+            -4.449
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 1,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -4.4510000000000005,
+            -4.449
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          1
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            3
+          ]
+        },
+        "causing": {
+          "incoming": [
+            2.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              7
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              0
+            ]
+          },
+          {
+            "incoming": [
+              3
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -3.4010000000000002,
+            -3.3990000000000005
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 3,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -3.4010000000000002,
+            -3.3990000000000005
+          ],
+          [
+            2,
+            2.8
+          ],
+          [
+            3.2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          3
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            5
+          ]
+        },
+        "causing": {
+          "incoming": [
+            4.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              9
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              2
+            ]
+          },
+          {
+            "incoming": [
+              5
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -2.501,
+            -2.499
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 5,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -2.501,
+            -2.499
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            7
+          ]
+        },
+        "causing": {
+          "incoming": [
+            6.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              11
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              4
+            ]
+          },
+          {
+            "incoming": [
+              7
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -1.451,
+            -1.4490000000000003
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 7,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -1.451,
+            -1.4490000000000003
+          ],
+          [
+            6,
+            6.8
+          ],
+          [
+            7.2,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            1
+          ]
+        },
+        "causing": {
+          "incoming": [
+            0.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              5
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              -2
+            ]
+          },
+          {
+            "incoming": [
+              1
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -4.401000000000001,
+            -4.399
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 1,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -4.401000000000001,
+            -4.399
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          1
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            3
+          ]
+        },
+        "causing": {
+          "incoming": [
+            2.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              7
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              0
+            ]
+          },
+          {
+            "incoming": [
+              3
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -3.501,
+            -3.499
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 3,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -3.501,
+            -3.499
+          ],
+          [
+            2,
+            2.8
+          ],
+          [
+            3.2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          3
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            5
+          ]
+        },
+        "causing": {
+          "incoming": [
+            4.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              9
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              2
+            ]
+          },
+          {
+            "incoming": [
+              5
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -2.451,
+            -2.4490000000000003
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 5,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -2.451,
+            -2.4490000000000003
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            7
+          ]
+        },
+        "causing": {
+          "incoming": [
+            6.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              11
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              4
+            ]
+          },
+          {
+            "incoming": [
+              7
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -1.4010000000000002,
+            -1.3990000000000005
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 7,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -1.4010000000000002,
+            -1.3990000000000005
+          ],
+          [
+            6,
+            6.8
+          ],
+          [
+            7.2,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            1
+          ]
+        },
+        "causing": {
+          "incoming": [
+            0.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              5
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              -2
+            ]
+          },
+          {
+            "incoming": [
+              1
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -4.501,
+            -4.499
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 1,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -4.501,
+            -4.499
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          1
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            3
+          ]
+        },
+        "causing": {
+          "incoming": [
+            2.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              7
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              0
+            ]
+          },
+          {
+            "incoming": [
+              3
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -3.451,
+            -3.4490000000000003
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 3,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -3.451,
+            -3.4490000000000003
+          ],
+          [
+            2,
+            2.8
+          ],
+          [
+            3.2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          3
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            5
+          ]
+        },
+        "causing": {
+          "incoming": [
+            4.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              9
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              2
+            ]
+          },
+          {
+            "incoming": [
+              5
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -2.4010000000000002,
+            -2.3990000000000005
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 5,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -2.4010000000000002,
+            -2.3990000000000005
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            7
+          ]
+        },
+        "causing": {
+          "incoming": [
+            6.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              11
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              4
+            ]
+          },
+          {
+            "incoming": [
+              7
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -1.501,
+            -1.499
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 7,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -1.501,
+            -1.499
+          ],
+          [
+            6,
+            6.8
+          ],
+          [
+            7.2,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            1
+          ]
+        },
+        "causing": {
+          "incoming": [
+            0.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              5
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              -2
+            ]
+          },
+          {
+            "incoming": [
+              1
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -4.4510000000000005,
+            -4.449
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 1,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -4.4510000000000005,
+            -4.449
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          1
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            3
+          ]
+        },
+        "causing": {
+          "incoming": [
+            2.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              7
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              0
+            ]
+          },
+          {
+            "incoming": [
+              3
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -3.4010000000000002,
+            -3.3990000000000005
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 3,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -3.4010000000000002,
+            -3.3990000000000005
+          ],
+          [
+            2,
+            2.8
+          ],
+          [
+            3.2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          3
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            5
+          ]
+        },
+        "causing": {
+          "incoming": [
+            4.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              9
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              2
+            ]
+          },
+          {
+            "incoming": [
+              5
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -2.501,
+            -2.499
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 5,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -2.501,
+            -2.499
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            7
+          ]
+        },
+        "causing": {
+          "incoming": [
+            6.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              11
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              4
+            ]
+          },
+          {
+            "incoming": [
+              7
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -1.451,
+            -1.4490000000000003
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 7,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -1.451,
+            -1.4490000000000003
+          ],
+          [
+            6,
+            6.8
+          ],
+          [
+            7.2,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          7
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            1
+          ]
+        },
+        "causing": {
+          "incoming": [
+            0.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              5
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              -2
+            ]
+          },
+          {
+            "incoming": [
+              1
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -4.401000000000001,
+            -4.399
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 1,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -4.401000000000001,
+            -4.399
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          1
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -10
+          ],
+          "outgoing": [
+            3
+          ]
+        },
+        "causing": {
+          "incoming": [
+            2.99
+          ],
+          "outgoing": [
+            -9.98
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -13
+            ],
+            "outgoing": [
+              7
+            ]
+          },
+          {
+            "incoming": [
+              -5
+            ],
+            "outgoing": [
+              0
+            ]
+          },
+          {
+            "incoming": [
+              3
+            ],
+            "outgoing": [
+              -10
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -3.501,
+            -3.499
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 3,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10.1,
+            -9.9
+          ],
+          [
+            -3.501,
+            -3.499
+          ],
+          [
+            2,
+            2.8
+          ],
+          [
+            3.2,
+            4
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -10,
+          3
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.9
+          ],
+          "outgoing": [
+            5
+          ]
+        },
+        "causing": {
+          "incoming": [
+            4.99
+          ],
+          "outgoing": [
+            -9.88
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.9
+            ],
+            "outgoing": [
+              9
+            ]
+          },
+          {
+            "incoming": [
+              -4.9
+            ],
+            "outgoing": [
+              2
+            ]
+          },
+          {
+            "incoming": [
+              5
+            ],
+            "outgoing": [
+              -9.9
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -2.451,
+            -2.4490000000000003
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 5,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -10,
+            -9.8
+          ],
+          [
+            -2.451,
+            -2.4490000000000003
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.9,
+          5
+        ]
+      }
+    },
+    {
+      "input": {
+        "segment": {
+          "incoming": [
+            -9.8
+          ],
+          "outgoing": [
+            7
+          ]
+        },
+        "causing": {
+          "incoming": [
+            6.99
+          ],
+          "outgoing": [
+            -9.780000000000001
+          ]
+        },
+        "others": [
+          {
+            "incoming": [
+              -12.8
+            ],
+            "outgoing": [
+              11
+            ]
+          },
+          {
+            "incoming": [
+              -4.800000000000001
+            ],
+            "outgoing": [
+              4
+            ]
+          },
+          {
+            "incoming": [
+              7
+            ],
+            "outgoing": [
+              -9.8
+            ]
+          }
+        ],
+        "areas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -1.4010000000000002,
+            -1.3990000000000005
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "threshold": 0.2
+      },
+      "result": {
+        "ratings": [
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            10,
+            6
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            6,
+            0
+          ]
+        ],
+        "chosen": 0,
+        "position": 7,
+        "remainingAreas": [
+          [
+            -50,
+            -40
+          ],
+          [
+            -9.9,
+            -9.700000000000001
+          ],
+          [
+            -1.4010000000000002,
+            -1.3990000000000005
+          ],
+          [
+            6,
+            6.8
+          ],
+          [
+            7.2,
+            8
+          ],
+          [
+            40,
+            50
+          ]
+        ],
+        "extent": [
+          -9.8,
+          7
+        ]
+      }
+    }
+  ],
+  "classification": "Explicit synthetic original-helper prerequisites, not a public-request capture or end-to-end layout acceptance"
+}

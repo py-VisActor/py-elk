@@ -1,0 +1,156 @@
+{
+  "schema": "py-elk-next-element-options-sources/v1",
+  "status": "proposed",
+  "fixedWorkerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "source": "elkjs0.12.1/lib/elk-worker.js",
+  "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+  "scope": "Native per-element five port-option schemas and presence-aware selected global/local precedence; not all243 support",
+  "hostAdaptations": [
+    "Retain explicit Python option errors instead of silently dropping malformed or unsupported values.",
+    "Duplicate aliases retain existing native ambiguity errors.",
+    "Reject non-finite parsed values under the existing native JSON/numeric contract."
+  ],
+  "declarations": {
+    "portConstraints": {
+      "default": "UNDEFINED",
+      "values": [
+        "UNDEFINED",
+        "FREE",
+        "FIXED_SIDE",
+        "FIXED_ORDER",
+        "FIXED_RATIO",
+        "FIXED_POS"
+      ],
+      "targets": [
+        "NODES"
+      ]
+    },
+    "port.side": {
+      "default": "UNDEFINED",
+      "values": [
+        "UNDEFINED",
+        "NORTH",
+        "EAST",
+        "SOUTH",
+        "WEST"
+      ],
+      "targets": [
+        "PORTS"
+      ]
+    },
+    "port.index": {
+      "default": null,
+      "type": "signed32int",
+      "targets": [
+        "PORTS"
+      ]
+    },
+    "port.anchor": {
+      "default": null,
+      "type": "vector2",
+      "targets": [
+        "PORTS"
+      ]
+    },
+    "port.borderOffset": {
+      "default": null,
+      "type": "signed-finite-double",
+      "targets": [
+        "PORTS"
+      ]
+    }
+  },
+  "spans": [
+    {
+      "id": "local-property-import",
+      "firstLine": 80047,
+      "lastLine": 80062,
+      "sha256": "eb6a2d938cdf0011cfa9952c32b4848979c588be62012d5f2129384468fbb260"
+    },
+    {
+      "id": "local-property-set",
+      "firstLine": 79437,
+      "lastLine": 79444,
+      "sha256": "455e83c9a79d1d9856fd34e9e136b5c946d9736beb79c40590bb15028101f87c"
+    },
+    {
+      "id": "known-suffix-lookup",
+      "firstLine": 69294,
+      "lastLine": 69339,
+      "sha256": "7fe51cceda8ca7bc12bff635f484a5a7b6271a2da9bda5641e2af4dc61254b50"
+    },
+    {
+      "id": "local-option-parse-set",
+      "firstLine": 79705,
+      "lastLine": 79720,
+      "sha256": "51c6692eb1f2b8a2bd926300fe5b43c8225394d330ff24a68e30d046926b1862"
+    },
+    {
+      "id": "global-options-config",
+      "firstLine": 81909,
+      "lastLine": 81929,
+      "sha256": "fc8afbda29d236a1834c3d33d95031610fe0cf514fbe9b4b1af11e151c5aba66"
+    },
+    {
+      "id": "global-config-no-overwrite",
+      "firstLine": 68410,
+      "lastLine": 68418,
+      "sha256": "fb4639ceb9478f41819801ea6f2709fd401df99da7ad8573144091a28bd917c4"
+    },
+    {
+      "id": "global-target-application",
+      "firstLine": 68306,
+      "lastLine": 68324,
+      "sha256": "73dafc5fb654e386bcc0fa7242c1ed5441c7f91317aed11ee09c4acf130379ae"
+    },
+    {
+      "id": "core-node-default",
+      "firstLine": 70787,
+      "lastLine": 70794,
+      "sha256": "e00c2ee30d94fc5092dff0167ce06d5121a436780a943f946abae2468a23e8c1"
+    },
+    {
+      "id": "core-port-defaults",
+      "firstLine": 70868,
+      "lastLine": 70872,
+      "sha256": "f6171397613dd2d3200eb3df22034fa83e71c08c1fb0a076ed4eb986a44e20a7"
+    },
+    {
+      "id": "port-constraints-enum",
+      "firstLine": 71409,
+      "lastLine": 71417,
+      "sha256": "d180bd24bb2dd10c8864c5647fe41a7c51c0a324fd4e7b301f788582b92570be"
+    },
+    {
+      "id": "port-side-enum",
+      "firstLine": 71502,
+      "lastLine": 71509,
+      "sha256": "ab175dd60d3d4f4e97a03549245168437228dd1333f2af5f62eb97e626dced2d"
+    },
+    {
+      "id": "enum-symbol-or-ordinal",
+      "firstLine": 69664,
+      "lastLine": 69690,
+      "sha256": "3c11b9bb90d2a16d92c7f906ba12f8e39cae7aa93cc285aa6ee0c6b8c3dbc2bc"
+    },
+    {
+      "id": "typed-value-parse",
+      "firstLine": 69712,
+      "lastLine": 69778,
+      "sha256": "41258f4bedd7aea07c8aa7f02d215982d31b8f0213437018254d8af315ac6a7d"
+    },
+    {
+      "id": "vector-parse",
+      "firstLine": 70484,
+      "lastLine": 70514,
+      "sha256": "3b7498e3a195590030fa19342de4b7a90cd4806e763ef56200dd2c7e22828c1d"
+    },
+    {
+      "id": "global-recursive-visitor",
+      "firstLine": 72848,
+      "lastLine": 72860,
+      "sha256": "9a3cba4164fee18817e68181b1db18ec0f9189d8263fdb2fa73badd3363d1245"
+    }
+  ],
+  "license": "EPL-2.0 OR GPL-3.0-or-later; native float/integer intrinsic adaptations are not copied GWT runtime"
+}

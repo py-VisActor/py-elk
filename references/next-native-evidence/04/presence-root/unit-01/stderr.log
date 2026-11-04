@@ -1,0 +1,59 @@
+FF
+======================================================================
+FAIL: test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal (tests.next_native.test_micro_state.PrivateMicroStateTests.test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 32, in test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal
+    def test_presence_distinguishes_parent_local_defaults_false_zero_and_property_removal(self): self.run_case('property-presence')
+                                                                                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 24, in run_case
+    self.assertEqual(result.returncode,0,result.stderr.decode(errors='replace'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 193, in <module>
+    args=parser.parse_args();print(json.dumps(probe(args.workspace,args.case)))
+                                              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 126, in probe
+    assert not imported.has_option(first,'direction')
+               ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-hzp84jl1\restored\src\pyelk\execution\json_transfer.py", line 302, in has_option
+    reader, kind, name = self._property(element, name)
+                         ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-hzp84jl1\restored\src\pyelk\execution\json_transfer.py", line 297, in _property
+    canonical = _canonical_id(name, self.paths[id(element)]+'/layoutOptions/'+name)
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-hzp84jl1\restored\src\pyelk\options\resolution.py", line 50, in _canonical_id
+    raise UnknownOptionError("UNKNOWN_OPTION", path, "Unknown or unsupported identifier spelling: " + key)
+pyelk._errors.UnknownOptionError: UNKNOWN_OPTION at /children/0/layoutOptions/direction: Unknown or unsupported identifier spelling: direction
+
+
+======================================================================
+FAIL: test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics (tests.next_native.test_micro_state.PrivateMicroStateTests.test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 33, in test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics
+    def test_reviewed_force_stress_and_ns_schemas_share_target_and_core_default_semantics(self): self.run_case('source-option-additions')
+                                                                                                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tests\next_native\test_micro_state.py", line 24, in run_case
+    self.assertEqual(result.returncode,0,result.stderr.decode(errors='replace'))
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 193, in <module>
+    args=parser.parse_args();print(json.dumps(probe(args.workspace,args.case)))
+                                              ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\code\py-visactor\py-elk\tools\platform\next_micro_state_probe.py", line 175, in probe
+    resolved=resolve_raw_element_options({'layoutOptions':{'padding':'[left=3]','direction':1}},'node',context)
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-hzp84jl1\restored\src\pyelk\options\element.py", line 175, in resolve_raw_element_options
+    local_values,local_raw=parse_mapping(local,local_path)
+                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-hzp84jl1\restored\src\pyelk\options\element.py", line 124, in parse_mapping
+    where=pointer(path,spelling);canonical=_canonical_id(spelling,where)
+                                           ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\AppData\Local\Temp\py-elk-micro-state-hzp84jl1\restored\src\pyelk\options\resolution.py", line 50, in _canonical_id
+    raise UnknownOptionError("UNKNOWN_OPTION", path, "Unknown or unsupported identifier spelling: " + key)
+pyelk._errors.UnknownOptionError: UNKNOWN_OPTION at /layoutOptions/padding: Unknown or unsupported identifier spelling: padding
+
+
+----------------------------------------------------------------------
+Ran 2 tests in 0.285s
+
+FAILED (failures=2)

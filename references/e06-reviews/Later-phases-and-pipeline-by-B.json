@@ -1,0 +1,463 @@
+{
+  "schema": "py-elk-e06-independent-source-review/v1",
+  "reviewerLane": "B",
+  "ownerLane": "R",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "sourceDocument": {
+    "path": "references/e06-source-components-R.json",
+    "sha256": "d48ccd799ff351f8075566da9dd9a3c588233d67240f9cd3c6b8b09b522ef26f"
+  },
+  "baseline": {
+    "package": "elkjs",
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "sourceContextSha256": "8e8a7e51b814ac6b6f5364f4bcce3b9cc174066d286e56e48cb1830eaebf7a4b",
+  "components": [
+    {
+      "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+      "canonicalComponentSha256": "7d40671d099eade005901eb6532eff9b2dbb992cff8639df57c0356d55865b61",
+      "canonicalChecks": {
+        "spanCount": 206,
+        "functionCount": 199,
+        "lexicalCallsites": 115,
+        "inheritedArtifacts": 1
+      },
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "componentDependencies": [
+        {
+          "componentId": "phase:NETWORK_SIMPLEX",
+          "canonicalComponentSha256": "4fce717cb395c50a15b693194dfe71e6df5575133179ad0aaf94b3de85f3a5bf",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:LongEdgeSplitter",
+          "canonicalComponentSha256": "1e3c976fb7b26388f0c0d85b0ef2be1f0a032c3b32dc382a61387b2952005f89",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopPreProcessor",
+          "canonicalComponentSha256": "31cad7907ecc44dab6d27a5fd6723f6642dd7ad02611527a4ad04a7e7412f383",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:PortSideProcessor",
+          "canonicalComponentSha256": "8daeb1bff199bb830cd3bb059bd8593ec887253cebd75428280c691fbd74f9ac",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:PortListSorter",
+          "canonicalComponentSha256": "dc667f25c66af51806f1e7e4c264b7ba7a1c2b5cd6850cea86797b7230f611e5",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        }
+      ]
+    },
+    {
+      "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+      "canonicalComponentSha256": "5a3c05b794c6576bb7636506acf192be24e9abfcc37bc328a6fb7afa0e6bdbb3",
+      "canonicalChecks": {
+        "spanCount": 231,
+        "functionCount": 224,
+        "lexicalCallsites": 134,
+        "inheritedArtifacts": 1
+      },
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "componentDependencies": [
+        {
+          "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+          "canonicalComponentSha256": "7d40671d099eade005901eb6532eff9b2dbb992cff8639df57c0356d55865b61",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        }
+      ]
+    },
+    {
+      "componentId": "phase:BRANDES_KOEPF",
+      "canonicalComponentSha256": "fd62dca75afd6bdcfd31530c734a2d92772883dd7f89b51e5a3c6fd37920ec0f",
+      "canonicalChecks": {
+        "spanCount": 180,
+        "functionCount": 171,
+        "lexicalCallsites": 134,
+        "inheritedArtifacts": 1
+      },
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "componentDependencies": [
+        {
+          "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+          "canonicalComponentSha256": "5a3c05b794c6576bb7636506acf192be24e9abfcc37bc328a6fb7afa0e6bdbb3",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopPortRestorer",
+          "canonicalComponentSha256": "697a4a18fb156c00093fb84f31d4e0ecbe2129bf37a89cb9da6070dfcd91cdf9",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:LabelAndNodeSizeProcessor",
+          "canonicalComponentSha256": "c3ba052bc35627dfa18e4cb00574e015f3e6068a8c7554e38dcefa8234d2749b",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:InnermostNodeMarginCalculator",
+          "canonicalComponentSha256": "d5e56ab0fa60d9ab0ff1c1b424411b352e9dd2922d7fc5323ae039e87c5bc566",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopRouter",
+          "canonicalComponentSha256": "93fcb6400d069159956c90f338295cce846334bbb73cc83046c6b4b746622f52",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        }
+      ]
+    },
+    {
+      "componentId": "phase:ORTHOGONAL",
+      "canonicalComponentSha256": "55ab233d06c8b009d419e4b7e0689ddd543410981628cb4772c9c11262452572",
+      "canonicalChecks": {
+        "spanCount": 188,
+        "functionCount": 184,
+        "lexicalCallsites": 120,
+        "inheritedArtifacts": 1
+      },
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "componentDependencies": [
+        {
+          "componentId": "phase:BRANDES_KOEPF",
+          "canonicalComponentSha256": "fd62dca75afd6bdcfd31530c734a2d92772883dd7f89b51e5a3c6fd37920ec0f",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:LayerSizeAndGraphHeightCalculator",
+          "canonicalComponentSha256": "6291a4ef226d91ef159043cdd302c257ac07632009710e8aa42b40a58c8f1643",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        }
+      ]
+    },
+    {
+      "componentId": "pipeline:default-processor-configuration",
+      "canonicalComponentSha256": "2cddf4e8a96d9713b55fa222b749689c17ffa6e858464ff539781cce424872d4",
+      "canonicalChecks": {
+        "spanCount": 67,
+        "functionCount": 62,
+        "lexicalCallsites": 84,
+        "inheritedArtifacts": 1
+      },
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "componentDependencies": [
+        {
+          "componentId": "import:json-to-layered",
+          "canonicalComponentSha256": "8c2e2f74070b2fcf149721ba36d75d02f0603906553b8e3f586d9cf7e3df35bc",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "phase:GREEDY",
+          "canonicalComponentSha256": "7a029449006feb2b5c8b8b05a7e54f0e975bd35e8645fa9135e3afa2bac495d5",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "phase:NETWORK_SIMPLEX",
+          "canonicalComponentSha256": "4fce717cb395c50a15b693194dfe71e6df5575133179ad0aaf94b3de85f3a5bf",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+          "canonicalComponentSha256": "7d40671d099eade005901eb6532eff9b2dbb992cff8639df57c0356d55865b61",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+          "canonicalComponentSha256": "5a3c05b794c6576bb7636506acf192be24e9abfcc37bc328a6fb7afa0e6bdbb3",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "phase:BRANDES_KOEPF",
+          "canonicalComponentSha256": "fd62dca75afd6bdcfd31530c734a2d92772883dd7f89b51e5a3c6fd37920ec0f",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "phase:ORTHOGONAL",
+          "canonicalComponentSha256": "55ab233d06c8b009d419e4b7e0689ddd543410981628cb4772c9c11262452572",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopPreProcessor",
+          "canonicalComponentSha256": "31cad7907ecc44dab6d27a5fd6723f6642dd7ad02611527a4ad04a7e7412f383",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopPortRestorer",
+          "canonicalComponentSha256": "697a4a18fb156c00093fb84f31d4e0ecbe2129bf37a89cb9da6070dfcd91cdf9",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopRouter",
+          "canonicalComponentSha256": "93fcb6400d069159956c90f338295cce846334bbb73cc83046c6b4b746622f52",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        },
+        {
+          "componentId": "intermediate:SelfLoopPostProcessor",
+          "canonicalComponentSha256": "7a2c04c94f760b60253d0a29f71d44bf1f195e23774581cf56e71e8a2549a629",
+          "meaning": "Actual configured prefix establishes this component input; full runtime waits for every dependency source approval."
+        }
+      ]
+    }
+  ],
+  "independentChecks": [
+    "Selected BARY/GS helper closure uses only proper E/W port degree1 adjacency after actual loop preprocessor; same full default math/RNG code can operate on checked <=176nodes/392ports/196proper segments, no internal64 branch.",
+    "REVERSED lexical occurrences independently scanned across worker; selected default crossing/BK/ORTHO helper bodies do not read it. Interactive crossing does read it but its strategy is excluded. CYCLIC has only declaration/global-name and writes, no default late read.",
+    "BK buildFor/determineAllLeft/RightNeighbors traverse actual edge lists; restored NORTH empty-adjacency ports add no neighbor. getBlocks/threshold/full inherited phases remain current math, actual loop-expanded margins retained.",
+    "Ordinary ORTHO uses side/type predicate port iterator, not cached side ranges; horizontal ratio counts nonempty adjacencies so restored empty NORTH ports add0. No requirement for zero margin or nonnegative internalY.",
+    "Read actual AlgorithmAssembler constructor assigning EnumBasedFactoryComparator, ordinal compare_109/$compare_27/Enum.compareTo; retrieveProcessors sorts by this comparator. Read phase-config lambda/apply dispatch, nonnull predicates, union callback, cached factory retrieval and Orthogonal prototype delegation. Enum-relative insertion matches the real no-loop19/loop23 sequences, retaining distinct BARY and GS instances.",
+    "Read literal splitter single-pass decide/identity set, splitAt exactly one new partner per selected initial segment and subsequent dependency update. <=28 original nonself edges cross a particular layer boundary at most once: <=28 initial route segments, <=56 aftersplit, <=392 over7 internal boundaries, within signed32. <=196 is the proper LEdge bound rather than an unjustified private-segment bound.",
+    "Typed current E06 prefix dependency IDs/seals resolved against all three current source documents, including approved NS, loop4 and proposed A split/import plus R scans/NodeSize. A pending target source approval is not silently promoted by this review; global gate must wait and rebinding drift requires new review.",
+    "Exact pinned Git/NPM worker bytes, baseline/context canonical hash, each selected component seal, every LF/UTF16 function span, lexical callsite and typed E05 artifact/pointer/component seal independently recomputed. Prototype binding records now use actual symbols, explanatory text is separate role."
+  ],
+  "resolvedFindings": [
+    {
+      "id": "B-R-E06-01",
+      "severity": "source-binding-required",
+      "componentId": "pipeline:default-processor-configuration",
+      "status": "resolved",
+      "description": "retrieveProcessors sorts processorComparator but receipt does not bind AlgorithmAssembler constructor assigning EnumBasedFactoryComparator, actual ordinal comparator bridge, or phase-config dynamic lambda callback union. Enum declaration order plus observed outputs alone does not close the configuration source path.",
+      "requiredAnchors": [
+        "AlgorithmAssembler68839-68850",
+        "lambda$1_19/apply_17568852-68883",
+        "EnumBasedFactoryComparator/$compare_27/compare_10968915-68930",
+        "$compareTo enum ordinal"
+      ],
+      "mathConclusion": "No contrary sequence observed; missing canonical linkage rather than wrong19/23 result."
+    },
+    {
+      "id": "B-R-E06-02",
+      "severity": "proof-dependency-binding",
+      "status": "resolved",
+      "description": "R source context names real E06 prefix NS/split/loop assumptions but component source rows contain only E05 helper inheritance. Record typed E06 component seals in source/review/approval dependencies; pending A split/import approval remains a whole-gate condition. A direct checked prepared-state component port does not itself establish that public inputs generate it."
+    },
+    {
+      "id": "B-R-E06-03",
+      "severity": "proof-bound-clarification",
+      "componentId": "phase:ORTHOGONAL",
+      "status": "resolved",
+      "description": "PH6-SCALE196^2 is valid for proper LEdge pairs; critical split can allocate one additional routing-private HyperEdgeSegment per selected original segment. Distinguish <=196 proper LEdges from <=392 temporary routing segments (or tighter per-boundary <=28 initial/56 aftersplit), all still signed32-safe.",
+      "sourceAnchors": [
+        "$splitAt58596-58612",
+        "$decideWhichSegmentsToSplit58790-58810",
+        "$splitSegments58874-58882"
+      ]
+    }
+  ],
+  "typedDependencies": [
+    {
+      "forComponent": "phase:LAYER_SWEEP_BARYCENTER",
+      "componentId": "phase:NETWORK_SIMPLEX",
+      "sourceDocument": "references/e06-source-components-A.json",
+      "canonicalComponentSha256": "4fce717cb395c50a15b693194dfe71e6df5575133179ad0aaf94b3de85f3a5bf",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:LAYER_SWEEP_BARYCENTER",
+      "componentId": "intermediate:LongEdgeSplitter",
+      "sourceDocument": "references/e06-source-components-A.json",
+      "canonicalComponentSha256": "1e3c976fb7b26388f0c0d85b0ef2be1f0a032c3b32dc382a61387b2952005f89",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "phase:LAYER_SWEEP_BARYCENTER",
+      "componentId": "intermediate:SelfLoopPreProcessor",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "31cad7907ecc44dab6d27a5fd6723f6642dd7ad02611527a4ad04a7e7412f383",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:LAYER_SWEEP_BARYCENTER",
+      "componentId": "intermediate:PortSideProcessor",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "8daeb1bff199bb830cd3bb059bd8593ec887253cebd75428280c691fbd74f9ac",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:LAYER_SWEEP_BARYCENTER",
+      "componentId": "intermediate:PortListSorter",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "dc667f25c66af51806f1e7e4c264b7ba7a1c2b5cd6850cea86797b7230f611e5",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+      "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "7d40671d099eade005901eb6532eff9b2dbb992cff8639df57c0356d55865b61",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "phase:BRANDES_KOEPF",
+      "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "5a3c05b794c6576bb7636506acf192be24e9abfcc37bc328a6fb7afa0e6bdbb3",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "phase:BRANDES_KOEPF",
+      "componentId": "intermediate:SelfLoopPortRestorer",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "697a4a18fb156c00093fb84f31d4e0ecbe2129bf37a89cb9da6070dfcd91cdf9",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:BRANDES_KOEPF",
+      "componentId": "intermediate:LabelAndNodeSizeProcessor",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "c3ba052bc35627dfa18e4cb00574e015f3e6068a8c7554e38dcefa8234d2749b",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:BRANDES_KOEPF",
+      "componentId": "intermediate:InnermostNodeMarginCalculator",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "d5e56ab0fa60d9ab0ff1c1b424411b352e9dd2922d7fc5323ae039e87c5bc566",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:BRANDES_KOEPF",
+      "componentId": "intermediate:SelfLoopRouter",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "93fcb6400d069159956c90f338295cce846334bbb73cc83046c6b4b746622f52",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "phase:ORTHOGONAL",
+      "componentId": "phase:BRANDES_KOEPF",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "fd62dca75afd6bdcfd31530c734a2d92772883dd7f89b51e5a3c6fd37920ec0f",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "phase:ORTHOGONAL",
+      "componentId": "intermediate:LayerSizeAndGraphHeightCalculator",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "6291a4ef226d91ef159043cdd302c257ac07632009710e8aa42b40a58c8f1643",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "import:json-to-layered",
+      "sourceDocument": "references/e06-source-components-A.json",
+      "canonicalComponentSha256": "8c2e2f74070b2fcf149721ba36d75d02f0603906553b8e3f586d9cf7e3df35bc",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "phase:GREEDY",
+      "sourceDocument": "references/e06-source-components-A.json",
+      "canonicalComponentSha256": "7a029449006feb2b5c8b8b05a7e54f0e975bd35e8645fa9135e3afa2bac495d5",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "phase:NETWORK_SIMPLEX",
+      "sourceDocument": "references/e06-source-components-A.json",
+      "canonicalComponentSha256": "4fce717cb395c50a15b693194dfe71e6df5575133179ad0aaf94b3de85f3a5bf",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "7d40671d099eade005901eb6532eff9b2dbb992cff8639df57c0356d55865b61",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "5a3c05b794c6576bb7636506acf192be24e9abfcc37bc328a6fb7afa0e6bdbb3",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "phase:BRANDES_KOEPF",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "fd62dca75afd6bdcfd31530c734a2d92772883dd7f89b51e5a3c6fd37920ec0f",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "phase:ORTHOGONAL",
+      "sourceDocument": "references/e06-source-components-R.json",
+      "canonicalComponentSha256": "55ab233d06c8b009d419e4b7e0689ddd543410981628cb4772c9c11262452572",
+      "approvalPresentAtReview": false
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "intermediate:SelfLoopPreProcessor",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "31cad7907ecc44dab6d27a5fd6723f6642dd7ad02611527a4ad04a7e7412f383",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "intermediate:SelfLoopPortRestorer",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "697a4a18fb156c00093fb84f31d4e0ecbe2129bf37a89cb9da6070dfcd91cdf9",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "intermediate:SelfLoopRouter",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "93fcb6400d069159956c90f338295cce846334bbb73cc83046c6b4b746622f52",
+      "approvalPresentAtReview": true
+    },
+    {
+      "forComponent": "pipeline:default-processor-configuration",
+      "componentId": "intermediate:SelfLoopPostProcessor",
+      "sourceDocument": "references/e06-source-components-B.json",
+      "canonicalComponentSha256": "7a2c04c94f760b60253d0a29f71d44bf1f195e23774581cf56e71e8a2549a629",
+      "approvalPresentAtReview": true
+    }
+  ],
+  "blockers": [],
+  "externalPrerequisites": [
+    "Current prepared-state guards independently validate proper adjacent-layer live E/W degree1 edges and176/392/196 limits; late NORTH ports must have empty adjacency until Post.",
+    "Actual A NS/split/import and root NodeSize/scan components receive their own independent approval; partial component porting does not assert the entire prefix is verified.",
+    "No public advanced options/ports/labels/collectors/other directions or source Java-build identity added."
+  ],
+  "runtimeVerified": false,
+  "wholeE06SourceGateAccepted": false,
+  "fullAlgorithmAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "license": {
+    "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "exactExternalJavaBuildVerified": false,
+    "projectDistributionLicenseResolved": false
+  },
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-initial.json",
+      "sha256": "60b3299c2dee54f197fcd37caeeed7cf4ef02fda3c7344aca3a8edc3af025334"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-canonical-first/command.json",
+      "sha256": "98d46f1e4bce9e98f890d20aade029b7cdeb5be0b9b28f66d435ef1e9aa16894"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-canonical-first/stdout.log",
+      "sha256": "16fc4752016cbbb061d0868d1ec62bc6528ab540f99cdcb90237fc1710c9dffb"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-canonical-final/command.json",
+      "sha256": "eed604be9bb540e411350decac97fa1342b82f0b9ea23caef724d2198a11274c"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-canonical-final/stderr.log",
+      "sha256": "207168225d43997cd36f2e73397e6691e741fe397aceff325656299892851ca4"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-canonical-final-v2/command.json",
+      "sha256": "25e9df9567eacd60599e5a2c16a7a285f2f42e79e928eb85193c66cc7e9bae50"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-R-canonical-final-v2/stdout.log",
+      "sha256": "d09d6ea53c65c5f5e7aa319073ce29955abfb616496a967e5a73c1af180a94cb"
+    }
+  ]
+}

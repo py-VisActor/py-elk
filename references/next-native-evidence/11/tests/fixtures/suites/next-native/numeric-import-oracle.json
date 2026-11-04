@@ -1,0 +1,52 @@
+{
+  "schema": "py-elk-next-numeric-import-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "b2c347dc180bb852175cd9e5ae8a02fe11bb94577e3d77887bc457b96d7dd2f9",
+  "requestSha256": "01e02c0c089637c4888a18fc73281e8a14cff3faa42322fde959031f6759fdcc",
+  "pid": 42424,
+  "parentPid": 15576,
+  "node": "v24.19.0",
+  "cases": [
+    {
+      "id": "integer-rounding-and-subnormal",
+      "result": {
+        "imported": {
+          "x": 9007199254740992,
+          "y": -9007199254740992,
+          "width": 9007199254740996,
+          "height": 5e-324
+        },
+        "negativeZero": {
+          "x": false,
+          "y": false,
+          "width": false,
+          "height": false
+        },
+        "widthPlusOne": 9007199254740996,
+        "xPlusOne": 9007199254740992
+      }
+    },
+    {
+      "id": "negative-zero-and-max-finite",
+      "result": {
+        "imported": {
+          "x": 0,
+          "y": 0,
+          "width": 1.7976931348623157e+308,
+          "height": 0
+        },
+        "negativeZero": {
+          "x": true,
+          "y": false,
+          "width": false,
+          "height": false
+        },
+        "widthPlusOne": 1.7976931348623157e+308,
+        "xPlusOne": 1
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false,
+  "scope": "Actual original optDouble/transformShapeLayout/setters, JSON binary64 literals and one subsequent addition"
+}

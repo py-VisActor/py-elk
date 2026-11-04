@@ -1,0 +1,39 @@
+{
+  "schema": "py-elk-e10-benchmark-suite/v1",
+  "cases": [
+    {
+      "id": "small",
+      "request": "benchmark-requests/small.json",
+      "requestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "nodes": 3,
+      "edges": 2,
+      "referenceCase": "layered-chain",
+      "sourceRequest": "tests/fixtures/suites/E09/requests/layered-chain.json"
+    },
+    {
+      "id": "medium",
+      "request": "benchmark-requests/medium.json",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "nodes": 4,
+      "edges": 4,
+      "referenceCase": "layered-long-edge",
+      "sourceRequest": "tests/fixtures/suites/E09/requests/layered-long-edge.json"
+    },
+    {
+      "id": "large",
+      "request": "benchmark-requests/large.json",
+      "requestSha256": "659bc73831034f72dfd84203badf9dcbe5c3c3809d84e5aa31d5d1d9abb530f4",
+      "nodes": 8,
+      "edges": 28,
+      "referenceCase": "e06-dense-cyclic-eight",
+      "referenceReceipt": "references/e09-installed-check.json",
+      "referenceSuite": "E06",
+      "sourceRequest": "tests/fixtures/suites/E06/requests/project/e06-dense-cyclic-eight.json"
+    }
+  ],
+  "warmups": 1,
+  "samples": 5,
+  "instrumentedSamplesPerCase": 1,
+  "publicAndInstrumentedStatisticsSeparate": true,
+  "fullValidation": false
+}

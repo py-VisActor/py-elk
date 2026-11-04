@@ -1,0 +1,251 @@
+{
+  "schema": "py-elk-e09-independent-coverage-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "references/e09-geometry-premise.json": "2b9272da47e125c46cd709686555d3a668cac62e645e919176a5559267c51e66",
+    "scripts/build_e09_suite.py": "19c1283c5db2230a1687816287a568c92069ede0174de75d14998809fe738fc4",
+    "scripts/e07_geometry_premise.py": "9a7634400ec5347708d29fc18261cba6ca0b1b0e98f0237e8fc13c7b14e5e5db",
+    "scripts/e09_geometry_premise.py": "91e175df127854d7aa3ea7de1bd5f1b3ad60913bfe8449d6ff5d213a85e0b49b",
+    "scripts/layout_checks.py": "5ee63115bd17fb99d9ed11d8df71911524cafed9be98772be1fba5637faf918a",
+    "scripts/validate_e09_coverage.py": "c887740c84e3996d85b1cd9e54505f65b617b9687ed1d1f164642b1d0b8e3fa5",
+    "tests/audit/test_e09_coverage_validation.py": "128ef866de52601a488b93fa0eb2df2706d0896a870474ea48eb9a8fd4c7bd9b",
+    "tests/conformance/test_e09_coverage.py": "34b6a0ee76878213f1afe76843b8dbedc9dc97743aa4234517198496e15cb3fd",
+    "tests/contract/test_e09_logging_contract.py": "ddcd389f5d38cc4e2b5817544aa57bb12782dbb6b5a9e3186a2164eed79afa67",
+    "tools/reference/capture_e09_layout.cjs": "4136eaf781ce75e691de0a820bfbb8f37be56e863f1d6006e3e44ba919631c0d"
+  },
+  "evidence": {
+    "actualCurrentCandidateReceipt": {
+      "path": "references/e09-coverage-installed.json",
+      "sha256": "d92950539b782b599491edc0af1f47e4b91eec5e4c03b719bd3dd82a91483269"
+    },
+    "actualFixedReferenceReceipt": {
+      "path": "references/e09-coverage-validation.json",
+      "sha256": "67b37f9cec23ae8ae6aa32ae658f3207c27676af47cb7b363e457a46863bfe24"
+    },
+    "actualPositive": {
+      "passed": true,
+      "status": "E09_INSTALLED_COVERAGE_VALIDATED",
+      "caseCount": 144,
+      "masterCount": 25,
+      "repeat": 3,
+      "actualCandidateProcesses": 432,
+      "hostProbeValidated": true,
+      "hostProbeCount": 52,
+      "lifecycleProbeValidated": true,
+      "actualAdditionalProbeProcesses": 6,
+      "timedCaseCaptureCount": 210,
+      "nonzeroMeasuredLeafCount": 1334,
+      "historicalExecutionAuthenticated": false,
+      "limitation": "Finite bounded requests and source branch witnesses; not all graphs or full upstream algorithm acceptance. Real timings are retained, not asserted equal across engines."
+    },
+    "controls": [
+      {
+        "id": "boolean-repeat",
+        "rejected": true,
+        "error": "Native independent repetitions below three",
+        "mutantCanonicalSha256": "2716d28e808f93d3a1f8f9e65624cd54deeccdfc02f127e694a5f708af37d574"
+      },
+      {
+        "id": "case-denominator",
+        "rejected": true,
+        "error": "Installed full case denominator differs",
+        "mutantCanonicalSha256": "a26fd61f470c0c11cf0b262c3770124235f927ed3a8c0afac153235a7f000943"
+      },
+      {
+        "id": "source-binding",
+        "rejected": true,
+        "error": "Current coverage tooling or ADR bytes differ",
+        "mutantCanonicalSha256": "4b9ae9dcaf4902e651b1e031d68ea586a53f621ef3865c2cfcf1dcc3aeb73fb3"
+      },
+      {
+        "id": "actual-command-without-I",
+        "rejected": true,
+        "error": "Actual execution argv differs",
+        "mutantCanonicalSha256": "acebb6a55f969d89cb7c32cfae012dfe4c52b385e2136b6f0c34710b8c4f68a3"
+      },
+      {
+        "id": "extra-backend-package",
+        "rejected": true,
+        "error": "Installed shipped package bytes differ from current source",
+        "mutantCanonicalSha256": "4ead6315aba139b5f41439fd1a06c085858e45e8c8a6c17a7810709f388f0b6b"
+      },
+      {
+        "id": "raw-metadata-rebound",
+        "rejected": true,
+        "error": "Distribution Requires-Python differs",
+        "mutantCanonicalSha256": "d2918f886e100ab1dfaeb503a7d34e1c07c3b7958da640756d9b30c6b5424006"
+      },
+      {
+        "id": "all438-source-path-rebound",
+        "rejected": true,
+        "error": "Recorded installation is relative or resolves inside the actual source tree",
+        "mutantCanonicalSha256": "ef625e175d68b95a62ab69ede5542fe5f74f3e7760e42e86a835153e37e7cd93"
+      },
+      {
+        "id": "repetition-reused-actual-pid",
+        "rejected": true,
+        "error": "Native repetition reused actual process identity",
+        "mutantCanonicalSha256": "fe241997c0be804b9e20b7894ca09b76043ecfdb1c0c2fc2542e4e6e5f683ce9"
+      },
+      {
+        "id": "raw-engine-pid-bool",
+        "rejected": true,
+        "error": "Actual process identities must be positive integers",
+        "mutantCanonicalSha256": "66f4b766c0d666e353e7a44c1def7c0bcfbdb6a8eba5ee110097e26652eedff8"
+      },
+      {
+        "id": "duplicate-raw-json-key",
+        "rejected": true,
+        "error": "Duplicate embedded JSON key",
+        "mutantCanonicalSha256": "01caaa30f8b773827ce884034fa504026213d6c99a71b752fd9176e8bac66bca"
+      },
+      {
+        "id": "master-unknown-endpoint-message",
+        "rejected": true,
+        "error": "Explicit native host error fields differ",
+        "mutantCanonicalSha256": "0e70e5abdf84980c38cb5138f4f0f793bbbf68163a54fdf7229685b09ee8be34"
+      },
+      {
+        "id": "master-unknown-algorithm-class",
+        "rejected": true,
+        "error": "Native named error differs",
+        "mutantCanonicalSha256": "5ca22b4d644d0d5883a2dbb9468108608a6178c6f96a05afa1f15fefe8778219"
+      },
+      {
+        "id": "master-missing-graph-path",
+        "rejected": true,
+        "error": "Explicit native host error fields differ",
+        "mutantCanonicalSha256": "677951b10abc3be9613b4ffeb48918a837853f3fa34e15ca79619a34269a6bb2"
+      },
+      {
+        "id": "wrong-returned-geometry",
+        "rejected": true,
+        "error": "E09 source-generated-time comparison differs: layered-chain {'exact': {'passed': False, 'differences': [{'path': '/result/children/0/x', 'kind': 'number', 'expected': 12, 'actual': -1000, 'absoluteError': 1012, 'allowedError': 0}], 'maxCoordinateError': {'absolute': 1012, 'relative': 1.012, 'path': '/result/children/0/x'}}, 'coordinateTolerance': {'passed': False, 'differences': [{'path': '/result/children/0/x', 'kind': 'number', 'expected': 12, 'actual': -1000, 'absoluteError': 1012, 'allowedError': 1.0000000000000002e-06}], 'maxCoordinateError': {'absolute': 1012, 'relative': 1.012, 'path': '/result/children/0/x'}}, 'violations': [], 'passed': False}",
+        "mutantCanonicalSha256": "b7883dbfe001390415b9ce80801d08f46ec63a79a436237f070dde4971f38e66"
+      },
+      {
+        "id": "business-time-kept-exact",
+        "rejected": true,
+        "error": "E09 source-generated-time comparison differs: reserved-object-11 {'exact': {'passed': False, 'differences': [{'path': '/result/business/logging/executionTime', 'kind': 'number', 'expected': 765, 'actual': 766, 'absoluteError': 1, 'allowedError': 0}], 'maxCoordinateError': {'absolute': 0, 'relative': 0, 'path': None}}, 'coordinateTolerance': {'passed': False, 'differences': [{'path': '/result/business/logging/executionTime', 'kind': 'number', 'expected': 765, 'actual': 766, 'absoluteError': 1, 'allowedError': 0}], 'maxCoordinateError': {'absolute': 0, 'relative': 0, 'path': None}}, 'violations': [], 'passed': False}",
+        "mutantCanonicalSha256": "3bc2d448743a84a2efb0956ccc0a7dcd64ef1eb76eea56356e0fae81099195e1"
+      },
+      {
+        "id": "generated-time-bool",
+        "rejected": true,
+        "error": "Missing or nonfinite generated executionTime",
+        "mutantCanonicalSha256": "0faaac201dfb849dfa59782bf86e1d6f553a8aaaca4381f4c8e617f108e84008"
+      },
+      {
+        "id": "generated-time-missing",
+        "rejected": true,
+        "error": "Missing or nonfinite generated executionTime",
+        "mutantCanonicalSha256": "dbf2606b7d0f9f970ca02d4970916e4f5f6ab4f5d06591855cbe6d8a1cfb38be"
+      },
+      {
+        "id": "fake-phase-order",
+        "rejected": true,
+        "error": "E09 source-generated-time comparison differs: layered-chain-flags-11 {'exact': {'passed': False, 'differences': [{'path': '/result/logging/children/0/children/0/name', 'kind': 'value', 'expected': 'Edge and layer constraint edge reversal', 'actual': 'Restoring reversed edges'}, {'path': '/result/logging/children/0/children/1/name', 'kind': 'value', 'expected': 'Greedy cycle removal', 'actual': 'Sort end labels'}, {'path': '/result/logging/children/0/children/2/name', 'kind': 'value', 'expected': 'Layer constraint preprocessing', 'actual': 'Edge joining'}, {'path': '/result/logging/children/0/children/3/children', 'kind': 'missing', 'expected': [{'name': 'Network simplex', 'executionTime': 0}]}, {'path': '/result/logging/children/0/children/3/name', 'kind': 'value', 'expected': 'Network simplex layering', 'actual': 'Orthogonal edge routing'}, {'path': '/result/logging/children/0/children/4/name', 'kind': 'value', 'expected': 'Layer constraint postprocessing', 'actual': 'Layer size calculation'}, {'path': '/result/logging/children/0/children/5/logs', 'kind': 'unexpected', 'actual': ['RIGHTDOWN size is 30', 'RIGHTUP size is 30', 'LEFTDOWN size is 30', 'LEFTUP size is 30', 'RIGHTDOWN is feasible: true', 'RIGHTUP is feasible: true', 'LEFTDOWN is feasible: true', 'LEFTUP is feasible: true', 'Chosen node placement: RIGHTDOWN', 'Blocks: {n_root.a=[n_root.a, n_root.b, n_root.c]}', 'Classes: {n_root.a=[n_root.a]}', 'Marked edges: []']}, {'path': '/result/logging/children/0/children/5/name', 'kind': 'value', 'expected': 'Edge splitting', 'actual': 'Brandes & Koepf node placement'}, {'path': '/result/logging/children/0/children/6/name', 'kind': 'value', 'expected': 'Port side processing', 'actual': 'Node margin calculation'}, {'path': '/result/logging/children/0/children/7/name', 'kind': 'value', 'expected': 'Port order processing', 'actual': 'Node and Port Label Placement and Node Sizing'}, {'path': '/result/logging/children/0/children/8/name', 'kind': 'value', 'expected': 'Minimize Crossings BARYCENTER', 'actual': 'Layer constraint edge reversal'}, {'path': '/result/logging/children/0/children/10/name', 'kind': 'value', 'expected': 'Layer constraint edge reversal', 'actual': 'Minimize Crossings BARYCENTER'}, {'path': '/result/logging/children/0/children/11/name', 'kind': 'value', 'expected': 'Node and Port Label Placement and Node Sizing', 'actual': 'Port order processing'}, {'path': '/result/logging/children/0/children/12/name', 'kind': 'value', 'expected': 'Node margin calculation', 'actual': 'Port side processing'}, {'path': '/result/logging/children/0/children/13/logs', 'kind': 'missing', 'expected': ['RIGHTDOWN size is 30', 'RIGHTUP size is 30', 'LEFTDOWN size is 30', 'LEFTUP size is 30', 'RIGHTDOWN is feasible: true', 'RIGHTUP is feasible: true', 'LEFTDOWN is feasible: true', 'LEFTUP is feasible: true', 'Chosen node placement: RIGHTDOWN', 'Blocks: {n_root.a=[n_root.a, n_root.b, n_root.c]}', 'Classes: {n_root.a=[n_root.a]}', 'Marked edges: []']}, {'path': '/result/logging/children/0/children/13/name', 'kind': 'value', 'expected': 'Brandes & Koepf node placement', 'actual': 'Edge splitting'}, {'path': '/result/logging/children/0/children/14/name', 'kind': 'value', 'expected': 'Layer size calculation', 'actual': 'Layer constraint postprocessing'}, {'path': '/result/logging/children/0/children/15/children', 'kind': 'unexpected', 'actual': [{'name': 'Network simplex', 'executionTime': 0}]}, {'path': '/result/logging/children/0/children/15/name', 'kind': 'value', 'expected': 'Orthogonal edge routing', 'actual': 'Network simplex layering'}, {'path': '/result/logging/children/0/children/16/name', 'kind': 'value', 'expected': 'Edge joining', 'actual': 'Layer constraint preprocessing'}, {'path': '/result/logging/children/0/children/17/name', 'kind': 'value', 'expected': 'Sort end labels', 'actual': 'Greedy cycle removal'}, {'path': '/result/logging/children/0/children/18/name', 'kind': 'value', 'expected': 'Restoring reversed edges', 'actual': 'Edge and layer constraint edge reversal'}], 'maxCoordinateError': {'absolute': 0, 'relative': 0, 'path': None}}, 'coordinateTolerance': {'passed': False, 'differences': [{'path': '/result/logging/children/0/children/0/name', 'kind': 'value', 'expected': 'Edge and layer constraint edge reversal', 'actual': 'Restoring reversed edges'}, {'path': '/result/logging/children/0/children/1/name', 'kind': 'value', 'expected': 'Greedy cycle removal', 'actual': 'Sort end labels'}, {'path': '/result/logging/children/0/children/2/name', 'kind': 'value', 'expected': 'Layer constraint preprocessing', 'actual': 'Edge joining'}, {'path': '/result/logging/children/0/children/3/children', 'kind': 'missing', 'expected': [{'name': 'Network simplex', 'executionTime': 0}]}, {'path': '/result/logging/children/0/children/3/name', 'kind': 'value', 'expected': 'Network simplex layering', 'actual': 'Orthogonal edge routing'}, {'path': '/result/logging/children/0/children/4/name', 'kind': 'value', 'expected': 'Layer constraint postprocessing', 'actual': 'Layer size calculation'}, {'path': '/result/logging/children/0/children/5/logs', 'kind': 'unexpected', 'actual': ['RIGHTDOWN size is 30', 'RIGHTUP size is 30', 'LEFTDOWN size is 30', 'LEFTUP size is 30', 'RIGHTDOWN is feasible: true', 'RIGHTUP is feasible: true', 'LEFTDOWN is feasible: true', 'LEFTUP is feasible: true', 'Chosen node placement: RIGHTDOWN', 'Blocks: {n_root.a=[n_root.a, n_root.b, n_root.c]}', 'Classes: {n_root.a=[n_root.a]}', 'Marked edges: []']}, {'path': '/result/logging/children/0/children/5/name', 'kind': 'value', 'expected': 'Edge splitting', 'actual': 'Brandes & Koepf node placement'}, {'path': '/result/logging/children/0/children/6/name', 'kind': 'value', 'expected': 'Port side processing', 'actual': 'Node margin calculation'}, {'path': '/result/logging/children/0/children/7/name', 'kind': 'value', 'expected': 'Port order processing', 'actual': 'Node and Port Label Placement and Node Sizing'}, {'path': '/result/logging/children/0/children/8/name', 'kind': 'value', 'expected': 'Minimize Crossings BARYCENTER', 'actual': 'Layer constraint edge reversal'}, {'path': '/result/logging/children/0/children/10/name', 'kind': 'value', 'expected': 'Layer constraint edge reversal', 'actual': 'Minimize Crossings BARYCENTER'}, {'path': '/result/logging/children/0/children/11/name', 'kind': 'value', 'expected': 'Node and Port Label Placement and Node Sizing', 'actual': 'Port order processing'}, {'path': '/result/logging/children/0/children/12/name', 'kind': 'value', 'expected': 'Node margin calculation', 'actual': 'Port side processing'}, {'path': '/result/logging/children/0/children/13/logs', 'kind': 'missing', 'expected': ['RIGHTDOWN size is 30', 'RIGHTUP size is 30', 'LEFTDOWN size is 30', 'LEFTUP size is 30', 'RIGHTDOWN is feasible: true', 'RIGHTUP is feasible: true', 'LEFTDOWN is feasible: true', 'LEFTUP is feasible: true', 'Chosen node placement: RIGHTDOWN', 'Blocks: {n_root.a=[n_root.a, n_root.b, n_root.c]}', 'Classes: {n_root.a=[n_root.a]}', 'Marked edges: []']}, {'path': '/result/logging/children/0/children/13/name', 'kind': 'value', 'expected': 'Brandes & Koepf node placement', 'actual': 'Edge splitting'}, {'path': '/result/logging/children/0/children/14/name', 'kind': 'value', 'expected': 'Layer size calculation', 'actual': 'Layer constraint postprocessing'}, {'path': '/result/logging/children/0/children/15/children', 'kind': 'unexpected', 'actual': [{'name': 'Network simplex', 'executionTime': 0}]}, {'path': '/result/logging/children/0/children/15/name', 'kind': 'value', 'expected': 'Orthogonal edge routing', 'actual': 'Network simplex layering'}, {'path': '/result/logging/children/0/children/16/name', 'kind': 'value', 'expected': 'Edge joining', 'actual': 'Layer constraint preprocessing'}, {'path': '/result/logging/children/0/children/17/name', 'kind': 'value', 'expected': 'Sort end labels', 'actual': 'Greedy cycle removal'}, {'path': '/result/logging/children/0/children/18/name', 'kind': 'value', 'expected': 'Restoring reversed edges', 'actual': 'Edge and layer constraint edge reversal'}], 'maxCoordinateError': {'absolute': 0, 'relative': 0, 'path': None}}, 'violations': [], 'passed': False}",
+        "mutantCanonicalSha256": "7c0019861de77df255935464f31c6addf499c78ed797f77060424cce909602fa"
+      },
+      {
+        "id": "fake-live-bk-marked-log",
+        "rejected": true,
+        "error": "E09 source-generated-time comparison differs: generated-07 {'exact': {'passed': False, 'differences': [{'path': '/result/logging/children/0/children/14/logs/11', 'kind': 'value', 'expected': 'Marked edges: [e_root.e7 0[n_root.n1] -> 2[n_root.n4]]', 'actual': 'Marked edges: []'}], 'maxCoordinateError': {'absolute': 0, 'relative': 0, 'path': None}}, 'coordinateTolerance': {'passed': False, 'differences': [{'path': '/result/logging/children/0/children/14/logs/11', 'kind': 'value', 'expected': 'Marked edges: [e_root.e7 0[n_root.n1] -> 2[n_root.n4]]', 'actual': 'Marked edges: []'}], 'maxCoordinateError': {'absolute': 0, 'relative': 0, 'path': None}}, 'violations': [], 'passed': False}",
+        "mutantCanonicalSha256": "3c769702db51b937e935177a466d4ca7bff2924447142855e84cd5fede8fe2a2"
+      },
+      {
+        "id": "host-launcher-cannot-be-child",
+        "rejected": true,
+        "error": "Actual launcher, child and parent process identities contradict",
+        "mutantCanonicalSha256": "5cc4e134d7e43ca17d9d0f845ee44a63197f452038248c85dca95eea2866d257"
+      },
+      {
+        "id": "host-primitive-bool-as-int",
+        "rejected": true,
+        "error": "Source monitor state branches differ",
+        "mutantCanonicalSha256": "05bf5f6f383e374324f92b246d9e2d0400d83b4f061bfbb22167e5f60f8405cb"
+      },
+      {
+        "id": "host-number-intrinsic",
+        "rejected": true,
+        "error": "Installed Number adapter differs from independent Node intrinsic",
+        "mutantCanonicalSha256": "daadc4f35c78fd2b333ff18e788bf707cddc334e11a263b780a6a4c3688613bc"
+      },
+      {
+        "id": "lifecycle-real-cpu-typed-pid",
+        "rejected": true,
+        "error": "Invalid native job PID",
+        "mutantCanonicalSha256": "87e05bb2557bc709a4c855a73f8cc9ed9d4ecbc27e720b362f91ef2c0c7d83ea"
+      },
+      {
+        "id": "lifecycle-actual-protocol-message",
+        "rejected": true,
+        "error": "Bad-body actual message differs",
+        "mutantCanonicalSha256": "3a115fcc5e1e19412e62ba6d4a903ead094d16e9e3fd6ab1d5184cfa4ba5cff1"
+      },
+      {
+        "id": "serial-capture-time",
+        "rejected": true,
+        "error": "Serial capture timing contradicts actual command durations",
+        "mutantCanonicalSha256": "a668ecd913a4df76a6375d3973727e19f9c997e2bce9bb0f2aab911a65857b84"
+      }
+    ],
+    "positiveBeforeAndAfterEach": true,
+    "originalRawBytesUnchanged": true,
+    "portableFreshProcess": {
+      "originalCheckoutReadsDenied": true,
+      "command": {
+        "argv": [
+          "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+          "-I",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261103-E09-01\\B\\final-coverage-review-03\\portable-copy\\verify-portable.py"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 3.46843,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "result": {
+        "passed": true,
+        "status": "E09_INSTALLED_COVERAGE_VALIDATED",
+        "caseCount": 144,
+        "masterCount": 25,
+        "repeat": 3,
+        "actualCandidateProcesses": 432,
+        "hostProbeValidated": true,
+        "hostProbeCount": 52,
+        "lifecycleProbeValidated": true,
+        "actualAdditionalProbeProcesses": 6,
+        "timedCaseCaptureCount": 210,
+        "nonzeroMeasuredLeafCount": 1334,
+        "historicalExecutionAuthenticated": false,
+        "limitation": "Finite bounded requests and source branch witnesses; not all graphs or full upstream algorithm acceptance. Real timings are retained, not asserted equal across engines."
+      },
+      "closureCorrection": "B/final-coverage-review-03/portable-closure-correction.json",
+      "initialFailedCommandPreserved": "B/final-coverage-review-03/portable-command/command.json"
+    },
+    "finitePIDMatrix": {
+      "path": "B/process-relation-matrix-01/review.json",
+      "sha256": "50705e537be82174a3e99646f7d5963a3752ab48c03f6953e4afc8de4c757030"
+    },
+    "reference15Controls": "B/coverage-reference-review-01/review-stage-02.json",
+    "identity9Controls": "B/identity-delta-review-01/review.json",
+    "geometry11SourceSpans": "B/geometry-proof-review-01/review.json",
+    "independentBAuthoredLifecycleReview": "V/review-lifecycle-helper-final.json"
+  },
+  "sourceIdentity": {
+    "startSourceSnapshotsPreserved": true,
+    "allReviewedFileBytesStillExact": true,
+    "currentValidatorSha256": "c887740c84e3996d85b1cd9e54505f65b617b9687ed1d1f164642b1d0b8e3fa5"
+  },
+  "limitations": [
+    "Current code/package and actual original raw/role consistency; not authentication of arbitrarily fabricated historical execution.",
+    "Only actual generated monitor executionTime leaves receive the explicit E09 comparison view. Business same-name fields remain exact, and raw strict differences remain retained.",
+    "Per-engine measured wall values are not equal-time/performance claims. Controlled primitive/kernel instruments are explicitly separate from actual layout measurements.",
+    "Finite ADR0008 domain and source-proven E09 geometry policy only; no whole upstream algorithm or publication acceptance.",
+    "B-authored product hooks and lifecycle helper use separate A/V independent reviews; this review covers nonauthored coverage tools and their integration."
+  ]
+}

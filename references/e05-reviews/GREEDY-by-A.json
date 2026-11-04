@@ -1,0 +1,170 @@
+{
+  "schema": "py-elk-e05-independent-component-review/v1",
+  "iteration": "E05",
+  "reviewerLane": "A",
+  "status": "ACCEPTED_UNDER_EXPLICIT_DAG_GUARDS",
+  "reviewedUtc": "2026-11-03T05:59:48.005662+00:00",
+  "reviewedFiles": [
+    {
+      "path": "references/e05-source-components-B.json",
+      "sha256": "c3d274fa3f6b50777034748626a56d88babc7a227ad0b760e2a97031a9a35a71"
+    }
+  ],
+  "approvedSourceComponents": [
+    "phase:GREEDY"
+  ],
+  "approvedComponentSeals": {
+    "phase:GREEDY": "9f804ff38fdb894d9c970cbcbda98d8884b8a1ae6fb84752d897f18fee13ca8b"
+  },
+  "canonicalEncoding": {
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "ensure_ascii": true,
+    "encoding": "UTF-8"
+  },
+  "canonicalChecks": {
+    "sources": 2,
+    "spanOccurrences": 7,
+    "functionOffsetOccurrences": 7,
+    "staticCallEdges": 3,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "actualObservationChecks": [
+    {
+      "id": "layered-fork",
+      "requestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "nodes": 3,
+      "edges": 2,
+      "sourceMarks": [
+        1
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "layered-join",
+      "requestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "nodes": 3,
+      "edges": 2,
+      "sourceMarks": [
+        1,
+        2
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "layered-diamond-right",
+      "requestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "nodes": 4,
+      "edges": 4,
+      "sourceMarks": [
+        1
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "layered-long-edge",
+      "requestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "nodes": 4,
+      "edges": 4,
+      "sourceMarks": [
+        1
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "b-fanout-eight",
+      "requestSha256": "355babfa572dfdfa4fbac6199d5e1717d02c7ec52c3941a66a0de4f6b1572f9e",
+      "nodes": 8,
+      "edges": 7,
+      "sourceMarks": [
+        1
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "b-fanin-eight",
+      "requestSha256": "d487df801c409b3fd7457e0bdaef701831f80a0f160d37f73a46390e5aa631b4",
+      "nodes": 8,
+      "edges": 7,
+      "sourceMarks": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "b-dense-six",
+      "requestSha256": "c8fad64c35b3aac6c3a334629b3532541423585808b30ef228b7aa4a67457486",
+      "nodes": 6,
+      "edges": 15,
+      "sourceMarks": [
+        1
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    },
+    {
+      "id": "b-dense-eight",
+      "requestSha256": "1c151668485c3de923f84b856feef3054bc4439710544aeab7364838f79bcfaa",
+      "nodes": 8,
+      "edges": 28,
+      "sourceMarks": [
+        1
+      ],
+      "allEdgeMarksIncreasing": true,
+      "greedyPrimitiveDraws": 0
+    }
+  ],
+  "sourceReasoning": [
+    {
+      "id": "A-GREEDY-QUEUE",
+      "sourceLines": [
+        50392,
+        50519
+      ],
+      "reasoning": "For connected DAG n>1, every original source has positive outdegree and enters the source FIFO; every non-original-source has positive indegree. Sink removal only decreases unprocessed predecessors outdegree. Since the residual graph is acyclic, all non-original-sources eventually enter the sink FIFO once; source insertion after target indegree change cannot occur during this sink-only drain. The sink-add indegree>0 condition excludes all original sources. Source FIFO is then drained; no max-outflow fallback remains."
+    },
+    {
+      "id": "A-GREEDY-MARKS",
+      "sourceLines": [
+        50427,
+        50480
+      ],
+      "reasoning": "Sink sequence marks are -1,-2,...; shifting by n+1 reverses sink-removal order to increasing edge order above all k original sources. Original sources get1..k in their FIFO work order. Isolated singleton uses the initial sink branch, shifts to1. For every edge predecessor mark<target, so reverse/CYCLIC writes are unreachable; body still performs the actual reversal-check iteration."
+    },
+    {
+      "id": "A-GREEDY-RNG-BOUNDS",
+      "sourceLines": [
+        50412,
+        50514
+      ],
+      "reasoning": "Default priority0 gives integer edge contribution1, degree<=7 and total edges<=28 for simple n<=8 DAG. Marks and counters remain bounded exact integers. Reading RANDOM does not draw from it; chooseNodeWithMaxOutflow is guarded out by the queue proof, not by missing coverage. Incoming-before-outgoing and mutable-list iteration order remain source obligations."
+    },
+    {
+      "id": "A-GREEDY-HOST",
+      "reasoning": "The inherited E04 source/helper disposition table is bound by artifact SHA and a resolving JSON pointer. Queue/list/identity/property/scalar defaults stay the same host mappings. E05 explicitly does not inherit path-only algorithm proof. New observer helper names are instrumentation query overhead, not new unmodified-source GREEDY logic."
+    }
+  ],
+  "remainingBlockingFindings": [],
+  "runtimeAcceptanceAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "limitations": [
+    "Approval is for this one pre-layering NORMAL DAG component, not BARYCENTER/BK/ORTHO or whole E05.",
+    "Eight actual traces corroborate the source deduction and do not exhaust all DAGs or prove Python implementation.",
+    "Root alone authorizes mechanical port after recording this review. Exact external Java build remains unresolved."
+  ]
+}

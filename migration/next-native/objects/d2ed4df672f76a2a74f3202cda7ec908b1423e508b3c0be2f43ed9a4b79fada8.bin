@@ -1,0 +1,283 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Worker275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# P16F in references/e13-kernel-sources.json.
+# Original host enum/factory identity adapters, no Java runtime transplanted.
+"""Actual factory identities and default-phase configuration callbacks.
+
+Factories with mathematics not yet ported fail explicitly at creation. Listing
+the source enum members does not register them as completed implementations.
+"""
+from enum import Enum
+from importlib import import_module
+
+from ..._errors import UnsupportedFeatureError
+from .graph_info import get_graph_properties
+from .layout_configuration import LayeredPhase, LayoutProcessorConfiguration, create_from
+from .layer_sweep import LayerSweepCrossingMinimizer
+from .property_access import read_layered_scalar
+
+
+P1, P2, P3, P4, P5 = tuple(LayeredPhase)
+
+
+def _pending(name):
+    raise UnsupportedFeatureError('LAYERED_PROCESSOR_PENDING', '',
+                                  'The Layered processor is not implemented: ' + name)
+
+
+class _FactoryEnum(Enum):
+    @property
+    def ordinal(self):
+        return self.value
+
+    def create(self):
+        return _create(self.__class__.__name__, self.name)
+
+
+IntermediateProcessorStrategy = _FactoryEnum('IntermediateProcessorStrategy', {'DIRECTION_PREPROCESSOR': 0, 'COMMENT_PREPROCESSOR': 1, 'EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER': 2, 'INTERACTIVE_EXTERNAL_PORT_POSITIONER': 3, 'PARTITION_PREPROCESSOR': 4, 'LABEL_DUMMY_INSERTER': 5, 'SELF_LOOP_PREPROCESSOR': 6, 'LAYER_CONSTRAINT_PREPROCESSOR': 7, 'PARTITION_MIDPROCESSOR': 8, 'HIGH_DEGREE_NODE_LAYER_PROCESSOR': 9, 'NODE_PROMOTION': 10, 'LAYER_CONSTRAINT_POSTPROCESSOR': 11, 'PARTITION_POSTPROCESSOR': 12, 'HIERARCHICAL_PORT_CONSTRAINT_PROCESSOR': 13, 'SEMI_INTERACTIVE_CROSSMIN_PROCESSOR': 14, 'BREAKING_POINT_INSERTER': 15, 'LONG_EDGE_SPLITTER': 16, 'PORT_SIDE_PROCESSOR': 17, 'INVERTED_PORT_PROCESSOR': 18, 'PORT_LIST_SORTER': 19, 'SORT_BY_INPUT_ORDER_OF_MODEL': 20, 'NORTH_SOUTH_PORT_PREPROCESSOR': 21, 'BREAKING_POINT_PROCESSOR': 22, 'ONE_SIDED_GREEDY_SWITCH': 23, 'TWO_SIDED_GREEDY_SWITCH': 24, 'SELF_LOOP_PORT_RESTORER': 25, 'ALTERNATING_LAYER_UNZIPPER': 26, 'SINGLE_EDGE_GRAPH_WRAPPER': 27, 'IN_LAYER_CONSTRAINT_PROCESSOR': 28, 'END_NODE_PORT_LABEL_MANAGEMENT_PROCESSOR': 29, 'LABEL_AND_NODE_SIZE_PROCESSOR': 30, 'INNERMOST_NODE_MARGIN_CALCULATOR': 31, 'SELF_LOOP_ROUTER': 32, 'COMMENT_NODE_MARGIN_CALCULATOR': 33, 'END_LABEL_PREPROCESSOR': 34, 'LABEL_DUMMY_SWITCHER': 35, 'CENTER_LABEL_MANAGEMENT_PROCESSOR': 36, 'LABEL_SIDE_SELECTOR': 37, 'HYPEREDGE_DUMMY_MERGER': 38, 'HIERARCHICAL_PORT_DUMMY_SIZE_PROCESSOR': 39, 'NODE_PLACEMENT_REPEATER': 40, 'LAYER_SIZE_AND_GRAPH_HEIGHT_CALCULATOR': 41, 'HIERARCHICAL_PORT_POSITION_PROCESSOR': 42, 'CONSTRAINTS_POSTPROCESSOR': 43, 'COMMENT_POSTPROCESSOR': 44, 'HYPERNODE_PROCESSOR': 45, 'HIERARCHICAL_PORT_ORTHOGONAL_EDGE_ROUTER': 46, 'LONG_EDGE_JOINER': 47, 'SELF_LOOP_POSTPROCESSOR': 48, 'BREAKING_POINT_REMOVER': 49, 'NORTH_SOUTH_PORT_POSTPROCESSOR': 50, 'HORIZONTAL_COMPACTOR': 51, 'LABEL_DUMMY_REMOVER': 52, 'FINAL_SPLINE_BENDPOINTS_CALCULATOR': 53, 'END_LABEL_SORTER': 54, 'REVERSED_EDGE_RESTORER': 55, 'END_LABEL_POSTPROCESSOR': 56, 'HIERARCHICAL_NODE_RESIZER': 57, 'DIRECTION_POSTPROCESSOR': 58})
+CycleBreakingStrategy = _FactoryEnum('CycleBreakingStrategy', {'GREEDY': 0, 'DEPTH_FIRST': 1, 'INTERACTIVE': 2, 'MODEL_ORDER': 3, 'GREEDY_MODEL_ORDER': 4, 'SCC_CONNECTIVITY': 5, 'SCC_NODE_TYPE': 6, 'DFS_NODE_ORDER': 7, 'BFS_NODE_ORDER': 8})
+LayeringStrategy = _FactoryEnum('LayeringStrategy', {'NETWORK_SIMPLEX': 0, 'LONGEST_PATH': 1, 'LONGEST_PATH_SOURCE': 2, 'COFFMAN_GRAHAM': 3, 'INTERACTIVE': 4, 'STRETCH_WIDTH': 5, 'MIN_WIDTH': 6, 'BF_MODEL_ORDER': 7, 'DF_MODEL_ORDER': 8})
+CrossingMinimizationStrategy = _FactoryEnum('CrossingMinimizationStrategy', {'LAYER_SWEEP': 0, 'MEDIAN_LAYER_SWEEP': 1, 'INTERACTIVE': 2, 'NONE': 3})
+NodePlacementStrategy = _FactoryEnum('NodePlacementStrategy', {'SIMPLE': 0, 'INTERACTIVE': 1, 'LINEAR_SEGMENTS': 2, 'BRANDES_KOEPF': 3, 'NETWORK_SIMPLEX': 4})
+
+_PHASE_FAMILIES = {P1: CycleBreakingStrategy, P2: LayeringStrategy,
+                   P3: CrossingMinimizationStrategy, P4: NodePlacementStrategy}
+_EDGE_ROUTER_FACTORIES = {}
+_TEMPLATES = None
+
+
+class EdgeRouterFactory:
+    def __init__(self, strategy):
+        self.edge_routing_strategy = strategy
+
+    def create(self):
+        name = ('PolylineEdgeRouter' if self.edge_routing_strategy == 'POLYLINE'
+                else 'SplineEdgeRouter' if self.edge_routing_strategy == 'SPLINES'
+                else 'OrthogonalEdgeRouter')
+        if name != 'OrthogonalEdgeRouter':
+            _pending(name)
+        return _function_processor(name, 'orthogonal_general', 'orthogonal_edge_router',
+                                   _orthogonal_configuration, takes_monitor=True)
+
+
+def factory_for(edge_routing_strategy):
+    if edge_routing_strategy not in ('UNDEFINED', 'POLYLINE', 'ORTHOGONAL', 'SPLINES'):
+        raise KeyError(edge_routing_strategy)
+    if edge_routing_strategy not in _EDGE_ROUTER_FACTORIES:
+        _EDGE_ROUTER_FACTORIES[edge_routing_strategy] = EdgeRouterFactory(edge_routing_strategy)
+    return _EDGE_ROUTER_FACTORIES[edge_routing_strategy]
+
+
+class FactoryRegistry:
+    def intermediate(self, name):
+        return IntermediateProcessorStrategy[name]
+
+    def phase(self, phase, strategy):
+        return _PHASE_FAMILIES[phase][strategy]
+
+    def edge_routing(self, strategy):
+        return factory_for(strategy)
+
+
+def _before(configuration, phase, name):
+    configuration.add_before(phase, IntermediateProcessorStrategy[name])
+
+
+def _after(configuration, phase, name):
+    configuration.add_after(phase, IntermediateProcessorStrategy[name])
+
+
+def _templates():
+    global _TEMPLATES
+    if _TEMPLATES is not None:
+        return _TEMPLATES
+    greedy = LayoutProcessorConfiguration()
+    _after(greedy, P5, 'REVERSED_EDGE_RESTORER')
+    simplex = LayoutProcessorConfiguration()
+    _before(simplex, P1, 'EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER')
+    _before(simplex, P2, 'LAYER_CONSTRAINT_PREPROCESSOR')
+    _before(simplex, P3, 'LAYER_CONSTRAINT_POSTPROCESSOR')
+    sweep = LayoutProcessorConfiguration()
+    _before(sweep, P3, 'LONG_EDGE_SPLITTER')
+    _before(sweep, P4, 'IN_LAYER_CONSTRAINT_PROCESSOR')
+    _after(sweep, P5, 'LONG_EDGE_JOINER')
+    bk = LayoutProcessorConfiguration()
+    _before(bk, P5, 'HIERARCHICAL_PORT_POSITION_PROCESSOR')
+    hyper = LayoutProcessorConfiguration()
+    _before(hyper, P4, 'HYPEREDGE_DUMMY_MERGER')
+    inverted = LayoutProcessorConfiguration()
+    _before(inverted, P3, 'INVERTED_PORT_PROCESSOR')
+    ns = LayoutProcessorConfiguration()
+    _before(ns, P3, 'NORTH_SOUTH_PORT_PREPROCESSOR')
+    _after(ns, P5, 'NORTH_SOUTH_PORT_POSTPROCESSOR')
+    hierarchy = LayoutProcessorConfiguration()
+    _before(hierarchy, P3, 'HIERARCHICAL_PORT_CONSTRAINT_PROCESSOR')
+    _before(hierarchy, P4, 'HIERARCHICAL_PORT_DUMMY_SIZE_PROCESSOR')
+    _after(hierarchy, P5, 'HIERARCHICAL_PORT_ORTHOGONAL_EDGE_ROUTER')
+    loops = LayoutProcessorConfiguration()
+    _before(loops, P1, 'SELF_LOOP_PREPROCESSOR')
+    _after(loops, P5, 'SELF_LOOP_POSTPROCESSOR')
+    loops.before(P4).add(IntermediateProcessorStrategy.SELF_LOOP_PORT_RESTORER).add(IntermediateProcessorStrategy.SELF_LOOP_ROUTER)
+    hypernode = LayoutProcessorConfiguration()
+    _after(hypernode, P5, 'HYPERNODE_PROCESSOR')
+    center = LayoutProcessorConfiguration()
+    _before(center, P2, 'LABEL_DUMMY_INSERTER')
+    _before(center, P4, 'LABEL_DUMMY_SWITCHER')
+    _before(center, P4, 'LABEL_SIDE_SELECTOR')
+    _after(center, P5, 'LABEL_DUMMY_REMOVER')
+    end = LayoutProcessorConfiguration()
+    _before(end, P4, 'LABEL_SIDE_SELECTOR')
+    _before(end, P4, 'END_LABEL_PREPROCESSOR')
+    _after(end, P5, 'END_LABEL_POSTPROCESSOR')
+    _TEMPLATES = dict(greedy=greedy, simplex=simplex, sweep=sweep, bk=bk,
+                      hyper=hyper, inverted=inverted, ns=ns, hierarchy=hierarchy,
+                      loops=loops, hypernode=hypernode, center=center, end=end)
+    return _TEMPLATES
+
+
+def _sweep_configuration(graph):
+    configuration = create_from(_templates()['sweep'])
+    _before(configuration, P3, 'PORT_LIST_SORTER')
+    return configuration
+
+
+def _bk_configuration(graph):
+    return _templates()['bk'] if 'EXTERNAL_PORTS' in get_graph_properties(graph) else None
+
+
+def _orthogonal_configuration(graph):
+    properties = get_graph_properties(graph)
+    template = _templates()
+    configuration = LayoutProcessorConfiguration()
+    if 'HYPEREDGES' in properties:
+        configuration.add_all(template['hyper']).add_all(template['inverted'])
+    if ('NON_FREE_PORTS' in properties
+            or read_layered_scalar(graph, 'FEEDBACK_EDGES', 'FEEDBACK_EDGES_0')):
+        configuration.add_all(template['inverted'])
+        if 'NORTH_SOUTH_PORTS' in properties:
+            configuration.add_all(template['ns'])
+    for flag, name in (('EXTERNAL_PORTS', 'hierarchy'), ('SELF_LOOPS', 'loops'),
+                       ('HYPERNODES', 'hypernode'), ('CENTER_LABELS', 'center'),
+                       ('END_LABELS', 'end')):
+        if flag in properties:
+            configuration.add_all(template[name])
+    return configuration
+
+
+class _FunctionProcessor:
+    def __init__(self, source_name, body, configuration, takes_monitor, monitor_name):
+        self.source_name = source_name
+        self.body = body
+        self.configuration = configuration
+        self.takes_monitor = takes_monitor
+        self.monitor_name = monitor_name
+
+    def get_layout_processor_configuration(self, graph):
+        return self.configuration(graph) if self.configuration is not None else None
+
+    def process(self, graph, monitor):
+        if self.takes_monitor:
+            return self.body(graph, monitor=monitor)
+        monitor.begin(self.monitor_name, 1)
+        self.body(graph)
+        monitor.done()
+
+
+def _function_processor(source_name, module, function, configuration=None, *,
+                        takes_monitor=False, monitor_name=None):
+    try:
+        imported = import_module('.' + module, __package__)
+    except ModuleNotFoundError as error:
+        if error.name == __package__ + '.' + module:
+            _pending(source_name)
+        raise
+    body = getattr(imported, function)
+    return _FunctionProcessor(source_name, body, configuration, takes_monitor, monitor_name)
+
+
+class _ConfiguredSweep(LayerSweepCrossingMinimizer):
+    source_name = 'LayerSweepCrossingMinimizer'
+
+    def get_layout_processor_configuration(self, graph):
+        return _sweep_configuration(graph)
+
+
+def _create(family, name):
+    if family == 'CycleBreakingStrategy':
+        if name == 'GREEDY':
+            return _function_processor('GreedyCycleBreaker', 'cycles', 'greedy_cycle_breaker',
+                                       lambda graph: _templates()['greedy'],
+                                       monitor_name='Greedy cycle removal')
+        _pending(name)
+    if family == 'LayeringStrategy':
+        if name == 'NETWORK_SIMPLEX':
+            return _function_processor('NetworkSimplexLayerer', 'network_simplex_general',
+                                       'network_simplex_layerer', lambda graph: _templates()['simplex'],
+                                       takes_monitor=True)
+        _pending(name)
+    if family == 'CrossingMinimizationStrategy':
+        if name in ('LAYER_SWEEP', 'MEDIAN_LAYER_SWEEP'):
+            return _ConfiguredSweep('BARYCENTER' if name == 'LAYER_SWEEP' else 'MEDIAN')
+        _pending(name)
+    if family == 'NodePlacementStrategy':
+        if name == 'BRANDES_KOEPF':
+            return _function_processor('BKNodePlacer', 'brandes_koepf_general', 'bk_node_placer',
+                                       _bk_configuration, takes_monitor=True)
+        _pending(name)
+    if name in ('ONE_SIDED_GREEDY_SWITCH', 'TWO_SIDED_GREEDY_SWITCH'):
+        return _ConfiguredSweep(name)
+    if name == 'SORT_BY_INPUT_ORDER_OF_MODEL':
+        from .input_model_sort import SortByInputModelProcessor
+        return SortByInputModelProcessor()
+    if name == 'PORT_SIDE_PROCESSOR':
+        return _function_processor('PortSideProcessor', 'processors', 'port_side_processor',
+                                   monitor_name='Port side processing')
+    if name == 'PORT_LIST_SORTER':
+        return _function_processor('PortListSorter', 'processors', 'port_list_sorter',
+                                   monitor_name='Port order processing')
+    if name == 'IN_LAYER_CONSTRAINT_PROCESSOR':
+        return _function_processor('InLayerConstraintProcessor', 'simple_processors',
+                                   'in_layer_constraint_processor', takes_monitor=True)
+    if name == 'LAYER_SIZE_AND_GRAPH_HEIGHT_CALCULATOR':
+        return _function_processor('LayerSizeAndGraphHeightCalculator', 'simple_processors',
+                                   'layer_size_and_graph_height_calculator', takes_monitor=True)
+    if name == 'REVERSED_EDGE_RESTORER':
+        return _function_processor('ReversedEdgeRestorer', 'cycles', 'restore_reversed_edges',
+                                   monitor_name='Restoring reversed edges')
+    if name == 'EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER':
+        return _function_processor('EdgeAndLayerConstraintEdgeReverser', 'constraint_processors',
+                                   'edge_and_layer_constraint_edge_reverser', takes_monitor=True)
+    if name == 'LAYER_CONSTRAINT_PREPROCESSOR':
+        return _function_processor('LayerConstraintPreprocessor', 'constraint_processors',
+                                   'layer_constraint_preprocessor', takes_monitor=True)
+    if name == 'LAYER_CONSTRAINT_POSTPROCESSOR':
+        return _function_processor('LayerConstraintPostprocessor', 'constraint_processors',
+                                   'layer_constraint_postprocessor', takes_monitor=True)
+    if name == 'LABEL_AND_NODE_SIZE_PROCESSOR':
+        return _function_processor('LabelAndNodeSizeProcessor', 'native_adapters',
+                                   'label_and_node_size_processor', takes_monitor=True)
+    if name == 'INNERMOST_NODE_MARGIN_CALCULATOR':
+        return _function_processor('InnermostNodeMarginCalculator', 'native_adapters',
+                                   'innermost_node_margin_processor', takes_monitor=True)
+    if name == 'END_LABEL_SORTER':
+        return _function_processor('EndLabelSorter', 'end_labels_general',
+                                   'end_label_sorter', takes_monitor=True)
+    if name == 'LONG_EDGE_SPLITTER':
+        return _function_processor('LongEdgeSplitter', 'long_edges_general',
+                                   'long_edge_splitter', takes_monitor=True)
+    if name == 'LONG_EDGE_JOINER':
+        return _function_processor('LongEdgeJoiner', 'long_edges_general',
+                                   'long_edge_joiner', takes_monitor=True)
+    if name == 'SELF_LOOP_PREPROCESSOR':
+        return _function_processor('SelfLoopPreProcessor', 'self_loops_general',
+                                   'self_loop_preprocessor', takes_monitor=True)
+    if name == 'SELF_LOOP_PORT_RESTORER':
+        return _function_processor('SelfLoopPortRestorer', 'self_loops_general',
+                                   'self_loop_port_restorer', takes_monitor=True)
+    if name == 'SELF_LOOP_POSTPROCESSOR':
+        return _function_processor('SelfLoopPostProcessor', 'self_loops_general',
+                                   'self_loop_postprocessor', takes_monitor=True)
+    # Only source-approved general bodies are enabled here. In particular the
+    # old bounded size/long-edge/constraint processors are not rebranded general.
+    _pending(name)

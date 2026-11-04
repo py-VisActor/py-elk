@@ -1,0 +1,59 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {
+    "defaultLayoutOptions": {
+      "elk.direction": "DOWN"
+    }
+  },
+  "layoutArguments": {
+    "layoutOptions": {},
+    "logging": false,
+    "measureExecutionTime": true
+  },
+  "graph": {
+    "id": "root",
+    "business": {
+      "description": "preserve custom fields",
+      "weight": 1e-09
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 7,
+      "elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "elk.spacing.nodeNode": 20,
+      "elk.layered.spacing.nodeNodeBetweenLayers": 30,
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      },
+      {
+        "id": "b",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ]
+      }
+    ]
+  }
+}

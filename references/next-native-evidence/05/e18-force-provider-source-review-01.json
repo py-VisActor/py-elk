@@ -1,0 +1,27 @@
+{
+  "schema": "py-elk-independent-source-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "acceptedComponentIds": [
+    "F05"
+  ],
+  "filesSha256": {
+    "test-runs/20261104-E18-01/B/first-source-proposal-02.json": "24c7688042a22d95179e00e446fc6a4873f4d44be3058522ea79b509c0a33f02",
+    "test-runs/20261104-E18-01/V/import-transfer-source-review-02.json": "af0e6e21ee1b70c9ea90e2a079da2e887897796f0eb68d438ec563e6315fb387",
+    "test-runs/20261104-E18-01/V/force-model-source-review-01.json": "ce2b2e5c97c3c817a29e1b1564d66fbf4df328365db4a3d5a1e9f17d5620437b",
+    "test-runs/20261104-E18-01/root/f04-source-01/review.json": "cfc51d8ed88d33af5e05e094788d85d2dc8656e08249380702e9317f308436c8",
+    ".local/npm-elkjs/package/lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "scope": "Force provider actual orchestration now model/import/components dependencies accepted",
+  "facts": [
+    "Begin ELK Force; unless omitNodeMicroLayout true, invoke real generic NodeMicro before model import. No no-op fallback.",
+    "ImportGraph then setOptions then select model then split components; reuse same selected model instance, each layout initialize resets its component-specific state.",
+    "Set one shared RNG before split: explicit seed0 real approved unseeded Random, nonzero seededRandom, missing/null fallback seed1. Components shallow-share this RNG; no per-component seed reset or new counter.",
+    "Iterate components in source iteration order with subtask(1/componentcount), then real recombine and applyLayout, then done. Preserve original empty component/recombine behavior.",
+    "Strategy ordinal0 Eades/1 FR; keep same model subtype if already matching. Existing typed enum input policy separate."
+  ],
+  "limitations": [
+    "Source orchestration approval does not claim native candidate/provider parity or public registry acceptance.",
+    "Stress S03 separately pending. No additional layouts executed in review."
+  ]
+}

@@ -1,12 +1,21 @@
 # Python实现迭代执行计划
 
+当前状态（2026-11-04）：[完整实现已合入正式 src，进入统一校验与集中修复](FULL_NATIVE_IMPLEMENTATION.md)。196 个 Python 模块语法/导入通过；12/243/8 完整接线尚未代表正确性通过。`.local/migration-next` 已冻结；本阶段修复直接改 `src/pyelk`。下方旧私有批次与切片状态仅按其日期作历史记录。
+
+最新执行顺序见[先实现后统一校验](IMPLEMENTATION_FIRST.md)：全部功能实装与接线 → 集中对照/完整验收 → 集中修复及影响复验 → 发行收口。第 19 批起不以 getter/helper/单份审查扩拆批次，不再等待逐模块源审与差分门禁；A/B/V/Root 都承担实现。
+
+实际实现已越过第 19 批，全部进入 `src/pyelk`。当前按 [任务账本](implementation-backlog.json)收口 MrTree 修复、新候选、选项效果与正式发行；不要重复第 18/19 批的实现任务。机器计划已将 E13–E21 标为执行中的实现完成／验收待收口，未以有限证据声明全部通过。
+
+用户最新规则：持续goal完成剩余E09–E21迁移；[变更校验政策](VALIDATION_POLICY.md) 优先。开发只运行变更相关校验，全部功能完成后再统一全量；下文旧逐轮full要求不再作为当前收口前置。
+
 2026-11-03。策略依据为 [IMPLEMENTATION_PLAN](IMPLEMENTATION_PLAN.md) 的“2A. Python实现策略”，工作包编号沿用 [TASKS](TASKS.md)。
-本页安排实际执行批次，不改变M0–M8验收定义。当前已有验证工具，Python算法/API仍未实现。
-**下一轮为E01；E01–E21均为planned。** 机器状态、依赖和工作包对应关系以 [iteration-plan.json](iteration-plan.json) 为准。
+以下保留原始批次及退出条件，不改变 M0–M8 的验收定义。早期切片描述属于历史；当前实现和检查范围以顶部入口与机器状态为准。
+每轮按 [PARALLEL_EXECUTION](PARALLEL_EXECUTION.md) 的逐轮A/B/V分工、文件独占、稳定屏障和复盘规范执行；root统一集成与更新状态。
+**E07提供受限四方向、多连通分量与九项基础选项；E08接入真实异步执行、元数据与生命周期，精确范围见[E08 brief](iterations/E08.md)。随后按[E09 brief](iterations/E09.md)收口基础版声明，新增支路先续核来源。** 最终完成状态、依赖和工作包对应关系以 [iteration-plan.json](iteration-plan.json) 为准。
 
 ## 1. 执行顺序与共同完成条件
 
-首条主线为E01–E12，交付独立基础Python包0.1.0。E13–E21为发布后扩展；I0–I3在基础正式发布后单独执行。
+原计划分 E01–E12 基础发行和 E13–E21 后续扩展。用户已改为先实现全部迁移再统一验收，因此 E13–E19 已在首次正式发行前实施；原退出条件继续逐项核对。I0–I3 的 py-mermaid 集成继续单独后置。
 迭代按退出条件推进，可以跨会话；不以未经测量的天数、代码量或样例数量作为完成标准。
 依赖表示必要前置，编号表示默认推进次序。E16–E19的算法扩展不必相互等待；实际代码依赖在source map中核实后补入索引。
 
@@ -42,8 +51,8 @@ flowchart TD
 | --- | --- | --- |
 | V0 | 结构/文档/来源指纹、工具回归、官方快照与负控制 | 已有check.py |
 | V1 | 固定发行物实际重采和官方快照回放 | 已有reference/replay |
-| V2 | 相同切片suite的真实JS/Python差分、几何与重复确定性 | 已有执行器；须先完成真实ELK、suite和E02 profile |
-| V3 | phase不变量、模型/选项/错误/生命周期与泛化回归 | 按E03–E09新增，当前没有算法测试可运行 |
+| V2 | 相同切片suite的真实JS/Python差分、几何与重复确定性 | E04真实wheel同21例各3次通过，见[E04手册](E04_NATIVE_SLICE.md) |
+| V3 | phase不变量、模型/选项/错误/生命周期与泛化回归 | E03基础及E04算法/API/conformance已接入；完整生命周期待E08 |
 | V4 | 真实布局平台矩阵、性能/峰值内存、资源上限 | E10交付脚本与原始报告 |
 | V5 | 同一wheel/sdist、仓库外隔离安装、真实布局、运行时资源检查 | E11交付脚本与候选SHA |
 | V6 | 上传、索引核查、重新下载SHA与隔离布局复验 | E12交付正式版本证据 |
@@ -57,24 +66,24 @@ python scripts/check.py --with-reference --out test-runs/E01-oracle-01
 ```
 
 来源/采集失败时保留原日志；不刷新lock/快照或扩大容差掩盖失败。
-目前check.py只执行已有工具检查，不会自动发现未来的算法测试；新增测试组时同时接入check.py/CI，保留“工具自测”与“Python实现验收”的独立结果。
+check.py已接入E04算法/API/conformance及source/runtime审计；新增测试组时仍须同步入口/CI，工具自测、源码对照与真实安装分别报告。
 
 E04开始，每个阶段由master案例表生成独立suite：复制被选请求的原始字节，登记来源case ID、请求SHA、入选/排除原因和master分母。
 当前contained规则要求请求位于suite目录内部，不能用`../../validation/requests`绕过；suite构建器在E04新增。
 同一个suite必须同时用于reference与candidate，两者suite/请求SHA一致；不能拿完整官方capture直接比缩减candidate。
 阶段suite明确保留未支持项清单。E09必须运行首版完整声明套件，不能把阶段性排除继续当成正式通过。
 
-以下为**E04已创建suite且目标环境已安装真实实现之后**使用的现有严格模式命令；现在不代表candidate可用：
+以下命令适用于已安装真实E04开发包的解释器；需要确认安装内容时优先使用[E04手册](E04_NATIVE_SLICE.md)的`check_e04_slice.py`：
 
 ```shell
 python scripts/validate_layout.py candidate-command --out test-runs/E04-command-01.json
 python scripts/validate_layout.py reference --cases tests/fixtures/suites/E04/cases.json --out test-runs/E04-reference-01 --repeat 3
 python scripts/validate_layout.py candidate --cases tests/fixtures/suites/E04/cases.json --command-json test-runs/E04-command-01.json --out test-runs/E04-python-01 --repeat 3
-python scripts/validate_layout.py compare --reference test-runs/E04-reference-01 --candidate test-runs/E04-python-01 --out test-runs/E04-diff-01.json
+python scripts/validate_layout.py compare --profile native-basic-layered-v1 --determinism-policy elkjs-0.12.1-default-seed-v1 --reference test-runs/E04-reference-01 --candidate test-runs/E04-python-01 --out test-runs/E04-diff-01.json
 ```
 
-严格模式原样报告JS副作用/私有字段差异。E02须交付显式profile选择及文档，V2再按已冻结profile验收；当前CLI没有profile选择参数。
-V3–V6的脚本/测试组尚未创建，以下只列交付要求，不虚构可直接执行的命令。
+严格模式原样报告JS副作用/私有字段差异。E02已交付显式`--profile native-basic-layered-v1`，默认strict不变；V2按冻结规则和完整原始差异验收，命令与限制见 [手册](LAYOUT_VALIDATION.md#显式原生合同profilee02)。
+V3已有E04阶段/API回归和受限安装入口；V4–V6的完整性能、候选与发布验收仍按后续轮次交付。
 
 ## 3. E01–E03：先具备可移植、可验收的基础
 
@@ -100,7 +109,7 @@ V3–V6的脚本/测试组尚未创建，以下只列交付要求，不虚构可
 3. 用版本化决策文件定义原生公开合同profile。保留现有strict完整差异；另报公开合同、适配字段/原因、坐标和未验证项。
 4. 在比较器交付显式profile选择，默认strict；补充业务同名字段、用户原有`$H`、生成section ID和非适配路径破坏负例。
 
-拟新增：`docs/decisions/`中的真实决策记录、机器profile；修改`layout_checks.py`、`validate_layout.py`与工具回归。
+交付：`docs/decisions/0001-native-contract.md`、`references/native-contract.json`、56组`e02-contract-probes.json`及`e02-audit.json`；比较器、CLI、合同检查与独立回归。
 验收：V0/V1；适配与原始差异可同时查看，业务字段/顺序/坐标错误仍失败。原生profile不能把所有结果差异都转成允许项。
 门禁：`native-contract`已冻结并可执行。更新API_COMPATIBILITY/LAYOUT_VALIDATION，不把拟定profile写成当前已有行为。
 
@@ -108,12 +117,12 @@ V3–V6的脚本/测试组尚未创建，以下只列交付要求，不虚构可
 
 工作包：M1-04、M1-05、M2-01；前置：E02。
 
-1. 实现root/node/edge模型、稳定顺序与ID查找，检查端点、重复ID、尺寸和业务字段，支持无损导入/导出。
+1. 实现root/node/edge模型、稳定顺序与ID查找，检查端点、重复ID、尺寸和业务字段，支持无损导入/导出；依据E01路径补齐内部port/锚点/尺寸与margin数据，公开ports未支持不代表内部无需这些结构。
 2. 实现九项选项的完整ID/别名、类型与枚举、缺省、构造/调用替换和局部优先级；明确区分未知与已知未实现项。
-3. 实现每次调用的工作图、临时映射、数值/随机适配接口；首个切片用到的随机/数值路径有来源和回归。
-4. 针对端口、层级、独立标签、其他路由/策略等未支持语义明确失败，保留无关业务字段；不提供成功布局stub。
+3. 实现每次调用的工作图、临时state/快照和seed配置接口；实际随机流与首切片数值路径在E04来源闭合后实现和回归，不把Python random当Java流。
+4. 模型可承载ports/层级/labels/hyperedges数据，但不提供其布局语义；primitive边/未知及已知未实现配置明确失败，保留业务字段，不提供成功布局stub。
 
-拟新增：`src/pyelk/model/`、`options/`、`execution/`中的实际模块；`tests/model`、`tests/options`、必要的runtime测试。
+已交付：`src/pyelk/model/`、`options/`、`execution/`实际模块与共享JSON/错误类；foundation/model/options/execution独立测试、来源/声明审计。用法见 [HOST_FOUNDATIONS](HOST_FOUNDATIONS.md)。
 验收：V0和新增V3；round-trip、输入保留、顺序、参数替换/别名、非法输入与调用状态隔离通过。尚未实现的布局保持明确不可用。
 门禁：`ordered-model-options`通过；只为实际算法需要建立公共抽象。
 
@@ -123,7 +132,7 @@ V3–V6的脚本/测试组尚未创建，以下只列交付要求，不虚构可
 
 工作包：M1-06…08、M2-01/03…06；前置：E03及`algorithm-source`、`native-contract`。
 
-1. 按已核实的默认phase/processor启用规则实现最小执行链，包含输入处理、层/顺序、节点坐标、正交路由、根尺寸与导出。
+1. 按已核实的默认phase/processor启用规则实现最小执行链，包含输入处理、层/顺序、节点坐标、正交路由、根尺寸与导出；E01单边默认实测19次调用，须保留两次不同配置的LayerSweep及实际内部ports/labels/margins处理，不能仅实现五个主阶段。
 2. 公共`ELK`实际调用该执行链；空图/单点特殊路径有来源，不按case ID或参考坐标分支。
 3. 增加固定seed的双节点请求及尺寸/间距/模型顺序变体，建立E04 suite构建器并记录完整未支持分母。
 4. 安装真实本地候选，接入已有candidate adapter；添加可选阶段trace，将实际支持范围写入例子/能力状态。
@@ -263,8 +272,8 @@ I0若发现端口/层级等缺口，只影响相关I1能力，等待E13–E19对
 ## 8. 下一会话执行与更新规则
 
 1. 先读本页、IMPLEMENTATION_PLAN、当前状态，运行V0；检查本地修改，保留既有证据。
-2. 读取iteration-plan.json中nextIteration及门禁；当前选E01，不从E04跳过来源/合同直接写坐标。
-3. 执行E01来源/路径调查；源对应尚未闭合时精确记录缺口，继续不依赖该缺口的契约/模型工作。
+2. 读取iteration-plan.json中nextIteration及门禁；E07完成后进入E08，先读E07复盘和E08 brief，不跳过逐组件来源/helper与许可直接扩域。
+3. E01–E04已交付，来源gate仅对ADR0003生成源切片verified；先并行做新增DAG/长边支路来源、接口/套件准备，核实实际组件后再机械移植。
 4. 每轮只更新实际完成状态与证据；如果依赖条件改变，先同步索引与本页，不把“已计划”当“已完成”。
 5. 更新公共能力时同步API文档、账本、UPSTREAM、release profile、真实例子/README、状态及新会话入口；更新算法测试发现逻辑。
 

@@ -1,0 +1,142 @@
+{
+  "schema": "py-elk-e13-label-sources/v1",
+  "status": "first-data-import-transfer-source-proposal",
+  "sourceApproved": false,
+  "fixedSource": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+    "license": "EPL-2.0 OR GPL-3.0-or-later",
+    "licenseSha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "exactExternalJavaBuildProven": false
+  },
+  "components": [
+    {
+      "id": "E13-L01-GIVEN-LABEL-DATA",
+      "scope": "Native label graph fields, active source import filters and original-identity geometry transfer only. No automatic text measurement, label placement processor, cell/size calculation, hierarchy or complete labels support is approved.",
+      "spans": [
+        {
+          "symbol": "LShape/LLabel constructors",
+          "firstLine": 33017,
+          "lastLine": 33038,
+          "role": "data-representation",
+          "sha256": "45f62eb3c8e6c637770c796d34f890b1d482318b7abe87945aac13e728b9de42",
+          "sourceBytesBase64": "ZnVuY3Rpb24gTFNoYXBlKCl7CiAgdGhpcy5wb3MgPSBuZXcgS1ZlY3RvcjsKICB0aGlzLnNpemVfMCA9IG5ldyBLVmVjdG9yOwp9CgpkZWZpbmVDbGFzcyg0MDksIDI0OCwgezM6MSwgMjQ4OjEsIDQwOToxLCA5OToxLCAxNDI6MX0pOwp2YXIgTG9yZ19lY2xpcHNlX2Vsa19hbGdfbGF5ZXJlZF9ncmFwaF9MU2hhcGVfMl9jbGFzc0xpdCA9IGNyZWF0ZUZvckNsYXNzKCdvcmcuZWNsaXBzZS5lbGsuYWxnLmxheWVyZWQuZ3JhcGgnLCAnTFNoYXBlJywgNDA5KTsKZnVuY3Rpb24gJGdldERlc2lnbmF0aW9uXzEodGhpcyRzdGF0aWMpewogIGlmICh0aGlzJHN0YXRpYy50ZXh0XzApIHsKICAgIHJldHVybiB0aGlzJHN0YXRpYy50ZXh0XzA7CiAgfQogIHJldHVybiAkZ2V0RGVzaWduYXRpb24odGhpcyRzdGF0aWMpOwp9CgpmdW5jdGlvbiBMTGFiZWwoKXsKICBMTGFiZWxfMC5jYWxsKHRoaXMsICcnKTsKfQoKZnVuY3Rpb24gTExhYmVsXzAodGhldGV4dCl7CiAgTFNoYXBlLmNhbGwodGhpcyk7CiAgdGhpcy50ZXh0XzAgPSB0aGV0ZXh0Owp9Cg=="
+        },
+        {
+          "symbol": "transformLabel",
+          "firstLine": 34374,
+          "lastLine": 34384,
+          "role": "implementation",
+          "sha256": "41f87770e3dba10f3e4d7198d6491a88b73bc347fee21de0aa8c90ac44492862",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJHRyYW5zZm9ybUxhYmVsKGVsa2xhYmVsKXsKICB2YXIgbmV3TGFiZWw7CiAgbmV3TGFiZWwgPSBuZXcgTExhYmVsXzAoZWxrbGFiZWwudGV4dF8wKTsKICAkY29weVByb3BlcnRpZXMobmV3TGFiZWwsIGVsa2xhYmVsKTsKICAkc2V0UHJvcGVydHlfMChuZXdMYWJlbCwgKCRjbGluaXRfSW50ZXJuYWxQcm9wZXJ0aWVzXzEoKSAsIE9SSUdJTl8wKSwgZWxrbGFiZWwpOwogIG5ld0xhYmVsLnNpemVfMC54XzAgPSBlbGtsYWJlbC53aWR0aF8wOwogIG5ld0xhYmVsLnNpemVfMC55XzAgPSBlbGtsYWJlbC5oZWlnaHQ7CiAgbmV3TGFiZWwucG9zLnhfMCA9IGVsa2xhYmVsLnhfMDsKICBuZXdMYWJlbC5wb3MueV8wID0gZWxrbGFiZWwueV8wOwogIHJldHVybiBuZXdMYWJlbDsKfQo="
+        },
+        {
+          "symbol": "node-label import caller",
+          "firstLine": 34409,
+          "lastLine": 34412,
+          "role": "caller-context",
+          "sha256": "49476bf1875d933f3f843f1be8b1e0b396cb7e1aa1ef6383b7f2a237a124c505",
+          "sourceBytesBase64": "ICBmb3IgKGVsa2xhYmVsJGl0ZXJhdG9yID0gbmV3IEFic3RyYWN0RUxpc3QkRUl0ZXJhdG9yKCghZWxrbm9kZS5sYWJlbHMgJiYgKGVsa25vZGUubGFiZWxzID0gbmV3IEVPYmplY3RDb250YWlubWVudFdpdGhJbnZlcnNlRUxpc3QoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtMYWJlbF8yX2NsYXNzTGl0LCBlbGtub2RlLCAxLCA3KSkgLCBlbGtub2RlLmxhYmVscykpOyBlbGtsYWJlbCRpdGVyYXRvci5jdXJzb3IgIT0gZWxrbGFiZWwkaXRlcmF0b3IudGhpcyQwMV8yLnNpemVfMSgpOykgewogICAgZWxrbGFiZWwgPSBjYXN0VG8oJGRvTmV4dChlbGtsYWJlbCRpdGVyYXRvciksIDEzNSk7CiAgICAhJGJvb2xlYW5WYWx1ZShjYXN0VG9Cb29sZWFuKCRnZXRQcm9wZXJ0eV8wKGVsa2xhYmVsLCBOT19MQVlPVVQpKSkgJiYgISFlbGtsYWJlbC50ZXh0XzAgJiYgJGFkZF8zKGxub2RlLmxhYmVscywgJHRyYW5zZm9ybUxhYmVsKGVsa2xhYmVsKSk7CiAgfQo="
+        },
+        {
+          "symbol": "port-label import caller",
+          "firstLine": 34441,
+          "lastLine": 34444,
+          "role": "caller-context",
+          "sha256": "b58e27248931757bdbc5de1fdc849e6d61f18cca7c5a832ec67c14096a1a86a4",
+          "sourceBytesBase64": "ICBmb3IgKGVsa2xhYmVsJGl0ZXJhdG9yID0gbmV3IEFic3RyYWN0RUxpc3QkRUl0ZXJhdG9yKCghZWxrcG9ydC5sYWJlbHMgJiYgKGVsa3BvcnQubGFiZWxzID0gbmV3IEVPYmplY3RDb250YWlubWVudFdpdGhJbnZlcnNlRUxpc3QoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtMYWJlbF8yX2NsYXNzTGl0LCBlbGtwb3J0LCAxLCA3KSkgLCBlbGtwb3J0LmxhYmVscykpOyBlbGtsYWJlbCRpdGVyYXRvci5jdXJzb3IgIT0gZWxrbGFiZWwkaXRlcmF0b3IudGhpcyQwMV8yLnNpemVfMSgpOykgewogICAgZWxrbGFiZWwgPSBjYXN0VG8oJGRvTmV4dChlbGtsYWJlbCRpdGVyYXRvciksIDEzNSk7CiAgICAhJGJvb2xlYW5WYWx1ZShjYXN0VG9Cb29sZWFuKCRnZXRQcm9wZXJ0eV8wKGVsa2xhYmVsLCBOT19MQVlPVVQpKSkgJiYgISFlbGtsYWJlbC50ZXh0XzAgJiYgJGFkZF8zKGxwb3J0LmxhYmVscywgJHRyYW5zZm9ybUxhYmVsKGVsa2xhYmVsKSk7CiAgfQo="
+        },
+        {
+          "symbol": "edge-label import and flags",
+          "firstLine": 34298,
+          "lastLine": 34315,
+          "role": "caller-context",
+          "sha256": "0e823ca594f3b883a2679523f3da715f422349731ebf359f7223f89ee057e705",
+          "sourceBytesBase64": "ICAoc291cmNlTFBvcnQuaW5jb21pbmdFZGdlcy5hcnJheS5sZW5ndGggPiAxIHx8IHNvdXJjZUxQb3J0Lm91dGdvaW5nRWRnZXMuYXJyYXkubGVuZ3RoID4gMSB8fCB0YXJnZXRMUG9ydC5pbmNvbWluZ0VkZ2VzLmFycmF5Lmxlbmd0aCA+IDEgfHwgdGFyZ2V0TFBvcnQub3V0Z29pbmdFZGdlcy5hcnJheS5sZW5ndGggPiAxKSAmJiBncmFwaFByb3BlcnRpZXMuYWRkXzIoKCRjbGluaXRfR3JhcGhQcm9wZXJ0aWVzKCkgLCBIWVBFUkVER0VTKSk7CiAgZm9yIChlbGtsYWJlbCRpdGVyYXRvciA9IG5ldyBBYnN0cmFjdEVMaXN0JEVJdGVyYXRvcigoIWVsa2VkZ2UubGFiZWxzICYmIChlbGtlZGdlLmxhYmVscyA9IG5ldyBFT2JqZWN0Q29udGFpbm1lbnRXaXRoSW52ZXJzZUVMaXN0KExvcmdfZWNsaXBzZV9lbGtfZ3JhcGhfRWxrTGFiZWxfMl9jbGFzc0xpdCwgZWxrZWRnZSwgMSwgNykpICwgZWxrZWRnZS5sYWJlbHMpKTsgZWxrbGFiZWwkaXRlcmF0b3IuY3Vyc29yICE9IGVsa2xhYmVsJGl0ZXJhdG9yLnRoaXMkMDFfMi5zaXplXzEoKTspIHsKICAgIGVsa2xhYmVsID0gY2FzdFRvKCRkb05leHQoZWxrbGFiZWwkaXRlcmF0b3IpLCAxMzUpOwogICAgaWYgKCEkYm9vbGVhblZhbHVlKGNhc3RUb0Jvb2xlYW4oJGdldFByb3BlcnR5XzAoZWxrbGFiZWwsIE5PX0xBWU9VVCkpKSAmJiAhIWVsa2xhYmVsLnRleHRfMCkgewogICAgICBsbGFiZWwgPSAkdHJhbnNmb3JtTGFiZWwoZWxrbGFiZWwpOwogICAgICAkYWRkXzMobGVkZ2UubGFiZWxzLCBsbGFiZWwpOwogICAgICBzd2l0Y2ggKGNhc3RUbygkZ2V0UHJvcGVydHkobGxhYmVsLCBFREdFX0xBQkVMU19QTEFDRU1FTlQpLCAyODUpLm9yZGluYWwpIHsKICAgICAgICBjYXNlIDE6CiAgICAgICAgY2FzZSAyOgogICAgICAgICAgZ3JhcGhQcm9wZXJ0aWVzLmFkZF8yKCgkY2xpbml0X0dyYXBoUHJvcGVydGllcygpICwgRU5EX0xBQkVMUykpOwogICAgICAgICAgYnJlYWs7CiAgICAgICAgY2FzZSAwOgogICAgICAgICAgZ3JhcGhQcm9wZXJ0aWVzLmFkZF8yKCgkY2xpbml0X0dyYXBoUHJvcGVydGllcygpICwgQ0VOVEVSX0xBQkVMUykpOwogICAgICAgICAgJHNldFByb3BlcnR5XzAobGxhYmVsLCBFREdFX0xBQkVMU19QTEFDRU1FTlQsICgkY2xpbml0X0VkZ2VMYWJlbFBsYWNlbWVudCgpICwgQ0VOVEVSXzUpKTsKICAgICAgfQogICAgfQogIH0KICBjcm9zc01pblN0cmF0ID0gY2FzdFRvKCRnZXRQcm9wZXJ0eShsZ3JhcGgsIENST1NTSU5HX01JTklNSVpBVElPTl9TVFJBVEVHWV8wKSwgMzA3KTsK"
+        },
+        {
+          "symbol": "node/port-label transfer guards",
+          "firstLine": 34686,
+          "lastLine": 34707,
+          "role": "implementation",
+          "sha256": "e9f186628992f1322418c0cd330b1a4001df3f277e251da4f70195514509e4e8",
+          "sourceBytesBase64": "ICB9CiAgbm9kZUhhc0xhYmVsUGxhY2VtZW50ID0gY2FzdFRvKCRnZXRQcm9wZXJ0eShsbm9kZSwgTk9ERV9MQUJFTFNfUExBQ0VNRU5UXzEpLCAxODQpLnNpemVfMSgpICE9IDA7CiAgZm9yIChsbGFiZWwkaXRlcmF0b3IwID0gbmV3IEFycmF5TGlzdCQxKGxub2RlLmxhYmVscyk7IGxsYWJlbCRpdGVyYXRvcjAuaSA8IGxsYWJlbCRpdGVyYXRvcjAudGhpcyQwMS5hcnJheS5sZW5ndGg7KSB7CiAgICBsbGFiZWwgPSBjYXN0VG8oJG5leHRfNihsbGFiZWwkaXRlcmF0b3IwKSwgNzApOwogICAgaWYgKG5vZGVIYXNMYWJlbFBsYWNlbWVudCB8fCBjYXN0VG8oJGdldFByb3BlcnR5KGxsYWJlbCwgTk9ERV9MQUJFTFNfUExBQ0VNRU5UXzEpLCAxODQpLnNpemVfMSgpICE9IDApIHsKICAgICAgZWxrbGFiZWwgPSBjYXN0VG8oJGdldFByb3BlcnR5KGxsYWJlbCwgT1JJR0lOXzApLCAxMzUpOwogICAgICAkc2V0RGltZW5zaW9uc18wKGVsa2xhYmVsLCBsbGFiZWwuc2l6ZV8wLnhfMCwgbGxhYmVsLnNpemVfMC55XzApOwogICAgICAkc2V0TG9jYXRpb25fMShlbGtsYWJlbCwgbGxhYmVsLnBvcy54XzAsIGxsYWJlbC5wb3MueV8wKTsKICAgIH0KICB9CiAgaWYgKCFpc0ZpeGVkKGNhc3RUbygkZ2V0UHJvcGVydHkobG5vZGUsIFBPUlRfTEFCRUxTX1BMQUNFTUVOVF8xKSwgMjApKSkgewogICAgZm9yIChscG9ydCRpdGVyYXRvciA9IG5ldyBBcnJheUxpc3QkMShsbm9kZS5wb3J0cyk7IGxwb3J0JGl0ZXJhdG9yLmkgPCBscG9ydCRpdGVyYXRvci50aGlzJDAxLmFycmF5Lmxlbmd0aDspIHsKICAgICAgbHBvcnQgPSBjYXN0VG8oJG5leHRfNihscG9ydCRpdGVyYXRvciksIDEyKTsKICAgICAgZm9yIChsbGFiZWwkaXRlcmF0b3IgPSBuZXcgQXJyYXlMaXN0JDEobHBvcnQubGFiZWxzKTsgbGxhYmVsJGl0ZXJhdG9yLmkgPCBsbGFiZWwkaXRlcmF0b3IudGhpcyQwMS5hcnJheS5sZW5ndGg7KSB7CiAgICAgICAgbGxhYmVsID0gY2FzdFRvKCRuZXh0XzYobGxhYmVsJGl0ZXJhdG9yKSwgNzApOwogICAgICAgIGVsa2xhYmVsID0gY2FzdFRvKCRnZXRQcm9wZXJ0eShsbGFiZWwsIE9SSUdJTl8wKSwgMTM1KTsKICAgICAgICAkc2V0V2lkdGhfMChlbGtsYWJlbCwgbGxhYmVsLnNpemVfMC54XzApOwogICAgICAgICRzZXRIZWlnaHRfMChlbGtsYWJlbCwgbGxhYmVsLnNpemVfMC55XzApOwogICAgICAgICRzZXRMb2NhdGlvbl8xKGVsa2xhYmVsLCBsbGFiZWwucG9zLnhfMCwgbGxhYmVsLnBvcy55XzApOwogICAgICB9CiAgICB9CiAgfQo="
+        },
+        {
+          "symbol": "edge-label transfer offset",
+          "firstLine": 34591,
+          "lastLine": 34598,
+          "role": "implementation",
+          "sha256": "b753ad1d8b13da6dab0a0928c78cba58fbef7109ccd201135250a111be40d1e9",
+          "sourceBytesBase64": "ICBmb3IgKGxsYWJlbCRpdGVyYXRvciA9IG5ldyBBcnJheUxpc3QkMShsZWRnZS5sYWJlbHMpOyBsbGFiZWwkaXRlcmF0b3IuaSA8IGxsYWJlbCRpdGVyYXRvci50aGlzJDAxLmFycmF5Lmxlbmd0aDspIHsKICAgIGxsYWJlbCA9IGNhc3RUbygkbmV4dF82KGxsYWJlbCRpdGVyYXRvciksIDcwKTsKICAgIGVsa2xhYmVsID0gY2FzdFRvKCRnZXRQcm9wZXJ0eShsbGFiZWwsIE9SSUdJTl8wKSwgMTM1KTsKICAgICRzZXRXaWR0aF8wKGVsa2xhYmVsLCBsbGFiZWwuc2l6ZV8wLnhfMCk7CiAgICAkc2V0SGVpZ2h0XzAoZWxrbGFiZWwsIGxsYWJlbC5zaXplXzAueV8wKTsKICAgICRzZXRMb2NhdGlvbl8xKGVsa2xhYmVsLCBsbGFiZWwucG9zLnhfMCArIGVkZ2VPZmZzZXQueF8wLCBsbGFiZWwucG9zLnlfMCArIGVkZ2VPZmZzZXQueV8wKTsKICAgICRzZXRQcm9wZXJ0eV8xKGVsa2xhYmVsLCAoJGNsaW5pdF9MYWJlbER1bW15U3dpdGNoZXIoKSAsIElOQ0xVREVfTEFCRUwpLCBjYXN0VG9Cb29sZWFuKCRnZXRQcm9wZXJ0eShsbGFiZWwsIElOQ0xVREVfTEFCRUwpKSk7CiAgfQo="
+        },
+        {
+          "symbol": "core node-label defaults",
+          "firstLine": 70847,
+          "lastLine": 70848,
+          "role": "default",
+          "sha256": "dcbc90d955d0581167f253eb9cb5676d6c8bedfbcd9526874118d503f5c9fbca",
+          "sourceBytesBase64": "ICBOT0RFX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCA9ICgkY2xpbml0X05vZGVMYWJlbFBsYWNlbWVudCgpICwgYWxsMCA9IGNhc3RUbygkZ2V0RW51bUNvbnN0YW50cyhMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Ob2RlTGFiZWxQbGFjZW1lbnRfMl9jbGFzc0xpdCksIDEwKSAsIG5ldyBFbnVtU2V0JEVudW1TZXRJbXBsKGFsbDAsIGNhc3RUbyhjcmVhdGVGcm9tKGFsbDAsIGFsbDAubGVuZ3RoKSwgMTApLCAwKSk7CiAgTk9ERV9MQUJFTFNfUExBQ0VNRU5UXzUgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLm5vZGVMYWJlbHMucGxhY2VtZW50JywgTk9ERV9MQUJFTFNfUExBQ0VNRU5UX0RFRkFVTFQpOwo="
+        },
+        {
+          "symbol": "core edge-label defaults",
+          "firstLine": 70862,
+          "lastLine": 70863,
+          "role": "default",
+          "sha256": "139c09ed4a19f132537270e34e18aac9d702c5a69343c8485ca329e405731b3d",
+          "sourceBytesBase64": "ICBFREdFX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCA9ICgkY2xpbml0X0VkZ2VMYWJlbFBsYWNlbWVudCgpICwgQ0VOVEVSXzUpOwogIEVER0VfTEFCRUxTX1BMQUNFTUVOVF8wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5lZGdlTGFiZWxzLnBsYWNlbWVudCcsIEVER0VfTEFCRUxTX1BMQUNFTUVOVF9ERUZBVUxUKTsK"
+        },
+        {
+          "symbol": "core port-label defaults",
+          "firstLine": 70873,
+          "lastLine": 70874,
+          "role": "default",
+          "sha256": "a2533f2b7a44854f2aa01790c567b05d24241bb09cd76c340b155b75ac0d6438",
+          "sourceBytesBase64": "ICBQT1JUX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCA9ICgkY2xpbml0X1BvcnRMYWJlbFBsYWNlbWVudCgpICwgb2ZfMShPVVRTSURFXzApKTsKICBQT1JUX0xBQkVMU19QTEFDRU1FTlRfNSA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsucG9ydExhYmVscy5wbGFjZW1lbnQnLCBQT1JUX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCk7Cg=="
+        },
+        {
+          "symbol": "edge-label enum",
+          "firstLine": 71109,
+          "lastLine": 71114,
+          "role": "enum",
+          "sha256": "15ce9a9aeb4eb77ddb3074a1f6bb3984426ec9e8c940f7497b6d660c23aef3ba",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9FZGdlTGFiZWxQbGFjZW1lbnQoKXsKICAkY2xpbml0X0VkZ2VMYWJlbFBsYWNlbWVudCA9IGVtcHR5TWV0aG9kOwogIENFTlRFUl81ID0gbmV3IEVkZ2VMYWJlbFBsYWNlbWVudCgnQ0VOVEVSJywgMCk7CiAgSEVBRCA9IG5ldyBFZGdlTGFiZWxQbGFjZW1lbnQoJ0hFQUQnLCAxKTsKICBUQUlMID0gbmV3IEVkZ2VMYWJlbFBsYWNlbWVudCgnVEFJTCcsIDIpOwp9Cg=="
+        },
+        {
+          "symbol": "node-label enum",
+          "firstLine": 71323,
+          "lastLine": 71334,
+          "role": "enum",
+          "sha256": "2d6368dafbe0b898627f406916f06b7a0c0c44ac982bff1f51fdcf169ffb603e",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9Ob2RlTGFiZWxQbGFjZW1lbnQoKXsKICAkY2xpbml0X05vZGVMYWJlbFBsYWNlbWVudCA9IGVtcHR5TWV0aG9kOwogIEhfTEVGVF8wID0gbmV3IE5vZGVMYWJlbFBsYWNlbWVudCgnSF9MRUZUJywgMCk7CiAgSF9DRU5URVJfMCA9IG5ldyBOb2RlTGFiZWxQbGFjZW1lbnQoJ0hfQ0VOVEVSJywgMSk7CiAgSF9SSUdIVF8wID0gbmV3IE5vZGVMYWJlbFBsYWNlbWVudCgnSF9SSUdIVCcsIDIpOwogIFZfVE9QXzAgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdWX1RPUCcsIDMpOwogIFZfQ0VOVEVSXzAgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdWX0NFTlRFUicsIDQpOwogIFZfQk9UVE9NXzAgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdWX0JPVFRPTScsIDUpOwogIElOU0lERSA9IG5ldyBOb2RlTGFiZWxQbGFjZW1lbnQoJ0lOU0lERScsIDYpOwogIE9VVFNJREUgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdPVVRTSURFJywgNyk7CiAgSF9QUklPUklUWSA9IG5ldyBOb2RlTGFiZWxQbGFjZW1lbnQoJ0hfUFJJT1JJVFknLCA4KTsKfQo="
+        },
+        {
+          "symbol": "port-label fixed predicate",
+          "firstLine": 71464,
+          "lastLine": 71467,
+          "role": "implementation",
+          "sha256": "9c90e22c45d712a23f69f00c66c3656add8ce7fc2bd1fdb1a479bd17d7d08064",
+          "sourceBytesBase64": "ZnVuY3Rpb24gaXNGaXhlZChwbGFjZW1lbnQpewogICRjbGluaXRfUG9ydExhYmVsUGxhY2VtZW50KCk7CiAgcmV0dXJuICFwbGFjZW1lbnQuY29udGFpbnMoSU5TSURFXzApICYmICFwbGFjZW1lbnQuY29udGFpbnMoT1VUU0lERV8wKTsKfQo="
+        }
+      ],
+      "facts": [
+        "LShape allocates independent zero position/size vectors; LLabel retains text. transformLabel copies source properties/origin and given size/position with no font/text measurement.",
+        "Node/port/edge caller imports only non-NO_LAYOUT labels with nonempty text. Retain original JSON label objects outside the active work graph, including ignored labels.",
+        "Core nodeLabels.placement defaults empty. Node geometry is copied back only when node or label has nonempty placement; no placement means original supplied label coordinates remain.",
+        "Port labels transfer geometry unless node port-label placement is fixed; isFixed means neither INSIDE nor OUTSIDE selected, not merely an empty array spelling. Default OUTSIDE is active.",
+        "Edge label CENTER/HEAD/TAIL sets real CENTER_LABELS or END_LABELS scheduling flags; edge transfer adds edgeOffset to work position. No dummy inserter/switcher or end-label implementation is inferred."
+      ],
+      "pendingDependencies": [
+        "A P04 common NodeContext/cell/size source closure (shared, not duplicated here)",
+        "Center label dummy inserter/remover/switcher and node-placement integration",
+        "End-label sorting/placement and direction transforms",
+        "Global/local label-option schemas and original JSON label transfer helper closure"
+      ]
+    }
+  ],
+  "originalProbe": "references/next-native-reference.json#/cases/labels-given-size",
+  "runtimeValidated": false,
+  "iterationCompleted": false,
+  "published": false
+}

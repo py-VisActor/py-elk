@@ -1,0 +1,303 @@
+{
+  "schema": "py-elk-e17-wrapper-session-owner/v1",
+  "passed": true,
+  "scope": "Only one changed wrapper default-path candidate call; original Node bytes reused without reexecution; no full API/parser/package claim",
+  "caseId": "tree-right-dfs",
+  "actualRealMicroCalls": [
+    "root"
+  ],
+  "wrapperAST": {
+    "mrtree": "AST exact outside selected wrapper",
+    "radial": "AST exact outside selected wrapper"
+  },
+  "strictComparison": {
+    "passed": false,
+    "differences": [
+      {
+        "path": "/$H",
+        "kind": "missing",
+        "expected": 13
+      },
+      {
+        "path": "/children/0/$H",
+        "kind": "missing",
+        "expected": 277
+      },
+      {
+        "path": "/children/1/$H",
+        "kind": "missing",
+        "expected": 279
+      },
+      {
+        "path": "/children/2/$H",
+        "kind": "missing",
+        "expected": 281
+      },
+      {
+        "path": "/children/3/$H",
+        "kind": "missing",
+        "expected": 283
+      },
+      {
+        "path": "/children/4/$H",
+        "kind": "missing",
+        "expected": 285
+      },
+      {
+        "path": "/children/5/$H",
+        "kind": "missing",
+        "expected": 287
+      }
+    ],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "nonHashDifferences": [],
+  "result": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "mrtree",
+      "elk.direction": "RIGHT",
+      "elk.mrtree.searchOrder": "DFS",
+      "elk.randomSeed": 7
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 14,
+        "business": {
+          "ordinal": 0
+        },
+        "x": 20.0,
+        "y": 75.0
+      },
+      {
+        "id": "n1",
+        "width": 23,
+        "height": 16,
+        "business": {
+          "ordinal": 1
+        },
+        "x": 61.5,
+        "y": 43.0
+      },
+      {
+        "id": "n2",
+        "width": 26,
+        "height": 18,
+        "business": {
+          "ordinal": 2
+        },
+        "x": 60.0,
+        "y": 105.0
+      },
+      {
+        "id": "n3",
+        "width": 29,
+        "height": 20,
+        "business": {
+          "ordinal": 3
+        },
+        "x": 109.5,
+        "y": 20.0
+      },
+      {
+        "id": "n4",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "ordinal": 4
+        },
+        "x": 108.0,
+        "y": 60.0
+      },
+      {
+        "id": "n5",
+        "width": 35,
+        "height": 24,
+        "business": {
+          "ordinal": 5
+        },
+        "x": 106.5,
+        "y": 102.0
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ],
+        "business": {
+          "ordinal": 0
+        },
+        "sections": [
+          {
+            "id": "e0_s0",
+            "startPoint": {
+              "x": 40.0,
+              "y": 79.66666666666666
+            },
+            "endPoint": {
+              "x": 61.5,
+              "y": 51.0
+            },
+            "bendPoints": [
+              {
+                "x": 43.0,
+                "y": 79.66666666666666
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ],
+        "business": {
+          "ordinal": 1
+        },
+        "sections": [
+          {
+            "id": "e1_s0",
+            "startPoint": {
+              "x": 40.0,
+              "y": 84.33333333333333
+            },
+            "endPoint": {
+              "x": 60.0,
+              "y": 114.0
+            },
+            "bendPoints": [
+              {
+                "x": 43.0,
+                "y": 84.33333333333333
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ],
+        "business": {
+          "ordinal": 2
+        },
+        "sections": [
+          {
+            "id": "e2_s0",
+            "startPoint": {
+              "x": 84.5,
+              "y": 48.33333333333333
+            },
+            "endPoint": {
+              "x": 109.5,
+              "y": 30.0
+            },
+            "bendPoints": [
+              {
+                "x": 89.0,
+                "y": 48.33333333333333
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n4"
+        ],
+        "business": {
+          "ordinal": 3
+        },
+        "sections": [
+          {
+            "id": "e3_s0",
+            "startPoint": {
+              "x": 84.5,
+              "y": 53.666666666666664
+            },
+            "endPoint": {
+              "x": 108.0,
+              "y": 71.0
+            },
+            "bendPoints": [
+              {
+                "x": 89.0,
+                "y": 53.666666666666664
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n5"
+        ],
+        "business": {
+          "ordinal": 4
+        },
+        "sections": [
+          {
+            "id": "e4_s0",
+            "startPoint": {
+              "x": 86.0,
+              "y": 114.0
+            },
+            "endPoint": {
+              "x": 106.5,
+              "y": 114.0
+            },
+            "bendPoints": [
+              {
+                "x": 89.0,
+                "y": 114.0
+              }
+            ]
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "x": 0,
+    "y": 0,
+    "width": 154.0,
+    "height": 144.0
+  },
+  "callerPreserved": true,
+  "sourceOracleSha256": "0cac20f84c8b416b1e9c0fb9c4cb998e7ca959293f6a07ad9d007f4fa98a63e3",
+  "requestSha256": "83f2496d3af6a9757d50646199e32b5fc12cd2c5eb4c976c2cd99f2b35bd6c19",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/mrtree.py": "36c83ecf7b8a648770dc758c72127d6abdece5f6ae1bbbd4c2c6102c8fe25bd7",
+    ".local/migration-next/src/pyelk/algorithms/radial.py": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7"
+  }
+}

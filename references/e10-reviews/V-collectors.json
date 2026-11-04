@@ -1,0 +1,18 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "tools/platform/capture_e10.py": "856d6afb40f2b4dd1f0da34948e9bc53c6afc3ddc2ed88f7888fe2132e2324d2",
+    "tools/platform/windows_e10.py": "049cff2d0d7bfe920cb0c122bdaa2464dc8c228404aa624423f906c0e5bdb6f2",
+    "tools/platform/linux_e10.py": "026139fae321ebf35e1fbc8937965048225c11831310ddd330215c6643166767"
+  },
+  "scope": [
+    "Actual -I runtime and empty PATH/removed four override variables; new external venv/cwd; original subprocess/log/exit receipts.",
+    "Collector freezes ten capture dependencies before execution and verifies the same bytes afterward; no pure checker or progress declarations in execution identity.",
+    "Six original case inputs, actual metadata and close errors, real CPU progress/live PID before cancellation, cancellation/reap and recovery are preserved.",
+    "Windows direct sdist and Linux source archive to built wheel to runtime venv chains match original commands; source artifact digest and all 43 installed files/METADATA are separately checked.",
+    "Linux interpreter archive selection/size/digest and bounded safe extraction are checked; no publisher authenticity or historical execution authentication claimed."
+  ],
+  "actualValidationReport": "test-runs/20261103-E10-01/V/platform-pure-final-01/report.json",
+  "result": "Eight wheel cells and two declared source-install representatives pass current pure verification; no full-project validation."
+}

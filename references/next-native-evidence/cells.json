@@ -1,0 +1,141 @@
+{
+  "schema": "py-elk-e13-cell-handoff/v1",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/layered/cell_layout.py": "5722e8c129f4bd0d90c32b25ec7eab071e424c8874e4dbad86c0950a015d8790",
+    "references/e13-cell-sources.json": "058c00dd254e494dc6d8616182d1675363ae25044ddad9e0474cc9287e78d2ca"
+  },
+  "scope": "Native common Cell/Atomic/Container/Strip/Grid/Label math only; callers and complete layouts separate",
+  "implementedClasses": [
+    "Cell",
+    "AtomicCell",
+    "ContainerCell",
+    "StripContainerCell",
+    "GridContainerCell",
+    "LabelCell"
+  ],
+  "existingDataTypes": [
+    "layered.graph.Vec2",
+    "layered.graph.Insets"
+  ],
+  "evidence": {
+    "test-runs/20261104-E13-01/V/cell-foundation-source-review-01.json": "982dd039740cab896e702445631c55c9a47e1350d790439b95a1fc922428e22e",
+    "test-runs/20261104-E13-01/V/cell-label-source-review-01.json": "0c8a5aeaa926879b465a5e5b7b96ba6a15973408e0d37e2442e623f5f47a4084",
+    "test-runs/20261104-E13-01/V/cell-oracle-02/command.json": "13590cbf989a2962b601e2cfaeadc7a2ccdb5284092db9c400b6b1979e146792",
+    "test-runs/20261104-E13-01/V/cell-oracle-02/observation.json": "c36fa98a1107baa580bf99e84df014c6208a7d2b8ac498984748eed3fb64c8e8",
+    "test-runs/20261104-E13-01/V/cell-oracle-02/comparison-command.json": "d0b4be5cac1c79a7d883bd86356ca042e6752b59e92ed9acabf53fff86df34af",
+    "test-runs/20261104-E13-01/V/cell-oracle-02/comparison.json": "373925ddaa765e4846cba0e4bed5aaef5d8946406a01e3bf12ca4e8c5e4578e8",
+    "tests/fixtures/suites/next-native/cells-probe.cjs": "f909222dfdf20e7ca9f8e215370dca9919738275134f4f171d629067fb792f2f",
+    "tests/fixtures/suites/next-native/cells-request.json": "531cfff92bbfa7cefac31952c81b94d35569e2684e56bfe52f3fb6db8370a388",
+    "tests/fixtures/suites/next-native/compare_cells.py": "fdb62144cbfa0caa5a2077cbc9e060914bbaec795ec9d06c756b5663fd9c1d20"
+  },
+  "actualSourceAndCandidateCases": 8,
+  "typedPureRechecks": [
+    {
+      "id": "zero-atomic-padding-flags",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "grid-tabular-shared-buffer",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "grid-nontabular-begin-zero",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "grid-undersized-only-center",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "nested-strip-grid",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "strip-symmetric-cross-axis-zero",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "label-horizontalMode-vertical-stack",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    },
+    {
+      "id": "label-verticalMode-horizontal-stack",
+      "typedJsonComparison": {
+        "passed": true,
+        "differences": [],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      }
+    }
+  ],
+  "runtimeReexecutedByThisHandoff": false,
+  "sourceSourceIndependent": true,
+  "api": "All source proposal snake_case methods/fields; no imports of A node_size/placement. Labels use pos/size Vec2 duck interface.",
+  "limitations": [
+    "No complete NodeContext, textual label measurement, public layout, algorithm registration or fullE13 acceptance claim.",
+    "Original comparator command explicitly has timingNotRecorded; this handoff does not reconstruct PID or elapsed values.",
+    "First Node bridge used raw LLabel instead of actual LLabelAdapter, failed and remains oracle01; oracle02 fixes only actual adapter.",
+    "Original public cell internals are not ELK JSON graphs; this is a source object-level differential test."
+  ],
+  "independentImplementationReviewPending": true,
+  "fullValidation": false
+}

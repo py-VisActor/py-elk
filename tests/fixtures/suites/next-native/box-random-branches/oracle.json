@@ -1,0 +1,864 @@
+{
+  "schema": "py-elk-next-native-reference/v1",
+  "actualSourceRoot": "C:\\code\\py-visactor\\py-elk",
+  "scope": "Independent original-only probes for planned E13/E16 migration; no candidate or completed algorithm acceptance.",
+  "upstream": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "distributionSha256": {
+      "lib/elk-api.d.ts": "93f3c5a56c99e0f88f6d6d45e24e4b6861b5500a7a6c03ea01f8af8d46d599af",
+      "lib/elk-api.js": "ccca46175c05bbd280b5de6c9853103711e52c666a101f145b717e345363e24d",
+      "lib/elk-worker.d.ts": "cfd7e67195b610f808ebab6ba1065cc2b1709af17309a1975a70f52f814459cc",
+      "lib/elk-worker.js": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lib/elk-worker.min.js": "dca3a19d9ec37f5634bf5876b4ebd2455c3f43f0d32570136c13c13edaba9bfb",
+      "lib/elk.bundled.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/elk.bundled.js": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7",
+      "lib/main.d.ts": "6d5ae88a366b976d02fc68bc3cc15af8b23b287735dd506b32d55cb74452f7a3",
+      "lib/main.js": "2e11f2611e1bc60bf3a15c267a0f128ecb5395cb348f733cbc44cefa341f4d44",
+      "LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+      "package.json": "2cf15ab73c358103ac1bdb94ff4ede887c5ca3efaf3d579ade4b7c289eca3bc5",
+      "README.md": "b2d1f5d457f07b28356f400b6600ea62f5239f0d0db51b23933d4aa47711d95c"
+    }
+  },
+  "collector": "tools/reference/capture_layout.cjs",
+  "collectorSha256": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+  "captureDriverSha256": "75db0343318d6362fbbdd0d3ab54d0c65fe119021fc3f9c308c8acc7f24a9f39",
+  "node": "C:\\Program Files\\nodejs\\node.exe",
+  "nodeSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+  "nodeIdentityCommand": {
+    "command": {
+      "argv": [
+        "C:\\Program Files\\nodejs\\node.exe",
+        "--version"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "pid": 43756,
+      "exitCode": 0,
+      "timedOut": false,
+      "elapsedSeconds": 0.025234400003682822,
+      "stdoutSha256": "bc697de995dc791df53d688ef69c08994cdffc8ce30c906b1ffc65b131ccd0eb",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "environmentPolicy": {
+        "nodeOverridesAbsent": true
+      }
+    },
+    "stdoutBytesBase64": "djI0LjE5LjANCg==",
+    "stderrBytesBase64": ""
+  },
+  "suiteSha256": "9b83c5262f11779b65946f5a3b04d2e13be17c9c97ae12b3d86d1b01106af3d6",
+  "cases": [
+    {
+      "id": "box-group_dec",
+      "definition": {
+        "id": "box-group_dec",
+        "request": "box-group_dec.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5ib3gucGFja2luZ01vZGUiOiAiR1JPVVBfREVDIg0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiMCIsDQogICAgICAgICJ3aWR0aCI6IDgwLA0KICAgICAgICAiaGVpZ2h0IjogODANCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICIxIiwNCiAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICJoZWlnaHQiOiAxMA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjIiLA0KICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgImhlaWdodCI6IDEwDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiMyIsDQogICAgICAgICJ3aWR0aCI6IDIwLA0KICAgICAgICAiaGVpZ2h0IjogMTANCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICI0IiwNCiAgICAgICAgIndpZHRoIjogOCwNCiAgICAgICAgImhlaWdodCI6IDgNCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICI1IiwNCiAgICAgICAgIndpZHRoIjogNSwNCiAgICAgICAgImhlaWdodCI6IDUNCiAgICAgIH0NCiAgICBdLA0KICAgICJlZGdlcyI6IFtdDQogIH0NCn0NCg==",
+      "requestSha256": "3bccdf3c4b0c21f4d53a2a6f84d64cc0943da1b78906b3bf47468592c4416b40",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_DEC"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-group_dec\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-group_dec\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 26840,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.155652999994345,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiM2JjY2RmM2M0YjBjMjFmNGQ1M2EyYTZmODRkNjRjYzA5NDNkYTFiNzg5MDZiM2JmNDc0Njg1OTJjNDQxNmI0MCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmJveC5wYWNraW5nTW9kZSI6ICJHUk9VUF9ERUMiCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIjAiLAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA4MCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMSIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDExMCwKICAgICAgICAieSI6IDQwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMiIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI4MSwKICAgICAgICAieCI6IDExMCwKICAgICAgICAieSI6IDY1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMyIsCiAgICAgICAgIndpZHRoIjogMjAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI4MywKICAgICAgICAieCI6IDExMCwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiNCIsCiAgICAgICAgIndpZHRoIjogOCwKICAgICAgICAiaGVpZ2h0IjogOCwKICAgICAgICAiJEgiOiAyODUsCiAgICAgICAgIngiOiAxMTAsCiAgICAgICAgInkiOiA5MAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjUiLAogICAgICAgICJ3aWR0aCI6IDUsCiAgICAgICAgImhlaWdodCI6IDUsCiAgICAgICAgIiRIIjogMjg3LAogICAgICAgICJ4IjogMTMzLAogICAgICAgICJ5IjogOTAKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFtdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxNTMsCiAgICAiaGVpZ2h0IjogMTEzCiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5hbGdvcml0aG0iOiAiYm94IiwKICAgICAgImVsay5ib3gucGFja2luZ01vZGUiOiAiR1JPVVBfREVDIgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICIwIiwKICAgICAgICAid2lkdGgiOiA4MCwKICAgICAgICAiaGVpZ2h0IjogODAsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjEiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAxMTAsCiAgICAgICAgInkiOiA0MAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjIiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAxMTAsCiAgICAgICAgInkiOiA2NQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjMiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxMTAsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjQiLAogICAgICAgICJ3aWR0aCI6IDgsCiAgICAgICAgImhlaWdodCI6IDgsCiAgICAgICAgIiRIIjogMjg1LAogICAgICAgICJ4IjogMTEwLAogICAgICAgICJ5IjogOTAKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICI1IiwKICAgICAgICAid2lkdGgiOiA1LAogICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICIkSCI6IDI4NywKICAgICAgICAieCI6IDEzMywKICAgICAgICAieSI6IDkwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMTUzLAogICAgImhlaWdodCI6IDExMwogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "observationSha256": "6c55ccf10be01798e2a686d286db1bafe320e94c55b4d1515b5018d7d4bbb239"
+    },
+    {
+      "id": "box-group_inc",
+      "definition": {
+        "id": "box-group_inc",
+        "request": "box-group_inc.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5ib3gucGFja2luZ01vZGUiOiAiR1JPVVBfSU5DIg0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiMCIsDQogICAgICAgICJ3aWR0aCI6IDgwLA0KICAgICAgICAiaGVpZ2h0IjogODANCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICIxIiwNCiAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICJoZWlnaHQiOiAxMA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjIiLA0KICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgImhlaWdodCI6IDEwDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiMyIsDQogICAgICAgICJ3aWR0aCI6IDIwLA0KICAgICAgICAiaGVpZ2h0IjogMTANCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICI0IiwNCiAgICAgICAgIndpZHRoIjogOCwNCiAgICAgICAgImhlaWdodCI6IDgNCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICI1IiwNCiAgICAgICAgIndpZHRoIjogNSwNCiAgICAgICAgImhlaWdodCI6IDUNCiAgICAgIH0NCiAgICBdLA0KICAgICJlZGdlcyI6IFtdDQogIH0NCn0NCg==",
+      "requestSha256": "0240184e1308be22f425778b05b17b9432434c1353da3a6aecbef4b6673bf196",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_INC"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-group_inc\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-group_inc\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 27628,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.1700989999808371,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMDI0MDE4NGUxMzA4YmUyMmY0MjU3NzhiMDViMTdiOTQzMjQzNGMxMzUzZGEzYTZhZWNiZWY0YjY2NzNiZjE5NiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmJveC5wYWNraW5nTW9kZSI6ICJHUk9VUF9JTkMiCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIjAiLAogICAgICAgICJ3aWR0aCI6IDgwLAogICAgICAgICJoZWlnaHQiOiA4MCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiA1OCwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMSIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogMzgKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICIyIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiA2MwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjMiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDg4CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiNCIsCiAgICAgICAgIndpZHRoIjogOCwKICAgICAgICAiaGVpZ2h0IjogOCwKICAgICAgICAiJEgiOiAyODUsCiAgICAgICAgIngiOiAzNSwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiNSIsCiAgICAgICAgIndpZHRoIjogNSwKICAgICAgICAiaGVpZ2h0IjogNSwKICAgICAgICAiJEgiOiAyODcsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDE1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMTUzLAogICAgImhlaWdodCI6IDExMwogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsuYWxnb3JpdGhtIjogImJveCIsCiAgICAgICJlbGsuYm94LnBhY2tpbmdNb2RlIjogIkdST1VQX0lOQyIKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiMCIsCiAgICAgICAgIndpZHRoIjogODAsCiAgICAgICAgImhlaWdodCI6IDgwLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDU4LAogICAgICAgICJ5IjogMTUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICIxIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiAzOAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjIiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDYzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMyIsCiAgICAgICAgIndpZHRoIjogMjAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI4MywKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogODgKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICI0IiwKICAgICAgICAid2lkdGgiOiA4LAogICAgICAgICJoZWlnaHQiOiA4LAogICAgICAgICIkSCI6IDI4NSwKICAgICAgICAieCI6IDM1LAogICAgICAgICJ5IjogMTUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICI1IiwKICAgICAgICAid2lkdGgiOiA1LAogICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICIkSCI6IDI4NywKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogMTUKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFtdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxNTMsCiAgICAiaGVpZ2h0IjogMTEzCiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "observationSha256": "6d3174104a7e6ae31576342732b80bc1c58819504d71daf02c4ff7174647f9a5"
+    },
+    {
+      "id": "box-group_mixed",
+      "definition": {
+        "id": "box-group_mixed",
+        "request": "box-group_mixed.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5ib3gucGFja2luZ01vZGUiOiAiR1JPVVBfTUlYRUQiDQogICAgfSwNCiAgICAiY2hpbGRyZW4iOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICIwIiwNCiAgICAgICAgIndpZHRoIjogODAsDQogICAgICAgICJoZWlnaHQiOiA4MA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjEiLA0KICAgICAgICAid2lkdGgiOiAxMCwNCiAgICAgICAgImhlaWdodCI6IDEwDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiMiIsDQogICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAiaGVpZ2h0IjogMTANCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICIzIiwNCiAgICAgICAgIndpZHRoIjogMjAsDQogICAgICAgICJoZWlnaHQiOiAxMA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjQiLA0KICAgICAgICAid2lkdGgiOiA4LA0KICAgICAgICAiaGVpZ2h0IjogOA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjUiLA0KICAgICAgICAid2lkdGgiOiA1LA0KICAgICAgICAiaGVpZ2h0IjogNQ0KICAgICAgfQ0KICAgIF0sDQogICAgImVkZ2VzIjogW10NCiAgfQ0KfQ0K",
+      "requestSha256": "2675f3555a2895b01b826809c3458cd163f07a16e6b0032f3181b4d688e06342",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_MIXED"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 80,
+              "height": 80
+            },
+            {
+              "id": "1",
+              "width": 10,
+              "height": 10
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 10
+            },
+            {
+              "id": "3",
+              "width": 20,
+              "height": 10
+            },
+            {
+              "id": "4",
+              "width": 8,
+              "height": 8
+            },
+            {
+              "id": "5",
+              "width": 5,
+              "height": 5
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-group_mixed\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-group_mixed\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 27096,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15387169999303296,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiMjY3NWYzNTU1YTI4OTViMDFiODI2ODA5YzM0NThjZDE2M2YwN2ExNmU2YjAwMzJmMzE4MWI0ZDY4OGUwNjM0MiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmJveC5wYWNraW5nTW9kZSI6ICJHUk9VUF9NSVhFRCIKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiMCIsCiAgICAgICAgIndpZHRoIjogODAsCiAgICAgICAgImhlaWdodCI6IDgwLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDUwLAogICAgICAgICJ5IjogMTUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICIxIiwKICAgICAgICAid2lkdGgiOiAxMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiA4MwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjIiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDEwOAogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjMiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyODMsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiNCIsCiAgICAgICAgIndpZHRoIjogOCwKICAgICAgICAiaGVpZ2h0IjogOCwKICAgICAgICAiJEgiOiAyODUsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDYwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiNSIsCiAgICAgICAgIndpZHRoIjogNSwKICAgICAgICAiaGVpZ2h0IjogNSwKICAgICAgICAiJEgiOiAyODcsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDQwCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMTQ1LAogICAgImhlaWdodCI6IDEzMwogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsuYWxnb3JpdGhtIjogImJveCIsCiAgICAgICJlbGsuYm94LnBhY2tpbmdNb2RlIjogIkdST1VQX01JWEVEIgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICIwIiwKICAgICAgICAid2lkdGgiOiA4MCwKICAgICAgICAiaGVpZ2h0IjogODAsCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogNTAsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjEiLAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDgzCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMiIsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI4MSwKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogMTA4CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMyIsCiAgICAgICAgIndpZHRoIjogMjAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI4MywKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogMTUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICI0IiwKICAgICAgICAid2lkdGgiOiA4LAogICAgICAgICJoZWlnaHQiOiA4LAogICAgICAgICIkSCI6IDI4NSwKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogNjAKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICI1IiwKICAgICAgICAid2lkdGgiOiA1LAogICAgICAgICJoZWlnaHQiOiA1LAogICAgICAgICIkSCI6IDI4NywKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogNDAKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFtdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxNDUsCiAgICAiaGVpZ2h0IjogMTMzCiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "observationSha256": "16a8c013a894e15964b34d6cde5083d229f6ecb0ba7fa97bc2ba1f516ff91526"
+    },
+    {
+      "id": "box-priority-interactive",
+      "definition": {
+        "id": "box-priority-interactive",
+        "request": "box-priority-interactive.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5pbnRlcmFjdGl2ZSI6IHRydWUNCiAgICB9LA0KICAgICJjaGlsZHJlbiI6IFsNCiAgICAgIHsNCiAgICAgICAgImlkIjogImEiLA0KICAgICAgICAieCI6IDIwLA0KICAgICAgICAieSI6IDgsDQogICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAiaGVpZ2h0IjogMjAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsucHJpb3JpdHkiOiAxDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJiIiwNCiAgICAgICAgIngiOiA1LA0KICAgICAgICAieSI6IDgsDQogICAgICAgICJ3aWR0aCI6IDIwLA0KICAgICAgICAiaGVpZ2h0IjogMTAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsucHJpb3JpdHkiOiAxDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJjIiwNCiAgICAgICAgIngiOiAwLA0KICAgICAgICAieSI6IDAsDQogICAgICAgICJ3aWR0aCI6IDMwLA0KICAgICAgICAiaGVpZ2h0IjogMTAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsucHJpb3JpdHkiOiAwDQogICAgICAgIH0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICJkIiwNCiAgICAgICAgIngiOiAyMCwNCiAgICAgICAgInkiOiAwLA0KICAgICAgICAid2lkdGgiOiAxNSwNCiAgICAgICAgImhlaWdodCI6IDE1LA0KICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsNCiAgICAgICAgICAiZWxrLnByaW9yaXR5IjogMw0KICAgICAgICB9DQogICAgICB9DQogICAgXSwNCiAgICAiZWRnZXMiOiBbXQ0KICB9DQp9DQo=",
+      "requestSha256": "4b2260a435d5099ec5353991588f21a3d171739dc5f7c604d65137028f59cbbe",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.interactive": true
+          },
+          "children": [
+            {
+              "id": "a",
+              "x": 20,
+              "y": 8,
+              "width": 10,
+              "height": 20,
+              "layoutOptions": {
+                "elk.priority": 1
+              }
+            },
+            {
+              "id": "b",
+              "x": 5,
+              "y": 8,
+              "width": 20,
+              "height": 10,
+              "layoutOptions": {
+                "elk.priority": 1
+              }
+            },
+            {
+              "id": "c",
+              "x": 0,
+              "y": 0,
+              "width": 30,
+              "height": 10,
+              "layoutOptions": {
+                "elk.priority": 0
+              }
+            },
+            {
+              "id": "d",
+              "x": 20,
+              "y": 0,
+              "width": 15,
+              "height": 15,
+              "layoutOptions": {
+                "elk.priority": 3
+              }
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-priority-interactive\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-priority-interactive\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 11272,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.14235189999453723,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNGIyMjYwYTQzNWQ1MDk5ZWM1MzUzOTkxNTg4ZjIxYTNkMTcxNzM5ZGM1ZjdjNjA0ZDY1MTM3MDI4ZjU5Y2JiZSIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmludGVyYWN0aXZlIjogdHJ1ZQogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJhIiwKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogNDUsCiAgICAgICAgIndpZHRoIjogMTAsCiAgICAgICAgImhlaWdodCI6IDIwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5wcmlvcml0eSI6IDEKICAgICAgICB9LAogICAgICAgICIkSCI6IDI3NwogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImIiLAogICAgICAgICJ4IjogNDUsCiAgICAgICAgInkiOiAxNSwKICAgICAgICAid2lkdGgiOiAyMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICAgICAiZWxrLnByaW9yaXR5IjogMQogICAgICAgIH0sCiAgICAgICAgIiRIIjogMjc5CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYyIsCiAgICAgICAgIngiOiA0MCwKICAgICAgICAieSI6IDQ1LAogICAgICAgICJ3aWR0aCI6IDMwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsucHJpb3JpdHkiOiAwCiAgICAgICAgfSwKICAgICAgICAiJEgiOiAyODEKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJkIiwKICAgICAgICAieCI6IDE1LAogICAgICAgICJ5IjogMTUsCiAgICAgICAgIndpZHRoIjogMTUsCiAgICAgICAgImhlaWdodCI6IDE1LAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5wcmlvcml0eSI6IDMKICAgICAgICB9LAogICAgICAgICIkSCI6IDI4MwogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogW10sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDg1LAogICAgImhlaWdodCI6IDgwCiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5hbGdvcml0aG0iOiAiYm94IiwKICAgICAgImVsay5pbnRlcmFjdGl2ZSI6IHRydWUKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiYSIsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDQ1LAogICAgICAgICJ3aWR0aCI6IDEwLAogICAgICAgICJoZWlnaHQiOiAyMCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsucHJpb3JpdHkiOiAxCiAgICAgICAgfSwKICAgICAgICAiJEgiOiAyNzcKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICJiIiwKICAgICAgICAieCI6IDQ1LAogICAgICAgICJ5IjogMTUsCiAgICAgICAgIndpZHRoIjogMjAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5wcmlvcml0eSI6IDEKICAgICAgICB9LAogICAgICAgICIkSCI6IDI3OQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImMiLAogICAgICAgICJ4IjogNDAsCiAgICAgICAgInkiOiA0NSwKICAgICAgICAid2lkdGgiOiAzMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICAgICAiZWxrLnByaW9yaXR5IjogMAogICAgICAgIH0sCiAgICAgICAgIiRIIjogMjgxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiZCIsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDE1LAogICAgICAgICJ3aWR0aCI6IDE1LAogICAgICAgICJoZWlnaHQiOiAxNSwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsucHJpb3JpdHkiOiAzCiAgICAgICAgfSwKICAgICAgICAiJEgiOiAyODMKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFtdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiA4NSwKICAgICJoZWlnaHQiOiA4MAogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "observationSha256": "ddeedce789cf7709937a8deccbe837448f552448ca60072fae0b0146c75bf0a1"
+    },
+    {
+      "id": "box-simple-expand-minimum",
+      "definition": {
+        "id": "box-simple-expand-minimum",
+        "request": "box-simple-expand-minimum.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5leHBhbmROb2RlcyI6IHRydWUsDQogICAgICAiZWxrLm5vZGVTaXplLmNvbnN0cmFpbnRzIjogIltNSU5JTVVNX1NJWkVdIiwNCiAgICAgICJlbGsubm9kZVNpemUubWluaW11bSI6ICIoMTgwLDEzMCkiDQogICAgfSwNCiAgICAiY2hpbGRyZW4iOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICIwIiwNCiAgICAgICAgIndpZHRoIjogMjAsDQogICAgICAgICJoZWlnaHQiOiAxMCwNCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLA0KICAgICAgICAgICJlbGsuY29udGVudEFsaWdubWVudCI6ICJbSF9DRU5URVIsVl9DRU5URVJdIg0KICAgICAgICB9LA0KICAgICAgICAiY2hpbGRyZW4iOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogImlubmVyMCIsDQogICAgICAgICAgICAieCI6IDEsDQogICAgICAgICAgICAieSI6IDIsDQogICAgICAgICAgICAid2lkdGgiOiAzLA0KICAgICAgICAgICAgImhlaWdodCI6IDQNCiAgICAgICAgICB9DQogICAgICAgIF0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICIxIiwNCiAgICAgICAgIndpZHRoIjogNTAsDQogICAgICAgICJoZWlnaHQiOiAyMCwNCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLA0KICAgICAgICAgICJlbGsuY29udGVudEFsaWdubWVudCI6ICJbSF9DRU5URVIsVl9DRU5URVJdIg0KICAgICAgICB9LA0KICAgICAgICAiY2hpbGRyZW4iOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogImlubmVyMSIsDQogICAgICAgICAgICAieCI6IDEsDQogICAgICAgICAgICAieSI6IDIsDQogICAgICAgICAgICAid2lkdGgiOiAzLA0KICAgICAgICAgICAgImhlaWdodCI6IDQNCiAgICAgICAgICB9DQogICAgICAgIF0NCiAgICAgIH0sDQogICAgICB7DQogICAgICAgICJpZCI6ICIyIiwNCiAgICAgICAgIndpZHRoIjogMTAsDQogICAgICAgICJoZWlnaHQiOiA0MCwNCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLA0KICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLA0KICAgICAgICAgICJlbGsuY29udGVudEFsaWdubWVudCI6ICJbSF9DRU5URVIsVl9DRU5URVJdIg0KICAgICAgICB9LA0KICAgICAgICAiY2hpbGRyZW4iOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogImlubmVyMiIsDQogICAgICAgICAgICAieCI6IDEsDQogICAgICAgICAgICAieSI6IDIsDQogICAgICAgICAgICAid2lkdGgiOiAzLA0KICAgICAgICAgICAgImhlaWdodCI6IDQNCiAgICAgICAgICB9DQogICAgICAgIF0NCiAgICAgIH0NCiAgICBdLA0KICAgICJlZGdlcyI6IFtdDQogIH0NCn0NCg==",
+      "requestSha256": "974b21d7e53e8b22b2106b2fbf7432b59ee8647998c5ca1c4bf9120292010932",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.expandNodes": true,
+            "elk.nodeSize.constraints": "[MINIMUM_SIZE]",
+            "elk.nodeSize.minimum": "(180,130)"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20,
+              "height": 10,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner0",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "id": "1",
+              "width": 50,
+              "height": 20,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner1",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 40,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner2",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4
+                }
+              ]
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-simple-expand-minimum\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-simple-expand-minimum\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 18568,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15175750001799315,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiOTc0YjIxZDdlNTNlOGIyMmIyMTA2YjJmYmY3NDMyYjU5ZWU4NjQ3OTk4YzVjYTFjNGJmOTEyMDI5MjAxMDkzMiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmV4cGFuZE5vZGVzIjogdHJ1ZSwKICAgICAgImVsay5ub2RlU2l6ZS5jb25zdHJhaW50cyI6ICJbTUlOSU1VTV9TSVpFXSIsCiAgICAgICJlbGsubm9kZVNpemUubWluaW11bSI6ICIoMTgwLDEzMCkiCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIjAiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiA0MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAgICAgImVsay5jb250ZW50QWxpZ25tZW50IjogIltIX0NFTlRFUixWX0NFTlRFUl0iCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbm5lcjAiLAogICAgICAgICAgICAieCI6IDEsCiAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICIkSCI6IDI3OQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjEiLAogICAgICAgICJ3aWR0aCI6IDE1MCwKICAgICAgICAiaGVpZ2h0IjogNDUsCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwKICAgICAgICAgICJlbGsuY29udGVudEFsaWdubWVudCI6ICJbSF9DRU5URVIsVl9DRU5URVJdIgogICAgICAgIH0sCiAgICAgICAgImNoaWxkcmVuIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiaW5uZXIxIiwKICAgICAgICAgICAgIngiOiA1MSwKICAgICAgICAgICAgInkiOiAxNC41LAogICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgIiRIIjogMjgzCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDcwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMiIsCiAgICAgICAgIndpZHRoIjogMTE1LAogICAgICAgICJoZWlnaHQiOiA0MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAgICAgImVsay5jb250ZW50QWxpZ25tZW50IjogIltIX0NFTlRFUixWX0NFTlRFUl0iCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbm5lcjIiLAogICAgICAgICAgICAieCI6IDUzLjUsCiAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICIkSCI6IDI4NwogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjg1LAogICAgICAgICJ4IjogNTAsCiAgICAgICAgInkiOiAxNQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogW10sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDE4MCwKICAgICJoZWlnaHQiOiAxMzAKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmV4cGFuZE5vZGVzIjogdHJ1ZSwKICAgICAgImVsay5ub2RlU2l6ZS5jb25zdHJhaW50cyI6ICJbTUlOSU1VTV9TSVpFXSIsCiAgICAgICJlbGsubm9kZVNpemUubWluaW11bSI6ICIoMTgwLDEzMCkiCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIjAiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiA0MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAgICAgImVsay5jb250ZW50QWxpZ25tZW50IjogIltIX0NFTlRFUixWX0NFTlRFUl0iCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbm5lcjAiLAogICAgICAgICAgICAieCI6IDEsCiAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICIkSCI6IDI3OQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjc3LAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjEiLAogICAgICAgICJ3aWR0aCI6IDE1MCwKICAgICAgICAiaGVpZ2h0IjogNDUsCiAgICAgICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICAgICAiZWxrLmFsZ29yaXRobSI6ICJmaXhlZCIsCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwKICAgICAgICAgICJlbGsuY29udGVudEFsaWdubWVudCI6ICJbSF9DRU5URVIsVl9DRU5URVJdIgogICAgICAgIH0sCiAgICAgICAgImNoaWxkcmVuIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiaW5uZXIxIiwKICAgICAgICAgICAgIngiOiA1MSwKICAgICAgICAgICAgInkiOiAxNC41LAogICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgIiRIIjogMjgzCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAxNSwKICAgICAgICAieSI6IDcwCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMiIsCiAgICAgICAgIndpZHRoIjogMTE1LAogICAgICAgICJoZWlnaHQiOiA0MCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAgICAgImVsay5jb250ZW50QWxpZ25tZW50IjogIltIX0NFTlRFUixWX0NFTlRFUl0iCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbm5lcjIiLAogICAgICAgICAgICAieCI6IDUzLjUsCiAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICIkSCI6IDI4NwogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjg1LAogICAgICAgICJ4IjogNTAsCiAgICAgICAgInkiOiAxNQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogW10sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDE4MCwKICAgICJoZWlnaHQiOiAxMzAKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "observationSha256": "29b31a8447ff381712df15f59c0cc0cfcc799787ccd5a76d963e8f07376b1c90"
+    },
+    {
+      "id": "box-mixed-expand-minimum",
+      "definition": {
+        "id": "box-mixed-expand-minimum",
+        "request": "box-mixed-expand-minimum.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5ib3gucGFja2luZ01vZGUiOiAiR1JPVVBfTUlYRUQiLA0KICAgICAgImVsay5leHBhbmROb2RlcyI6IHRydWUsDQogICAgICAiZWxrLm5vZGVTaXplLm1pbmltdW0iOiAiKDE4MCwxMzApIg0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiMCIsDQogICAgICAgICJ3aWR0aCI6IDIwLA0KICAgICAgICAiaGVpZ2h0IjogMTAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwNCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwNCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSINCiAgICAgICAgfSwNCiAgICAgICAgImNoaWxkcmVuIjogWw0KICAgICAgICAgIHsNCiAgICAgICAgICAgICJpZCI6ICJpbm5lcjAiLA0KICAgICAgICAgICAgIngiOiAxLA0KICAgICAgICAgICAgInkiOiAyLA0KICAgICAgICAgICAgIndpZHRoIjogMywNCiAgICAgICAgICAgICJoZWlnaHQiOiA0DQogICAgICAgICAgfQ0KICAgICAgICBdDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiMSIsDQogICAgICAgICJ3aWR0aCI6IDUwLA0KICAgICAgICAiaGVpZ2h0IjogMjAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwNCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwNCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSINCiAgICAgICAgfSwNCiAgICAgICAgImNoaWxkcmVuIjogWw0KICAgICAgICAgIHsNCiAgICAgICAgICAgICJpZCI6ICJpbm5lcjEiLA0KICAgICAgICAgICAgIngiOiAxLA0KICAgICAgICAgICAgInkiOiAyLA0KICAgICAgICAgICAgIndpZHRoIjogMywNCiAgICAgICAgICAgICJoZWlnaHQiOiA0DQogICAgICAgICAgfQ0KICAgICAgICBdDQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiMiIsDQogICAgICAgICJ3aWR0aCI6IDEwLA0KICAgICAgICAiaGVpZ2h0IjogNDAsDQogICAgICAgICJsYXlvdXRPcHRpb25zIjogew0KICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwNCiAgICAgICAgICAiZWxrLm5vZGVTaXplLmZpeGVkR3JhcGhTaXplIjogdHJ1ZSwNCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSINCiAgICAgICAgfSwNCiAgICAgICAgImNoaWxkcmVuIjogWw0KICAgICAgICAgIHsNCiAgICAgICAgICAgICJpZCI6ICJpbm5lcjIiLA0KICAgICAgICAgICAgIngiOiAxLA0KICAgICAgICAgICAgInkiOiAyLA0KICAgICAgICAgICAgIndpZHRoIjogMywNCiAgICAgICAgICAgICJoZWlnaHQiOiA0DQogICAgICAgICAgfQ0KICAgICAgICBdDQogICAgICB9DQogICAgXSwNCiAgICAiZWRnZXMiOiBbXQ0KICB9DQp9DQo=",
+      "requestSha256": "797c13a9c6283dea4bafb9f6004ca0f60bd8bd9e09063ce6a01950cca097e196",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.box.packingMode": "GROUP_MIXED",
+            "elk.expandNodes": true,
+            "elk.nodeSize.minimum": "(180,130)"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20,
+              "height": 10,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner0",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "id": "1",
+              "width": 50,
+              "height": 20,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner1",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "id": "2",
+              "width": 10,
+              "height": 40,
+              "layoutOptions": {
+                "elk.algorithm": "fixed",
+                "elk.nodeSize.fixedGraphSize": true,
+                "elk.contentAlignment": "[H_CENTER,V_CENTER]"
+              },
+              "children": [
+                {
+                  "id": "inner2",
+                  "x": 1,
+                  "y": 2,
+                  "width": 3,
+                  "height": 4
+                }
+              ]
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-mixed-expand-minimum\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-mixed-expand-minimum\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 27420,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15410650000558235,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNzk3YzEzYTljNjI4M2RlYTRiYWZiOWY2MDA0Y2EwZjYwYmQ4YmQ5ZTA5MDYzY2U2YTAxOTUwY2NhMDk3ZTE5NiIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmJveC5wYWNraW5nTW9kZSI6ICJHUk9VUF9NSVhFRCIsCiAgICAgICJlbGsuZXhwYW5kTm9kZXMiOiB0cnVlLAogICAgICAiZWxrLm5vZGVTaXplLm1pbmltdW0iOiAiKDE4MCwxMzApIgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICIwIiwKICAgICAgICAid2lkdGgiOiAyMCwKICAgICAgICAiaGVpZ2h0IjogMTAwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSIKICAgICAgICB9LAogICAgICAgICJjaGlsZHJlbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImlubmVyMCIsCiAgICAgICAgICAgICJ4IjogMSwKICAgICAgICAgICAgInkiOiAyLAogICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgIiRIIjogMjc5CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiA4MCwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMSIsCiAgICAgICAgIndpZHRoIjogNTAsCiAgICAgICAgImhlaWdodCI6IDEwMCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAgICAgImVsay5jb250ZW50QWxpZ25tZW50IjogIltIX0NFTlRFUixWX0NFTlRFUl0iCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbm5lcjEiLAogICAgICAgICAgICAieCI6IDEsCiAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICIkSCI6IDI4MwogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjIiLAogICAgICAgICJ3aWR0aCI6IDExNSwKICAgICAgICAiaGVpZ2h0IjogMTAwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSIKICAgICAgICB9LAogICAgICAgICJjaGlsZHJlbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImlubmVyMiIsCiAgICAgICAgICAgICJ4IjogNTMuNSwKICAgICAgICAgICAgInkiOiAyLAogICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgIiRIIjogMjg3CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyODUsCiAgICAgICAgIngiOiAxMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogW10sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDI0NSwKICAgICJoZWlnaHQiOiAxMzAKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmJveC5wYWNraW5nTW9kZSI6ICJHUk9VUF9NSVhFRCIsCiAgICAgICJlbGsuZXhwYW5kTm9kZXMiOiB0cnVlLAogICAgICAiZWxrLm5vZGVTaXplLm1pbmltdW0iOiAiKDE4MCwxMzApIgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICIwIiwKICAgICAgICAid2lkdGgiOiAyMCwKICAgICAgICAiaGVpZ2h0IjogMTAwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSIKICAgICAgICB9LAogICAgICAgICJjaGlsZHJlbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImlubmVyMCIsCiAgICAgICAgICAgICJ4IjogMSwKICAgICAgICAgICAgInkiOiAyLAogICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgIiRIIjogMjc5CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiA4MCwKICAgICAgICAieSI6IDE1CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMSIsCiAgICAgICAgIndpZHRoIjogNTAsCiAgICAgICAgImhlaWdodCI6IDEwMCwKICAgICAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgICAgICJlbGsuYWxnb3JpdGhtIjogImZpeGVkIiwKICAgICAgICAgICJlbGsubm9kZVNpemUuZml4ZWRHcmFwaFNpemUiOiB0cnVlLAogICAgICAgICAgImVsay5jb250ZW50QWxpZ25tZW50IjogIltIX0NFTlRFUixWX0NFTlRFUl0iCiAgICAgICAgfSwKICAgICAgICAiY2hpbGRyZW4iOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJpbm5lcjEiLAogICAgICAgICAgICAieCI6IDEsCiAgICAgICAgICAgICJ5IjogMiwKICAgICAgICAgICAgIndpZHRoIjogMywKICAgICAgICAgICAgImhlaWdodCI6IDQsCiAgICAgICAgICAgICIkSCI6IDI4MwogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgIiRIIjogMjgxLAogICAgICAgICJ4IjogMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjIiLAogICAgICAgICJ3aWR0aCI6IDExNSwKICAgICAgICAiaGVpZ2h0IjogMTAwLAogICAgICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAgICAgImVsay5hbGdvcml0aG0iOiAiZml4ZWQiLAogICAgICAgICAgImVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZSI6IHRydWUsCiAgICAgICAgICAiZWxrLmNvbnRlbnRBbGlnbm1lbnQiOiAiW0hfQ0VOVEVSLFZfQ0VOVEVSXSIKICAgICAgICB9LAogICAgICAgICJjaGlsZHJlbiI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImlubmVyMiIsCiAgICAgICAgICAgICJ4IjogNTMuNSwKICAgICAgICAgICAgInkiOiAyLAogICAgICAgICAgICAid2lkdGgiOiAzLAogICAgICAgICAgICAiaGVpZ2h0IjogNCwKICAgICAgICAgICAgIiRIIjogMjg3CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyODUsCiAgICAgICAgIngiOiAxMTUsCiAgICAgICAgInkiOiAxNQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogW10sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDI0NSwKICAgICJoZWlnaHQiOiAxMzAKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "observationSha256": "e8bd66e3f4bd809dfdf2ce48f9ccb855427d7b5dadf1477b5cdade3eefcf31a7"
+    },
+    {
+      "id": "box-noninteger-options",
+      "definition": {
+        "id": "box-noninteger-options",
+        "request": "box-noninteger-options.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLA0KICAgICAgImVsay5hc3BlY3RSYXRpbyI6IDEuMjM0NTY3ODksDQogICAgICAiZWxrLnNwYWNpbmcubm9kZU5vZGUiOiA3LjI1LA0KICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MSxsZWZ0PTcsYm90dG9tPTMscmlnaHQ9MTFdIg0KICAgIH0sDQogICAgImNoaWxkcmVuIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiMCIsDQogICAgICAgICJ3aWR0aCI6IDIwLjI1LA0KICAgICAgICAiaGVpZ2h0IjogMTAuNQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjEiLA0KICAgICAgICAid2lkdGgiOiA1MC4xMjUsDQogICAgICAgICJoZWlnaHQiOiAyMC43NQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogIjIiLA0KICAgICAgICAid2lkdGgiOiAxMC41LA0KICAgICAgICAiaGVpZ2h0IjogNDAuMjUNCiAgICAgIH0NCiAgICBdLA0KICAgICJlZGdlcyI6IFtdDQogIH0NCn0NCg==",
+      "requestSha256": "4ce493eaecffcfed56f9f02e22aa3370935f76c3e6c2e219c136142217929f4a",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "box",
+            "elk.aspectRatio": 1.23456789,
+            "elk.spacing.nodeNode": 7.25,
+            "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+          },
+          "children": [
+            {
+              "id": "0",
+              "width": 20.25,
+              "height": 10.5
+            },
+            {
+              "id": "1",
+              "width": 50.125,
+              "height": 20.75
+            },
+            {
+              "id": "2",
+              "width": 10.5,
+              "height": 40.25
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-noninteger-options\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\box-noninteger-options\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 6420,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15524419999564998,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNGNlNDkzZWFlY2ZmY2ZlZDU2ZjlmMDJlMjJhYTMzNzA5MzVmNzZjM2U2YzJlMjE5YzEzNjE0MjIxNzkyOWY0YSIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJib3giLAogICAgICAiZWxrLmFzcGVjdFJhdGlvIjogMS4yMzQ1Njc4OSwKICAgICAgImVsay5zcGFjaW5nLm5vZGVOb2RlIjogNy4yNSwKICAgICAgImVsay5wYWRkaW5nIjogIlt0b3A9MSxsZWZ0PTcsYm90dG9tPTMscmlnaHQ9MTFdIgogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICIwIiwKICAgICAgICAid2lkdGgiOiAyMC4yNSwKICAgICAgICAiaGVpZ2h0IjogMTAuNSwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiA3LAogICAgICAgICJ5IjogMQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjEiLAogICAgICAgICJ3aWR0aCI6IDUwLjEyNSwKICAgICAgICAiaGVpZ2h0IjogMjAuNzUsCiAgICAgICAgIiRIIjogMjc5LAogICAgICAgICJ4IjogNywKICAgICAgICAieSI6IDQ4LjUKICAgICAgfSwKICAgICAgewogICAgICAgICJpZCI6ICIyIiwKICAgICAgICAid2lkdGgiOiAxMC41LAogICAgICAgICJoZWlnaHQiOiA0MC4yNSwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAzNC41LAogICAgICAgICJ5IjogMQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogW10sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDY4LjEyNSwKICAgICJoZWlnaHQiOiA3Mi4yNQogIH0sCiAgIm91dGNvbWUiOiAicmV0dXJuZWQiLAogICJpbnB1dEFmdGVyIjogewogICAgImlkIjogInJvb3QiLAogICAgImxheW91dE9wdGlvbnMiOiB7CiAgICAgICJlbGsuYWxnb3JpdGhtIjogImJveCIsCiAgICAgICJlbGsuYXNwZWN0UmF0aW8iOiAxLjIzNDU2Nzg5LAogICAgICAiZWxrLnNwYWNpbmcubm9kZU5vZGUiOiA3LjI1LAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xLGxlZnQ9Nyxib3R0b209MyxyaWdodD0xMV0iCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogIjAiLAogICAgICAgICJ3aWR0aCI6IDIwLjI1LAogICAgICAgICJoZWlnaHQiOiAxMC41LAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDcsCiAgICAgICAgInkiOiAxCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiMSIsCiAgICAgICAgIndpZHRoIjogNTAuMTI1LAogICAgICAgICJoZWlnaHQiOiAyMC43NSwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiA3LAogICAgICAgICJ5IjogNDguNQogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogIjIiLAogICAgICAgICJ3aWR0aCI6IDEwLjUsCiAgICAgICAgImhlaWdodCI6IDQwLjI1LAogICAgICAgICIkSCI6IDI4MSwKICAgICAgICAieCI6IDM0LjUsCiAgICAgICAgInkiOiAxCiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogNjguMTI1LAogICAgImhlaWdodCI6IDcyLjI1CiAgfSwKICAiY29uc3RydWN0b3JBZnRlciI6IHt9LAogICJhcmd1bWVudHNBZnRlciI6IHt9LAogICJ0ZXJtaW5hdGlvbiI6IHsKICAgICJvdXRjb21lIjogInRocmV3IiwKICAgICJuYW1lIjogIlR5cGVFcnJvciIsCiAgICAibWVzc2FnZSI6ICJ0aGlzLndvcmtlci50ZXJtaW5hdGUgaXMgbm90IGEgZnVuY3Rpb24iCiAgfQp9Cg==",
+      "observationSha256": "fadba27d9e0fe3d3b6a1ef964f0a99f69fd4a583989416fe3c266bb11d0e3fbc"
+    },
+    {
+      "id": "random-edge-asymmetric",
+      "definition": {
+        "id": "random-edge-asymmetric",
+        "request": "random-edge-asymmetric.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLA0KICAgICAgImVsay5yYW5kb21TZWVkIjogMTksDQogICAgICAiZWxrLmFzcGVjdFJhdGlvIjogMS4yMzQ1Njc4OSwNCiAgICAgICJlbGsuc3BhY2luZy5ub2RlTm9kZSI6IDIuNzUsDQogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xLGxlZnQ9Nyxib3R0b209MyxyaWdodD0xMV0iDQogICAgfSwNCiAgICAiY2hpbGRyZW4iOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICJhIiwNCiAgICAgICAgIndpZHRoIjogMjAsDQogICAgICAgICJoZWlnaHQiOiAxMA0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogImIiLA0KICAgICAgICAid2lkdGgiOiA1MCwNCiAgICAgICAgImhlaWdodCI6IDIwDQogICAgICB9DQogICAgXSwNCiAgICAiZWRnZXMiOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICJlIiwNCiAgICAgICAgInNvdXJjZXMiOiBbDQogICAgICAgICAgImEiDQogICAgICAgIF0sDQogICAgICAgICJ0YXJnZXRzIjogWw0KICAgICAgICAgICJiIg0KICAgICAgICBdDQogICAgICB9DQogICAgXQ0KICB9DQp9DQo=",
+      "requestSha256": "6d06cf1e2ea332e8ade77bd51c4e4b3dacd5281ff5c6cc01c34e02dbaf1956e7",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 19,
+            "elk.aspectRatio": 1.23456789,
+            "elk.spacing.nodeNode": 2.75,
+            "elk.padding": "[top=1,left=7,bottom=3,right=11]"
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20
+            }
+          ],
+          "edges": [
+            {
+              "id": "e",
+              "sources": [
+                "a"
+              ],
+              "targets": [
+                "b"
+              ]
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\random-edge-asymmetric\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\random-edge-asymmetric\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 39940,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15583189998869784,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNmQwNmNmMWUyZWEzMzJlOGFkZTc3YmQ1MWM0ZTRiM2RhY2Q1MjgxZmY1YzZjYzAxYzM0ZTAyZGJhZjE5NTZlNyIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLAogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAxOSwKICAgICAgImVsay5hc3BlY3RSYXRpbyI6IDEuMjM0NTY3ODksCiAgICAgICJlbGsuc3BhY2luZy5ub2RlTm9kZSI6IDIuNzUsCiAgICAgICJlbGsucGFkZGluZyI6ICJbdG9wPTEsbGVmdD03LGJvdHRvbT0zLHJpZ2h0PTExXSIKICAgIH0sCiAgICAiY2hpbGRyZW4iOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiYSIsCiAgICAgICAgIndpZHRoIjogMjAsCiAgICAgICAgImhlaWdodCI6IDEwLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDI4Ljk3NDcxOTg3ODA4OTQxLAogICAgICAgICJ5IjogMTMuNzIwNTk0OTM3MjQ5NzQ2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogNTAsCiAgICAgICAgImhlaWdodCI6IDIwLAogICAgICAgICIkSCI6IDI3OSwKICAgICAgICAieCI6IDcsCiAgICAgICAgInkiOiA5LjIwNDE0NDQwOTI2NTgwMQogICAgICB9CiAgICBdLAogICAgImVkZ2VzIjogWwogICAgICB7CiAgICAgICAgImlkIjogImUiLAogICAgICAgICJzb3VyY2VzIjogWwogICAgICAgICAgImEiCiAgICAgICAgXSwKICAgICAgICAidGFyZ2V0cyI6IFsKICAgICAgICAgICJiIgogICAgICAgIF0sCiAgICAgICAgInNlY3Rpb25zIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAiZV9zMCIsCiAgICAgICAgICAgICJzdGFydFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogNDguOTc0NzE5ODc4MDg5NDEsCiAgICAgICAgICAgICAgInkiOiAxOC43MjA1OTQ5MzcyNDk3NDYKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImVuZFBvaW50IjogewogICAgICAgICAgICAgICJ4IjogMzguOTc0NzE5ODc4MDg5NDEsCiAgICAgICAgICAgICAgInkiOiAyMy43MjA1OTQ5MzcyNDk3NDYKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImJlbmRQb2ludHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgIngiOiA0NS4wNTkzMjM3ODQzMTcwNywKICAgICAgICAgICAgICAgICJ5IjogMjIuMTAxNDY5Mzc0MTcxMjM4CiAgICAgICAgICAgICAgfQogICAgICAgICAgICBdCiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiY29udGFpbmVyIjogInJvb3QiCiAgICAgIH0KICAgIF0sCiAgICAiJEgiOiAxMywKICAgICJ4IjogMCwKICAgICJ5IjogMCwKICAgICJ3aWR0aCI6IDg2LAogICAgImhlaWdodCI6IDM2Ljc1Nzg1MjIzMjk0MDc2CiAgfSwKICAib3V0Y29tZSI6ICJyZXR1cm5lZCIsCiAgImlucHV0QWZ0ZXIiOiB7CiAgICAiaWQiOiAicm9vdCIsCiAgICAibGF5b3V0T3B0aW9ucyI6IHsKICAgICAgImVsay5hbGdvcml0aG0iOiAicmFuZG9tIiwKICAgICAgImVsay5yYW5kb21TZWVkIjogMTksCiAgICAgICJlbGsuYXNwZWN0UmF0aW8iOiAxLjIzNDU2Nzg5LAogICAgICAiZWxrLnNwYWNpbmcubm9kZU5vZGUiOiAyLjc1LAogICAgICAiZWxrLnBhZGRpbmciOiAiW3RvcD0xLGxlZnQ9Nyxib3R0b209MyxyaWdodD0xMV0iCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogImEiLAogICAgICAgICJ3aWR0aCI6IDIwLAogICAgICAgICJoZWlnaHQiOiAxMCwKICAgICAgICAiJEgiOiAyNzcsCiAgICAgICAgIngiOiAyOC45NzQ3MTk4NzgwODk0MSwKICAgICAgICAieSI6IDEzLjcyMDU5NDkzNzI0OTc0NgogICAgICB9LAogICAgICB7CiAgICAgICAgImlkIjogImIiLAogICAgICAgICJ3aWR0aCI6IDUwLAogICAgICAgICJoZWlnaHQiOiAyMCwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiA3LAogICAgICAgICJ5IjogOS4yMDQxNDQ0MDkyNjU4MDEKICAgICAgfQogICAgXSwKICAgICJlZGdlcyI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJlIiwKICAgICAgICAic291cmNlcyI6IFsKICAgICAgICAgICJhIgogICAgICAgIF0sCiAgICAgICAgInRhcmdldHMiOiBbCiAgICAgICAgICAiYiIKICAgICAgICBdLAogICAgICAgICJzZWN0aW9ucyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogImVfczAiLAogICAgICAgICAgICAic3RhcnRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDQ4Ljk3NDcxOTg3ODA4OTQxLAogICAgICAgICAgICAgICJ5IjogMTguNzIwNTk0OTM3MjQ5NzQ2CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDM4Ljk3NDcxOTg3ODA4OTQxLAogICAgICAgICAgICAgICJ5IjogMjMuNzIwNTk0OTM3MjQ5NzQ2CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJiZW5kUG9pbnRzIjogWwogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ4IjogNDUuMDU5MzIzNzg0MzE3MDcsCiAgICAgICAgICAgICAgICAieSI6IDIyLjEwMTQ2OTM3NDE3MTIzOAogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiA4NiwKICAgICJoZWlnaHQiOiAzNi43NTc4NTIyMzI5NDA3NgogIH0sCiAgImNvbnN0cnVjdG9yQWZ0ZXIiOiB7fSwKICAiYXJndW1lbnRzQWZ0ZXIiOiB7fSwKICAidGVybWluYXRpb24iOiB7CiAgICAib3V0Y29tZSI6ICJ0aHJldyIsCiAgICAibmFtZSI6ICJUeXBlRXJyb3IiLAogICAgIm1lc3NhZ2UiOiAidGhpcy53b3JrZXIudGVybWluYXRlIGlzIG5vdCBhIGZ1bmN0aW9uIgogIH0KfQo=",
+      "observationSha256": "25d6618911864f50208feeb810befa70f3aea190a398c090e0ab4a8a34bdbb17"
+    },
+    {
+      "id": "random-port-source",
+      "definition": {
+        "id": "random-port-source",
+        "request": "random-port-source.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLA0KICAgICAgImVsay5yYW5kb21TZWVkIjogMjMNCiAgICB9LA0KICAgICJjaGlsZHJlbiI6IFsNCiAgICAgIHsNCiAgICAgICAgImlkIjogImEiLA0KICAgICAgICAid2lkdGgiOiAyMCwNCiAgICAgICAgImhlaWdodCI6IDEwLA0KICAgICAgICAicG9ydHMiOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogInAiLA0KICAgICAgICAgICAgIngiOiAyMCwNCiAgICAgICAgICAgICJ5IjogMywNCiAgICAgICAgICAgICJ3aWR0aCI6IDYsDQogICAgICAgICAgICAiaGVpZ2h0IjogNA0KICAgICAgICAgIH0NCiAgICAgICAgXQ0KICAgICAgfSwNCiAgICAgIHsNCiAgICAgICAgImlkIjogImIiLA0KICAgICAgICAid2lkdGgiOiA1MCwNCiAgICAgICAgImhlaWdodCI6IDIwLA0KICAgICAgICAicG9ydHMiOiBbDQogICAgICAgICAgew0KICAgICAgICAgICAgImlkIjogInEiLA0KICAgICAgICAgICAgIngiOiAtOCwNCiAgICAgICAgICAgICJ5IjogOCwNCiAgICAgICAgICAgICJ3aWR0aCI6IDgsDQogICAgICAgICAgICAiaGVpZ2h0IjogNg0KICAgICAgICAgIH0NCiAgICAgICAgXQ0KICAgICAgfQ0KICAgIF0sDQogICAgImVkZ2VzIjogWw0KICAgICAgew0KICAgICAgICAiaWQiOiAiZSIsDQogICAgICAgICJzb3VyY2VzIjogWw0KICAgICAgICAgICJwIg0KICAgICAgICBdLA0KICAgICAgICAidGFyZ2V0cyI6IFsNCiAgICAgICAgICAicSINCiAgICAgICAgXQ0KICAgICAgfQ0KICAgIF0NCiAgfQ0KfQ0K",
+      "requestSha256": "71f39fa54f973e621061ffac6a24f81fc2b36e843538d941a5e4a49f66194c88",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": 23
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20,
+              "height": 10,
+              "ports": [
+                {
+                  "id": "p",
+                  "x": 20,
+                  "y": 3,
+                  "width": 6,
+                  "height": 4
+                }
+              ]
+            },
+            {
+              "id": "b",
+              "width": 50,
+              "height": 20,
+              "ports": [
+                {
+                  "id": "q",
+                  "x": -8,
+                  "y": 8,
+                  "width": 8,
+                  "height": 6
+                }
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "id": "e",
+              "sources": [
+                "p"
+              ],
+              "targets": [
+                "q"
+              ]
+            }
+          ]
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\random-port-source\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\random-port-source\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 41348,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15646849997574463,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNzFmMzlmYTU0Zjk3M2U2MjEwNjFmZmFjNmEyNGY4MWZjMmIzNmU4NDM1MzhkOTQxYTVlNGE0OWY2NjE5NGM4OCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLAogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAyMwogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJhIiwKICAgICAgICAid2lkdGgiOiAyMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgInBvcnRzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAicCIsCiAgICAgICAgICAgICJ4IjogMjAsCiAgICAgICAgICAgICJ5IjogMywKICAgICAgICAgICAgIndpZHRoIjogNiwKICAgICAgICAgICAgImhlaWdodCI6IDQKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDY0LjUxODIxNzQ4NDE5NTU3LAogICAgICAgICJ5IjogMTUuODgzNTA1MDY5NTI3OTYyCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogNTAsCiAgICAgICAgImhlaWdodCI6IDIwLAogICAgICAgICJwb3J0cyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogInEiLAogICAgICAgICAgICAieCI6IC04LAogICAgICAgICAgICAieSI6IDgsCiAgICAgICAgICAgICJ3aWR0aCI6IDgsCiAgICAgICAgICAgICJoZWlnaHQiOiA2CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAyMy40MTM0NzY3OTM4Njk3LAogICAgICAgICJ5IjogMjAuNDE5NzQ2OTc1MTUyMDg3CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAicCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgInEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxNTUuMDM2NDM0OTY4MzkxMTUsCiAgICAgICAgICAgICAgInkiOiA1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDE1Mi4wMzY0MzQ5NjgzOTExNSwKICAgICAgICAgICAgICAieSI6IDcKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImJlbmRQb2ludHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgIngiOiAxMTYuNjM1NjEwNTA2Njk4OTIsCiAgICAgICAgICAgICAgICAieSI6IDUuNzI4MzQ2MjI0MTgyOTEKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ4IjogMTE2LjYzNTYxMDUwNjY5ODkyLAogICAgICAgICAgICAgICAgInkiOiA2LjU5NjE2Nzk1NzU4MzY2NwogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxNDcuNjM1NjEwNTA2Njk4OTIsCiAgICAiaGVpZ2h0IjogOTQuMjMyNjU5MzMzOTY2NTEKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLAogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAyMwogICAgfSwKICAgICJjaGlsZHJlbiI6IFsKICAgICAgewogICAgICAgICJpZCI6ICJhIiwKICAgICAgICAid2lkdGgiOiAyMCwKICAgICAgICAiaGVpZ2h0IjogMTAsCiAgICAgICAgInBvcnRzIjogWwogICAgICAgICAgewogICAgICAgICAgICAiaWQiOiAicCIsCiAgICAgICAgICAgICJ4IjogMjAsCiAgICAgICAgICAgICJ5IjogMywKICAgICAgICAgICAgIndpZHRoIjogNiwKICAgICAgICAgICAgImhlaWdodCI6IDQKICAgICAgICAgIH0KICAgICAgICBdLAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDY0LjUxODIxNzQ4NDE5NTU3LAogICAgICAgICJ5IjogMTUuODgzNTA1MDY5NTI3OTYyCiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogNTAsCiAgICAgICAgImhlaWdodCI6IDIwLAogICAgICAgICJwb3J0cyI6IFsKICAgICAgICAgIHsKICAgICAgICAgICAgImlkIjogInEiLAogICAgICAgICAgICAieCI6IC04LAogICAgICAgICAgICAieSI6IDgsCiAgICAgICAgICAgICJ3aWR0aCI6IDgsCiAgICAgICAgICAgICJoZWlnaHQiOiA2CiAgICAgICAgICB9CiAgICAgICAgXSwKICAgICAgICAiJEgiOiAyODEsCiAgICAgICAgIngiOiAyMy40MTM0NzY3OTM4Njk3LAogICAgICAgICJ5IjogMjAuNDE5NzQ2OTc1MTUyMDg3CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbCiAgICAgIHsKICAgICAgICAiaWQiOiAiZSIsCiAgICAgICAgInNvdXJjZXMiOiBbCiAgICAgICAgICAicCIKICAgICAgICBdLAogICAgICAgICJ0YXJnZXRzIjogWwogICAgICAgICAgInEiCiAgICAgICAgXSwKICAgICAgICAic2VjdGlvbnMiOiBbCiAgICAgICAgICB7CiAgICAgICAgICAgICJpZCI6ICJlX3MwIiwKICAgICAgICAgICAgInN0YXJ0UG9pbnQiOiB7CiAgICAgICAgICAgICAgIngiOiAxNTUuMDM2NDM0OTY4MzkxMTUsCiAgICAgICAgICAgICAgInkiOiA1CiAgICAgICAgICAgIH0sCiAgICAgICAgICAgICJlbmRQb2ludCI6IHsKICAgICAgICAgICAgICAieCI6IDE1Mi4wMzY0MzQ5NjgzOTExNSwKICAgICAgICAgICAgICAieSI6IDcKICAgICAgICAgICAgfSwKICAgICAgICAgICAgImJlbmRQb2ludHMiOiBbCiAgICAgICAgICAgICAgewogICAgICAgICAgICAgICAgIngiOiAxMTYuNjM1NjEwNTA2Njk4OTIsCiAgICAgICAgICAgICAgICAieSI6IDUuNzI4MzQ2MjI0MTgyOTEKICAgICAgICAgICAgICB9LAogICAgICAgICAgICAgIHsKICAgICAgICAgICAgICAgICJ4IjogMTE2LjYzNTYxMDUwNjY5ODkyLAogICAgICAgICAgICAgICAgInkiOiA2LjU5NjE2Nzk1NzU4MzY2NwogICAgICAgICAgICAgIH0KICAgICAgICAgICAgXQogICAgICAgICAgfQogICAgICAgIF0sCiAgICAgICAgImNvbnRhaW5lciI6ICJyb290IgogICAgICB9CiAgICBdLAogICAgIiRIIjogMTMsCiAgICAieCI6IDAsCiAgICAieSI6IDAsCiAgICAid2lkdGgiOiAxNDcuNjM1NjEwNTA2Njk4OTIsCiAgICAiaGVpZ2h0IjogOTQuMjMyNjU5MzMzOTY2NTEKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "observationSha256": "c4976b5dd00fd5a52bf97338dc0899cf0db5ec99bde235fb3d40a1700224d0f7"
+    },
+    {
+      "id": "random-negative-seed",
+      "definition": {
+        "id": "random-negative-seed",
+        "request": "random-negative-seed.json"
+      },
+      "requestBytesBase64": "ew0KICAic2NoZW1hIjogInB5LWVsay1sYXlvdXQtcmVxdWVzdC92MSIsDQogICJjb25zdHJ1Y3RvciI6IHt9LA0KICAibGF5b3V0QXJndW1lbnRzIjoge30sDQogICJncmFwaCI6IHsNCiAgICAiaWQiOiAicm9vdCIsDQogICAgImxheW91dE9wdGlvbnMiOiB7DQogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLA0KICAgICAgImVsay5yYW5kb21TZWVkIjogLTEyLA0KICAgICAgImVsay5zcGFjaW5nLm5vZGVOb2RlIjogMy4xMjUsDQogICAgICAiZWxrLmFzcGVjdFJhdGlvIjogMi43NjU0MzIxDQogICAgfSwNCiAgICAiY2hpbGRyZW4iOiBbDQogICAgICB7DQogICAgICAgICJpZCI6ICJhIiwNCiAgICAgICAgIndpZHRoIjogMjAuMjUsDQogICAgICAgICJoZWlnaHQiOiAxMC41DQogICAgICB9LA0KICAgICAgew0KICAgICAgICAiaWQiOiAiYiIsDQogICAgICAgICJ3aWR0aCI6IDUwLjEyNSwNCiAgICAgICAgImhlaWdodCI6IDIwLjc1DQogICAgICB9DQogICAgXSwNCiAgICAiZWRnZXMiOiBbXQ0KICB9DQp9DQo=",
+      "requestSha256": "682b69f7514706c7ae880e41cf6e6f53f420d6c2891673e3157529bceb141d60",
+      "request": {
+        "schema": "py-elk-layout-request/v1",
+        "constructor": {},
+        "layoutArguments": {},
+        "graph": {
+          "id": "root",
+          "layoutOptions": {
+            "elk.algorithm": "random",
+            "elk.randomSeed": -12,
+            "elk.spacing.nodeNode": 3.125,
+            "elk.aspectRatio": 2.7654321
+          },
+          "children": [
+            {
+              "id": "a",
+              "width": 20.25,
+              "height": 10.5
+            },
+            {
+              "id": "b",
+              "width": 50.125,
+              "height": 20.75
+            }
+          ],
+          "edges": []
+        }
+      },
+      "command": {
+        "argv": [
+          "C:\\Program Files\\nodejs\\node.exe",
+          "C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_layout.cjs",
+          "C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\random-negative-seed\\request.json",
+          "C:\\code\\py-visactor\\py-elk\\test-runs\\20261104-E16-01\\V\\box-random-reference-01\\random-negative-seed\\observation.json"
+        ],
+        "cwd": "C:\\code\\py-visactor\\py-elk",
+        "pid": 29548,
+        "exitCode": 0,
+        "timedOut": false,
+        "elapsedSeconds": 0.15488779998850077,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "environmentPolicy": {
+          "nodeOverridesAbsent": true
+        }
+      },
+      "stdoutBytesBase64": "",
+      "stderrBytesBase64": "",
+      "observationBytesBase64": "ewogICJzY2hlbWEiOiAicHktZWxrLWxheW91dC1vYnNlcnZhdGlvbi92MSIsCiAgInJlcXVlc3RTaGEyNTYiOiAiNjgyYjY5Zjc1MTQ3MDZjN2FlODgwZTQxY2Y2ZTZmNTNmNDIwZDZjMjg5MTY3M2UzMTU3NTI5YmNlYjE0MWQ2MCIsCiAgImVuZ2luZSI6IHsKICAgICJuYW1lIjogImVsa2pzIiwKICAgICJ2ZXJzaW9uIjogIjAuMTIuMSIsCiAgICAibm9kZSI6ICJ2MjQuMTkuMCIsCiAgICAicGxhdGZvcm0iOiAid2luMzIiLAogICAgImFyY2giOiAieDY0IiwKICAgICJlbnRyeXBvaW50IjogImxpYi9lbGsuYnVuZGxlZC5qcyIsCiAgICAiZW50cnlwb2ludFNoYTI1NiI6ICJiMTAzMmI3Y2ZkMmE1N2M1NGM2ZjBlODM2OWQ3NjY1ZTE5YTU3OTk1NGY3Y2QyMGE2ZGFlMjhmMTkxMmVhMGQ3IgogIH0sCiAgInJlc3VsdCI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLAogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAtMTIsCiAgICAgICJlbGsuc3BhY2luZy5ub2RlTm9kZSI6IDMuMTI1LAogICAgICAiZWxrLmFzcGVjdFJhdGlvIjogMi43NjU0MzIxCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogImEiLAogICAgICAgICJ3aWR0aCI6IDIwLjI1LAogICAgICAgICJoZWlnaHQiOiAxMC41LAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDM2LjMzNDY1OTIxMDkyOTQ4LAogICAgICAgICJ5IjogMjMuNDYwOTU2OTE0NTU2MzA2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogNTAuMTI1LAogICAgICAgICJoZWlnaHQiOiAyMC43NSwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiA0OC4wMDk5NDM0NzgwNTA5NywKICAgICAgICAieSI6IDE1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMTU5LjM5MzM4NjQ4MTc0ODgsCiAgICAiaGVpZ2h0IjogODAuNzUKICB9LAogICJvdXRjb21lIjogInJldHVybmVkIiwKICAiaW5wdXRBZnRlciI6IHsKICAgICJpZCI6ICJyb290IiwKICAgICJsYXlvdXRPcHRpb25zIjogewogICAgICAiZWxrLmFsZ29yaXRobSI6ICJyYW5kb20iLAogICAgICAiZWxrLnJhbmRvbVNlZWQiOiAtMTIsCiAgICAgICJlbGsuc3BhY2luZy5ub2RlTm9kZSI6IDMuMTI1LAogICAgICAiZWxrLmFzcGVjdFJhdGlvIjogMi43NjU0MzIxCiAgICB9LAogICAgImNoaWxkcmVuIjogWwogICAgICB7CiAgICAgICAgImlkIjogImEiLAogICAgICAgICJ3aWR0aCI6IDIwLjI1LAogICAgICAgICJoZWlnaHQiOiAxMC41LAogICAgICAgICIkSCI6IDI3NywKICAgICAgICAieCI6IDM2LjMzNDY1OTIxMDkyOTQ4LAogICAgICAgICJ5IjogMjMuNDYwOTU2OTE0NTU2MzA2CiAgICAgIH0sCiAgICAgIHsKICAgICAgICAiaWQiOiAiYiIsCiAgICAgICAgIndpZHRoIjogNTAuMTI1LAogICAgICAgICJoZWlnaHQiOiAyMC43NSwKICAgICAgICAiJEgiOiAyNzksCiAgICAgICAgIngiOiA0OC4wMDk5NDM0NzgwNTA5NywKICAgICAgICAieSI6IDE1CiAgICAgIH0KICAgIF0sCiAgICAiZWRnZXMiOiBbXSwKICAgICIkSCI6IDEzLAogICAgIngiOiAwLAogICAgInkiOiAwLAogICAgIndpZHRoIjogMTU5LjM5MzM4NjQ4MTc0ODgsCiAgICAiaGVpZ2h0IjogODAuNzUKICB9LAogICJjb25zdHJ1Y3RvckFmdGVyIjoge30sCiAgImFyZ3VtZW50c0FmdGVyIjoge30sCiAgInRlcm1pbmF0aW9uIjogewogICAgIm91dGNvbWUiOiAidGhyZXciLAogICAgIm5hbWUiOiAiVHlwZUVycm9yIiwKICAgICJtZXNzYWdlIjogInRoaXMud29ya2VyLnRlcm1pbmF0ZSBpcyBub3QgYSBmdW5jdGlvbiIKICB9Cn0K",
+      "observationSha256": "a5f72c1ff3337669d5dca6dc78bea3f2282aaaeb890400dbda129e8f5e0f578c"
+    }
+  ],
+  "actualReferenceProcesses": 10,
+  "candidateExecuted": false,
+  "iterationsCompleted": [],
+  "fullValidation": false,
+  "historicalExecutionAuthenticated": false
+}

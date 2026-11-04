@@ -1,0 +1,36 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker R01 leaves/default boundary from
+# references/e17-tree-sources.json. Worker SHA256:
+# 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# External Java build identity remains unresolved.
+"""Reviewed native root/diagonal leaves for the radial provider.
+
+Eades wedges, sorting, compaction, rotation and final layout are pending
+independent source closure. No substitute coordinates are returned here.
+"""
+from __future__ import annotations
+import math
+
+
+def _maximum(left, right):
+    if math.isnan(left) or math.isnan(right): return math.nan
+    if left == right == 0:
+        return 0.0 if math.copysign(1.0, left) > 0 or math.copysign(1.0, right) > 0 else -0.0
+    return max(left, right)
+
+
+def find_root(state, graph):
+    """First zero-incoming child, not an invented blanket topology validator."""
+    for child in graph.get('children', []):
+        if not state.node_edges(child, True): return child
+    return None
+
+
+def find_largest_node_in_graph(graph):
+    """Original largest descendant diagonal; the given container is excluded."""
+    largest = 0.0
+    for child in graph.get('children', []):
+        width, height = child['width'], child['height']
+        largest = _maximum(math.sqrt(width*width+height*height), largest)
+        largest = _maximum(find_largest_node_in_graph(child), largest)
+    return largest

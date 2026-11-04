@@ -1,0 +1,467 @@
+{
+  "schema": "py-elk-next-port-placement-observation/v1",
+  "mode": "unchanged-worker-primitive-with-supplied-cells",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "17f5bd1d4f5571c6d492bbcdf2b8871e54b19e1c75f4183413eeb4ad96f76038",
+  "requestSha256": "59ed3afe2cde790d8cb6f95b8a7f46436ca60f96c6a81fe7d9b03893411d02e7",
+  "pid": 40280,
+  "parentPid": 37640,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "fixed-pos4",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "DISTRIBUTED",
+          "EAST": "DISTRIBUTED",
+          "SOUTH": "DISTRIBUTED",
+          "WEST": "DISTRIBUTED"
+        },
+        "before": [
+          [
+            12,
+            -7
+          ],
+          [
+            100,
+            20
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            -3,
+            6
+          ]
+        ],
+        "staged": [
+          [
+            12,
+            -7
+          ],
+          [
+            100,
+            20
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            -3,
+            6
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n",
+            "pos": [
+              12,
+              -6
+            ]
+          },
+          {
+            "id": "e",
+            "pos": [
+              100,
+              20
+            ]
+          },
+          {
+            "id": "s",
+            "pos": [
+              5,
+              59
+            ]
+          },
+          {
+            "id": "w",
+            "pos": [
+              -3,
+              6
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "fixed-ratio4",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "DISTRIBUTED",
+          "EAST": "DISTRIBUTED",
+          "SOUTH": "DISTRIBUTED",
+          "WEST": "DISTRIBUTED"
+        },
+        "before": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n",
+            "pos": [
+              25,
+              -4
+            ]
+          },
+          {
+            "id": "e",
+            "pos": [
+              100,
+              30
+            ]
+          },
+          {
+            "id": "s",
+            "pos": [
+              75,
+              60
+            ]
+          },
+          {
+            "id": "w",
+            "pos": [
+              -3,
+              15
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "distributed-single",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "DISTRIBUTED",
+          "EAST": "DISTRIBUTED",
+          "SOUTH": "DISTRIBUTED",
+          "WEST": "DISTRIBUTED"
+        },
+        "before": [
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n",
+            "pos": [
+              48,
+              -4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "overfull-single-begin-zero-divisor",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "BEGIN",
+          "EAST": "BEGIN",
+          "SOUTH": "BEGIN",
+          "WEST": "BEGIN"
+        },
+        "before": [
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n",
+            "pos": [
+              0,
+              -4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "overfull-pair-overhangFalse",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "BEGIN",
+          "EAST": "BEGIN",
+          "SOUTH": "BEGIN",
+          "WEST": "BEGIN"
+        },
+        "before": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n1",
+            "pos": [
+              0,
+              -4
+            ]
+          },
+          {
+            "id": "n2",
+            "pos": [
+              -10,
+              -4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "overfull-pair-overhangTrue",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "BEGIN",
+          "EAST": "BEGIN",
+          "SOUTH": "BEGIN",
+          "WEST": "BEGIN"
+        },
+        "before": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n1",
+            "pos": [
+              -30,
+              -4
+            ]
+          },
+          {
+            "id": "n2",
+            "pos": [
+              20,
+              -4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "end-vertical",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "END",
+          "EAST": "END",
+          "SOUTH": "END",
+          "WEST": "END"
+        },
+        "before": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "w1",
+            "pos": [
+              -4,
+              95
+            ]
+          },
+          {
+            "id": "w2",
+            "pos": [
+              -4,
+              80
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "side-override",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "BEGIN",
+          "EAST": "END",
+          "SOUTH": "END",
+          "WEST": "END"
+        },
+        "before": [
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n",
+            "pos": [
+              7,
+              -4
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "absent-default-distributed",
+      "value": {
+        "effectiveAlignments": {
+          "NORTH": "DISTRIBUTED",
+          "EAST": "DISTRIBUTED",
+          "SOUTH": "DISTRIBUTED",
+          "WEST": "DISTRIBUTED"
+        },
+        "before": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "staged": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "ports": [
+          {
+            "id": "n0",
+            "pos": [
+              22,
+              -4
+            ]
+          },
+          {
+            "id": "n1",
+            "pos": [
+              48,
+              -4
+            ]
+          },
+          {
+            "id": "n2",
+            "pos": [
+              74,
+              -4
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "fullLayoutValidated": false
+}

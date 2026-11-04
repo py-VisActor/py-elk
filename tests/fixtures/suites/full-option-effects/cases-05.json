@@ -1,0 +1,40 @@
+{
+  "schema": "py-elk-option-effects/v1",
+  "scope": "One finite constant-crossing nonzero-node-cost contrast",
+  "cases": [
+    {
+      "id": "p3-equal-crossings-base",
+      "request": "requests/p3-equal-crossings-base.json",
+      "requestSha256": "b14843dac76278750225c37e071db4e1687dd800dc409e9058b50062f3c55b87",
+      "baseline": null,
+      "proofs": []
+    },
+    {
+      "id": "p3-equal-crossings-node-cost",
+      "request": "requests/p3-equal-crossings-node-cost.json",
+      "requestSha256": "f62e68ce250693e6243a14d69f91b05ce709b22b17cd3906eb4790b3862986d7",
+      "baseline": "p3-equal-crossings-base",
+      "proofs": [
+        {
+          "optionId": "org.eclipse.elk.layered.considerModelOrder.crossingCounterNodeInfluence",
+          "kind": "changed",
+          "pointers": [
+            "/result/children/0/x",
+            "/result/children/0/y",
+            "/result/children/1/x",
+            "/result/children/1/y",
+            "/result/children/2/x",
+            "/result/children/2/y",
+            "/result/children/3/x",
+            "/result/children/3/y",
+            "/result/children/4/x",
+            "/result/children/4/y",
+            "/result/children/5/x",
+            "/result/children/5/y"
+          ],
+          "claim": "On connected K3,3, crossing totals tie across row permutations; a PREFER_NODES influence can select a different actual row order based on model-order cost"
+        }
+      ]
+    }
+  ]
+}

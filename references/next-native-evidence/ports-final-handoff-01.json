@@ -1,0 +1,101 @@
+{
+  "schema": "py-elk-e13-A-checkpoint/v1",
+  "status": "bounded-source-components-implemented-in-private-workspace; E13-not-complete",
+  "sourceApprovedComponentIds": [
+    "E13-P01-PORT-INITIALIZATION",
+    "E13-P02-PORT-SIDE-ORDER",
+    "E13-P02S-PORT-SORT-CALLEE",
+    "E13-P03-CHILD-PORT-TRANSFER",
+    "E13-P04A-PORT-PLACEMENT",
+    "E13-P04B-NODE-CONTEXT"
+  ],
+  "privateFilesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    ".local/migration-next/src/pyelk/algorithms/layered/ports.py": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18",
+    ".local/migration-next/src/pyelk/algorithms/layered/import_export.py": "49d4d20ebff7968698afeb54e98681ac0db1af1d349f346bc7fe866230b90afd",
+    ".local/migration-next/src/pyelk/algorithms/layered/scope.py": "16354dc82f79cc399dc2fd8f343b99a60763b6ce440f72248bb98ed4bcf491ba",
+    ".local/migration-next/src/pyelk/algorithms/layered/node_size.py": "986caba11f52dbecfb972c13dc0788840933cb1db18dcbc9846bb777b5d3008d",
+    ".local/migration-next/src/pyelk/_licenses/NOTICE-GWT-Ports.md": "052dd362bb910eebe9bf98c8baf1ac5825c1fe42fdcd132b4d27edb5f4bdc61c"
+  },
+  "versionedFilesSha256": {
+    "references/e13-ports-sources.json": "787ff896e1ebe0ea6996cda3ef5b7d77a8e14231a21cfe02d0b66b7ada2d24c3",
+    "docs/iterations/E13-preparation.md": "5f6031dbf96bae7b324e9222a123bed235f888b5f79a1575b0d760d8569d17dd"
+  },
+  "independentReviews": {
+    "port-init-source-review-01.json": "832ab4aefe70b1324a46f7f5ca8a88d19105fac1869f8d33730cd0b13a953428",
+    "port-order-source-review-01.json": "21988da7d43166918c974701796d17490b5a24607faad12fbd969b8bec5c05be",
+    "port-sort-source-review-01.json": "420daca5f2ec4b41b9ddccfb88e362ed5915d9bb4d193ffd5e7ba56d8da0c4fe",
+    "port-transfer-source-review-01.json": "fd692512516db70b8d8ba707181a34763b298c503696bfec8ef13020f794606f",
+    "port-placement-source-review-01.json": "3f99b9810de88e35836c49a458658f2743a3692ec98e432ad649ea6cf41e0543",
+    "node-context-source-review-01.json": "e91e9274077e44fbdbebffc4699c09c4827ff0ccf1cf9713b6a2f785e757b4ec",
+    "port-transfer-code-review-02.json": "9a7e0e92eb2d6ff7e34626c21a9aeeb08a0eace0e8a69e44f22481e7b31e742f",
+    "node-context-code-review-02.json": "c50aad82258aff6245f6e4401a1c302f80e5cbe9484a3326196f6be3da5543fc"
+  },
+  "actualIndependentObservations": [
+    {
+      "scope": "P01 initialization primitive",
+      "report": "V/port-helper-oracle-01/comparison.json",
+      "cases": 12,
+      "passed": true
+    },
+    {
+      "scope": "P02/P02S actual GWT sort/side/order primitives",
+      "report": "V/port-order-oracle-02/comparison.json",
+      "cases": 8,
+      "passed": true
+    },
+    {
+      "scope": "P03 original-worker importer snapshots",
+      "report": "V/port-import-oracle-02",
+      "cases": 2,
+      "passed": true
+    },
+    {
+      "scope": "P04A staged placement primitive, includes DISTRIBUTED absence-default",
+      "report": "V/port-placement-oracle-02/comparison.json",
+      "cases": 9,
+      "passed": true
+    },
+    {
+      "scope": "P04B actual transparent NS owner early-empty adapter leaf",
+      "report": "V/node-context-adapter-final-01/comparison.json",
+      "cases": 1,
+      "passed": true
+    }
+  ],
+  "targetedNativeChecks": [
+    "A/port-init-targeted-01.json",
+    "A/port-order-targeted-01.json",
+    "A/port-transfer-targeted-01.json",
+    "A/root-coordinate-fix-01.json",
+    "A/port-placement-targeted-01.json",
+    "A/placement-default-fix-01.json",
+    "A/node-context-targeted-01.json",
+    "A/node-context-adapter-fix-01.json",
+    "A/node-context-ns-leaf-01.json"
+  ],
+  "firstFailuresPreserved": [
+    "Python stable sort draft653d differs original Node on cyclic3 and degree-reversed10; exact generated sort replaces it.",
+    "P03 transfer7e029 overwrote admitted original root17/29; current49d4 retains it in empty/nonempty original_ports mode.",
+    "P04A default1404 was JUSTIFIED instead of actual DISTRIBUTED; originalNode confirms22/48/74.",
+    "P04B313b inferred compound from nested_graph and could miss hidden selfloop edges; current explicit source predicate/views fix retained.",
+    "P04B33bb used raw NS owner adjacency; actual source transparent&&ownerNS early-empty leaf now implemented and independently verified.",
+    "V VM enum scaffolding and S/W context-order comparison failures are retained as test-preparation failures, not recast as production failures."
+  ],
+  "ownership": "A source and private-layered files remain frozen at this checkpoint. Root owns migration/next-native mirror and public release files; B owns cell_layout.py; root central typed options/context are separate.",
+  "remaining": [
+    "Full NodeContext minimum-size/cell contribution calculation and padding; P04B constructs data and contexts only.",
+    "Fixed-ratio minimum-size Guava DoubleMath helper has source literal0.01: new precise source/license approval and scoped adaptation needed; this is not a geometry-check tolerance change.",
+    "Actual PORT_DUMMY/SELF_LOOP_HOLDER edge adapters beyond the proven early-empty leaf; current pending obligations must be replaced with real source views before claiming those pipelines.",
+    "Explicit-port direction/index/anchor transformations, NORTH_SOUTH dummy processors, and relevant original kernel branch/guard extensions.",
+    "Full label integration and actual node-size/side/order pipeline caller scheduling; do not just remove admission guards.",
+    "Root20 additional typed options must use actual source facts/targets/defaults; current source facts do not substitute for algorithm-specific override semantics.",
+    "Persist remaining pure comparison entry points from ignored runs so fresh clones can replay every stored primitive without Node collection.",
+    "Targeted end-to-end original/candidate comparisons after actual pipeline integration; current manual work-geometry transfer and primitive checks are not whole layouts."
+  ],
+  "fullValidation": false,
+  "endToEndPortsLayoutValidated": false,
+  "packagePublished": false,
+  "projectLicenseSelectedByA": false,
+  "sourceRestoreCommand": "python scripts/iteration/next_workspace.py restore --destination .local/migration-e13-review-01"
+}

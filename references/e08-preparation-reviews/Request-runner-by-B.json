@@ -1,0 +1,41 @@
+{
+  "schema": "py-elk-e08-00-independent-request-runner-review/v1",
+  "batch": "E08-00",
+  "reviewerLane": "B",
+  "ownerLane": "V",
+  "status": "ACCEPTED_FOR_ACTUAL_PAIRED_RUN",
+  "reviewedUtc": "2026-11-03T11:38:43.801840+00:00",
+  "filesSha256": {
+    "scripts/plan_suite_execution.py": "c8987ace9081f27454911d9716d720d075db95329a22e56e0441758c69204c9f",
+    "tests/validation/test_suite_execution_plan.py": "bb31783d307f62a223929282f1eeb9aebfe9d374063732182bffd6bfb5ae00d0"
+  },
+  "findings": [
+    {
+      "id": "CURRENT-PROJECT-METADATA",
+      "status": "resolved",
+      "finding": "Initial package identity bound METADATA to archive bytes but not current pyproject/declaredREADME.",
+      "fix": "projectFilesSha256 included in both contexts and keys, create/end/verify check it; current_metadata reuses pure current declaration validation even after SHA rebinding."
+    },
+    {
+      "id": "TIMING-SUMMARY-CONSISTENCY",
+      "status": "resolved",
+      "finding": "Initial receipt verifier did not reject impossible duration summaries.",
+      "fix": "Exact finite nonnegative times, configured jobs bounds, capture >= longest command and summed commands/jobs, total >= capture+identity commands; microsecond rounding bound only. Absolute historical execution/time authentication remains explicitly false."
+    }
+  ],
+  "independentlyExecutedOwnerMethods": 18,
+  "ownerCommand": "test-runs\\20261103-E08-00-01\\B\\request-owner-independent-command\\command.json",
+  "checked": [
+    "181 case references/149 original byte-identical requests preserved, old suite request and oracle files read only.",
+    "No-reuse creates1086 case-specific independent process slots, reuse creates894 request-specific slots; role/repetition are in every execution key.",
+    "Reference Node binary/version and pinned package tree, candidate venv/base binary/DLL/version, actual isolated installed wheel/package/metadata, argv adapters, environment digest and source dependencies are bound.",
+    "Single-run nonce+actualExecutionRoot prevent cross-run slot substitution; copied verification preserves actual original argv instead of rewriting history.",
+    "Each original case independently evaluates comparison, both geometries, candidate input preservation and exact source/candidate seed determinism; sharing does not merge policies.",
+    "Object verification requires exact full process/repetition denominator, actual request bytes, original engine roles, command receipts/stdout/stderr and observation bytes; no empty all() pass.",
+    "Current metadata and clock summary concerns fixed before actual comparison; every old independent engine check remains outside historical exported protocol."
+  ],
+  "blockers": [],
+  "runtimeExecutionAuthenticated": false,
+  "actualPairedRunnerExecutedByReviewer": false,
+  "limitation": "Implementation and isolated method review only. The root actual no-reuse/reuse runs and independent receipt controls remain required before claiming measured execution savings."
+}

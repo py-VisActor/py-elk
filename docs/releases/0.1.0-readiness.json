@@ -1,0 +1,50 @@
+{
+  "schema": "py-elk-release-readiness/v1",
+  "status": "READY",
+  "releaseVersion": "0.1.0",
+  "featureImplementationComplete": true,
+  "frozenValidation": {
+    "path": "docs/releases/evidence/development-frozen/report.json",
+    "sha256": "7e64231abb4f6ce9e17d685f131af5ddd4ae89223c32d34cd2c5e6d8048a7ef5",
+    "originalExecutionPath": "test-runs/full-native-01/development-frozen/report.json",
+    "executedVersion": "0.0.1a0",
+    "actualSteps": 37,
+    "actualTestMethods": 917
+  },
+  "candidateDelta": {
+    "path": "docs/releases/evidence/py-visactor-elk-0.1.0/candidate-delta.json",
+    "sha256": "d99670ea1707a5dfde26646cbc1e13802059dad51e2f6dcd8f62db59a2f86f58"
+  },
+  "candidateDeltaValidation": {
+    "path": "docs/releases/evidence/py-visactor-elk-0.1.0/candidate-delta-validation.json",
+    "sha256": "0633dc054b2181618a3f5ef9b21deefe3d8836ae39619c8dc86c669292afc336"
+  },
+  "wheelInstallation": {
+    "path": "docs/releases/evidence/py-visactor-elk-0.1.0/wheel-installed.json",
+    "sha256": "526ec6fe3b112747fb122cf80917040253b28a3772b41b0a1e0dcd3fd19c1357"
+  },
+  "sdistInstallation": {
+    "path": "docs/releases/evidence/py-visactor-elk-0.1.0/sdist-installed.json",
+    "sha256": "54f68ad4d94dbec0c71634c0f7c1c1f8a3386b968d8102faedaa221c072e9f9b"
+  },
+  "note": "Frozen0.0.1a0 full run and old py-elk candidates retain their original identities. New py-visactor-elk wheel/sdist have actual external installs;208runtime files equal the reviewed repair candidate. User configured the new pending publisher; OIDC upload verification remains pending.",
+  "pypiPublisherConfigured": true,
+  "published": false,
+  "releaseScope": "First standalone0.1.0 distribution with complete native implementation and explicitly scoped validation; E20/E21 all-declared-branch acceptance remains tracked separately and is not claimed complete.",
+  "pendingReason": "First standalone candidate accepted; actual tag-triggered publication and downloaded-artifact verification pending. E20/E21 remain separate active requirements.",
+  "linuxRepairInstallation": {
+    "path": "docs/releases/evidence/runtime-repair/linux-receipt.json",
+    "sha256": "373775e5c2316083f43d6372b6bb810b12726014ccf06b8315b5e155703901ef"
+  },
+  "distributionName": "py-visactor-elk",
+  "pypiPublisherConfigurationEvidence": "User reported successful Add after the py-visactor-elk recommendation; actual OIDC upload verification pending.",
+  "independentNameReview": {
+    "path": "docs/releases/evidence/py-visactor-elk-0.1.0/independent-name-review.json",
+    "sha256": "1219c117b8ba1b045f59913d3628a51af79534562de156ae4043fbe436832cc6"
+  },
+  "wholeMigrationAcceptanceComplete": false,
+  "selectedCI": {
+    "path": "docs/releases/evidence/py-visactor-elk-0.1.0/selected-ci-windows.json",
+    "sha256": "48ac91582064e070f1fa8881270f32dc776d8f173758e2a91f38b37252c98c42"
+  }
+}

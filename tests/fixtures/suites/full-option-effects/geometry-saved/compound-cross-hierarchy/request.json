@@ -1,0 +1,171 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "left",
+        "width": 36,
+        "height": 24,
+        "business": {
+          "id": "left",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "la",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "la",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          },
+          {
+            "id": "lb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "lb",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "le",
+            "sources": [
+              "la"
+            ],
+            "targets": [
+              "lb"
+            ],
+            "business": {
+              "edge": "le",
+              "weight": 0.125
+            }
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        }
+      },
+      {
+        "id": "right",
+        "width": 36,
+        "height": 24,
+        "business": {
+          "id": "right",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "children": [
+          {
+            "id": "ra",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "ra",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          },
+          {
+            "id": "rb",
+            "width": 36,
+            "height": 24,
+            "business": {
+              "id": "rb",
+              "enabled": true,
+              "$H": "user-owned"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "re",
+            "sources": [
+              "ra"
+            ],
+            "targets": [
+              "rb"
+            ],
+            "business": {
+              "edge": "re",
+              "weight": 0.125
+            }
+          }
+        ],
+        "layoutOptions": {
+          "elk.algorithm": "layered",
+          "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "cross1",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "rb"
+        ],
+        "business": {
+          "edge": "cross1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cross2",
+        "sources": [
+          "lb"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cross3",
+        "sources": [
+          "la"
+        ],
+        "targets": [
+          "ra"
+        ],
+        "business": {
+          "edge": "cross3",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.hierarchyHandling": "INCLUDE_CHILDREN"
+    }
+  }
+}

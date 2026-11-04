@@ -1,0 +1,288 @@
+{
+  "schema": "py-elk-next-port-helper-request/v1",
+  "cases": [
+    {
+      "id": "free-center",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FREE",
+      "direction": "RIGHT",
+      "properties": {}
+    },
+    {
+      "id": "undefined-center",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "UNDEFINED",
+      "direction": "RIGHT",
+      "properties": {}
+    },
+    {
+      "id": "east-inferred",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        40,
+        8
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_SIDE",
+      "direction": "RIGHT",
+      "properties": {}
+    },
+    {
+      "id": "west-explicit-zero-offset",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        -6,
+        9
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_ORDER",
+      "direction": "RIGHT",
+      "properties": {
+        "PORT_BORDER_OFFSET": 0
+      }
+    },
+    {
+      "id": "north-ratio",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        10,
+        -4
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "NORTH",
+      "constraints": "FIXED_RATIO",
+      "direction": "RIGHT",
+      "properties": {}
+    },
+    {
+      "id": "south-position",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        12,
+        30
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "SOUTH",
+      "constraints": "FIXED_POS",
+      "direction": "RIGHT",
+      "properties": {}
+    },
+    {
+      "id": "explicit-zero-anchor-survives",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "WEST",
+      "constraints": "FIXED_SIDE",
+      "direction": "RIGHT",
+      "properties": {},
+      "explicitAnchor": [
+        0,
+        0
+      ],
+      "sideAfter": "EAST"
+    },
+    {
+      "id": "zero-width-nan",
+      "nodeSize": [
+        0,
+        30
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "portSize": [
+        0,
+        0
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_SIDE",
+      "direction": "UNDEFINED",
+      "properties": {}
+    },
+    {
+      "id": "zero-height-nan",
+      "nodeSize": [
+        40,
+        0
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "portSize": [
+        0,
+        0
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_SIDE",
+      "direction": "UNDEFINED",
+      "properties": {}
+    },
+    {
+      "id": "both-zero-undefined",
+      "nodeSize": [
+        0,
+        0
+      ],
+      "position": [
+        0,
+        0
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_SIDE",
+      "direction": "RIGHT",
+      "properties": {}
+    },
+    {
+      "id": "up-outside-y-first",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        -3,
+        -4
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_SIDE",
+      "direction": "UP",
+      "properties": {}
+    },
+    {
+      "id": "left-outside-x-first",
+      "nodeSize": [
+        40,
+        30
+      ],
+      "position": [
+        41,
+        -4
+      ],
+      "portSize": [
+        6,
+        4
+      ],
+      "anchor": [
+        0,
+        0
+      ],
+      "side": "UNDEFINED",
+      "constraints": "FIXED_SIDE",
+      "direction": "LEFT",
+      "properties": {}
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "py-elk-e07-geometry-review/v1",
+  "iteration": "E07",
+  "reviewerLane": "V",
+  "ownerLane": "root",
+  "status": "ACCEPTED_UNDER_EXPLICIT_ORIGINAL_PREMISES",
+  "createdUtc": "2026-11-03T09:49:03.928100+00:00",
+  "sourceFilesSha256": {
+    "scripts/e07_geometry_premise.py": "9a7634400ec5347708d29fc18261cba6ca0b1b0e98f0237e8fc13c7b14e5e5db",
+    "scripts/layout_checks.py": "407cea66b49d995be8fde9678790e461353e7abee50f2c7d19027ac046fd6bf3",
+    "tests/validation/test_e07_geometry.py": "9c7f818e92480efb3aa1932aa8a783b56bb584e63263ccbc6aa52758bccb4102"
+  },
+  "checkedSemantics": [
+    "The premise helper imports no candidate model/options/admission/algorithm. Only exact nine aliases/full IDs parse; duplicate aliases even equal rejected. Call mapping presence replaces constructor defaults; root-local values override selected globals. Only actual source defaultUNDEFINED->RIGHT under fixedaspect is used, with bounded finite numeric domain and nonzero signed32 seed.",
+    "Original flat model strict IDs/endpoints/containers determine weak component membership. effective CCtrue alone permits different original components to skip same-layer guessing. False mode never receives independent frames. Candidate endpoints/coordinates/order cannot create premise facts.",
+    "Original DAG reachable pair is distinct-rank only under reviewed GREEDY preservation + feasible unitNS path. Strict connected simple ring n>=2, exactlyn edges/indegoutdeg1/no loops/dup/chords gets allpair fact from one-reversal/Hamiltonian path. Incomparable DAG pairs and arbitrary SCCs do not receive that exemption.",
+    "Options used for direction/padding/node spacing/layer spacing/optionalcomponent gap are bound to effective original request. Only same-layer guess is waived. Given dimensions/rootbounds/overlap/originalendpoints/section/orthogonality/unrelated-node constraints remain active; E06v1 and no-marker policies retain earlier behavior.",
+    "The optional componentRectangleGap is not enabled by the72suite and is not a general disconnected packing claim. B SimpleRow rectangle bound requires separately completed component geometry; no generic arbitrary-component rectangle packing equivalence is inferred."
+  ],
+  "resolvedFindings": [
+    {
+      "id": "EDGE-OPTION-CONTAINER-PRESENCE",
+      "status": "resolved",
+      "finding": "edge.layoutOptions falsey invalidcontainers None/False/[]/0 previously slipped truthiness check while suite classifier rejected them",
+      "resolution": "Owner now checks presence/type(dict) before truthiness; all4 independent controls reject."
+    }
+  ],
+  "evidence": {
+    "path": "test-runs/20261103-E07-01/V/geometry-independent-controls.json",
+    "sha256": "3988b3df3a97ea9a6de583865bfe3c1b241d95c503b2e7ef7e4832a6cc6a7d2b",
+    "officialPositiveCases": 72,
+    "isolatedNegativeControls": 16
+  },
+  "sourceLemmaReviews": [
+    {
+      "path": "references/e07-reviews/NS-by-V.json",
+      "sha256": "a632f4793123de1ae27b579f790b98e5a9e06cf186189b8c8b1f0626c06f7ca7"
+    }
+  ],
+  "blockers": [],
+  "runtimeReexecuted": false,
+  "mathematicalEquivalenceAutomaticallyProved": false,
+  "pythonAlgorithmsVerified": 0,
+  "fullAlgorithmAccepted": false,
+  "packagePublished": false,
+  "limitation": "Independent read-only review of geometry assertions and source premises, plus actual existing official positives/synthetic negativecontrols. No new runtime/API/lifecycle/release acceptance."
+}

@@ -1,0 +1,95 @@
+{
+  "cases": [
+    {
+      "id": "parent-local-does-not-leak-edge",
+      "graph": {
+        "id": "root",
+        "layoutOptions": {
+          "org.eclipse.elk.stress.desiredEdgeLength": 77
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10,
+            "ports": [
+              {
+                "id": "p"
+              }
+            ],
+            "labels": [
+              {
+                "width": 8,
+                "height": 5
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "width": 20,
+            "height": 10
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "selected-global-targets-false-zero",
+      "graph": {
+        "id": "root",
+        "layoutOptions": {
+          "org.eclipse.elk.stress.desiredEdgeLength": 77
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 20,
+            "height": 10,
+            "ports": [
+              {
+                "id": "p"
+              }
+            ],
+            "labels": [
+              {
+                "width": 8,
+                "height": 5
+              }
+            ]
+          },
+          {
+            "id": "b",
+            "width": 20,
+            "height": 10
+          }
+        ],
+        "edges": [
+          {
+            "id": "e",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ]
+          }
+        ]
+      },
+      "globalOptions": {
+        "org.eclipse.elk.stress.desiredEdgeLength": 9,
+        "org.eclipse.elk.stress.fixed": false,
+        "org.eclipse.elk.force.repulsivePower": 0
+      }
+    }
+  ]
+}

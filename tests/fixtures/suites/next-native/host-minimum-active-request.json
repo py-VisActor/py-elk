@@ -1,0 +1,55 @@
+{
+  "cases": [
+    {
+      "id": "parent-minimum-active-node-label",
+      "operation": "minimum",
+      "graph": {
+        "id": "parent",
+        "children": [
+          {
+            "id": "child",
+            "x": 7,
+            "y": 9,
+            "width": 10,
+            "height": 10,
+            "layoutOptions": {
+              "org.eclipse.elk.nodeSize.constraints": "[NODE_LABELS,PORT_LABELS]",
+              "org.eclipse.elk.portLabels.placement": "[INSIDE]",
+              "org.eclipse.elk.nodeLabels.placement": "[INSIDE,H_CENTER,V_CENTER]"
+            },
+            "labels": [
+              {
+                "id": "nl",
+                "x": -1,
+                "y": -1,
+                "width": 60,
+                "height": 10
+              }
+            ],
+            "ports": [
+              {
+                "id": "p",
+                "width": 2,
+                "height": 2,
+                "x": 0,
+                "y": 3,
+                "layoutOptions": {
+                  "org.eclipse.elk.port.side": "WEST"
+                },
+                "labels": [
+                  {
+                    "id": "pl",
+                    "x": 2,
+                    "y": 3,
+                    "width": 1000,
+                    "height": 1000
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "effectHorizontalHoles",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 29,
+      "elk.layered.crossingMinimization.strategy": "NONE",
+      "elk.layered.nodePlacement.strategy": "SIMPLE",
+      "elk.layered.compaction.postCompaction.strategy": "LEFT",
+      "elk.layered.compaction.postCompaction.constraints": "SCANLINE"
+    },
+    "children": [
+      {
+        "id": "a0",
+        "width": 120,
+        "height": 30
+      },
+      {
+        "id": "b0",
+        "width": 20,
+        "height": 30
+      },
+      {
+        "id": "a1",
+        "width": 20,
+        "height": 30
+      },
+      {
+        "id": "b1",
+        "width": 120,
+        "height": 30
+      },
+      {
+        "id": "a2",
+        "width": 120,
+        "height": 30
+      },
+      {
+        "id": "b2",
+        "width": 20,
+        "height": 30
+      },
+      {
+        "id": "a3",
+        "width": 20,
+        "height": 30
+      },
+      {
+        "id": "b3",
+        "width": 120,
+        "height": 30
+      }
+    ],
+    "edges": [
+      {
+        "id": "hole0",
+        "sources": [
+          "a0"
+        ],
+        "targets": [
+          "a1"
+        ]
+      },
+      {
+        "id": "hole1",
+        "sources": [
+          "a1"
+        ],
+        "targets": [
+          "a2"
+        ]
+      },
+      {
+        "id": "hole2",
+        "sources": [
+          "a2"
+        ],
+        "targets": [
+          "a3"
+        ]
+      },
+      {
+        "id": "hole3",
+        "sources": [
+          "b0"
+        ],
+        "targets": [
+          "b1"
+        ]
+      },
+      {
+        "id": "hole4",
+        "sources": [
+          "b1"
+        ],
+        "targets": [
+          "b2"
+        ]
+      },
+      {
+        "id": "hole5",
+        "sources": [
+          "b2"
+        ],
+        "targets": [
+          "b3"
+        ]
+      },
+      {
+        "id": "hole6",
+        "sources": [
+          "a0"
+        ],
+        "targets": [
+          "b3"
+        ]
+      }
+    ]
+  }
+}

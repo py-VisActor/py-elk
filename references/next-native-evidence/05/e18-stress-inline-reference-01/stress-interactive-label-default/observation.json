@@ -1,0 +1,161 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "039e11070125a64c78bd16562698b7e06b5dbfea97e453e7e7e62a8facd32e63",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.interactive": true
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 50,
+        "y": 50,
+        "width": 20,
+        "height": 12,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        },
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "x": 120,
+        "y": 95,
+        "width": 24,
+        "height": 16,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        },
+        "$H": 279
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "labels": [
+          {
+            "text": "no-explicit-inline",
+            "width": 10,
+            "height": 6,
+            "x": 101,
+            "y": 68.5
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 69.19148936170212,
+              "y": 62
+            },
+            "endPoint": {
+              "x": 120,
+              "y": 95.16666666666667
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 194,
+    "height": 161
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.interactive": true
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 50,
+        "y": 50,
+        "width": 20,
+        "height": 12,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        },
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "x": 120,
+        "y": 95,
+        "width": 24,
+        "height": 16,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        },
+        "$H": 279
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "labels": [
+          {
+            "text": "no-explicit-inline",
+            "width": 10,
+            "height": 6,
+            "x": 101,
+            "y": 68.5
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 69.19148936170212,
+              "y": 62
+            },
+            "endPoint": {
+              "x": 120,
+              "y": 95.16666666666667
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 194,
+    "height": 161
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

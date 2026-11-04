@@ -1,0 +1,45 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "project-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "business-stack"
+      },
+      "null": null
+    },
+    "children": [
+      {
+        "id": "node-0",
+        "width": 7,
+        "height": 13
+      },
+      {
+        "id": "node-1",
+        "width": 11,
+        "height": 5
+      }
+    ],
+    "edges": [
+      {
+        "id": "link-0",
+        "sources": [
+          "node-0"
+        ],
+        "targets": [
+          "node-1"
+        ]
+      }
+    ],
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "org.eclipse.elk.layered",
+      "org.eclipse.elk.direction": "RIGHT",
+      "org.eclipse.elk.randomSeed": 7,
+      "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers": 9,
+      "org.eclipse.elk.padding": "[top=2,left=3,bottom=5,right=7]"
+    }
+  }
+}

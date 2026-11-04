@@ -1,0 +1,159 @@
+{
+  "schema": "py-elk-e06-root-code-independent-review/v1",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "runtimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "reviewedFiles": [
+    {
+      "path": "src/pyelk/algorithms/layered/pipeline.py",
+      "sha256": "8f383ed8fb3ccf94dcbf46d384c8e840fb5532e143aa39d8e5811ec306fcbca7"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/processors.py",
+      "sha256": "4c68f9b9152ba2036cf91a00a89161433e6956989c8d7ebce2ff99560c162583"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/crossing.py",
+      "sha256": "335416ee57531d36e0d95258f98dcbee29e4fd67446334e340fefc6c31dc6473"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/placement.py",
+      "sha256": "102d2d89b21df852b1e96468c20562b6cd474617bc5d1f483d65e4cb705166ed"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/routing.py",
+      "sha256": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75"
+    },
+    {
+      "path": "scripts/layout_checks.py",
+      "sha256": "6c33428224565931344691ffb08c02563213bb48377de4b77042cfc8e4e76529"
+    },
+    {
+      "path": "tests/layered/test_e06_nodesize.py",
+      "sha256": "956563ca70ab6aaedc302698cd8b3265ab4f28c5b092a3f1751dcffa6caa3037"
+    },
+    {
+      "path": "tests/validation/test_e06_ring_geometry.py",
+      "sha256": "c6e7a1bc0f88935da24cd6f8f411e204d1ab583ff611ce10f541a69f64ef2af5"
+    },
+    {
+      "path": "references/e06-nodesize-phase-observations.json",
+      "sha256": "5e30a7220e100d50829d282e0cb2ef90d1436d0309d71c26b8bce9c17666312e"
+    }
+  ],
+  "sourceReview": {
+    "path": "test-runs/20261103-E06-01/B/review-root-R-final.json",
+    "sha256": "047c8e28b655bd153297131c002902b85acf4c6e2e3a98bf9bd008952330a8a9"
+  },
+  "sourceManifest": {
+    "path": "references/e06-component-approvals.json",
+    "sha256": "f5cf8065351189ea68eacd9d1733afc84d756d3ad45c9c0486ebfa135a94b13e"
+  },
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E06-01/B/review-root-phase-effects.json",
+      "sha256": "bf27142ac7f1f43f3b79b27abe7a8389bc1f253ad0e8b079ad427318d356a59e"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/B/review_root_phase_effects.py",
+      "sha256": "0619774ffa99f5c105e19a525a73ff7fda78f14e8e54f77cd9b4173daa23032f"
+    }
+  ],
+  "commands": [
+    {
+      "directory": "test-runs/20261103-E06-01/B/review-root-nodesize-owner",
+      "expectedCount": 2,
+      "receipt": {
+        "path": "test-runs/20261103-E06-01/B/review-root-nodesize-owner/command.json",
+        "sha256": "d5fb75d1f462962933096ac50fae9d3fe9784f50af928677ef4473dd0d1d4af4"
+      },
+      "stdout": {
+        "path": "test-runs/20261103-E06-01/B/review-root-nodesize-owner/stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "test-runs/20261103-E06-01/B/review-root-nodesize-owner/stderr.log",
+        "sha256": "5f397fc5aac75c9c50a67c4743ba65b8eb1fa498d0e898ac6818a19f7e99fa8c"
+      }
+    },
+    {
+      "directory": "test-runs/20261103-E06-01/B/review-root-ring-owner",
+      "expectedCount": 3,
+      "receipt": {
+        "path": "test-runs/20261103-E06-01/B/review-root-ring-owner/command.json",
+        "sha256": "1c618ae7589e3db30566ab110947fcb8fb4335e6fcc485df7a29a01a4278d25d"
+      },
+      "stdout": {
+        "path": "test-runs/20261103-E06-01/B/review-root-ring-owner/stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "test-runs/20261103-E06-01/B/review-root-ring-owner/stderr.log",
+        "sha256": "ba12bc88f61e7a237bc28caa08f75353c313c42075c769027bed451ebbf358ad"
+      }
+    },
+    {
+      "directory": "test-runs/20261103-E06-01/B/review-root-code-effects-order-fixed",
+      "expectedCount": 126,
+      "receipt": {
+        "path": "test-runs/20261103-E06-01/B/review-root-code-effects-order-fixed/command.json",
+        "sha256": "b082e6ddcd1e05d6db16eefb8cb9d1d8cd16c2c14341443dbbdf885123c68d31"
+      },
+      "stdout": {
+        "path": "test-runs/20261103-E06-01/B/review-root-code-effects-order-fixed/stdout.log",
+        "sha256": "65713470381600227a4c61046bc2ada7dd1f368dd02f23c1af661750dbe52661"
+      },
+      "stderr": {
+        "path": "test-runs/20261103-E06-01/B/review-root-code-effects-order-fixed/stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "results": {
+    "actualCases": 9,
+    "actualIntermediateCalls": 126,
+    "selectedStateAndOrderedIdentityExact": true,
+    "eachRngEventAndFinalStateExact": true,
+    "originalModelsPreserved": true,
+    "nodeSizeOwnerMethods": 2,
+    "ringGeometryOwnerMethods": 3,
+    "blockers": []
+  },
+  "sourceToCodeFindings": [
+    {
+      "id": "R-CODE-01",
+      "status": "ACCEPTED",
+      "claim": "LayerSweep bounds expand to176/392/196 with proper-edge E/W degree-one guards. CYCLIC and REVERSED metadata do not introduce an unported late-kernel branch; loop edges and their ports are detached during both sweeps."
+    },
+    {
+      "id": "R-CODE-02",
+      "status": "ACCEPTED",
+      "claim": "BK admits restored NORTH ports only with empty actual adjacency and does not require the stale side cache. Real margins including tiny f64 values remain part of source arithmetic; no zero-margin or nonnegative internal-y restriction was added."
+    },
+    {
+      "id": "R-CODE-03",
+      "status": "ACCEPTED",
+      "claim": "The route kernel reads actual edge lists and permits only empty loop NORTH ports. The E05 mathematics is retained and bounded using at most196 proper segments, with per-boundary initial28/split56 routing proof distinct from this graph-wide bound."
+    },
+    {
+      "id": "R-CODE-04",
+      "status": "ACCEPTED",
+      "claim": "NodeSize uses literal NORTH width subtraction/distribution and ordered repeated additions; explicit floating zero negation is separately checked by an owner test. Loop delegate positions match the approved23-call configuration; unlooped paths retain19 and empty outer graphs0."
+    },
+    {
+      "id": "R-CODE-05",
+      "status": "ACCEPTED",
+      "claim": "rankSeparation marker is explicit and derives a single default directed simple ring from the original request. It waives only the same-layer spacing heuristic, while overlap, bounds, section endpoint/original identity and orthogonality remain checked."
+    }
+  ],
+  "limitations": [
+    "Nine observed source cases and126 stage replays do not prove all admitted numerical inputs or full layered equivalence. The static source proofs remain separate from these observations.",
+    "Stage snapshots serialize selected fields only; absent V8 coverage does not prove non-execution. JSON serialization does not preserve IEEE negative-zero bits.",
+    "syntheticCyclicMetadataPreserved is an explicitly synthetic metadata control, not a new recorded source observation.",
+    "No wheel was installed, no original JS engine was rerun, and these source-tree kernel checks are not installed-package acceptance."
+  ],
+  "firstFailuresPreserved": [
+    "test-runs\\20261103-E06-01\\B\\review-root-code-effects-first",
+    "test-runs\\20261103-E06-01\\B\\root-phase-first-diff.json"
+  ]
+}

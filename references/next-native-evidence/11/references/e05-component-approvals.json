@@ -1,0 +1,534 @@
+{
+  "schema": "py-elk-e05-component-approvals/v1",
+  "iteration": "E05",
+  "status": "E05_SOURCE_SCOPE_VERIFIED",
+  "globalAlgorithmSourceGate": "verified",
+  "scopeDocument": "docs/decisions/0004-e05-dag-long-edge.md",
+  "scopeDocumentSha256": "d90cb5cfa12e886996e925c12ced6c14f914a2ea598a973a09020fb4edec2cda",
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "licenseSha256": {
+    "src/pyelk/_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "src/pyelk/_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6",
+    "src/pyelk/_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807"
+  },
+  "approvals": [
+    {
+      "componentId": "phase:GREEDY",
+      "lane": "B",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:00:40.668723+00:00",
+      "sourceDocument": "references/e05-source-components-B.json",
+      "sourceDocumentSha256AtApproval": "c3d274fa3f6b50777034748626a56d88babc7a227ad0b760e2a97031a9a35a71",
+      "sourceDocumentSha256AtReview": "c3d274fa3f6b50777034748626a56d88babc7a227ad0b760e2a97031a9a35a71",
+      "canonicalComponentSha256": "9f804ff38fdb894d9c970cbcbda98d8884b8a1ae6fb84752d897f18fee13ca8b",
+      "sourceContextSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-B.json",
+          "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/GREEDY-by-A.json",
+      "versionedReviewSha256": "c8f03334e78e93e2727a10d912e4193f64151709f8c34252593e596680017bc2",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false,
+      "sourceContextHistory": [
+        {
+          "previousSha256": "b191b7a7921f55d43e43eae383fa72886711ce6cbc6d7e7c9178bc8d9db8a57f",
+          "currentSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+          "sourceDocumentSha256": "a0b4f0b9a670eb1cc710b7e3d50b69a0367f7d7a7dfdf5cd6c6a2e98300fd82d",
+          "updatedUtc": "2026-11-03T06:19:11.797636+00:00",
+          "reason": "Add the exact canonical license Git blob to its already fixed commit/path/content SHA receipt; no algorithm component, guards, source content or license declaration changed.",
+          "canonicalSourceIdentityChecks": [
+            {
+              "sourceId": "elkjs-generated-worker",
+              "path": "lib/elk-worker.js",
+              "gitBlob": "13d07b8601ca22b5de216ca7e8f497a61335a22d",
+              "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+            },
+            {
+              "sourceId": "elkjs-license",
+              "path": "LICENSE.md",
+              "gitBlob": "91dd37eefbe62d3d9fb7a1e7e2c7a9a1e2cdcbcc",
+              "sha256": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "componentId": "graph:indexed-target",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:03:05.895962+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493",
+      "sourceDocumentSha256AtReview": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493",
+      "canonicalComponentSha256": "4f3ec287d696adb7aded8a9e599ab491a8a7aa8321dc1cceff35a5e57e188617",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [],
+      "versionedReview": "references/e05-reviews/LongEdge-first-by-V.json",
+      "versionedReviewSha256": "ec59e296ec4178df7c48fb55405f420ac5b848c937e4eb579058d383dfa5e777",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:LongEdgeSplitter",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:03:05.896838+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493",
+      "sourceDocumentSha256AtReview": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493",
+      "canonicalComponentSha256": "0a38f1b8e775d08ccb1f843065176c3215fee9c68ac0ad97e76f6b55875988ec",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [],
+      "versionedReview": "references/e05-reviews/LongEdge-first-by-V.json",
+      "versionedReviewSha256": "ec59e296ec4178df7c48fb55405f420ac5b848c937e4eb579058d383dfa5e777",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:LongEdgeJoiner",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:03:05.897515+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493",
+      "sourceDocumentSha256AtReview": "f03073436a7ad72d684e34f5e72cf371fe8a052e445add8886187eb0ed74f493",
+      "canonicalComponentSha256": "a2e58d0fe49407639d4f765d4ed1eb28931b8a6b1e0b284353d8db7fff08d962",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [],
+      "versionedReview": "references/e05-reviews/LongEdge-first-by-V.json",
+      "versionedReviewSha256": "ec59e296ec4178df7c48fb55405f420ac5b848c937e4eb579058d383dfa5e777",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "phase:NETWORK_SIMPLEX",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:20:10.067711+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "ebc8c5b2d8f354df666183ad1660f6b8634cbac99a3f4a2b10fa3ebd34c11927",
+      "sourceDocumentSha256AtReview": "ebc8c5b2d8f354df666183ad1660f6b8634cbac99a3f4a2b10fa3ebd34c11927",
+      "canonicalComponentSha256": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-B.json",
+          "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/NETWORK_SIMPLEX-by-V.json",
+      "versionedReviewSha256": "7c4347e7e8936b6b30936685470ef7fba8a377e1aff0a4183c70846800d76d9e",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "phase:ORTHOGONAL",
+      "lane": "R",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:27:27.249396+00:00",
+      "sourceDocument": "references/e05-source-routing.json",
+      "sourceDocumentSha256AtApproval": "72e61a4919aa174885cf4e9f6909c5827f50b7df93c78d2af371cc629cfaed7e",
+      "sourceDocumentSha256AtReview": "72e61a4919aa174885cf4e9f6909c5827f50b7df93c78d2af371cc629cfaed7e",
+      "canonicalComponentSha256": "f72b7dd54b6e0cb440d614163756cf232ec24c8e6910ff48bde0eac7cbb37f32",
+      "sourceContextSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-B.json",
+          "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+        },
+        {
+          "path": "references/e05-routing-numeric-observations.json",
+          "sha256": "32ccb1f35e425e47163c624d67e00b81a148307316b6d76413c154d8bcf69447"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/ORTHOGONAL-by-B.json",
+      "versionedReviewSha256": "61c4fb91f44449faaae5d77324670cbbf9207bf174f5fe12c76f18ed3f6ff787",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "phase:LAYER_SWEEP_BARYCENTER",
+      "lane": "B",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:30:21.630957+00:00",
+      "sourceDocument": "references/e05-source-components-B.json",
+      "sourceDocumentSha256AtApproval": "f974755acfc694fcaae0fca99d70408d60abae1d8464a21cd095044221b963de",
+      "sourceDocumentSha256AtReview": "f974755acfc694fcaae0fca99d70408d60abae1d8464a21cd095044221b963de",
+      "canonicalComponentSha256": "8e6855856402ae8e18a1a6a71ccde0f3f344fa9262a6e19591e630da9486a8d8",
+      "sourceContextSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-B.json",
+          "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+        }
+      ],
+      "componentDependencies": {
+        "phase:NETWORK_SIMPLEX": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292"
+      },
+      "versionedReview": "references/e05-reviews/LAYER_SWEEP-by-A.json",
+      "versionedReviewSha256": "3c5d23adf1c6aa42d490cc5afeb5f1c1483445727f33a3cac0f261db612402e1",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "phase:LAYER_SWEEP_GREEDY_SWITCH",
+      "lane": "B",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:30:21.633903+00:00",
+      "sourceDocument": "references/e05-source-components-B.json",
+      "sourceDocumentSha256AtApproval": "f974755acfc694fcaae0fca99d70408d60abae1d8464a21cd095044221b963de",
+      "sourceDocumentSha256AtReview": "f974755acfc694fcaae0fca99d70408d60abae1d8464a21cd095044221b963de",
+      "canonicalComponentSha256": "6ddf422d4178ae3fbe8b36f0066270ff992c4fd96945533ae0037e3a329bed0b",
+      "sourceContextSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-B.json",
+          "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+        }
+      ],
+      "componentDependencies": {
+        "phase:NETWORK_SIMPLEX": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292"
+      },
+      "versionedReview": "references/e05-reviews/LAYER_SWEEP-by-A.json",
+      "versionedReviewSha256": "3c5d23adf1c6aa42d490cc5afeb5f1c1483445727f33a3cac0f261db612402e1",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "phase:BRANDES_KOEPF",
+      "lane": "B",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:44:05.356689+00:00",
+      "sourceDocument": "references/e05-source-components-B.json",
+      "sourceDocumentSha256AtApproval": "098e9069099b8a45af61d5225c0a2f93ff27fefe868d62eea017c3ee3eae378b",
+      "sourceDocumentSha256AtReview": "098e9069099b8a45af61d5225c0a2f93ff27fefe868d62eea017c3ee3eae378b",
+      "canonicalComponentSha256": "4ee7fb02836afb766676665008ac0398b5bb35a2b31bc4949ede45aa8662d331",
+      "sourceContextSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-B.json",
+          "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+        }
+      ],
+      "componentDependencies": {
+        "phase:NETWORK_SIMPLEX": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292"
+      },
+      "versionedReview": "references/e05-reviews/BRANDES_KOEPF-singleton-by-A.json",
+      "versionedReviewSha256": "18cd34a73d49e73063b377317e5c3a6b4a91d402bee5ffb7bbd1bb20b1077090",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false,
+      "approvalHistory": [
+        {
+          "previousApproval": {
+            "componentId": "phase:BRANDES_KOEPF",
+            "lane": "B",
+            "status": "verified-for-component-porting",
+            "approvedUtc": "2026-11-03T06:40:38.265019+00:00",
+            "sourceDocument": "references/e05-source-components-B.json",
+            "sourceDocumentSha256AtApproval": "19f2ad313e9aef80181fc38331984e06f730f09c492b9110a668de2c710f0499",
+            "sourceDocumentSha256AtReview": "19f2ad313e9aef80181fc38331984e06f730f09c492b9110a668de2c710f0499",
+            "canonicalComponentSha256": "5182ee6ba518e97caf6ce2809c74dfe2d73a78f7c2f832340852d22fd5725e28",
+            "sourceContextSha256": "227b1270581338ff2d5438af713d458f4384cbfea02ccfe4c7dfa487275e4dbe",
+            "inheritedArtifacts": [
+              {
+                "path": "references/e04-source-components-B.json",
+                "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+              }
+            ],
+            "componentDependencies": {
+              "phase:NETWORK_SIMPLEX": "b5e6ade9ab0d4d224f1424287c65139d119f2de82808cc9198d7994146795292"
+            },
+            "versionedReview": "references/e05-reviews/BRANDES_KOEPF-by-A.json",
+            "versionedReviewSha256": "0aa0fde838e7d74121e2437470194137095fe05491cbad007be4d9a0404879bd",
+            "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+            "runtimeAccepted": false
+          },
+          "reason": "Explicit independent amendment: the source singleton LayerSweep early return retains FIXED_SIDE; BK does not read this key, so a presence/order-only guard must not reject the legal singleton path."
+        }
+      ]
+    },
+    {
+      "componentId": "intermediate:PortSideProcessor",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:47:36.878934+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "sourceDocumentSha256AtReview": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "canonicalComponentSha256": "5dbb5ffe52f12d4004dc37331cbad331cd7ff49eb9238b848327192d09ed4c6b",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Ports-NodeSize-Margin-by-V.json",
+      "versionedReviewSha256": "e929d181c93cc63afdfd5e67f9e4210223f6f16914fa679c4837cdac51ce1fe0",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:PortListSorter",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:47:36.917105+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "sourceDocumentSha256AtReview": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "canonicalComponentSha256": "05966fd7fe6cc6c261bb04e270db6a9f7d1bfcd2ca36d47625270bc9a2b00572",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Ports-NodeSize-Margin-by-V.json",
+      "versionedReviewSha256": "e929d181c93cc63afdfd5e67f9e4210223f6f16914fa679c4837cdac51ce1fe0",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:LabelAndNodeSizeProcessor",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:47:36.955878+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "sourceDocumentSha256AtReview": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "canonicalComponentSha256": "a12abf9300a0695a05ac5aad01f820fac46d4ff22934f1aa5c8a0e66ed300620",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Ports-NodeSize-Margin-by-V.json",
+      "versionedReviewSha256": "e929d181c93cc63afdfd5e67f9e4210223f6f16914fa679c4837cdac51ce1fe0",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:InnermostNodeMarginCalculator",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:47:37.003799+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "sourceDocumentSha256AtReview": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+      "canonicalComponentSha256": "1603bdc5336f35312a9ff3f1e73fe085e2719062452f4645b0e3897f86cebc3c",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Ports-NodeSize-Margin-by-V.json",
+      "versionedReviewSha256": "e929d181c93cc63afdfd5e67f9e4210223f6f16914fa679c4837cdac51ce1fe0",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:EdgeAndLayerConstraintEdgeReverser",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.690733+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "f3ac76952bd6b7c0868c4171d4d745164911da0bde334b2c229a84262d3a0429",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:LayerConstraintPreprocessor",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.726807+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "6a040a4c0c7cfc92b4db07104e0362051b7bac365a14c260cbbaf6eda4be15ac",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:LayerConstraintPostprocessor",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.763948+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "97218489db59301f3b7987c846a0cda24b308fc6b608d582d1246699f5761322",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:InLayerConstraintProcessor",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.799016+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "16603006083a66e54f26f56b80ce543d9b140fd3620d75aaff8b9ac570139e17",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:LayerSizeAndGraphHeightCalculator",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.834666+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "27fd6548afbed1a1afc29ba65c0dab156d02de8ea0cfc12da463f8e8fa8567b9",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:ReversedEdgeRestorer",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.871561+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "a4f0594ae2e62399335c791fa8e5aa734b245aff06a1dc360e8a6aac49fbd838",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "import:json-to-layered",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.907868+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "1613b5bf084539808baab6a51c837ff35227a0bbf57e381935e592edfd87076d",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "export:layered-to-json",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:49:59.957732+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "sourceDocumentSha256AtReview": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2",
+      "canonicalComponentSha256": "52e44144b45ee1309202ab3ef76337e0893ccd78baef7f6242dcc24da113802e",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/Transfer-Import-Export-by-V.json",
+      "versionedReviewSha256": "46b6ef1880b6d2bdc40c20d82c49a81378f309d9895984e3ba291a775921c099",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    },
+    {
+      "componentId": "intermediate:EndLabelSorter",
+      "lane": "A",
+      "status": "verified-for-component-porting",
+      "approvedUtc": "2026-11-03T06:51:20.173028+00:00",
+      "sourceDocument": "references/e05-source-components-A.json",
+      "sourceDocumentSha256AtApproval": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0",
+      "sourceDocumentSha256AtReview": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0",
+      "canonicalComponentSha256": "65c0a40013ce45e441175c6b2ed6ebdb9df04f56a3a3669ef8a875f1457436c6",
+      "sourceContextSha256": "41448f615c258aaf0ed92f2ed5e4351b33e212862074946cdde2941027dd8617",
+      "inheritedArtifacts": [
+        {
+          "path": "references/e04-source-components-A.json",
+          "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+        }
+      ],
+      "versionedReview": "references/e05-reviews/EndLabelSorter-by-V.json",
+      "versionedReviewSha256": "5e33780513e3f9b4470e5c804472bb13d91e33d7248ebd76e34b779cf493cff1",
+      "scopeDocumentSha256AtApproval": "44cd94ac3eb2128ff70e472015af79ab5134e5fb5effac442e66cc9b7df8d7f7",
+      "runtimeAccepted": false
+    }
+  ],
+  "limitation": "All22 source components approved for only the guarded E05 generated-source slice; runtime acceptance remains separate, exact external Java build unresolved.",
+  "finalSourceDocumentsSha256": {
+    "references/e05-source-components-A.json": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0",
+    "references/e05-source-components-B.json": "098e9069099b8a45af61d5225c0a2f93ff27fefe868d62eea017c3ee3eae378b",
+    "references/e05-source-routing.json": "72e61a4919aa174885cf4e9f6909c5827f50b7df93c78d2af371cc629cfaed7e"
+  }
+}

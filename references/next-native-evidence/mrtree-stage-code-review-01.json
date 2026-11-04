@@ -1,0 +1,32 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/mrtree.py": "e4ddb290febfdc87e8962ceb45e0ff93265c4a032a9f910bdede4d50ecbd6d2e",
+    ".local/migration-next/src/pyelk/algorithms/radial.py": "07c04f2cbb6b80c80295d19e5775df4d90e4f83350b27cefb7dbf823c4c00f6f",
+    "tests/fixtures/suites/next-native/mrtree-stages-probe.cjs": "921c53cc0795166b78365618f2fe53c08558bb01c01c842ceffaf871465273d7",
+    "tests/fixtures/suites/next-native/mrtree-stages-request.json": "0265b2736d5eca365f74ab0cc9d0a9fb2a2e69a410766dd40019e652d7f5c459",
+    "tests/fixtures/suites/next-native/compare_mrtree_stages.py": "bb344a68ccea7a2264f6777f4b4027e03525efbc2728b9ca207beb7f91ff5cdb"
+  },
+  "scope": "Read all e4ddb native graph/DFS-BFS/root/untreeify, FAN/order/levels/neighbors/direction, Walker/apportion/round adapter code against approved original source blocks. radial.py only original find_root/largest-descendant-diagonal leaves, no radial provider claim.",
+  "actualIndependentEvidence": {
+    "original": "test-runs/20261104-E17-01/V/stage-oracle-02/observation.json",
+    "command": "test-runs/20261104-E17-01/V/stage-oracle-02/command.json",
+    "candidateReport": "test-runs/20261104-E17-01/V/stage-comparison-01/report.json",
+    "candidateCommand": "test-runs/20261104-E17-01/V/stage-comparison-01/command.json",
+    "stageCases": 9,
+    "roundingCases": 12,
+    "typedDifferences": 0,
+    "firstFailure": "stage-oracle-01 wrong harness reused already-done monitor; kept command/log/source, then new BasicProgressMonitor per actual stage. No original algorithm body replaced."
+  },
+  "semanticNotes": [
+    "Iterative DFS, order recursion, Walker and breadth traversals preserve exact original ordering/repeated edge visits and lack added Python recursion cap. Caller root/neighbor/micro-layout prerequisites remain explicit.",
+    "FIFO BFS colors at dequeue, repeated eliminated edge restoration, zero/one/many roots and ordered dummy edges match original objects.",
+    "FAN prefix counts, literal ascending-sort/tail-zero quirk, shrinking in-bound constraints, comparator tie behavior and outgoing order preserved by original source-mapped host containers.",
+    "Walker first/second walk frame return points and right-sibling/first-child traversal ordering correspond source; round adapter is original Python semantic mapping, not copied GWT limb runtime.",
+    "NaN/infinity?original saturatedlong/low32 results and boundary0.49999999999999994 exact in independent Node probe.",
+    "Core node import math separately code-reviewed; nine object probes do not claim actual modernJSON/micro-layout/provider export/full routing acceptance."
+  ],
+  "fullValidation": false,
+  "wholeAlgorithmAccepted": false
+}

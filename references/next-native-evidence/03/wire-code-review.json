@@ -1,0 +1,18 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/_json.py": "07a4d371fd953686c528ff367104753c5a1599bfa37e590f59f6649deefb785b",
+    ".local/migration-next/src/pyelk/execution/json_transfer.py": "901f26b5a57df2689b250af74a9dab2582da7139c3bb9e055aaf0ef5a42b923a"
+  },
+  "evidence": {
+    "source": "test-runs/20261104-JSON-01/V/json-wire-source-review-01.json",
+    "actualAffectedCase": "test-runs/20261104-E17-01/V/radial-wire-comparison-03/report.json"
+  },
+  "notes": [
+    "Only final export owned-clone boundary recursively maps typefloat nonfinite toNone. Internal working/origin values are not clamped or mutated; no arithmetic, input clone_json/finite_number, geometry policy or runtime original $H conversion changed.",
+    "No dictionary field name filtering; valid original business $H stays. Owned output copies lists/dicts and shares no mutable descendants with internal state. Strict validated input keeps nonfinite business values rejected before this final boundary.",
+    "Actual only third original WEDGE case replay sourceWireParity true, validFiniteGeometry false, upstreamNonfiniteGeometry true. Previous two valid cases and four MrTree successes not rerun/rebound.",
+    "This limited adaptation matches fixed helper/collector JSON wire observations and does not claim general JS Number/int/double normalization, which remains a separate native type-layer task."
+  ]
+}

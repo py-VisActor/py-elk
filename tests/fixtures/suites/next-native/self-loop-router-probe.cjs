@@ -1,0 +1,22 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),Module=require('node:module');
+const [pkgArg,requestPath,outPath]=process.argv.slice(2),pkg=path.resolve(pkgArg),worker=path.join(pkg,'lib/elk-worker.js'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),raw=fs.readFileSync(worker),request=JSON.parse(fs.readFileSync(requestPath));
+if(sha(raw)!=='275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86')throw Error('worker differs');
+const bridge=String.raw`
+global.__routerObservations=function(request){
+ $clinit_CoreOptions();$clinit_LayeredOptions();$clinit_InternalProperties_1();$clinit_LNode$NodeType();$clinit_PortSide();$clinit_PortConstraints();$clinit_Direction_0();$clinit_EdgeRouting();
+ const sides={NORTH:NORTH_3,EAST:EAST_2,SOUTH:SOUTH_2,WEST:WEST_2},modes={ORTHOGONAL,POLYLINE,SPLINES},vec=p=>[p.x_0,p.y_0],arr=list=>{const a=[],i=list.iterator_0();while(i.hasNext_0())a.push(i.next_1());return a;},result=[];
+ for(const mode of request.routes){
+  const g=new LGraph,n=new LNode(g);$add_3(g.layerlessNodes,n);n.size_0.x_0=120.5;n.size_0.y_0=80.25;$set_6(n.margin,3,4,5,6);const margin=n.margin,edges=[];
+  $setProperty_0(g,DIRECTION,RIGHT_6);$setProperty_0(g,EDGE_ROUTING,modes[mode]);$setProperty_0(g,RANDOM_0,new Random_0(7));$setProperty_0(n,PORT_CONSTRAINTS_0,FIXED_ORDER);$setProperty_0(n,ORIGINAL_PORT_CONSTRAINTS,FIXED_ORDER);
+  const ports=request.sides.map((side,i)=>{const p=new LPort;$setNode(p,n);$setSide(p,sides[side]);p.id_0=i;p.pos.x_0=side==='EAST'?120.5:side==='WEST'?0:10+(i%5)*20;p.pos.y_0=side==='NORTH'?0:side==='SOUTH'?80.25:5+(i%5)*14;p.anchor.x_0=.5;p.anchor.y_0=.25;return p;});
+  for(const [i,group]of request.groups.entries())for(let j=0;j<group.length-1;j++){const e=new LEdge;e.id_0=edges.length;edges.push(e);$setSource_0(e,ports[group[j]]);$setTarget_0(e,ports[group[j+1]]);$add_7(e.bendPoints,new KVector_1(999,-777));if(j===0){const l=new LLabel;l.size_0.x_0=12+i*3;l.size_0.y_0=5+i;$setProperty_0(l,EDGE_LABELS_INLINE_0,i===2);$add_3(e.labels,l);}}
+  const bendReferences=edges.map(e=>e.bendPoints);$process_49(g,new BasicProgressMonitor);const layer=new Layer(g);$add_3(g.layers,layer);$setLayer(n,0,layer);g.layerlessNodes.array.length=0;$process_47(new SelfLoopPortRestorer,g,new BasicProgressMonitor);
+  const monitor=new BasicProgressMonitor,processor=new SelfLoopRouter;$process_50(processor,g,monitor);const holder=$getProperty(n,SELF_LOOP_HOLDER);
+  result.push({mode,margin:[n.margin.top_0,n.margin.right,n.margin.bottom,n.margin.left],sameMargin:n.margin===margin,sameBendChains:edges.map((e,i)=>e.bendPoints===bendReferences[i]),edges:edges.map(e=>({id:e.id_0,bends:e.bendPoints.toArray().map(vec),labels:e.labels.array.map(l=>({position:vec(l.pos),inlinePresent:$hasProperty(l,EDGE_LABELS_INLINE_0)}))})),loops:holder.slHyperLoops.array.map(loop=>({kind:loop.selfLoopType.name_0,routing:Array.from(loop.routingSlot),labels:loop.slLabels?{side:loop.slLabels.side.name_0,alignment:loop.slLabels.alignment.name_0,position:vec(loop.slLabels.position)}:null})),slotCount:Array.from(holder.routingSlotCount),monitorFinished:!monitor.isRunning});
+ }
+ const primitives=[];
+ for(const points of request.primitivePoints){const chain=new KVectorChain;for(const p of points)$add_7(chain,new KVector_1(p[0],p[1]));const before=chain.toArray(),spline=new NubSpline(chain),cp=$getBezierCP(spline),same=$getBezierCP(spline);primitives.push({inputSize:points.length,mutatedChain:chain.toArray().map(vec),firstReferenceRetained:chain.toArray()[0]===before[0],knots:spline.knotVector.array,controls:spline.controlPoints.array.map(p=>({cp:vec(p.cp),polar:arr(p.polarCoordinate)})),bezier:cp.toArray().map(vec),repeatSameReferences:cp.toArray().every((p,i)=>p===same.toArray()[i]),isBezier:spline.isBezier,isClamped:spline.isClamped});}
+ return {routes:result,primitives};
+};`;
+const m=new Module(worker,module);m.filename=worker;m.paths=Module._nodeModulePaths(pkg);m._compile(raw.toString()+bridge,worker);
+fs.writeFileSync(outPath,JSON.stringify({workerSha256:sha(raw),probeSha256:sha(fs.readFileSync(__filename)),requestSha256:sha(fs.readFileSync(requestPath)),pid:process.pid,parentPid:process.ppid,node:process.version,value:global.__routerObservations(request),actualFourthProcessorExecuted:true,preparedNativeModels:true,layoutExecuted:false,nativeExecuted:false},null,2)+'\n',{flag:'wx'});

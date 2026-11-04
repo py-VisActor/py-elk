@@ -1,0 +1,75 @@
+{
+  "schema": "py-elk-release-sdist-installed/v1",
+  "passed": true,
+  "artifactSha256": "6ab5713b76b608a9b9b9b6759be175791d2940524c458e68abac119b40eafba7",
+  "commands": [
+    {
+      "name": "build-deps",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu\\venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--find-links",
+        "C:\\code\\py-visactor\\py-elk\\.local\\e10-build-wheelhouse",
+        "setuptools==84.2.1",
+        "wheel==0.48.0",
+        "packaging==26.3"
+      ],
+      "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu",
+      "exitCode": 0,
+      "elapsedSeconds": 1.2512833999935538,
+      "stdoutSha256": "d8be5d62caa0ce0b6bbd00c6835890cc377cb5cdd23bb931cbe662b83e42471a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "install-sdist",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu\\venv\\Scripts\\python.exe",
+        "-I",
+        "-m",
+        "pip",
+        "install",
+        "--no-index",
+        "--no-deps",
+        "--no-build-isolation",
+        "C:\\code\\py-visactor\\py-elk\\.local\\full-release-0.1.0-prepared\\dist\\py_elk-0.1.0.tar.gz"
+      ],
+      "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu",
+      "exitCode": 0,
+      "elapsedSeconds": 2.105060899979435,
+      "stdoutSha256": "1ee06865349387b0a7267fafc5c7540480d0280d7bde7fc4e1faae7b5ad96ae3",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "smoke",
+      "argv": [
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu\\venv\\Scripts\\python.exe",
+        "-I",
+        "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu\\installed_smoke.py"
+      ],
+      "cwd": "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu",
+      "exitCode": 0,
+      "elapsedSeconds": 0.32824440000695176,
+      "stdoutSha256": "1d829041aa6499c15af5dcdb2f8fd2a052d8fe4690d18133691926c39c09d71a",
+      "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "installedObservation": {
+    "version": "0.1.0",
+    "package": "C:\\Users\\Admin\\AppData\\Local\\Temp\\pyelk-release-sdist-ac1hqfcu\\venv\\Lib\\site-packages\\pyelk",
+    "modules": 196,
+    "metadata": [
+      12,
+      243,
+      8
+    ],
+    "nodes": 20,
+    "passed": true
+  },
+  "published": false,
+  "fullAlgorithmAcceptance": false
+}

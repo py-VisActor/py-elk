@@ -1,0 +1,52 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.interactive": true
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 10,
+        "y": 20,
+        "width": 20,
+        "height": 12,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        }
+      },
+      {
+        "id": "b",
+        "x": 80,
+        "y": 65,
+        "width": 24,
+        "height": 16,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "labels": [
+          {
+            "text": "no-explicit-inline",
+            "width": 10,
+            "height": 6
+          }
+        ]
+      }
+    ]
+  }
+}

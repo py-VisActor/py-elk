@@ -1,0 +1,146 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "graph": {
+    "id": "root",
+    "business": {
+      "keep": [
+        "all",
+        0,
+        false
+      ]
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 53,
+      "elk.layered.cycleBreaking.strategy": "MODEL_ORDER",
+      "elk.layered.layering.strategy": "LONGEST_PATH"
+    },
+    "children": [
+      {
+        "id": "n0",
+        "width": 20,
+        "height": 12,
+        "x": 0,
+        "y": 0
+      },
+      {
+        "id": "n1",
+        "width": 23,
+        "height": 14,
+        "x": 47,
+        "y": 29
+      },
+      {
+        "id": "n2",
+        "width": 26,
+        "height": 16,
+        "x": 94,
+        "y": 58
+      },
+      {
+        "id": "n3",
+        "width": 29,
+        "height": 18,
+        "x": 141,
+        "y": 87
+      },
+      {
+        "id": "n4",
+        "width": 32,
+        "height": 20,
+        "x": 188,
+        "y": 116
+      },
+      {
+        "id": "n5",
+        "width": 27,
+        "height": 19,
+        "x": 210,
+        "y": 21
+      },
+      {
+        "id": "n6",
+        "width": 22,
+        "height": 15,
+        "x": 250,
+        "y": 45
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n2"
+        ]
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "n1"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "n2"
+        ],
+        "targets": [
+          "n3"
+        ]
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n4"
+        ]
+      },
+      {
+        "id": "back",
+        "sources": [
+          "n3"
+        ],
+        "targets": [
+          "n0"
+        ]
+      },
+      {
+        "id": "parallel",
+        "sources": [
+          "n0"
+        ],
+        "targets": [
+          "n1"
+        ]
+      },
+      {
+        "id": "tail",
+        "sources": [
+          "n4"
+        ],
+        "targets": [
+          "n5"
+        ]
+      }
+    ]
+  },
+  "layoutArguments": {}
+}

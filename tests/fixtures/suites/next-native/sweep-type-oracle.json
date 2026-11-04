@@ -1,0 +1,84 @@
+{
+  "schema": "py-elk-next-sweep-type-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "bfcc8ea652c727f8f3f9519fae9e8e2631fc3473d5c1be82d6bfc7b7d373ca0e",
+  "requestSha256": "73560fe5cb72e606fee2c3bc4fde369d7d0fe7ab226d021bf478cfff7edb115c",
+  "pid": 43584,
+  "parentPid": 30188,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "deferred-ns-and-external",
+      "value": {
+        "decision": false,
+        "deterministicCalls": 1,
+        "info": [
+          [
+            {
+              "id": "d",
+              "connected": 1,
+              "hierarchical": 0,
+              "random": 1
+            },
+            {
+              "id": "a",
+              "connected": 0,
+              "hierarchical": 0,
+              "random": 1
+            }
+          ],
+          [
+            {
+              "id": "x",
+              "connected": 3,
+              "hierarchical": 1,
+              "random": 2
+            }
+          ]
+        ],
+        "layoutExecuted": false,
+        "suppliedStrategyFact": "non-deterministic"
+      }
+    },
+    {
+      "id": "zero-paths-infinity",
+      "value": {
+        "decision": true,
+        "deterministicCalls": 1,
+        "info": [
+          [
+            {
+              "id": "a",
+              "connected": 0,
+              "hierarchical": 0,
+              "random": 1
+            }
+          ]
+        ],
+        "layoutExecuted": false,
+        "suppliedStrategyFact": "non-deterministic"
+      }
+    },
+    {
+      "id": "live-self-transfer-binary64",
+      "value": {
+        "decision": true,
+        "deterministicCalls": 1,
+        "info": [
+          [
+            {
+              "id": "a",
+              "connected": 2305843009213694000,
+              "hierarchical": 0,
+              "random": 2305843009213694000
+            }
+          ]
+        ],
+        "layoutExecuted": false,
+        "suppliedStrategyFact": "non-deterministic"
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

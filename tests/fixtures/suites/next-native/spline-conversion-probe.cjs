@@ -1,0 +1,14 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),Module=require('node:module');
+const [pkgArg,requestPath,outPath]=process.argv.slice(2),pkg=path.resolve(pkgArg),worker=path.join(pkg,'lib/elk-worker.js'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),raw=fs.readFileSync(worker),request=JSON.parse(fs.readFileSync(requestPath));
+if(sha(raw)!=='275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86')throw Error('worker differs');
+const bridge=String.raw`
+global.__splineConversion=function(request){
+ $clinit_LayeredOptions();$clinit_InternalProperties_1();$clinit_LNode$NodeType();$clinit_PortSide();$clinit_SplineRoutingMode();const sides={NORTH:NORTH_3,EAST:EAST_2,SOUTH:SOUTH_2,WEST:WEST_2},modes={SLOPPY,CONSERVATIVE},results=[],vec=p=>[p.x_0,p.y_0];
+ for(const input of request.cases){const g=new LGraph,make=p=>{const n=new LNode(g);n.pos.x_0=p.node[0];n.pos.y_0=p.node[1];const port=new LPort;$setNode(port,n);$setSide(port,sides[p.side]);port.pos.x_0=p.port[0];port.pos.y_0=p.port[1];port.anchor.x_0=p.anchor[0];port.anchor.y_0=p.anchor[1];if(Object.hasOwn(p,'ns'))$setProperty_0(port,SPLINE_NS_PORT_Y_COORD,p.ns);return port;},source=make(input.source),target=make(input.target),oldVectors=[],oldValues=[];
+ const edges=input.bends.map((points,i)=>{const edge=new LEdge;edge.id_0=i;$setSource_0(edge,source);$setTarget_0(edge,target);for(const v of points){const point=new KVector_1(v[0],v[1]);$add_7(edge.bendPoints,point);oldVectors.push(point);oldValues.push(vec(point));}return edge;}),references=edges.map(e=>e.bendPoints),chain=new ArrayList;for(const i of input.chain)$add_3(chain,edges[i]);const owner=new FinalSplineBendpointsCalculator;owner.splineRoutingMode=modes[input.mode];const selected=input.survivor==null?null:edges[input.survivor],sentinel=selected&&!input.chain.includes(input.survivor)?selected.bendPoints.toArray()[0]:null;
+ $calculateBezierBendPoints(owner,chain,selected);
+ results.push({name:input.name,edges:edges.map((e,i)=>({points:e.bendPoints.toArray().map(vec),sameChain:e.bendPoints===references[i]})),oldVectorsUnchanged:oldVectors.every((p,i)=>p.x_0===oldValues[i][0]&&p.y_0===oldValues[i][1]),externalSurvivorFirstSame:sentinel?selected.bendPoints.toArray()[0]===sentinel:null});}
+ return results;
+};`;
+const m=new Module(worker,module);m.filename=worker;m.paths=Module._nodeModulePaths(pkg);m._compile(raw.toString()+bridge,worker);
+fs.writeFileSync(outPath,JSON.stringify({workerSha256:sha(raw),probeSha256:sha(fs.readFileSync(__filename)),requestSha256:sha(fs.readFileSync(requestPath)),pid:process.pid,parentPid:process.ppid,node:process.version,value:global.__splineConversion(request),actualConversionHelper:true,actualFinalProcess:false,layoutExecuted:false,nativeExecuted:false},null,2)+'\n',{flag:'wx'});

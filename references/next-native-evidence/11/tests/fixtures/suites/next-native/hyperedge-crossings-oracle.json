@@ -1,0 +1,171 @@
+{
+  "schema": "py-elk-next-hyperedge-crossings-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "bf71765aab92afe4e8c29ae29910666af7ded957d20a4bc80e40aea801f4f13e",
+  "requestSha256": "407179f6ebf5ce032b40f7debb31beed6bc7b3abbffb6f81ee60fc561e1fdf36",
+  "pid": 36512,
+  "parentPid": 26964,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "parallel-bundles-with-unused-and-inlayer-ports",
+      "value": {
+        "count": 1,
+        "positions": [
+          {
+            "id": "unused",
+            "value": 17
+          },
+          {
+            "id": "ae",
+            "value": 0
+          },
+          {
+            "id": "be",
+            "value": 1
+          },
+          {
+            "id": "rw",
+            "value": 0
+          },
+          {
+            "id": "sw",
+            "value": 1
+          }
+        ],
+        "positionBufferShared": true,
+        "bundles": [
+          {
+            "ports": [
+              "ae",
+              "sw"
+            ],
+            "edges": [
+              0,
+              1
+            ],
+            "bounds": [
+              0,
+              0,
+              1,
+              1
+            ]
+          },
+          {
+            "ports": [
+              "be",
+              "rw"
+            ],
+            "edges": [
+              2
+            ],
+            "bounds": [
+              1,
+              1,
+              0,
+              0
+            ]
+          }
+        ],
+        "observerDelegated": true,
+        "layoutExecuted": false
+      }
+    },
+    {
+      "id": "late-source-bundle-survives-union-and-north-prefix",
+      "value": {
+        "count": 1,
+        "positions": [
+          {
+            "id": "ae",
+            "value": 0
+          },
+          {
+            "id": "be",
+            "value": 1
+          },
+          {
+            "id": "ce",
+            "value": 2
+          },
+          {
+            "id": "de",
+            "value": 3
+          },
+          {
+            "id": "n1",
+            "value": 1
+          },
+          {
+            "id": "n2",
+            "value": 0
+          },
+          {
+            "id": "w1",
+            "value": 3
+          },
+          {
+            "id": "w2",
+            "value": 2
+          }
+        ],
+        "positionBufferShared": true,
+        "bundles": [
+          {
+            "ports": [
+              "be",
+              "w2",
+              "ae",
+              "n1"
+            ],
+            "edges": [
+              1,
+              2,
+              0
+            ],
+            "bounds": [
+              0,
+              1,
+              1,
+              2
+            ]
+          },
+          {
+            "ports": [
+              "ce",
+              "n2"
+            ],
+            "edges": [
+              3
+            ],
+            "bounds": [
+              2,
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "ports": [
+              "de",
+              "w1"
+            ],
+            "edges": [
+              4
+            ],
+            "bounds": [
+              3,
+              3,
+              3,
+              3
+            ]
+          }
+        ],
+        "observerDelegated": true,
+        "layoutExecuted": false
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

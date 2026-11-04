@@ -1,0 +1,45 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "e06-root",
+    "business": {
+      "$H": false,
+      "error": {
+        "stack": "root-business-stack"
+      }
+    },
+    "children": [
+      {
+        "id": "graph-node-0",
+        "width": 0,
+        "height": 0,
+        "business": {
+          "$H": 0,
+          "null": null
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "graph-edge-0",
+        "sources": [
+          "graph-node-0"
+        ],
+        "targets": [
+          "graph-node-0"
+        ],
+        "business": {
+          "error": {
+            "stack": "edge-business-stack"
+          },
+          "false": false
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.randomSeed": -17
+    }
+  }
+}

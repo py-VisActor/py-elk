@@ -1,0 +1,223 @@
+{
+  "scope": "Actual native seed0 wallclock observation; no fixed expected coordinates or false cross-runtime exactness",
+  "sourceSha256": "ea98ff9f6dc18828a059bf81fd8e42ae77f6053fe23e80ee801248d48c45cb1f",
+  "requestSha256": "747f12cc556395a488b24adbeebabe0ca6d02edede601abbf143054af1eaf366",
+  "originalObservationSha256": "a472d13fff28bf997a0b15dc33c9aed2a50ad1234d878863f635c745c7d69f2a",
+  "actualResult": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "random",
+      "elk.randomSeed": 0
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 10,
+        "x": 18.024452319860355,
+        "y": 40.71159949215495
+      },
+      {
+        "id": "b",
+        "width": 50,
+        "height": 20,
+        "x": 20.19170959613083,
+        "y": 17.132305843224447
+      },
+      {
+        "id": "c",
+        "width": 10,
+        "height": 40,
+        "x": 57.213176394329864,
+        "y": 15.0
+      }
+    ],
+    "edges": [],
+    "x": 0,
+    "y": 0,
+    "width": 146.90224522454608,
+    "height": 100.0
+  },
+  "originalExpected": {
+    "schema": "py-elk-layout-observation/v1",
+    "requestSha256": "747f12cc556395a488b24adbeebabe0ca6d02edede601abbf143054af1eaf366",
+    "engine": {
+      "name": "elkjs",
+      "version": "0.12.1",
+      "node": "v24.19.0",
+      "platform": "win32",
+      "arch": "x64",
+      "entrypoint": "lib/elk.bundled.js",
+      "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+    },
+    "result": {
+      "id": "root",
+      "layoutOptions": {
+        "elk.algorithm": "random",
+        "elk.randomSeed": 0
+      },
+      "children": [
+        {
+          "id": "a",
+          "width": 20,
+          "height": 10,
+          "$H": 277,
+          "x": 74.79987202260546,
+          "y": 37.672576293156396
+        },
+        {
+          "id": "b",
+          "width": 50,
+          "height": 20,
+          "$H": 279,
+          "x": 35.44909579119319,
+          "y": 21.087412362701954
+        },
+        {
+          "id": "c",
+          "width": 10,
+          "height": 40,
+          "$H": 281,
+          "x": 79.07392049127654,
+          "y": 15
+        }
+      ],
+      "edges": [],
+      "$H": 13,
+      "x": 0,
+      "y": 0,
+      "width": 146.90224522454608,
+      "height": 100
+    },
+    "outcome": "returned",
+    "inputAfter": {
+      "id": "root",
+      "layoutOptions": {
+        "elk.algorithm": "random",
+        "elk.randomSeed": 0
+      },
+      "children": [
+        {
+          "id": "a",
+          "width": 20,
+          "height": 10,
+          "$H": 277,
+          "x": 74.79987202260546,
+          "y": 37.672576293156396
+        },
+        {
+          "id": "b",
+          "width": 50,
+          "height": 20,
+          "$H": 279,
+          "x": 35.44909579119319,
+          "y": 21.087412362701954
+        },
+        {
+          "id": "c",
+          "width": 10,
+          "height": 40,
+          "$H": 281,
+          "x": 79.07392049127654,
+          "y": 15
+        }
+      ],
+      "edges": [],
+      "$H": 13,
+      "x": 0,
+      "y": 0,
+      "width": 146.90224522454608,
+      "height": 100
+    },
+    "constructorAfter": {},
+    "argumentsAfter": {},
+    "termination": {
+      "outcome": "threw",
+      "name": "TypeError",
+      "message": "this.worker.terminate is not a function"
+    }
+  },
+  "strictComparison": {
+    "passed": false,
+    "differences": [
+      {
+        "path": "/$H",
+        "kind": "missing",
+        "expected": 13
+      },
+      {
+        "path": "/children/0/$H",
+        "kind": "missing",
+        "expected": 277
+      },
+      {
+        "path": "/children/0/x",
+        "kind": "number",
+        "expected": 74.79987202260546,
+        "actual": 18.024452319860355,
+        "absoluteError": 56.7754197027451,
+        "allowedError": 0
+      },
+      {
+        "path": "/children/0/y",
+        "kind": "number",
+        "expected": 37.672576293156396,
+        "actual": 40.71159949215495,
+        "absoluteError": 3.0390231989985566,
+        "allowedError": 0
+      },
+      {
+        "path": "/children/1/$H",
+        "kind": "missing",
+        "expected": 279
+      },
+      {
+        "path": "/children/1/x",
+        "kind": "number",
+        "expected": 35.44909579119319,
+        "actual": 20.19170959613083,
+        "absoluteError": 15.257386195062356,
+        "allowedError": 0
+      },
+      {
+        "path": "/children/1/y",
+        "kind": "number",
+        "expected": 21.087412362701954,
+        "actual": 17.132305843224447,
+        "absoluteError": 3.955106519477507,
+        "allowedError": 0
+      },
+      {
+        "path": "/children/2/$H",
+        "kind": "missing",
+        "expected": 281
+      },
+      {
+        "path": "/children/2/x",
+        "kind": "number",
+        "expected": 79.07392049127654,
+        "actual": 57.213176394329864,
+        "absoluteError": 21.860744096946675,
+        "allowedError": 0
+      }
+    ],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "actualClockObservation": {
+    "startedEpochMs": 1793722771735,
+    "finishedEpochMs": 1793722771735,
+    "actualSeedBeforeFirstDraw": 1793722771735
+  },
+  "counterBefore": 0.0,
+  "counterAfter": 1.0,
+  "clockOverrideApplied": false,
+  "originalConstructorDelegatedUnchanged": true,
+  "callerInputUnchanged": true,
+  "deterministicDimensionsEqual": true,
+  "finiteSourceSamplingRangesSatisfied": true,
+  "fullValidation": false
+}

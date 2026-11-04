@@ -1,0 +1,1289 @@
+{
+  "schema": "py-elk-e06-independent-root-code-effects/v1",
+  "status": "PASS",
+  "reviewedFiles": [
+    {
+      "path": "src/pyelk/algorithms/layered/pipeline.py",
+      "sha256": "8f383ed8fb3ccf94dcbf46d384c8e840fb5532e143aa39d8e5811ec306fcbca7"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/processors.py",
+      "sha256": "4c68f9b9152ba2036cf91a00a89161433e6956989c8d7ebce2ff99560c162583"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/crossing.py",
+      "sha256": "335416ee57531d36e0d95258f98dcbee29e4fd67446334e340fefc6c31dc6473"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/placement.py",
+      "sha256": "102d2d89b21df852b1e96468c20562b6cd474617bc5d1f483d65e4cb705166ed"
+    },
+    {
+      "path": "src/pyelk/algorithms/layered/routing.py",
+      "sha256": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75"
+    }
+  ],
+  "records": [
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-cycle3-mixed",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-one",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loop-two",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-28-zero",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-loops-7-fractional",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-mixed-loop-parallel",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 2,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 4,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 6,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 7,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 8,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 10,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 11,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 12,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 13,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 14,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 15,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-28",
+      "index": 17,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 2,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 4,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 6,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 7,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 8,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 10,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 11,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 12,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 13,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 14,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 15,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-parallel-two",
+      "index": 17,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 0,
+      "processor": "EdgeAndLayerConstraintEdgeReverser",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 3,
+      "processor": "LayerConstraintPreprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 5,
+      "processor": "LayerConstraintPostprocessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 7,
+      "processor": "PortSideProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 8,
+      "processor": "PortListSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 9,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "BARYCENTER",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 10,
+      "processor": "LayerSweepCrossingMinimizer",
+      "strategy": "TWO_SIDED_GREEDY_SWITCH",
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 12,
+      "processor": "InLayerConstraintProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 13,
+      "processor": "LabelAndNodeSizeProcessor",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 14,
+      "processor": "InnermostNodeMarginCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 16,
+      "processor": "BKNodePlacer",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 17,
+      "processor": "LayerSizeAndGraphHeightCalculator",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 18,
+      "processor": "OrthogonalEdgeRouter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    },
+    {
+      "case": "v1-reciprocal-loops",
+      "index": 21,
+      "processor": "EndLabelSorter",
+      "strategy": null,
+      "selectedBeforeAfterExact": true,
+      "eachRngEventExact": true,
+      "syntheticCyclicMetadataPreserved": true,
+      "originalModelPreserved": true
+    }
+  ],
+  "limitation": "Actual JS before-state reconstructed as Python kernel inputs; selected serialized fields only, not public-wheel validation. Raw JSON does not preserve IEEE negative-zero sign, and unexposed default containers/temporary callback state are source-read separately. CYCLIC=true is an independent synthetic metadata control, not claimed observed from this snapshot."
+}

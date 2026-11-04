@@ -1,0 +1,293 @@
+{
+  "schema": "py-elk-next-local-crossings-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "a4fa956f14d263010a4f69d505728499901f4f5a192a7ad41d463ce002b2c21a",
+  "requestSha256": "783d46126b5f2c6a103c5d47239cc48a29622cea2d244b418341b0025113e45f",
+  "pid": 42484,
+  "parentPid": 34044,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "ports-both-orders",
+      "value": {
+        "selected": [
+          "a1",
+          "a2",
+          "sW",
+          "r2"
+        ],
+        "before": [
+          {
+            "id": "a1",
+            "value": 0
+          },
+          {
+            "id": "a2",
+            "value": 1
+          },
+          {
+            "id": "b1",
+            "value": 2
+          },
+          {
+            "id": "r1",
+            "value": 4
+          },
+          {
+            "id": "r2",
+            "value": 5
+          },
+          {
+            "id": "sW",
+            "value": 3
+          },
+          {
+            "id": "sE",
+            "value": 0
+          }
+        ],
+        "after": [
+          {
+            "id": "a1",
+            "value": 0
+          },
+          {
+            "id": "a2",
+            "value": 1
+          },
+          {
+            "id": "b1",
+            "value": 2
+          },
+          {
+            "id": "r1",
+            "value": 4
+          },
+          {
+            "id": "r2",
+            "value": 5
+          },
+          {
+            "id": "sW",
+            "value": 3
+          },
+          {
+            "id": "sE",
+            "value": 0
+          }
+        ],
+        "pair": [
+          {
+            "value_0": 0
+          },
+          {
+            "value_0": 1
+          }
+        ],
+        "events": [
+          "clear",
+          "switchPorts:a1:a2",
+          "clear",
+          "switchPorts:a2:a1"
+        ],
+        "tree": {
+          "size": 0,
+          "sums": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "multiplicities": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "endsIdentity": true,
+        "endsEmpty": true,
+        "portOrders": [
+          {
+            "id": "a",
+            "ports": [
+              "a1",
+              "a2"
+            ]
+          },
+          {
+            "id": "b",
+            "ports": [
+              "b1"
+            ]
+          },
+          {
+            "id": "r",
+            "ports": [
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "id": "s",
+            "ports": [
+              "sW",
+              "sE"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "nodes-both-orders",
+      "value": {
+        "selected": [
+          "r2",
+          "r1",
+          "sW"
+        ],
+        "before": [
+          {
+            "id": "a1",
+            "value": 0
+          },
+          {
+            "id": "a2",
+            "value": 0
+          },
+          {
+            "id": "b1",
+            "value": 0
+          },
+          {
+            "id": "r1",
+            "value": 1
+          },
+          {
+            "id": "r2",
+            "value": 0
+          },
+          {
+            "id": "sW",
+            "value": 2
+          },
+          {
+            "id": "sE",
+            "value": 0
+          }
+        ],
+        "after": [
+          {
+            "id": "a1",
+            "value": 0
+          },
+          {
+            "id": "a2",
+            "value": 0
+          },
+          {
+            "id": "b1",
+            "value": 0
+          },
+          {
+            "id": "r1",
+            "value": 1
+          },
+          {
+            "id": "r2",
+            "value": 0
+          },
+          {
+            "id": "sW",
+            "value": 2
+          },
+          {
+            "id": "sE",
+            "value": 0
+          }
+        ],
+        "pair": [
+          {
+            "value_0": 0
+          },
+          {
+            "value_0": 0
+          }
+        ],
+        "events": [
+          "switchNodes:r:s",
+          "clear",
+          "switchNodes:s:r",
+          "clear"
+        ],
+        "tree": {
+          "size": 0,
+          "sums": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "multiplicities": [
+            0,
+            0,
+            0
+          ]
+        },
+        "endsIdentity": true,
+        "endsEmpty": true,
+        "portOrders": [
+          {
+            "id": "a",
+            "ports": [
+              "a1",
+              "a2"
+            ]
+          },
+          {
+            "id": "b",
+            "ports": [
+              "b1"
+            ]
+          },
+          {
+            "id": "r",
+            "ports": [
+              "r1",
+              "r2"
+            ]
+          },
+          {
+            "id": "s",
+            "ports": [
+              "sW",
+              "sE"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "undefined-side-no-view",
+      "value": {
+        "calls": 0,
+        "empty": true,
+        "before": {
+          "cached": false,
+          "indices": []
+        },
+        "after": {
+          "cached": false,
+          "indices": []
+        }
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

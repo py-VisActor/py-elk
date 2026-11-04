@@ -1,5 +1,6 @@
 """Negative controls for the scaffold, coverage ledger and source provenance."""
 from contextlib import contextmanager
+from functools import lru_cache
 import json
 from pathlib import Path
 import shutil
@@ -14,22 +15,28 @@ import upstream
 from validate_bootstrap import check, local_file
 
 
+@lru_cache(maxsize=1)
+def _baseline_fixture():
+    # The expanding immutable evidence archive is copied once per test process.
+    # Each control mutates one owned JSON file and restores its exact bytes.
+    temporary=tempfile.TemporaryDirectory();root=Path(temporary.name)
+    for dirname in ("src", "scripts", "examples", "tests", "docs", "references", "tools", "benchmarks"):
+        if (ROOT / dirname).is_dir():
+            shutil.copytree(ROOT / dirname, root / dirname,
+                            ignore=shutil.ignore_patterns("__pycache__"))
+    for path in ROOT.iterdir():
+        if path.is_file():shutil.copy2(path,root/path.name)
+    return temporary,root
+
+
 @contextmanager
 def altered_json(name, transform):
-    with tempfile.TemporaryDirectory() as directory:
-        root = Path(directory)
-        for dirname in ("src", "scripts", "examples", "tests", "docs", "references", "tools", "benchmarks"):
-            if (ROOT / dirname).is_dir():
-                shutil.copytree(ROOT / dirname, root / dirname,
-                                ignore=shutil.ignore_patterns("__pycache__"))
-        for path in ROOT.iterdir():
-            if path.is_file():
-                shutil.copy2(path, root / path.name)
-        target = root / name
-        value = json.loads(target.read_text(encoding="utf-8"))
-        transform(value)
-        target.write_text(json.dumps(value), encoding="utf-8")
+    _,root=_baseline_fixture();target=root/name;raw=target.read_bytes()
+    try:
+        value=json.loads(raw);transform(value)
+        target.write_text(json.dumps(value),encoding="utf-8")
         yield root
+    finally:target.write_bytes(raw)
 
 
 class BootstrapTests(unittest.TestCase):

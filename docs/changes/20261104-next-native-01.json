@@ -1,0 +1,169 @@
+{
+  "schema": "py-elk-next-native-preparation/v1",
+  "createdUtc": "2026-11-03T16:46:27.042684+00:00",
+  "status": "private-implementation-in-progress",
+  "officialIterationsRemainPlanned": [
+    "E13",
+    "E16"
+  ],
+  "checkpoint": {
+    "path": "migration/next-native/checkpoints/8839e8252574a80fcf90a32b58ef9fa06dcf462e62bcf63bb99144695b142dc8.json",
+    "sha256": "8839e8252574a80fcf90a32b58ef9fa06dcf462e62bcf63bb99144695b142dc8",
+    "sourceFiles": 59,
+    "originalCurrentAlias": "migration/next-native/manifest.json"
+  },
+  "actualProviderCalls": {
+    "fixed": 6,
+    "box": 7,
+    "randomExplicit": 3,
+    "randomSeedZeroActualClock": 1,
+    "total": 17
+  },
+  "providerNumericAndBusinessDifferences": [],
+  "providerStrictDifferencesRetained": true,
+  "providerPersistentStateRelatedCalls": {
+    "representativeProviders": 3,
+    "childFixedThenParentBox": 1
+  },
+  "independentPrimitiveComparisons": {
+    "port-init-comparison.json": {
+      "count": 12,
+      "scope": "original worker local primitive/object; not public layout"
+    },
+    "port-order-comparison.json": {
+      "count": 8,
+      "scope": "original worker local primitive/object; not public layout"
+    },
+    "cell-comparison.json": {
+      "count": 8,
+      "scope": "original worker local primitive/object; not public layout"
+    },
+    "placement-comparison.json": {
+      "count": 9,
+      "scope": "original worker local primitive/object; not public layout"
+    }
+  },
+  "evidence": {
+    "providers.json": {
+      "path": "references/next-native-evidence/providers.json",
+      "sha256": "714852b964fbb3f5722129f7c3770091bb8bb8dfb84a6b2475ad801d751be9c9",
+      "originalRunFile": "test-runs/20261104-E16-01/B/handoff-providers-01.json"
+    },
+    "persistent-state.json": {
+      "path": "references/next-native-evidence/persistent-state.json",
+      "sha256": "a1ac597b8e99a28324d5f1a81ff84321b01bdf950bcf0ab0f55965b598c30337",
+      "originalRunFile": "test-runs/20261104-E16-01/B/handoff-state-interface-02.json"
+    },
+    "cells.json": {
+      "path": "references/next-native-evidence/cells.json",
+      "sha256": "0e0be4c255c860ef63bf5931301eb862e885374d5f1625e6d7bc0a5507296e0c",
+      "originalRunFile": "test-runs/20261104-E13-01/B/handoff-cell-01.json"
+    },
+    "port-init-comparison.json": {
+      "path": "references/next-native-evidence/port-init-comparison.json",
+      "sha256": "c49b2e1083e95b2419dfbc669f9c26799ac2daf930dcad89495987cdeffc76b9",
+      "originalRunFile": "test-runs/20261104-E13-01/V/port-helper-oracle-01/comparison.json"
+    },
+    "port-order-comparison.json": {
+      "path": "references/next-native-evidence/port-order-comparison.json",
+      "sha256": "28ce5cbf8bf1eac877449082c3498a6e0429d42d99875e1311da2c97cca6ba85",
+      "originalRunFile": "test-runs/20261104-E13-01/V/port-order-oracle-02/comparison.json"
+    },
+    "cell-comparison.json": {
+      "path": "references/next-native-evidence/cell-comparison.json",
+      "sha256": "373925ddaa765e4846cba0e4bed5aaef5d8946406a01e3bf12ca4e8c5e4578e8",
+      "originalRunFile": "test-runs/20261104-E13-01/V/cell-oracle-02/comparison.json"
+    },
+    "placement-comparison.json": {
+      "path": "references/next-native-evidence/placement-comparison.json",
+      "sha256": "374a7cc0080a8fe44b720636861c3d61cb208c5ce2120e9a7c3e98b741d7df6e",
+      "originalRunFile": "test-runs/20261104-E13-01/V/port-placement-oracle-02/comparison.json"
+    },
+    "central-options-review.json": {
+      "path": "references/next-native-evidence/central-options-review.json",
+      "sha256": "7bcc8093fbf1d84644f78c21c81548d31ca3990e76d00559e195441c35665587",
+      "originalRunFile": "test-runs/20261104-E13-01/V/central-options-code-review-01.json"
+    },
+    "port-transfer-review.json": {
+      "path": "references/next-native-evidence/port-transfer-review.json",
+      "sha256": "9a7e0e92eb2d6ff7e34626c21a9aeeb08a0eace0e8a69e44f22481e7b31e742f",
+      "originalRunFile": "test-runs/20261104-E13-01/V/port-transfer-code-review-02.json"
+    },
+    "cells-placement-review.json": {
+      "path": "references/next-native-evidence/cells-placement-review.json",
+      "sha256": "01a7f28581af36ce78cb4bc68f95fecb08eedaa144a714bbcf710710d81344cf",
+      "originalRunFile": "test-runs/20261104-E13-01/V/cells-placement-code-review-01.json"
+    },
+    "providers.json-0": {
+      "path": "references/next-native-evidence/providers-0.json",
+      "sha256": "d49aef51d9d451df10b5349450d6e6cf1e113ac985b0224c60418d8af2d8189d",
+      "originalRunFile": "test-runs/20261104-E16-01/B/fixed-branches-03/report.json"
+    },
+    "providers.json-1": {
+      "path": "references/next-native-evidence/providers-1.json",
+      "sha256": "74c969e6d928e879571456de5c0d9c8975884e5084a664c40cad79705fdfb7ab",
+      "originalRunFile": "test-runs/20261104-E16-01/B/fixed-branches-command-03/command.json"
+    },
+    "providers.json-2": {
+      "path": "references/next-native-evidence/providers-2.json",
+      "sha256": "bd0925591445d37b957d427d4f919d12ec825ad763e35c2b6af68386f18b30e0",
+      "originalRunFile": "test-runs/20261104-E16-01/B/box-random-branches-01/report.json"
+    },
+    "providers.json-3": {
+      "path": "references/next-native-evidence/providers-3.json",
+      "sha256": "fcc45b560cb70ea15d72f5f596471030223ee6d546998aee2285928c8544dfdc",
+      "originalRunFile": "test-runs/20261104-E16-01/B/box-random-command-01/command.json"
+    },
+    "providers.json-4": {
+      "path": "references/next-native-evidence/providers-4.json",
+      "sha256": "0fa60438bffd4c425b488bf8528585ecb3872148725d1d2332f5a9531f52eb3b",
+      "originalRunFile": "test-runs/20261104-E16-01/B/random-unseeded-01/report.json"
+    },
+    "providers.json-5": {
+      "path": "references/next-native-evidence/providers-5.json",
+      "sha256": "033681c8a25aee5e72f0082a4133e4d481ef3542fac8535b1912ded15d2cf198",
+      "originalRunFile": "test-runs/20261104-E16-01/B/random-unseeded-command-01/command.json"
+    },
+    "persistent-state.json-0": {
+      "path": "references/next-native-evidence/persistent-state-0.json",
+      "sha256": "a37e9adbe1eee6eb43df89e9154ac596328ba4c70fcea4622367355de1f94f34",
+      "originalRunFile": "test-runs/20261104-E16-01/B/state-interface-smoke-01/report.json"
+    },
+    "persistent-state.json-1": {
+      "path": "references/next-native-evidence/persistent-state-1.json",
+      "sha256": "7328469ebc0abeeca9da7d8114a6f6c923483a2a75cec846af9940da0e9726d5",
+      "originalRunFile": "test-runs/20261104-E16-01/B/state-interface-command-01/command.json"
+    },
+    "persistent-state.json-2": {
+      "path": "references/next-native-evidence/persistent-state-2.json",
+      "sha256": "94fd9cf0d2378aad176bef265550211dbbcbb67590ddb4cc2261c6722af24853",
+      "originalRunFile": "test-runs/20261104-E16-01/B/persistent-state-01/report.json"
+    },
+    "persistent-state.json-3": {
+      "path": "references/next-native-evidence/persistent-state-3.json",
+      "sha256": "1a3dc5d25b2d2566fa13606f9a51fef739762942c7bba84388a95eecd2f1c586",
+      "originalRunFile": "test-runs/20261104-E16-01/B/persistent-state-command-01/command.json"
+    }
+  },
+  "centralTypedAndRestoreTargetedMethods": 6,
+  "centralCheckDirectory": "test-runs/20261104-E13-01/root-element-options-02",
+  "publicAPIIntegrated": false,
+  "currentInstalledPackageValidated": false,
+  "wholeAlgorithmsAccepted": 0,
+  "referenceDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25
+  },
+  "fullValidation": false,
+  "packagePublished": false,
+  "projectLicenseSelected": false,
+  "goalStatus": "active",
+  "remaining": [
+    "E11 final license choice/candidate/build/install and publication remain pending.",
+    "Shared JSON import/export, recursive engine and full option parsing/provider integration.",
+    "Complete node-size/labels/hierarchy/layered and remaining algorithms under E13-E21.",
+    "Final whole-migration validation after all planned features are implemented."
+  ]
+}

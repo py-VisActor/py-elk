@@ -1,0 +1,644 @@
+{
+  "schema": "py-elk-layered-processor-classes-source-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "f5b375f74e4cea9fc265065925759f3afcd35852376f4451ae01b7e4565459f2",
+  "requestSha256": "b9d3080e249b0d4b4392f9062cca46b0a48694941b3ab5d0cad17d988f1162f6",
+  "pid": 32812,
+  "parentPid": 30928,
+  "node": "v24.19.0",
+  "observation": {
+    "rows": [
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "GREEDY",
+        "ordinal": 0,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "DEPTH_FIRST",
+        "ordinal": 1,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.DepthFirstCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "INTERACTIVE",
+        "ordinal": 2,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.InteractiveCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "MODEL_ORDER",
+        "ordinal": 3,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.ModelOrderCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "GREEDY_MODEL_ORDER",
+        "ordinal": 4,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.GreedyModelOrderCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "SCC_CONNECTIVITY",
+        "ordinal": 5,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.SCConnectivity"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "SCC_NODE_TYPE",
+        "ordinal": 6,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.SCCNodeTypeCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "DFS_NODE_ORDER",
+        "ordinal": 7,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.DFSNodeOrderCycleBreaker"
+      },
+      {
+        "family": "CycleBreakingStrategy",
+        "name": "BFS_NODE_ORDER",
+        "ordinal": 8,
+        "className": "org.eclipse.elk.alg.layered.p1cycles.BFSNodeOrderCycleBreaker"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "NETWORK_SIMPLEX",
+        "ordinal": 0,
+        "className": "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "LONGEST_PATH",
+        "ordinal": 1,
+        "className": "org.eclipse.elk.alg.layered.p2layers.LongestPathLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "LONGEST_PATH_SOURCE",
+        "ordinal": 2,
+        "className": "org.eclipse.elk.alg.layered.p2layers.LongestPathSourceLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "COFFMAN_GRAHAM",
+        "ordinal": 3,
+        "className": "org.eclipse.elk.alg.layered.p2layers.CoffmanGrahamLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "INTERACTIVE",
+        "ordinal": 4,
+        "className": "org.eclipse.elk.alg.layered.p2layers.InteractiveLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "STRETCH_WIDTH",
+        "ordinal": 5,
+        "className": "org.eclipse.elk.alg.layered.p2layers.StretchWidthLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "MIN_WIDTH",
+        "ordinal": 6,
+        "className": "org.eclipse.elk.alg.layered.p2layers.MinWidthLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "BF_MODEL_ORDER",
+        "ordinal": 7,
+        "className": "org.eclipse.elk.alg.layered.p2layers.BreadthFirstModelOrderLayerer"
+      },
+      {
+        "family": "LayeringStrategy",
+        "name": "DF_MODEL_ORDER",
+        "ordinal": 8,
+        "className": "org.eclipse.elk.alg.layered.p2layers.DepthFirstModelOrderLayerer"
+      },
+      {
+        "family": "CrossingMinimizationStrategy",
+        "name": "LAYER_SWEEP",
+        "ordinal": 0,
+        "className": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer"
+      },
+      {
+        "family": "CrossingMinimizationStrategy",
+        "name": "MEDIAN_LAYER_SWEEP",
+        "ordinal": 1,
+        "className": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer"
+      },
+      {
+        "family": "CrossingMinimizationStrategy",
+        "name": "INTERACTIVE",
+        "ordinal": 2,
+        "className": "org.eclipse.elk.alg.layered.p3order.InteractiveCrossingMinimizer"
+      },
+      {
+        "family": "CrossingMinimizationStrategy",
+        "name": "NONE",
+        "ordinal": 3,
+        "className": "org.eclipse.elk.alg.layered.p3order.NoCrossingMinimizer"
+      },
+      {
+        "family": "NodePlacementStrategy",
+        "name": "SIMPLE",
+        "ordinal": 0,
+        "className": "org.eclipse.elk.alg.layered.p4nodes.SimpleNodePlacer"
+      },
+      {
+        "family": "NodePlacementStrategy",
+        "name": "INTERACTIVE",
+        "ordinal": 1,
+        "className": "org.eclipse.elk.alg.layered.p4nodes.InteractiveNodePlacer"
+      },
+      {
+        "family": "NodePlacementStrategy",
+        "name": "LINEAR_SEGMENTS",
+        "ordinal": 2,
+        "className": "org.eclipse.elk.alg.layered.p4nodes.LinearSegmentsNodePlacer"
+      },
+      {
+        "family": "NodePlacementStrategy",
+        "name": "BRANDES_KOEPF",
+        "ordinal": 3,
+        "className": "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer"
+      },
+      {
+        "family": "NodePlacementStrategy",
+        "name": "NETWORK_SIMPLEX",
+        "ordinal": 4,
+        "className": "org.eclipse.elk.alg.layered.p4nodes.NetworkSimplexPlacer"
+      },
+      {
+        "family": "EdgeRouting",
+        "name": "UNDEFINED",
+        "ordinal": 0,
+        "className": "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter"
+      },
+      {
+        "family": "EdgeRouting",
+        "name": "POLYLINE",
+        "ordinal": 1,
+        "className": "org.eclipse.elk.alg.layered.p5edges.PolylineEdgeRouter"
+      },
+      {
+        "family": "EdgeRouting",
+        "name": "ORTHOGONAL",
+        "ordinal": 2,
+        "className": "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter"
+      },
+      {
+        "family": "EdgeRouting",
+        "name": "SPLINES",
+        "ordinal": 3,
+        "className": "org.eclipse.elk.alg.layered.p5edges.splines.SplineEdgeRouter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "DIRECTION_PREPROCESSOR",
+        "ordinal": 0,
+        "className": "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "COMMENT_PREPROCESSOR",
+        "ordinal": 1,
+        "className": "org.eclipse.elk.alg.layered.intermediate.CommentPreprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "EDGE_AND_LAYER_CONSTRAINT_EDGE_REVERSER",
+        "ordinal": 2,
+        "className": "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "INTERACTIVE_EXTERNAL_PORT_POSITIONER",
+        "ordinal": 3,
+        "className": "org.eclipse.elk.alg.layered.intermediate.InteractiveExternalPortPositioner"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "PARTITION_PREPROCESSOR",
+        "ordinal": 4,
+        "className": "org.eclipse.elk.alg.layered.intermediate.PartitionPreprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LABEL_DUMMY_INSERTER",
+        "ordinal": 5,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelDummyInserter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SELF_LOOP_PREPROCESSOR",
+        "ordinal": 6,
+        "className": "org.eclipse.elk.alg.layered.intermediate.SelfLoopPreProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LAYER_CONSTRAINT_PREPROCESSOR",
+        "ordinal": 7,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "PARTITION_MIDPROCESSOR",
+        "ordinal": 8,
+        "className": "org.eclipse.elk.alg.layered.intermediate.PartitionMidprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HIGH_DEGREE_NODE_LAYER_PROCESSOR",
+        "ordinal": 9,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HighDegreeNodeLayeringProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "NODE_PROMOTION",
+        "ordinal": 10,
+        "className": "org.eclipse.elk.alg.layered.intermediate.NodePromotion"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LAYER_CONSTRAINT_POSTPROCESSOR",
+        "ordinal": 11,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "PARTITION_POSTPROCESSOR",
+        "ordinal": 12,
+        "className": "org.eclipse.elk.alg.layered.intermediate.PartitionPostprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HIERARCHICAL_PORT_CONSTRAINT_PROCESSOR",
+        "ordinal": 13,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortConstraintProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SEMI_INTERACTIVE_CROSSMIN_PROCESSOR",
+        "ordinal": 14,
+        "className": "org.eclipse.elk.alg.layered.intermediate.SemiInteractiveCrossMinProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "BREAKING_POINT_INSERTER",
+        "ordinal": 15,
+        "className": "org.eclipse.elk.alg.layered.intermediate.wrapping.BreakingPointInserter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LONG_EDGE_SPLITTER",
+        "ordinal": 16,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "PORT_SIDE_PROCESSOR",
+        "ordinal": 17,
+        "className": "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "INVERTED_PORT_PROCESSOR",
+        "ordinal": 18,
+        "className": "org.eclipse.elk.alg.layered.intermediate.InvertedPortProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "PORT_LIST_SORTER",
+        "ordinal": 19,
+        "className": "org.eclipse.elk.alg.layered.intermediate.PortListSorter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SORT_BY_INPUT_ORDER_OF_MODEL",
+        "ordinal": 20,
+        "className": "org.eclipse.elk.alg.layered.intermediate.SortByInputModelProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "NORTH_SOUTH_PORT_PREPROCESSOR",
+        "ordinal": 21,
+        "className": "org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPreprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "BREAKING_POINT_PROCESSOR",
+        "ordinal": 22,
+        "className": "org.eclipse.elk.alg.layered.intermediate.wrapping.BreakingPointProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "ONE_SIDED_GREEDY_SWITCH",
+        "ordinal": 23,
+        "className": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "TWO_SIDED_GREEDY_SWITCH",
+        "ordinal": 24,
+        "className": "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SELF_LOOP_PORT_RESTORER",
+        "ordinal": 25,
+        "className": "org.eclipse.elk.alg.layered.intermediate.SelfLoopPortRestorer"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "ALTERNATING_LAYER_UNZIPPER",
+        "ordinal": 26,
+        "className": "org.eclipse.elk.alg.layered.intermediate.unzipping.AlternatingLayerUnzipper"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SINGLE_EDGE_GRAPH_WRAPPER",
+        "ordinal": 27,
+        "className": "org.eclipse.elk.alg.layered.intermediate.wrapping.SingleEdgeGraphWrapper"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "IN_LAYER_CONSTRAINT_PROCESSOR",
+        "ordinal": 28,
+        "className": "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "END_NODE_PORT_LABEL_MANAGEMENT_PROCESSOR",
+        "ordinal": 29,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelManagementProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LABEL_AND_NODE_SIZE_PROCESSOR",
+        "ordinal": 30,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "INNERMOST_NODE_MARGIN_CALCULATOR",
+        "ordinal": 31,
+        "className": "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SELF_LOOP_ROUTER",
+        "ordinal": 32,
+        "className": "org.eclipse.elk.alg.layered.intermediate.SelfLoopRouter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "COMMENT_NODE_MARGIN_CALCULATOR",
+        "ordinal": 33,
+        "className": "org.eclipse.elk.alg.layered.intermediate.CommentNodeMarginCalculator"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "END_LABEL_PREPROCESSOR",
+        "ordinal": 34,
+        "className": "org.eclipse.elk.alg.layered.intermediate.EndLabelPreprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LABEL_DUMMY_SWITCHER",
+        "ordinal": 35,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelDummySwitcher"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "CENTER_LABEL_MANAGEMENT_PROCESSOR",
+        "ordinal": 36,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelManagementProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LABEL_SIDE_SELECTOR",
+        "ordinal": 37,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelSideSelector"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HYPEREDGE_DUMMY_MERGER",
+        "ordinal": 38,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HyperedgeDummyMerger"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HIERARCHICAL_PORT_DUMMY_SIZE_PROCESSOR",
+        "ordinal": 39,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortDummySizeProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "NODE_PLACEMENT_REPEATER",
+        "ordinal": 40,
+        "className": "org.eclipse.elk.alg.layered.intermediate.NodePlacementRepeater"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LAYER_SIZE_AND_GRAPH_HEIGHT_CALCULATOR",
+        "ordinal": 41,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HIERARCHICAL_PORT_POSITION_PROCESSOR",
+        "ordinal": 42,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortPositionProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "CONSTRAINTS_POSTPROCESSOR",
+        "ordinal": 43,
+        "className": "org.eclipse.elk.alg.layered.intermediate.ConstraintsPostprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "COMMENT_POSTPROCESSOR",
+        "ordinal": 44,
+        "className": "org.eclipse.elk.alg.layered.intermediate.CommentPostprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HYPERNODE_PROCESSOR",
+        "ordinal": 45,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HypernodesProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HIERARCHICAL_PORT_ORTHOGONAL_EDGE_ROUTER",
+        "ordinal": 46,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortOrthogonalEdgeRouter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LONG_EDGE_JOINER",
+        "ordinal": 47,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "SELF_LOOP_POSTPROCESSOR",
+        "ordinal": 48,
+        "className": "org.eclipse.elk.alg.layered.intermediate.SelfLoopPostProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "BREAKING_POINT_REMOVER",
+        "ordinal": 49,
+        "className": "org.eclipse.elk.alg.layered.intermediate.wrapping.BreakingPointRemover"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "NORTH_SOUTH_PORT_POSTPROCESSOR",
+        "ordinal": 50,
+        "className": "org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPostprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HORIZONTAL_COMPACTOR",
+        "ordinal": 51,
+        "className": "org.eclipse.elk.alg.layered.intermediate.compaction.HorizontalGraphCompactor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "LABEL_DUMMY_REMOVER",
+        "ordinal": 52,
+        "className": "org.eclipse.elk.alg.layered.intermediate.LabelDummyRemover"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "FINAL_SPLINE_BENDPOINTS_CALCULATOR",
+        "ordinal": 53,
+        "className": "org.eclipse.elk.alg.layered.intermediate.FinalSplineBendpointsCalculator"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "END_LABEL_SORTER",
+        "ordinal": 54,
+        "className": "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "REVERSED_EDGE_RESTORER",
+        "ordinal": 55,
+        "className": "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "END_LABEL_POSTPROCESSOR",
+        "ordinal": 56,
+        "className": "org.eclipse.elk.alg.layered.intermediate.EndLabelPostprocessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "HIERARCHICAL_NODE_RESIZER",
+        "ordinal": 57,
+        "className": "org.eclipse.elk.alg.layered.intermediate.HierarchicalNodeResizingProcessor"
+      },
+      {
+        "family": "IntermediateProcessorStrategy",
+        "name": "DIRECTION_POSTPROCESSOR",
+        "ordinal": 58,
+        "className": "org.eclipse.elk.alg.layered.intermediate.GraphTransformer"
+      }
+    ],
+    "uniqueClassNames": [
+      "org.eclipse.elk.alg.layered.intermediate.CommentNodeMarginCalculator",
+      "org.eclipse.elk.alg.layered.intermediate.CommentPostprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.CommentPreprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.ConstraintsPostprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+      "org.eclipse.elk.alg.layered.intermediate.EndLabelPostprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.EndLabelPreprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+      "org.eclipse.elk.alg.layered.intermediate.FinalSplineBendpointsCalculator",
+      "org.eclipse.elk.alg.layered.intermediate.GraphTransformer",
+      "org.eclipse.elk.alg.layered.intermediate.HierarchicalNodeResizingProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortConstraintProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortDummySizeProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortOrthogonalEdgeRouter",
+      "org.eclipse.elk.alg.layered.intermediate.HierarchicalPortPositionProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.HighDegreeNodeLayeringProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.HyperedgeDummyMerger",
+      "org.eclipse.elk.alg.layered.intermediate.HypernodesProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+      "org.eclipse.elk.alg.layered.intermediate.InteractiveExternalPortPositioner",
+      "org.eclipse.elk.alg.layered.intermediate.InvertedPortProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.LabelDummyInserter",
+      "org.eclipse.elk.alg.layered.intermediate.LabelDummyRemover",
+      "org.eclipse.elk.alg.layered.intermediate.LabelDummySwitcher",
+      "org.eclipse.elk.alg.layered.intermediate.LabelManagementProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.LabelSideSelector",
+      "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+      "org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+      "org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+      "org.eclipse.elk.alg.layered.intermediate.NodePlacementRepeater",
+      "org.eclipse.elk.alg.layered.intermediate.NodePromotion",
+      "org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPostprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPreprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.PartitionMidprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.PartitionPostprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.PartitionPreprocessor",
+      "org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+      "org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer",
+      "org.eclipse.elk.alg.layered.intermediate.SelfLoopPortRestorer",
+      "org.eclipse.elk.alg.layered.intermediate.SelfLoopPostProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.SelfLoopPreProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.SelfLoopRouter",
+      "org.eclipse.elk.alg.layered.intermediate.SemiInteractiveCrossMinProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.SortByInputModelProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.compaction.HorizontalGraphCompactor",
+      "org.eclipse.elk.alg.layered.intermediate.unzipping.AlternatingLayerUnzipper",
+      "org.eclipse.elk.alg.layered.intermediate.wrapping.BreakingPointInserter",
+      "org.eclipse.elk.alg.layered.intermediate.wrapping.BreakingPointProcessor",
+      "org.eclipse.elk.alg.layered.intermediate.wrapping.BreakingPointRemover",
+      "org.eclipse.elk.alg.layered.intermediate.wrapping.SingleEdgeGraphWrapper",
+      "org.eclipse.elk.alg.layered.p1cycles.BFSNodeOrderCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.DFSNodeOrderCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.DepthFirstCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.GreedyModelOrderCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.InteractiveCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.ModelOrderCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.SCCNodeTypeCycleBreaker",
+      "org.eclipse.elk.alg.layered.p1cycles.SCConnectivity",
+      "org.eclipse.elk.alg.layered.p2layers.BreadthFirstModelOrderLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.CoffmanGrahamLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.DepthFirstModelOrderLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.InteractiveLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.LongestPathLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.LongestPathSourceLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.MinWidthLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+      "org.eclipse.elk.alg.layered.p2layers.StretchWidthLayerer",
+      "org.eclipse.elk.alg.layered.p3order.InteractiveCrossingMinimizer",
+      "org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+      "org.eclipse.elk.alg.layered.p3order.NoCrossingMinimizer",
+      "org.eclipse.elk.alg.layered.p4nodes.InteractiveNodePlacer",
+      "org.eclipse.elk.alg.layered.p4nodes.LinearSegmentsNodePlacer",
+      "org.eclipse.elk.alg.layered.p4nodes.NetworkSimplexPlacer",
+      "org.eclipse.elk.alg.layered.p4nodes.SimpleNodePlacer",
+      "org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+      "org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+      "org.eclipse.elk.alg.layered.p5edges.PolylineEdgeRouter",
+      "org.eclipse.elk.alg.layered.p5edges.splines.SplineEdgeRouter"
+    ],
+    "metadataOnly": true,
+    "phaseMathExecuted": false,
+    "layoutExecuted": false
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

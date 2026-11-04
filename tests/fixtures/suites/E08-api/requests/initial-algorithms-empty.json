@@ -1,0 +1,103 @@
+{
+  "schema": "py-elk-e08-api-request/v1",
+  "steps": [
+    {
+      "operation": "construct",
+      "id": "first",
+      "constructor": {
+        "algorithms": []
+      }
+    },
+    {
+      "operation": "knownLayoutAlgorithms",
+      "id": "first"
+    },
+    {
+      "operation": "knownLayoutOptions",
+      "id": "first"
+    },
+    {
+      "operation": "knownLayoutCategories",
+      "id": "first"
+    },
+    {
+      "operation": "layout",
+      "id": "first",
+      "graph": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "layered"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 30,
+            "height": 20
+          },
+          {
+            "id": "b",
+            "width": 30,
+            "height": 20
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "operation": "terminateWorker",
+      "id": "first"
+    },
+    {
+      "operation": "terminateWorker",
+      "id": "first"
+    },
+    {
+      "operation": "layout",
+      "id": "first",
+      "graph": {
+        "id": "root",
+        "layoutOptions": {
+          "elk.algorithm": "layered"
+        },
+        "children": [
+          {
+            "id": "a",
+            "width": 30,
+            "height": 20
+          },
+          {
+            "id": "b",
+            "width": 30,
+            "height": 20
+          }
+        ],
+        "edges": [
+          {
+            "id": "ab",
+            "sources": [
+              "a"
+            ],
+            "targets": [
+              "b"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "operation": "knownLayoutAlgorithms",
+      "id": "first"
+    }
+  ],
+  "id": "initial-algorithms-empty"
+}

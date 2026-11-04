@@ -1,0 +1,238 @@
+"""Host admission for the reviewed slice; historical E04 policy stays explicit."""
+from dataclasses import dataclass
+
+from ..._errors import UnsupportedFeatureError
+from ..._json import pointer
+
+MAX_NODES = 4
+MAX_MEASURE = 1_000_000
+
+# Parsing schemas for the next migration are broader than the old bounded
+# kernel's implemented option domain. Keep this admission list independent.
+_BOUNDED_OPTION_IDS = frozenset({
+    "org.eclipse.elk.algorithm", "org.eclipse.elk.direction", "org.eclipse.elk.padding",
+    "org.eclipse.elk.spacing.nodeNode", "org.eclipse.elk.layered.spacing.nodeNodeBetweenLayers",
+    "org.eclipse.elk.separateConnectedComponents", "org.eclipse.elk.spacing.componentComponent",
+    "org.eclipse.elk.edgeRouting", "org.eclipse.elk.randomSeed",
+})
+
+
+@dataclass(frozen=True)
+class SliceAdmission:
+    node_count: int
+    edge_count: int
+    direction: str
+
+
+def _outside(path, message):
+    raise UnsupportedFeatureError("UNSUPPORTED_SLICE", path, message)
+
+
+def validate_ports_import(context):
+    """Applicability of approved P03 transfer, without a shape-count cap.
+
+    This standalone import component does not claim the remaining E13 pipeline,
+    labels or hierarchy. Existing release admission is a separate entry point.
+    """
+    from ...model import Node, Port
+    from ..._json import finite_number
+    from ..._errors import ModelValidationError
+    graph = context.working_graph
+    root = graph.root
+    if root.ports:
+        _outside("/ports", "Root external-port dummy transfer is a pending source component")
+    for node in root.children:
+        if node.children or node.edges:
+            _outside(node.path, "Hierarchy transfer is a pending source component")
+    for element in [root, *root.children, *graph.ports, *graph.edges]:
+        data = element.to_json()
+        if data.get("labels"):
+            _outside(element.path + "/labels", "Label transfer is a pending source component")
+        if isinstance(element, (Node, Port)):
+            for key in ("x", "y", "width", "height"):
+                finite_number(data.get(key, 0), path=element.path + "/" + key,
+                              nonnegative=key in ("width", "height"), error_type=ModelValidationError)
+        # Parse actual selected scopes even if this transfer does not consume
+        # every declared property; central parsing owns their type/alias rules.
+        context.element_options(element)
+    for edge in graph.edges:
+        if edge.owner is not root or len(edge.source_endpoints) != 1 or len(edge.target_endpoints) != 1:
+            _outside(edge.path, "This source transfer requires one source and one target in the flat graph")
+        if edge.to_json().get("sections"):
+            _outside(edge.path + "/sections", "Interactive section import is a pending source component")
+        for endpoint in (*edge.source_endpoints, *edge.target_endpoints):
+            owner = endpoint.owner if isinstance(endpoint, Port) else endpoint
+            if owner not in root.children:
+                _outside(edge.path, "Root/hierarchy endpoint transfer is a pending source component")
+    return SliceAdmission(len(root.children), len(root.edges),
+                          context.resolved_options.values["org.eclipse.elk.direction"])
+
+
+def _validate(context, *, maximum_nodes, dag, cyclic=False, expanded=False, diagnostics=False):
+    """Reject unreviewed branches independently of fixture IDs or coordinates."""
+    graph = context.original_graph
+    options = context.resolved_options.values
+    for key in context.resolved_options.raw_values:
+        if key not in _BOUNDED_OPTION_IDS:
+            _outside("/layoutOptions/" + key, "Parsed next-migration option is outside the bounded kernel")
+    if not expanded and options["org.eclipse.elk.direction"] not in ("RIGHT", "UNDEFINED"):
+        _outside("/layoutOptions/elk.direction", "This slice reviews RIGHT and default direction only")
+    if not expanded and not options["org.eclipse.elk.separateConnectedComponents"]:
+        _outside("/layoutOptions/elk.separateConnectedComponents", "This slice requires default component handling")
+    if options["org.eclipse.elk.randomSeed"] == 0:
+        _outside("/layoutOptions/elk.randomSeed", "This slice requires an explicit deterministic seed branch")
+    for key, value in options.items():
+        if "spacing." in key and type(value) in (int, float) and value > MAX_MEASURE:
+            _outside("/layoutOptions/" + key, "Spacing exceeds the reviewed numeric domain")
+    padding = options["org.eclipse.elk.padding"]
+    # E03's Mapping parser is a host convenience. The fixed JSON importer
+    # rejects an object-valued padding option, so this same-byte slice does too.
+    raw_padding = context.resolved_options.raw_values.get("org.eclipse.elk.padding")
+    if raw_padding is not None and type(raw_padding) is not str:
+        _outside("/layoutOptions/elk.padding", "This slice requires the reference-compatible padding string")
+    if any(getattr(padding, side) > MAX_MEASURE for side in ("top", "right", "bottom", "left")):
+        _outside("/layoutOptions/elk.padding", "Padding exceeds the reviewed numeric domain")
+    for key, value in context.original_arguments.items():
+        if key in ("logging", "measureExecutionTime"):
+            if diagnostics and type(value) is not bool:
+                _outside("/layoutArguments/" + key, "Logging/timing flags must be booleans")
+            if not diagnostics and (type(value) is not bool or value):
+                _outside("/layoutArguments/" + key, "Logging/timing is outside this slice acceptance")
+        if key not in ("layoutOptions", "logging", "measureExecutionTime"):
+            _outside("/layoutArguments/" + key, "Unknown call argument is not reviewed for this slice")
+    constructor = context.original_constructor
+    if "algorithms" in constructor and constructor["algorithms"] != ["layered"]:
+        _outside("/constructor/algorithms", "This slice only registers the reviewed layered slice")
+    for key in constructor:
+        if key not in ("defaultLayoutOptions", "algorithms"):
+            _outside("/constructor/" + key, "Constructor capability is outside this slice")
+    nodes, edges = graph.get("children", []), graph.get("edges", [])
+    if cyclic and len(edges) > 28:
+        _outside("/edges", "The reviewed multigraph domain has at most 28 original edges")
+    if len(nodes) > maximum_nodes:
+        _outside("/children", "The reviewed domain has at most " + str(maximum_nodes) + " child nodes")
+    for key in ("x", "y", "width", "height"):
+        if key in graph:
+            _outside("/" + key, "Pre-existing root geometry uses a separate source branch")
+    if "logging" in graph and not diagnostics:
+        _outside("/logging", "Existing log cleanup is outside the reviewed source slice")
+    for owner, path in [(graph, ""), *[(node, "/children/" + str(i)) for i, node in enumerate(nodes)]]:
+        if type(owner["id"]) is not str or not owner["id"]:
+            _outside(pointer(path, "id"), "This slice requires nonempty string identities")
+        if "$H" in owner:
+            _outside(pointer(path, "$H"), "Existing reference identity-cache fields are outside this slice")
+        if "properties" in owner:
+            _outside(pointer(path, "properties"), "Legacy option containers require a separate source branch")
+        for key in ("ports", "labels"):
+            if owner.get(key):
+                _outside(pointer(path, key), "Explicit shape capability is outside this slice")
+        if path:
+            for key in ("children", "edges") if expanded else ("children", "edges", "layoutOptions"):
+                if owner.get(key):
+                    _outside(pointer(path, key), "Child-local capability is outside this slice")
+            if expanded and owner.get("layoutOptions"):
+                from ...options import resolve_options
+                local = owner["layoutOptions"]
+                if (type(local) is not dict or len(local) != 1 or
+                        next(iter(local)) not in ("elk.padding", "org.eclipse.elk.padding")):
+                    _outside(pointer(path, "layoutOptions"), "Only reviewed leaf-node padding is admitted locally")
+                child = resolve_options(local=local).values["org.eclipse.elk.padding"]
+                if type(next(iter(local.values()))) is not str or any(
+                        getattr(child, side) > MAX_MEASURE for side in ("top", "right", "bottom", "left")):
+                    _outside(pointer(path, "layoutOptions"), "Child padding requires the reviewed four-side string")
+            for key in ("width", "height"):
+                if key not in owner or owner[key] > MAX_MEASURE:
+                    _outside(pointer(path, key), "Given dimensions must lie within the reviewed domain")
+            for key in ("x", "y"):
+                if key in owner:
+                    _outside(pointer(path, key), "Pre-existing node positions are outside this slice")
+    by_id = {node["id"] for node in nodes}
+    outgoing, incoming, pairs = {}, {}, set()
+    for index, edge in enumerate(edges):
+        path = "/edges/" + str(index)
+        if type(edge["id"]) is not str or not edge["id"]:
+            _outside(pointer(path, "id"), "This slice requires nonempty edge identities")
+        if "properties" in edge:
+            _outside(pointer(path, "properties"), "Legacy option containers are outside this slice")
+        for key in ("sections", "junctionPoints", "bendPoints", "startPoint", "endPoint", "sourcePoint", "targetPoint", "container"):
+            if key in edge:
+                _outside(pointer(path, key), "Pre-existing edge geometry requires a different source branch")
+        for key in ("labels", "layoutOptions"):
+            if edge.get(key):
+                _outside(pointer(path, key), "Existing routing or edge-local capability is outside this slice")
+        sources, targets = edge["sources"], edge["targets"]
+        if len(sources) != 1 or len(targets) != 1 or sources[0] not in by_id or targets[0] not in by_id:
+            _outside(path, "This slice requires child-node single-source/target edges")
+        source, target = sources[0], targets[0]
+        if not cyclic and (source == target or (source, target) in pairs):
+            _outside(path, "Self loops and parallel edges require a different source branch")
+        pairs.add((source, target))
+        if not dag and not cyclic and (source in outgoing or target in incoming):
+            _outside(path, "This slice requires a simple directed path")
+        outgoing.setdefault(source, []).append(target)
+        incoming.setdefault(target, []).append(source)
+    if not dag and not cyclic and len(edges) != max(0, len(nodes) - 1):
+        _outside("/edges", "This slice requires one connected path, or an empty graph")
+    if nodes and (dag or cyclic):
+        # Boolean admission only: no ranks/layers are produced or consumed by
+        # the actual NETWORK_SIMPLEX implementation.
+        if dag:
+            degrees = {node["id"]: len(incoming.get(node["id"], [])) for node in nodes}
+            queue = [node["id"] for node in nodes if degrees[node["id"]] == 0]
+            cursor = 0
+            while cursor < len(queue):
+                current = queue[cursor]
+                cursor += 1
+                for target in outgoing.get(current, []):
+                    degrees[target] -= 1
+                    if degrees[target] == 0:
+                        queue.append(target)
+            if cursor != len(nodes):
+                _outside("/edges", "E05 excludes directed cycles")
+        visited, pending = set(), [nodes[0]["id"]]
+        while pending:
+            current = pending.pop()
+            if current not in visited:
+                visited.add(current)
+                pending.extend(outgoing.get(current, []))
+                pending.extend(incoming.get(current, []))
+        if not expanded and visited != by_id:
+            _outside("/edges", "This slice reviews a single weakly connected component")
+    elif nodes:
+        starts = [identity for identity in by_id if identity not in incoming]
+        if len(starts) != 1:
+            _outside("/edges", "This slice excludes cycles and disconnected nodes")
+        visited, current = set(), starts[0]
+        while current not in visited:
+            visited.add(current)
+            if current not in outgoing:
+                break
+            current = outgoing[current][0]
+        if visited != by_id:
+            _outside("/edges", "This slice requires a connected acyclic path")
+    return SliceAdmission(len(nodes), len(edges), options["org.eclipse.elk.direction"])
+
+
+def validate_e04_slice(context):
+    """Frozen E04 admission policy, retained for its historical controls."""
+    return _validate(context, maximum_nodes=4, dag=False)
+
+
+def validate_e05_slice(context):
+    """Source-reviewed E05 host admission; this function computes no layout."""
+    return _validate(context, maximum_nodes=8, dag=True)
+
+
+def validate_e06_slice(context):
+    """Source-reviewed multigraph admission; this function computes no layout."""
+    return _validate(context, maximum_nodes=8, dag=False, cyclic=True)
+
+
+def validate_slice(context):
+    """Current bounded kernel plus ADR0008 source-reviewed diagnostics."""
+    return _validate(context, maximum_nodes=8, dag=False, cyclic=True, expanded=True, diagnostics=True)
+
+
+def validate_e07_slice(context):
+    """Four directions and arbitrary weak components within the reviewed bounds."""
+    return _validate(context, maximum_nodes=8, dag=False, cyclic=True, expanded=True)

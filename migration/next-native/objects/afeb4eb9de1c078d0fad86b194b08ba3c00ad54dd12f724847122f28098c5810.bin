@@ -1,0 +1,402 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker M01-M09/M11/M12 in references/e17-tree-sources.json.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# External Java build identity remains unresolved.
+"""Native MrTree graph and reviewed treeification/root phases.
+
+The later placement/routing/provider pipeline remains pending; these real
+phases do not manufacture planar coordinates or invoke any external backend.
+"""
+from __future__ import annotations
+from collections import deque
+from dataclasses import dataclass, field
+import math
+
+from .layered.graph import Vec2
+from .random import _hierarchical
+
+
+@dataclass(eq=False)
+class TGraph:
+    state: object
+    origin: dict | None = None
+    nodes: list = field(default_factory=list)
+    edges: list = field(default_factory=list)
+    properties: dict = field(default_factory=dict)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.state.option(self.origin, name, default) if self.origin is not None else default
+
+
+@dataclass(eq=False)
+class TNode:
+    id: int
+    graph: TGraph
+    label: str | None = ''
+    origin: dict | None = None
+    pos: Vec2 = field(default_factory=Vec2)
+    size: Vec2 = field(default_factory=Vec2)
+    outgoing_edges: list = field(default_factory=list)
+    incoming_edges: list = field(default_factory=list)
+    properties: dict = field(default_factory=dict)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.graph.state.option(self.origin, name, default) if self.origin is not None else default
+
+    def get_children_copy(self):
+        return [edge.target for edge in self.outgoing_edges]
+
+    def get_parent(self):
+        return self.incoming_edges[0].source if self.incoming_edges else None
+
+    def __str__(self):
+        return 'n_'+(self.label if self.label else str(self.id))
+
+
+@dataclass(eq=False)
+class TEdge:
+    source: TNode
+    target: TNode
+    origin: dict | None = None
+    bend_points: list = field(default_factory=list)
+    properties: dict = field(default_factory=dict)
+
+    def option(self, name, default=None):
+        if name in self.properties: return self.properties[name]
+        return self.source.graph.state.option(self.origin, name, default) if self.origin is not None else default
+
+
+def _selfloop(state, edge):
+    common = None
+    for identifier in (*edge.get('sources', []), *edge.get('targets', [])):
+        shape = state.shapes[(type(identifier), identifier)]
+        node = state.owners[id(shape)]
+        if common is None: common = node
+        elif common is not node: return False
+    return True
+
+
+def build_graph(state, node):
+    """M02 ordered import after the caller's real NodeMicroLayout."""
+    graph = TGraph(state, node); mapping = {}
+    for index, child in enumerate(node.get('children', [])):
+        labels = child.get('labels', [])
+        tree_node = TNode(index, graph, labels[0].get('text') if labels else '', child)
+        tree_node.pos = Vec2(child['x']+child['width']/2, child['y']+child['height']/2)
+        tree_node.size = Vec2(max(child['width'], 1), max(child['height'], 1))
+        graph.nodes.append(tree_node); mapping[id(child)] = tree_node
+    for child in node.get('children', []):
+        for edge in state.node_edges(child):
+            # Keep the two source hierarchy guards; no shape/topology shortcut.
+            if not _hierarchical(state, edge) and not _hierarchical(state, edge) and not _selfloop(state, edge):
+                source = mapping.get(id(child))
+                target = mapping.get(id(state.owners[id(state.endpoint(edge, True))]))
+                if source is not None and target is not None:
+                    tree_edge = TEdge(source, target, edge)
+                    source.outgoing_edges.append(tree_edge); target.incoming_edges.append(tree_edge)
+                    graph.edges.append(tree_edge)
+    return graph
+
+
+def _remove_first_identity(values, item):
+    for index, value in enumerate(values):
+        if value is item:
+            values.pop(index); return True
+    return False
+
+
+def treeify(graph, order=None, monitor=None):
+    """M03 actual source color transitions and eliminated-adjacency ordering."""
+    if monitor is not None: monitor.begin('DFS Treeifying phase', 1)
+    order = graph.option('mrtree.searchOrder', 'DFS') if order is None else order
+    visited = [0]*len(graph.nodes); eliminated = []
+    for index, node in enumerate(graph.nodes): node.id = index
+
+    def dfs(start):
+        # Explicit frames preserve source recursion order and color transitions
+        # without imposing a Python recursion-depth graph-size restriction.
+        visited[start.id] = 1; frames = [iter(start.outgoing_edges)]
+        while frames:
+            try: edge = next(frames[-1])
+            except StopIteration:
+                frames.pop(); continue
+            target = edge.target
+            if visited[target.id] == 1: eliminated.append(edge)
+            elif visited[target.id] == 2: visited[target.id] = 1
+            else:
+                visited[target.id] = 1; frames.append(iter(target.outgoing_edges))
+
+    def bfs(start):
+        queue = deque([start])
+        while queue:
+            node = queue.popleft(); visited[node.id] = 1
+            for edge in node.outgoing_edges:
+                target = edge.target
+                if visited[target.id] == 1: eliminated.append(edge)
+                elif visited[target.id] == 2: visited[target.id] = 1
+                else: queue.append(target)
+
+    for node in graph.nodes:
+        if visited[node.id] == 0:
+            if order == 'DFS': dfs(node)
+            elif order == 'BFS': bfs(node)
+            else: raise ValueError('Unknown effective treeifying order: '+str(order))
+            visited[node.id] = 2
+    for edge in eliminated:
+        _remove_first_identity(edge.source.outgoing_edges, edge)
+        _remove_first_identity(edge.target.incoming_edges, edge)
+    graph.properties['REMOVABLE_EDGES'] = eliminated
+    if monitor is not None: monitor.done()
+    return eliminated
+
+
+def find_roots(graph, monitor=None):
+    """M04 zero/one/many-root cases, including exact synthetic labels and IDs."""
+    if monitor is not None: monitor.begin('Find roots', 1)
+    roots = []
+    for node in graph.nodes:
+        if not node.incoming_edges:
+            node.properties['ROOT'] = True; roots.append(node)
+    if not roots:
+        root = TNode(0, graph, 'DUMMY_ROOT')
+        root.properties.update(ROOT=True, DUMMY=True); graph.nodes.append(root)
+    elif len(roots) == 1:
+        root = roots[0]
+    else:
+        root = TNode(0, graph, 'SUPER_ROOT')
+        for child in roots:
+            edge = TEdge(root, child); edge.properties['DUMMY'] = True
+            graph.edges.append(edge); root.outgoing_edges.append(edge); child.incoming_edges.append(edge)
+            child.properties['ROOT'] = False
+        root.properties.update(ROOT=True, DUMMY=True); graph.nodes.append(root)
+    if monitor is not None: monitor.done()
+    return root
+
+
+def untreeify(graph, monitor=None):
+    """M05 reappend every recorded eliminated edge, preserving duplicates."""
+    if monitor is not None: monitor.begin('Untreeify', 1)
+    for edge in graph.properties.get('REMOVABLE_EDGES', []):
+        edge.source.outgoing_edges.append(edge); edge.target.incoming_edges.append(edge)
+    if monitor is not None: monitor.done()
+
+
+def _sub_task(monitor, work):
+    return monitor.sub_task(work) if monitor is not None else None
+
+
+def calculate_fan(graph, monitor=None):
+    """M14 original per-level string prefixes, fan maxima and descendants."""
+    if monitor is not None: monitor.begin('Processor compute fanout', 1)
+    root = next((n for n in graph.nodes if n.properties.get('ROOT', False)), None)
+    current = [root]; fan = {}; descendants = {}
+    while current:
+        next_level = []; parent_id = None; index = 0
+        digits = math.floor(math.log10(len(current)))+1
+        for node in current:
+            inherited = node.properties.get('ID', '')
+            if parent_id != inherited:
+                parent_id = inherited; index = 0
+            node_id = (parent_id if parent_id is not None else '')+str(index).rjust(digits, '0')
+            index += 1; node.properties['ID'] = node_id
+            for child in node.get_children_copy():
+                next_level.append(child); child.properties['ID'] = node_id
+        local = {}
+        # The source uses the final node's id length for this level.
+        for offset in range(len(node_id)-digits):
+            for node in current:
+                key = node.properties['ID'][:offset+1]
+                local[key] = local.get(key, 0)+1
+        for key, count in local.items():
+            descendants[key] = descendants.get(key, 0)+count
+            if key not in fan or fan[key] < count: fan[key] = count
+        current = next_level
+    for node in graph.nodes:
+        key = node.properties.get('ID', '')
+        node.properties['FAN'] = fan.get(key, 0)
+        node.properties['DESCENDANTS'] = 1+descendants.get(key, 0)
+    if monitor is not None: monitor.done()
+
+
+def calculate_levels(graph, monitor=None):
+    """M17 uses the source internal-id map, including synthetic id collisions."""
+    if monitor is not None: monitor.begin('Processor compute fanout', 1)
+    current = [n for n in graph.nodes if n.properties.get('ROOT', False)]
+    levels = {}; level = 0
+    while current:
+        next_level = []
+        for node in current:
+            levels[node.id] = level; next_level.extend(node.get_children_copy())
+        current = next_level; level += 1
+    for node in graph.nodes: node.properties['mrtree.treeLevel'] = levels.get(node.id, 0)
+    if monitor is not None: monitor.done()
+
+
+def _reorder_outgoing(node, children, reverse):
+    children.sort(key=lambda child: child.properties.get('POSITION', 0), reverse=reverse)
+    node.outgoing_edges[:] = [edge for child in children for edge in node.outgoing_edges if edge.target is child]
+
+
+def order_nodes(graph, monitor=None):
+    """M15 all four weighting modes with the literal source constraint passes."""
+    if monitor is not None: monitor.begin('Processor arrange node', 1)
+    root = next(n for n in graph.nodes if n.properties.get('ROOT', False))
+    weighting = graph.option('mrtree.weighting', 'MODEL_ORDER')
+    if weighting not in ('FAN', 'DESCENDANTS', 'CONSTRAINT'):
+        if monitor is not None: monitor.done()
+        return
+    property_name = 'DESCENDANTS' if weighting == 'DESCENDANTS' else 'FAN'
+    work = [('level', [root], _sub_task(monitor, 1))]
+    while work:
+        operation, *args = work.pop()
+        if operation == 'done':
+            level_monitor, = args
+            if level_monitor is not None: level_monitor.done()
+            continue
+        if operation == 'reorder':
+            _reorder_outgoing(*args); continue
+        if operation == 'constraint-parent':
+            node, level_monitor, count = args
+            children = node.get_children_copy()
+            work.append(('reorder', node, children, False))
+            work.append(('level', children, _sub_task(level_monitor, 1//count)))
+            continue
+        if operation == 'fan-parent':
+            node, context, level_monitor, count = args
+            node.properties['POSITION'] = context['position']; context['position'] += 1
+            children = node.get_children_copy()
+            work.append(('fan-after', node, children, context))
+            work.append(('level', children, _sub_task(level_monitor, 1//count)))
+            continue
+        if operation == 'fan-after':
+            node, children, context = args
+            _reorder_outgoing(node, children, True)
+            fill_gap = len(node.outgoing_edges); leaves = context['leaves']
+            while fill_gap > 0 and leaves:
+                leaf = leaves[-1]
+                if leaf.properties.get(property_name, 0) != 0: break
+                leaf.properties['POSITION'] = context['position']; context['position'] += 1
+                fill_gap -= 1; leaves.pop()
+            continue
+        current, level_monitor = args
+        if level_monitor is not None: level_monitor.begin('Processor arrange level', 1)
+        work.append(('done', level_monitor))
+        if weighting == 'CONSTRAINT':
+            undefined = [n for n in current if n.option('mrtree.positionConstraint', -1) < 0]
+            inbound = [n for n in current if 0 <= n.option('mrtree.positionConstraint', -1) < len(current)]
+            outbound = [n for n in current if n.option('mrtree.positionConstraint', -1) >= len(current)]
+            ordered = [None]*len(current); index = 0
+            while index < len(inbound):
+                node = inbound[index]; target = node.option('mrtree.positionConstraint', -1)
+                # The source compares to the shrinking inbound list, not ordered.
+                if 0 <= target < len(inbound) and ordered[target] is None:
+                    ordered[target] = node; inbound.pop(index)
+                else: index += 1
+            while inbound:
+                node = inbound.pop(0); target = node.option('mrtree.positionConstraint', -1); offset = 0
+                while True:
+                    plus = target+offset; minus = target-offset
+                    if 0 <= plus < len(ordered) and ordered[plus] is None:
+                        ordered[plus] = node; break
+                    if 0 <= minus < len(ordered) and ordered[minus] is None:
+                        ordered[minus] = node; break
+                    offset += 1
+            outbound.sort(key=lambda n: n.option('mrtree.positionConstraint', -1), reverse=True)
+            for index in range(len(ordered)-1, -1, -1):
+                if ordered[index] is None and outbound: ordered[index] = outbound.pop(0)
+            for index in range(len(ordered)):
+                if ordered[index] is None and undefined: ordered[index] = undefined.pop(0)
+            for index, node in enumerate(ordered): node.properties['POSITION'] = index
+            inners = [n for n in current if n.properties.get('FAN', 0) != 0]
+            for node in reversed(inners):
+                work.append(('constraint-parent', node, level_monitor, len(inners)))
+        else:
+            current.sort(key=lambda n: n.properties.get(property_name, 0))
+            first = len(current)
+            while first and current[first-1].properties.get(property_name, 0) == 0: first -= 1
+            inners, leaves = current[:first], current[first:]
+            if not inners:
+                for index, node in enumerate(leaves): node.properties['POSITION'] = index
+            else:
+                context = {'position': 0, 'leaves': leaves}
+                for node in reversed(inners): work.append(('fan-parent', node, context, level_monitor, len(inners)))
+    if monitor is not None: monitor.done()
+
+
+def calculate_level_heights(graph, monitor=None):
+    """M16 maximum dimension of each ordered level before UNDEFINED defaults."""
+    if monitor is not None: monitor.begin('Processor determine the height for each level', 1)
+    root = next((n for n in graph.nodes if n.properties.get('ROOT', False)), None)
+    current = [root] if root is not None else []; count = len(graph.nodes) or 1
+    horizontal = graph.option('direction', 'UNDEFINED') in ('LEFT', 'RIGHT')
+    while current:
+        sub = _sub_task(monitor, len(current)//count)
+        if sub is not None: sub.begin('Set neighbors in level', 1)
+        height = 0; next_level = []
+        for node in current:
+            next_level.extend(node.get_children_copy())
+            dimension = node.size.x if horizontal else node.size.y
+            if height < dimension: height = dimension
+        for node in current: node.properties['LEVELHEIGHT'] = height
+        if sub is not None: sub.done()
+        current = next_level
+    if monitor is not None: monitor.done()
+
+
+def set_neighbors(graph, monitor=None):
+    """M17 root's children start the neighbor/sibling traversal."""
+    if monitor is not None: monitor.begin('Processor set neighbors', 1)
+    root = next((n for n in graph.nodes if n.properties.get('ROOT', False)), None)
+    current = root.get_children_copy() if root is not None else []; count = len(graph.nodes) or 1
+    while current:
+        sub = _sub_task(monitor, len(current)//count)
+        if sub is not None: sub.begin('Set neighbors in level', 1)
+        previous = None; next_level = []
+        for node in current:
+            next_level.extend(node.get_children_copy())
+            if previous is not None:
+                previous.properties['RIGHTNEIGHBOR'] = node; node.properties['LEFTNEIGHBOR'] = previous
+                if node.get_parent() is previous.get_parent():
+                    previous.properties['RIGHTSIBLING'] = node; node.properties['LEFTSIBLING'] = previous
+            previous = node
+        if sub is not None: sub.done()
+        current = next_level
+    if monitor is not None: monitor.done()
+
+
+def transform_directions(graph, monitor=None):
+    """M20 transform integer center coordinates without changing node sizes."""
+    if monitor is not None: monitor.begin('Process directions', 1)
+    direction = graph.option('direction', 'UNDEFINED')
+    if direction != 'DOWN':
+        for node in graph.nodes:
+            x, y = node.properties.get('XCOOR', 0), node.properties.get('YCOOR', 0)
+            if direction == 'UP': y *= -1
+            elif direction == 'RIGHT': x, y = y, x
+            elif direction == 'LEFT': x, y = -y, x
+            node.properties.update(XCOOR=x, YCOOR=y)
+    if monitor is not None: monitor.done()
+
+
+def set_node_positions(graph, monitor=None):
+    """M17 materialize integer centers then subtract individual half sizes."""
+    if monitor is not None: monitor.begin('Processor set coordinates', 1)
+    root = next(n for n in graph.nodes if n.properties.get('ROOT', False))
+    root.pos.x = root.properties.get('XCOOR', 0); root.pos.y = root.properties.get('YCOOR', 0)
+    current = root.get_children_copy(); sub_tasks = 1; count = len(graph.nodes) or 1
+    while True:
+        # The real caller creates this subtask even though setCoordinates does
+        # not consume it; do not invent a begin/done pair for diagnostics.
+        _sub_task(monitor, sub_tasks)
+        next_level = []
+        for node in current:
+            node.pos.x = node.properties.get('XCOOR', 0); node.pos.y = node.properties.get('YCOOR', 0)
+            next_level.extend(node.get_children_copy())
+        current = next_level
+        sub_tasks = len(current)//count
+        if not current: break
+    for node in graph.nodes:
+        node.pos.x -= node.size.x/2; node.pos.y -= node.size.y/2
+    if monitor is not None: monitor.done()

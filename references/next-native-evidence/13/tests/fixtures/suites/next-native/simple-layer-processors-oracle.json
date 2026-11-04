@@ -1,0 +1,243 @@
+{
+  "schema": "py-elk-next-simple-layer-processors/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "d95ee1f17ae37d0baf378e7f6f0841d932a635492ef8b1232c4000dd7d5cd6ce",
+  "requestSha256": "b1fb52293b20b1160d5418d903bc143a20493e092f0ec4384ce5620213cf8f41",
+  "pid": 26276,
+  "parentPid": 6864,
+  "node": "v24.19.0",
+  "observation": {
+    "cases": [
+      {
+        "id": "mixed-default-boundaries",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Layer constraint edge reversal",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Layer size calculation",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "rows": [
+          {
+            "nodes": [
+              "t0",
+              "t1",
+              "n0",
+              "b0",
+              "b1"
+            ],
+            "size": [
+              33,
+              46
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          },
+          {
+            "nodes": [],
+            "size": [
+              0,
+              0
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          },
+          {
+            "nodes": [
+              "at0",
+              "at1"
+            ],
+            "size": [
+              16,
+              22
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          }
+        ],
+        "height": 46,
+        "offsetY": 13,
+        "sameGraphObjects": true,
+        "surrounding": {
+          "reads": 2,
+          "has": true,
+          "value": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "sameReadReference": true,
+          "explicitReferencePreserved": null
+        }
+      },
+      {
+        "id": "explicit-surrounding",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Layer constraint edge reversal",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Layer size calculation",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "rows": [
+          {
+            "nodes": [
+              "first",
+              "last"
+            ],
+            "size": [
+              15,
+              53
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          }
+        ],
+        "height": 53,
+        "offsetY": -4,
+        "sameGraphObjects": true,
+        "surrounding": {
+          "reads": 2,
+          "has": true,
+          "value": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "sameReadReference": true,
+          "explicitReferencePreserved": true
+        }
+      },
+      {
+        "id": "normal-never-reads-surrounding",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Layer constraint edge reversal",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Layer size calculation",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "rows": [
+          {
+            "nodes": [
+              "normal"
+            ],
+            "size": [
+              14,
+              13
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          }
+        ],
+        "height": 13,
+        "offsetY": 5,
+        "sameGraphObjects": true,
+        "surrounding": {
+          "reads": 0,
+          "has": false,
+          "value": null,
+          "sameReadReference": true,
+          "explicitReferencePreserved": null
+        }
+      },
+      {
+        "id": "all-empty-reset",
+        "events": [
+          {
+            "kind": "begin",
+            "name": "Layer constraint edge reversal",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          },
+          {
+            "kind": "begin",
+            "name": "Layer size calculation",
+            "total": 1
+          },
+          {
+            "kind": "done"
+          }
+        ],
+        "rows": [
+          {
+            "nodes": [],
+            "size": [
+              0,
+              0
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          },
+          {
+            "nodes": [],
+            "size": [
+              0,
+              0
+            ],
+            "sameList": true,
+            "sameSize": true,
+            "sameLayerPointers": true
+          }
+        ],
+        "height": 0,
+        "offsetY": 5,
+        "sameGraphObjects": true,
+        "surrounding": {
+          "reads": 0,
+          "has": false,
+          "value": null,
+          "sameReadReference": true,
+          "explicitReferencePreserved": null
+        }
+      }
+    ],
+    "layoutExecuted": false,
+    "workingGraphPhaseExecuted": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

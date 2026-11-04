@@ -1,0 +1,79 @@
+{
+  "schema": "py-elk-e08-api-observation/v1",
+  "id": "initial-constructor-null",
+  "requestSha256": "314d2d8d79fbea6c4a90f90dd6ca567d67fef5fe059b13d03e3430a7f1765bf8",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "events": [
+    {
+      "kind": "constructor",
+      "id": "first",
+      "outcome": "threw",
+      "error": {
+        "name": "TypeError",
+        "message": "Cannot read properties of null (reading 'workerUrl')",
+        "ownNames": [
+          "stack",
+          "message"
+        ],
+        "stack": "TypeError: Cannot read properties of null (reading 'workerUrl')\n    at new ELKNode (C:\\code\\py-visactor\\py-elk\\.local\\npm-elkjs\\package\\lib\\elk.bundled.js:6732:17)\n    at main (C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_e08_api.cjs:22:62)\n    at Object.<anonymous> (C:\\code\\py-visactor\\py-elk\\tools\\reference\\capture_e08_api.cjs:47:1)\n    at Module._compile (node:internal/modules/cjs/loader:1872:14)\n    at Object..js (node:internal/modules/cjs/loader:2003:10)\n    at Module.load (node:internal/modules/cjs/loader:1594:32)\n    at Module._load (node:internal/modules/cjs/loader:1396:12)\n    at wrapModuleLoad (node:internal/modules/cjs/loader:255:19)\n    at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)\n    at node:internal/main/run_main_module:33:47"
+      },
+      "optionsAfter": null
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "knownLayoutAlgorithms",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "knownLayoutOptions",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "knownLayoutCategories",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "layout",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "terminateWorker",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "terminateWorker",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "layout",
+      "outcome": "instanceNotConstructed"
+    },
+    {
+      "kind": "call",
+      "id": "first",
+      "operation": "knownLayoutAlgorithms",
+      "outcome": "instanceNotConstructed"
+    }
+  ]
+}

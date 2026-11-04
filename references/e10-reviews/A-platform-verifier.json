@@ -1,0 +1,91 @@
+{
+  "schema": "py-elk-independent-review/v1",
+  "reviewer": "A",
+  "accepted": true,
+  "blockers": [],
+  "scope": "Read-only delta of V pure E10 verifier; original two fully-rebound identity controls and genuine positive only; no collector execution or full suite.",
+  "filesSha256": {
+    "scripts/iteration/e10.py": "4171ec971d93565192f0bed00c14eb61184d5eab0d3ac92b7801edaa3b4a8860",
+    "tests/platform/test_e10_validation.py": "bd98fa8f75e6bc31d48e290185380d745589a1295eae0ac153702d46232a117a"
+  },
+  "positive": {
+    "passed": true,
+    "errors": [],
+    "id": "windows-cpython-3.13",
+    "os": "Windows",
+    "pythonMinor": "3.13",
+    "artifactKind": "wheel",
+    "installationSourceValidated": true,
+    "caseCount": 6,
+    "cases": [
+      {
+        "id": "layered-empty",
+        "passed": true,
+        "rawStrictPassed": false
+      },
+      {
+        "id": "layered-chain",
+        "passed": true,
+        "rawStrictPassed": false
+      },
+      {
+        "id": "layered-diamond-up-flags-11",
+        "passed": true,
+        "rawStrictPassed": false
+      },
+      {
+        "id": "generated-07",
+        "passed": true,
+        "rawStrictPassed": false
+      },
+      {
+        "id": "error-unknown-endpoint",
+        "passed": true,
+        "rawStrictPassed": false
+      },
+      {
+        "id": "error-unknown-algorithm",
+        "passed": true,
+        "rawStrictPassed": false
+      }
+    ],
+    "metadataValidated": true,
+    "realRunningCancellationValidated": true,
+    "wheelSha256": "739f04ebce2782894023dd58b3f1e2e35efda8717f8bdd956c3f7967acedc593",
+    "fullValidation": false,
+    "historicalExecutionAuthenticated": false
+  },
+  "controls": [
+    {
+      "input": "test-runs\\20261103-E10-01\\A\\fully-rekey-minor.json",
+      "inputSha256": "cae5e9e67b585090e671c721c934f5081fe67cfd246a0485473a70355c2665a1",
+      "targetError": "sys.version contradicts",
+      "result": {
+        "passed": false,
+        "errors": [
+          "Actual sys.version contradicts recorded versionInfo"
+        ],
+        "fullValidation": false,
+        "historicalExecutionAuthenticated": false
+      }
+    },
+    {
+      "input": "test-runs\\20261103-E10-01\\A\\fully-rekey-os.json",
+      "inputSha256": "3022ccf48e707533a6c278cc8483aca633d3bc4fac5c82ad83374841ae60fe6c",
+      "targetError": "OS contradicts historical runtime path style",
+      "result": {
+        "passed": false,
+        "errors": [
+          "Actual OS contradicts historical runtime path style"
+        ],
+        "fullValidation": false,
+        "historicalExecutionAuthenticated": false
+      }
+    }
+  ],
+  "historicalFirstWrongPassPreserved": "cell-identity-review-01.json",
+  "findings": [
+    "sys.version numeric prefix is linked to typed versionInfo; OS is linked to original path style and actual native PID probe method.",
+    "Existing negative-control methods retain real positive before mutations; current raw bytes and current collector dependencies remain independently checked."
+  ]
+}

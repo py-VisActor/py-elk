@@ -1,0 +1,205 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright (c) Kiel University and others.
+# Worker275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# P17B in references/e13-kernel-sources.json; actual Session holder views.
+"""Source graph/node/port/label transforms for the new full Layered importer.
+
+Outer graph/edge/hierarchy orchestration is added through separately approved
+source blocks. These transforms never call the bounded public-slice resolver.
+"""
+from dataclasses import dataclass, field
+
+from ...execution.node_micro import _Node, _Properties, _PropertyReader
+from .graph import Insets, LGraph, LNode, LPort, Vec2, set_port_owner
+from .graph_configurator import get_direction
+from .label_padding import compute_inside_node_label_padding
+from .model_order_import import transform_ordered_ports
+from .native_properties import bind_native_properties
+from .ports import initialize_port, set_side
+from .property_access import read_layered_scalar
+
+
+@dataclass(eq=False)
+class LLabel:
+    text: str = ''
+    pos: Vec2 = field(default_factory=Vec2)
+    size: Vec2 = field(default_factory=Vec2)
+    properties: object = field(default_factory=dict)
+    id: int = 0
+
+
+class _GenericGraphView:
+    def __init__(self, reader, raw):
+        self.properties = _Properties(reader, raw, 'node')
+        self.options = None
+
+
+class ElkGraphImporter:
+    def __init__(self, state):
+        self.state = state
+        self.node_and_port_map = {}
+
+    def _put(self, raw, native):
+        # Source identity-key map requests share the Session's real allocator;
+        # using id for lookup is not permission to omit hash-request effects.
+        self.state.identity_hash(raw)
+        self.node_and_port_map[id(raw)] = native
+
+    def lookup(self, raw):
+        if raw is None:
+            return None
+        self.state.identity_hash(raw)
+        return self.node_and_port_map.get(id(raw))
+
+    def _read(self, raw, symbol):
+        return self.state.read_owner_scalar_property(raw, 'LayeredOptions', symbol)
+
+    def _bind(self, raw, native):
+        bind_native_properties(native, self.state.property_snapshot(raw))
+        native.properties['ORIGIN'] = raw
+
+    def _root(self, raw):
+        current = raw
+        while self.state.json_parents[id(current)] is not None:
+            current = self.state.json_parents[id(current)]
+        return current
+
+    def _actual_label_manager(self, raw):
+        # This actual Property id is deliberately NOT the catalogue's
+        # org.eclipse.elk.labelManager. Unknown full ids remain exact.
+        values = self.state.property_snapshot(raw).values
+        return values.get('org.eclipse.elk.labels.labelManager')
+
+    def create_lgraph(self, raw):
+        graph = LGraph(origin=None, options=None, random=None)
+        bind_native_properties(graph, self.state.property_snapshot(raw))
+        graph._source_session = self.state
+        graph.identity_hash = self.state.identity_hash
+        if read_layered_scalar(graph, 'DIRECTION', 'DIRECTION') == 'UNDEFINED':
+            graph.properties['DIRECTION'] = get_direction(graph)
+        if graph.properties.get('org.eclipse.elk.labels.labelManager') is None:
+            manager = self._actual_label_manager(self._root(raw))
+            if manager is not None:
+                # The fixed compiled fallback calls throwClassCastExceptionUnlessNull.
+                raise TypeError('The fixed Layered label-manager fallback only accepts null')
+            graph.properties['org.eclipse.elk.labels.labelManager'] = None
+        graph.properties['ORIGIN'] = raw
+        graph.properties['GRAPH_PROPERTIES'] = set()
+        reader = _PropertyReader(self.state)
+        parent = self.state.parents[id(raw)]
+        parent_view = None if parent is None else _GenericGraphView(reader, parent)
+        node_label_padding = compute_inside_node_label_padding(_Node(reader, raw, parent_view), 'RIGHT')
+        padding = graph.properties.get('PADDING')
+        if padding is None:
+            padding = Insets(12.0, 12.0, 12.0, 12.0)
+            graph.properties['PADDING'] = padding
+        graph.padding.left += padding.left
+        graph.padding.right += padding.right
+        graph.padding.top += padding.top
+        graph.padding.bottom += padding.bottom
+        graph.padding.left += node_label_padding.left
+        graph.padding.right += node_label_padding.right
+        graph.padding.top += node_label_padding.top
+        graph.padding.bottom += node_label_padding.bottom
+        return graph
+
+    def transform_label(self, raw):
+        label = LLabel(raw.get('text', ''))
+        self._bind(raw, label)
+        label.size.x = raw.get('width', 0.0)
+        label.size.y = raw.get('height', 0.0)
+        label.pos.x = raw.get('x', 0.0)
+        label.pos.y = raw.get('y', 0.0)
+        return label
+
+    def transform_node(self, raw, graph):
+        node = LNode(graph)
+        self._bind(raw, node)
+        node.size.x = raw.get('width', 0.0)
+        node.size.y = raw.get('height', 0.0)
+        node.pos.x = raw.get('x', 0.0)
+        node.pos.y = raw.get('y', 0.0)
+        node.labels = []
+        graph.layerless_nodes.append(node)
+        self._put(raw, node)
+        if raw.get('children') or self._read(raw, 'INSIDE_SELF_LOOPS_ACTIVATE'):
+            node.properties['COMPOUND_NODE'] = True
+        properties = graph.properties['GRAPH_PROPERTIES']
+        constraints = read_layered_scalar(node, 'PORT_CONSTRAINTS', 'PORT_CONSTRAINTS_0')
+        if constraints == 'UNDEFINED':
+            node.properties['PORT_CONSTRAINTS'] = 'FREE'
+        elif constraints != 'FREE':
+            properties.add('NON_FREE_PORTS')
+        direction = read_layered_scalar(graph, 'DIRECTION', 'DIRECTION')
+        transform_ordered_ports(self.state, raw,
+                                lambda port: self.transform_port(port, node, properties, direction, constraints))
+        for label in raw.get('labels', []):
+            if not self._read(label, 'NO_LAYOUT') and label.get('text'):
+                node.labels.append(self.transform_label(label))
+        if read_layered_scalar(node, 'COMMENT_BOX', 'COMMENT_BOX'):
+            properties.add('COMMENTS')
+        if read_layered_scalar(node, 'HYPERNODE', 'HYPERNODE'):
+            properties.add('HYPERNODES')
+            properties.add('HYPEREDGES')
+            node.properties['PORT_CONSTRAINTS'] = 'FREE'
+        return node
+
+    def _endpoint_node(self, identifier):
+        shape = self.state.shapes[(type(identifier), identifier)]
+        kind = self.state.kinds[id(shape)]
+        if kind == 'node':
+            return shape
+        if kind == 'port':
+            return self.state.owners[id(shape)]
+        raise TypeError('A source connectable shape must be a node or port')
+
+    def _is_self_loop(self, raw):
+        common = None
+        for identifiers in (raw.get('sources', []), raw.get('targets', [])):
+            for identifier in identifiers:
+                node = self._endpoint_node(identifier)
+                if common is None:
+                    common = node
+                elif node is not common:
+                    return False
+        return True
+
+    def _inside_connections(self, raw):
+        owner = self.state.owners[id(raw)]
+        for edge in self.state.incidence(raw):
+            for identifier in edge.get('targets', []):
+                if self.state._ancestor(self._endpoint_node(identifier), owner):
+                    return True
+        for edge in self.state.incidence(raw, True):
+            for identifier in edge.get('sources', []):
+                if self.state._ancestor(self._endpoint_node(identifier), owner):
+                    return True
+        for edge in self.state.incidence(raw):
+            if self._is_self_loop(edge) and self._read(edge, 'INSIDE_SELF_LOOPS_YO'):
+                return True
+        return False
+
+    def transform_port(self, raw, node, graph_properties, direction, original_constraints):
+        port = LPort()
+        bind_native_properties(port, self.state.property_snapshot(raw))
+        set_side(port, self._read(raw, 'PORT_SIDE'))
+        port.properties['ORIGIN'] = raw
+        set_port_owner(port, node)
+        port.size.x = raw.get('width', 0.0)
+        port.size.y = raw.get('height', 0.0)
+        port.pos.x = raw.get('x', 0.0)
+        port.pos.y = raw.get('y', 0.0)
+        port.labels = []
+        self._put(raw, port)
+        port.properties['INSIDE_CONNECTIONS'] = self._inside_connections(raw)
+        initialize_port(port, original_constraints, direction, self._read(raw, 'PORT_ANCHOR'))
+        for label in raw.get('labels', []):
+            if not self._read(label, 'NO_LAYOUT') and label.get('text'):
+                port.labels.append(self.transform_label(label))
+        if direction in ('LEFT', 'RIGHT'):
+            if port.side in ('NORTH', 'SOUTH'):
+                graph_properties.add('NORTH_SOUTH_PORTS')
+        elif direction in ('UP', 'DOWN'):
+            if port.side in ('EAST', 'WEST'):
+                graph_properties.add('NORTH_SOUTH_PORTS')
+        return port

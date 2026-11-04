@@ -1,0 +1,131 @@
+{
+  "schema": "py-elk-e05-component-source-review/v1",
+  "iteration": "E05",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T06:49:38.392576+00:00",
+  "sourceDocument": {
+    "path": "references/e05-source-components-A.json",
+    "sha256": "fb9a7e91082e6012f4494013657b99ac8746678088408a8b5479ab63e9cabba2"
+  },
+  "approvedComponents": [
+    "intermediate:EdgeAndLayerConstraintEdgeReverser",
+    "intermediate:LayerConstraintPreprocessor",
+    "intermediate:LayerConstraintPostprocessor",
+    "intermediate:InLayerConstraintProcessor",
+    "intermediate:LayerSizeAndGraphHeightCalculator",
+    "intermediate:ReversedEdgeRestorer",
+    "import:json-to-layered",
+    "export:layered-to-json"
+  ],
+  "componentSeals": {
+    "intermediate:EdgeAndLayerConstraintEdgeReverser": "f3ac76952bd6b7c0868c4171d4d745164911da0bde334b2c229a84262d3a0429",
+    "intermediate:LayerConstraintPreprocessor": "6a040a4c0c7cfc92b4db07104e0362051b7bac365a14c260cbbaf6eda4be15ac",
+    "intermediate:LayerConstraintPostprocessor": "97218489db59301f3b7987c846a0cda24b308fc6b608d582d1246699f5761322",
+    "intermediate:InLayerConstraintProcessor": "16603006083a66e54f26f56b80ce543d9b140fd3620d75aaff8b9ac570139e17",
+    "intermediate:LayerSizeAndGraphHeightCalculator": "27fd6548afbed1a1afc29ba65c0dab156d02de8ea0cfc12da463f8e8fa8567b9",
+    "intermediate:ReversedEdgeRestorer": "a4f0594ae2e62399335c791fa8e5aa734b245aff06a1dc360e8a6aac49fbd838",
+    "import:json-to-layered": "1613b5bf084539808baab6a51c837ff35227a0bbf57e381935e592edfd87076d",
+    "export:layered-to-json": "52e44144b45ee1309202ab3ef76337e0893ccd78baef7f6242dcc24da113802e"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 879,
+    "functionOffsetOccurrences": 801,
+    "staticCallEdges": 317,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E05-01/V/source-A-all-01/report.json",
+    "sha256": "68ff9e923ed12ac0ffe7bc7b8694d06bd81575054c5d654b012d2217e0c81708"
+  },
+  "checkedSemantics": [
+    {
+      "id": "CONSTRAINT-TRAVERSALS",
+      "checked": "Actual ordered outer/inner reversal scans both read NONE constraints; FREE rejects side-fixed branch. Preprocessor allocates hidden list but only writes HIDDEN_NODES when nonempty, default nodes never relevant. Postprocessor allocates temporary first/last label layers and takes real node snapshots/empty-layer removal; NS occupied-layer proof means removal does not alter this scope. No invented retained property keys."
+    },
+    {
+      "id": "IN-LAYER-AND-RESTORE",
+      "checked": "Actual post-crossing per-layer snapshot includes LONG_EDGE; default NONE preserves order, local insertion index and empty bottom list only. After Joiner outgoing-edge snapshots check REVERSED; accepted acyclic GREEDY and property copy do not create true flag, so real scan performs no reversal. These guarded reductions depend on default state, not equal before/after observations."
+    },
+    {
+      "id": "LAYER-SIZE",
+      "checked": "Actual loop resets each layer size, maximizes width+left+right association, then reads FIRST and LAST ordered node for top/bottom. Dummy dimensions and tiny normal margins retained; not arbitrary extrema or singleton shortcuts. Writes layer height, graph height and subtracts minY from offset; empty graph fallback0/0 remains. No external-port extra margins."
+    },
+    {
+      "id": "IMPORT",
+      "checked": "Actual child/edge loops preserve original order, instantiate one independent LNode per original and LEdge per original edge, create NEW implicit ports per endpoint (no merge). Copies property map shallowly, origin identity, given binary64 sizes and zero initial positions. Non-layout/self/hyper/explicit-port/nesting/model-order branches excluded by actual source guards. Work component DFS follows actual port-order incoming-before-outgoing, writes visited IDs, one connected component changes ownership/order, copies padding and property map including same per-call RNG; public JSON arrays retain input order."
+    },
+    {
+      "id": "CLEANUP-COMBINE-RESIZE",
+      "checked": "Real layer cleanup appends node arrays, clears actual layers and layer relations. Single-component combine clears target list, mutates source offset+zero, shifts node/bend/Junction points, rebinds graph ownership and shallow-copies properties/padding/size. Missing Junction getter materializes independent chain even when empty; objects are JS truthy. Preserve padding add/sub resize arithmetic and order; apply once."
+    },
+    {
+      "id": "EXPORT-CHAIN",
+      "checked": "Actual absolute anchors sum owner,pos,anchor in source order, prepend/append to current bend chain without simplification, then add graph offset+padding+zero hierarchy offset. Transfer section exact incoming/outgoing original identities and ID suffix_s0; whole interior bend order retained. Junction objects offset/property transfer even empty; JSON separately checks nonempty before emitting points. Original container/root geometry and arbitrary business content are preserved through cloned E03 paths; no wildcard stripping."
+    },
+    {
+      "id": "FUSED-EMF",
+      "checked": "Source intermediate EMF writes node crossing/layer IDs and parent empty constraints; JSON transfer reads geometry/sections and does not blanket-copy those property maps into public layoutOptions. Fused host representation retains observable writes, restored origins and source vector/property effects; does not invent public option keys. Optional host denominator check may reject missing/duplicate origins but cannot silently filter them or pretend such a check is source JS behavior."
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e04-source-components-A.json",
+      "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+    }
+  ],
+  "independentLemmaEvidence": {
+    "path": "test-runs/20261103-E05-01/V/transfer-controls.json",
+    "sha256": "688a2d75df1aa06bff23b84e285ed2465194fb274fc280b885b1f41af1a46f46"
+  },
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E05-01/V/source-A-all-canonical.command.json",
+      "sha256": "cacff68469daeb3a8de418795d8e025eb87561ad1db49373fe97587e729f4c4a"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-transfer-processors.command.json",
+      "sha256": "d75dbc8cda2c7037955e881c459afb687f85028563883ad4067a0f5228a66b04"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-import.command.json",
+      "sha256": "b864ee6456b903a26f8f3b4a06490d2cb69fcfee8c31d43928167e4b15e65213"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-export.command.json",
+      "sha256": "d3ce6b5f3732dddb7fde40dd8fcca483663ee579909d6b6f69cbd5a452042000"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/source-export-json.command.json",
+      "sha256": "8b4c7500225cc6fe0501676c44ef65382251b8e7e654f6a4797847d70c8d6d07"
+    },
+    {
+      "path": "test-runs/20261103-E05-01/V/transfer-controls.command.json",
+      "sha256": "3d955e210dc554d0b34577d4692744ffa68498f10c229d41012cd9ecc49240f7"
+    }
+  ],
+  "blockers": [],
+  "excludedFromApproval": [
+    {
+      "componentId": "intermediate:EndLabelSorter",
+      "reason": "END-G1 mislocates END_LABELS test as stream filter; actual stream filters NORMAL then callback checks key. Owner is correcting source path; this separate pending component is not approved by this review."
+    }
+  ],
+  "externalOpenDependencies": [
+    "EndLabelSorter source correction and final whole22 approvals required."
+  ],
+  "limitations": [
+    "Manual def-use acceptance under stated source guards; byte checks and illustrative scalar/identity controls do not prove every execution.",
+    "source-export command exited1 only at missing top-level combine_1 declaration (actual member method). Partial stdout retained; source-export-json successfully read exact member method31183?31201 and offset70551?70559.",
+    "No candidate/official engine executed during this source review; no runtime acceptance.",
+    "Exact Java provenance and overall release licensing remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE05SourceGateApproved": false,
+  "canonicalBindingDocumentSha256": "0f908edacce49b1c1fefa7403d9b7366fefb12f882928dee74a7ba2b08365336",
+  "unrelatedDocumentUpdate": "EndLabelSorter-only correction arrived during review finalization; all eight approved canonical component objects/seals were programmatically checked unchanged. Binding evidence captures prior whole document, explicitly distinct from current sourceDocument SHA."
+}

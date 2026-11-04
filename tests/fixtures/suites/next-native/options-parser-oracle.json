@@ -1,0 +1,178 @@
+{
+  "schema": "py-elk-next-option-parser-observation/v1",
+  "mode": "original-parser-object-adapter",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "70de961b7263fe332c076da706d1cfe0811859b9c375305a70310ec4d6fbb266",
+  "requestSha256": "2bc434b6a7c2ccc0aa924fda25742a8fd0b499bf5cea145bc133ee4fcde145f8",
+  "pid": 33932,
+  "parentPid": 8560,
+  "node": "v24.19.0",
+  "cases": [
+    {
+      "id": "align-symbol",
+      "option": "org.eclipse.elk.portAlignment.default",
+      "input": "BEGIN",
+      "result": {
+        "type": "ENUM",
+        "value": "BEGIN"
+      }
+    },
+    {
+      "id": "align-ordinal",
+      "option": "org.eclipse.elk.portAlignment.north",
+      "input": "4",
+      "result": {
+        "type": "ENUM",
+        "value": "END"
+      }
+    },
+    {
+      "id": "set-members",
+      "option": "org.eclipse.elk.nodeSize.options",
+      "input": "[0,PORTS_OVERHANG 8,0]",
+      "result": {
+        "type": "ENUMSET",
+        "value": [
+          "DEFAULT_MINIMUM_SIZE",
+          "PORTS_OVERHANG",
+          "ASYMMETRICAL"
+        ]
+      }
+    },
+    {
+      "id": "set-empty",
+      "option": "org.eclipse.elk.nodeSize.constraints",
+      "input": "",
+      "result": {
+        "type": "ENUMSET",
+        "value": []
+      }
+    },
+    {
+      "id": "label-set-unicode",
+      "option": "org.eclipse.elk.nodeLabels.placement",
+      "input": "[INSIDE H_CENTER, V_CENTER]",
+      "result": {
+        "type": "ENUMSET",
+        "value": [
+          "H_CENTER",
+          "V_CENTER",
+          "INSIDE"
+        ]
+      }
+    },
+    {
+      "id": "set-not-js-space",
+      "option": "org.eclipse.elk.nodeSize.constraints",
+      "input": "[PORTSNODE_LABELS]",
+      "result": {
+        "type": "ENUMSET",
+        "value": null
+      }
+    },
+    {
+      "id": "boolean-case",
+      "option": "org.eclipse.elk.portLabels.treatAsGroup",
+      "input": "TrUe",
+      "result": {
+        "type": "BOOLEAN",
+        "value": true
+      }
+    },
+    {
+      "id": "double-suffix",
+      "option": "org.eclipse.elk.spacing.labelNode",
+      "input": " 1.25d ",
+      "result": {
+        "type": "DOUBLE",
+        "value": 1.25
+      }
+    },
+    {
+      "id": "vector-trailing",
+      "option": "org.eclipse.elk.nodeSize.minimum",
+      "input": "(1,2,)",
+      "result": {
+        "type": "OBJECT",
+        "value": {
+          "x": 1,
+          "y": 2
+        }
+      }
+    },
+    {
+      "id": "vector-java-trim",
+      "option": "org.eclipse.elk.nodeSize.minimum",
+      "input": "\u00001,\u00012,",
+      "result": {
+        "type": "OBJECT",
+        "value": {
+          "x": 1,
+          "y": 2
+        }
+      }
+    },
+    {
+      "id": "insets-signed",
+      "option": "org.eclipse.elk.nodeLabels.padding",
+      "input": "[top=2,left=-3,right=4,bottom=5]",
+      "result": {
+        "type": "OBJECT",
+        "value": {
+          "top": 2,
+          "right": 4,
+          "bottom": 5,
+          "left": -3
+        }
+      }
+    },
+    {
+      "id": "insets-repeat-key",
+      "option": "org.eclipse.elk.spacing.portsSurrounding",
+      "input": "left=1,left=2,ignored=9",
+      "result": {
+        "type": "OBJECT",
+        "value": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 2
+        }
+      }
+    },
+    {
+      "id": "individual-exact",
+      "option": "org.eclipse.elk.spacing.individual",
+      "input": "elk.spacing.labelNode:0;,;elk.spacing.portPort:12.5",
+      "result": {
+        "type": "OBJECT",
+        "value": {
+          "org.eclipse.elk.spacing.labelNode": 0,
+          "org.eclipse.elk.spacing.portPort": 12.5
+        }
+      }
+    },
+    {
+      "id": "individual-wrong-delimiter",
+      "option": "org.eclipse.elk.spacing.individual",
+      "input": "elk.spacing.labelNode:0;elk.spacing.portPort:12.5",
+      "result": {
+        "type": "OBJECT",
+        "value": null
+      }
+    },
+    {
+      "id": "double-nonfinite-host-policy",
+      "option": "org.eclipse.elk.spacing.labelNode",
+      "input": "NaN",
+      "result": {
+        "type": "DOUBLE",
+        "value": {
+          "nonfinite": "NaN"
+        }
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "fullLayoutValidated": false
+}

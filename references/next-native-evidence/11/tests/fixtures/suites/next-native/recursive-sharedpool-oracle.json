@@ -1,0 +1,217 @@
+{
+  "schema": "py-elk-next-recursive-sharedpool-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "cdbca2febc6505d0a2a3770f82ce9102641ae244fc836dcc1db541204ae374f9",
+  "requestSha256": "52ef5f08bf7ac3013fa4827621c7ddde651485f51add86113bfb6155cce4540b",
+  "pid": 14740,
+  "parentPid": 34192,
+  "node": "v24.19.0",
+  "observation": {
+    "result": {
+      "id": "r",
+      "layoutOptions": {
+        "elk.algorithm": "disco",
+        "elk.underlyingLayoutAlgorithm": "fixed",
+        "elk.spacing.componentComponent": 9,
+        "elk.padding": "[top=6,left=6,bottom=6,right=6]"
+      },
+      "children": [
+        {
+          "id": "a",
+          "x": 25.766477995321086,
+          "y": 35.71782757767965,
+          "width": 20,
+          "height": 15,
+          "$H": 277
+        },
+        {
+          "id": "b",
+          "x": 5.431889415301981,
+          "y": 5.863778830603966,
+          "width": 10,
+          "height": 30,
+          "$H": 279
+        }
+      ],
+      "$H": 13,
+      "x": 0,
+      "y": 0,
+      "width": 62.6691771600382,
+      "height": 68.63025682592504
+    },
+    "pools": [
+      {
+        "algorithm": "org.eclipse.elk.disco",
+        "fetches": 1,
+        "releases": 1,
+        "queued": [
+          1
+        ]
+      }
+    ],
+    "nativeOnlySetup": null,
+    "descriptors": [
+      {
+        "id": "r",
+        "present": true,
+        "algorithm": "org.eclipse.elk.disco",
+        "hierarchy": "SEPARATE_CHILDREN"
+      },
+      {
+        "id": "a",
+        "present": false,
+        "algorithm": null,
+        "hierarchy": "INHERIT"
+      },
+      {
+        "id": "b",
+        "present": false,
+        "algorithm": null,
+        "hierarchy": "INHERIT"
+      }
+    ],
+    "events": [
+      {
+        "kind": "enter",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "kind": "enter",
+        "node": "a",
+        "geometry": {
+          "id": "a",
+          "x": 10,
+          "y": 0,
+          "width": 20,
+          "height": 15
+        }
+      },
+      {
+        "kind": "leave",
+        "node": "a",
+        "geometry": {
+          "id": "a",
+          "x": 10,
+          "y": 0,
+          "width": 20,
+          "height": 15
+        }
+      },
+      {
+        "kind": "enter",
+        "node": "b",
+        "geometry": {
+          "id": "b",
+          "x": 60,
+          "y": 25,
+          "width": 10,
+          "height": 30
+        }
+      },
+      {
+        "kind": "leave",
+        "node": "b",
+        "geometry": {
+          "id": "b",
+          "x": 60,
+          "y": 25,
+          "width": 10,
+          "height": 30
+        }
+      },
+      {
+        "kind": "execute",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      {
+        "kind": "fetch",
+        "algorithm": "org.eclipse.elk.disco",
+        "node": "r",
+        "execution": "r",
+        "before": 0,
+        "after": 0,
+        "provider": 1
+      },
+      {
+        "kind": "release",
+        "algorithm": "org.eclipse.elk.disco",
+        "execution": "r",
+        "before": 0,
+        "after": 1,
+        "provider": 1
+      },
+      {
+        "kind": "leave",
+        "node": "r",
+        "geometry": {
+          "id": "r",
+          "x": 0,
+          "y": 0,
+          "width": 62.6691771600382,
+          "height": 68.63025682592504
+        }
+      }
+    ],
+    "providerCount": 1,
+    "queuedProviders": [
+      1
+    ],
+    "geometry": [
+      {
+        "id": "r",
+        "x": 0,
+        "y": 0,
+        "width": 62.6691771600382,
+        "height": 68.63025682592504
+      },
+      {
+        "id": "a",
+        "x": 25.766477995321086,
+        "y": 35.71782757767965,
+        "width": 20,
+        "height": 15
+      },
+      {
+        "id": "b",
+        "x": 5.431889415301981,
+        "y": 5.863778830603966,
+        "width": 10,
+        "height": 30
+      }
+    ],
+    "scaleFactors": [
+      [
+        "r",
+        1
+      ],
+      [
+        "a",
+        1
+      ],
+      [
+        "b",
+        1
+      ]
+    ],
+    "monitor": {
+      "name": "Recursive Graph Layout",
+      "closed": true
+    },
+    "layoutExecuted": true
+  },
+  "candidateExecuted": false
+}

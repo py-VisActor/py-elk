@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+    "-c",
+    "from pathlib import Path\nimport json,hashlib\nroot=Path('.')\nd=json.loads((root/'docs/changes/20261104-next-native-03.json').read_bytes())\nfor e in d['evidence'].values():assert hashlib.sha256((root/e['path']).read_bytes()).hexdigest()==e['sha256'],e['path']\nc=d['checkpoint'];raw=(root/c['path']).read_bytes();assert hashlib.sha256(raw).hexdigest()==c['sha256']\nm=json.loads(raw);assert len(m['sourceTreeSha256'])==m['sourceFiles']==c['sourceFiles']==70\nassert m['sourceTreeSha256']['algorithms/layered/north_south_ports.py']==d['nsLeafProgress']['sourceSha256']\np=json.loads((root/'docs/iteration-plan.json').read_bytes());states={r['id']:r['status'] for r in p['iterations']}\nassert all(states[x]=='planned' for x in ['E13','E16','E17','E18'])\nassert p['validationPolicy']['featureImplementationComplete'] is False\nassert p['parallelPreparation']['codeCheckpoint']['sha256']==c['sha256']\nassert d['radial']['validFiniteGeometryCount']==2 and d['radial']['upstreamNonfiniteGeometryCount']==1\nassert d['wholeAlgorithmsAccepted']==0 and d['publicAPIIntegrated'] is False and d['fullValidation'] is False\nfor name in ['docs/iterations/NODE_MICRO_VALIDATION.md','docs/decisions/0010-native-object-identity.md','docs/decisions/0011-source-json-wire.md']:\n assert (root/name).is_file()\nprint(json.dumps({'passed':True,'portableEvidenceBindings':len(d['evidence']),'sourceFiles':70,'fullValidation':False,'runtimeReexecuted':False}))\n"
+  ],
+  "cwd": "C:\\code\\py-visactor\\py-elk",
+  "exitCode": 0,
+  "timedOut": false,
+  "elapsedSeconds": 0.044473,
+  "stdoutSha256": "b4bc944771415e9733621a8330009af9d1f2f92ef6bbdd6a937d2bbbfabade72",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

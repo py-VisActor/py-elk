@@ -1,0 +1,92 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "root",
+    "business": {
+      "logging": {
+        "executionTime": 765,
+        "children": [
+          {
+            "name": "Recursive Graph Layout",
+            "executionTime": -7
+          }
+        ]
+      }
+    },
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.direction": "RIGHT",
+      "elk.randomSeed": "7",
+      "elk.padding": "[top=12,left=12,bottom=12,right=12]",
+      "elk.spacing.nodeNode": "20",
+      "elk.layered.spacing.nodeNodeBetweenLayers": "30",
+      "elk.separateConnectedComponents": "true",
+      "elk.spacing.componentComponent": "40",
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        },
+        "logging": {
+          "executionTime": 123,
+          "name": "LEAF_BUSINESS"
+        }
+      },
+      {
+        "id": "b",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      },
+      {
+        "id": "c",
+        "width": 40,
+        "height": 30,
+        "data": {
+          "cost": 0.125,
+          "enabled": true
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "logging": {
+          "executionTime": 456,
+          "name": "EDGE_BUSINESS"
+        }
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ]
+      }
+    ],
+    "logging": null,
+    "executionTime": 321
+  }
+}

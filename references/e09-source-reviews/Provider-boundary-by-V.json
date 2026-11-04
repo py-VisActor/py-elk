@@ -1,0 +1,24 @@
+{
+  "schema": "py-elk-e09-source-subset-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "test-runs/20261103-E09-01/A/source-provider-proposal.json": "68d551b99872232619e3fc5bc1e54d1ea3c3da069ba9ad9b32330380e1e93b2b",
+    "test-runs/20261103-E09-01/A/source-material/E09-D40-PROVIDER-BOUNDARY.txt": "a2869cfa17ace29cf3190c2b42f54b7add0ab95a35e1c4862dcd0152c4c13750"
+  },
+  "acceptedComponentIds": [
+    "E09-D40-PROVIDER-BOUNDARY"
+  ],
+  "reviewBasis": [
+    "13 actual fixed-worker lines read and span/material/base64 independently checked against locked complete worker.",
+    "D07 executeAlgorithm calls provider.layout;D08 recursive dispatch wraps eligible flat root before provider call. Provider imports LGraph before doLayout and applies LGraph-to-ElkGraph transfer after its return.",
+    "D09 Layered begin/done surrounds prepare/component/resize work, excluding provider import/apply transfer;D07 Recursive begin/done includes provider work.",
+    "Only existing noncompound/default doLayout branch approved;visible INCLUDE_CHILDREN/doCompoundLayout branch not approved.",
+    "Python fused model import/export has different transport costs;before/after JSON adapter wall timestamps bound actual collected clocks but are not the same cost interval as any JavaScript monitor."
+  ],
+  "nativeBoundaryScope": "For nonempty admitted flat graph, Recursive surrounds actual import_raw_graph through real export_layout;Layered starts after native import and ends before native export. Empty root does not invoke provider and retains only source root monitor.",
+  "durationEqualityAcrossRuntimesClaimed": false,
+  "newAlgorithmDomainApproved": false,
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false
+}

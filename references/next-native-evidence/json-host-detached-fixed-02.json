@@ -1,0 +1,83 @@
+{
+  "passed": true,
+  "caseCount": 1,
+  "rows": [
+    {
+      "id": "root-selfedge",
+      "result": {
+        "id": "root",
+        "x": 17,
+        "y": 29,
+        "width": 100,
+        "height": 80,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true
+        },
+        "edges": [
+          {
+            "id": "detached",
+            "sources": [
+              "root"
+            ],
+            "targets": [
+              "root"
+            ],
+            "sections": [
+              {
+                "id": "original",
+                "startPoint": {
+                  "x": 2,
+                  "y": 3
+                },
+                "endPoint": {
+                  "x": 7,
+                  "y": 11
+                },
+                "business": "section"
+              }
+            ],
+            "labels": [
+              {
+                "text": "edge-label",
+                "width": 4,
+                "height": 5,
+                "business": "label"
+              }
+            ],
+            "business": "edge"
+          }
+        ]
+      },
+      "strictDifference": {
+        "passed": false,
+        "differences": [
+          {
+            "path": "/$H",
+            "kind": "missing",
+            "expected": 13
+          }
+        ],
+        "maxCoordinateError": {
+          "absolute": 0,
+          "relative": 0,
+          "path": null
+        }
+      },
+      "mandatoryDifferences": [],
+      "inputPreserved": true
+    }
+  ],
+  "sourceFilesSha256": {
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\execution\\json_transfer.py": "129631bdd897b216186724e0179395c6e49c832951d715c7e676ecfac03ae9d1",
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\algorithms\\fixed.py": "3235c4bd712226166f68411390e57d5865aa795d2a3c267de242fb45739d0db4",
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\algorithms\\box.py": "c1188f8dd443182aacce7f46bbda0295a4d7feebca6c5a114aa6828807236df8",
+    "C:\\code\\py-visactor\\py-elk\\.local\\migration-next\\src\\pyelk\\algorithms\\random.py": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d"
+  },
+  "oracleSha256": "67126b3d7b06fc2ea64a07e909569db1c838270d62f82b1eaddced8080fdd9b9",
+  "harnessSha256": "193790105d5ede7d96c0894ed4e51549dab90d604f466b52149f11c58acfd226",
+  "limitations": [
+    "All raw strict differences retained. GWT $H is separately identified, not certified equal.",
+    "Explicit harness provider traversal is not full recursive engine, parser or installed/public API acceptance."
+  ]
+}

@@ -1,8 +1,10 @@
 # 首个正式 Python 包：基础版范围与门禁
 
+当前[完整实现已整合并进入统一校验](FULL_NATIVE_IMPLEMENTATION.md)。本页保留基础版发行门禁；旧“仅受限切片”的状态按其历史日期理解。正式发布及下载复验仍待执行，不能用实现接线或本地包替代。
+
 按当前需求，先交付可独立使用的基础 py-elk 并发布正式 Python 包；py-mermaid 集成是之后的独立步骤，不能阻塞首版发布。
-计划首个公开版本为 **0.1.0**（无 alpha/rc 后缀），不是当前仅含元信息的本地 `0.0.1a0` 骨架。
-包名 `py-elk`、导入名 `pyelk`；PyPI 名称曾返回 404，但这不等于名称已保留或已获得发布权限，M5 发布前重新核查。
+计划首个公开版本为 **0.1.0**（无 alpha/rc 后缀）；当前本地 `0.0.1a0` 已有受限真实ELK实验切片，尚未满足正式发布范围。
+PyPI 发行名为 `py-visactor-elk`，导入名仍为 `pyelk`，GitHub 仓库仍为 `py-elk`。旧发行名因 PyPI 相似名称限制被拒；用户已配置新名称的 Trusted Publisher。真实发布和下载状态见 [发行记录](releases/0.1.0.md)。
 具体执行为 [ITERATION_PLAN](ITERATION_PLAN.md) 的E01–E12，方法见 [Python实现策略](IMPLEMENTATION_PLAN.md#2a-python实现策略)。实现轮次完成仍须满足本页门禁，不能用规划或实验性切片替代正式验收。
 
 ## 首版最低可用范围
@@ -23,6 +25,10 @@
 layered.spacing.nodeNodeBetweenLayers、separateConnectedComponents、spacing.componentComponent、edgeRouting、randomSeed。
 edgeRouting 首版只声明已验证的 ORTHOGONAL；其他路由模式不能静默替换为它。
 精确 ID/枚举/默认值/适用输入和可调用子集在 M1/M3 冻结；没有证据的分支不得纳入首版支持。
+
+E09 按 [ADR0008](decisions/0008-e09-diagnostics-coverage.md) 明确首版受限输入域：0–8 个原始子节点、0–28 条原始边；给定尺寸、间距和 padding 不超过 1e6；seed 为非零 signed32，省略默认1。上述全部基本拓扑均保留；预先存在的根/节点坐标、边 sections 等几何字段仍显式拒绝。更大图和新数值支路须续核来源后另行扩展，不将当前有限验证声明成无界兼容。机器边界见 [release-profiles.json](release-profiles.json)。
+
+日志/计时的 true 和 false 四组合属于本轮必需分支。日志必须来自真实执行 monitor；根 logging 是保留字段，在返回副本清理或重建，嵌套业务同名字段保留。固定 elkjs 的 executionTime 使用整数 wall 毫秒差乘1000再乘1e-9，不能按普通秒或CPU时间解释。几何比较仍使用原容差，诊断树只对源码生成的计时叶采用单独的时钟规则；原始 strict 差异保留。
 
 ## 独立后续范围
 
@@ -46,4 +52,4 @@ py-mermaid 的适配、上层案例与 Canvas 输出只在[独立集成步骤](M
 5. M5 上传真实 0.1.0 候选、核查 PyPI 页面/metadata，重新下载核 SHA 并再次安装/布局；记录发布 URL 和结果。
 
 用户已明确正式包发布目标；到执行阶段应先准备可审阅的真实候选与上述证据，再处理必要的名称、许可、账号或凭据输入。
-当前这轮完成结构和迭代规划，尚未达到功能/许可/发行门禁，不能把本地骨架上传当作正式交付。
+当前已有E03宿主基础及E04–E07受限真实四方向/多组件/多重图布局与安装对照，完整基础功能/API/生命周期/许可/发行门禁仍未完成；不能把实验切片上传当作正式0.1.0交付。

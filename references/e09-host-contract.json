@@ -1,0 +1,111 @@
+{
+  "schema": "py-elk-e09-host-contract/v1",
+  "id": "E09-ADR0008-revision1",
+  "status": "accepted-for-implementation",
+  "decision": "docs/decisions/0008-e09-diagnostics-coverage.md",
+  "publicConstructor": "ELK(options=None, *, max_pending=16, timeout=None)",
+  "registration": {
+    "default": [
+      "layered"
+    ],
+    "empty": [],
+    "aliases": [
+      "layered",
+      "org.eclipse.elk.layered"
+    ],
+    "instanceIsolated": true,
+    "optionCount": 9
+  },
+  "execution": {
+    "startMethod": "spawn",
+    "slotsPerInstance": 1,
+    "queue": "FIFO",
+    "maxPendingDefault": 16,
+    "maxPendingMinimum": 1,
+    "maxPendingMaximum": 64,
+    "pendingIncludesRunning": true,
+    "timeoutDefault": null,
+    "timeoutScope": "submission-through-result-including-queue-and-startup",
+    "idleThreadsRetained": false,
+    "idleLoopRebinding": true,
+    "activeCrossLoop": "EVENT_LOOP_CONFLICT",
+    "cancelledError": "asyncio.CancelledError",
+    "cleanupBeforeCancellationCompletes": true,
+    "hardMemoryLimitAccepted": false
+  },
+  "controller": {
+    "constructor": "ExecutionController(constructor, *, max_pending=16, timeout=None)",
+    "execute": "async execute(graph, args=None) -> ExecutionResult(graph, trace, job_id)",
+    "close": "close() -> None",
+    "diagnostic": "snapshot() -> independent JSON mapping"
+  },
+  "states": {
+    "instance": [
+      "new",
+      "open",
+      "closing",
+      "closed"
+    ],
+    "task": [
+      "queued",
+      "running",
+      "returned",
+      "failed",
+      "cancelled"
+    ]
+  },
+  "errors": {
+    "fields": [
+      "code",
+      "path",
+      "message"
+    ],
+    "validation": [
+      "ValidationError",
+      "ModelValidationError",
+      "OptionValidationError",
+      "UnknownOptionError",
+      "UnsupportedOptionError",
+      "UnsupportedFeatureError",
+      "UnknownAlgorithmError",
+      "UnsupportedAlgorithmError",
+      "UnsupportedWorkerError",
+      "ResourceClosedError"
+    ],
+    "execution": [
+      "ExecutionError",
+      "QueueFullError",
+      "ExecutionTimeoutError",
+      "WorkerExecutionError"
+    ],
+    "unknownWorkerKind": "WORKER_PROTOCOL_ERROR"
+  },
+  "trace": {
+    "clearOnLayoutEntry": true,
+    "publish": "last-submitted-success-only",
+    "stalePublicationForbidden": true,
+    "progressObservationOnly": true
+  },
+  "layoutScope": "E07-ADR0006-revision1",
+  "loggingTrueSupported": true,
+  "measureExecutionTimeTrueSupported": true,
+  "referenceDenominators": {
+    "algorithms": 12,
+    "options": 243,
+    "categories": 8,
+    "masterCases": 25
+  },
+  "pythonAlgorithmsVerified": 0,
+  "packagePublished": false,
+  "inheritedHostDecision": "docs/decisions/0007-e08-api-lifecycle.md",
+  "diagnostics": {
+    "sourceMonitorTree": true,
+    "flags": "bool only; omitted=false",
+    "clock": "time.time_ns() // 1000000",
+    "conversion": "float((end_ms-start_ms)*1000)*1e-9",
+    "clockJumpClamped": false,
+    "rootLogging": "reserved own root property only",
+    "nestedBusinessFields": "preserved exactly",
+    "geometryDomainExpanded": false
+  }
+}

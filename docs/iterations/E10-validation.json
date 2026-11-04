@@ -1,0 +1,80 @@
+{
+  "schema": "py-elk-iteration-change-manifest/v1",
+  "iteration": "E10",
+  "fullValidation": false,
+  "policy": "docs/VALIDATION_POLICY.md",
+  "checks": [
+    {
+      "id": "collector-protocol",
+      "directory": "test-runs/20261103-E10-01/root-capture-protocol-check-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_e10_capture.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 3,
+      "scope": "E10 changed platform/measurement protocol only"
+    },
+    {
+      "id": "os-accounting-and-archive",
+      "directory": "test-runs/20261103-E10-01/B/benchmark-owner-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_e10_benchmark.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 5,
+      "scope": "E10 changed platform/measurement protocol only"
+    },
+    {
+      "id": "platform-protocol-controls",
+      "directory": "test-runs/20261103-E10-01/V/identity-final-02/targeted",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_e10_validation.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 4,
+      "scope": "E10 changed platform/measurement protocol only"
+    },
+    {
+      "id": "public-measurement-controls",
+      "directory": "test-runs/20261103-E10-01/root-benchmark-tests-01",
+      "argv": [
+        "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/platform",
+        "-p",
+        "test_e10_benchmark_receipt.py",
+        "-v"
+      ],
+      "cwd": "C:\\code\\py-visactor\\py-elk",
+      "tests": 2,
+      "scope": "E10 changed platform/measurement protocol only"
+    }
+  ]
+}

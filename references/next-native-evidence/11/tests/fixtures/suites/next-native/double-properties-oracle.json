@@ -1,0 +1,50 @@
+{
+  "schema": "py-elk-original-double-properties-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "5dccfeea07a372b4a7939f5a3555fcae64db3c5aa805ff393acbbcb316f56792",
+  "requestSha256": "7448d4c2fdd103ad5e250271ebf7f062c73349095d5a28608ae24d0a181887f5",
+  "pid": 43380,
+  "parentPid": 31564,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "core-negative-spacing",
+      "result": {
+        "present": true,
+        "value": -2.5,
+        "negativeZero": false,
+        "plusOne": -1.5
+      }
+    },
+    {
+      "id": "core-double-number-rounding",
+      "result": {
+        "present": true,
+        "value": 9007199254740992,
+        "negativeZero": false,
+        "plusOne": 9007199254740992
+      }
+    },
+    {
+      "id": "force-double-string-rounding",
+      "result": {
+        "present": true,
+        "value": 9007199254740992,
+        "negativeZero": false,
+        "plusOne": 9007199254740992
+      }
+    },
+    {
+      "id": "double-negative-zero",
+      "result": {
+        "present": true,
+        "value": 0,
+        "negativeZero": true,
+        "plusOne": 1
+      }
+    }
+  ],
+  "layoutExecuted": false,
+  "candidateExecuted": false,
+  "fullValidation": false
+}

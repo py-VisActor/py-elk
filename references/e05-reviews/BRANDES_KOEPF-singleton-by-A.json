@@ -1,0 +1,57 @@
+{
+  "schema": "py-elk-e05-independent-component-review/v1",
+  "iteration": "E05",
+  "reviewerLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "reviewedUtc": "2026-11-03T06:42:11.598434+00:00",
+  "reviewedFiles": [
+    {
+      "path": "references/e05-source-components-B.json",
+      "sha256": "098e9069099b8a45af61d5225c0a2f93ff27fefe868d62eea017c3ee3eae378b"
+    }
+  ],
+  "approvedSourceComponents": [
+    "phase:BRANDES_KOEPF"
+  ],
+  "approvedComponentSeals": {
+    "phase:BRANDES_KOEPF": "4ee7fb02836afb766676665008ac0398b5bb35a2b31bc4949ede45aa8662d331"
+  },
+  "canonicalEncoding": {
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "ensure_ascii": true,
+    "encoding": "UTF-8"
+  },
+  "priorFullReview": {
+    "path": "C:/code/py-visactor/py-elk/test-runs/20261103-E05-01/A/review-B-BK-source-final.json",
+    "sha256": "0aa0fde838e7d74121e2437470194137095fe05491cbad007be4d9a0404879bd"
+  },
+  "changedFieldsOnly": [
+    "scope",
+    "configurationHelperSpans",
+    "guardProofs"
+  ],
+  "canonicalChecks": {
+    "sources": 2,
+    "spanOccurrences": 625,
+    "functionOffsetOccurrences": 602,
+    "staticCallEdges": 274,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "sourceReasoning": [
+    {
+      "id": "A-BK-SINGLETON-AMENDMENT",
+      "conclusion": "Actual LayerSweep $process_76 returns before initialize/writeback for one-layer singleton, so source NORMAL PORT_CONSTRAINTS remains FIXED_SIDE. BK retained entry/neighbors/conflict/alignment/compaction/threshold helpers do not read this property; they read actual sides/positions/anchors/margins, so admitting FIXED_SIDE alongside FIXED_ORDER preserves exactly the existing guarded source logic. No mathematical operation, default, ordering rule or numeric tolerance changes. Prior full source reasoning remains applicable. This closes the original singleton source-to-pipeline premise rather than requiring a fake FIXED_ORDER write."
+    }
+  ],
+  "remainingBlockingFindings": [],
+  "runtimeAcceptanceAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "limitations": [
+    "Directed review of this explicit scope/call-anchor amendment; all unchanged math/helper/host closure is bound by the prior immutable full review.",
+    "Root alone authorizes port from this review."
+  ]
+}

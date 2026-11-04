@@ -1,0 +1,27 @@
+# py-elk 会话入口
+
+完成审计补充（2026-11-04）：37 步／917 测试是冻结开发检查通过，不能代替所有 E11–E21 退出条件。当前补当前 0.1 包逐算法性能/峰值内存、243 选项效果/状态账本、独立高级几何与干净 Git checkout 验证；PyPI 配置和上传下载仍待完成。算法实现不重做，已过数学组不重跑。详见 `docs/implementation-backlog.json`。
+
+当前任务：[0.1.0 发行收口](docs/releases/0.1.0.md)。迁移与统一技术校验已完成，37 步／917 测试在冻结输入上通过；正式源码 `src/pyelk` 已仅改版本为 0.1.0。候选双安装通过，尚未上传 PyPI。继续处理真实 publisher 配置与发行／下载复验；不要按下方历史迭代重新实现或重跑未变化数学组。
+
+当前阶段：[完整实现与统一校验](docs/FULL_NATIVE_IMPLEMENTATION.md)。全部实现已整合到 `src/pyelk`；现在并行运行统一校验、集中修复。`.local/migration-next` 仅是冻结实现快照。当前不再适用下方实现期禁止运行布局的时态限制。
+
+用户最新规则（2026-11-04）：按 [先实现后统一校验](docs/IMPLEMENTATION_FIRST.md) 完成全部功能迁移，再集中校验与修复。迁移期间只做语法/导入/接口接线最低检查，暂停逐模块原版采集、差分、负控制及源审/码审等待。此规则覆盖下述旧逐轮验收、先独审再实现安排。
+
+先读 [新会话入口](docs/NEW_SESSION.md)、[实现策略](docs/IMPLEMENTATION_PLAN.md)、[机器计划](docs/iteration-plan.json) 和 [校验手册](docs/LAYOUT_VALIDATION.md)。实际完成状态只读机器计划、[状态页](docs/RELEASE_STATUS.md)及本轮记录。当前工作目录应是 py-visactor/py-elk；环境显示旧 py-mermaid 时先定位真正仓库。
+
+E09 已实现受限真实诊断、同包219项有限行为见证，最终平台屏障按状态页。首版边界为0–8原始节点/最多28边、九选项、ORTHOGONAL、有限尺寸及spacing/padding≤1e6、非零signed32 seed。完整算法通过仍0，12/243/8及25master分母不减，正式发行和py-mermaid集成后置。
+
+用户要求尽可能并行。按 [协作规范](docs/PARALLEL_EXECUTION.md) root+A/B/V，最多3个sub-agent；先brief、接口、单写文件归属，再分块交付/独审、稳定屏障与复盘。E10八格wheel/两个sdist代表与性能专项已通过，见 [E10手册](docs/E10_PLATFORM_VALIDATION.md)；当前推进 [E11候选](docs/iterations/E11.md)。不要等整套工具写完才交首个真实小正本，不重复已经通过的无关验收。
+
+唯一行为基线为elkjs0.12.1。实现者直接核固定源/caller/guard/许可证并实现，不等逐模块独审；统一审查与运行校验在功能齐全后进行。40诊断组件与G01几何证明独立保存。生成clock为整数wall-ms差×1000×1e-9，不能当CPU或普通秒。旧v2/profile/1e-6和1e-9容差不放宽，原始strict差异与首败保留。
+
+开发期按本批manifest核变更检查；全量入口仅留全部功能完成后：
+
+```shell
+python scripts/check.py --out test-runs/session-01
+```
+
+CPython3.11+。E09/E10已在E11许可修改前冻结为历史材料，重核用scripts/iteration/e11_history.py；不执行旧包或用旧SHA认证当前源码。E11正式候选用e11_package.py，当前许可/版本未冻结时明确非ready。E13/E16先行代码见[migration/next-native](migration/next-native/README.md)，恢复后继续独立实现，正式src仍按E11冻结。source facts/声明/真实运行/后验结论分开，独审统一accepted/blockers/filesSha256。actual installed/package/METADATA、非src、原始数据、同wheel角色与PID关系都须核；Windows venv允许真实shim。本批只按变更证据收口，全部迁移功能完成后再全量。不要缓存PASS、重绑旧执行SHA或据有限样本声明数学等价。
+
+每轮结束按交付与验收、并行执行、问题与改进、下一轮复盘。性能须同分母顺序实测；本轮未建立新的整体提速比例。共享文件单owner；未要求时不自行提交/推送或发布。

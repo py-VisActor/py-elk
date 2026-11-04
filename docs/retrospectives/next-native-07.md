@@ -1,0 +1,9 @@
+# 07批复盘
+
+交付90文件检查点及82份新增原始证据。A交付SweepCopy，V用三个独立原对象核复制/恢复；root分离Core与provider默认、生成225项静态声明并实现独立显式解析器，十个新原解析小样例通过。正式公开能力和Session支持数不因独立parser表扩大。
+
+V发现原source包有一条选项ID只出现在description中，不能当作该选项的注册；后续按真实`$id_1(builder,id)`锚定。首版比较器的Python相等会混淆bool和number，已改用既有strict diff；V仅离线重核十条保存结果与两个纯checker负控制，不重启产品。首个错误fixture ID及SweepCopy漏cache标记的真实失败均保留。
+
+并行继续采用root/A/B/V单owner、先小源块再代码、先备新原控的方式。root归档不暂停A的counter和B的polygon队列。新默认视图先明确来源owner，不能把metadata声明或旧受限默认自动注入整个运行层。下一批先接已审parser的真实reader/配置器，随后补OBJECT与盒身份。
+
+本批未运行全量、旧provider组或平台矩阵，没有新的端到端性能比例可报告。两个真实源/候选解析进程分别约0.126/0.099秒；这些是局部执行成本，不能推导整体迁移速度。

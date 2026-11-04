@@ -1,0 +1,148 @@
+{
+  "schema": "py-elk-e05-independent-component-review/v1",
+  "iteration": "E05",
+  "reviewerLane": "B",
+  "status": "ACCEPTED_UNDER_EXPLICIT_DAG_GUARDS",
+  "reviewedUtc": "2026-11-03T06:26:50.313687+00:00",
+  "reviewedFiles": [
+    {
+      "path": "references/e05-source-routing.json",
+      "sha256": "72e61a4919aa174885cf4e9f6909c5827f50b7df93c78d2af371cc629cfaed7e"
+    }
+  ],
+  "approvedSourceComponents": [
+    "phase:ORTHOGONAL"
+  ],
+  "approvedComponentSeals": {
+    "phase:ORTHOGONAL": "f72b7dd54b6e0cb440d614163756cf232ec24c8e6910ff48bde0eac7cbb37f32"
+  },
+  "canonicalEncoding": {
+    "sort_keys": true,
+    "separators": [
+      ",",
+      ":"
+    ],
+    "ensure_ascii": true,
+    "encoding": "UTF-8"
+  },
+  "canonicalChecks": {
+    "sources": 2,
+    "spanOccurrences": 187,
+    "functionOffsetOccurrences": 183,
+    "staticCallEdges": 81,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "referenceChecks": [
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff",
+      "jsonPointer": "/components/5/observedTransitiveHelperDispositions",
+      "resolved": true
+    },
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff",
+      "jsonPointer": "/components/6",
+      "resolved": true
+    },
+    {
+      "path": "references/e05-routing-numeric-observations.json",
+      "sha256": "32ccb1f35e425e47163c624d67e00b81a148307316b6d76413c154d8bcf69447",
+      "jsonPointer": "/records",
+      "resolved": true
+    }
+  ],
+  "sourceReasoning": [
+    {
+      "id": "B-R-ORDERED-CYCLE-KEYS",
+      "sourceLines": [
+        58370,
+        58485
+      ],
+      "reasoning": "initialize_2 assigns distinct negative marks before the TreeSet. computeLinearOrderingMarks removes an item before changing its mark; remaining keys are stable and unique. detectCycles yields unique positive marks before insertion-ordered splitter membership. New split partners are not inserted into the old selected set, and later detection reinitializes marks. Identity membership is valid only under this explicit invariant, not as a generic substitute for mark-based equals/hash."
+    },
+    {
+      "id": "B-R-CRITICAL-SPLITTING",
+      "sourceLines": [
+        58741,
+        58934
+      ],
+      "reasoning": "All critical-split paths, selected-length stable ordering, free-area enumeration, rating alternatives, midpoint fallback, gap consumption and remove/append dependency updates have bounded source anchors. Temporary segments calculate extents on construction; rateArea mutates their coordinate arrays without recomputing extents. Preserve that generated behavior. At most one split per selected initial segment bounds temporary segments by168; proper private ports restrict each initial/split segment to at most two connection coordinates."
+    },
+    {
+      "id": "B-R-SIGNED-ZERO-NUMBERS",
+      "sourceLines": [
+        11187,
+        11198
+      ],
+      "reasoning": "Original compare_3 orders -0 before +0. sorted_0 then distinct uses primitive Double ===, which merges the signed zeros and keeps sorted -0. Seven original-helper vectors independently verify this chain, duplicates, tiny coordinates and the Double.MAX_VALUE singleton sentinel. Python comparator sorting followed by numeric-equality linear dedup preserves these operations; no inferred float32 cast or arbitrary unordered set is approved."
+    },
+    {
+      "id": "B-R-POINT-VALUE-SETS",
+      "sourceLines": [
+        59251,
+        59273
+      ],
+      "reasoning": "KVector equals_9 compares exact finite coordinates and hashCode_69 only chooses lookup buckets. createdJunctionPoints is queried for membership and cleared per boundary, never iterated to choose output order. A value set can therefore preserve membership; junction output order still follows source segment/edge traversal. Use the single A-owned clone/store getter even when the existing JUNCTION_POINTS list is empty."
+    },
+    {
+      "id": "B-R-DEPENDENCY-NUMBERING",
+      "sourceLines": [
+        59184,
+        59226
+      ],
+      "reasoning": "Keep positive-weight backward reversal, zero-weight backward deletion, retained ties, full retained-link counts, FIFO source order and rightward-target backward pass. Source nextInt can occur inside weighted cycle selection, including bound1. Actual crossing-six executes critical splitting and one31-bit draw, so the old path no-draw reduction cannot be inherited."
+    },
+    {
+      "id": "B-R-MARGINS-AND-POINTS",
+      "sourceLines": [
+        59416,
+        59459
+      ],
+      "reasoning": "WestToEast direction0 dispatch is explicit. Horizontal placement uses full max margins, ratio/default alignment and ordered clamps. Normal tiny-height multiport margins can be nonzero and long-edge dummies have height1 with local port y0; no normal-center/zero-margin prerequisite is approved. Preserve anchor operand order, strict <0.001 dependency versus >0.001 bend tests, split partner handling and actual2/4 bend sequences."
+    }
+  ],
+  "actualObservationChecks": {
+    "routingPhaseManifest": {
+      "path": "test-runs/20261103-E05-01/B/routing-owner-transfer.json",
+      "sha256": "879a1b62a57538ff90b49808aaf90ebbce06bc181e9df54c4f079fbb71af78bc"
+    },
+    "sameRequestManifest": {
+      "path": "test-runs/20261103-E05-01/B/formal-dag-traces.json",
+      "sha256": "25cd5545c97a8092b8a1538bac22a121fc408f7e6aecb7742ef13f092f9934ea"
+    },
+    "numericOriginalHelperVectors": {
+      "path": "test-runs/20261103-E05-01/B/routing-number-oracle.json",
+      "sha256": "32ccb1f35e425e47163c624d67e00b81a148307316b6d76413c154d8bcf69447"
+    },
+    "numericTool": {
+      "path": "test-runs/20261103-E05-01/B/probe_routing_numbers.cjs",
+      "sha256": "334ed96dec27fc8b15e3dad6b341a131476946cc20c4bf5519ab9fb8d5f0cf3d"
+    },
+    "numericVectorCount": 7,
+    "classification": "Actual original-helper and same-request generated-engine observations corroborate source deductions; not Python code equivalence."
+  },
+  "resolvedFindings": [
+    {
+      "id": "B-R-SOURCE-SYMBOLS",
+      "resolution": "Concept-only numeric labels now have real symbols with bounded source spans; conceptual names are separate labels."
+    },
+    {
+      "id": "B-R-HASH-AND-EQUALITY",
+      "resolution": "KVector.hashCode_69 and HyperEdgeSegment.equals_167 now have precise source anchors; mark-key stability and membership-only point-set reasoning are explicit."
+    },
+    {
+      "id": "B-R-SORTED-DISTINCT",
+      "resolution": "Added actual signed-zero helper bridge, versioned raw vectors and the precise primitive=== distinct mapping."
+    }
+  ],
+  "remainingBlockingFindings": [],
+  "runtimeAcceptanceAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "limitations": [
+    "Only the explicitly guarded RIGHT/default ORTHOGONAL proper work graph is approved as a source for mechanical port; public E05 scope remains root-owned.",
+    "The original<=8 to<=64 work-node bound depends on the separately reviewed NETWORK_SIMPLEX/long-edge lemmas; the router must independently guard its direct work-state bounds.",
+    "Rare branches have static source closure, not an exhaustive dynamic-path coverage claim. V8 coverage absence does not prove nonexecution.",
+    "No Python routing implementation or whole layout is accepted by this source review. Exact external Java build identity remains unresolved."
+  ]
+}

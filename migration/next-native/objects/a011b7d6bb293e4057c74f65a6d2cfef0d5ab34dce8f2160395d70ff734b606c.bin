@@ -1,0 +1,33 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker RP03/RP03a, independently reviewed minimum caller.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+# Exact external build identity remains unresolved.
+"""Real RectPacking minimum preprocessing; remaining phases are pending.
+
+No provider or substitute Box/Frame result is supplied by this module yet.
+"""
+from .fixed import _minimum
+from .radial import _maximum
+
+
+def _properties(state, node):
+    return state.computed_options.setdefault(id(node), {})
+
+
+def minimum_preprocess(state, node, monitor=None):
+    if monitor is not None: monitor.begin('Min Size Preprocessing', 1)
+    width, height = _minimum(state, node)
+    if state.parents[id(node)] is not None:
+        additional = state.label_node_minimum(node)
+        width = _maximum(width, additional.x)
+        height = _maximum(height, additional.y)
+    properties = _properties(state, node)
+    properties['minWidth'], properties['minHeight'] = width, height
+    if monitor is not None: monitor.done()
+
+
+def minimum_postprocess(state, node, monitor=None):
+    if monitor is not None: monitor.begin('Min Size Postprocessing', 1)
+    properties = _properties(state, node)
+    properties['targetWidth'] = _maximum(properties['targetWidth'], properties['minWidth'])
+    if monitor is not None: monitor.done()

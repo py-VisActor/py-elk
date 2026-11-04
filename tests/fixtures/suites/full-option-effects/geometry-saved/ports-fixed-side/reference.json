@@ -1,0 +1,1301 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "bec21181ac569c2a9762f010d6c0088cfa54e5900b15779a2749babfd0337f0a",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "pid": 43496,
+    "executable": "C:\\Program Files\\nodejs\\node.exe",
+    "executableSha256": "3602f2bb1a10f2cbab4c36886218a33c1ab3db87290e73b033c46c77147d0237",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "inputBefore": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 80,
+        "height": 56,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.portLabels.placement": "[OUTSIDE]"
+        },
+        "ports": [
+          {
+            "id": "p0",
+            "x": 16,
+            "y": -2,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "NORTH",
+              "elk.port.index": 129,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl0",
+                "text": "PNORTH",
+                "width": 17,
+                "height": 7
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "x": 80,
+            "y": 12,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "EAST",
+              "elk.port.index": 128,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl1",
+                "text": "PEAST",
+                "width": 18,
+                "height": 7
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "x": 53,
+            "y": 56,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "SOUTH",
+              "elk.port.index": 127,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl2",
+                "text": "PSOUTH",
+                "width": 19,
+                "height": 7
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "x": -3,
+            "y": 37,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "WEST",
+              "elk.port.index": 126,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl3",
+                "text": "PWEST",
+                "width": 20,
+                "height": 7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "ep0",
+        "sources": [
+          "p0"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep0",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "ep1",
+        "sources": [
+          "p1"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "ep1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "ep2",
+        "sources": [
+          "p2"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "ep2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "ep3",
+        "sources": [
+          "p3"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep3",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cd",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "cd",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    }
+  },
+  "constructorBefore": {},
+  "argumentsBefore": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "clock": {
+    "startMs": 1793766440192,
+    "endMs": 1793766440204
+  },
+  "result": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 80,
+        "height": 56,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.portLabels.placement": "[OUTSIDE]"
+        },
+        "ports": [
+          {
+            "id": "p0",
+            "x": 38,
+            "y": -3,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "NORTH",
+              "elk.port.index": 129,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl0",
+                "text": "PNORTH",
+                "width": 17,
+                "height": 7,
+                "x": 5,
+                "y": -8
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "x": 80,
+            "y": 26.5,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "EAST",
+              "elk.port.index": 128,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl1",
+                "text": "PEAST",
+                "width": 18,
+                "height": 7,
+                "x": 5,
+                "y": 4
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "x": 38,
+            "y": 56,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "SOUTH",
+              "elk.port.index": 127,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl2",
+                "text": "PSOUTH",
+                "width": 19,
+                "height": 7,
+                "x": 5,
+                "y": 4
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "x": -4,
+            "y": 26.5,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "WEST",
+              "elk.port.index": 126,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl3",
+                "text": "PWEST",
+                "width": 20,
+                "height": 7,
+                "x": -21,
+                "y": 4
+              }
+            ]
+          }
+        ],
+        "$H": 641,
+        "x": 47,
+        "y": 50.666666666666664
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 651,
+        "x": 170,
+        "y": 12
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 653,
+        "x": 225,
+        "y": 15.5
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 655,
+        "x": 283,
+        "y": 19.166666666666664
+      }
+    ],
+    "edges": [
+      {
+        "id": "ep0",
+        "sources": [
+          "p0"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep0",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep0_s0",
+            "startPoint": {
+              "x": 86,
+              "y": 49.666666666666664
+            },
+            "endPoint": {
+              "x": 170,
+              "y": 27.333333333333332
+            },
+            "bendPoints": [
+              {
+                "x": 86,
+                "y": 29.666666666666664
+              },
+              {
+                "x": 160,
+                "y": 29.666666666666664
+              },
+              {
+                "x": 160,
+                "y": 27.333333333333332
+              }
+            ],
+            "incomingShape": "p0",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "ep1",
+        "sources": [
+          "p1"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "ep1",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep1_s0",
+            "startPoint": {
+              "x": 128,
+              "y": 79.16666666666666
+            },
+            "endPoint": {
+              "x": 225,
+              "y": 31.5
+            },
+            "bendPoints": [
+              {
+                "x": 215,
+                "y": 79.16666666666666
+              },
+              {
+                "x": 215,
+                "y": 31.5
+              }
+            ],
+            "incomingShape": "p1",
+            "outgoingShape": "c"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "ep2",
+        "sources": [
+          "p2"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "ep2",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep2_s0",
+            "startPoint": {
+              "x": 86,
+              "y": 108.66666666666666
+            },
+            "endPoint": {
+              "x": 283,
+              "y": 35.833333333333336
+            },
+            "bendPoints": [
+              {
+                "x": 86,
+                "y": 127.66666666666666
+              },
+              {
+                "x": 273,
+                "y": 127.66666666666666
+              },
+              {
+                "x": 273,
+                "y": 35.833333333333336
+              }
+            ],
+            "incomingShape": "p2",
+            "outgoingShape": "d"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "ep3",
+        "sources": [
+          "p3"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep3",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep3_s0",
+            "startPoint": {
+              "x": 44,
+              "y": 79.16666666666666
+            },
+            "endPoint": {
+              "x": 170,
+              "y": 19.666666666666664
+            },
+            "bendPoints": [
+              {
+                "x": 12,
+                "y": 79.16666666666666
+              },
+              {
+                "x": 12,
+                "y": 19.666666666666664
+              }
+            ],
+            "incomingShape": "p3",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "bc_s0",
+            "startPoint": {
+              "x": 205,
+              "y": 23.5
+            },
+            "endPoint": {
+              "x": 225,
+              "y": 23.5
+            },
+            "incomingShape": "b",
+            "outgoingShape": "c"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "cd",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "cd",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cd_s0",
+            "startPoint": {
+              "x": 263,
+              "y": 27.5
+            },
+            "endPoint": {
+              "x": 283,
+              "y": 27.5
+            },
+            "incomingShape": "c",
+            "outgoingShape": "d"
+          }
+        ],
+        "container": "r"
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    },
+    "$H": 639,
+    "logging": {
+      "name": "Recursive Graph Layout",
+      "children": [
+        {
+          "name": "Layered layout",
+          "logs": [
+            "ELK Layered uses the following 22 modules:",
+            "   Slot 00: org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+            "   Slot 01: org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+            "   Slot 02: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+            "   Slot 03: org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+            "   Slot 04: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+            "   Slot 05: org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+            "   Slot 06: org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+            "   Slot 07: org.eclipse.elk.alg.layered.intermediate.InvertedPortProcessor",
+            "   Slot 08: org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+            "   Slot 09: org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPreprocessor",
+            "   Slot 10: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 11: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 12: org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+            "   Slot 13: org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+            "   Slot 14: org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+            "   Slot 15: org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+            "   Slot 16: org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+            "   Slot 17: org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+            "   Slot 18: org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+            "   Slot 19: org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPostprocessor",
+            "   Slot 20: org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+            "   Slot 21: org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+          ],
+          "children": [
+            {
+              "name": "Edge and layer constraint edge reversal"
+            },
+            {
+              "name": "Greedy cycle removal"
+            },
+            {
+              "name": "Layer constraint preprocessing"
+            },
+            {
+              "name": "Network simplex layering",
+              "children": [
+                {
+                  "name": "Network simplex"
+                }
+              ]
+            },
+            {
+              "name": "Layer constraint postprocessing"
+            },
+            {
+              "name": "Edge splitting"
+            },
+            {
+              "name": "Port side processing"
+            },
+            {
+              "name": "Inverted port preprocessing"
+            },
+            {
+              "name": "Port order processing"
+            },
+            {
+              "name": "Odd port side processing"
+            },
+            {
+              "name": "Minimize Crossings BARYCENTER"
+            },
+            {
+              "name": "Minimize Crossings TWO_SIDED_GREEDY_SWITCH"
+            },
+            {
+              "name": "Layer constraint edge reversal"
+            },
+            {
+              "name": "Node and Port Label Placement and Node Sizing"
+            },
+            {
+              "name": "Node margin calculation"
+            },
+            {
+              "name": "Brandes & Koepf node placement",
+              "logs": [
+                "RIGHTDOWN size is 116.66666666666666",
+                "RIGHTUP size is 121.66666666666666",
+                "LEFTDOWN size is 116.66666666666666",
+                "LEFTUP size is 121.66666666666666",
+                "RIGHTDOWN is feasible: true",
+                "RIGHTUP is feasible: true",
+                "LEFTDOWN is feasible: true",
+                "LEFTUP is feasible: true",
+                "Chosen node placement: RIGHTDOWN",
+                "Blocks: {n(long_edge)_0=[n(long_edge)_0, n_r.b, n_r.c, n_r.d], n(north_south_port)_1=[n(north_south_port)_1], n_r.a=[n_r.a, n(long_edge)_1], n(north_south_port)_3=[n(north_south_port)_3, n(long_edge)_2, n(long_edge)_1]}",
+                "Classes: {n(long_edge)_0=[n(long_edge)_0, n(north_south_port)_1, n_r.a, n(north_south_port)_3]}",
+                "Marked edges: []"
+              ]
+            },
+            {
+              "name": "Layer size calculation"
+            },
+            {
+              "name": "Orthogonal edge routing"
+            },
+            {
+              "name": "Edge joining"
+            },
+            {
+              "name": "Odd port side processing"
+            },
+            {
+              "name": "Sort end labels"
+            },
+            {
+              "name": "Restoring reversed edges"
+            }
+          ]
+        }
+      ]
+    },
+    "x": 0,
+    "y": 0,
+    "width": 336,
+    "height": 140.66666666666666
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-9
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 80,
+        "height": 56,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_SIDE",
+          "elk.portLabels.placement": "[OUTSIDE]"
+        },
+        "ports": [
+          {
+            "id": "p0",
+            "x": 38,
+            "y": -3,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "NORTH",
+              "elk.port.index": 129,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl0",
+                "text": "PNORTH",
+                "width": 17,
+                "height": 7,
+                "x": 5,
+                "y": -8
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "x": 80,
+            "y": 26.5,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "EAST",
+              "elk.port.index": 128,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl1",
+                "text": "PEAST",
+                "width": 18,
+                "height": 7,
+                "x": 5,
+                "y": 4
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "x": 38,
+            "y": 56,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "SOUTH",
+              "elk.port.index": 127,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl2",
+                "text": "PSOUTH",
+                "width": 19,
+                "height": 7,
+                "x": 5,
+                "y": 4
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "x": -4,
+            "y": 26.5,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "WEST",
+              "elk.port.index": 126,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl3",
+                "text": "PWEST",
+                "width": 20,
+                "height": 7,
+                "x": -21,
+                "y": 4
+              }
+            ]
+          }
+        ],
+        "$H": 641,
+        "x": 47,
+        "y": 50.666666666666664
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 651,
+        "x": 170,
+        "y": 12
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 653,
+        "x": 225,
+        "y": 15.5
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "$H": 655,
+        "x": 283,
+        "y": 19.166666666666664
+      }
+    ],
+    "edges": [
+      {
+        "id": "ep0",
+        "sources": [
+          "p0"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep0",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep0_s0",
+            "startPoint": {
+              "x": 86,
+              "y": 49.666666666666664
+            },
+            "endPoint": {
+              "x": 170,
+              "y": 27.333333333333332
+            },
+            "bendPoints": [
+              {
+                "x": 86,
+                "y": 29.666666666666664
+              },
+              {
+                "x": 160,
+                "y": 29.666666666666664
+              },
+              {
+                "x": 160,
+                "y": 27.333333333333332
+              }
+            ],
+            "incomingShape": "p0",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "ep1",
+        "sources": [
+          "p1"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "ep1",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep1_s0",
+            "startPoint": {
+              "x": 128,
+              "y": 79.16666666666666
+            },
+            "endPoint": {
+              "x": 225,
+              "y": 31.5
+            },
+            "bendPoints": [
+              {
+                "x": 215,
+                "y": 79.16666666666666
+              },
+              {
+                "x": 215,
+                "y": 31.5
+              }
+            ],
+            "incomingShape": "p1",
+            "outgoingShape": "c"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "ep2",
+        "sources": [
+          "p2"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "ep2",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep2_s0",
+            "startPoint": {
+              "x": 86,
+              "y": 108.66666666666666
+            },
+            "endPoint": {
+              "x": 283,
+              "y": 35.833333333333336
+            },
+            "bendPoints": [
+              {
+                "x": 86,
+                "y": 127.66666666666666
+              },
+              {
+                "x": 273,
+                "y": 127.66666666666666
+              },
+              {
+                "x": 273,
+                "y": 35.833333333333336
+              }
+            ],
+            "incomingShape": "p2",
+            "outgoingShape": "d"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "ep3",
+        "sources": [
+          "p3"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep3",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "ep3_s0",
+            "startPoint": {
+              "x": 44,
+              "y": 79.16666666666666
+            },
+            "endPoint": {
+              "x": 170,
+              "y": 19.666666666666664
+            },
+            "bendPoints": [
+              {
+                "x": 12,
+                "y": 79.16666666666666
+              },
+              {
+                "x": 12,
+                "y": 19.666666666666664
+              }
+            ],
+            "incomingShape": "p3",
+            "outgoingShape": "b"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "bc_s0",
+            "startPoint": {
+              "x": 205,
+              "y": 23.5
+            },
+            "endPoint": {
+              "x": 225,
+              "y": 23.5
+            },
+            "incomingShape": "b",
+            "outgoingShape": "c"
+          }
+        ],
+        "container": "r"
+      },
+      {
+        "id": "cd",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "cd",
+          "weight": 0.125
+        },
+        "sections": [
+          {
+            "id": "cd_s0",
+            "startPoint": {
+              "x": 263,
+              "y": 27.5
+            },
+            "endPoint": {
+              "x": 283,
+              "y": 27.5
+            },
+            "incomingShape": "c",
+            "outgoingShape": "d"
+          }
+        ],
+        "container": "r"
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    },
+    "$H": 639,
+    "logging": {
+      "name": "Recursive Graph Layout",
+      "children": [
+        {
+          "name": "Layered layout",
+          "logs": [
+            "ELK Layered uses the following 22 modules:",
+            "   Slot 00: org.eclipse.elk.alg.layered.intermediate.EdgeAndLayerConstraintEdgeReverser",
+            "   Slot 01: org.eclipse.elk.alg.layered.p1cycles.GreedyCycleBreaker",
+            "   Slot 02: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPreprocessor",
+            "   Slot 03: org.eclipse.elk.alg.layered.p2layers.NetworkSimplexLayerer",
+            "   Slot 04: org.eclipse.elk.alg.layered.intermediate.LayerConstraintPostprocessor",
+            "   Slot 05: org.eclipse.elk.alg.layered.intermediate.LongEdgeSplitter",
+            "   Slot 06: org.eclipse.elk.alg.layered.intermediate.PortSideProcessor",
+            "   Slot 07: org.eclipse.elk.alg.layered.intermediate.InvertedPortProcessor",
+            "   Slot 08: org.eclipse.elk.alg.layered.intermediate.PortListSorter",
+            "   Slot 09: org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPreprocessor",
+            "   Slot 10: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 11: org.eclipse.elk.alg.layered.p3order.LayerSweepCrossingMinimizer",
+            "   Slot 12: org.eclipse.elk.alg.layered.intermediate.InLayerConstraintProcessor",
+            "   Slot 13: org.eclipse.elk.alg.layered.intermediate.LabelAndNodeSizeProcessor",
+            "   Slot 14: org.eclipse.elk.alg.layered.intermediate.InnermostNodeMarginCalculator",
+            "   Slot 15: org.eclipse.elk.alg.layered.p4nodes.bk.BKNodePlacer",
+            "   Slot 16: org.eclipse.elk.alg.layered.intermediate.LayerSizeAndGraphHeightCalculator",
+            "   Slot 17: org.eclipse.elk.alg.layered.p5edges.OrthogonalEdgeRouter",
+            "   Slot 18: org.eclipse.elk.alg.layered.intermediate.LongEdgeJoiner",
+            "   Slot 19: org.eclipse.elk.alg.layered.intermediate.NorthSouthPortPostprocessor",
+            "   Slot 20: org.eclipse.elk.alg.layered.intermediate.EndLabelSorter",
+            "   Slot 21: org.eclipse.elk.alg.layered.intermediate.ReversedEdgeRestorer"
+          ],
+          "children": [
+            {
+              "name": "Edge and layer constraint edge reversal"
+            },
+            {
+              "name": "Greedy cycle removal"
+            },
+            {
+              "name": "Layer constraint preprocessing"
+            },
+            {
+              "name": "Network simplex layering",
+              "children": [
+                {
+                  "name": "Network simplex"
+                }
+              ]
+            },
+            {
+              "name": "Layer constraint postprocessing"
+            },
+            {
+              "name": "Edge splitting"
+            },
+            {
+              "name": "Port side processing"
+            },
+            {
+              "name": "Inverted port preprocessing"
+            },
+            {
+              "name": "Port order processing"
+            },
+            {
+              "name": "Odd port side processing"
+            },
+            {
+              "name": "Minimize Crossings BARYCENTER"
+            },
+            {
+              "name": "Minimize Crossings TWO_SIDED_GREEDY_SWITCH"
+            },
+            {
+              "name": "Layer constraint edge reversal"
+            },
+            {
+              "name": "Node and Port Label Placement and Node Sizing"
+            },
+            {
+              "name": "Node margin calculation"
+            },
+            {
+              "name": "Brandes & Koepf node placement",
+              "logs": [
+                "RIGHTDOWN size is 116.66666666666666",
+                "RIGHTUP size is 121.66666666666666",
+                "LEFTDOWN size is 116.66666666666666",
+                "LEFTUP size is 121.66666666666666",
+                "RIGHTDOWN is feasible: true",
+                "RIGHTUP is feasible: true",
+                "LEFTDOWN is feasible: true",
+                "LEFTUP is feasible: true",
+                "Chosen node placement: RIGHTDOWN",
+                "Blocks: {n(long_edge)_0=[n(long_edge)_0, n_r.b, n_r.c, n_r.d], n(north_south_port)_1=[n(north_south_port)_1], n_r.a=[n_r.a, n(long_edge)_1], n(north_south_port)_3=[n(north_south_port)_3, n(long_edge)_2, n(long_edge)_1]}",
+                "Classes: {n(long_edge)_0=[n(long_edge)_0, n(north_south_port)_1, n_r.a, n(north_south_port)_3]}",
+                "Marked edges: []"
+              ]
+            },
+            {
+              "name": "Layer size calculation"
+            },
+            {
+              "name": "Orthogonal edge routing"
+            },
+            {
+              "name": "Edge joining"
+            },
+            {
+              "name": "Odd port side processing"
+            },
+            {
+              "name": "Sort end labels"
+            },
+            {
+              "name": "Restoring reversed edges"
+            }
+          ]
+        }
+      ]
+    },
+    "x": 0,
+    "y": 0,
+    "width": 336,
+    "height": 140.66666666666666
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

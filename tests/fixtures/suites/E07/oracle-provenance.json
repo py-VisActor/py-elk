@@ -1,0 +1,38 @@
+{
+  "schema": "py-elk-e07-oracle-provenance/v1",
+  "inputPreparationStatus": "INPUTS_PREPARED",
+  "scopeStatus": "SOURCE_REVIEW_SEPARATE_FROM_CAPTURE",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "sourceCapture": "test-runs/20261103-E07-01/V/oracle72-formal",
+  "sourceIndexSha256": "16e3b10ec04822bdf7232ba3240f607290f60a6307b1cc2406f4245fb612296d",
+  "snapshotIndexSha256": "16e3b10ec04822bdf7232ba3240f607290f60a6307b1cc2406f4245fb612296d",
+  "suiteSha256": "4123df378a4f629e0d5b1bf61beaf70281fea8bc0c77490e8fae1c48caba29a2",
+  "selectionSha256": "a48040da85bc5b4e909aac203d6827dd2dbb53879f0a8ab1d263c81d1a131c16",
+  "rawSnapshotFiles": 939,
+  "masterDenominator": 25,
+  "selectedMaster": 22,
+  "excludedMaster": 3,
+  "projectVariantCount": 50,
+  "caseCount": 72,
+  "repeat": 3,
+  "observationCount": 216,
+  "pythonAlgorithmsVerified": 0,
+  "candidateCapture": null,
+  "preparationHistory": {
+    "initial64IndexSha256": "133f7aacb88d54201491054f40a104e6feba5f0a9e3c47fce6aa048b032cb030",
+    "initial64GeometryFailuresPreserved": "test-runs/20261103-E07-01/V/prepared64-analysis.json",
+    "all72RequestBytesUnchanged": true,
+    "policyPremises": "Original request only, independently reviewed direction/components and GREEDY/unitNS rank facts; no candidate geometry used"
+  },
+  "toolSha256": {
+    "scripts/validate_layout.py": "e98532916237edb3b554b307b474b0e03bd131e706a4c3c9b88bc3368f6913b0",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d",
+    "scripts/build_e07_suite.py": "1c626e8286e0ab0ca0e89ed0a86a05fc5f311c72bca3bcf3b17e4b551a83a3b7",
+    "scripts/layout_checks.py": "6c33428224565931344691ffb08c02563213bb48377de4b77042cfc8e4e76529"
+  },
+  "limitation": "Pinned official observations only; no candidate-fed expected coordinates. Preparation/membership is not source/runtime/full algorithm/API/lifecycle/release acceptance."
+}

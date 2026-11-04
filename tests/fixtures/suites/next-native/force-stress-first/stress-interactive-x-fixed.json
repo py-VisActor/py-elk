@@ -1,0 +1,71 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "stress",
+      "org.eclipse.elk.interactive": true,
+      "org.eclipse.elk.stress.dimension": "X",
+      "org.eclipse.elk.stress.iterationLimit": 3,
+      "org.eclipse.elk.stress.epsilon": 0,
+      "org.eclipse.elk.stress.desiredEdgeLength": 45
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 4,
+        "y": 8,
+        "layoutOptions": {
+          "org.eclipse.elk.stress.fixed": true
+        }
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 60,
+        "y": 24
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 10,
+        "y": 70
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "layoutOptions": {
+          "org.eclipse.elk.stress.desiredEdgeLength": 17
+        }
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc"
+        }
+      }
+    ]
+  }
+}

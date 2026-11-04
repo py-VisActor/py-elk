@@ -1,0 +1,45 @@
+{
+  "schema": "py-elk-speed-read-cache-review/v1",
+  "status": "ACCEPTED_UNDER_READ_SCOPE_GUARDS",
+  "reviewer": "V",
+  "owner": "B",
+  "firstFinding": {
+    "path": "test-runs/20261103-E08-00-01/V/cache-taint-first.json",
+    "sha256": "2c5c2fa1b3daae58c1f342450fabb79903ec549b112476da8ba3497ab32cb46d",
+    "facts": [
+      "list-to-tuple taint falsely passed before fix",
+      "numeric-string-key-to-int taint falsely passed before fix"
+    ]
+  },
+  "resolved": true,
+  "independentControls": {
+    "path": "test-runs/20261103-E08-00-01/V/cache-independent-controls-final.json",
+    "sha256": "e754e81d8e20517ecf5bc5f6e086e4ab2824e685552f5d560e159a4b71f93e16",
+    "negativeControls": 7,
+    "restoredPositiveForEveryControl": true
+  },
+  "reviewedFilesSha256": {
+    "scripts/source_read_cache.py": "751c14bc0983c32bf5237c270b3fbce442dfe9b082c9f997cb8d10ebaefc781e",
+    "scripts/layout_checks.py": "96ffe92f28177b7e155e7b7c1719d998259dd84cf853c4fbe288ae6c545c36c3",
+    "tests/validation/test_source_read_cache.py": "5f937c333a2b0470e17441df53e9f16fbee2f8aa49babe8b8cc68f1da9cf25ca"
+  },
+  "checkedInvariants": [
+    "A new PID/thread/task scope independently reads current bytes",
+    "nested source checks share only read-only input bytes/JSON, never a PASS decision",
+    "normal load outside scope remains fresh and mutable",
+    "scope exit independently re-reads raw inputs and strictly validates parsed JSON types/values/order",
+    "missing file/disk mutation/JSON taint fail closed and clear whole-source/canonical flags",
+    "finally invalidates scope after success or exception"
+  ],
+  "limitations": [
+    "Read-only source checks only; does not authenticate historical execution or prove mathematical equivalence",
+    "Windows symbolic-link guard cannot be independently exercised without host privilege; existing owner test records skip"
+  ],
+  "runtimeExecutionAuthenticated": false,
+  "ownerGuardsIndependentlyReexecuted": {
+    "path": "test-runs/20261103-E08-00-01/V/cache-owner-independent-command/report.json",
+    "sha256": "d1597670b694e086ef9fccc8876b6d26b1c9847f5a649da1d64cf88f856339aa",
+    "methods": 19,
+    "windowsSkippedSymbolicLinkMethods": 1
+  }
+}

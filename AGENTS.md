@@ -1,18 +1,21 @@
 # py-elk 会话入口
 
-先读 [新会话入口](docs/NEW_SESSION.md)、[实现策略](docs/IMPLEMENTATION_PLAN.md#2a-python实现策略)、[具体迭代计划](docs/ITERATION_PLAN.md) 和 [布局校验手册](docs/LAYOUT_VALIDATION.md)，实际完成状态以 [RELEASE_STATUS](docs/RELEASE_STATUS.md) 为准。
-执行进度/依赖见 [iteration-plan.json](docs/iteration-plan.json)：当前下一轮E01。E01–E12交付独立基础正式包，E13–E21扩展全量能力；所有实现迭代当前为planned。
+实际项目目录为 `C:/code/py-visactor/py-elk`；环境显示 `py-mermaid` 时先定位这里。
 
-从本项目根目录、CPython 3.11+ 执行：
+先读 [新会话入口](docs/NEW_SESSION.md)、[当前状态](docs/RELEASE_STATUS.md)及 [机器任务状态](docs/implementation-backlog.json)。本文件替代此前叠加的历史进度描述；旧内容保存在 [历史副本](docs/history/AGENTS-before-closure-20261104.txt)，不得按其中旧任务重新实现。
 
-```shell
-python scripts/check.py --out test-runs/session-01
-```
+用户目标：完成全部原生 Python ELK 迁移并独立发布 Python 包；py-mermaid 集成后置。用户要求先完成功能，再统一校验修复；修复只运行受影响检查，不反复跑已通过的全量及平台矩阵。
 
-每次使用新输出目录；report.json 保存命令、退出码、日志和源 SHA。该命令无需 Node/网络/安装依赖。
-Node 可用时按手册执行官方重采；真实 Python 实现完成后按 candidate-command → candidate → compare 接入。
+当前正式实现为 `src/pyelk`，包含 196 个 Python 模块、208 个打包运行文件，注册 12 个算法、243 个选项、8 个类别。实现完成与正确性验证分开记录。`.local/migration-next` 为冻结快照，不是当前产品源码。
 
-当前只有包骨架和验证工具，没有 Python ELK/layout API、算法或正式发行包。工具自测/官方回放成功不等于 Python 算法通过。
-唯一行为基线为 elkjs 0.12.1，完整默认目录分母12算法/243选项/8类别不删减；现有25例是项目自行编写输入，不是完整上游断言集。
-Python运行时目标为原生计算，无Node/JVM/浏览器/Canvas fallback。先完成独立基础包并正式发布0.1.0，py-mermaid集成后置独立步骤。
-后续任务、来源/许可缺口、严格JS副作用与Python输入保留目标的待决策差异见上述文档，保留原始结果与失败证据。
+当前进入统一校验的定向修复阶段。MrTree BFS 的共享子节点输入存在第二次 Walker 遍历控制环，已完成定向修复和新候选双安装，正在收口发行证据。旧 37 步／917 测试属于其冻结的 0.0.1a0 源码，不能认证后续修复，也不能替代所有 E11–E21 退出条件。
+
+依照 [并行协作规范](docs/PARALLEL_EXECUTION.md) 使用 root + A/B/V，最多三个 sub-agent。先确定接口与单文件 owner；共享文件仅一个写入者。实现、检查工具和独立审阅可并行，依赖的构建与发行必须顺序执行。每批留下实际交付、检查范围、首败与修复、复盘及下一步。
+
+唯一行为基线为 elkjs 0.12.1 的固定 worker。保留原始 strict 差异、异常、非有限值和 seed=0 宿主熵差异；不要由输入出现、解析通过或少量案例推导完整选项语义通过。不得重写历史执行 SHA 或将旧执行绑定到新源码。
+
+原创代码许可已由用户选定 MIT；实际来源代码按现有通知保留第三方许可，不再重复询问许可。发行配置、上传和下载验收状态单独记录。不要输出凭据。
+
+开发检查按 `docs/iterations/full-native-ci-checks.json` 显式选择；未知影响先补分析，不能自动回退全量。最终完整入口是 `python scripts/check.py --out test-runs/UNIQUE`，仅在全部功能完成后的验收阶段使用。已通过的数学组不因文档或检查工具变更重跑。
+
+CPython 3.11+。在 Windows 使用 PowerShell 和显式工作目录；读取中文文件指定 UTF-8。证据文件的原始字节及现有 `.gitattributes` 规则必须保留。真实 Git index、push、tag、发布只在已有用户授权范围内操作；不根据历史说明新增权限流程。

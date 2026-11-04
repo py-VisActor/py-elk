@@ -1,0 +1,194 @@
+{
+  "id": "json-transfer-default-inherit",
+  "request": "tests\\fixtures\\suites\\next-native\\json-transfer\\default-inherit.json",
+  "requestSha256": "08affa22eacd0bdd41f229755258f2b606469aae22ab37b583a6d9397d5a7120",
+  "oracle": "test-runs\\20261104-next-native-01\\V\\json-transfer-reference-03\\default-inherit\\observation.json",
+  "oracleSha256": "16ca88df809fd543b8dbfaf0c4d89fc28f9641f6211fafc49368758f0037b7aa",
+  "workerSha256": null,
+  "publicAPI": true,
+  "actual": {
+    "id": "root",
+    "x": 17.0,
+    "y": 29.0,
+    "width": 500.0,
+    "height": 400.0,
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.nodeSize.fixedGraphSize": true,
+      "elk.json.shapeCoords": "INHERIT",
+      "elk.json.edgeCoords": "INHERIT"
+    },
+    "business": {
+      "keep": "root"
+    },
+    "children": [
+      {
+        "id": "compound",
+        "x": 20.0,
+        "y": 30.0,
+        "width": 80.0,
+        "height": 70.0,
+        "layoutOptions": {
+          "elk.algorithm": "fixed",
+          "elk.nodeSize.fixedGraphSize": true
+        },
+        "children": [
+          {
+            "id": "inside",
+            "x": 5.0,
+            "y": 7.0,
+            "width": 10.0,
+            "height": 8.0,
+            "labels": [
+              {
+                "text": "node",
+                "x": 1.0,
+                "y": 2.0,
+                "width": 3.0,
+                "height": 4.0,
+                "business": "node-label"
+              }
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "id": "cross",
+            "sources": [
+              "inside"
+            ],
+            "targets": [
+              "sibling"
+            ],
+            "sections": [
+              {
+                "id": "kept-section",
+                "startPoint": {
+                  "x": 15.0,
+                  "y": 11.0
+                },
+                "endPoint": {
+                  "x": 100.0,
+                  "y": 46.0
+                },
+                "bendPoints": [],
+                "business": "section",
+                "incomingShape": "inside",
+                "outgoingShape": "sibling"
+              }
+            ],
+            "labels": [
+              {
+                "text": "edge",
+                "x": 3.0,
+                "y": 4.0,
+                "width": 10.0,
+                "height": 5.0,
+                "business": "edge-label"
+              }
+            ],
+            "business": "edge",
+            "container": "root"
+          }
+        ]
+      },
+      {
+        "id": "sibling",
+        "x": 100.0,
+        "y": 40.0,
+        "width": 10.0,
+        "height": 12.0
+      }
+    ]
+  },
+  "rawComparison": {
+    "passed": false,
+    "differences": [
+      {
+        "path": "/$H",
+        "kind": "missing",
+        "expected": 13
+      },
+      {
+        "path": "/children/0/$H",
+        "kind": "missing",
+        "expected": 277
+      },
+      {
+        "path": "/children/0/children/0/$H",
+        "kind": "missing",
+        "expected": 279
+      },
+      {
+        "path": "/children/1/$H",
+        "kind": "missing",
+        "expected": 283
+      }
+    ],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "ownedHashProjection": {
+    "adaptations": [
+      {
+        "path": "/$H",
+        "referenceValue": 13
+      },
+      {
+        "path": "/children/1/$H",
+        "referenceValue": 283
+      },
+      {
+        "path": "/children/0/$H",
+        "referenceValue": 277
+      },
+      {
+        "path": "/children/0/children/0/$H",
+        "referenceValue": 279
+      }
+    ],
+    "violations": []
+  },
+  "comparison": {
+    "passed": true,
+    "differences": [],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "inputPreserved": {
+    "passed": true,
+    "differences": [],
+    "maxCoordinateError": {
+      "absolute": 0,
+      "relative": 0,
+      "path": null
+    }
+  },
+  "trace": [
+    {
+      "index": 0,
+      "processor": "RecursiveLayoutEngine",
+      "before": {
+        "nodes": 4,
+        "ports": 0,
+        "edges": 1,
+        "labels": 2
+      },
+      "after": {
+        "nodes": 4,
+        "ports": 0,
+        "edges": 1,
+        "labels": 2
+      },
+      "outcome": "returned"
+    }
+  ],
+  "passed": true,
+  "elapsedSeconds": 0.11366150001413189
+}

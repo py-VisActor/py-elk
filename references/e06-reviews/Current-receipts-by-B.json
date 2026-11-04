@@ -1,0 +1,161 @@
+{
+  "schema": "py-elk-e06-independent-current-receipts-review/v1",
+  "status": "ACCEPTED_UNDER_RECORDED_EXECUTION_LIMITS",
+  "reviewedFiles": [
+    {
+      "path": "scripts/validate_e06_runtime.py",
+      "sha256": "5cc0183dca379812bfc4d675f28c9c172b5becc58c7ef218d303132af5658afc"
+    },
+    {
+      "path": "scripts/validate_e04_runtime.py",
+      "sha256": "2eccc3d480b34dc4f9015b920b25402b4957cf10cff93daa9d827d2841478542"
+    },
+    {
+      "path": "scripts/export_e06_installed_evidence.py",
+      "sha256": "b416fb11c362a636652ca02037880cbaeb6effff6c8b70419bd8a7b868dbe06d"
+    },
+    {
+      "path": "scripts/export_e05_installed_evidence.py",
+      "sha256": "f56196aeeb66744533085e302d53659bc1599741067717a1594c507f834049f2"
+    },
+    {
+      "path": "scripts/export_e06_phase_observations.py",
+      "sha256": "a89a29625176fd476977553c2142ea1027a34165f687f9ef77bce6dde9926b80"
+    },
+    {
+      "path": "scripts/export_e05_phase_observations.py",
+      "sha256": "5fd7aee6c9147ee649ff35a06d108af98f71dfe7918eb1078e8f933b40951c2a"
+    },
+    {
+      "path": "scripts/verify_installed_wheel.py",
+      "sha256": "284aaffcb48a1e507aaa741a38d5cd202308573242282e1eb9c5aed22c8b2239"
+    },
+    {
+      "path": "scripts/check_e04_slice.py",
+      "sha256": "6ce867e1d29445cc1c52d2cd845f40290e541b2d874f227bbc6dfe55dcdea54c"
+    },
+    {
+      "path": "scripts/check_e06_slice.py",
+      "sha256": "4fed49c78497ef059fd32e9dd5581d8a2bb2c3ae0316d272ffd5bbc845bcb046"
+    },
+    {
+      "path": "tools/reference/check_e06_export_controls.py",
+      "sha256": "01933e02221459265050343484eda3c2e082d5d0cbd1fd08c5199733870979bc"
+    },
+    {
+      "path": "tools/reference/check_e05_export_controls.py",
+      "sha256": "2b274b3ffa6c4f10bcd25853b925fa3e1db5f6ab758f43df54fff1fc4e6a1cd8"
+    },
+    {
+      "path": "references/e06-installed-check.json",
+      "sha256": "5fabf04c0ba34b02edd35a1be7ee4e6361ad83407e55a8c11459c351d34909b7"
+    },
+    {
+      "path": "references/e06-runtime-audit.json",
+      "sha256": "128afff1ce02fc219533f69cd63340a64f009fb6ae2ea19886e046883bdff81a"
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "37dc8e7ede705a877855dae15152620cfd9a8506103be87f32f3a38a4eb2fe34"
+    },
+    {
+      "path": "README.md",
+      "sha256": "099f8bd80fbf029b4773420e13240ea52fc6042a5aaf62dc011fe1d6992151c8"
+    }
+  ],
+  "actualWheel": {
+    "path": "test-runs/20261103-E06-01/candidate-build-02/dist/py_elk-0.0.1a0-py3-none-any.whl",
+    "sha256": "83861c32ededc634e511a2ff9c0b197208ead612df1782697c3d96dee7e4eff1"
+  },
+  "packageFilesExactlyMatchCurrentSourceAndWheel": 33,
+  "metadata": {
+    "status": "E06_DISTRIBUTION_METADATA_VALIDATED",
+    "archivePath": "py_elk-0.0.1a0.dist-info/METADATA",
+    "sha256": "2c8ab7b793d51d2d20f83d2dc19a36e70ade0fd841401c18e771d0ffa8bb5976",
+    "name": "py-elk",
+    "version": "0.0.1a0",
+    "readmeSha256": "099f8bd80fbf029b4773420e13240ea52fc6042a5aaf62dc011fe1d6992151c8",
+    "normalization": "email CRLF to LF only",
+    "historicalExecutionAuthenticated": false
+  },
+  "actualInstalledPositive": {
+    "cases": 52,
+    "repeat": 3,
+    "condensedReceiptExactlyReproduced": true
+  },
+  "actualPhasePositive": {
+    "stage": "LayerSweepCrossingMinimizer",
+    "calls": 2,
+    "strategies": [
+      "BARYCENTER",
+      "TWO_SIDED_GREEDY_SWITCH"
+    ]
+  },
+  "independentNegativeControls": [
+    {
+      "name": "wrong-distribution-name",
+      "rejected": true,
+      "reason": "Distribution METADATA name differs"
+    },
+    {
+      "name": "wrong-version",
+      "rejected": true,
+      "reason": "Distribution METADATA version differs"
+    },
+    {
+      "name": "wrong-python",
+      "rejected": true,
+      "reason": "Distribution Requires-Python differs"
+    },
+    {
+      "name": "changed-development-requirement",
+      "rejected": true,
+      "reason": "Distribution Requires-Dist differs"
+    },
+    {
+      "name": "production-classifier",
+      "rejected": true,
+      "reason": "Distribution development classifiers differ"
+    },
+    {
+      "name": "readme-terminal-newline",
+      "rejected": true,
+      "reason": "Distribution README bytes differ"
+    },
+    {
+      "name": "empty-reference-input-preservation",
+      "rejected": true,
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "rebound-second-repeat-raw-result-with-old-passed-comparison",
+      "rejected": true,
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "single-engine-input-side-effect",
+      "rejected": true,
+      "reason": "Actual three-engine inputAfter differs"
+    },
+    {
+      "name": "new-source-cannot-use-prior-wheel-receipt",
+      "rejected": true,
+      "reason": "Current package bytes differ from the installed evidence: algorithms/layered/loops.py"
+    }
+  ],
+  "additionalRootControls": {
+    "path": "test-runs/20261103-E06-01/export-controls-01/report.json",
+    "sha256": "b0b42f874f3f4b05949b9c828f0bf657ca792d3bf9c76e4a50647241bd563cee"
+  },
+  "rootControlsObserved": 20,
+  "runtimeReexecuted": false,
+  "installationReexecuted": false,
+  "engineLaunched": false,
+  "originalInputsAndSourcesUnchanged": true,
+  "blockers": [],
+  "limitations": [
+    "Offline consistency checks do not authenticate an entirely forged historical chain or mathematically prove the bounded algorithm.",
+    "Actual recorded installed layout acceptance remains the separate real52x3 run; no new installed process or original JS engine was started by this review.",
+    "The E06 wrappers delegate to parameterized E05 helpers. The controls tool sourceFiles list records shared helper identities; E06 wrapper/runtime identities are independently bound here and by the whole-run source fingerprints."
+  ]
+}

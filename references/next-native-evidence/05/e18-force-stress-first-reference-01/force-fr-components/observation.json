@@ -1,0 +1,201 @@
+{
+  "schema": "py-elk-layout-observation/v1",
+  "requestSha256": "da57c2c5d5521b31f4f48aa4b9c34feb3cb80bcb46ee0ac609da3c07fc66dae4",
+  "engine": {
+    "name": "elkjs",
+    "version": "0.12.1",
+    "node": "v24.19.0",
+    "platform": "win32",
+    "arch": "x64",
+    "entrypoint": "lib/elk.bundled.js",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "result": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "force",
+      "org.eclipse.elk.randomSeed": 19,
+      "org.eclipse.elk.force.model": "FRUCHTERMAN_REINGOLD",
+      "org.eclipse.elk.force.iterations": 6,
+      "org.eclipse.elk.force.temperature": 0.03,
+      "org.eclipse.elk.spacing.nodeNode": 31
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 50,
+        "y": 68.14906054430965,
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 83.84269906868732,
+        "y": 50,
+        "$H": 279
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 50,
+        "y": 111.14906054430965,
+        "$H": 281
+      },
+      {
+        "id": "d",
+        "width": 20,
+        "height": 12,
+        "x": 101,
+        "y": 111.14906054430965,
+        "$H": 283
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "labels": [
+          {
+            "text": "inline",
+            "width": 7,
+            "height": 5,
+            "layoutOptions": {
+              "org.eclipse.elk.edgeLabels.inline": true
+            },
+            "x": 73.42134953434365,
+            "y": 62.57453027215482
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 70,
+              "y": 68.78629071691668
+            },
+            "endPoint": {
+              "x": 83.84269906868732,
+              "y": 61.36276982739297
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 171,
+    "height": 173.14906054430963
+  },
+  "outcome": "returned",
+  "inputAfter": {
+    "id": "root",
+    "layoutOptions": {
+      "org.eclipse.elk.algorithm": "force",
+      "org.eclipse.elk.randomSeed": 19,
+      "org.eclipse.elk.force.model": "FRUCHTERMAN_REINGOLD",
+      "org.eclipse.elk.force.iterations": 6,
+      "org.eclipse.elk.force.temperature": 0.03,
+      "org.eclipse.elk.spacing.nodeNode": 31
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 20,
+        "height": 12,
+        "x": 50,
+        "y": 68.14906054430965,
+        "$H": 277
+      },
+      {
+        "id": "b",
+        "width": 20,
+        "height": 12,
+        "x": 83.84269906868732,
+        "y": 50,
+        "$H": 279
+      },
+      {
+        "id": "c",
+        "width": 20,
+        "height": 12,
+        "x": 50,
+        "y": 111.14906054430965,
+        "$H": 281
+      },
+      {
+        "id": "d",
+        "width": 20,
+        "height": 12,
+        "x": 101,
+        "y": 111.14906054430965,
+        "$H": 283
+      }
+    ],
+    "edges": [
+      {
+        "id": "ab",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ab"
+        },
+        "labels": [
+          {
+            "text": "inline",
+            "width": 7,
+            "height": 5,
+            "layoutOptions": {
+              "org.eclipse.elk.edgeLabels.inline": true
+            },
+            "x": 73.42134953434365,
+            "y": 62.57453027215482
+          }
+        ],
+        "sections": [
+          {
+            "id": "ab_s0",
+            "startPoint": {
+              "x": 70,
+              "y": 68.78629071691668
+            },
+            "endPoint": {
+              "x": 83.84269906868732,
+              "y": 61.36276982739297
+            }
+          }
+        ],
+        "container": "root"
+      }
+    ],
+    "$H": 13,
+    "x": 0,
+    "y": 0,
+    "width": 171,
+    "height": 173.14906054430963
+  },
+  "constructorAfter": {},
+  "argumentsAfter": {},
+  "termination": {
+    "outcome": "threw",
+    "name": "TypeError",
+    "message": "this.worker.terminate is not a function"
+  }
+}

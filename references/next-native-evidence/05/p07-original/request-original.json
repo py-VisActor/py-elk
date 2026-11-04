@@ -1,0 +1,330 @@
+{
+  "cases": [
+    {
+      "id": "inverted-two-layers-head-asymmetry",
+      "operation": "inverted",
+      "layerCount": 2,
+      "nodes": [
+        {
+          "id": "a",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "aw",
+              "side": "WEST"
+            },
+            {
+              "id": "ae",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "b",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "bw",
+              "side": "WEST"
+            },
+            {
+              "id": "be",
+              "side": "EAST"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "ew",
+          "source": "aw",
+          "target": "bw",
+          "emptyJunction": true,
+          "labels": [
+            {
+              "id": "lw",
+              "placement": "HEAD",
+              "marker": "ee"
+            }
+          ]
+        },
+        {
+          "id": "ee",
+          "source": "ae",
+          "target": "be",
+          "emptyJunction": true,
+          "labels": [
+            {
+              "id": "le",
+              "placement": "HEAD",
+              "marker": "ew"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "merger-component-only-clears-both-markers",
+      "operation": "merger",
+      "layerCount": 3,
+      "nodes": [
+        {
+          "id": "s",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "sw",
+              "side": "WEST"
+            },
+            {
+              "id": "se",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "d1",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "d1w",
+              "side": "WEST"
+            },
+            {
+              "id": "d1e",
+              "side": "EAST"
+            }
+          ],
+          "type": "LONG_EDGE",
+          "sourceMarker": "se",
+          "targetMarker": "t1w"
+        },
+        {
+          "id": "d2",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "d2w",
+              "side": "WEST"
+            },
+            {
+              "id": "d2e",
+              "side": "EAST"
+            }
+          ],
+          "type": "LONG_EDGE",
+          "sourceMarker": "sw",
+          "targetMarker": "t2w"
+        },
+        {
+          "id": "t1",
+          "layer": 2,
+          "ports": [
+            {
+              "id": "t1w",
+              "side": "WEST"
+            },
+            {
+              "id": "t1e",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "t2",
+          "layer": 2,
+          "ports": [
+            {
+              "id": "t2w",
+              "side": "WEST"
+            },
+            {
+              "id": "t2e",
+              "side": "EAST"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "a",
+          "source": "se",
+          "target": "d1w"
+        },
+        {
+          "id": "b",
+          "source": "se",
+          "target": "d2w"
+        },
+        {
+          "id": "c",
+          "source": "d1e",
+          "target": "t1w"
+        },
+        {
+          "id": "d",
+          "source": "d2e",
+          "target": "t2w"
+        }
+      ]
+    },
+    {
+      "id": "merger-label-eligibility-and-normal-barrier",
+      "operation": "merger",
+      "layerCount": 3,
+      "nodes": [
+        {
+          "id": "s",
+          "layer": 0,
+          "ports": [
+            {
+              "id": "sw",
+              "side": "WEST"
+            },
+            {
+              "id": "se",
+              "side": "EAST"
+            }
+          ]
+        },
+        {
+          "id": "d1",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "d1w",
+              "side": "WEST"
+            },
+            {
+              "id": "d1e",
+              "side": "EAST"
+            }
+          ],
+          "type": "LONG_EDGE",
+          "hasLabels": true,
+          "beforeLabel": true,
+          "sourceMarker": "se",
+          "targetMarker": "tw"
+        },
+        {
+          "id": "d2",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "d2w",
+              "side": "WEST"
+            },
+            {
+              "id": "d2e",
+              "side": "EAST"
+            }
+          ],
+          "type": "LONG_EDGE",
+          "hasLabels": true,
+          "beforeLabel": false,
+          "sourceMarker": "se",
+          "targetMarker": "tw"
+        },
+        {
+          "id": "barrier",
+          "layer": 1,
+          "ports": []
+        },
+        {
+          "id": "d3",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "d3w",
+              "side": "WEST"
+            },
+            {
+              "id": "d3e",
+              "side": "EAST"
+            }
+          ],
+          "type": "LONG_EDGE",
+          "hasLabels": true,
+          "beforeLabel": true,
+          "sourceMarker": "se",
+          "targetMarker": "tw"
+        },
+        {
+          "id": "d4",
+          "layer": 1,
+          "ports": [
+            {
+              "id": "d4w",
+              "side": "WEST"
+            },
+            {
+              "id": "d4e",
+              "side": "EAST"
+            }
+          ],
+          "type": "LONG_EDGE",
+          "hasLabels": true,
+          "beforeLabel": true,
+          "sourceMarker": "se",
+          "targetMarker": "te"
+        },
+        {
+          "id": "t",
+          "layer": 2,
+          "ports": [
+            {
+              "id": "tw",
+              "side": "WEST"
+            },
+            {
+              "id": "te",
+              "side": "EAST"
+            }
+          ]
+        }
+      ],
+      "edges": [
+        {
+          "id": "in1",
+          "source": "se",
+          "target": "d1w"
+        },
+        {
+          "id": "out1",
+          "source": "d1e",
+          "target": "tw"
+        },
+        {
+          "id": "in2",
+          "source": "se",
+          "target": "d2w"
+        },
+        {
+          "id": "out2",
+          "source": "d2e",
+          "target": "tw"
+        },
+        {
+          "id": "in3",
+          "source": "se",
+          "target": "d3w"
+        },
+        {
+          "id": "out3",
+          "source": "d3e",
+          "target": "tw"
+        },
+        {
+          "id": "in4",
+          "source": "se",
+          "target": "d4w"
+        },
+        {
+          "id": "out4",
+          "source": "d4e",
+          "target": "tw"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+# Guava scoped floating comparison operation attribution
+
+Copyright (C) 2011 The Guava Authors
+
+The `_fuzzy_equals` operation in `pyelk/algorithms/layered/node_size_math.py`
+is a scoped Python adaptation of the Guava DoubleMath fuzzy-equality operation
+inlined at the actual fixed-ratio node-size callers in elkjs 0.12.1
+`lib/elk-worker.js` (SHA256
+275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86).
+The ratio callers use the fixed tolerance 0.01, including exact equality and
+both-NaN behavior. The Python form uses native scalar arithmetic and math.isnan,
+fixes the source caller's constant tolerance, and omits the nonnegative check
+which cannot fail for that constant. It does not copy the unused library class
+initializer, other Guava math functions or the GWT runtime.
+
+The angular comparator in `pyelk/algorithms/radial.py` separately adapts the
+inlined Guava DoubleMath fuzzy-comparison operation at its actual radial sorter
+callers. That operation uses the fixed tolerance 1e-10, the source exact and
+both-NaN equality branches, and the remaining source scalar comparison order.
+This scope is distinct from the node-size ratio callers' 0.01 tolerance. Neither
+constant changes the layout comparison tolerances or supplies a general
+rounding policy. No unused Guava class or GWT runtime is copied for this adapter.
+
+The scoped comparators in `pyelk/algorithms/triangulation.py` and
+`pyelk/algorithms/spore.py` also adapt actual inlined Guava fuzzy-comparison
+callers. Their common comparison tolerance is 1e-4; the separate signed
+rectangle shortest-distance branch uses 1e-5. They preserve exact equality,
+both-NaN behavior and the source remaining scalar order using native Python
+arithmetic. These constants belong to those algorithms, are distinct from
+the endpoint helper's 0.05 geometric offset, and do not change any layout
+validation profile tolerance. The surrounding triangulation/SPOrE algorithms
+retain their ELK notices; no unused Guava library or GWT runtime is copied.
+
+The applicable helper source is licensed under the Apache License, Version 2.0.
+
+The Layered base-spacing builder in
+`pyelk/algorithms/layered/base_spacing.py`, called by `native_import_full.py`,
+reuses the already scoped
+`spore._fuzzy_compare(a, b, 1e-4) == 0` adapter for its actual base-spacing
+default fast path. Its fixed `1e-4` predicate belongs to that builder and
+does not change any geometric validation tolerance. This caller adds no
+copy of other Guava methods or its runtime; the surrounding Layered builder
+retains its ELK source notice.
+
+A complete copy is included as `Apache-2.0.txt`:
+https://www.apache.org/licenses/LICENSE-2.0
+
+The connected-component compactor in
+`pyelk/algorithms/layered/connected_compactor.py` also reuses the existing
+`spore._fuzzy_compare(a, b, 1e-4) == 0` operation at its actual external-edge
+segment alignment caller. This preserves the exact/both-NaN branches and the
+fixed algorithm tolerance; no validation tolerance changes or additional Guava
+runtime code are introduced. The surrounding compactor retains its ELK notice.
+
+The Guava v31.1 candidate DoubleMath source carries the attribution above:
+https://github.com/google/guava/blob/v31.1/guava/src/com/google/common/math/DoubleMath.java
+Its complete original bytes have SHA256
+61d6a45ca8cbab9bdf1879e748647292a7a0b2996b2431f5c9f26fb6c5f72fd7.
+The fixed elkjs build declares Guava 31.1-jre. That candidate source is a
+provenance match, not proof of the exact Java/GWT compilation input chain,
+which remains unresolved.
+
+The surrounding ELK node-sizing and radial algorithms retain their applicable ELK
+notices. This supplemental attribution does not select the license for original
+project code or announce a released full node-size or ports capability.

@@ -1,0 +1,214 @@
+{
+  "schema": "py-elk-next-input-model-sort-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "508037dcfede431f241a26fda0b5d2359dd58594b98e3fad031e13e28d54678e",
+  "requestSha256": "a08e593bed612feedb0df54e55b9b16611c9968be3c219169912c4a2bbadd62b",
+  "pid": 4616,
+  "parentPid": 32656,
+  "node": "v24.19.0",
+  "observation": {
+    "events": [
+      {
+        "kind": "begin",
+        "name": "Sort By Input Model PREFER_NODES",
+        "total": 1
+      },
+      {
+        "kind": "insertion",
+        "beforePorts": true,
+        "before": [
+          "c",
+          "b",
+          "a"
+        ],
+        "previous": [
+          "c",
+          "b",
+          "a"
+        ],
+        "after": [
+          "a",
+          "b",
+          "c"
+        ],
+        "newCaches": true,
+        "cacheSizes": [
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "log",
+        "text": "Node n_a ports: [p_a1[n_a] >> x1[n_x], p_a0[n_a] >> y1[n_y], p_a2[n_a]]"
+      },
+      {
+        "kind": "insertion",
+        "beforePorts": false,
+        "before": [
+          "a",
+          "b",
+          "c"
+        ],
+        "previous": [
+          "a",
+          "b",
+          "c"
+        ],
+        "after": [
+          "a",
+          "b",
+          "c"
+        ],
+        "newCaches": true,
+        "cacheSizes": [
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "log",
+        "text": "Layer 0: L_0[n_a, n_b, n_c]"
+      },
+      {
+        "kind": "insertion",
+        "beforePorts": true,
+        "before": [
+          "z",
+          "y",
+          "x"
+        ],
+        "previous": [
+          "a",
+          "b",
+          "c"
+        ],
+        "after": [
+          "x",
+          "y",
+          "z"
+        ],
+        "newCaches": true,
+        "cacheSizes": [
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "log",
+        "text": "Node n_x ports: [p_x2[n_x], p_x0[n_x] << b0[n_b], p_x1[n_x] << a1[n_a]]"
+      },
+      {
+        "kind": "log",
+        "text": "Node n_y ports: [p_y2[n_y], p_y1[n_y] << a0[n_a], p_y0[n_y]]"
+      },
+      {
+        "kind": "log",
+        "text": "Node n_z ports: [p_z2[n_z] << c0[n_c], p_z1[n_z], p_z0[n_z]]"
+      },
+      {
+        "kind": "insertion",
+        "beforePorts": false,
+        "before": [
+          "x",
+          "y",
+          "z"
+        ],
+        "previous": [
+          "a",
+          "b",
+          "c"
+        ],
+        "after": [
+          "x",
+          "y",
+          "z"
+        ],
+        "newCaches": true,
+        "cacheSizes": [
+          0,
+          0
+        ]
+      },
+      {
+        "kind": "log",
+        "text": "Layer 1: L_1[n_x, n_y, n_z]"
+      },
+      {
+        "kind": "done"
+      }
+    ],
+    "layers": [
+      {
+        "id": 0,
+        "nodes": [
+          "a",
+          "b",
+          "c"
+        ]
+      },
+      {
+        "id": 1,
+        "nodes": [
+          "x",
+          "y",
+          "z"
+        ]
+      }
+    ],
+    "ports": [
+      {
+        "id": "a",
+        "ports": [
+          "a1",
+          "a0",
+          "a2"
+        ]
+      },
+      {
+        "id": "b",
+        "ports": [
+          "b2",
+          "b0",
+          "b1"
+        ]
+      },
+      {
+        "id": "c",
+        "ports": [
+          "c2",
+          "c0",
+          "c1"
+        ]
+      },
+      {
+        "id": "x",
+        "ports": [
+          "x2",
+          "x0",
+          "x1"
+        ]
+      },
+      {
+        "id": "y",
+        "ports": [
+          "y2",
+          "y1",
+          "y0"
+        ]
+      },
+      {
+        "id": "z",
+        "ports": [
+          "z2",
+          "z1",
+          "z0"
+        ]
+      }
+    ],
+    "layoutExecuted": false,
+    "workingGraphPhaseExecuted": true,
+    "suppliedInternalModelOrder": true
+  },
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

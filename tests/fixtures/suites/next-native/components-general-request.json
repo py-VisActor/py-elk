@@ -1,0 +1,157 @@
+{
+  "cases": [
+    {
+      "name": "empty",
+      "nodes": [],
+      "edges": [],
+      "options": {
+        "elk.nodeSize.minimum": [
+          99,
+          88
+        ],
+        "elk.randomSeed": 1000
+      },
+      "external": false
+    },
+    {
+      "name": "single-connected",
+      "nodes": [
+        {},
+        {},
+        {}
+      ],
+      "edges": [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          2,
+          0
+        ]
+      ],
+      "options": {
+        "elk.nodeSize.minimum": [
+          99,
+          88
+        ],
+        "elk.randomSeed": 1000
+      },
+      "external": false
+    },
+    {
+      "name": "shared-ports-parallel-loops-and-priority",
+      "nodes": [
+        {
+          "ports": 2,
+          "priority": 2147483647
+        },
+        {
+          "ports": 2,
+          "priority": 2147483647
+        },
+        {
+          "priority": -5
+        },
+        {
+          "priority": 4
+        },
+        {
+          "priority": 3
+        }
+      ],
+      "edges": [
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ]
+      ],
+      "options": {
+        "elk.nodeSize.minimum": [
+          99,
+          88
+        ],
+        "elk.randomSeed": 1000,
+        "elk.spacing.componentComponent": 5,
+        "elk.aspectRatio": 1
+      },
+      "external": false
+    },
+    {
+      "name": "separate-disabled",
+      "nodes": [
+        {},
+        {}
+      ],
+      "edges": [],
+      "options": {
+        "elk.nodeSize.minimum": [
+          99,
+          88
+        ],
+        "elk.randomSeed": 1000,
+        "elk.separateConnectedComponents": false
+      },
+      "external": false
+    },
+    {
+      "name": "external-fixed-not-split",
+      "nodes": [
+        {},
+        {}
+      ],
+      "edges": [],
+      "options": {
+        "elk.nodeSize.minimum": [
+          99,
+          88
+        ],
+        "elk.randomSeed": 1000,
+        "elk.portConstraints": "FIXED_ORDER"
+      },
+      "external": true
+    },
+    {
+      "name": "model-order-sort",
+      "nodes": [
+        {
+          "order": 9
+        },
+        {
+          "order": -1
+        },
+        {
+          "order": 3
+        }
+      ],
+      "edges": [],
+      "options": {
+        "elk.nodeSize.minimum": [
+          99,
+          88
+        ],
+        "elk.randomSeed": 1000,
+        "elk.layered.considerModelOrder.components": "MODEL_ORDER"
+      },
+      "external": false
+    }
+  ]
+}

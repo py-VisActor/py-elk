@@ -1,0 +1,263 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 32,
+        "height": 22,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "e",
+        "width": 44,
+        "height": 26,
+        "business": {
+          "id": "e",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "f",
+        "width": 47,
+        "height": 27,
+        "business": {
+          "id": "f",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "g",
+        "width": 50,
+        "height": 28,
+        "business": {
+          "id": "g",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "h",
+        "width": 53,
+        "height": 29,
+        "business": {
+          "id": "h",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "i",
+        "width": 56,
+        "height": 30,
+        "business": {
+          "id": "i",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "j",
+        "width": 59,
+        "height": 31,
+        "business": {
+          "id": "j",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "e0",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "e1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e2",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "e2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e3",
+        "sources": [
+          "d"
+        ],
+        "targets": [
+          "e"
+        ],
+        "business": {
+          "edge": "e3",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e4",
+        "sources": [
+          "e"
+        ],
+        "targets": [
+          "f"
+        ],
+        "business": {
+          "edge": "e4",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e5",
+        "sources": [
+          "f"
+        ],
+        "targets": [
+          "g"
+        ],
+        "business": {
+          "edge": "e5",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e6",
+        "sources": [
+          "g"
+        ],
+        "targets": [
+          "h"
+        ],
+        "business": {
+          "edge": "e6",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e7",
+        "sources": [
+          "h"
+        ],
+        "targets": [
+          "i"
+        ],
+        "business": {
+          "edge": "e7",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "e8",
+        "sources": [
+          "i"
+        ],
+        "targets": [
+          "j"
+        ],
+        "business": {
+          "edge": "e8",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "long",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "j"
+        ],
+        "business": {
+          "edge": "long",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT",
+      "elk.layered.wrapping.strategy": "MULTI_EDGE",
+      "elk.layered.wrapping.cutting.strategy": "MSD",
+      "elk.aspectRatio": 1.3,
+      "elk.layered.wrapping.multiEdge.improveWrappedEdges": true
+    }
+  }
+}

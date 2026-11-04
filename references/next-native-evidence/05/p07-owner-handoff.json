@@ -1,0 +1,35 @@
+{
+  "schema": "py-elk-private-kernel-handoff/v1",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/layered/inverted_ports.py": "2dd2e0363e69b78dd3ec0e3a84cf6e60d6486ff2bd7037a385c60f41f72b7627",
+    ".local/migration-next/src/pyelk/algorithms/layered/hyperedge_merger.py": "f06c8cef5fc294f05319fc46547c8aace7579b6ba4b6f760ae121afd7ba36958",
+    "references/e13-kernel-sources.json": "5a51bc0cfbed312c6a53fa2ff6ef23500d61cb46cd65eae3756fee25f6a746ad"
+  },
+  "sourceIndependentReviews": {
+    "inverted-ports-source-review-01.json": "36616322f7529b81c5526799d600bae48bc57b6140081f3d312415b3ca3a7c16",
+    "hyperedge-merger-source-review-01.json": "185db01d4c6250c0cb580041b05ba87e3e36d4e53f74168cb8bf0a392e34e1fa",
+    "ns-helper-code-review-01.json": "2c622b501650366fed3e04440b22936e54105ab34bc558dea4e5b6cf867fcff3"
+  },
+  "targetedCommands": [
+    "test-runs/20261104-E13-01/A/inverted-targeted-01/command.json",
+    "test-runs/20261104-E13-01/A/hyperedge-targeted-01/command.json"
+  ],
+  "newTargetedGroupCount": 6,
+  "originalOracleCompared": false,
+  "codeIndependentReview": "pending",
+  "sourceApproved": true,
+  "fullLayout": false,
+  "scope": "Standalone actual InvertedPortProcessor and HyperedgeDummyMerger; no arbitrary graph-size caps. Existing frozen algorithms remain unchanged.",
+  "pendingConsumers": [
+    "LayerSweep nonempty successor/layoutUnit/BARY associates",
+    "shared-port and north/south crossing counters/ranks/side-switch consumers",
+    "provider strategy and actual phase configurations",
+    "later long-edge/BK/router new input branches"
+  ],
+  "originalLineagePreserved": [
+    "proposal01/02 and raw source reviews",
+    "kernel-handoff-01.json",
+    "NS helper first owner failed assertion and subsequent targeted02",
+    "original14 checkpoint-handoff-04.json"
+  ]
+}

@@ -1,0 +1,372 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Constrained port of elkjs 0.12.1 generated lib/elk-worker.js.
+# Upstream commit: 624ae90aa37110033a8af59c5ccbb292708b4317
+# Worker SHA256: 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86
+# Component mapping: references/e04-source-components-A.json
+# E05 renewed DAG transfer components: references/e05-source-components-A.json.
+# E06 cycles/loops/multiplicity: references/e06-source-components-A.json.
+# Exact external Java build is unresolved. See pyelk/_licenses/NOTICE-E06.md.
+"""Source-constrained flat import and layout transfer for ADR0003/0004/0005.
+
+The EMF/JSON transport is fused into E03 origin identities. Component DFS,
+implicit ports, ownership, offsets and source floating-point order remain real
+operations. No reference data is loaded and no coordinate is computed at import.
+"""
+import math
+
+from ..._errors import UnsupportedFeatureError
+from .graph import Insets, LEdge, LGraph, LNode, LPort, Vec2, set_layer, set_port_owner, set_source, set_target
+from .scope import validate_e06_slice, validate_slice, validate_ports_import
+from .directions import from_direction, resolve_direction
+from .long_edges import get_junction_points
+
+_TARGET = "_E04_COMPONENT_TARGET"
+_P = "org.eclipse.elk."
+
+
+def _outside(message):
+    raise UnsupportedFeatureError("UNSUPPORTED_TRANSFER_INPUT", "", message)
+
+
+def _insets(value):
+    return Insets(top=float(value.top), right=float(value.right), bottom=float(value.bottom), left=float(value.left))
+
+
+def _create_raw_graph(context, random):
+    """Flat importer in original array order, before ComponentsProcessor."""
+    origin = context.working_graph
+    options = context.resolved_options
+    target = LGraph(origin=origin, options=options, random=random)
+    target.padding = _insets(options.values[_P + "padding"])
+    direction = options.values[_P + "direction"]
+    # Worker getDirection_1 uses the fixed >=1 aspect-ratio default here.
+    target.properties.update(DIRECTION=resolve_direction(direction),
+                             GRAPH_PROPERTIES=set(), NODE_PLACEMENT_FAVOR_STRAIGHT_EDGES=True,
+                             NODE_PLACEMENT_BK_FIXED_ALIGNMENT="NONE")
+    node_map = {}
+    for original in origin.root.children:
+        data = original.to_json()
+        node = LNode(graph=target, origin=original, size=Vec2(float(data["width"]), float(data["height"])))
+        # transformNode replaces the undefined default with explicit FREE.
+        node.properties["PORT_CONSTRAINTS"] = "FREE"
+        target.layerless_nodes.append(node)
+        node_map[original.typed_id] = node
+    for original in origin.root.edges:
+        edge = LEdge(origin=original)
+        source_node = node_map[origin.node(original.sources[0]).typed_id]
+        target_node = node_map[origin.node(original.targets[0]).typed_id]
+        # Source transformEdge preserves every original edge and adds this
+        # actual graph flag for owner-identical endpoints, including loops.
+        if source_node is target_node:
+            target.properties["GRAPH_PROPERTIES"].add("SELF_LOOPS")
+        side = from_direction(target.properties["DIRECTION"])
+        opposite = {"EAST": "WEST", "WEST": "EAST", "NORTH": "SOUTH", "SOUTH": "NORTH"}
+        source_port, target_port = LPort(side=side), LPort(side=opposite[side])
+        # createPort's zero-size setSide assigns a zero anchor on either side.
+        source_port.anchor.x = source_port.size.x
+        source_port.anchor.y = source_port.size.y / 2
+        target_port.anchor.x = 0.0
+        target_port.anchor.y = target_port.size.y / 2
+        set_port_owner(source_port, source_node)
+        set_port_owner(target_port, target_node)
+        set_source(edge, source_port)
+        set_target(edge, target_port)
+    # GraphConfigurator.prepare's actual copyPortConstraints callback runs for
+    # every original node before component/processor layout, not only loops.
+    for node in target.layerless_nodes:
+        node.properties["ORIGINAL_PORT_CONSTRAINTS"] = node.properties["PORT_CONSTRAINTS"]
+    return target
+
+
+def import_raw_graph(context, random):
+    """Current bounded import; global preparation/split belong to the driver."""
+    validate_slice(context)
+    return _create_raw_graph(context, random)
+
+
+def import_ports_graph(context, random):
+    """P03 standalone import; full ports pipeline admission remains separate."""
+    from ...model import Port
+    from .ports import initialize_port, set_side
+    validate_ports_import(context)
+    origin, options = context.working_graph, context.resolved_options
+    target = LGraph(origin=origin, options=options, random=random)
+    target.padding = _insets(options.values[_P + "padding"])
+    direction = resolve_direction(options.values[_P + "direction"])
+    target.properties.update(DIRECTION=direction, GRAPH_PROPERTIES=set(),
+                             NODE_PLACEMENT_FAVOR_STRAIGHT_EDGES=True,
+                             NODE_PLACEMENT_BK_FIXED_ALIGNMENT="NONE")
+    node_map, port_map = {}, {}
+    keys = {_P + "port.index": "PORT_INDEX", _P + "port.anchor": "PORT_ANCHOR",
+            _P + "port.borderOffset": "PORT_BORDER_OFFSET"}
+    for original in origin.root.children:
+        data = original.to_json()
+        selected = context.element_options(original)
+        original_constraints = selected.values[_P + "portConstraints"]
+        constraints = "FREE" if original_constraints == "UNDEFINED" else original_constraints
+        node = LNode(graph=target, origin=original,
+                     size=Vec2(float(data.get("width", 0)), float(data.get("height", 0))),
+                     pos=Vec2(float(data.get("x", 0)), float(data.get("y", 0))))
+        node.properties["PORT_CONSTRAINTS"] = constraints
+        if constraints != "FREE":
+            target.properties["GRAPH_PROPERTIES"].add("NON_FREE_PORTS")
+        target.layerless_nodes.append(node)
+        node_map[original.typed_id] = node
+        for original_port in original.ports:
+            port_data = original_port.to_json()
+            selected_port = context.element_options(original_port)
+            port = LPort(origin=original_port)
+            for key, internal in keys.items():
+                if key in selected_port.raw_values:
+                    port.properties[internal] = selected_port.values[key]
+            set_side(port, selected_port.values[_P + "port.side"])
+            set_port_owner(port, node)
+            port.size.x, port.size.y = float(port_data.get("width", 0)), float(port_data.get("height", 0))
+            port.pos.x, port.pos.y = float(port_data.get("x", 0)), float(port_data.get("y", 0))
+            port_map[original_port.typed_id] = port
+            port.properties["INSIDE_CONNECTIONS"] = False  # Approved flat/default-inside-loop branch.
+            initialize_port(port, original_constraints, direction,
+                            selected_port.values[_P + "port.anchor"])
+            non_flow = (port.side in ("NORTH", "SOUTH") if direction in ("LEFT", "RIGHT")
+                        else port.side in ("EAST", "WEST"))
+            if non_flow:
+                target.properties["GRAPH_PROPERTIES"].add("NORTH_SOUTH_PORTS")
+    opposite = {"EAST": "WEST", "WEST": "EAST", "NORTH": "SOUTH", "SOUTH": "NORTH"}
+    def endpoint_port(endpoint, *, source):
+        if isinstance(endpoint, Port):
+            return port_map[endpoint.typed_id]
+        node = node_map[endpoint.typed_id]
+        side = from_direction(direction)
+        port = LPort()
+        set_port_owner(port, node)
+        set_side(port, side if source else opposite[side])
+        return port
+    for original in origin.root.edges:
+        source, destination = original.source_endpoints[0], original.target_endpoints[0]
+        source_node = source.owner if isinstance(source, Port) else source
+        destination_node = destination.owner if isinstance(destination, Port) else destination
+        edge = LEdge(origin=original)
+        if source_node is destination_node:
+            target.properties["GRAPH_PROPERTIES"].add("SELF_LOOPS")
+        source_port = endpoint_port(source, source=True)
+        target_port = endpoint_port(destination, source=False)
+        set_source(edge, source_port)
+        set_target(edge, target_port)
+        if any(len(p.incoming_edges) > 1 or len(p.outgoing_edges) > 1 for p in (source_port, target_port)):
+            target.properties["GRAPH_PROPERTIES"].add("HYPEREDGES")
+    for node in target.layerless_nodes:
+        node.properties["ORIGINAL_PORT_CONSTRAINTS"] = node.properties["PORT_CONSTRAINTS"]
+    return target
+
+
+def import_graph(context, random):
+    """Historical E06 stage-test importer with its explicit single-component DFS."""
+    validate_e06_slice(context)
+    target = _create_raw_graph(context, random)
+    origin, options = target.origin, target.options
+    if not target.layerless_nodes:
+        return target  # Outer recursive engine leaf branch: no component layout.
+
+    # ComponentsProcessor.split: use ordered port adjacency, never sorted IDs or
+    # source-to-sink order as a substitute for its DFS traversal.
+    for node in target.layerless_nodes:
+        node.id = 0
+    ordered = []
+
+    def visit(node):
+        if node.id != 0:
+            return
+        node.id = 1
+        ordered.append(node)
+        for port in node.ports:
+            for edge in [*port.incoming_edges, *port.outgoing_edges]:
+                other = edge.source.owner if edge.target is port else edge.target.owner
+                visit(other)
+
+    visit(target.layerless_nodes[0])
+    if len(ordered) != len(target.layerless_nodes):
+        _outside("Only a single connected component is admitted")
+    component = LGraph(origin=origin, options=options, random=random, padding=_insets(target.padding),
+                       properties=dict(target.properties))
+    component.properties[_TARGET] = target
+    for node in ordered:
+        component.layerless_nodes.append(node)
+        node.graph = component
+    return component
+
+
+def _json_at(root, path):
+    result = root
+    for encoded in path.split("/")[1:]:
+        key = encoded.replace("~1", "/").replace("~0", "~")
+        result = result[int(key)] if isinstance(result, list) else result[key]
+    return result
+
+
+def _finish_component(graph):
+    # ElkLayered.layout_1 restores the layerless representation after processors.
+    for layer in graph.layers:
+        graph.layerless_nodes.extend(layer.nodes)
+        layer.nodes.clear()
+    for node in graph.layerless_nodes:
+        set_layer(node, None)
+    graph.layers.clear()
+    target = graph.properties.pop(_TARGET, graph)
+    if target is not graph:
+        target.layerless_nodes.clear()
+        graph.offset.x += 0.0
+        graph.offset.y += 0.0
+        offset_x, offset_y = graph.offset.x, graph.offset.y
+        for node in graph.layerless_nodes:
+            node.pos.x += offset_x
+            node.pos.y += offset_y
+            for port in node.ports:
+                for edge in port.outgoing_edges:
+                    for point in edge.bend_points:
+                        point.x += offset_x
+                        point.y += offset_y
+                    # Source moveGraph gets/materializes the mutable chain
+                    # even if it is an empty Java object and offsets every
+                    # actual point. Use the one approved shared getter.
+                    for point in get_junction_points(edge):
+                        point.x += offset_x
+                        point.y += offset_y
+            target.layerless_nodes.append(node)
+            node.graph = target
+        target.properties.update(graph.properties)
+        target.padding = _insets(graph.padding)
+        target.size.x, target.size.y = graph.size.x, graph.size.y
+    # resizeGraph's calculated -> adjusted -> subtract-padding order matters.
+    calculated_x = target.size.x + target.padding.left + target.padding.right
+    calculated_y = target.size.y + target.padding.top + target.padding.bottom
+    target.size.x = calculated_x - target.padding.left - target.padding.right
+    target.size.y = calculated_y - target.padding.top - target.padding.bottom
+    return target
+
+
+def _absolute_anchor(port):
+    result = Vec2()
+    for part in (port.owner.pos, port.pos, port.anchor):
+        result.x += part.x
+        result.y += part.y
+    return result
+
+
+def _finite(value):
+    if not math.isfinite(value):
+        _outside("The reviewed transfer requires finite computed geometry")
+    return value
+
+
+def export_layout(graph, *, finish=True, original_ports=False):
+    """Finish component ownership and transfer geometry into independent JSON."""
+    result = graph.origin.to_json()
+    if not graph.layers and not graph.layerless_nodes:
+        # Admission excludes existing root geometry; the leaf engine retains
+        # Ecore zero dimensions and JSON transfer still writes all four fields.
+        result.update(x=0.0, y=0.0, width=0.0, height=0.0)
+        return result
+    remaining = [*graph.layerless_nodes, *(node for layer in graph.layers for node in layer.nodes)]
+    expected_nodes = graph.origin.root.children
+    if (len(remaining) != len(expected_nodes) or len({node.origin for node in remaining}) != len(expected_nodes)
+            or {node.origin for node in remaining} != set(expected_nodes)
+            or any(node.type != "NORMAL" for node in remaining)):
+        _outside("Every original node must survive exactly once before transfer")
+    remaining_edges = [edge for node in remaining for port in node.ports for edge in port.outgoing_edges]
+    expected_edges = graph.origin.root.edges
+    if (len(remaining_edges) != len(expected_edges)
+            or {edge.origin for edge in remaining_edges} != set(expected_edges)):
+        _outside("Every original edge must be restored exactly once before transfer")
+    def endpoint_matches(port, endpoint):
+        from ...model import Port
+        if isinstance(endpoint, Port):
+            return port.origin is endpoint and port.owner.origin is endpoint.owner
+        return port.owner.origin is endpoint
+    for edge in remaining_edges:
+        # Identity/direction is a source precondition, independent of whether
+        # zero-sized nodes happen to have equal public coordinates. Parallel
+        # edges and self-loops remain separate original model Edge identities.
+        if (edge.source is None or edge.target is None
+                or edge.source.owner is None or edge.target.owner is None
+                or edge.source.owner.origin is None or edge.target.owner.origin is None
+                or type(edge.properties.get("REVERSED", False)) is not bool
+                or edge.properties.get("REVERSED", False)
+                or (not endpoint_matches(edge.source, edge.origin.source_endpoints[0]) if original_ports else
+                    edge.source.owner.origin.typed_id != graph.origin.node(edge.origin.sources[0]).typed_id)
+                or (not endpoint_matches(edge.target, edge.origin.target_endpoints[0]) if original_ports else
+                    edge.target.owner.origin.typed_id != graph.origin.node(edge.origin.targets[0]).typed_id)):
+            _outside("Every original edge direction must be restored before transfer")
+    if finish:
+        graph = _finish_component(graph)
+    offset_x = graph.offset.x + graph.padding.left
+    offset_y = graph.offset.y + graph.padding.top
+    edges = []
+    for node in graph.layerless_nodes:
+        if node.origin is None or node.type != "NORMAL":
+            _outside("Only original normal nodes can be transferred")
+        output = _json_at(result, node.origin.path)
+        output["x"] = _finite(node.pos.x + offset_x)
+        output["y"] = _finite(node.pos.y + offset_y)
+        # Empty node-size constraints preserve original width/height fields.
+        if original_ports:
+            original = node.origin.to_json()
+            resize = bool(node.properties.get("NODE_SIZE_CONSTRAINTS", ()))
+            output["width"] = _finite(node.size.x if resize else float(original.get("width", 0)))
+            output["height"] = _finite(node.size.y if resize else float(original.get("height", 0)))
+            actual = [port for port in node.ports if port.origin is not None]
+            if (len(actual) != len(node.origin.ports)
+                    or {port.origin for port in actual} != set(node.origin.ports)
+                    or any(port.origin.owner is not node.origin for port in actual)):
+                _outside("Every original explicit port must survive once with its owner")
+            for port in actual:
+                port_output = _json_at(result, port.origin.path)
+                port_original = port.origin.to_json()
+                port_output.update(x=_finite(port.pos.x), y=_finite(port.pos.y),
+                                   width=float(port_original.get("width", 0)),
+                                   height=float(port_original.get("height", 0)))
+        for port in node.ports:
+            edges.extend(port.outgoing_edges)
+    for edge in edges:
+        if edge.origin is None or edge.source is None or edge.target is None:
+            _outside("Only original complete single-endpoint edges can be transferred")
+        output = _json_at(result, edge.origin.path)
+        start, end = _absolute_anchor(edge.source), _absolute_anchor(edge.target)
+        edge.bend_points.insert(0, start)
+        edge.bend_points.append(end)
+        # calculateHierarchicalOffset returns the source ZERO_OFFSET here.
+        edge_offset_x, edge_offset_y = offset_x + 0.0, offset_y + 0.0
+        for point in edge.bend_points:
+            point.x += edge_offset_x
+            point.y += edge_offset_y
+        identifier = edge.origin.id
+        if original_ports and not isinstance(identifier, str):
+            from ...execution.diagnostics import number_text
+            identifier = number_text(identifier)
+        section = {"id": identifier + "_s0",
+                   "startPoint": {"x": _finite(start.x), "y": _finite(start.y)},
+                   "endPoint": {"x": _finite(end.x), "y": _finite(end.y)}}
+        if len(edge.bend_points) > 2:
+            section["bendPoints"] = [{"x": _finite(p.x), "y": _finite(p.y)} for p in edge.bend_points[1:-1]]
+        section["incomingShape"] = edge.origin.sources[0]
+        section["outgoingShape"] = edge.origin.targets[0]
+        # JSON importer transfer removes then re-adds the section array.
+        output.pop("sections", None)
+        output["sections"] = [section]
+        junctions = get_junction_points(edge)
+        for point in junctions:
+            point.x += edge_offset_x
+            point.y += edge_offset_y
+        # Java chain presence and JSON nonempty emission are separate tests.
+        # EMF scratch option IDs/default constraints are not new public fields.
+        if junctions:
+            output["junctionPoints"] = [{"x": _finite(point.x), "y": _finite(point.y)} for point in junctions]
+        output["container"] = graph.origin.root.id
+    result["x"], result["y"] = 0.0, 0.0
+    result["width"] = _finite(graph.size.x + graph.padding.left + graph.padding.right)
+    result["height"] = _finite(graph.size.y + graph.padding.top + graph.padding.bottom)
+    return result
+
+
+def transfer_ports_layout(graph):
+    """P03 original-port geometry transfer; no pipeline is run implicitly."""
+    return export_layout(graph, original_ports=True)

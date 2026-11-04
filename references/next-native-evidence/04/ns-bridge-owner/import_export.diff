@@ -1,0 +1,20 @@
+--- before6d942
++++ after-ns-bridge
+@@ -141,10 +141,15 @@
+     target.properties.update(DIRECTION=direction, GRAPH_PROPERTIES=set(),
+                              NODE_PLACEMENT_FAVOR_STRAIGHT_EDGES=True,
+                              NODE_PLACEMENT_BK_FIXED_ALIGNMENT="NONE")
+-    _apply_size_options(target, context.element_options(origin.root, algorithm="layered"))
++    selected_root = context.element_options(origin.root, algorithm="layered")
++    _apply_size_options(target, selected_root)
++    model_order_key = _P + "layered.considerModelOrder.strategy"
++    if model_order_key in selected_root.raw_values:
++        target.properties["CONSIDER_MODEL_ORDER_STRATEGY"] = selected_root.values[model_order_key]
+     node_map, port_map = {}, {}
+     keys = {_P + "port.index": "PORT_INDEX", _P + "port.anchor": "PORT_ANCHOR",
+-            _P + "port.borderOffset": "PORT_BORDER_OFFSET"}
++            _P + "port.borderOffset": "PORT_BORDER_OFFSET",
++            _P + "layered.allowNonFlowPortsToSwitchSides": "ALLOW_NON_FLOW_PORTS_TO_SWITCH_SIDES"}
+     for original in origin.root.children:
+         data = original.to_json()
+         selected = context.element_options(original, algorithm="layered")

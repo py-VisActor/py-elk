@@ -1,0 +1,81 @@
+{
+  "cases": [
+    {
+      "id": "prehashed-nodes-fresh-set",
+      "count": 4,
+      "prehash": [
+        2,
+        0,
+        3,
+        1
+      ],
+      "insert": [
+        0,
+        1,
+        2,
+        1,
+        3
+      ]
+    },
+    {
+      "id": "radial-nextlevel-shared-targets",
+      "count": 5,
+      "prehash": [
+        4,
+        2,
+        3,
+        1,
+        0
+      ],
+      "parents": [
+        0,
+        1
+      ],
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "id": "explicit-32bit-collision-support",
+      "count": 3,
+      "forcedHash": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4294967297
+        ]
+      ],
+      "insert": [
+        0,
+        1,
+        2
+      ]
+    }
+  ]
+}

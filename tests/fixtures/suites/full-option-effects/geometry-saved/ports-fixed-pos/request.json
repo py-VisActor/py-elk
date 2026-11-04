@@ -1,0 +1,237 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": true,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "r",
+    "business": {
+      "sentinel": [
+        null,
+        false,
+        0,
+        1e-09
+      ],
+      "$H": "business-must-survive"
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 80,
+        "height": 56,
+        "business": {
+          "id": "a",
+          "enabled": true,
+          "$H": "user-owned"
+        },
+        "layoutOptions": {
+          "elk.portConstraints": "FIXED_POS",
+          "elk.portLabels.placement": "[OUTSIDE]"
+        },
+        "ports": [
+          {
+            "id": "p0",
+            "x": 16,
+            "y": -2,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "NORTH",
+              "elk.port.index": 129,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl0",
+                "text": "PNORTH",
+                "width": 17,
+                "height": 7
+              }
+            ]
+          },
+          {
+            "id": "p1",
+            "x": 80,
+            "y": 12,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "EAST",
+              "elk.port.index": 128,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl1",
+                "text": "PEAST",
+                "width": 18,
+                "height": 7
+              }
+            ]
+          },
+          {
+            "id": "p2",
+            "x": 53,
+            "y": 56,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "SOUTH",
+              "elk.port.index": 127,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl2",
+                "text": "PSOUTH",
+                "width": 19,
+                "height": 7
+              }
+            ]
+          },
+          {
+            "id": "p3",
+            "x": -3,
+            "y": 37,
+            "width": 4,
+            "height": 3,
+            "layoutOptions": {
+              "elk.port.side": "WEST",
+              "elk.port.index": 126,
+              "elk.port.anchor": "(1,2)",
+              "elk.port.borderOffset": 0
+            },
+            "labels": [
+              {
+                "id": "pl3",
+                "text": "PWEST",
+                "width": 20,
+                "height": 7
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "width": 35,
+        "height": 23,
+        "business": {
+          "id": "b",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "c",
+        "width": 38,
+        "height": 24,
+        "business": {
+          "id": "c",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      },
+      {
+        "id": "d",
+        "width": 41,
+        "height": 25,
+        "business": {
+          "id": "d",
+          "enabled": true,
+          "$H": "user-owned"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "ep0",
+        "sources": [
+          "p0"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep0",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "ep1",
+        "sources": [
+          "p1"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "ep1",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "ep2",
+        "sources": [
+          "p2"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "ep2",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "ep3",
+        "sources": [
+          "p3"
+        ],
+        "targets": [
+          "b"
+        ],
+        "business": {
+          "edge": "ep3",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "bc",
+        "sources": [
+          "b"
+        ],
+        "targets": [
+          "c"
+        ],
+        "business": {
+          "edge": "bc",
+          "weight": 0.125
+        }
+      },
+      {
+        "id": "cd",
+        "sources": [
+          "c"
+        ],
+        "targets": [
+          "d"
+        ],
+        "business": {
+          "edge": "cd",
+          "weight": 0.125
+        }
+      }
+    ],
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 37,
+      "elk.direction": "RIGHT"
+    }
+  }
+}

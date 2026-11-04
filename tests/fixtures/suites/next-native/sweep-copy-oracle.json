@@ -1,0 +1,155 @@
+{
+  "schema": "py-elk-next-sweep-copy-observation/v1",
+  "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+  "probeSha256": "e96851fbbe8470da529f8e3ab349d9dfada7c61ff6466bd1a8439184f5bd7eba",
+  "requestSha256": "4e3d6639bb9b9b7c7eaf17dca447a7b9dc61ffaced7408fec3c03f717b792cf2",
+  "pid": 17264,
+  "parentPid": 15840,
+  "node": "v24.19.0",
+  "results": [
+    {
+      "id": "source-copy-layer-array-independence-and-port-list-aliases",
+      "value": {
+        "before": {
+          "nodeOrder": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "portOrders": [
+            [
+              [
+                "a1",
+                "a2"
+              ],
+              [
+                "b1"
+              ]
+            ],
+            [
+              [
+                "c1"
+              ]
+            ]
+          ],
+          "inputOuterIndependent": true,
+          "inputLayerIndependent": true,
+          "sameNode": true,
+          "copyNodeOuterIndependent": true,
+          "copyNodeLayerIndependent": true,
+          "copyPortOuterIndependent": true,
+          "copyPortLayerShared": true,
+          "copyPortListShared": true
+        },
+        "afterOriginalEdits": {
+          "firstNodes": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "firstPorts": [
+            [
+              [
+                "a1",
+                "a2"
+              ],
+              [
+                "b1"
+              ]
+            ],
+            [
+              [
+                "c1"
+              ]
+            ]
+          ],
+          "inputNodes": [
+            [
+              "b",
+              "a"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "originalAPorts": [
+            "a2",
+            "a1"
+          ]
+        },
+        "afterCopyEdits": {
+          "firstNodes": [
+            [
+              "b",
+              "a"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "secondNodes": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "c"
+            ]
+          ],
+          "firstPorts": [
+            [
+              [
+                "a1",
+                "a2",
+                "capturedOnly"
+              ],
+              [
+                "b1"
+              ]
+            ],
+            [
+              [
+                "c1"
+              ]
+            ],
+            []
+          ],
+          "secondPorts": [
+            [
+              [
+                "a1",
+                "a2",
+                "capturedOnly"
+              ],
+              [
+                "b1"
+              ]
+            ],
+            [
+              [
+                "c1"
+              ]
+            ]
+          ],
+          "originalAPorts": [
+            "a2",
+            "a1"
+          ]
+        },
+        "transferExecuted": false,
+        "counterExecuted": false,
+        "layoutExecuted": false
+      }
+    }
+  ],
+  "candidateExecuted": false,
+  "layoutExecuted": false
+}

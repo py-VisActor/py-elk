@@ -1,0 +1,94 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Copyright Kiel University and others. Fixed elkjs0.12.1 worker275e6caf.
+# HOST17/root/polyline-driver-source-review-01; leaf math reviewed separately.
+"""Actual cached Polyline P5; native graph geometry and value junction keys."""
+from .graph import Vec2
+from .orthogonal_general import _place_nodes_horizontally,_is_external_west_or_east
+from .self_loops_general import _is_self_loop
+from .property_access import read_layered_scalar
+from .graph_info import get_graph_properties
+from ...execution.diagnostics import BasicProgressMonitor
+from ..triangulation import ValueSet,_minimum
+from ..fixed import _div
+from ..radial import _maximum
+
+
+def _absolute_anchor(port):
+    point=Vec2()
+    for vector in(port.owner.pos,port.pos,port.anchor):
+        point.x+=vector.x;point.y+=vector.y
+    return point
+
+
+def _outgoing(node):
+    return(edge for port in node.ports for edge in port.outgoing_edges)
+
+
+class PolylineEdgeRouter:
+    source_name='PolylineEdgeRouter'
+
+    def __init__(self):
+        self.created_junction_points=ValueSet()
+
+    def get_layout_processor_configuration(self,graph):
+        from .layout_configuration import LayoutProcessorConfiguration,LayeredPhase
+        from .phase_factories import IntermediateProcessorStrategy as Strategy
+        p1,p2,p3,p4,p5=tuple(LayeredPhase);configuration=LayoutProcessorConfiguration()
+        def before(phase,name):configuration.add_before(phase,Strategy[name])
+        def after(phase,name):configuration.add_after(phase,Strategy[name])
+        before(p3,'INVERTED_PORT_PROCESSOR')
+        properties=get_graph_properties(graph)
+        if 'NORTH_SOUTH_PORTS'in properties:
+            before(p3,'NORTH_SOUTH_PORT_PREPROCESSOR');after(p5,'NORTH_SOUTH_PORT_POSTPROCESSOR')
+        if 'SELF_LOOPS'in properties:
+            before(p1,'SELF_LOOP_PREPROCESSOR');after(p5,'SELF_LOOP_POSTPROCESSOR')
+            before(p4,'SELF_LOOP_PORT_RESTORER');before(p4,'SELF_LOOP_ROUTER')
+        if 'CENTER_LABELS'in properties:
+            before(p2,'LABEL_DUMMY_INSERTER');before(p4,'LABEL_DUMMY_SWITCHER')
+            before(p4,'LABEL_SIDE_SELECTOR');after(p5,'LABEL_DUMMY_REMOVER')
+        if 'END_LABELS'in properties:
+            before(p4,'LABEL_SIDE_SELECTOR');before(p4,'END_LABEL_PREPROCESSOR')
+            after(p5,'END_LABEL_POSTPROCESSOR')
+        return configuration
+
+    def process(self,graph,monitor=None):
+        monitor=monitor if monitor is not None else BasicProgressMonitor(False,False)
+        monitor.begin('Polyline edge routing',1)
+        zone=read_layered_scalar(graph,'EDGE_ROUTING_POLYLINE_SLOPED_EDGE_ZONE_WIDTH',
+                                 'EDGE_ROUTING_POLYLINE_SLOPED_EDGE_ZONE_WIDTH_0')
+        node_spacing=read_layered_scalar(graph,'SPACING_NODE_NODE_BETWEEN_LAYERS',
+                                         'SPACING_NODE_NODE_BETWEEN_LAYERS_0')
+        edge_spacing=read_layered_scalar(graph,'SPACING_EDGE_EDGE_BETWEEN_LAYERS',
+                                         'SPACING_EDGE_EDGE_BETWEEN_LAYERS_0')
+        factor=_minimum(1.0,_div(edge_spacing,node_spacing))
+        position=0.0;layer_spacing=0.0
+        if graph.layers:
+            position=0.4*factor*_west_in_layer_y_diff(graph.layers[0])
+        for index,layer in enumerate(graph.layers):
+            external=all(_is_external_west_or_east(node)for node in layer.nodes)
+            if external and position>0:position-=node_spacing
+            _place_nodes_horizontally(layer,position)
+            max_difference=0.0
+            for node in layer.nodes:
+                current_difference=0.0
+                for edge in _outgoing(node):
+                    source_y=_absolute_anchor(edge.source).y
+                    target_y=_absolute_anchor(edge.target).y
+                    if layer is edge.target.owner.layer and not _is_self_loop(edge):
+                        _process_in_layer_edge(edge,position,0.4*factor*abs(source_y-target_y))
+                        if edge.source.side=='WEST':source_y=0.0;target_y=0.0
+                    current_difference=_maximum(current_difference,abs(target_y-source_y))
+                if node.type in('NORMAL','LABEL','LONG_EDGE','NORTH_SOUTH_PORT','BREAKING_POINT'):
+                    self._process_node(node,position,zone)
+                max_difference=_maximum(max_difference,current_difference)
+            if index+1<len(graph.layers):
+                difference=_west_in_layer_y_diff(graph.layers[index+1])
+                max_difference=_maximum(max_difference,difference)
+            layer_spacing=0.4*factor*max_difference
+            if not external and index+1<len(graph.layers):layer_spacing+=node_spacing
+            position+=layer.size.x+layer_spacing
+        # Source clears the same backing map, only at successful completion.
+        self.created_junction_points.map.buckets.clear()
+        self.created_junction_points.map.count=0
+        graph.size.x=position
+        monitor.done()

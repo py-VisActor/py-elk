@@ -1,0 +1,15 @@
+# 09批复盘
+
+固定99文件与203份原始证据，11份独审各保声明范围；source-only归档核验0.072119秒通过，未执行产品或全量。下一批计划见[10 brief](../iterations/NEXT_NATIVE_10.md)。
+
+共享层已闭合typed junction生成、Box平移与条件导出；六个新原对象及真实Fixed请求分别验证。Snapshot新holder默认与Session入口已独审，Box/Fixed padding15和Spore padding8在真实caller首读时缓存，同holder后续owner读取保持原对象。Integer解析/显式赋值token桥新增一个原版身份矩阵并首次严格0差异，源/代码独审已接受。完整算法、公开入口和安装包验收仍未完成。
+
+A的AllCrossings与GraphInfo新增真实原对象对照已独审；local-swap和Type及完整sweep分别跟进。B的Polyomino遍历、packing/CornerCases及RectPacking宽度小块有独立收据，DisCo新完整provider与RectPacking余下调度继续推进。不能将单块的批准扩大为整个模块或算法。
+
+本批发现三个类型/次序问题：GraphInfo的EnumSet默认不应复制和存入holder；UNDEFINED分支不应提前调用会写cache的side getter；显式Integer token接口须拒绝Python相等比较可能混淆的bool/float。前两项保首稿及首失败/静态发现，后一项在独审时发现，仅追加五个拒绝控制和一个正确赋值控制。只复测真正变化的叶，不重跑通过的旧组。
+
+原探针选择了重名的LNode `$getPorts`，真实运行报错后改成ElkNode `$getPorts_3`；Fixed请求首稿缺section也由原版明确拒绝。保留这些失败，修输入/宿主探针后使用新目录；不弱化产品guard，不改绑先前执行SHA。
+
+并行继续按root+A/B/V单写范围执行。Root分担RP32/RP33默认声明及padding先于Micro的短源审，使B能继续实际loader，不把完整RP29调度混入该批准。新原控、薄代码审和source-only核验分开排队；本批局部耗时不支持整体提速比例。
+
+下一批优先MODEL_ORDER真实producer与native字段绑定、完整sweep与递归协调；B继续完整DisCo/RectPacking。持续goal保留E09–E21完整目标，开发只做变更校验，全部功能完成后统一全量；项目许可选择待答时继续技术迁移。

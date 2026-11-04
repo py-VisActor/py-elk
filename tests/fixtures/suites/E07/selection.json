@@ -1,0 +1,639 @@
+{
+  "schema": "py-elk-slice-selection/v1",
+  "iteration": "E07",
+  "policy": "flat-four-directions-multicomponent-inputs/proposed-v1",
+  "limits": {
+    "maxChildren": 8,
+    "maxTotalEdges": 28,
+    "maxGeometryValue": 1000000
+  },
+  "status": "INPUTS_PREPARED",
+  "supportStatus": "PROPOSED_SOURCE_GUARDS_PENDING",
+  "algorithmSourceGate": "unverified-for-E07-expansion",
+  "master": {
+    "path": "tests/fixtures/validation/cases.json",
+    "sha256": "73237f14b3753ff4feaff8866ea0cfbcdb39e5b269a31917486a16fda34875cc",
+    "caseCount": 25
+  },
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "masterCases": [
+    {
+      "id": "layered-empty",
+      "originalRequest": "requests/layered-empty.json",
+      "originalRequestSha256": "57e6af36d5003ea28ac539cc51f8f9e4d58813c84bbc1edb95e86a488c649dd6",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-empty.json"
+    },
+    {
+      "id": "layered-singleton",
+      "originalRequest": "requests/layered-singleton.json",
+      "originalRequestSha256": "9d786993c385ce4418218b660cda677eb86601da9d809c4437e300c9bc85fa59",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-singleton.json"
+    },
+    {
+      "id": "layered-chain",
+      "originalRequest": "requests/layered-chain.json",
+      "originalRequestSha256": "3747bbaf9deeb1497282539e35975a9a952176a326febf3128a99141f21838b4",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-chain.json"
+    },
+    {
+      "id": "layered-fork",
+      "originalRequest": "requests/layered-fork.json",
+      "originalRequestSha256": "3d263dbbf4469f6875b8a823bba26fc8c96bb2bcacf7bf129e9a196c5bcef41c",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-fork.json"
+    },
+    {
+      "id": "layered-join",
+      "originalRequest": "requests/layered-join.json",
+      "originalRequestSha256": "efc78c4c12913bc40a7d4ec7528832abfedc72a83716388f20d199a1fc890706",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-join.json"
+    },
+    {
+      "id": "layered-diamond-right",
+      "originalRequest": "requests/layered-diamond-right.json",
+      "originalRequestSha256": "5550f1ff7b77fd80dfe44d0a71b781ecc180f34ff69cd1eabbc525dbada4032e",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-diamond-right.json"
+    },
+    {
+      "id": "layered-diamond-left",
+      "originalRequest": "requests/layered-diamond-left.json",
+      "originalRequestSha256": "57b29520030aeff83f0fe9c6fe50c34beef63b4ef7770780138ec3e616a08cc1",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-diamond-left.json"
+    },
+    {
+      "id": "layered-diamond-down",
+      "originalRequest": "requests/layered-diamond-down.json",
+      "originalRequestSha256": "4328a7d279f44c3401ae81ec1f717a9eebd382725c1348f5b1f73562a6a44904",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-diamond-down.json"
+    },
+    {
+      "id": "layered-diamond-up",
+      "originalRequest": "requests/layered-diamond-up.json",
+      "originalRequestSha256": "27564c1ba565eb7a39264bedd56ff54db343a541d2ed718d21de9f6693128173",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-diamond-up.json"
+    },
+    {
+      "id": "layered-long-edge",
+      "originalRequest": "requests/layered-long-edge.json",
+      "originalRequestSha256": "05b4e11fdb1dea49051ff02feef5749e657ab4ae2e0be1b08c5f31e1edac4464",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-long-edge.json"
+    },
+    {
+      "id": "layered-cycle",
+      "originalRequest": "requests/layered-cycle.json",
+      "originalRequestSha256": "b0c2b4592f68c7d12f62110f8a4e634d72f60d1b8610cc413ca96f3c7f59e3d3",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-cycle.json"
+    },
+    {
+      "id": "layered-self-loop",
+      "originalRequest": "requests/layered-self-loop.json",
+      "originalRequestSha256": "6c6dbf7c47be7ebd810535c060636c3a34bbea750262ec87042a3425c53aab64",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-self-loop.json"
+    },
+    {
+      "id": "layered-parallel-edges",
+      "originalRequest": "requests/layered-parallel-edges.json",
+      "originalRequestSha256": "c9dd965d28e40618e146473a5a657002dab902d552146bac74947e97ee316cfd",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-parallel-edges.json"
+    },
+    {
+      "id": "layered-disconnected",
+      "originalRequest": "requests/layered-disconnected.json",
+      "originalRequestSha256": "788d170145834f8b5bb2e6b4b220023c4b65b157aa61433cf84f67450a7931f4",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-disconnected.json"
+    },
+    {
+      "id": "layered-unequal-sizes",
+      "originalRequest": "requests/layered-unequal-sizes.json",
+      "originalRequestSha256": "87569bf4ff068380347f1c5f3d62e6ad8c7c102fc9ddbf5aab91bd551f0287cf",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-unequal-sizes.json"
+    },
+    {
+      "id": "layered-zero-size",
+      "originalRequest": "requests/layered-zero-size.json",
+      "originalRequestSha256": "b9ee7eceb2d33ce8911da2e2c04223009e0317acaedfd1a35a6985fd0ec8ea23",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-zero-size.json"
+    },
+    {
+      "id": "layered-custom-spacing",
+      "originalRequest": "requests/layered-custom-spacing.json",
+      "originalRequestSha256": "aeb9bd831f4ffa6f34ed52bbee90a19dcd25b564e8ad09c919b171030cc9b26a",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-custom-spacing.json"
+    },
+    {
+      "id": "layered-unseparated-components",
+      "originalRequest": "requests/layered-unseparated-components.json",
+      "originalRequestSha256": "b422ef6e938addcc518202e4fab3c19cc9f6b5be4a029beb5309c9db3d248526",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/layered-unseparated-components.json"
+    },
+    {
+      "id": "options-constructor-default",
+      "originalRequest": "requests/options-constructor-default.json",
+      "originalRequestSha256": "ed8e56c9b4d8a45c6d97a966c5f480df7492dfd7e662e6ae7b02be3fcda3e421",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-constructor-default.json"
+    },
+    {
+      "id": "options-explicit-empty-replaces-default",
+      "originalRequest": "requests/options-explicit-empty-replaces-default.json",
+      "originalRequestSha256": "cc04bf06400f3b0e8824ce90b95e35396d48b2be7d8b3a66aa044ca3bb2aedde",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-explicit-empty-replaces-default.json"
+    },
+    {
+      "id": "options-call-replaces-default",
+      "originalRequest": "requests/options-call-replaces-default.json",
+      "originalRequestSha256": "952cf462958ac0aaaa4bf43f955bee5c18ff311e35a78325876e6dd7af213332",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-call-replaces-default.json"
+    },
+    {
+      "id": "options-full-ids",
+      "originalRequest": "requests/options-full-ids.json",
+      "originalRequestSha256": "1d4edfd7170d457870ad5799921326e3a418b20e901972eb671456912030eb5d",
+      "expectedOutcome": "returned",
+      "included": true,
+      "reasons": [],
+      "suiteRequest": "requests/master/options-full-ids.json"
+    },
+    {
+      "id": "error-unknown-endpoint",
+      "originalRequest": "requests/error-unknown-endpoint.json",
+      "originalRequestSha256": "4ff60bff8287784d5cd387df48e2f733efbbddf3d28c80e29f5ab55d517be4c6",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E07 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/edges/0/targets/0",
+          "detail": "UNKNOWN_ENDPOINT at /edges/0/targets/0: Referenced node or port does not exist"
+        }
+      ]
+    },
+    {
+      "id": "error-unknown-algorithm",
+      "originalRequest": "requests/error-unknown-algorithm.json",
+      "originalRequestSha256": "6776907f36ded445ddf2e736b0e2aa3bae46ca4712e4a26ef5ba443894370d28",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E07 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "/local/elk.algorithm",
+          "detail": "UNSUPPORTED_OPTION at /local/elk.algorithm: This slice parses layered selection only"
+        }
+      ]
+    },
+    {
+      "id": "error-missing-graph",
+      "originalRequest": "requests/error-missing-graph.json",
+      "originalRequestSha256": "f62c50c6c515ff6c5f41af4da10e2dde9ebe0db474016a5b482603c73620afbb",
+      "expectedOutcome": "threw",
+      "included": false,
+      "reasons": [
+        {
+          "code": "master-error-case",
+          "path": "",
+          "detail": "E07 positive layout suite does not count master errors"
+        },
+        {
+          "code": "invalid-host-input",
+          "path": "",
+          "detail": "INVALID_GRAPH at /: Graph root must be a mapping"
+        }
+      ]
+    }
+  ],
+  "selectedMasterCases": 22,
+  "excludedMasterCases": 3,
+  "projectVariants": [
+    {
+      "id": "e07-direction-right-asymmetric-chain",
+      "request": "requests/project/e07-direction-right-asymmetric-chain.json",
+      "requestSha256": "c4c3ced31dcf99cb2013df4d7ac99820808e8b9aeee4cbfa46d7f7a6cfe47aa6",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-left-asymmetric-chain",
+      "request": "requests/project/e07-direction-left-asymmetric-chain.json",
+      "requestSha256": "d585f3b9d0e2a6340db0b2d33b8972521deda9b4a948c3c1526856c73d6284a7",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-down-asymmetric-chain",
+      "request": "requests/project/e07-direction-down-asymmetric-chain.json",
+      "requestSha256": "fd1592548a70351834a82cc0921309aa43b8dc506a9b2eecb78c5119d01dbbe6",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-up-asymmetric-chain",
+      "request": "requests/project/e07-direction-up-asymmetric-chain.json",
+      "requestSha256": "2202a5b078b3fa88b991377b092628950bea72dfc4d33bd437c1aee630d7026a",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-right-cycle-loop-parallel",
+      "request": "requests/project/e07-direction-right-cycle-loop-parallel.json",
+      "requestSha256": "047c0b693b38addf5b13b4a00de16696f6e79f06ae891e548a3660c4a4c758a6",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-left-cycle-loop-parallel",
+      "request": "requests/project/e07-direction-left-cycle-loop-parallel.json",
+      "requestSha256": "7b7ca010f1ceb8cb4883cb79d3aabc4e7ab25b5d19e986f77cbbfdef17cca310",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-down-cycle-loop-parallel",
+      "request": "requests/project/e07-direction-down-cycle-loop-parallel.json",
+      "requestSha256": "c3381b7142193bcac3e9b1d3398e9567fc1a3cd1ec52230a289fbf0bb6869e97",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-up-cycle-loop-parallel",
+      "request": "requests/project/e07-direction-up-cycle-loop-parallel.json",
+      "requestSha256": "a7044505a188283c0f1d35aee0817352f81604b35f9910635c382d2a1c3a24fc",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-right-components",
+      "request": "requests/project/e07-direction-right-components.json",
+      "requestSha256": "694a24719be2ce35d70e8e7295db9c7d6e50d279b7d65fd67832ad4e6759e06b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-left-components",
+      "request": "requests/project/e07-direction-left-components.json",
+      "requestSha256": "82e2b4fee576e7099bc6d6093e6ceb93138bbe057a685fc1c6d6ee396ecbb250",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-down-components",
+      "request": "requests/project/e07-direction-down-components.json",
+      "requestSha256": "60a517a63f3f242a281c18106faf4ec62898331368f93401a030ba807c0e313c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-up-components",
+      "request": "requests/project/e07-direction-up-components.json",
+      "requestSha256": "9ea4098db9ea1397d7935d1d85f064d3ba83487bf363082dfa8ee49309e6552e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-right-unseparated",
+      "request": "requests/project/e07-direction-right-unseparated.json",
+      "requestSha256": "fc1f66131243a5f93b8b10dea37a2073a2af56114796c2cd2f4dfd063520e907",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-left-unseparated",
+      "request": "requests/project/e07-direction-left-unseparated.json",
+      "requestSha256": "a29d483f38ee8099926b48be7d2da8b903434c9bcd1d810c68cd151ff6bee28c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-down-unseparated",
+      "request": "requests/project/e07-direction-down-unseparated.json",
+      "requestSha256": "7c2ba7e0f689118107f66f66c75f5a2512bdf745b45036e0ffa3b4ea51344388",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-direction-up-unseparated",
+      "request": "requests/project/e07-direction-up-unseparated.json",
+      "requestSha256": "92bff56e964adddebcfaaa4d1cf4655f665155e7326944827a1354786b554e89",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-eight-isolates-unequal",
+      "request": "requests/project/e07-eight-isolates-unequal.json",
+      "requestSha256": "688de2c39de47ce122c367afbbb27450181c9a52136766fab7038f9f527eb7fa",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-eight-isolates-false",
+      "request": "requests/project/e07-eight-isolates-false.json",
+      "requestSha256": "2e5a83287a43bc1cab5874442943a7143b4404b20ba844b6d6704fef31ebb7cf",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-components-zero",
+      "request": "requests/project/e07-spacing-components-zero.json",
+      "requestSha256": "d9d161f903fa4bdbe31798f335b6634b680751ad3264e58c4a9ea92b1915643b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-components-max",
+      "request": "requests/project/e07-spacing-components-max.json",
+      "requestSha256": "5575022f4c862536c20c05f16ae594221c4ea50c8dcfdaac955e41f911d54ef9",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-node-zero-fork",
+      "request": "requests/project/e07-spacing-node-zero-fork.json",
+      "requestSha256": "8561cba89a6b8ace4ed379eb6f7aef25b4a98e468d94deddeccf047e85039814",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-node-fractional-fork",
+      "request": "requests/project/e07-spacing-node-fractional-fork.json",
+      "requestSha256": "821d2bb436ede3f2d8adbf54a222b09a5498c0f79cb5b074b3dbad62ed9da99b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-layer-zero-chain",
+      "request": "requests/project/e07-spacing-layer-zero-chain.json",
+      "requestSha256": "8659e82df9d62b347dfefd1b9814bf375e6ca058d6ff93b7d1307ff8d34bcef9",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-layer-fractional-chain",
+      "request": "requests/project/e07-spacing-layer-fractional-chain.json",
+      "requestSha256": "3655b35cb3985ff63bb2311488617f2f9bd64e8006e9fd133f19f1c44c2ec493",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-spacing-layer-max-chain",
+      "request": "requests/project/e07-spacing-layer-max-chain.json",
+      "requestSha256": "a1f4045e416caeb4724df50695ae0ef14bcd8ef16954e519bc309628e93b69bd",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-padding-zero",
+      "request": "requests/project/e07-padding-zero.json",
+      "requestSha256": "2165f77e35d0e90ff7ee96a17296b3f3d89ad04e0bcd9b79462dad3f259fbd80",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-padding-asymmetric-fractional",
+      "request": "requests/project/e07-padding-asymmetric-fractional.json",
+      "requestSha256": "ddc2df0eacef0cc6066ddd5babf7701e9e771db4d4bedc5456cc6b0b5e312c2b",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-padding-max",
+      "request": "requests/project/e07-padding-max.json",
+      "requestSha256": "cabe6b2fe8a46a94fd8674b2302e2a4b8ec474f1b2f8352c7a88ebac664cc04e",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-seed-negative-boundary",
+      "request": "requests/project/e07-seed-negative-boundary.json",
+      "requestSha256": "6062d134fe30b9ac693c8d3deee293f6d8e5860e1bbdefb7b48ecfd3d373b04c",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-seed-positive-boundary",
+      "request": "requests/project/e07-seed-positive-boundary.json",
+      "requestSha256": "a3bd5775533db4fafd200c7f6d1a233c2702b1e0e9591565848b5d6eaa1fcf5d",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-seed-default-implicit",
+      "request": "requests/project/e07-seed-default-implicit.json",
+      "requestSha256": "bf2d16901fb27235401ac6994f66e778c1a6fb175dfd2d9d6b829cacf9fe1cd2",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-seed-string-negative",
+      "request": "requests/project/e07-seed-string-negative.json",
+      "requestSha256": "74a63c41a655fc469f81168ffd46044cc19385ab897cec35a8ec24828718e780",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-full-id-options",
+      "request": "requests/project/e07-full-id-options.json",
+      "requestSha256": "63d897c1f0be659ed3045d5c48e20d9659d2ec354c5e208c96aab143c06a1a6a",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-constructor-defaults-all-nine",
+      "request": "requests/project/e07-constructor-defaults-all-nine.json",
+      "requestSha256": "59c024e349a70e2925efd3fb001dc97673e310bc5bb21cbbd0fb0e2db4fecdc4",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-call-empty-replaces-all-constructor",
+      "request": "requests/project/e07-call-empty-replaces-all-constructor.json",
+      "requestSha256": "16baacca9677c28ea561db7bda34b7a5e48459cdf8b1059023a0639ad07a91c8",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-call-replaces-constructor",
+      "request": "requests/project/e07-call-replaces-constructor.json",
+      "requestSha256": "821dd109107d21ac145833b70f3cc05756c46ddaf10c3f12e74994b9b5c79ad0",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-root-local-overrides-call",
+      "request": "requests/project/e07-root-local-overrides-call.json",
+      "requestSha256": "22f8791bb315b26acb912831140baea747d875b8ce7d950364203498ecd17de5",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-component-mode-string-false",
+      "request": "requests/project/e07-component-mode-string-false.json",
+      "requestSha256": "72a54188331e29a3b1ee1a9003ecdd7548f441b94d03e336a31c711e0af836b7",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-child-padding-asymmetric",
+      "request": "requests/project/e07-child-padding-asymmetric.json",
+      "requestSha256": "2916b2bd781953a36cda5aa37024006636725548a672b18810adec81a263d4b8",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-child-padding-zero",
+      "request": "requests/project/e07-child-padding-zero.json",
+      "requestSha256": "7eab386cad04559bb0f3ec769546de5025771ed6315eb764eca9bddba5690a49",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-seed-order-node-array",
+      "request": "requests/project/e07-seed-order-node-array.json",
+      "requestSha256": "e1eb12e1b22e8c6348549b61316ed74c038b9a8a5df058da251da9bac31dc4f7",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-seed-order-edge-array",
+      "request": "requests/project/e07-seed-order-edge-array.json",
+      "requestSha256": "d62baec16f243de9d14bebfada2808b36356b10b30533eac08b8ad0fb7efd7b5",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-right-zero-simple-ring",
+      "request": "requests/project/e07-right-zero-simple-ring.json",
+      "requestSha256": "bf8e413525c630b727286dcfc00b4976e134d25ed98e9390411e6f487f92c967",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-right-zero-mixed-components",
+      "request": "requests/project/e07-right-zero-mixed-components.json",
+      "requestSha256": "40240de83a835d54f2d30b23362f034199d6f9ad4da4ade85295b1a9994ac632",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-left-zero-simple-ring",
+      "request": "requests/project/e07-left-zero-simple-ring.json",
+      "requestSha256": "6ffc7ed8d18eb3430b65a9deb6eca88340e7eec0e51559a1f2dca1d442428f95",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-left-zero-mixed-components",
+      "request": "requests/project/e07-left-zero-mixed-components.json",
+      "requestSha256": "a5f30960c0da0bc5046edd372c78ad6fb39b3c8d66d4bc575b826c8cf5139163",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-down-zero-simple-ring",
+      "request": "requests/project/e07-down-zero-simple-ring.json",
+      "requestSha256": "ddc85fe3d0d9a43449d9b7629a51d4ac3ad94fbba84c6384e7da5f21c7fa43ce",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-down-zero-mixed-components",
+      "request": "requests/project/e07-down-zero-mixed-components.json",
+      "requestSha256": "a83e243716871207f8d4223a4464b0d8952130b9937bd722dbc725c3ad89d4f5",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-up-zero-simple-ring",
+      "request": "requests/project/e07-up-zero-simple-ring.json",
+      "requestSha256": "4fa9ef3385ba7de5c7fd20ddf7fbef2331a62220464e56ae655b05035aa1d935",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    },
+    {
+      "id": "e07-up-zero-mixed-components",
+      "request": "requests/project/e07-up-zero-mixed-components.json",
+      "requestSha256": "6ff5e41586023d02ba686ed19c1ffaef1f1e8e529f90da6b1448adb796beb482",
+      "origin": "independent-project-input",
+      "expectedCoordinatesEmbedded": false
+    }
+  ],
+  "projectVariantCount": 50,
+  "suiteCaseCount": 72,
+  "pythonAlgorithmsVerified": 0,
+  "oracleStatus": "CAPTURE_SEPARATELY",
+  "limitation": "Proposed input membership and bytes only; source guards are not frozen and no candidate, algorithm or geometry acceptance is established."
+}

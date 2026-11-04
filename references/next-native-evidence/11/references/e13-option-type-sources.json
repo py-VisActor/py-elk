@@ -1,0 +1,1852 @@
+{
+  "schema": "py-elk-e13-option-type-sources/v1",
+  "sourceApproved": false,
+  "scope": "20 NodeContext options only: actual Core declaration/default/target and class/enum values, actual parser caller/helper bodies, actual Layered supported/default distinction. Not a243-option parser or runtime acceptance.",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "workerSha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86"
+  },
+  "originalTypedFactsSha256": "a9543eeda9728b4805d5cdadaf94434c584be1b86531edea82316d452ffb6b4c",
+  "options": [
+    {
+      "id": "org.eclipse.elk.nodeSize.constraints",
+      "type": "ENUMSET",
+      "class": "SizeConstraint",
+      "coreDefault": [],
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.nodeSize.constraints property declaration",
+        "startLine": 70856,
+        "endLine": 70856,
+        "role": "implementation",
+        "sha256": "971357b6225bab4ded91b8364cc7f6da4f3a3f680e38f25b5ebfa452c698a410",
+        "sourceBytesBase64": "ICBOT0RFX1NJWkVfQ09OU1RSQUlOVFNfNiA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsubm9kZVNpemUuY29uc3RyYWludHMnLCBOT0RFX1NJWkVfQ09OU1RSQUlOVFNfREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.nodeSize.constraints metadata registration",
+        "startLine": 70975,
+        "endLine": 70975,
+        "role": "implementation",
+        "sha256": "ab98d1067e8d75d631871a0d056fb38492a229c5e58acac2b5cd286dca7e5260",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5jb25zdHJhaW50cycpLCAnbm9kZVNpemUnKSwgJ05vZGUgU2l6ZSBDb25zdHJhaW50cycpLCAiV2hhdCBzaG91bGQgYmUgdGFrZW4gaW50byBhY2NvdW50IHdoZW4gY2FsY3VsYXRpbmcgYSBub2RlJ3Mgc2l6ZS4gRW1wdHkgc2l6ZSBjb25zdHJhaW50cyBzcGVjaWZ5IHRoYXQgYSBub2RlJ3Mgc2l6ZSBpcyBhbHJlYWR5IGZpeGVkIGFuZCBzaG91bGQgbm90IGJlIGNoYW5nZWQuIiksIE5PREVfU0laRV9DT05TVFJBSU5UU19ERUZBVUxUKSwgRU5VTVNFVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV9vcHRpb25zX1NpemVDb25zdHJhaW50XzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": [],
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias NODE_SIZE_CONSTRAINTS_6",
+            "startLine": 49172,
+            "endLine": 49172,
+            "role": "implementation",
+            "sha256": "2e124e874b52a3fd238c2a305c9a9dae4c2d6f742e4c67dff92b9f03acf3af3b",
+            "sourceBytesBase64": "ICBOT0RFX1NJWkVfQ09OU1RSQUlOVFNfMSA9IE5PREVfU0laRV9DT05TVFJBSU5UU182Owo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.nodeSize.constraints Layered support",
+            "startLine": 49331,
+            "endLine": 49331,
+            "role": "implementation",
+            "sha256": "967e7772d4558aa86270040236d9005bfbd8007867058c6f330fadf3b9bba23b",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5jb25zdHJhaW50cycsICRnZXREZWZhdWx0KE5PREVfU0laRV9DT05TVFJBSU5UU18xKSk7Cg=="
+          }
+        ]
+      },
+      "allowedMembers": [
+        {
+          "name": "PORTS",
+          "ordinal": 0
+        },
+        {
+          "name": "PORT_LABELS",
+          "ordinal": 1
+        },
+        {
+          "name": "NODE_LABELS",
+          "ordinal": 2
+        },
+        {
+          "name": "MINIMUM_SIZE",
+          "ordinal": 3
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.nodeSize.options",
+      "type": "ENUMSET",
+      "class": "SizeOptions",
+      "coreDefault": [
+        "DEFAULT_MINIMUM_SIZE"
+      ],
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.nodeSize.options property declaration",
+        "startLine": 70858,
+        "endLine": 70858,
+        "role": "implementation",
+        "sha256": "c037be4d597c6a93f94c6579d3666b83a2d6649044faabcd1a894d087776de61",
+        "sourceBytesBase64": "ICBOT0RFX1NJWkVfT1BUSU9OU182ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5vcHRpb25zJywgTk9ERV9TSVpFX09QVElPTlNfREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.nodeSize.options metadata registration",
+        "startLine": 70976,
+        "endLine": 70976,
+        "role": "implementation",
+        "sha256": "b01c34b33fd7b6ca0be695b676df297fe98a145ff6ecdfb406d2da31e1820e3b",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5vcHRpb25zJyksICdub2RlU2l6ZScpLCAnTm9kZSBTaXplIE9wdGlvbnMnKSwgJ09wdGlvbnMgbW9kaWZ5aW5nIHRoZSBiZWhhdmlvciBvZiB0aGUgc2l6ZSBjb25zdHJhaW50cyBzZXQgb24gYSBub2RlLiBFYWNoIG1lbWJlciBvZiB0aGUgc2V0IHNwZWNpZmllcyBzb21ldGhpbmcgdGhhdCBzaG91bGQgYmUgdGFrZW4gaW50byBhY2NvdW50IHdoZW4gY2FsY3VsYXRpbmcgbm9kZSBzaXplcy4gVGhlIGVtcHR5IHNldCBjb3JyZXNwb25kcyB0byBubyBmdXJ0aGVyIG1vZGlmaWNhdGlvbnMuJyksIE5PREVfU0laRV9PUFRJT05TX0RFRkFVTFQpLCBFTlVNU0VUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX29wdGlvbnNfU2l6ZU9wdGlvbnNfMl9jbGFzc0xpdCksIG9mXzEoTk9ERVMpKSkpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": [
+          "DEFAULT_MINIMUM_SIZE"
+        ],
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias NODE_SIZE_OPTIONS_6",
+            "startLine": 49173,
+            "endLine": 49173,
+            "role": "implementation",
+            "sha256": "d766d4257d0afe90d7f22d49140f72d8d467b8b110a89bfbceb5ef5e7b6d2675",
+            "sourceBytesBase64": "ICBOT0RFX1NJWkVfT1BUSU9OU18xID0gTk9ERV9TSVpFX09QVElPTlNfNjsK"
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.nodeSize.options Layered support",
+            "startLine": 49332,
+            "endLine": 49332,
+            "role": "implementation",
+            "sha256": "60e82bea457a4ed50cf84fa686df1880be29b2467ce84b4351ee5b5adeaf11fa",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5vcHRpb25zJywgJGdldERlZmF1bHQoTk9ERV9TSVpFX09QVElPTlNfMSkpOwo="
+          }
+        ]
+      },
+      "allowedMembers": [
+        {
+          "name": "DEFAULT_MINIMUM_SIZE",
+          "ordinal": 0
+        },
+        {
+          "name": "MINIMUM_SIZE_ACCOUNTS_FOR_PADDING",
+          "ordinal": 1
+        },
+        {
+          "name": "COMPUTE_PADDING",
+          "ordinal": 2
+        },
+        {
+          "name": "OUTSIDE_NODE_LABELS_OVERHANG",
+          "ordinal": 3
+        },
+        {
+          "name": "PORTS_OVERHANG",
+          "ordinal": 4
+        },
+        {
+          "name": "UNIFORM_PORT_SPACING",
+          "ordinal": 5
+        },
+        {
+          "name": "SPACE_EFFICIENT_PORT_LABELS",
+          "ordinal": 6
+        },
+        {
+          "name": "FORCE_TABULAR_NODE_LABELS",
+          "ordinal": 7
+        },
+        {
+          "name": "ASYMMETRICAL",
+          "ordinal": 8
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.nodeSize.minimum",
+      "type": "OBJECT",
+      "class": "KVector",
+      "coreDefault": {
+        "x": 0,
+        "y": 0
+      },
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.nodeSize.minimum property declaration",
+        "startLine": 70860,
+        "endLine": 70860,
+        "role": "implementation",
+        "sha256": "1ea711c75a608f18f6c3df77a901b9bb98c592f733e7f4e1b2ea0fd195f89e95",
+        "sourceBytesBase64": "ICBOT0RFX1NJWkVfTUlOSU1VTV81ID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5taW5pbXVtJywgTk9ERV9TSVpFX01JTklNVU1fREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.nodeSize.minimum metadata registration",
+        "startLine": 70977,
+        "endLine": 70977,
+        "role": "implementation",
+        "sha256": "fb9a4a5249a5534aca851abbb37e8824ad8d86f9bac7fc4dc942a2cf54db01b1",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5taW5pbXVtJyksICdub2RlU2l6ZScpLCAnTm9kZSBTaXplIE1pbmltdW0nKSwgJ1RoZSBtaW5pbWFsIHNpemUgdG8gd2hpY2ggYSBub2RlIGNhbiBiZSByZWR1Y2VkLicpLCBOT0RFX1NJWkVfTUlOSU1VTV9ERUZBVUxUKSwgT0JKRUNUKSwgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfS1ZlY3Rvcl8yX2NsYXNzTGl0KSwgb2ZfMShOT0RFUykpKSk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": {
+          "x": 0,
+          "y": 0
+        },
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias NODE_SIZE_MINIMUM_5",
+            "startLine": 49217,
+            "endLine": 49217,
+            "role": "implementation",
+            "sha256": "c4314220c8cca647e317e10aac5bef6cd91e6585ea1e245a32d7a5e7a9a55757",
+            "sourceBytesBase64": "ICBOT0RFX1NJWkVfTUlOSU1VTV8wID0gTk9ERV9TSVpFX01JTklNVU1fNTsK"
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.nodeSize.minimum Layered support",
+            "startLine": 49374,
+            "endLine": 49374,
+            "role": "implementation",
+            "sha256": "ef562b2a574644810b98474bcb959fb6b6eb313ce3ca3f990943d48d6716b85b",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5taW5pbXVtJywgJGdldERlZmF1bHQoTk9ERV9TSVpFX01JTklNVU1fMCkpOwo="
+          }
+        ]
+      }
+    },
+    {
+      "id": "org.eclipse.elk.nodeSize.fixedGraphSize",
+      "type": "BOOLEAN",
+      "class": null,
+      "coreDefault": false,
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.nodeSize.fixedGraphSize property declaration",
+        "startLine": 70861,
+        "endLine": 70861,
+        "role": "implementation",
+        "sha256": "6a3bcf3283230d8f1aec0175a9cc4d49b2117ca94e9fd3a8c5c37f91691fc15f",
+        "sourceBytesBase64": "ICBOT0RFX1NJWkVfRklYRURfR1JBUEhfU0laRV8zID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZScsIGZhbHNlKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.nodeSize.fixedGraphSize metadata registration",
+        "startLine": 70978,
+        "endLine": 70978,
+        "role": "implementation",
+        "sha256": "0cdf15a653d3408cd7d414ba55c6bd5d441b9d38434d28cce0c2cce674172700",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZScpLCAnbm9kZVNpemUnKSwgJ0ZpeGVkIEdyYXBoIFNpemUnKSwgIkJ5IGRlZmF1bHQsIHRoZSBmaXhlZCBsYXlvdXQgcHJvdmlkZXIgd2lsbCBlbmxhcmdlIGEgZ3JhcGggdW50aWwgaXQgaXMgbGFyZ2UgZW5vdWdoIHRvIGNvbnRhaW4gaXRzIGNoaWxkcmVuLiBJZiB0aGlzIG9wdGlvbiBpcyBzZXQsIGl0IHdvbid0IGRvIHNvLiIpLCBmYWxzZSksIEJPT0xFQU4pLCBMamF2YV9sYW5nX0Jvb2xlYW5fMl9jbGFzc0xpdCksIG9mXzEoUEFSRU5UUykpKSk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": false,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias NODE_SIZE_FIXED_GRAPH_SIZE_3",
+            "startLine": 49174,
+            "endLine": 49174,
+            "role": "implementation",
+            "sha256": "11193ae4262171cfbb587b84304dfb6589ef9a9addef6c0127b64683060d92c3",
+            "sourceBytesBase64": "ICBOT0RFX1NJWkVfRklYRURfR1JBUEhfU0laRV8wID0gTk9ERV9TSVpFX0ZJWEVEX0dSQVBIX1NJWkVfMzsK"
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.nodeSize.fixedGraphSize Layered support",
+            "startLine": 49333,
+            "endLine": 49333,
+            "role": "implementation",
+            "sha256": "4ce1ab93110cc3665022f13c3231541de8328ab15309302a42d9d9c26e24004d",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5ub2RlU2l6ZS5maXhlZEdyYXBoU2l6ZScsICRnZXREZWZhdWx0KE5PREVfU0laRV9GSVhFRF9HUkFQSF9TSVpFXzApKTsK"
+          }
+        ]
+      },
+      "sourceValueStrings": [
+        "true (case-insensitive)",
+        "false (case-insensitive)"
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.nodeLabels.placement",
+      "type": "ENUMSET",
+      "class": "NodeLabelPlacement",
+      "coreDefault": [],
+      "coreTargets": [
+        "NODES",
+        "LABELS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.nodeLabels.placement property declaration",
+        "startLine": 70848,
+        "endLine": 70848,
+        "role": "implementation",
+        "sha256": "f7207cf8af205ac3e6e38b1ba047e1f2cf2025decb666f54db982869e1dadb66",
+        "sourceBytesBase64": "ICBOT0RFX0xBQkVMU19QTEFDRU1FTlRfNSA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsubm9kZUxhYmVscy5wbGFjZW1lbnQnLCBOT0RFX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.nodeLabels.placement metadata registration",
+        "startLine": 70969,
+        "endLine": 70969,
+        "role": "implementation",
+        "sha256": "2068cc45c95a74d1a47195c133a0614d3199ca49f04f27d5cef88a3c7cb25bb4",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlTGFiZWxzLnBsYWNlbWVudCcpLCAnbm9kZUxhYmVscycpLCAnTm9kZSBMYWJlbCBQbGFjZW1lbnQnKSwgIkhpbnRzIGZvciB3aGVyZSBub2RlIGxhYmVscyBhcmUgdG8gYmUgcGxhY2VkOyBpZiBlbXB0eSwgdGhlIG5vZGUgbGFiZWwncyBwb3NpdGlvbiBpcyBub3QgbW9kaWZpZWQuIiksIE5PREVfTEFCRUxTX1BMQUNFTUVOVF9ERUZBVUxUKSwgRU5VTVNFVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV9vcHRpb25zX05vZGVMYWJlbFBsYWNlbWVudF8yX2NsYXNzTGl0KSwgb2ZfMihOT0RFUywgc3RhbXBKYXZhVHlwZUluZm8oZ2V0Q2xhc3NMaXRlcmFsRm9yQXJyYXkoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX2RhdGFfTGF5b3V0T3B0aW9uRGF0YSRUYXJnZXRfMl9jbGFzc0xpdCwgMSksICRpbnRlcm5fMzgsIDE2MSwgMCwgW0xBQkVMU10pKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": [],
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias NODE_LABELS_PLACEMENT_5",
+            "startLine": 49177,
+            "endLine": 49177,
+            "role": "implementation",
+            "sha256": "76572331ed39049e59fdb28cc4425af1fc25c33fd26f2a7f3d93c8da6f14e8ed",
+            "sourceBytesBase64": "ICBOT0RFX0xBQkVMU19QTEFDRU1FTlRfMSA9IE5PREVfTEFCRUxTX1BMQUNFTUVOVF81Owo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.nodeLabels.placement Layered support",
+            "startLine": 49335,
+            "endLine": 49335,
+            "role": "implementation",
+            "sha256": "ab99512b2fdc9bb45251402aa5753d32d54bf3e21324931e239fe73ff9728cfc",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5ub2RlTGFiZWxzLnBsYWNlbWVudCcsICRnZXREZWZhdWx0KE5PREVfTEFCRUxTX1BMQUNFTUVOVF8xKSk7Cg=="
+          }
+        ]
+      },
+      "allowedMembers": [
+        {
+          "name": "H_LEFT",
+          "ordinal": 0
+        },
+        {
+          "name": "H_CENTER",
+          "ordinal": 1
+        },
+        {
+          "name": "H_RIGHT",
+          "ordinal": 2
+        },
+        {
+          "name": "V_TOP",
+          "ordinal": 3
+        },
+        {
+          "name": "V_CENTER",
+          "ordinal": 4
+        },
+        {
+          "name": "V_BOTTOM",
+          "ordinal": 5
+        },
+        {
+          "name": "INSIDE",
+          "ordinal": 6
+        },
+        {
+          "name": "OUTSIDE",
+          "ordinal": 7
+        },
+        {
+          "name": "H_PRIORITY",
+          "ordinal": 8
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.nodeLabels.padding",
+      "type": "OBJECT",
+      "class": "ElkPadding",
+      "coreDefault": {
+        "top": 5,
+        "right": 5,
+        "bottom": 5,
+        "left": 5
+      },
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.nodeLabels.padding property declaration",
+        "startLine": 70846,
+        "endLine": 70846,
+        "role": "implementation",
+        "sha256": "3be06437418424d25be085699d34e2f32591338b9f191659dafb780cc2b7684e",
+        "sourceBytesBase64": "ICBOT0RFX0xBQkVMU19QQURESU5HXzAgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLm5vZGVMYWJlbHMucGFkZGluZycsIE5PREVfTEFCRUxTX1BBRERJTkdfREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.nodeLabels.padding metadata registration",
+        "startLine": 70968,
+        "endLine": 70968,
+        "role": "implementation",
+        "sha256": "f90f3e22fc07ff7b6c4e1abaf1fa33e48860d3efdedc5f3950e5d7db4f6946ac",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5ub2RlTGFiZWxzLnBhZGRpbmcnKSwgJ25vZGVMYWJlbHMnKSwgJ05vZGUgTGFiZWwgUGFkZGluZycpLCAnRGVmaW5lIHBhZGRpbmcgZm9yIG5vZGUgbGFiZWxzIHRoYXQgYXJlIHBsYWNlZCBpbnNpZGUgb2YgYSBub2RlLicpLCBOT0RFX0xBQkVMU19QQURESU5HX0RFRkFVTFQpLCBPQkpFQ1QpLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9FbGtQYWRkaW5nXzJfY2xhc3NMaXQpLCBvZl8xKFBBUkVOVFMpKSkpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": {
+          "top": 5,
+          "right": 5,
+          "bottom": 5,
+          "left": 5
+        },
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias NODE_LABELS_PADDING_0",
+            "startLine": 49178,
+            "endLine": 49178,
+            "role": "implementation",
+            "sha256": "2c2a3c913e647dac187467a0e7ae1759f30e29bd443b4b37f44026f8c332244c",
+            "sourceBytesBase64": "ICBOT0RFX0xBQkVMU19QQURESU5HID0gTk9ERV9MQUJFTFNfUEFERElOR18wOwo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.nodeLabels.padding Layered support",
+            "startLine": 49336,
+            "endLine": 49336,
+            "role": "implementation",
+            "sha256": "4e684195dd4c7cd652c16763bb7df072c9b69679c1db80da16dc0ac2c373973e",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5ub2RlTGFiZWxzLnBhZGRpbmcnLCAkZ2V0RGVmYXVsdChOT0RFX0xBQkVMU19QQURESU5HKSk7Cg=="
+          }
+        ]
+      }
+    },
+    {
+      "id": "org.eclipse.elk.portLabels.placement",
+      "type": "ENUMSET",
+      "class": "PortLabelPlacement",
+      "coreDefault": [
+        "OUTSIDE"
+      ],
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portLabels.placement property declaration",
+        "startLine": 70874,
+        "endLine": 70874,
+        "role": "implementation",
+        "sha256": "f76cc5c68bf2e8822af788b0db4e7b56f503e1212ed772adf3c31df6f5582af1",
+        "sourceBytesBase64": "ICBQT1JUX0xBQkVMU19QTEFDRU1FTlRfNSA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsucG9ydExhYmVscy5wbGFjZW1lbnQnLCBQT1JUX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portLabels.placement metadata registration",
+        "startLine": 70987,
+        "endLine": 70987,
+        "role": "implementation",
+        "sha256": "793603a49202abeb566b7704409737c970d05fe52e87a69bb2c03c3c99ee9351",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5wb3J0TGFiZWxzLnBsYWNlbWVudCcpLCAncG9ydExhYmVscycpLCAnUG9ydCBMYWJlbCBQbGFjZW1lbnQnKSwgIkRlY2lkZXMgb24gYSBwbGFjZW1lbnQgbWV0aG9kIGZvciBwb3J0IGxhYmVsczsgaWYgZW1wdHksIHRoZSBub2RlIGxhYmVsJ3MgcG9zaXRpb24gaXMgbm90IG1vZGlmaWVkLiIpLCBQT1JUX0xBQkVMU19QTEFDRU1FTlRfREVGQVVMVCksIEVOVU1TRVQpLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Qb3J0TGFiZWxQbGFjZW1lbnRfMl9jbGFzc0xpdCksIG9mXzEoTk9ERVMpKSkpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": [
+          "OUTSIDE"
+        ],
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias PORT_LABELS_PLACEMENT_5",
+            "startLine": 49179,
+            "endLine": 49179,
+            "role": "implementation",
+            "sha256": "5425bfbb250db8c16fb388d72569cf3acbe09228412f288101337585d6089a3b",
+            "sourceBytesBase64": "ICBQT1JUX0xBQkVMU19QTEFDRU1FTlRfMSA9IFBPUlRfTEFCRUxTX1BMQUNFTUVOVF81Owo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portLabels.placement Layered support",
+            "startLine": 49337,
+            "endLine": 49337,
+            "role": "implementation",
+            "sha256": "2f3a9ba828303eb50b11322b18a65ae64037b87fbb5c7b5a829906c8cdca3f8d",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0TGFiZWxzLnBsYWNlbWVudCcsICRnZXREZWZhdWx0KFBPUlRfTEFCRUxTX1BMQUNFTUVOVF8xKSk7Cg=="
+          }
+        ]
+      },
+      "allowedMembers": [
+        {
+          "name": "OUTSIDE",
+          "ordinal": 0
+        },
+        {
+          "name": "INSIDE",
+          "ordinal": 1
+        },
+        {
+          "name": "NEXT_TO_PORT_IF_POSSIBLE",
+          "ordinal": 2
+        },
+        {
+          "name": "ALWAYS_SAME_SIDE",
+          "ordinal": 3
+        },
+        {
+          "name": "ALWAYS_OTHER_SAME_SIDE",
+          "ordinal": 4
+        },
+        {
+          "name": "SPACE_EFFICIENT",
+          "ordinal": 5
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.portLabels.treatAsGroup",
+      "type": "BOOLEAN",
+      "class": null,
+      "coreDefault": true,
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portLabels.treatAsGroup property declaration",
+        "startLine": 70876,
+        "endLine": 70876,
+        "role": "implementation",
+        "sha256": "4d2ba25718e65e08f3b50312bb9b1a0a2771d76872d44203e38eaddaf196e428",
+        "sourceBytesBase64": "ICBQT1JUX0xBQkVMU19UUkVBVF9BU19HUk9VUF8wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5wb3J0TGFiZWxzLnRyZWF0QXNHcm91cCcsIHRydWUpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portLabels.treatAsGroup metadata registration",
+        "startLine": 70989,
+        "endLine": 70989,
+        "role": "implementation",
+        "sha256": "b9801aa2bea6a66619e5f1a0669afa74f4ba39100bc4d487e9d3bd6b9db01e43",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5wb3J0TGFiZWxzLnRyZWF0QXNHcm91cCcpLCAncG9ydExhYmVscycpLCAnVHJlYXQgUG9ydCBMYWJlbHMgYXMgR3JvdXAnKSwgJ0lmIHRoaXMgb3B0aW9uIGlzIHRydWUgKGRlZmF1bHQpLCB0aGUgbGFiZWxzIG9mIGEgcG9ydCB3aWxsIGJlIHRyZWF0ZWQgYXMgYSBncm91cCB3aGVuIGl0IGNvbWVzIHRvIGNlbnRlcmluZyB0aGVtIG5leHQgdG8gdGhlaXIgcG9ydC4gSWYgdGhpcyBvcHRpb24gaXMgZmFsc2UsIG9ubHkgdGhlIGZpcnN0IGxhYmVsIHdpbGwgYmUgY2VudGVyZWQgbmV4dCB0byB0aGUgcG9ydCwgd2l0aCB0aGUgb3RoZXJzIGJlaW5nIHBsYWNlZCBiZWxvdy4gVGhpcyBvbmx5IGFwcGxpZXMgdG8gbGFiZWxzIG9mIGVhc3Rlcm4gYW5kIHdlc3Rlcm4gcG9ydHMgYW5kIHdpbGwgaGF2ZSBubyBlZmZlY3QgaWYgbGFiZWxzIGFyZSBub3QgcGxhY2VkIG5leHQgdG8gdGhlaXIgcG9ydC4nKSwgdHJ1ZSksIEJPT0xFQU4pLCBMamF2YV9sYW5nX0Jvb2xlYW5fMl9jbGFzc0xpdCksIG9mXzEoTk9ERVMpKSkpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": true,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias PORT_LABELS_TREAT_AS_GROUP_0",
+            "startLine": 49181,
+            "endLine": 49181,
+            "role": "implementation",
+            "sha256": "1354fd0cb0150876d412617571cd565ff011b622790b9ce9f65d15982081df5b",
+            "sourceBytesBase64": "ICBQT1JUX0xBQkVMU19UUkVBVF9BU19HUk9VUCA9IFBPUlRfTEFCRUxTX1RSRUFUX0FTX0dST1VQXzA7Cg=="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portLabels.treatAsGroup Layered support",
+            "startLine": 49339,
+            "endLine": 49339,
+            "role": "implementation",
+            "sha256": "238a55f4bca997deaaffcedbdb0d1c72f0bd6b6abbb87ab7550a30628b21611f",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0TGFiZWxzLnRyZWF0QXNHcm91cCcsICRnZXREZWZhdWx0KFBPUlRfTEFCRUxTX1RSRUFUX0FTX0dST1VQKSk7Cg=="
+          }
+        ]
+      },
+      "sourceValueStrings": [
+        "true (case-insensitive)",
+        "false (case-insensitive)"
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.portAlignment.default",
+      "type": "ENUM",
+      "class": "PortAlignment",
+      "coreDefault": "DISTRIBUTED",
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portAlignment.default property declaration",
+        "startLine": 70850,
+        "endLine": 70850,
+        "role": "implementation",
+        "sha256": "76ed5a5a6f51186d2a69d1adfbd37a8ba3ac8e9112019a75949840f2e70ea285",
+        "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9ERUZBVUxUID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50LmRlZmF1bHQnLCBQT1JUX0FMSUdOTUVOVF9ERUZBVUxUX0RFRkFVTFRfMCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portAlignment.default metadata registration",
+        "startLine": 70970,
+        "endLine": 70970,
+        "role": "implementation",
+        "sha256": "185386bd7b424b0a36579f5c13e75ee9fd1799ce6919e33de0cacf28bfef5063",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50LmRlZmF1bHQnKSwgJ3BvcnRBbGlnbm1lbnQnKSwgJ1BvcnQgQWxpZ25tZW50JyksICdEZWZpbmVzIHRoZSBkZWZhdWx0IHBvcnQgZGlzdHJpYnV0aW9uIGZvciBhIG5vZGUuIE1heSBiZSBvdmVycmlkZGVuIGZvciBlYWNoIHNpZGUgaW5kaXZpZHVhbGx5LicpLCBQT1JUX0FMSUdOTUVOVF9ERUZBVUxUX0RFRkFVTFRfMCksIEVOVU0pLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Qb3J0QWxpZ25tZW50XzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": "JUSTIFIED",
+        "defaultOrigin": "explicit algorithm override",
+        "aliases": [],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portAlignment.default Layered support",
+            "startLine": 49340,
+            "endLine": 49340,
+            "role": "implementation",
+            "sha256": "b26983ec015e4edb2629fc6ae1e3247019078db01619af019d6ff4d0be61c617",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50LmRlZmF1bHQnLCBQT1JUX0FMSUdOTUVOVF9ERUZBVUxUX0RFRkFVTFQpOwo="
+          }
+        ],
+        "overrideSpans": [
+          {
+            "symbol": "Layered JUSTIFIED override",
+            "startLine": 49181,
+            "endLine": 49182,
+            "role": "implementation",
+            "sha256": "3ee298c13529699196445906317ff97661c74ba6f2af244cdc206fff07fde784",
+            "sourceBytesBase64": "ICBQT1JUX0xBQkVMU19UUkVBVF9BU19HUk9VUCA9IFBPUlRfTEFCRUxTX1RSRUFUX0FTX0dST1VQXzA7CiAgUE9SVF9BTElHTk1FTlRfREVGQVVMVF9ERUZBVUxUID0gKCRjbGluaXRfUG9ydEFsaWdubWVudCgpICwgSlVTVElGSUVEKTsK"
+          }
+        ]
+      },
+      "allowed": [
+        {
+          "name": "DISTRIBUTED",
+          "ordinal": 0
+        },
+        {
+          "name": "JUSTIFIED",
+          "ordinal": 1
+        },
+        {
+          "name": "BEGIN",
+          "ordinal": 2
+        },
+        {
+          "name": "CENTER",
+          "ordinal": 3
+        },
+        {
+          "name": "END",
+          "ordinal": 4
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.portAlignment.north",
+      "type": "ENUM",
+      "class": "PortAlignment",
+      "coreDefault": null,
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portAlignment.north property declaration",
+        "startLine": 70851,
+        "endLine": 70851,
+        "role": "implementation",
+        "sha256": "c3d97ce4420c629596c635aa2a12fc3eb1450ea0318e2b726d097a2f303ef065",
+        "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9OT1JUSF8wID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucG9ydEFsaWdubWVudC5ub3J0aCcpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portAlignment.north metadata registration",
+        "startLine": 70971,
+        "endLine": 70971,
+        "role": "implementation",
+        "sha256": "1eefcc968087ac374b11c72e3e27620318c2f990abaac8d872ea29bd8e3a02f4",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucG9ydEFsaWdubWVudC5ub3J0aCcpLCAncG9ydEFsaWdubWVudCcpLCAnUG9ydCBBbGlnbm1lbnQgKE5vcnRoKScpLCAiRGVmaW5lcyBob3cgcG9ydHMgb24gdGhlIG5vcnRoZXJuIHNpZGUgYXJlIHBsYWNlZCwgb3ZlcnJpZGluZyB0aGUgbm9kZSdzIGdlbmVyYWwgcG9ydCBhbGlnbm1lbnQuIiksIEVOVU0pLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Qb3J0QWxpZ25tZW50XzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": null,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias PORT_ALIGNMENT_NORTH_0",
+            "startLine": 49184,
+            "endLine": 49184,
+            "role": "implementation",
+            "sha256": "182c2602c9c8cd926d725f8fe2729380970415c4b1fcc8e4dfc3042557527633",
+            "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9OT1JUSCA9IFBPUlRfQUxJR05NRU5UX05PUlRIXzA7Cg=="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portAlignment.north Layered support",
+            "startLine": 49341,
+            "endLine": 49341,
+            "role": "implementation",
+            "sha256": "96100250aa6e8fd2ce6481d90838208f3fdff7e417606d691bd75d515c70c409",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50Lm5vcnRoJywgJGdldERlZmF1bHQoUE9SVF9BTElHTk1FTlRfTk9SVEgpKTsK"
+          }
+        ]
+      },
+      "allowed": [
+        {
+          "name": "DISTRIBUTED",
+          "ordinal": 0
+        },
+        {
+          "name": "JUSTIFIED",
+          "ordinal": 1
+        },
+        {
+          "name": "BEGIN",
+          "ordinal": 2
+        },
+        {
+          "name": "CENTER",
+          "ordinal": 3
+        },
+        {
+          "name": "END",
+          "ordinal": 4
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.portAlignment.east",
+      "type": "ENUM",
+      "class": "PortAlignment",
+      "coreDefault": null,
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portAlignment.east property declaration",
+        "startLine": 70854,
+        "endLine": 70854,
+        "role": "implementation",
+        "sha256": "b71261f13c383439b651c0a5d25422d47339500c3dd4df46efa25b2beb264848",
+        "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9FQVNUXzAgPSBuZXcgUHJvcGVydHkoJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50LmVhc3QnKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portAlignment.east metadata registration",
+        "startLine": 70974,
+        "endLine": 70974,
+        "role": "implementation",
+        "sha256": "77b26187602e7c32bc1f58caacab6d4357c27440ade7b947ef0a9aa070105a6e",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucG9ydEFsaWdubWVudC5lYXN0JyksICdwb3J0QWxpZ25tZW50JyksICdQb3J0IEFsaWdubWVudCAoRWFzdCknKSwgIkRlZmluZXMgaG93IHBvcnRzIG9uIHRoZSBlYXN0ZXJuIHNpZGUgYXJlIHBsYWNlZCwgb3ZlcnJpZGluZyB0aGUgbm9kZSdzIGdlbmVyYWwgcG9ydCBhbGlnbm1lbnQuIiksIEVOVU0pLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Qb3J0QWxpZ25tZW50XzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": null,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias PORT_ALIGNMENT_EAST_0",
+            "startLine": 49187,
+            "endLine": 49187,
+            "role": "implementation",
+            "sha256": "78a4b151c7c6242c9aabcd976db4c23b4c8460e70b2c63df5343ffc5b80872a1",
+            "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9FQVNUID0gUE9SVF9BTElHTk1FTlRfRUFTVF8wOwo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portAlignment.east Layered support",
+            "startLine": 49344,
+            "endLine": 49344,
+            "role": "implementation",
+            "sha256": "d66e3b915dbbdaccba5e075fb89c9c5f27a038721368c020ad2cd9b6cc031aa3",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50LmVhc3QnLCAkZ2V0RGVmYXVsdChQT1JUX0FMSUdOTUVOVF9FQVNUKSk7Cg=="
+          }
+        ]
+      },
+      "allowed": [
+        {
+          "name": "DISTRIBUTED",
+          "ordinal": 0
+        },
+        {
+          "name": "JUSTIFIED",
+          "ordinal": 1
+        },
+        {
+          "name": "BEGIN",
+          "ordinal": 2
+        },
+        {
+          "name": "CENTER",
+          "ordinal": 3
+        },
+        {
+          "name": "END",
+          "ordinal": 4
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.portAlignment.south",
+      "type": "ENUM",
+      "class": "PortAlignment",
+      "coreDefault": null,
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portAlignment.south property declaration",
+        "startLine": 70852,
+        "endLine": 70852,
+        "role": "implementation",
+        "sha256": "e39a015ca762dc8c8f0579dc19f4477f318bf6b631b1eee6ec2887a0c128c818",
+        "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9TT1VUSF8wID0gbmV3IFByb3BlcnR5KCdvcmcuZWNsaXBzZS5lbGsucG9ydEFsaWdubWVudC5zb3V0aCcpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portAlignment.south metadata registration",
+        "startLine": 70972,
+        "endLine": 70972,
+        "role": "implementation",
+        "sha256": "94ea6082df6236f28a77d174bece00a66b25573dcd64692e4b1c6c1023f46bbf",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucG9ydEFsaWdubWVudC5zb3V0aCcpLCAncG9ydEFsaWdubWVudCcpLCAnUG9ydCBBbGlnbm1lbnQgKFNvdXRoKScpLCAiRGVmaW5lcyBob3cgcG9ydHMgb24gdGhlIHNvdXRoZXJuIHNpZGUgYXJlIHBsYWNlZCwgb3ZlcnJpZGluZyB0aGUgbm9kZSdzIGdlbmVyYWwgcG9ydCBhbGlnbm1lbnQuIiksIEVOVU0pLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Qb3J0QWxpZ25tZW50XzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": null,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias PORT_ALIGNMENT_SOUTH_0",
+            "startLine": 49185,
+            "endLine": 49185,
+            "role": "implementation",
+            "sha256": "3f04390764b7d787401f486bd7d1b2b7ad880b15f1f18053d42b48f2838d5d21",
+            "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9TT1VUSCA9IFBPUlRfQUxJR05NRU5UX1NPVVRIXzA7Cg=="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portAlignment.south Layered support",
+            "startLine": 49342,
+            "endLine": 49342,
+            "role": "implementation",
+            "sha256": "c1de0097b49ddf97b0df79d2ec2df841cfa7410a1406f68ccec218d7cbebff91",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50LnNvdXRoJywgJGdldERlZmF1bHQoUE9SVF9BTElHTk1FTlRfU09VVEgpKTsK"
+          }
+        ]
+      },
+      "allowed": [
+        {
+          "name": "DISTRIBUTED",
+          "ordinal": 0
+        },
+        {
+          "name": "JUSTIFIED",
+          "ordinal": 1
+        },
+        {
+          "name": "BEGIN",
+          "ordinal": 2
+        },
+        {
+          "name": "CENTER",
+          "ordinal": 3
+        },
+        {
+          "name": "END",
+          "ordinal": 4
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.portAlignment.west",
+      "type": "ENUM",
+      "class": "PortAlignment",
+      "coreDefault": null,
+      "coreTargets": [
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.portAlignment.west property declaration",
+        "startLine": 70853,
+        "endLine": 70853,
+        "role": "implementation",
+        "sha256": "e473f30d677db2ce75fb8818c6d42a4be591f4459c7a6ed2a0761ce1d546160a",
+        "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9XRVNUXzAgPSBuZXcgUHJvcGVydHkoJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50Lndlc3QnKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.portAlignment.west metadata registration",
+        "startLine": 70973,
+        "endLine": 70973,
+        "role": "implementation",
+        "sha256": "47278fad99b5b1f3ca1196190996647a64fae609a1f2ffcaf49ff7c6ce2fa101",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsucG9ydEFsaWdubWVudC53ZXN0JyksICdwb3J0QWxpZ25tZW50JyksICdQb3J0IEFsaWdubWVudCAoV2VzdCknKSwgIkRlZmluZXMgaG93IHBvcnRzIG9uIHRoZSB3ZXN0ZXJuIHNpZGUgYXJlIHBsYWNlZCwgb3ZlcnJpZGluZyB0aGUgbm9kZSdzIGdlbmVyYWwgcG9ydCBhbGlnbm1lbnQuIiksIEVOVU0pLCBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfb3B0aW9uc19Qb3J0QWxpZ25tZW50XzJfY2xhc3NMaXQpLCBvZl8xKE5PREVTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": null,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias PORT_ALIGNMENT_WEST_0",
+            "startLine": 49186,
+            "endLine": 49186,
+            "role": "implementation",
+            "sha256": "8c1a82454c5794cc0410e8eaeebb4eb5779c79d118af3b7c79c28d6ed580f7c7",
+            "sourceBytesBase64": "ICBQT1JUX0FMSUdOTUVOVF9XRVNUID0gUE9SVF9BTElHTk1FTlRfV0VTVF8wOwo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.portAlignment.west Layered support",
+            "startLine": 49343,
+            "endLine": 49343,
+            "role": "implementation",
+            "sha256": "6f1f3bd14170eec3fd2f8da3d22d70c990d26f16496b6891a355e54c8cb097af",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5wb3J0QWxpZ25tZW50Lndlc3QnLCAkZ2V0RGVmYXVsdChQT1JUX0FMSUdOTUVOVF9XRVNUKSk7Cg=="
+          }
+        ]
+      },
+      "allowed": [
+        {
+          "name": "DISTRIBUTED",
+          "ordinal": 0
+        },
+        {
+          "name": "JUSTIFIED",
+          "ordinal": 1
+        },
+        {
+          "name": "BEGIN",
+          "ordinal": 2
+        },
+        {
+          "name": "CENTER",
+          "ordinal": 3
+        },
+        {
+          "name": "END",
+          "ordinal": 4
+        }
+      ]
+    },
+    {
+      "id": "org.eclipse.elk.spacing.labelLabel",
+      "type": "DOUBLE",
+      "class": null,
+      "coreDefault": 0,
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.labelLabel property declaration",
+        "startLine": 70832,
+        "endLine": 70832,
+        "role": "implementation",
+        "sha256": "66755ac6497e3cec71d27db6a9881dc435933066979749457b8ada118784aaaf",
+        "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX0xBQkVMXzAgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLnNwYWNpbmcubGFiZWxMYWJlbCcsIDApOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.labelLabel metadata registration",
+        "startLine": 70956,
+        "endLine": 70956,
+        "role": "implementation",
+        "sha256": "28cefc77aec63b8316ed6d12a6f5a839cc6a0c126c271b37b41611aaa688be03",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsTGFiZWwnKSwgJ3NwYWNpbmcnKSwgJ0xhYmVsIFNwYWNpbmcnKSwgJ0RldGVybWluZXMgdGhlIGFtb3VudCBvZiBzcGFjZSB0byBiZSBsZWZ0IGJldHdlZW4gdHdvIGxhYmVscyBvZiB0aGUgc2FtZSBncmFwaCBlbGVtZW50LicpLCAwKSwgRE9VQkxFKSwgTGphdmFfbGFuZ19Eb3VibGVfMl9jbGFzc0xpdCksIG9mXzEoUEFSRU5UUykpKSk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": 0,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_LABEL_LABEL_0",
+            "startLine": 49114,
+            "endLine": 49114,
+            "role": "implementation",
+            "sha256": "5f10fe0a781c8a263d26af64aa9760222c690a999d9ef2001f2caf061c8ff569",
+            "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX0xBQkVMID0gU1BBQ0lOR19MQUJFTF9MQUJFTF8wOwo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.labelLabel Layered support",
+            "startLine": 49276,
+            "endLine": 49276,
+            "role": "implementation",
+            "sha256": "03c059d83613327773131243971c91813a2a69b1ef1d8610ac8e311ddc3e7418",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsTGFiZWwnLCAkZ2V0RGVmYXVsdChTUEFDSU5HX0xBQkVMX0xBQkVMKSk7Cg=="
+          }
+        ]
+      },
+      "sourceValueSyntax": "Original __parseAndValidateDouble regex; native finite/nonnegative rules remain explicit host policy"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.labelNode",
+      "type": "DOUBLE",
+      "class": null,
+      "coreDefault": 5,
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.labelNode property declaration",
+        "startLine": 70833,
+        "endLine": 70833,
+        "role": "implementation",
+        "sha256": "4bd7441f097dbfae446a5aea4fe5954ae3258bf32fc7a64c84cb9b511e65e113",
+        "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX05PREVfMCA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsuc3BhY2luZy5sYWJlbE5vZGUnLCA1KTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.labelNode metadata registration",
+        "startLine": 70957,
+        "endLine": 70957,
+        "role": "implementation",
+        "sha256": "3161eb478cb3f5f747e2c9f05b6b455ea537a893c832c0861d6b217d465ba3bd",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsTm9kZScpLCAnc3BhY2luZycpLCAnTGFiZWwgTm9kZSBTcGFjaW5nJyksICJTcGFjaW5nIHRvIGJlIHByZXNlcnZlZCBiZXR3ZWVuIGxhYmVscyBhbmQgdGhlIGJvcmRlciBvZiBub2RlIHRoZXkgYXJlIGFzc29jaWF0ZWQgd2l0aC4gTm90ZSB0aGF0IHRoZSBwbGFjZW1lbnQgb2YgYSBsYWJlbCBpcyBpbmZsdWVuY2VkIGJ5IHRoZSAnbm9kZWxhYmVscy5wbGFjZW1lbnQnIG9wdGlvbi4iKSwgNSksIERPVUJMRSksIExqYXZhX2xhbmdfRG91YmxlXzJfY2xhc3NMaXQpLCBvZl8xKFBBUkVOVFMpKSkpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": 5,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_LABEL_NODE_0",
+            "startLine": 49117,
+            "endLine": 49117,
+            "role": "implementation",
+            "sha256": "ce0c0ba495fe56237ab66efd8edaa977b8a100109cb7641860e246f819367ec3",
+            "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX05PREUgPSBTUEFDSU5HX0xBQkVMX05PREVfMDsK"
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.labelNode Layered support",
+            "startLine": 49279,
+            "endLine": 49279,
+            "role": "implementation",
+            "sha256": "e945892437bd8b68eafc7fe175a6c77ebc6517def6a418e6a58ead26296d22e7",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsTm9kZScsICRnZXREZWZhdWx0KFNQQUNJTkdfTEFCRUxfTk9ERSkpOwo="
+          }
+        ]
+      },
+      "sourceValueSyntax": "Original __parseAndValidateDouble regex; native finite/nonnegative rules remain explicit host policy"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.portPort",
+      "type": "DOUBLE",
+      "class": null,
+      "coreDefault": 10,
+      "coreTargets": [
+        "PARENTS",
+        "NODES"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.portPort property declaration",
+        "startLine": 70838,
+        "endLine": 70838,
+        "role": "implementation",
+        "sha256": "9bb32080f9a391587138e3d41753822d249ffcbefbba9130303bda5c8ea9e7a2",
+        "sourceBytesBase64": "ICBTUEFDSU5HX1BPUlRfUE9SVF8wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLnBvcnRQb3J0JywgMTApOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.portPort metadata registration",
+        "startLine": 70962,
+        "endLine": 70962,
+        "role": "implementation",
+        "sha256": "d2335cb806d276ec2cae069ab09e016aec23cf86f9911c7ba40401a7ee6098eb",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLnBvcnRQb3J0JyksICdzcGFjaW5nJyksICdQb3J0IFNwYWNpbmcnKSwgJ1NwYWNpbmcgYmV0d2VlbiBwYWlycyBvZiBwb3J0cyBvZiB0aGUgc2FtZSBub2RlLicpLCAxMCksIERPVUJMRSksIExqYXZhX2xhbmdfRG91YmxlXzJfY2xhc3NMaXQpLCBvZl8yKFBBUkVOVFMsIHN0YW1wSmF2YVR5cGVJbmZvKGdldENsYXNzTGl0ZXJhbEZvckFycmF5KExvcmdfZWNsaXBzZV9lbGtfY29yZV9kYXRhX0xheW91dE9wdGlvbkRhdGEkVGFyZ2V0XzJfY2xhc3NMaXQsIDEpLCAkaW50ZXJuXzM4LCAxNjEsIDAsIFtOT0RFU10pKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": 10,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_PORT_PORT_0",
+            "startLine": 49120,
+            "endLine": 49120,
+            "role": "implementation",
+            "sha256": "e96756ea1809f7518d804e9078d2b3de6ecee0265e9d0fdc09ef7afd29e731aa",
+            "sourceBytesBase64": "ICBTUEFDSU5HX1BPUlRfUE9SVCA9IFNQQUNJTkdfUE9SVF9QT1JUXzA7Cg=="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.portPort Layered support",
+            "startLine": 49282,
+            "endLine": 49282,
+            "role": "implementation",
+            "sha256": "8028db8337d66bdba0e4d8438d33d1659731a0187c4801b278b0ab39df907a9a",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLnBvcnRQb3J0JywgJGdldERlZmF1bHQoU1BBQ0lOR19QT1JUX1BPUlQpKTsK"
+          }
+        ]
+      },
+      "sourceValueSyntax": "Original __parseAndValidateDouble regex; native finite/nonnegative rules remain explicit host policy"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.labelPortHorizontal",
+      "type": "DOUBLE",
+      "class": null,
+      "coreDefault": 1,
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.labelPortHorizontal property declaration",
+        "startLine": 70834,
+        "endLine": 70834,
+        "role": "implementation",
+        "sha256": "4e8125b2d80b89579ae8cdcb223b8c2b1ae4fc5acf639770ddbe43f6ea996fc7",
+        "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX1BPUlRfSE9SSVpPTlRBTF8wID0gbmV3IFByb3BlcnR5XzEoJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsUG9ydEhvcml6b250YWwnLCAxKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.labelPortHorizontal metadata registration",
+        "startLine": 70958,
+        "endLine": 70958,
+        "role": "implementation",
+        "sha256": "0928229e040be4bca0f88d5a5fb1b42e8bce9a91db8e7b3d77273ff5bdeb479d",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsUG9ydEhvcml6b250YWwnKSwgJ3NwYWNpbmcnKSwgJ0hvcml6b250YWwgc3BhY2luZyBiZXR3ZWVuIExhYmVsIGFuZCBQb3J0JyksICJIb3Jpem9udGFsIHNwYWNpbmcgdG8gYmUgcHJlc2VydmVkIGJldHdlZW4gbGFiZWxzIGFuZCB0aGUgcG9ydHMgdGhleSBhcmUgYXNzb2NpYXRlZCB3aXRoLiBOb3RlIHRoYXQgdGhlIHBsYWNlbWVudCBvZiBhIGxhYmVsIGlzIGluZmx1ZW5jZWQgYnkgdGhlICdwb3J0bGFiZWxzLnBsYWNlbWVudCcgb3B0aW9uLiIpLCAxKSwgRE9VQkxFKSwgTGphdmFfbGFuZ19Eb3VibGVfMl9jbGFzc0xpdCksIG9mXzEoUEFSRU5UUykpKSk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": 1,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_LABEL_PORT_HORIZONTAL_0",
+            "startLine": 49115,
+            "endLine": 49115,
+            "role": "implementation",
+            "sha256": "dc3de7124421ac2996b7f797b9ffdcf5645b3e982a160ade9179ff6db12f47d8",
+            "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX1BPUlRfSE9SSVpPTlRBTCA9IFNQQUNJTkdfTEFCRUxfUE9SVF9IT1JJWk9OVEFMXzA7Cg=="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.labelPortHorizontal Layered support",
+            "startLine": 49277,
+            "endLine": 49277,
+            "role": "implementation",
+            "sha256": "60a332d3b85742149e404c2c4e876f4fe58c3c085919fea5866286c4418e9c0a",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsUG9ydEhvcml6b250YWwnLCAkZ2V0RGVmYXVsdChTUEFDSU5HX0xBQkVMX1BPUlRfSE9SSVpPTlRBTCkpOwo="
+          }
+        ]
+      },
+      "sourceValueSyntax": "Original __parseAndValidateDouble regex; native finite/nonnegative rules remain explicit host policy"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.labelPortVertical",
+      "type": "DOUBLE",
+      "class": null,
+      "coreDefault": 1,
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.labelPortVertical property declaration",
+        "startLine": 70835,
+        "endLine": 70835,
+        "role": "implementation",
+        "sha256": "80483b5889b849db75c0b2f7f68539999776054487a42a4925e29d8eb9e6b2c6",
+        "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX1BPUlRfVkVSVElDQUxfMCA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsuc3BhY2luZy5sYWJlbFBvcnRWZXJ0aWNhbCcsIDEpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.labelPortVertical metadata registration",
+        "startLine": 70959,
+        "endLine": 70959,
+        "role": "implementation",
+        "sha256": "a7ffd1255bc59ab6a2c8a1da5796bd966b953b594af077cce9d2101e2ebc6be5",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsUG9ydFZlcnRpY2FsJyksICdzcGFjaW5nJyksICdWZXJ0aWNhbCBzcGFjaW5nIGJldHdlZW4gTGFiZWwgYW5kIFBvcnQnKSwgIlZlcnRpY2FsIHNwYWNpbmcgdG8gYmUgcHJlc2VydmVkIGJldHdlZW4gbGFiZWxzIGFuZCB0aGUgcG9ydHMgdGhleSBhcmUgYXNzb2NpYXRlZCB3aXRoLiBOb3RlIHRoYXQgdGhlIHBsYWNlbWVudCBvZiBhIGxhYmVsIGlzIGluZmx1ZW5jZWQgYnkgdGhlICdwb3J0bGFiZWxzLnBsYWNlbWVudCcgb3B0aW9uLiIpLCAxKSwgRE9VQkxFKSwgTGphdmFfbGFuZ19Eb3VibGVfMl9jbGFzc0xpdCksIG9mXzEoUEFSRU5UUykpKSk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": 1,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_LABEL_PORT_VERTICAL_0",
+            "startLine": 49116,
+            "endLine": 49116,
+            "role": "implementation",
+            "sha256": "dc914919bd1c316c6886c0eef9b55c01e31baea35481d3e27df270696a5132a3",
+            "sourceBytesBase64": "ICBTUEFDSU5HX0xBQkVMX1BPUlRfVkVSVElDQUwgPSBTUEFDSU5HX0xBQkVMX1BPUlRfVkVSVElDQUxfMDsK"
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.labelPortVertical Layered support",
+            "startLine": 49278,
+            "endLine": 49278,
+            "role": "implementation",
+            "sha256": "d2bd94aa34f49d156fdc0f0144025b6c9020e8800e384ef494b4a58783f1dae8",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmxhYmVsUG9ydFZlcnRpY2FsJywgJGdldERlZmF1bHQoU1BBQ0lOR19MQUJFTF9QT1JUX1ZFUlRJQ0FMKSk7Cg=="
+          }
+        ]
+      },
+      "sourceValueSyntax": "Original __parseAndValidateDouble regex; native finite/nonnegative rules remain explicit host policy"
+    },
+    {
+      "id": "org.eclipse.elk.spacing.portsSurrounding",
+      "type": "OBJECT",
+      "class": "ElkMargin",
+      "coreDefault": {
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "coreTargets": [
+        "PARENTS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.portsSurrounding property declaration",
+        "startLine": 70841,
+        "endLine": 70841,
+        "role": "implementation",
+        "sha256": "c60fcc05e223c24bb3294a161d16c6de32744009872fc165deafe8855e008450",
+        "sourceBytesBase64": "ICBTUEFDSU5HX1BPUlRTX1NVUlJPVU5ESU5HXzAgPSBuZXcgUHJvcGVydHlfMSgnb3JnLmVjbGlwc2UuZWxrLnNwYWNpbmcucG9ydHNTdXJyb3VuZGluZycsIFNQQUNJTkdfUE9SVFNfU1VSUk9VTkRJTkdfREVGQVVMVCk7Cg==",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.portsSurrounding metadata registration",
+        "startLine": 70964,
+        "endLine": 70964,
+        "role": "implementation",
+        "sha256": "15e703e6e5b0d3f4ccdda35d7f29e4d51fb134e3c087fa893cf417299a6bcf89",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZWZhdWx0VmFsdWUoJGRlc2NyaXB0aW9uXzEoJG5hbWVfMigkZ3JvdXAoJGlkXzEobmV3IExheW91dE9wdGlvbkRhdGEkQnVpbGRlciwgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLnBvcnRzU3Vycm91bmRpbmcnKSwgJ3NwYWNpbmcnKSwgJ0FkZGl0aW9uYWwgUG9ydCBTcGFjZScpLCAnQWRkaXRpb25hbCBzcGFjZSBhcm91bmQgdGhlIHNldHMgb2YgcG9ydHMgb24gZWFjaCBub2RlIHNpZGUuIEZvciBlYWNoIHNpZGUgb2YgYSBub2RlLCB0aGlzIG9wdGlvbiBjYW4gcmVzZXJ2ZSBhZGRpdGlvbmFsIHNwYWNlIGJlZm9yZSBhbmQgYWZ0ZXIgdGhlIHBvcnRzIG9uIGVhY2ggc2lkZS4gRm9yIGV4YW1wbGUsIGEgdG9wIHNwYWNpbmcgb2YgMjAgbWFrZXMgc3VyZSB0aGF0IHRoZSBmaXJzdCBwb3J0IG9uIHRoZSB3ZXN0ZXJuIGFuZCBlYXN0ZXJuIHNpZGUgaXMgMjAgdW5pdHMgYXdheSBmcm9tIHRoZSBub3J0aGVybiBib3JkZXIuJyksIFNQQUNJTkdfUE9SVFNfU1VSUk9VTkRJTkdfREVGQVVMVCksIE9CSkVDVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV9tYXRoX0Vsa01hcmdpbl8yX2NsYXNzTGl0KSwgb2ZfMShQQVJFTlRTKSkpKTsK",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_PORTS_SURROUNDING_0",
+            "startLine": 49239,
+            "endLine": 49239,
+            "role": "implementation",
+            "sha256": "26b0cc6789ce3537e31be06421ac40c7d90843d849951c8c1b84910248c67454",
+            "sourceBytesBase64": "ICBTUEFDSU5HX1BPUlRTX1NVUlJPVU5ESU5HID0gU1BBQ0lOR19QT1JUU19TVVJST1VORElOR18wOwo="
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.portsSurrounding Layered support",
+            "startLine": 49396,
+            "endLine": 49396,
+            "role": "implementation",
+            "sha256": "e62177b924631628ac3f8b65c01efcbc1ed304fdd7e011d58b53a6a20e26a695",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLnBvcnRzU3Vycm91bmRpbmcnLCAkZ2V0RGVmYXVsdChTUEFDSU5HX1BPUlRTX1NVUlJPVU5ESU5HKSk7Cg=="
+          }
+        ]
+      }
+    },
+    {
+      "id": "org.eclipse.elk.spacing.individual",
+      "type": "OBJECT",
+      "class": "IndividualSpacings",
+      "coreDefault": null,
+      "coreTargets": [
+        "NODES",
+        "EDGES",
+        "PORTS",
+        "LABELS"
+      ],
+      "coreDeclaration": {
+        "symbol": "org.eclipse.elk.spacing.individual property declaration",
+        "startLine": 70839,
+        "endLine": 70839,
+        "role": "implementation",
+        "sha256": "7e221d383de38d4bcb13a02fec1e7d33f14a19140a295b1687fb5e09961d2c0c",
+        "sourceBytesBase64": "ICBTUEFDSU5HX0lORElWSURVQUxfMCA9IG5ldyBQcm9wZXJ0eSgnb3JnLmVjbGlwc2UuZWxrLnNwYWNpbmcuaW5kaXZpZHVhbCcpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "coreRegistration": {
+        "symbol": "org.eclipse.elk.spacing.individual metadata registration",
+        "startLine": 70963,
+        "endLine": 70963,
+        "role": "implementation",
+        "sha256": "1d3c50028184caccdefdc0a85899f82466cb132d08ea4bcd07eff73b356dea0e",
+        "sourceBytesBase64": "ICAkcmVnaXN0ZXJfMShyZWdpc3RyeSwgbmV3IExheW91dE9wdGlvbkRhdGEoJHRhcmdldHMoJG9wdGlvbkNsYXNzKCR0eXBlKCRkZXNjcmlwdGlvbl8xKCRuYW1lXzIoJGdyb3VwKCRpZF8xKG5ldyBMYXlvdXRPcHRpb25EYXRhJEJ1aWxkZXIsICdvcmcuZWNsaXBzZS5lbGsuc3BhY2luZy5pbmRpdmlkdWFsJyksICdzcGFjaW5nJyksICdJbmRpdmlkdWFsIFNwYWNpbmcnKSwgIkFsbG93cyB0byBzcGVjaWZ5IGluZGl2aWR1YWwgc3BhY2luZyB2YWx1ZXMgZm9yIGdyYXBoIGVsZW1lbnRzIHRoYXQgc2hhbGwgYmUgZGlmZmVyZW50IGZyb20gdGhlIHZhbHVlIHNwZWNpZmllZCBmb3IgdGhlIGVsZW1lbnQncyBwYXJlbnQuIiksIE9CSkVDVCksIExvcmdfZWNsaXBzZV9lbGtfY29yZV91dGlsX0luZGl2aWR1YWxTcGFjaW5nc18yX2NsYXNzTGl0KSwgb2ZfMihOT0RFUywgc3RhbXBKYXZhVHlwZUluZm8oZ2V0Q2xhc3NMaXRlcmFsRm9yQXJyYXkoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX2RhdGFfTGF5b3V0T3B0aW9uRGF0YSRUYXJnZXRfMl9jbGFzc0xpdCwgMSksICRpbnRlcm5fMzgsIDE2MSwgMCwgW0VER0VTLCBQT1JUUywgTEFCRUxTXSkpKSkpOwo=",
+        "encoding": "UTF-8 LF inclusive lines with final newline"
+      },
+      "layered": {
+        "supported": true,
+        "effectiveDefault": null,
+        "defaultOrigin": "core alias/default",
+        "aliases": [
+          {
+            "symbol": "Layered alias SPACING_INDIVIDUAL_0",
+            "startLine": 49121,
+            "endLine": 49121,
+            "role": "implementation",
+            "sha256": "27a5c33b018971fa7fc0d36b3e7b0c2d1a68a4bfd70a06fb5f2fffc4e0751535",
+            "sourceBytesBase64": "ICBTUEFDSU5HX0lORElWSURVQUwgPSBTUEFDSU5HX0lORElWSURVQUxfMDsK"
+          }
+        ],
+        "supportRegistration": [
+          {
+            "symbol": "org.eclipse.elk.spacing.individual Layered support",
+            "startLine": 49283,
+            "endLine": 49283,
+            "role": "implementation",
+            "sha256": "79f955f6c4664dd0e07acf8be63ca558d81123cbf06f2b8725c2925dbbc136d9",
+            "sourceBytesBase64": "ICAkYWRkT3B0aW9uU3VwcG9ydChyZWdpc3RyeSwgJ29yZy5lY2xpcHNlLmVsay5sYXllcmVkJywgJ29yZy5lY2xpcHNlLmVsay5zcGFjaW5nLmluZGl2aWR1YWwnLCAkZ2V0RGVmYXVsdChTUEFDSU5HX0lORElWSURVQUwpKTsK"
+          }
+        ]
+      }
+    }
+  ],
+  "enumFamilies": {
+    "SizeConstraint": {
+      "allowedByOrdinal": [
+        {
+          "name": "PORTS",
+          "ordinal": 0
+        },
+        {
+          "name": "PORT_LABELS",
+          "ordinal": 1
+        },
+        {
+          "name": "NODE_LABELS",
+          "ordinal": 2
+        },
+        {
+          "name": "MINIMUM_SIZE",
+          "ordinal": 3
+        }
+      ],
+      "declaration": {
+        "symbol": "$clinit_SizeConstraint",
+        "startLine": 71679,
+        "endLine": 71685,
+        "role": "implementation",
+        "sha256": "174b81b7a77c93d57eae680ea4a6caa15c573b5d251f20ab5ad0826de517e847",
+        "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9TaXplQ29uc3RyYWludCgpewogICRjbGluaXRfU2l6ZUNvbnN0cmFpbnQgPSBlbXB0eU1ldGhvZDsKICBQT1JUU18wID0gbmV3IFNpemVDb25zdHJhaW50KCdQT1JUUycsIDApOwogIFBPUlRfTEFCRUxTID0gbmV3IFNpemVDb25zdHJhaW50KCdQT1JUX0xBQkVMUycsIDEpOwogIE5PREVfTEFCRUxTID0gbmV3IFNpemVDb25zdHJhaW50KCdOT0RFX0xBQkVMUycsIDIpOwogIE1JTklNVU1fU0laRSA9IG5ldyBTaXplQ29uc3RyYWludCgnTUlOSU1VTV9TSVpFJywgMyk7Cn0K"
+      },
+      "nativeRepresentation": "symbolic enum or immutable set; ordinal parsing follows source declaration order, bool rejected by native host policy"
+    },
+    "SizeOptions": {
+      "allowedByOrdinal": [
+        {
+          "name": "DEFAULT_MINIMUM_SIZE",
+          "ordinal": 0
+        },
+        {
+          "name": "MINIMUM_SIZE_ACCOUNTS_FOR_PADDING",
+          "ordinal": 1
+        },
+        {
+          "name": "COMPUTE_PADDING",
+          "ordinal": 2
+        },
+        {
+          "name": "OUTSIDE_NODE_LABELS_OVERHANG",
+          "ordinal": 3
+        },
+        {
+          "name": "PORTS_OVERHANG",
+          "ordinal": 4
+        },
+        {
+          "name": "UNIFORM_PORT_SPACING",
+          "ordinal": 5
+        },
+        {
+          "name": "SPACE_EFFICIENT_PORT_LABELS",
+          "ordinal": 6
+        },
+        {
+          "name": "FORCE_TABULAR_NODE_LABELS",
+          "ordinal": 7
+        },
+        {
+          "name": "ASYMMETRICAL",
+          "ordinal": 8
+        }
+      ],
+      "declaration": {
+        "symbol": "$clinit_SizeOptions",
+        "startLine": 71710,
+        "endLine": 71721,
+        "role": "implementation",
+        "sha256": "da7e17dd2eefdabee64a028c267d16b370f16d1804fe1878e0512f23cc8cad80",
+        "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9TaXplT3B0aW9ucygpewogICRjbGluaXRfU2l6ZU9wdGlvbnMgPSBlbXB0eU1ldGhvZDsKICBERUZBVUxUX01JTklNVU1fU0laRSA9IG5ldyBTaXplT3B0aW9ucygnREVGQVVMVF9NSU5JTVVNX1NJWkUnLCAwKTsKICBNSU5JTVVNX1NJWkVfQUNDT1VOVFNfRk9SX1BBRERJTkcgPSBuZXcgU2l6ZU9wdGlvbnMoJ01JTklNVU1fU0laRV9BQ0NPVU5UU19GT1JfUEFERElORycsIDEpOwogIENPTVBVVEVfUEFERElORyA9IG5ldyBTaXplT3B0aW9ucygnQ09NUFVURV9QQURESU5HJywgMik7CiAgT1VUU0lERV9OT0RFX0xBQkVMU19PVkVSSEFORyA9IG5ldyBTaXplT3B0aW9ucygnT1VUU0lERV9OT0RFX0xBQkVMU19PVkVSSEFORycsIDMpOwogIFBPUlRTX09WRVJIQU5HID0gbmV3IFNpemVPcHRpb25zKCdQT1JUU19PVkVSSEFORycsIDQpOwogIFVOSUZPUk1fUE9SVF9TUEFDSU5HID0gbmV3IFNpemVPcHRpb25zKCdVTklGT1JNX1BPUlRfU1BBQ0lORycsIDUpOwogIFNQQUNFX0VGRklDSUVOVF9QT1JUX0xBQkVMUyA9IG5ldyBTaXplT3B0aW9ucygnU1BBQ0VfRUZGSUNJRU5UX1BPUlRfTEFCRUxTJywgNik7CiAgRk9SQ0VfVEFCVUxBUl9OT0RFX0xBQkVMUyA9IG5ldyBTaXplT3B0aW9ucygnRk9SQ0VfVEFCVUxBUl9OT0RFX0xBQkVMUycsIDcpOwogIEFTWU1NRVRSSUNBTCA9IG5ldyBTaXplT3B0aW9ucygnQVNZTU1FVFJJQ0FMJywgOCk7Cn0K"
+      },
+      "nativeRepresentation": "symbolic enum or immutable set; ordinal parsing follows source declaration order, bool rejected by native host policy"
+    },
+    "NodeLabelPlacement": {
+      "allowedByOrdinal": [
+        {
+          "name": "H_LEFT",
+          "ordinal": 0
+        },
+        {
+          "name": "H_CENTER",
+          "ordinal": 1
+        },
+        {
+          "name": "H_RIGHT",
+          "ordinal": 2
+        },
+        {
+          "name": "V_TOP",
+          "ordinal": 3
+        },
+        {
+          "name": "V_CENTER",
+          "ordinal": 4
+        },
+        {
+          "name": "V_BOTTOM",
+          "ordinal": 5
+        },
+        {
+          "name": "INSIDE",
+          "ordinal": 6
+        },
+        {
+          "name": "OUTSIDE",
+          "ordinal": 7
+        },
+        {
+          "name": "H_PRIORITY",
+          "ordinal": 8
+        }
+      ],
+      "declaration": {
+        "symbol": "$clinit_NodeLabelPlacement",
+        "startLine": 71323,
+        "endLine": 71334,
+        "role": "implementation",
+        "sha256": "2d6368dafbe0b898627f406916f06b7a0c0c44ac982bff1f51fdcf169ffb603e",
+        "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9Ob2RlTGFiZWxQbGFjZW1lbnQoKXsKICAkY2xpbml0X05vZGVMYWJlbFBsYWNlbWVudCA9IGVtcHR5TWV0aG9kOwogIEhfTEVGVF8wID0gbmV3IE5vZGVMYWJlbFBsYWNlbWVudCgnSF9MRUZUJywgMCk7CiAgSF9DRU5URVJfMCA9IG5ldyBOb2RlTGFiZWxQbGFjZW1lbnQoJ0hfQ0VOVEVSJywgMSk7CiAgSF9SSUdIVF8wID0gbmV3IE5vZGVMYWJlbFBsYWNlbWVudCgnSF9SSUdIVCcsIDIpOwogIFZfVE9QXzAgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdWX1RPUCcsIDMpOwogIFZfQ0VOVEVSXzAgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdWX0NFTlRFUicsIDQpOwogIFZfQk9UVE9NXzAgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdWX0JPVFRPTScsIDUpOwogIElOU0lERSA9IG5ldyBOb2RlTGFiZWxQbGFjZW1lbnQoJ0lOU0lERScsIDYpOwogIE9VVFNJREUgPSBuZXcgTm9kZUxhYmVsUGxhY2VtZW50KCdPVVRTSURFJywgNyk7CiAgSF9QUklPUklUWSA9IG5ldyBOb2RlTGFiZWxQbGFjZW1lbnQoJ0hfUFJJT1JJVFknLCA4KTsKfQo="
+      },
+      "nativeRepresentation": "symbolic enum or immutable set; ordinal parsing follows source declaration order, bool rejected by native host policy"
+    },
+    "PortLabelPlacement": {
+      "allowedByOrdinal": [
+        {
+          "name": "OUTSIDE",
+          "ordinal": 0
+        },
+        {
+          "name": "INSIDE",
+          "ordinal": 1
+        },
+        {
+          "name": "NEXT_TO_PORT_IF_POSSIBLE",
+          "ordinal": 2
+        },
+        {
+          "name": "ALWAYS_SAME_SIDE",
+          "ordinal": 3
+        },
+        {
+          "name": "ALWAYS_OTHER_SAME_SIDE",
+          "ordinal": 4
+        },
+        {
+          "name": "SPACE_EFFICIENT",
+          "ordinal": 5
+        }
+      ],
+      "declaration": {
+        "symbol": "$clinit_PortLabelPlacement",
+        "startLine": 71450,
+        "endLine": 71458,
+        "role": "implementation",
+        "sha256": "ae9119fcb49045596023515061dcefab0659561b794f72cafddd1008a18d5765",
+        "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9Qb3J0TGFiZWxQbGFjZW1lbnQoKXsKICAkY2xpbml0X1BvcnRMYWJlbFBsYWNlbWVudCA9IGVtcHR5TWV0aG9kOwogIE9VVFNJREVfMCA9IG5ldyBQb3J0TGFiZWxQbGFjZW1lbnQoJ09VVFNJREUnLCAwKTsKICBJTlNJREVfMCA9IG5ldyBQb3J0TGFiZWxQbGFjZW1lbnQoJ0lOU0lERScsIDEpOwogIE5FWFRfVE9fUE9SVF9JRl9QT1NTSUJMRV8wID0gbmV3IFBvcnRMYWJlbFBsYWNlbWVudCgnTkVYVF9UT19QT1JUX0lGX1BPU1NJQkxFJywgMik7CiAgQUxXQVlTX1NBTUVfU0lERSA9IG5ldyBQb3J0TGFiZWxQbGFjZW1lbnQoJ0FMV0FZU19TQU1FX1NJREUnLCAzKTsKICBBTFdBWVNfT1RIRVJfU0FNRV9TSURFID0gbmV3IFBvcnRMYWJlbFBsYWNlbWVudCgnQUxXQVlTX09USEVSX1NBTUVfU0lERScsIDQpOwogIFNQQUNFX0VGRklDSUVOVF8wID0gbmV3IFBvcnRMYWJlbFBsYWNlbWVudCgnU1BBQ0VfRUZGSUNJRU5UJywgNSk7Cn0K"
+      },
+      "nativeRepresentation": "symbolic enum or immutable set; ordinal parsing follows source declaration order, bool rejected by native host policy"
+    },
+    "PortAlignment": {
+      "allowedByOrdinal": [
+        {
+          "name": "DISTRIBUTED",
+          "ordinal": 0
+        },
+        {
+          "name": "JUSTIFIED",
+          "ordinal": 1
+        },
+        {
+          "name": "BEGIN",
+          "ordinal": 2
+        },
+        {
+          "name": "CENTER",
+          "ordinal": 3
+        },
+        {
+          "name": "END",
+          "ordinal": 4
+        }
+      ],
+      "declaration": {
+        "symbol": "$clinit_PortAlignment",
+        "startLine": 71377,
+        "endLine": 71384,
+        "role": "implementation",
+        "sha256": "a91c32f442694dc514dea3ae68f961baa591092b403a4fe85aa9cb15f0db2d20",
+        "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9Qb3J0QWxpZ25tZW50KCl7CiAgJGNsaW5pdF9Qb3J0QWxpZ25tZW50ID0gZW1wdHlNZXRob2Q7CiAgRElTVFJJQlVURUQgPSBuZXcgUG9ydEFsaWdubWVudCgnRElTVFJJQlVURUQnLCAwKTsKICBKVVNUSUZJRUQgPSBuZXcgUG9ydEFsaWdubWVudCgnSlVTVElGSUVEJywgMSk7CiAgQkVHSU5fMCA9IG5ldyBQb3J0QWxpZ25tZW50KCdCRUdJTicsIDIpOwogIENFTlRFUl82ID0gbmV3IFBvcnRBbGlnbm1lbnQoJ0NFTlRFUicsIDMpOwogIEVORF8xID0gbmV3IFBvcnRBbGlnbm1lbnQoJ0VORCcsIDQpOwp9Cg=="
+      },
+      "nativeRepresentation": "symbolic enum or immutable set; ordinal parsing follows source declaration order, bool rejected by native host policy"
+    }
+  },
+  "objectFamilies": {
+    "KVector": {
+      "meaning": "two original double scalars x/y; no label/font measurement",
+      "spans": [
+        {
+          "symbol": "KVector constructor overloads",
+          "startLine": 70434,
+          "endLine": 70453,
+          "role": "implementation",
+          "sha256": "4abc55f3c44bf3b327d106af5703b9df8e458d3798d97f27ab0b041cc1a88327",
+          "sourceBytesBase64": "ZnVuY3Rpb24gS1ZlY3RvcigpewogIHRoaXMueF8wID0gMDsKICB0aGlzLnlfMCA9IDA7Cn0KCmZ1bmN0aW9uIEtWZWN0b3JfMChhbmdsZSl7CiAgdGhpcy54XzAgPSAkd25kLk1hdGguY29zKGFuZ2xlKTsKICB0aGlzLnlfMCA9ICR3bmQuTWF0aC5zaW4oYW5nbGUpOwp9CgpmdW5jdGlvbiBLVmVjdG9yXzEodGhleCwgdGhleSl7CiAgdGhpcy54XzAgPSB0aGV4OwogIHRoaXMueV8wID0gdGhleTsKfQoKZnVuY3Rpb24gS1ZlY3Rvcl8yKHYpewogIHRoaXMueF8wID0gdi54XzA7CiAgdGhpcy55XzAgPSB2LnlfMDsKfQoK"
+        },
+        {
+          "symbol": "KVector.parse",
+          "startLine": 70484,
+          "endLine": 70515,
+          "role": "implementation",
+          "sha256": "f2c65899eff620049f19cbe93faae2eb48582da2388b6372785c2ea0543ca58a",
+          "sourceBytesBase64": "Xy5wYXJzZV8wID0gZnVuY3Rpb24gcGFyc2VfMShzdHJpbmcpewogIHZhciBlbmQsIGV4Y2VwdGlvbiwgc3RhcnRfMCwgdG9rZW5zOwogIHN0YXJ0XzAgPSAwOwogIHdoaWxlIChzdGFydF8wIDwgc3RyaW5nLmxlbmd0aCAmJiBpc2RlbGltXzAoKGNoZWNrQ3JpdGljYWxTdHJpbmdFbGVtZW50SW5kZXgoc3RhcnRfMCwgc3RyaW5nLmxlbmd0aCkgLCBzdHJpbmcuY2hhckNvZGVBdChzdGFydF8wKSksICcoW3siXCcgXHRcclxuJykpIHsKICAgICsrc3RhcnRfMDsKICB9CiAgZW5kID0gc3RyaW5nLmxlbmd0aDsKICB3aGlsZSAoZW5kID4gMCAmJiBpc2RlbGltXzAoKGNoZWNrQ3JpdGljYWxTdHJpbmdFbGVtZW50SW5kZXgoZW5kIC0gMSwgc3RyaW5nLmxlbmd0aCkgLCBzdHJpbmcuY2hhckNvZGVBdChlbmQgLSAxKSksICcpXX0iXCcgXHRcclxuJykpIHsKICAgIC0tZW5kOwogIH0KICBpZiAoc3RhcnRfMCA+PSBlbmQpIHsKICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxBcmd1bWVudEV4Y2VwdGlvbl8wKCdUaGUgZ2l2ZW4gc3RyaW5nIGRvZXMgbm90IGNvbnRhaW4gYW55IG51bWJlcnMuJykpOwogIH0KICB0b2tlbnMgPSAkc3BsaXRfMCgoY2hlY2tDcml0aWNhbFN0cmluZ0JvdW5kcyhzdGFydF8wLCBlbmQsIHN0cmluZy5sZW5ndGgpICwgc3RyaW5nLnN1YnN0cihzdGFydF8wLCBlbmQgLSBzdGFydF8wKSksICcsfDt8XHJ8XG4nKTsKICBpZiAodG9rZW5zLmxlbmd0aCAhPSAyKSB7CiAgICB0aHJvdyB0b0pzKG5ldyBJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb25fMCgnRXhhY3RseSB0d28gbnVtYmVycyBhcmUgZXhwZWN0ZWQsICcgKyB0b2tlbnMubGVuZ3RoICsgJyB3ZXJlIGZvdW5kLicpKTsKICB9CiAgdHJ5IHsKICAgIHRoaXMueF8wID0gX19wYXJzZUFuZFZhbGlkYXRlRG91YmxlKCR0cmltKHRva2Vuc1swXSkpOwogICAgdGhpcy55XzAgPSBfX3BhcnNlQW5kVmFsaWRhdGVEb3VibGUoJHRyaW0odG9rZW5zWzFdKSk7CiAgfQogICBjYXRjaCAoJGUwKSB7CiAgICAkZTAgPSB0b0phdmEoJGUwKTsKICAgIGlmIChpbnN0YW5jZU9mKCRlMCwgMTMxKSkgewogICAgICBleGNlcHRpb24gPSAkZTA7CiAgICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxBcmd1bWVudEV4Y2VwdGlvbl8wKCdUaGUgZ2l2ZW4gc3RyaW5nIGNvbnRhaW5zIHBhcnRzIHRoYXQgY2Fubm90IGJlIHBhcnNlZCBhcyBudW1iZXJzLicgKyBleGNlcHRpb24pKTsKICAgIH0KICAgICBlbHNlIAogICAgICB0aHJvdyB0b0pzKCRlMCk7CiAgfQp9CjsK"
+        },
+        {
+          "symbol": "isdelim_0",
+          "startLine": 70454,
+          "endLine": 70462,
+          "role": "implementation",
+          "sha256": "0341291e0a470ca77c6b92e2437996344be5a9b1e2162d43edc2b0600d1df6e5",
+          "sourceBytesBase64": "ZnVuY3Rpb24gaXNkZWxpbV8wKGMsIGRlbGltcyl7CiAgdmFyIGk7CiAgZm9yIChpID0gMDsgaSA8IGRlbGltcy5sZW5ndGg7IGkrKykgewogICAgaWYgKGMgPT0gKGNoZWNrQ3JpdGljYWxTdHJpbmdFbGVtZW50SW5kZXgoaSwgZGVsaW1zLmxlbmd0aCkgLCBkZWxpbXMuY2hhckNvZGVBdChpKSkpIHsKICAgICAgcmV0dXJuIHRydWU7CiAgICB9CiAgfQogIHJldHVybiBmYWxzZTsKfQo="
+        }
+      ],
+      "parseFacts": [
+        "Strip source boundary delimiter chars then require exactly2 tokens split comma/semicolon/CR/LF. Both tokens original double parser. Empty input rejects."
+      ]
+    },
+    "ElkPadding": {
+      "meaning": "Spacing-derived top/right/bottom/left",
+      "spans": [
+        {
+          "symbol": "$$init_6",
+          "startLine": 33048,
+          "endLine": 33049,
+          "role": "implementation",
+          "sha256": "c163f01f1d8d1285f80402a429fc9376ea556c4de704dbf13525c3ac450cbb29",
+          "sourceBytesBase64": "ZnVuY3Rpb24gJCRpbml0XzYodGhpcyRzdGF0aWMpewp9Cg=="
+        },
+        {
+          "symbol": "Spacing",
+          "startLine": 33090,
+          "endLine": 33092,
+          "role": "implementation",
+          "sha256": "2a75ffb6d3459a0dcf23df1ab24fdbd531cdec6c94c7f53bb8afe160f540eff1",
+          "sourceBytesBase64": "ZnVuY3Rpb24gU3BhY2luZygpewogICQkaW5pdF82KHRoaXMpOwp9Cg=="
+        },
+        {
+          "symbol": "Spacing_0",
+          "startLine": 33094,
+          "endLine": 33097,
+          "role": "implementation",
+          "sha256": "f03743e0606a3b5749a44c07e5ed52a3ee023ebaf1660b24dad2f866ee61a4f8",
+          "sourceBytesBase64": "ZnVuY3Rpb24gU3BhY2luZ18wKHRvcF8wLCByaWdodCwgYm90dG9tLCBsZWZ0KXsKICAkJGluaXRfNih0aGlzKTsKICAkc2V0XzYodGhpcywgdG9wXzAsIHJpZ2h0LCBib3R0b20sIGxlZnQpOwp9Cg=="
+        },
+        {
+          "symbol": "isdelim",
+          "startLine": 33099,
+          "endLine": 33107,
+          "role": "implementation",
+          "sha256": "f1377c6d0100a2c574eb11868d7d79acf9ceb11ef8ad3d2d9553ca1e2ad7062e",
+          "sourceBytesBase64": "ZnVuY3Rpb24gaXNkZWxpbShjLCBkZWxpbXMpewogIHZhciBpOwogIGZvciAoaSA9IDA7IGkgPCBkZWxpbXMubGVuZ3RoOyBpKyspIHsKICAgIGlmIChjID09IChjaGVja0NyaXRpY2FsU3RyaW5nRWxlbWVudEluZGV4KGksIGRlbGltcy5sZW5ndGgpICwgZGVsaW1zLmNoYXJDb2RlQXQoaSkpKSB7CiAgICAgIHJldHVybiB0cnVlOwogICAgfQogIH0KICByZXR1cm4gZmFsc2U7Cn0K"
+        },
+        {
+          "symbol": "Spacing.parse",
+          "startLine": 33130,
+          "endLine": 33165,
+          "role": "implementation",
+          "sha256": "b02066b48e0c649eb7a9971bc4bf6fd7a089d106ef3a504cf1715ea7438f8529",
+          "sourceBytesBase64": "Xy5wYXJzZV8wID0gZnVuY3Rpb24gcGFyc2VfMChzdHJpbmcpewogIHZhciBlbmQsIGV4Y2VwdGlvbiwga2V5LCBrZXlhbmR2YWx1ZSwgc3RhcnRfMCwgdG9rZW4sIHRva2VuJGFycmF5LCB0b2tlbiRpbmRleCwgdG9rZW4kbWF4LCB0b2tlbnMsIHZhbHVlXzA7CiAgc3RhcnRfMCA9IDA7CiAgd2hpbGUgKHN0YXJ0XzAgPCBzdHJpbmcubGVuZ3RoICYmIGlzZGVsaW0oKGNoZWNrQ3JpdGljYWxTdHJpbmdFbGVtZW50SW5kZXgoc3RhcnRfMCwgc3RyaW5nLmxlbmd0aCkgLCBzdHJpbmcuY2hhckNvZGVBdChzdGFydF8wKSksICcoW3siXCcgXHRcclxuJykpIHsKICAgICsrc3RhcnRfMDsKICB9CiAgZW5kID0gc3RyaW5nLmxlbmd0aDsKICB3aGlsZSAoZW5kID4gMCAmJiBpc2RlbGltKChjaGVja0NyaXRpY2FsU3RyaW5nRWxlbWVudEluZGV4KGVuZCAtIDEsIHN0cmluZy5sZW5ndGgpICwgc3RyaW5nLmNoYXJDb2RlQXQoZW5kIC0gMSkpLCAnKV19IlwnIFx0XHJcbicpKSB7CiAgICAtLWVuZDsKICB9CiAgaWYgKHN0YXJ0XzAgPCBlbmQpIHsKICAgIHRva2VucyA9ICRzcGxpdF8wKChjaGVja0NyaXRpY2FsU3RyaW5nQm91bmRzKHN0YXJ0XzAsIGVuZCwgc3RyaW5nLmxlbmd0aCkgLCBzdHJpbmcuc3Vic3RyKHN0YXJ0XzAsIGVuZCAtIHN0YXJ0XzApKSwgJyx8OycpOwogICAgdHJ5IHsKICAgICAgZm9yICh0b2tlbiRhcnJheSA9IHRva2VucyAsIHRva2VuJGluZGV4ID0gMCAsIHRva2VuJG1heCA9IHRva2VuJGFycmF5Lmxlbmd0aDsgdG9rZW4kaW5kZXggPCB0b2tlbiRtYXg7ICsrdG9rZW4kaW5kZXgpIHsKICAgICAgICB0b2tlbiA9IHRva2VuJGFycmF5W3Rva2VuJGluZGV4XTsKICAgICAgICBrZXlhbmR2YWx1ZSA9ICRzcGxpdF8wKHRva2VuLCAnPScpOwogICAgICAgIGlmIChrZXlhbmR2YWx1ZS5sZW5ndGggIT0gMikgewogICAgICAgICAgdGhyb3cgdG9KcyhuZXcgSWxsZWdhbEFyZ3VtZW50RXhjZXB0aW9uXzAoJ0V4cGVjdGluZyBhIGxpc3Qgb2Yga2V5LXZhbHVlIHBhaXJzLicpKTsKICAgICAgICB9CiAgICAgICAga2V5ID0gJHRyaW0oa2V5YW5kdmFsdWVbMF0pOwogICAgICAgIHZhbHVlXzAgPSBfX3BhcnNlQW5kVmFsaWRhdGVEb3VibGUoJHRyaW0oa2V5YW5kdmFsdWVbMV0pKTsKICAgICAgICAkZXF1YWxzXzUoa2V5LCAndG9wJyk/KHRoaXMudG9wXzAgPSB2YWx1ZV8wKTokZXF1YWxzXzUoa2V5LCAnbGVmdCcpPyh0aGlzLmxlZnQgPSB2YWx1ZV8wKTokZXF1YWxzXzUoa2V5LCAnYm90dG9tJyk/KHRoaXMuYm90dG9tID0gdmFsdWVfMCk6JGVxdWFsc181KGtleSwgJ3JpZ2h0JykgJiYgKHRoaXMucmlnaHQgPSB2YWx1ZV8wKTsKICAgICAgfQogICAgfQogICAgIGNhdGNoICgkZTApIHsKICAgICAgJGUwID0gdG9KYXZhKCRlMCk7CiAgICAgIGlmIChpbnN0YW5jZU9mKCRlMCwgMTMxKSkgewogICAgICAgIGV4Y2VwdGlvbiA9ICRlMDsKICAgICAgICB0aHJvdyB0b0pzKG5ldyBJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb25fMCgnVGhlIGdpdmVuIHN0cmluZyBjb250YWlucyBwYXJ0cyB0aGF0IGNhbm5vdCBiZSBwYXJzZWQgYXMgbnVtYmVycy4nICsgZXhjZXB0aW9uKSk7CiAgICAgIH0KICAgICAgIGVsc2UgCiAgICAgICAgdGhyb3cgdG9KcygkZTApOwogICAgfQogIH0KfQo7Cg=="
+        },
+        {
+          "symbol": "ElkPadding constructors",
+          "startLine": 33439,
+          "endLine": 33455,
+          "role": "implementation",
+          "sha256": "70e392eb81efafa40f19c8a40813e6fb4c5e5d71bed38c1b5975053a2ec10ab9",
+          "sourceBytesBase64": "ZnVuY3Rpb24gRWxrUGFkZGluZygpewogIFNwYWNpbmcuY2FsbCh0aGlzKTsKfQoKZnVuY3Rpb24gRWxrUGFkZGluZ18wKGFueSl7CiAgU3BhY2luZ18wLmNhbGwodGhpcywgYW55LCBhbnksIGFueSwgYW55KTsKfQoKZnVuY3Rpb24gRWxrUGFkZGluZ18xKG90aGVyKXsKICBTcGFjaW5nXzAuY2FsbCh0aGlzLCBvdGhlci50b3BfMCwgb3RoZXIucmlnaHQsIG90aGVyLmJvdHRvbSwgb3RoZXIubGVmdCk7Cn0KCmRlZmluZUNsYXNzKDEwNSwgMjE1LCAkaW50ZXJuXzExMSwgRWxrUGFkZGluZywgRWxrUGFkZGluZ18wLCBFbGtQYWRkaW5nXzEpOwp2YXIgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfRWxrUGFkZGluZ18yX2NsYXNzTGl0ID0gY3JlYXRlRm9yQ2xhc3MoJ29yZy5lY2xpcHNlLmVsay5jb3JlLm1hdGgnLCAnRWxrUGFkZGluZycsIDEwNSk7CmZ1bmN0aW9uIExQYWRkaW5nKCl7CiAgRWxrUGFkZGluZy5jYWxsKHRoaXMpOwp9Cg=="
+        }
+      ],
+      "parseFacts": [
+        "Source object factory starts0 each side, not default property padding5/12/20. Trim source boundary chars, split comma/semicolon, requirekey=value pairs; unknownkeys ignored, repeated knownkey lastwins. Blank content keeps0."
+      ]
+    },
+    "ElkMargin": {
+      "meaning": "Spacing-derived top/right/bottom/left; same actual Spacing.parse as padding",
+      "spans": [
+        {
+          "symbol": "ElkMargin constructors",
+          "startLine": 33175,
+          "endLine": 33193,
+          "role": "implementation",
+          "sha256": "9bde00081dc2ed4607fb7db3888f3695e5c0f5ba41a435b05854dfd0d066d010",
+          "sourceBytesBase64": "ZnVuY3Rpb24gRWxrTWFyZ2luKCl7CiAgU3BhY2luZy5jYWxsKHRoaXMpOwp9CgpmdW5jdGlvbiBFbGtNYXJnaW5fMCgpewogIFNwYWNpbmdfMC5jYWxsKHRoaXMsIDAsIDAsIDAsIDApOwp9CgpmdW5jdGlvbiBFbGtNYXJnaW5fMSh0b3BfMCwgcmlnaHQsIGJvdHRvbSwgbGVmdCl7CiAgU3BhY2luZ18wLmNhbGwodGhpcywgdG9wXzAsIHJpZ2h0LCBib3R0b20sIGxlZnQpOwp9CgpmdW5jdGlvbiBFbGtNYXJnaW5fMihvdGhlcil7CiAgU3BhY2luZ18wLmNhbGwodGhpcywgb3RoZXIudG9wXzAsIG90aGVyLnJpZ2h0LCBvdGhlci5ib3R0b20sIG90aGVyLmxlZnQpOwp9CgpkZWZpbmVDbGFzcygxNDYsIDIxNSwgJGludGVybl8xMTAsIEVsa01hcmdpbiwgRWxrTWFyZ2luXzAsIEVsa01hcmdpbl8xLCBFbGtNYXJnaW5fMik7CnZhciBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9FbGtNYXJnaW5fMl9jbGFzc0xpdCA9IGNyZWF0ZUZvckNsYXNzKCdvcmcuZWNsaXBzZS5lbGsuY29yZS5tYXRoJywgJ0Vsa01hcmdpbicsIDE0Nik7CmZ1bmN0aW9uIExNYXJnaW4oKXsK"
+        }
+      ],
+      "parseFacts": [
+        "Same shared Spacing parsing; actual zero default surrounding margin is distinct from nodeLabels.padding5."
+      ]
+    },
+    "IndividualSpacings": {
+      "meaning": "typed property holder parsed via actual option IDs and parseValue",
+      "spans": [
+        {
+          "symbol": "IndividualSpacings constructors",
+          "startLine": 73578,
+          "endLine": 73584,
+          "role": "implementation",
+          "sha256": "70db02f40dc5c862cd54ad2070bb52f7b80212d119f3227967683d7307d6a254",
+          "sourceBytesBase64": "ZnVuY3Rpb24gSW5kaXZpZHVhbFNwYWNpbmdzKCl7Cn0KCmZ1bmN0aW9uIEluZGl2aWR1YWxTcGFjaW5nc18wKG90aGVyKXsKICAoIXRoaXMucHJvcGVydHlNYXA/KCRjbGluaXRfQ29sbGVjdGlvbnMoKSAsICRjbGluaXRfQ29sbGVjdGlvbnMoKSAsIEVNUFRZX01BUCk6dGhpcy5wcm9wZXJ0eU1hcCkucHV0QWxsKCFvdGhlci5wcm9wZXJ0eU1hcD8oJGNsaW5pdF9Db2xsZWN0aW9ucygpICwgJGNsaW5pdF9Db2xsZWN0aW9ucygpICwgRU1QVFlfTUFQKTpvdGhlci5wcm9wZXJ0eU1hcCk7Cn0KCg=="
+        },
+        {
+          "symbol": "IndividualSpacings.parse",
+          "startLine": 73602,
+          "endLine": 73633,
+          "role": "implementation",
+          "sha256": "1387fbbf04ded0059317d53192add4a69709b7d1ae763026f84167becdc37be5",
+          "sourceBytesBase64": "Xy5wYXJzZV8wID0gZnVuY3Rpb24gcGFyc2VfMyhzdHJpbmcpewogIHZhciBlLCBvcHRpb24sIG9wdGlvbkRhdGEsIG9wdGlvblN0cmluZywgb3B0aW9uU3RyaW5nJGFycmF5LCBvcHRpb25TdHJpbmckaW5kZXgsIG9wdGlvblN0cmluZyRtYXgsIG9wdGlvbnMsIHZhbHVlXzA7CiAgaWYgKCFzdHJpbmcpIHsKICAgIHJldHVybjsKICB9CiAgdHJ5IHsKICAgIG9wdGlvbnMgPSAkc3BsaXRfMChzdHJpbmcsICc7LDsnKTsKICAgIGZvciAob3B0aW9uU3RyaW5nJGFycmF5ID0gb3B0aW9ucyAsIG9wdGlvblN0cmluZyRpbmRleCA9IDAgLCBvcHRpb25TdHJpbmckbWF4ID0gb3B0aW9uU3RyaW5nJGFycmF5Lmxlbmd0aDsgb3B0aW9uU3RyaW5nJGluZGV4IDwgb3B0aW9uU3RyaW5nJG1heDsgKytvcHRpb25TdHJpbmckaW5kZXgpIHsKICAgICAgb3B0aW9uU3RyaW5nID0gb3B0aW9uU3RyaW5nJGFycmF5W29wdGlvblN0cmluZyRpbmRleF07CiAgICAgIG9wdGlvbiA9ICRzcGxpdF8wKG9wdGlvblN0cmluZywgJ1xcOicpOwogICAgICBvcHRpb25EYXRhID0gJGdldE9wdGlvbkRhdGFCeVN1ZmZpeChnZXRJbnN0YW5jZSgpLCBvcHRpb25bMF0pOwogICAgICBpZiAoIW9wdGlvbkRhdGEpIHsKICAgICAgICB0aHJvdyB0b0pzKG5ldyBJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb25fMCgnSW52YWxpZCBvcHRpb24gaWQ6ICcgKyBvcHRpb25bMF0pKTsKICAgICAgfQogICAgICB2YWx1ZV8wID0gJHBhcnNlVmFsdWUob3B0aW9uRGF0YSwgb3B0aW9uWzFdKTsKICAgICAgaWYgKHZhbHVlXzAgPT0gbnVsbCkgewogICAgICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxBcmd1bWVudEV4Y2VwdGlvbl8wKCdJbnZhbGlkIG9wdGlvbiB2YWx1ZTogJyArIG9wdGlvblsxXSkpOwogICAgICB9CiAgICAgIHZhbHVlXzAgPT0gbnVsbD8oIXRoaXMucHJvcGVydHlNYXAgJiYgKHRoaXMucHJvcGVydHlNYXAgPSBuZXcgSGFzaE1hcCkgLCAkcmVtb3ZlXzYodGhpcy5wcm9wZXJ0eU1hcCwgb3B0aW9uRGF0YSkpOighdGhpcy5wcm9wZXJ0eU1hcCAmJiAodGhpcy5wcm9wZXJ0eU1hcCA9IG5ldyBIYXNoTWFwKSAsICRwdXRfNih0aGlzLnByb3BlcnR5TWFwLCBvcHRpb25EYXRhLCB2YWx1ZV8wKSk7CiAgICB9CiAgfQogICBjYXRjaCAoJGUwKSB7CiAgICAkZTAgPSB0b0phdmEoJGUwKTsKICAgIGlmIChpbnN0YW5jZU9mKCRlMCwgMTAyKSkgewogICAgICBlID0gJGUwOwogICAgICB0aHJvdyB0b0pzKG5ldyBJbGxlZ2FsQXJndW1lbnRFeGNlcHRpb25fMShlKSk7CiAgICB9CiAgICAgZWxzZSAKICAgICAgdGhyb3cgdG9KcygkZTApOwogIH0KfQo7Cg=="
+        }
+      ],
+      "parseFacts": [
+        "Generic option string uses literal regex ;,; delimiter, then colon split and suffix metadata resolution; malformed IDs/values throw. This differs from dedicated top-level individualSpacings JSON-object field that iterates keys with $setOption."
+      ]
+    }
+  },
+  "sharedParserSpans": [
+    {
+      "symbol": "$parseValue",
+      "startLine": 69712,
+      "endLine": 69774,
+      "role": "implementation",
+      "sha256": "ea00e303b16657fd597aa353062386a52c4102f3324ea9f48eaccdcef4273f05",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHBhcnNlVmFsdWUodGhpcyRzdGF0aWMsIHZhbHVlU3RyaW5nKXsKICB2YXIgdmFsdWVfMDsKICBpZiAodmFsdWVTdHJpbmcgPT0gbnVsbCB8fCAkZXF1YWxzXzUodmFsdWVTdHJpbmcsICdudWxsJykpIHsKICAgIHJldHVybiBudWxsOwogIH0KICBpZiAodmFsdWVTdHJpbmcubGVuZ3RoID09IDAgJiYgdGhpcyRzdGF0aWMudHlwZV8wICE9ICgkY2xpbml0X0xheW91dE9wdGlvbkRhdGEkVHlwZSgpICwgRU5VTVNFVCkpIHsKICAgIHJldHVybiBudWxsOwogIH0KICBzd2l0Y2ggKHRoaXMkc3RhdGljLnR5cGVfMC5vcmRpbmFsKSB7CiAgICBjYXNlIDE6CiAgICAgIHJldHVybiAkZXF1YWxzSWdub3JlQ2FzZSh2YWx1ZVN0cmluZywgJ3RydWUnKT8oJGNsaW5pdF9Cb29sZWFuKCkgLCBUUlVFXzApOiRlcXVhbHNJZ25vcmVDYXNlKHZhbHVlU3RyaW5nLCAnZmFsc2UnKT8oJGNsaW5pdF9Cb29sZWFuKCkgLCBGQUxTRV8wKTpudWxsOwogICAgY2FzZSAyOgogICAgICB0cnkgewogICAgICAgIHJldHVybiB2YWx1ZU9mXzMoX19wYXJzZUFuZFZhbGlkYXRlSW50KHZhbHVlU3RyaW5nLCAkaW50ZXJuXzQ0LCAkaW50ZXJuXzApKTsKICAgICAgfQogICAgICAgY2F0Y2ggKCRlMCkgewogICAgICAgICRlMCA9IHRvSmF2YSgkZTApOwogICAgICAgIGlmIChpbnN0YW5jZU9mKCRlMCwgMTMxKSkgewogICAgICAgICAgcmV0dXJuIG51bGw7CiAgICAgICAgfQogICAgICAgICBlbHNlIAogICAgICAgICAgdGhyb3cgdG9KcygkZTApOwogICAgICB9CgogICAgY2FzZSA0OgogICAgICB0cnkgewogICAgICAgIHJldHVybiBfX3BhcnNlQW5kVmFsaWRhdGVEb3VibGUodmFsdWVTdHJpbmcpOwogICAgICB9CiAgICAgICBjYXRjaCAoJGUxKSB7CiAgICAgICAgJGUxID0gdG9KYXZhKCRlMSk7CiAgICAgICAgaWYgKGluc3RhbmNlT2YoJGUxLCAxMzEpKSB7CiAgICAgICAgICByZXR1cm4gbnVsbDsKICAgICAgICB9CiAgICAgICAgIGVsc2UgCiAgICAgICAgICB0aHJvdyB0b0pzKCRlMSk7CiAgICAgIH0KCiAgICBjYXNlIDM6CiAgICAgIHJldHVybiB2YWx1ZVN0cmluZzsKICAgIGNhc2UgNToKICAgICAgJGNoZWNrRW51bUNsYXNzKHRoaXMkc3RhdGljKTsKICAgICAgcmV0dXJuICRlbnVtRm9yU3RyaW5nKHRoaXMkc3RhdGljLCB2YWx1ZVN0cmluZyk7CiAgICBjYXNlIDY6CiAgICAgICRjaGVja0VudW1DbGFzcyh0aGlzJHN0YXRpYyk7CiAgICAgIHJldHVybiAkZW51bVNldEZvclN0cmluZ0FycmF5KHRoaXMkc3RhdGljLCB0aGlzJHN0YXRpYy5jbGF6eiwgdmFsdWVTdHJpbmcpOwogICAgY2FzZSA3OgogICAgICB0cnkgewogICAgICAgIHZhbHVlXzAgPSAkY3JlYXRlRGF0YUluc3RhbmNlKHRoaXMkc3RhdGljKTsKICAgICAgICB2YWx1ZV8wLnBhcnNlXzAodmFsdWVTdHJpbmcpOwogICAgICAgIHJldHVybiB2YWx1ZV8wOwogICAgICB9CiAgICAgICBjYXRjaCAoJGUyKSB7CiAgICAgICAgJGUyID0gdG9KYXZhKCRlMik7CiAgICAgICAgaWYgKGluc3RhbmNlT2YoJGUyLCAzMykpIHsKICAgICAgICAgIHJldHVybiBudWxsOwogICAgICAgIH0KICAgICAgICAgZWxzZSAKICAgICAgICAgIHRocm93IHRvSnMoJGUyKTsKICAgICAgfQoKICAgIGRlZmF1bHQ6dGhyb3cgdG9KcyhuZXcgSWxsZWdhbFN0YXRlRXhjZXB0aW9uXzAoJ0ludmFsaWQgdHlwZSBzZXQgZm9yIHRoaXMgbGF5b3V0IG9wdGlvbi4nKSk7CiAgfQp9Cg=="
+    },
+    {
+      "symbol": "$enumForString",
+      "startLine": 69664,
+      "endLine": 69690,
+      "role": "implementation",
+      "sha256": "3c11b9bb90d2a16d92c7f906ba12f8e39cae7aa93cc285aa6ee0c6b8c3dbc2bc",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGVudW1Gb3JTdHJpbmcodGhpcyRzdGF0aWMsIGxlU3RyaW5nKXsKICB2YXIgY29uc3RhbnRzLCBpbmRleF8wLCB2YWx1ZV8wOwogIHRyeSB7CiAgICB2YWx1ZV8wID0gdmFsdWVPZl8wKHRoaXMkc3RhdGljLmNsYXp6LCBsZVN0cmluZyk7CiAgICByZXR1cm4gdmFsdWVfMDsKICB9CiAgIGNhdGNoICgkZTEpIHsKICAgICRlMSA9IHRvSmF2YSgkZTEpOwogICAgaWYgKGluc3RhbmNlT2YoJGUxLCAzMykpIHsKICAgICAgdHJ5IHsKICAgICAgICBpbmRleF8wID0gX19wYXJzZUFuZFZhbGlkYXRlSW50KGxlU3RyaW5nLCAkaW50ZXJuXzQ0LCAkaW50ZXJuXzApOwogICAgICAgIGNvbnN0YW50cyA9ICRnZXRFbnVtQ29uc3RhbnRzKHRoaXMkc3RhdGljLmNsYXp6KTsKICAgICAgICBpZiAoaW5kZXhfMCA+PSAwICYmIGluZGV4XzAgPCBjb25zdGFudHMubGVuZ3RoKSB7CiAgICAgICAgICByZXR1cm4gY29uc3RhbnRzW2luZGV4XzBdOwogICAgICAgIH0KICAgICAgfQogICAgICAgY2F0Y2ggKCRlMCkgewogICAgICAgICRlMCA9IHRvSmF2YSgkZTApOwogICAgICAgIGlmICghaW5zdGFuY2VPZigkZTAsIDEzMSkpCiAgICAgICAgICB0aHJvdyB0b0pzKCRlMCk7CiAgICAgIH0KICAgICAgcmV0dXJuIG51bGw7CiAgICB9CiAgICAgZWxzZSAKICAgICAgdGhyb3cgdG9KcygkZTEpOwogIH0KfQo="
+    },
+    {
+      "symbol": "$enumSetForStringArray",
+      "startLine": 69692,
+      "endLine": 69710,
+      "role": "implementation",
+      "sha256": "93e603a0220ddad56b73f3ea9a7c898f121444012e028d1b9302d456b51fdeab",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGVudW1TZXRGb3JTdHJpbmdBcnJheSh0aGlzJHN0YXRpYywgbGVDbGF6eiwgbGVTdHJpbmcpewogIHZhciBhbGwsIGNvbXBvbmVudCwgY29tcG9uZW50JGFycmF5LCBjb21wb25lbnQkaW5kZXgsIGNvbXBvbmVudCRtYXgsIGNvbXBvbmVudHMsIG8sIHNldF8wOwogIHNldF8wID0gKGFsbCA9IGNhc3RUbyhsZUNsYXp6LmVudW1Db25zdGFudHNGdW5jICYmIGxlQ2xhenouZW51bUNvbnN0YW50c0Z1bmMoKSwgMTApICwgbmV3IEVudW1TZXQkRW51bVNldEltcGwoYWxsLCBjYXN0VG8oY3JlYXRlRnJvbShhbGwsIGFsbC5sZW5ndGgpLCAxMCksIDApKTsKICBjb21wb25lbnRzID0gJHNwbGl0XzAobGVTdHJpbmcsICdbXFxbXFxdXFxzLF0rJyk7CiAgZm9yIChjb21wb25lbnQkYXJyYXkgPSBjb21wb25lbnRzICwgY29tcG9uZW50JGluZGV4ID0gMCAsIGNvbXBvbmVudCRtYXggPSBjb21wb25lbnQkYXJyYXkubGVuZ3RoOyBjb21wb25lbnQkaW5kZXggPCBjb21wb25lbnQkbWF4OyArK2NvbXBvbmVudCRpbmRleCkgewogICAgY29tcG9uZW50ID0gY29tcG9uZW50JGFycmF5W2NvbXBvbmVudCRpbmRleF07CiAgICBpZiAoJHRyaW0oY29tcG9uZW50KS5sZW5ndGggPT0gMCkgewogICAgICBjb250aW51ZTsKICAgIH0KICAgIG8gPSAkZW51bUZvclN0cmluZyh0aGlzJHN0YXRpYywgY29tcG9uZW50KTsKICAgIGlmIChvID09IG51bGwpIHsKICAgICAgcmV0dXJuIG51bGw7CiAgICB9CiAgICAgZWxzZSB7CiAgICAgICRhZGRfNShzZXRfMCwgY2FzdFRvKG8sIDIzKSk7CiAgICB9CiAgfQogIHJldHVybiBzZXRfMDsKfQo="
+    },
+    {
+      "symbol": "$checkEnumClass",
+      "startLine": 69642,
+      "endLine": 69646,
+      "role": "reflection-observation",
+      "sha256": "ebd84e9ed446066bf24e70c9677dc037ce188cd75e86ac8fbf199cee58afee01",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGNoZWNrRW51bUNsYXNzKHRoaXMkc3RhdGljKXsKICBpZiAoIXRoaXMkc3RhdGljLmNsYXp6IHx8ICh0aGlzJHN0YXRpYy5jbGF6ei5tb2RpZmllcnMgJiA4KSA9PSAwKSB7CiAgICB0aHJvdyB0b0pzKG5ldyBJbGxlZ2FsU3RhdGVFeGNlcHRpb25fMCgnRW51bWVyYXRpb24gY2xhc3MgZXhwZWN0ZWQgZm9yIGxheW91dCBvcHRpb24gJyArIHRoaXMkc3RhdGljLmlkXzApKTsKICB9Cn0K"
+    },
+    {
+      "symbol": "$createDataInstance",
+      "startLine": 69652,
+      "endLine": 69662,
+      "role": "reflection-observation",
+      "sha256": "c46e89d86b19d2d0e50a1ccc85f990a18b813390ba0c1973c74fddb5358ed75f",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGNyZWF0ZURhdGFJbnN0YW5jZSh0aGlzJHN0YXRpYyl7CiAgdmFyIGluc3RhbmNlOwogIGlmICghdGhpcyRzdGF0aWMuY2xhenopIHsKICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxTdGF0ZUV4Y2VwdGlvbl8wKCdJRGF0YVR5cGUgY2xhc3MgZXhwZWN0ZWQgZm9yIGxheW91dCBvcHRpb24gJyArIHRoaXMkc3RhdGljLmlkXzApKTsKICB9CiAgaW5zdGFuY2UgPSBuZXdJbnN0YW5jZV8xMCh0aGlzJHN0YXRpYy5jbGF6eik7CiAgaWYgKGluc3RhbmNlID09IG51bGwpIHsKICAgIHRocm93IHRvSnMobmV3IElsbGVnYWxTdGF0ZUV4Y2VwdGlvbl8wKCJDb3VsZG4ndCBjcmVhdGUgbmV3IGluc3RhbmNlIG9mIHByb3BlcnR5ICciICsgdGhpcyRzdGF0aWMuaWRfMCArICInLiAiICsgJ01ha2Ugc3VyZSBpdHMgdHlwZSBpcyByZWdpc3RlcmVkIHdpdGggdGhlICcgKyAoJGVuc3VyZU5hbWVzQXJlSW5pdGlhbGl6ZWQoTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF91dGlsX0Vsa1JlZmxlY3RfMl9jbGFzc0xpdCkgLCBMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX3V0aWxfRWxrUmVmbGVjdF8yX2NsYXNzTGl0LnNpbXBsZU5hbWUpICsgJyB1dGlsaXR5IGNsYXNzLicpKTsKICB9CiAgcmV0dXJuIGNhc3RUbyhpbnN0YW5jZSwgNDI5KTsKfQo="
+    },
+    {
+      "symbol": "$clinit_LayoutOptionData$Type",
+      "startLine": 69916,
+      "endLine": 69926,
+      "role": "implementation",
+      "sha256": "9f866679b4084aeefbaec9edce2b5e4d34bec6399c677409e73d931fa8134a7e",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGNsaW5pdF9MYXlvdXRPcHRpb25EYXRhJFR5cGUoKXsKICAkY2xpbml0X0xheW91dE9wdGlvbkRhdGEkVHlwZSA9IGVtcHR5TWV0aG9kOwogIFVOREVGSU5FRF8xID0gbmV3IExheW91dE9wdGlvbkRhdGEkVHlwZSgnVU5ERUZJTkVEJywgMCk7CiAgQk9PTEVBTiA9IG5ldyBMYXlvdXRPcHRpb25EYXRhJFR5cGUoJ0JPT0xFQU4nLCAxKTsKICBJTlQgPSBuZXcgTGF5b3V0T3B0aW9uRGF0YSRUeXBlKCdJTlQnLCAyKTsKICBTVFJJTkcgPSBuZXcgTGF5b3V0T3B0aW9uRGF0YSRUeXBlKCdTVFJJTkcnLCAzKTsKICBET1VCTEUgPSBuZXcgTGF5b3V0T3B0aW9uRGF0YSRUeXBlKCdET1VCTEUnLCA0KTsKICBFTlVNID0gbmV3IExheW91dE9wdGlvbkRhdGEkVHlwZSgnRU5VTScsIDUpOwogIEVOVU1TRVQgPSBuZXcgTGF5b3V0T3B0aW9uRGF0YSRUeXBlKCdFTlVNU0VUJywgNik7CiAgT0JKRUNUID0gbmV3IExheW91dE9wdGlvbkRhdGEkVHlwZSgnT0JKRUNUJywgNyk7Cn0K"
+    },
+    {
+      "symbol": "$setOption",
+      "startLine": 79705,
+      "endLine": 79720,
+      "role": "implementation",
+      "sha256": "51c6692eb1f2b8a2bd926300fe5b43c8225394d330ff24a68e30d046926b1862",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHNldE9wdGlvbihlLCBpZF8wLCB2YWx1ZV8wKXsKICB2YXIgX3hibG9ja2V4cHJlc3Npb24sIF94YmxvY2tleHByZXNzaW9uXzEsIF94aWZleHByZXNzaW9uLCBfeGlmZXhwcmVzc2lvbl8xLCBvcHRpb25EYXRhLCBwYXJzZWQ7CiAgX3hibG9ja2V4cHJlc3Npb24gPSBudWxsOwogIG9wdGlvbkRhdGEgPSAkZ2V0T3B0aW9uRGF0YUJ5U3VmZml4KGdldEluc3RhbmNlKCksIGlkXzApOwogIF94aWZleHByZXNzaW9uID0gbnVsbDsKICBpZiAob3B0aW9uRGF0YSkgewogICAgX3hibG9ja2V4cHJlc3Npb25fMSA9IG51bGw7CiAgICBwYXJzZWQgPSAkcGFyc2VWYWx1ZShvcHRpb25EYXRhLCB2YWx1ZV8wKTsKICAgIF94aWZleHByZXNzaW9uXzEgPSBudWxsOwogICAgcGFyc2VkICE9IG51bGwgJiYgKF94aWZleHByZXNzaW9uXzEgPSBlLnNldFByb3BlcnR5KG9wdGlvbkRhdGEsIHBhcnNlZCkpOwogICAgX3hibG9ja2V4cHJlc3Npb25fMSA9IF94aWZleHByZXNzaW9uXzE7CiAgICBfeGlmZXhwcmVzc2lvbiA9IF94YmxvY2tleHByZXNzaW9uXzE7CiAgfQogIF94YmxvY2tleHByZXNzaW9uID0gX3hpZmV4cHJlc3Npb247CiAgcmV0dXJuIF94YmxvY2tleHByZXNzaW9uOwp9Cg=="
+    },
+    {
+      "symbol": "$transformProperties",
+      "startLine": 80047,
+      "endLine": 80061,
+      "role": "implementation",
+      "sha256": "4b55d74422ab5e81be3143b55d05e4d63a69cabf7c17cf9b5dcf4007e89a524b",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHRyYW5zZm9ybVByb3BlcnRpZXMoanNvbk9iakEsIGxheW91dERhdGEpewogIHZhciBfZnVuY3Rpb24sIF9rZXlzSnNvbk9iaiwganNvbk9iaiwga2V5c18wLCBsYXlvdXRPcHRpb25zLCBvcHRzOwogIGpzb25PYmogPSBqc29uT2JqQTsKICBsYXlvdXRPcHRpb25zID0gJG9wdEpTT05PYmplY3RfMChqc29uT2JqLCAnbGF5b3V0T3B0aW9ucycpOwogICFsYXlvdXRPcHRpb25zICYmIChsYXlvdXRPcHRpb25zID0gJG9wdEpTT05PYmplY3RfMChqc29uT2JqLCAncHJvcGVydGllcycpKTsKICBpZiAobGF5b3V0T3B0aW9ucykgewogICAgb3B0cyA9IGxheW91dE9wdGlvbnM7CiAgICBfa2V5c0pzb25PYmogPSBudWxsOwogICAgISFvcHRzICYmIChfa2V5c0pzb25PYmogPSAoa2V5c18wID0gJGNvbXB1dGVLZXlzMChvcHRzLCBpbml0VW5pZGltZW5zaW9uYWxBcnJheShMamF2YV9sYW5nX1N0cmluZ18yX2NsYXNzTGl0LCAkaW50ZXJuXzE2LCAyLCAwLCA2LCAxKSkgLCBuZXcgSlNPTk9iamVjdCQxKG9wdHMsIGtleXNfMCkpKTsKICAgIGlmIChfa2V5c0pzb25PYmopIHsKICAgICAgX2Z1bmN0aW9uID0gbmV3IEpzb25JbXBvcnRlciRsYW1iZGEkMjckVHlwZShvcHRzLCBsYXlvdXREYXRhKTsKICAgICAgJGZvckVhY2hfMChfa2V5c0pzb25PYmosIF9mdW5jdGlvbik7CiAgICB9CiAgfQp9Cg=="
+    },
+    {
+      "symbol": "$lambda$27_0",
+      "startLine": 79437,
+      "endLine": 79444,
+      "role": "implementation",
+      "sha256": "455e83c9a79d1d9856fd34e9e136b5c946d9736beb79c40590bb15028101f87c",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGxhbWJkYSQyN18wKG9wdHNfMSwgbGF5b3V0RGF0YV8yLCBrXzIpewogIHZhciBfanNvbk9iaiwgX3N0cmluZ1ZhbCwgdmFsdWVfMDsKICBfanNvbk9iaiA9ICRnZXRfOShvcHRzXzEsIGtfMik7CiAgX3N0cmluZ1ZhbCA9IG51bGw7CiAgISFfanNvbk9iaiAmJiAoX3N0cmluZ1ZhbCA9ICRzdHJpbmdWYWwoX2pzb25PYmopKTsKICB2YWx1ZV8wID0gX3N0cmluZ1ZhbDsKICAkc2V0T3B0aW9uKGxheW91dERhdGFfMiwga18yLCB2YWx1ZV8wKTsKfQo="
+    },
+    {
+      "symbol": "$transformIndividualSpacings",
+      "startLine": 79915,
+      "endLine": 79935,
+      "role": "implementation",
+      "sha256": "62d88a41751b8b94d72697fc5b2df7abcc379cc414c020f983971f8a4f5ac117",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHRyYW5zZm9ybUluZGl2aWR1YWxTcGFjaW5ncyhqc29uT2JqQSwgbGF5b3V0RGF0YSl7CiAgdmFyIF9mdW5jdGlvbiwgX2hhc1Byb3BlcnR5LCBfaW5kaXZpZHVhbFNwYWNpbmdzLCBfa2V5c0pzb25PYmosIF9ub3QsIGluZGl2aWR1YWxTcGFjaW5ncywganNvbkluZGl2aWR1YWxTcGFjaW5ncywganNvbk9iaiwga2V5c18wLCBvcHRzOwogIGpzb25PYmogPSBqc29uT2JqQTsKICBqc29uSW5kaXZpZHVhbFNwYWNpbmdzID0gJG9wdEpTT05PYmplY3RfMChqc29uT2JqLCAnaW5kaXZpZHVhbFNwYWNpbmdzJyk7CiAgaWYgKGpzb25JbmRpdmlkdWFsU3BhY2luZ3MpIHsKICAgIF9oYXNQcm9wZXJ0eSA9ICRoYXNQcm9wZXJ0eV8wKGxheW91dERhdGEsICgkY2xpbml0X0NvcmVPcHRpb25zKCkgLCBTUEFDSU5HX0lORElWSURVQUxfMCkpOwogICAgX25vdCA9ICFfaGFzUHJvcGVydHk7CiAgICBpZiAoX25vdCkgewogICAgICBfaW5kaXZpZHVhbFNwYWNpbmdzID0gbmV3IEluZGl2aWR1YWxTcGFjaW5nczsKICAgICAgJHNldFByb3BlcnR5XzEobGF5b3V0RGF0YSwgU1BBQ0lOR19JTkRJVklEVUFMXzAsIF9pbmRpdmlkdWFsU3BhY2luZ3MpOwogICAgfQogICAgaW5kaXZpZHVhbFNwYWNpbmdzID0gY2FzdFRvKCRnZXRQcm9wZXJ0eV8wKGxheW91dERhdGEsIFNQQUNJTkdfSU5ESVZJRFVBTF8wKSwgMzkyKTsKICAgIG9wdHMgPSBqc29uSW5kaXZpZHVhbFNwYWNpbmdzOwogICAgX2tleXNKc29uT2JqID0gbnVsbDsKICAgICEhb3B0cyAmJiAoX2tleXNKc29uT2JqID0gKGtleXNfMCA9ICRjb21wdXRlS2V5czAob3B0cywgaW5pdFVuaWRpbWVuc2lvbmFsQXJyYXkoTGphdmFfbGFuZ19TdHJpbmdfMl9jbGFzc0xpdCwgJGludGVybl8xNiwgMiwgMCwgNiwgMSkpICwgbmV3IEpTT05PYmplY3QkMShvcHRzLCBrZXlzXzApKSk7CiAgICBpZiAoX2tleXNKc29uT2JqKSB7CiAgICAgIF9mdW5jdGlvbiA9IG5ldyBKc29uSW1wb3J0ZXIkbGFtYmRhJDI4JFR5cGUob3B0cywgaW5kaXZpZHVhbFNwYWNpbmdzKTsKICAgICAgJGZvckVhY2hfMChfa2V5c0pzb25PYmosIF9mdW5jdGlvbik7CiAgICB9CiAgfQp9Cg=="
+    },
+    {
+      "symbol": "$lambda$28",
+      "startLine": 79446,
+      "endLine": 79453,
+      "role": "implementation",
+      "sha256": "5be135581f2bd220c3db0ed34ef7cc025f1dfb824819dd20e1ddff888e84d1dc",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJGxhbWJkYSQyOChvcHRzXzEsIGluZGl2aWR1YWxTcGFjaW5nc18yLCBrXzIpewogIHZhciBfanNvbk9iaiwgX3N0cmluZ1ZhbCwgdmFsdWVfMDsKICBfanNvbk9iaiA9ICRnZXRfOShvcHRzXzEsIGtfMik7CiAgX3N0cmluZ1ZhbCA9IG51bGw7CiAgISFfanNvbk9iaiAmJiAoX3N0cmluZ1ZhbCA9ICRzdHJpbmdWYWwoX2pzb25PYmopKTsKICB2YWx1ZV8wID0gX3N0cmluZ1ZhbDsKICAkc2V0T3B0aW9uKGluZGl2aWR1YWxTcGFjaW5nc18yLCBrXzIsIHZhbHVlXzApOwp9Cg=="
+    },
+    {
+      "symbol": "optsToCfg",
+      "startLine": 81909,
+      "endLine": 81929,
+      "role": "global-caller-context",
+      "sha256": "fc8afbda29d236a1834c3d33d95031610fe0cf514fbe9b4b1af11e151c5aba66",
+      "sourceBytesBase64": "ZnVuY3Rpb24gb3B0c1RvQ2ZnKG9wdHMpewogIHZhciBqc29uVmFsLCBrZXksIGtleSRpdGVyYXRvciwga2V5c18wLCBsYywgb3B0aW9uLCBzZXJpYWxpemVkLCB2YWx1ZV8wOwogIGxjID0gbmV3IExheW91dENvbmZpZ3VyYXRvcjsKICAkYWRkRmlsdGVyKGxjLCAoJGNsaW5pdF9MYXlvdXRDb25maWd1cmF0b3IoKSAsIE5PX09WRVJXUklURSkpOwogIGZvciAoa2V5JGl0ZXJhdG9yID0gKGtleXNfMCA9ICRjb21wdXRlS2V5czAob3B0cywgaW5pdFVuaWRpbWVuc2lvbmFsQXJyYXkoTGphdmFfbGFuZ19TdHJpbmdfMl9jbGFzc0xpdCwgJGludGVybl8xNiwgMiwgMCwgNiwgMSkpICwgbmV3IEFic3RyYWN0TGlzdCRJdGVyYXRvckltcGwobmV3IEFycmF5cyRBcnJheUxpc3QoKG5ldyBKU09OT2JqZWN0JDEob3B0cywga2V5c18wKSkudmFsJGtleXMyKSkpOyBrZXkkaXRlcmF0b3IuaSA8IGtleSRpdGVyYXRvci50aGlzJDAxXzAuc2l6ZV8xKCk7KSB7CiAgICBrZXkgPSAoY2hlY2tDcml0aWNhbEVsZW1lbnQoa2V5JGl0ZXJhdG9yLmkgPCBrZXkkaXRlcmF0b3IudGhpcyQwMV8wLnNpemVfMSgpKSAsIGNhc3RUb1N0cmluZyhrZXkkaXRlcmF0b3IudGhpcyQwMV8wLmdldF8wKGtleSRpdGVyYXRvci5sYXN0ID0ga2V5JGl0ZXJhdG9yLmkrKykpKTsKICAgIG9wdGlvbiA9ICRnZXRPcHRpb25EYXRhQnlTdWZmaXgoU0VSVklDRSwga2V5KTsKICAgIGlmIChvcHRpb24pIHsKICAgICAganNvblZhbCA9ICRnZXRfOShvcHRzLCBrZXkpOwogICAgICBqc29uVmFsLmlzU3RyaW5nKCk/KHNlcmlhbGl6ZWQgPSBqc29uVmFsLmlzU3RyaW5nKCkudmFsdWVfMCk6anNvblZhbC5pc0Jvb2xlYW4oKT8oc2VyaWFsaXplZCA9ICcnICsganNvblZhbC5pc0Jvb2xlYW4oKS52YWx1ZV8wKTpqc29uVmFsLmlzTnVtYmVyKCk/KHNlcmlhbGl6ZWQgPSAnJyArIGpzb25WYWwuaXNOdW1iZXIoKS52YWx1ZV8wKTooc2VyaWFsaXplZCA9IGpzb25WYWwudG9TdHJpbmdfMCgpKTsKICAgICAgdmFsdWVfMCA9ICRwYXJzZVZhbHVlKG9wdGlvbiwgc2VyaWFsaXplZCk7CiAgICAgIGlmICh2YWx1ZV8wICE9IG51bGwpIHsKICAgICAgICAoJGNvbnRhaW5zRW51bShvcHRpb24udGFyZ2V0cywgKCRjbGluaXRfTGF5b3V0T3B0aW9uRGF0YSRUYXJnZXQoKSAsIE5PREVTKSkgfHwgJGNvbnRhaW5zRW51bShvcHRpb24udGFyZ2V0cywgUEFSRU5UUykpICYmICRzZXRQcm9wZXJ0eSgkY29uZmlndXJlKGxjLCBMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa05vZGVfMl9jbGFzc0xpdCksIG9wdGlvbiwgdmFsdWVfMCk7CiAgICAgICAgJGNvbnRhaW5zRW51bShvcHRpb24udGFyZ2V0cywgRURHRVMpICYmICRzZXRQcm9wZXJ0eSgkY29uZmlndXJlKGxjLCBMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa0VkZ2VfMl9jbGFzc0xpdCksIG9wdGlvbiwgdmFsdWVfMCk7CiAgICAgICAgJGNvbnRhaW5zRW51bShvcHRpb24udGFyZ2V0cywgUE9SVFMpICYmICRzZXRQcm9wZXJ0eSgkY29uZmlndXJlKGxjLCBMb3JnX2VjbGlwc2VfZWxrX2dyYXBoX0Vsa1BvcnRfMl9jbGFzc0xpdCksIG9wdGlvbiwgdmFsdWVfMCk7CiAgICAgICAgJGNvbnRhaW5zRW51bShvcHRpb24udGFyZ2V0cywgTEFCRUxTKSAmJiAkc2V0UHJvcGVydHkoJGNvbmZpZ3VyZShsYywgTG9yZ19lY2xpcHNlX2Vsa19ncmFwaF9FbGtMYWJlbF8yX2NsYXNzTGl0KSwgb3B0aW9uLCB2YWx1ZV8wKTsKICAgICAgfQogICAgfQogIH0KICByZXR1cm4gbGM7Cn0K"
+    },
+    {
+      "symbol": "actual data-class factories registration",
+      "startLine": 69351,
+      "endLine": 69355,
+      "role": "implementation",
+      "sha256": "3affdaf8e353c2e8893f6cb96c99e7c0fe45de3b3611416fdada22bec2eb3f23",
+      "sourceBytesBase64": "ICByZWdpc3RlcihMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9LVmVjdG9yXzJfY2xhc3NMaXQsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDAkVHlwZSwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMSRUeXBlKTsKICByZWdpc3RlcihMb3JnX2VjbGlwc2VfZWxrX2NvcmVfbWF0aF9LVmVjdG9yQ2hhaW5fMl9jbGFzc0xpdCwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkMiRUeXBlLCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQzJFR5cGUpOwogIHJlZ2lzdGVyKExvcmdfZWNsaXBzZV9lbGtfY29yZV9tYXRoX0Vsa01hcmdpbl8yX2NsYXNzTGl0LCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ0JFR5cGUsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDUkVHlwZSk7CiAgcmVnaXN0ZXIoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX21hdGhfRWxrUGFkZGluZ18yX2NsYXNzTGl0LCBuZXcgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ2JFR5cGUsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDckVHlwZSk7CiAgcmVnaXN0ZXIoTG9yZ19lY2xpcHNlX2Vsa19jb3JlX3V0aWxfSW5kaXZpZHVhbFNwYWNpbmdzXzJfY2xhc3NMaXQsIG5ldyBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDgkVHlwZSwgbmV3IExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkOSRUeXBlKTsK"
+    },
+    {
+      "symbol": "KVector factory",
+      "startLine": 69461,
+      "endLine": 69469,
+      "role": "implementation",
+      "sha256": "73b741f98feb4ad788aa6764ada389012a6dde1a1715ea96d7bcef035df4fda7",
+      "sourceBytesBase64": "ZnVuY3Rpb24gTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQwJFR5cGUoKXsKfQoKZGVmaW5lQ2xhc3MoOTI2LCAxLCAkaW50ZXJuXzEzMywgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQwJFR5cGUpOwpfLm5ld0luc3RhbmNlID0gZnVuY3Rpb24gbmV3SW5zdGFuY2VfMCgpewogIHJldHVybiBuZXcgS1ZlY3RvcjsKfQo7CnZhciBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDAkVHlwZV8yX2NsYXNzTGl0ID0gY3JlYXRlRm9yQ2xhc3MoJ29yZy5lY2xpcHNlLmVsay5jb3JlLmRhdGEnLCAnTGF5b3V0TWV0YURhdGFTZXJ2aWNlL2xhbWJkYSQwJFR5cGUnLCA5MjYpOwo="
+    },
+    {
+      "symbol": "margin/padding/individual factories",
+      "startLine": 69587,
+      "endLine": 69631,
+      "role": "implementation",
+      "sha256": "d9ce11f47d55b693071814fb5c9ad4d5272800e22966a580cc487ab5a79db646",
+      "sourceBytesBase64": "ZnVuY3Rpb24gTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ0JFR5cGUoKXsKfQoKZGVmaW5lQ2xhc3MoOTMwLCAxLCAkaW50ZXJuXzEzMywgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ0JFR5cGUpOwpfLm5ld0luc3RhbmNlID0gZnVuY3Rpb24gbmV3SW5zdGFuY2VfNygpewogIHJldHVybiBuZXcgRWxrTWFyZ2luOwp9CjsKdmFyIExvcmdfZWNsaXBzZV9lbGtfY29yZV9kYXRhX0xheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkNCRUeXBlXzJfY2xhc3NMaXQgPSBjcmVhdGVGb3JDbGFzcygnb3JnLmVjbGlwc2UuZWxrLmNvcmUuZGF0YScsICdMYXlvdXRNZXRhRGF0YVNlcnZpY2UvbGFtYmRhJDQkVHlwZScsIDkzMCk7CmZ1bmN0aW9uIExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkNSRUeXBlKCl7Cn0KCmRlZmluZUNsYXNzKDkzMSwgMSwgJGludGVybl8xMzQsIExheW91dE1ldGFEYXRhU2VydmljZSRsYW1iZGEkNSRUeXBlKTsKXy5jbG9uZSA9IGZ1bmN0aW9uIGNsb25lXzgoYXJnMCl7CiAgcmV0dXJuIG5ldyBFbGtNYXJnaW5fMihjYXN0VG8oYXJnMCwgMTQ2KSk7Cn0KOwp2YXIgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX2RhdGFfTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ1JFR5cGVfMl9jbGFzc0xpdCA9IGNyZWF0ZUZvckNsYXNzKCdvcmcuZWNsaXBzZS5lbGsuY29yZS5kYXRhJywgJ0xheW91dE1ldGFEYXRhU2VydmljZS9sYW1iZGEkNSRUeXBlJywgOTMxKTsKZnVuY3Rpb24gTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ2JFR5cGUoKXsKfQoKZGVmaW5lQ2xhc3MoOTMyLCAxLCAkaW50ZXJuXzEzMywgTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ2JFR5cGUpOwpfLm5ld0luc3RhbmNlID0gZnVuY3Rpb24gbmV3SW5zdGFuY2VfOCgpewogIHJldHVybiBuZXcgRWxrUGFkZGluZzsKfQo7CnZhciBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDYkVHlwZV8yX2NsYXNzTGl0ID0gY3JlYXRlRm9yQ2xhc3MoJ29yZy5lY2xpcHNlLmVsay5jb3JlLmRhdGEnLCAnTGF5b3V0TWV0YURhdGFTZXJ2aWNlL2xhbWJkYSQ2JFR5cGUnLCA5MzIpOwpmdW5jdGlvbiBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDckVHlwZSgpewp9CgpkZWZpbmVDbGFzcyg5MzMsIDEsICRpbnRlcm5fMTM0LCBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDckVHlwZSk7Cl8uY2xvbmUgPSBmdW5jdGlvbiBjbG9uZV85KGFyZzApewogIHJldHVybiBuZXcgRWxrUGFkZGluZ18xKGNhc3RUbyhhcmcwLCAxMDUpKTsKfQo7CnZhciBMb3JnX2VjbGlwc2VfZWxrX2NvcmVfZGF0YV9MYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDckVHlwZV8yX2NsYXNzTGl0ID0gY3JlYXRlRm9yQ2xhc3MoJ29yZy5lY2xpcHNlLmVsay5jb3JlLmRhdGEnLCAnTGF5b3V0TWV0YURhdGFTZXJ2aWNlL2xhbWJkYSQ3JFR5cGUnLCA5MzMpOwpmdW5jdGlvbiBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDgkVHlwZSgpewp9CgpkZWZpbmVDbGFzcyg5MzQsIDEsICRpbnRlcm5fMTMzLCBMYXlvdXRNZXRhRGF0YVNlcnZpY2UkbGFtYmRhJDgkVHlwZSk7Cl8ubmV3SW5zdGFuY2UgPSBmdW5jdGlvbiBuZXdJbnN0YW5jZV85KCl7CiAgcmV0dXJuIG5ldyBJbmRpdmlkdWFsU3BhY2luZ3M7Cn0KOwp2YXIgTG9yZ19lY2xpcHNlX2Vsa19jb3JlX2RhdGFfTGF5b3V0TWV0YURhdGFTZXJ2aWNlJGxhbWJkYSQ4JFR5cGVfMl9jbGFzc0xpdCA9IGNyZWF0ZUZvckNsYXNzKCdvcmcuZWNsaXBzZS5lbGsuY29yZS5kYXRhJywgJ0xheW91dE1ldGFEYXRhU2VydmljZS9sYW1iZGEkOCRUeXBlJywgOTM0KTsK"
+    }
+  ],
+  "supportObservations": [
+    {
+      "symbol": "__parseAndValidateDouble",
+      "startLine": 10940,
+      "endLine": 10946,
+      "role": "GWT-numeric-support-observation",
+      "sha256": "5996c7bb17965e24a631d559eddb531977e3a23cf8f772a4aa19d4a8a1c1c81b",
+      "sourceBytesBase64": "ZnVuY3Rpb24gX19wYXJzZUFuZFZhbGlkYXRlRG91YmxlKHMpewogIGZsb2F0UmVnZXggPT0gbnVsbCAmJiAoZmxvYXRSZWdleCA9IG5ldyBSZWdFeHAoJ15cXHMqWystXT8oTmFOfEluZmluaXR5fCgoXFxkK1xcLj9cXGQqKXwoXFwuXFxkKykpKFtlRV1bKy1dP1xcZCspP1tkRGZGXT8pXFxzKiQnKSk7CiAgaWYgKCFmbG9hdFJlZ2V4LnRlc3QocykpIHsKICAgIHRocm93IHRvSnMobmV3IE51bWJlckZvcm1hdEV4Y2VwdGlvbignRm9yIGlucHV0IHN0cmluZzogIicgKyBzICsgJyInKSk7CiAgfQogIHJldHVybiBwYXJzZUZsb2F0KHMpOwp9Cg=="
+    },
+    {
+      "symbol": "__parseAndValidateInt",
+      "startLine": 10948,
+      "endLine": 10969,
+      "role": "GWT-numeric-support-observation",
+      "sha256": "d7f1674312e64e342031f74cd945085879a9b4cb19f372f2f766a8476b361d57",
+      "sourceBytesBase64": "ZnVuY3Rpb24gX19wYXJzZUFuZFZhbGlkYXRlSW50KHMsIGxvd2VyQm91bmQsIHVwcGVyQm91bmQpewogIHZhciBpLCBpc1Rvb0xvdywgbGVuZ3RoXzAsIHN0YXJ0SW5kZXgsIHRvUmV0dXJuOwogIGlmIChzID09IG51bGwpIHsKICAgIHRocm93IHRvSnMobmV3IE51bWJlckZvcm1hdEV4Y2VwdGlvbignbnVsbCcpKTsKICB9CiAgbGVuZ3RoXzAgPSBzLmxlbmd0aDsKICBzdGFydEluZGV4ID0gbGVuZ3RoXzAgPiAwICYmIChjaGVja0NyaXRpY2FsU3RyaW5nRWxlbWVudEluZGV4KDAsIHMubGVuZ3RoKSAsIHMuY2hhckNvZGVBdCgwKSA9PSA0NSB8fCAoY2hlY2tDcml0aWNhbFN0cmluZ0VsZW1lbnRJbmRleCgwLCBzLmxlbmd0aCkgLCBzLmNoYXJDb2RlQXQoMCkgPT0gNDMpKT8xOjA7CiAgZm9yIChpID0gc3RhcnRJbmRleDsgaSA8IGxlbmd0aF8wOyBpKyspIHsKICAgIGlmIChkaWdpdF8wKChjaGVja0NyaXRpY2FsU3RyaW5nRWxlbWVudEluZGV4KGksIHMubGVuZ3RoKSAsIHMuY2hhckNvZGVBdChpKSkpID09IC0xKSB7CiAgICAgIHRocm93IHRvSnMobmV3IE51bWJlckZvcm1hdEV4Y2VwdGlvbignRm9yIGlucHV0IHN0cmluZzogIicgKyBzICsgJyInKSk7CiAgICB9CiAgfQogIHRvUmV0dXJuID0gcGFyc2VJbnQocywgMTApOwogIGlzVG9vTG93ID0gdG9SZXR1cm4gPCBsb3dlckJvdW5kOwogIGlmIChpc05hTih0b1JldHVybikpIHsKICAgIHRocm93IHRvSnMobmV3IE51bWJlckZvcm1hdEV4Y2VwdGlvbignRm9yIGlucHV0IHN0cmluZzogIicgKyBzICsgJyInKSk7CiAgfQogICBlbHNlIGlmIChpc1Rvb0xvdyB8fCB0b1JldHVybiA+IHVwcGVyQm91bmQpIHsKICAgIHRocm93IHRvSnMobmV3IE51bWJlckZvcm1hdEV4Y2VwdGlvbignRm9yIGlucHV0IHN0cmluZzogIicgKyBzICsgJyInKSk7CiAgfQogIHJldHVybiB0b1JldHVybjsKfQo="
+    },
+    {
+      "symbol": "$stringVal",
+      "startLine": 78956,
+      "endLine": 78980,
+      "role": "GWT-JSON-support-observation",
+      "sha256": "cb32944676ec1baf1aa5b0b39aa5f16ea5f446606b57d5f7959998991c783c4b",
+      "sourceBytesBase64": "ZnVuY3Rpb24gJHN0cmluZ1ZhbCh2KXsKICB2YXIgX21hdGNoZWQsIF9zd2l0Y2hSZXN1bHQ7CiAgX3N3aXRjaFJlc3VsdCA9IG51bGw7CiAgX21hdGNoZWQgPSBmYWxzZTsKICBpZiAoaW5zdGFuY2VPZih2LCAyMTIpKSB7CiAgICBfbWF0Y2hlZCA9IHRydWU7CiAgICBfc3dpdGNoUmVzdWx0ID0gY2FzdFRvKHYsIDIxMikudmFsdWVfMDsKICB9CiAgaWYgKCFfbWF0Y2hlZCkgewogICAgaWYgKGluc3RhbmNlT2YodiwgMjY5KSkgewogICAgICBfbWF0Y2hlZCA9IHRydWU7CiAgICAgIF9zd2l0Y2hSZXN1bHQgPSAnJyArIGNhc3RUbyh2LCAyNjkpLnZhbHVlXzA7CiAgICB9CiAgfQogIGlmICghX21hdGNoZWQpIHsKICAgIGlmIChpbnN0YW5jZU9mKHYsIDUwMSkpIHsKICAgICAgX21hdGNoZWQgPSB0cnVlOwogICAgICBfc3dpdGNoUmVzdWx0ID0gJycgKyBjYXN0VG8odiwgNTAxKS52YWx1ZV8wOwogICAgfQogIH0KICBpZiAoIV9tYXRjaGVkKSB7CiAgICB0aHJvdyB0b0pzKG5ldyBFcnJvcl8wKCdTZXZlcmUgaW1wbGVtZW50YXRpb24gZXJyb3IgaW4gdGhlIEpzb24gdG8gRWxrR3JhcGggaW1wb3J0ZXIuJykpOwogIH0KICByZXR1cm4gX3N3aXRjaFJlc3VsdDsKfQo="
+    }
+  ],
+  "parseFacts": [
+    "Source local layoutOptions/properties scalar import only serializes string/number/bool via stringVal; complex local JSON values are not implicitly passed through as typed objects. Original native validation policies may reject clearly rather than silently ignore.",
+    "Global optsToCfg JSON-stringifies non-scalars before actual parseValue; this is not permission to invent arbitrary dict mappings. A serialized array works for KVector; colon-style JSONobject is not automatically key=value Spacing syntax.",
+    "parseValue returnsnull for absent/null literal, or empty string except ENUMSET. Invalidparse returnsnull and original setOption leaves property unchanged. Native strict errors/finite/alias policies remain separate explicit host adaptations.",
+    "ENUM is exact symbolic name then signed32 integer ordinal; no general case-folding. ENUMSET splits square brackets, whitespace and comma, ignores emptytokens, accepts per-member symbolic/ordinal, deduplicates by declaration ordinal. Empty string yields emptyset, literal null yieldsnull.",
+    "BOOLEAN onlytrue/false case-insensitive. DOUBLE original regex accepts NaN/Infinity/suffix dDfF; no float32 rounding. This observation does not remove native finite-value restrictions.",
+    "Core portAlignment.default DISTRIBUTED; Layered effective default JUSTIFIED. A standalone Core NodeContext fallback is not proof that an actual Layered pipeline omits algorithm defaults.",
+    "Core padding is12 (actual source), Layered padding12, MrTree20 and other provider defaults are independent. Padding is outside these20 and included only to prevent universal-default inference.",
+    "Core targets are original metadata targets; local original option import does not itself enforce those targets. Native global-target application/host errors remain explicit and require caller support."
+  ],
+  "relatedDefaultSpans": [
+    {
+      "symbol": "Core padding12",
+      "startLine": 70783,
+      "endLine": 70784,
+      "role": "implementation",
+      "sha256": "bc5c28ca1a55c58951ea2260eedfedff61b8c412c8528be90af013cb1350d490",
+      "sourceBytesBase64": "ICBQQURESU5HX0RFRkFVTFRfNiA9IG5ldyBFbGtQYWRkaW5nXzAoMTIpOwogIFBBRERJTkdfNiA9IG5ldyBQcm9wZXJ0eV8xKCdvcmcuZWNsaXBzZS5lbGsucGFkZGluZycsIFBBRERJTkdfREVGQVVMVF82KTsK"
+    },
+    {
+      "symbol": "Layered padding12",
+      "startLine": 49156,
+      "endLine": 49157,
+      "role": "implementation",
+      "sha256": "da300ca674989e521e6f7b65ccda66e9483818eb19c42cb7b98e6059bfb3fae1",
+      "sourceBytesBase64": "ICBQQURESU5HX0RFRkFVTFRfMCA9IG5ldyBFbGtQYWRkaW5nXzAoMTIpOwogIFBBRERJTkdfMSA9IG5ldyBQcm9wZXJ0eV8yKFBBRERJTkdfNiwgUEFERElOR19ERUZBVUxUXzApOwo="
+    },
+    {
+      "symbol": "MrTree padding20",
+      "startLine": 62321,
+      "endLine": 62322,
+      "role": "implementation",
+      "sha256": "f07e1f953be7a672c1d4729e373e93de0ea6f6b597a8ba3bc3bf6f8066f25554",
+      "sourceBytesBase64": "ICBQQURESU5HX0RFRkFVTFRfMSA9IG5ldyBFbGtQYWRkaW5nXzAoMjApOwogIFBBRERJTkdfMiA9IG5ldyBQcm9wZXJ0eV8yKCgkY2xpbml0X0NvcmVPcHRpb25zKCkgLCBQQURESU5HXzYpLCBQQURESU5HX0RFRkFVTFRfMSk7Cg=="
+    }
+  ],
+  "license": "ELK option/parser/geometry algorithms retain original dual license and attribution. GWT numeric/JSON/reflection support is observation for original host adapters, not a new mechanical runtime migration authorization. Exact external GWT compiler lineage unresolved.",
+  "implementationApprovedByThisDocument": false,
+  "actualRuntimeAcceptance": false
+}

@@ -1,0 +1,98 @@
+{
+  "schema": "pyelk-missing-p1-p2-runtime/v1",
+  "cases": [
+    {
+      "id": "logged-greedy_model_order--interactive",
+      "p1": "GREEDY_MODEL_ORDER",
+      "p2": "INTERACTIVE",
+      "classes": [
+        "GreedyModelOrderCycleBreaker",
+        "InteractiveLayerer"
+      ],
+      "request": "requests/logged-greedy_model_order--interactive.json",
+      "requestSha256": "beb587e96f47e15424a1352b0a1195f90c8ee1e1c6e304069e36652d3cb702d1",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-greedy_model_order--p2-interactive.json",
+      "oldRequestSha256": "11ce5d349a8f51f221dd8f11e0a9a18d063136e6932faaf40f46b96f642c647f"
+    },
+    {
+      "id": "logged-interactive--min_width",
+      "p1": "INTERACTIVE",
+      "p2": "MIN_WIDTH",
+      "classes": [
+        "InteractiveCycleBreaker",
+        "MinWidthLayerer"
+      ],
+      "request": "requests/logged-interactive--min_width.json",
+      "requestSha256": "d95645077b360074a62853842c35cf914fda518143612338f492fc54dc254183",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-interactive--p2-min_width.json",
+      "oldRequestSha256": "42927745c52aec0d940dad4667f72a2139983d43f7cb92b87a503eb4c64aada3"
+    },
+    {
+      "id": "logged-model_order--stretch_width",
+      "p1": "MODEL_ORDER",
+      "p2": "STRETCH_WIDTH",
+      "classes": [
+        "ModelOrderCycleBreaker",
+        "StretchWidthLayerer"
+      ],
+      "request": "requests/logged-model_order--stretch_width.json",
+      "requestSha256": "396d3d7417db703924fbe08e9c9b08744509abf01af7e07fdecb18460c9b163a",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-model_order--p2-stretch_width.json",
+      "oldRequestSha256": "d010fc374f088caf4dacebea846bcc41de03d51e989ab4425b1276fe5219cb81"
+    },
+    {
+      "id": "logged-scc_connectivity--bf_model_order",
+      "p1": "SCC_CONNECTIVITY",
+      "p2": "BF_MODEL_ORDER",
+      "classes": [
+        "SCConnectivity",
+        "BreadthFirstModelOrderLayerer"
+      ],
+      "request": "requests/logged-scc_connectivity--bf_model_order.json",
+      "requestSha256": "02b78ecf8048dcf9e131c7e3ff548e198e8bd154423a5c04ba6f53f4f2b4c447",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-scc_connectivity--p2-bf_model_order.json",
+      "oldRequestSha256": "cde9e16592752075a61abd75546bc7189ab6fe7ffa385024e6cec3e815124cde"
+    },
+    {
+      "id": "logged-scc_node_type--df_model_order",
+      "p1": "SCC_NODE_TYPE",
+      "p2": "DF_MODEL_ORDER",
+      "classes": [
+        "SCCNodeTypeCycleBreaker",
+        "DepthFirstModelOrderLayerer"
+      ],
+      "request": "requests/logged-scc_node_type--df_model_order.json",
+      "requestSha256": "2032189406b692ecb2704d03962b8c69efc08b580ecaec7d0788a1646c5e6ad3",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-scc_node_type--p2-df_model_order.json",
+      "oldRequestSha256": "f0e245371ecc9c675b365382d8ab8652c2195bd65920ab5c61a8756bbf72e27a"
+    },
+    {
+      "id": "logged-dfs_node_order--network_simplex",
+      "p1": "DFS_NODE_ORDER",
+      "p2": "NETWORK_SIMPLEX",
+      "classes": [
+        "DFSNodeOrderCycleBreaker",
+        "NetworkSimplexLayerer"
+      ],
+      "request": "requests/logged-dfs_node_order--network_simplex.json",
+      "requestSha256": "ae9b9896dc54666b666a73f1576b7cd27b7196ab20c4443e1a9dd15dd1e13f5a",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-dfs_node_order--p2-network_simplex.json",
+      "oldRequestSha256": "ec1fbc93ce870752019b02621d632b32bf4963a5d44765e8db81c7f0141835f3"
+    },
+    {
+      "id": "logged-bfs_node_order--network_simplex",
+      "p1": "BFS_NODE_ORDER",
+      "p2": "NETWORK_SIMPLEX",
+      "classes": [
+        "BFSNodeOrderCycleBreaker",
+        "NetworkSimplexLayerer"
+      ],
+      "request": "requests/logged-bfs_node_order--network_simplex.json",
+      "requestSha256": "8914cf9bcd0bbdf46daab6d11438338c3c8845ed5a526e04c3d6aaa0b781d30e",
+      "oldRequest": "tests/fixtures/suites/full-native-algorithms/requests/p1-bfs_node_order--p2-network_simplex.json",
+      "oldRequestSha256": "a1d43a6a48302f5a988d30e16a804619766e86fa2a2912278ac33bd7e2a153bb"
+    }
+  ],
+  "caseCount": 7,
+  "scope": "Only seven logged selections on the existing81 graph, not a new mathematical matrix"
+}

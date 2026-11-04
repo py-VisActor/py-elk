@@ -1,0 +1,151 @@
+{
+  "schema": "py-elk-e07-component-source-review/v1",
+  "iteration": "E07",
+  "reviewer": "V",
+  "reviewedLane": "R",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T09:24:51.876002+00:00",
+  "sourceDocument": {
+    "path": "references/e07-source-components-R.json",
+    "sha256": "06d4caf0e424f1034c2ab4482579ae8b493b2f680309df445661d2aea2418edf"
+  },
+  "approvedComponents": [
+    "graph:edge-reversal",
+    "phase:GREEDY"
+  ],
+  "componentSeals": {
+    "graph:edge-reversal": "5d562429ef59bb79593773b6bf7435e0a4b16a521f1b3a3cb2cafe85750f9cc5",
+    "phase:GREEDY": "f7f7bf9ca94787cfaac364bb1381f7f4d88e2a03c3f3e46eef82659dc6782eec"
+  },
+  "commonSourceContextSha256": "0650361b6cbef5e1ee605d02b8653799dd5bf9ae9400e34e48b5004b78336b4d",
+  "sourceContextSha256": "e0ba4fa63dc3a2e2ba4e3ec55ac8771d669423bf56c8b822b8811c44de3a3669",
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 77,
+    "functionOffsetOccurrences": 77,
+    "staticCallEdges": 63,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "literalSymbolOccurrences": 77,
+  "newSemanticLabelExceptions": 0,
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E07-01/V/R-greedy-reverse-first/report.json",
+    "sha256": "726755bda84f83431b86e2f700712782bd0aaf1633dcdc2e91612b2989a13ff9"
+  },
+  "componentDependencies": {
+    "graph:edge-reversal": [],
+    "phase:GREEDY": [
+      {
+        "componentId": "graph:edge-reversal",
+        "canonicalComponentSha256": "5d562429ef59bb79593773b6bf7435e0a4b16a521f1b3a3cb2cafe85750f9cc5",
+        "meaning": "Real endpoint/boolean/bend mutation, not a direction-only marker"
+      }
+    ]
+  },
+  "inheritedComponents": {
+    "graph:edge-reversal": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/0",
+      "canonicalComponentSha256": "f565ff9b0e92fef8a541675f1738f39bd9d7a9012da55aff4e542a49a6d55913",
+      "requiredProofIds": [
+        "REV-G1-ENDPOINT-ORDER",
+        "REV-G2-BOOLEAN-PRESENCE",
+        "REV-G3-CHAIN-IDENTITY",
+        "REV-G4-LABELS-AND-ORIGIN"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    },
+    "phase:GREEDY": {
+      "artifact": {
+        "path": "references/e06-source-components-A.json",
+        "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+      },
+      "jsonPointer": "/components/1",
+      "canonicalComponentSha256": "7a029449006feb2b5c8b8b05a7e54f0e975bd35e8645fa9135e3afa2bac495d5",
+      "requiredProofIds": [
+        "GR-G1-DEGREES-LOOPS",
+        "GR-G2-QUEUES-TERMINATION",
+        "GR-G3-ACTIVE-FALLBACK",
+        "GR-G4-REVERSAL-AND-CYCLIC",
+        "GR-G5-NUMERIC-AND-CLEANUP",
+        "GR-G6-SIMPLE-RING"
+      ],
+      "inheritedMeaning": "Exact entry/helper identity, primitive order and low-level support proofs. Old RIGHT-only and single-weak-component caller assumptions are not inherited."
+    }
+  },
+  "checkedSemantics": [
+    {
+      "id": "REVERSE-RENEWED-DOMAIN",
+      "checked": "Actual reverse0 reads neither DIRECTION nor weak connectivity/component count. It operates on current exact attached implicit endpoint ports, ordered lists, REVERSED boolean, fresh reversed vector copies and untouched JP chain as immutableE06REV-G1..4. Post-transform coordinates/side/anchor remain input values; no coordinate projection or owner/side mutation. false disconnection never permits out-of-graph endpoint/collector/label paths."
+    },
+    {
+      "id": "GREEDY-ALL-CURRENT-NODES",
+      "checked": "Actual process62 and updateNeighbors use current layerless list and each current incoming-before-outgoing port adjacency. There is no source weak-connectivity predicate. same bounds<=8 NORMAL/28edges and degree/priority0/implicit unique ports/reciprocal adjacency/finite numeric guards remain. separate true still supplies a connected graph; only effective false grants disconnected work, with no fabricated DFS/pre-sort or per-component RNG reset."
+    },
+    {
+      "id": "GLOBAL-FIFO-AND-DAG-ORIENTATION",
+      "checked": "Unit degree counters and source/sink FIFO drains still model each remaining weak component independently because no cross-component edge exists. Every remaining DAG has a source or sink; sink removal only creates sinks (or already queued sources), and source draining continues all newly created sources. Thus original DAG components drain without fallback/reversal even if another component is cyclic. Global mark spacing/interleaving is preserved, not compacted to per-component IDs."
+    },
+    {
+      "id": "RING-WITH-OTHER-COMPONENTS",
+      "checked": "Within a strict original ring n>=2 one fallback creates the successor/source and predecessor/sink chain drain, so the whole remaining ring drains before another fallback there. Other components can change when/which ring node is selected, but not this within-ring degree argument. Exactly one original ring edge reverses into Hamiltonian path plus shortcut, including actual n2 queue-order case. This does not assert distinct NS ranks or grant arbitrary SCC exemptions; renewed unitNSdriver must establish positive path ranks and conservative balance separately."
+    },
+    {
+      "id": "UNCHANGED-LITERAL-SUPPORT",
+      "checked": "All immutableE06old helper/host/RNG primitive sources are bound by exact artifact/pointer/oldcanonicalSeal and complete old4REV/6GRproof IDs. Current new-domain source entries/callers/helpers and actual token/function names canonical verified; old RIGHT/single-weak-component assumptions explicitly not inherited. Shallow globalRNG/flags/PROCESSORS operation is a separately closed Bsplit input contract; GREEDY does not invent/configure those shared objects."
+    }
+  ],
+  "observationEvidence": [
+    {
+      "path": "test-runs/20261103-E07-01/V/false-mixed-greedy-stage/summary.json",
+      "sha256": "1613f3dbcbaaedc27065436b1319b0250b66f4390bfa4ae5efc1988b45a3c379"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/false-mixed-greedy-stage/instrumented.json",
+      "sha256": "04b15684094da2e5c0a218f75e959025541c4693405140af2c0268c5c85ef678"
+    }
+  ],
+  "actualFiniteControl": {
+    "input": "UP, separate=false, zero-sized DAG3+simpleRing3+isolate1",
+    "actualProcessorCalls": 21,
+    "greedyPrimitiveDraws": 1,
+    "DAGOriginalEdgesReversed": 0,
+    "ringOriginalEdgesReversed": 1,
+    "marksInOriginalInputOrder": [
+      1,
+      5,
+      7,
+      2,
+      3,
+      4,
+      6
+    ],
+    "meaning": "Finite three-engineexact corroboration, not general proof or Python execution"
+  },
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E07-01/V/source-R-greedy-reverse-canonical.command.json",
+      "sha256": "c440b4b15fb42ab5cce6105115d0290256d46059df2c4e8b52675672c4c648ac"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/false-mixed-greedy-stage.command.json",
+      "sha256": "8f2bc4c8943108ca93ca036a653f7cd890b09c475a7eac8f959109e6310e78c6"
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "A unitNETWORK_SIMPLEX disconnected driver/previous-filling proof remains separately reviewed; rank v2 requires that source closure.",
+    "Root importer/prepare/frame dispatch, direction3, Bsplit/combine/finalization, remainingR24 renewed domains and final full33 approvals are separate."
+  ],
+  "limitations": [
+    "Current bindings77LF/77UTF16/63lexicalcalls plus complete inheritedE06closure, not automatic mathematical equivalence.",
+    "No source change or runtime/API approval is granted by these two component receipts; exact Java/release gates remain open."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE07SourceGateApproved": false
+}

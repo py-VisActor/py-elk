@@ -1,0 +1,41 @@
+{
+  "schema": "py-elk-e17-core-handoff/v1",
+  "status": "MrTree core independently accepted; full Radial math implemented/source-accepted, new independent code/oracles pending",
+  "filesSha256": {
+    ".local/migration-next/src/pyelk/algorithms/mrtree.py": "36c83ecf7b8a648770dc758c72127d6abdece5f6ae1bbbd4c2c6102c8fe25bd7",
+    ".local/migration-next/src/pyelk/algorithms/radial.py": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7",
+    "references/e17-tree-sources.json": "db7ea4fec022c9480592d34760bdc8cb86f12854fa5a7d23149e11a8bb19e329",
+    "docs/iterations/E17-preparation.md": "9f1937eb1bac883922dff6c7d2edad75af24dc82b2c4c85fa7a7b62299000a71"
+  },
+  "evidenceSha256": {
+    "test-runs/20261104-E17-01/B/handoff-stages-01.json": "be276e532421cdc1e26956639c3e1269917a5b633eee7024a1f8c27c3cb410ad",
+    "test-runs/20261104-E17-01/V/routing-code-review-02.json": "d02651811af5924d2f522101f8fee6cb3e580fa6e031652b1885c877fef04661",
+    "test-runs/20261104-E17-01/V/routing-comparison-01/report.json": "c1317ef654d049d6033680e4ba81e89cda4c079ba66902d4e05cc72981786f16",
+    "test-runs/20261104-E17-01/V/radial-compaction-source-review-01.json": "f67312df1d977122754097cffe43304dc7032e027285745127061d2b9f7beccc",
+    "test-runs/20261104-E17-01/V/radial-sort-objectives-source-review-01.json": "af21ffc1a69bb902f321280415eb966baaf7ec824eb963fff96fe4b3e73765f1",
+    "test-runs/20261104-E17-01/V/radial-final-leaves-source-review-01.json": "7b30932774b1b00e2cc2deff950b1c2d3a6b8b793e2708a5d200ee7c5adb72c2",
+    "test-runs/20261104-E17-01/B/radial-final-owner-01.json": "0b3618004ae00fc4514d7cde430ff263fcba5da370f9d7070c9418af4ec98823",
+    "test-runs/20261104-E17-01/B/radial-final-command-01/command.json": "6450b7e951925466b59f984b8453ad683ec8a4af8987c2e77e86096954c30ab3",
+    "test-runs/20261104-E17-01/B/session-wrapper-owner-01.json": "d038a30044a8daeb27c346347613d08eaca458b80cd95ff81095564955ab1e08",
+    "test-runs/20261104-E17-01/B/session-wrapper-command-01/command.json": "4b6babf4c6381325f159621548e96ddb835423f0c22811a944ee0c2fc0484333",
+    "test-runs/20261104-MICRO-01/root/mrtree-first-01/report.json": "b7a64811e03a5b1d11e3c62083e24bb5a85d66d35f156700f149cf708d107925"
+  },
+  "interfaces": [
+    "mrtree._layout(state,node,monitor=None)",
+    "radial._layout(state,node,monitor=None)",
+    "layout_mrtree/layout_radial clone via shared JsonLayoutSession+export",
+    "state.node_micro_layout(node) genuine common micro geometry",
+    "state.identity_hash(node) signed32 native host policy"
+  ],
+  "sourceOfOldExecution": "All old raw source SHAs remain as captured; wrapper-only delta is proved by AST, not re-bound original receipts. Current Radial full runtime has no independent acceptance yet.",
+  "pending": [
+    "independent new Radial targeted original-object/default-path comparison and code review",
+    "real logGraph snapshot observer for logging=true, not silent omission",
+    "complete243 parser/metadata/public registry/all recursive coordinate-mode integration",
+    "source error policy for genuine upstream diagnostics failure",
+    "final installed/release/full acceptance only after every feature iteration complete"
+  ],
+  "fullValidation": false,
+  "wholeAlgorithmOrIterationAccepted": false,
+  "packageOrPublicAPIValidated": false
+}

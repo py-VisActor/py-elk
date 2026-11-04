@@ -5,3 +5,68 @@ references/layout/** -text
 # Preserve the captured lock's original CRLF bytes and its recorded SHA.
 references/layout/upstream-lock.json whitespace=cr-at-eol
 tests/fixtures/validation/** -text
+# Raw request/oracle bytes and independent review receipts retain their SHA.
+tests/fixtures/suites/** -text whitespace=cr-at-eol
+references/e04-reviews/** -text whitespace=cr-at-eol
+references/e05-reviews/** -text whitespace=cr-at-eol
+references/e06-reviews/** -text whitespace=cr-at-eol
+references/e07-reviews/** -text whitespace=cr-at-eol
+references/e08-preparation-reviews/** -text whitespace=cr-at-eol
+references/e08-reviews/** -text whitespace=cr-at-eol
+references/e08-api-validation.json -text whitespace=cr-at-eol
+*.whl binary
+*.zip binary
+references/e09-reviews/** -text whitespace=cr-at-eol
+references/e09-source-reviews/** -text whitespace=cr-at-eol
+references/e09-coverage-validation.json -text whitespace=cr-at-eol
+references/e09-host-contract.json -text whitespace=cr-at-eol
+references/e09-metadata-schema.json -text whitespace=cr-at-eol
+# Preserve the reviewed E09 registry bytes and the matching candidate wheel.
+src/pyelk/metadata/_data.py -text whitespace=cr-at-eol
+references/e09-geometry-premise.json -text whitespace=cr-at-eol
+references/e09-branch-evidence-map.json -text whitespace=cr-at-eol
+# Original E10 command/observation receipts are portable byte evidence.
+references/e10/** -text whitespace=cr-at-eol
+references/e10-reviews/** -text whitespace=cr-at-eol
+migration/next-native/** -text whitespace=cr-at-eol
+references/next-native-evidence/** -text whitespace=cr-at-eol
+# These source proposals and progress receipts have reviewed original-byte SHA.
+references/e13-*-sources.json -text whitespace=cr-at-eol
+references/e16-basic-sources.json -text whitespace=cr-at-eol
+references/e17-tree-sources.json -text whitespace=cr-at-eol
+references/e18-force-stress-sources.json -text whitespace=cr-at-eol
+references/e19-packing-sources.json -text whitespace=cr-at-eol
+references/next-json-transfer-sources.json -text whitespace=cr-at-eol
+references/next-node-micro-sources.json -text whitespace=cr-at-eol
+references/next-numeric-import-sources.json -text whitespace=cr-at-eol
+references/next-property-schemas-sources.json -text whitespace=cr-at-eol
+references/next-property-runtime-defaults-sources.json -text whitespace=cr-at-eol
+references/next-object-properties-sources.json -text whitespace=cr-at-eol
+references/next-property-snapshot-sources.json -text whitespace=cr-at-eol
+references/node-micro-topdown-sources.json -text whitespace=cr-at-eol
+references/next-native-reference.json -text whitespace=cr-at-eol
+references/next-*-sources.json -text whitespace=cr-at-eol
+docs/changes/20261104-next-native-*.json -text whitespace=cr-at-eol
+# Runtime and release receipts are compared to the reviewed archive by byte.
+# A checkout must not silently rewrite their CRLF/LF representation.
+src/pyelk/** -text whitespace=cr-at-eol
+docs/releases/**/*.json -text whitespace=cr-at-eol
+docs/releases/*.json -text whitespace=cr-at-eol
+references/source-inventory.json -text whitespace=cr-at-eol
+docs/changes/*.json -text whitespace=cr-at-eol
+docs/option-coverage.json -text whitespace=cr-at-eol
+references/full-native-closure/** -text whitespace=cr-at-eol
+docs/releases/evidence/runtime-repair/** -text whitespace=cr-at-eol
+docs/releases/evidence/metadata-final/** -text whitespace=cr-at-eol
+docs/releases/evidence/py-visactor-elk-0.1.0/** -text whitespace=cr-at-eol
+docs/history/AGENTS-before-closure-20261104.txt -text whitespace=cr-at-eol
+# These package inputs are bound by the final metadata/installation receipts.
+README.md -text whitespace=cr-at-eol
+README.en.md -text whitespace=cr-at-eol
+# Captured snapshots/logs and unified diffs retain meaningful original bytes.
+references/next-native-evidence/** whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+migration/next-native/** whitespace=-blank-at-eof,cr-at-eol
+migration/next-native/objects/*.bin binary
+docs/releases/evidence/runtime-repair/*.diff whitespace=-blank-at-eol,-blank-at-eof,cr-at-eol
+src/pyelk/algorithms/layered/orthogonal_general.py whitespace=-blank-at-eof,cr-at-eol
+src/pyelk/metadata/_registration_data.py whitespace=-blank-at-eof,cr-at-eol

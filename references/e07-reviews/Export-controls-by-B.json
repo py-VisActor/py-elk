@@ -1,0 +1,235 @@
+{
+  "schema": "py-elk-e07-export-controls-independent-review/v1",
+  "reviewerLane": "B",
+  "ownerLane": "V",
+  "status": "ACCEPTED_UNDER_OFFLINE_RECEIPT_CONTROL_SCOPE",
+  "createdUtc": "2026-11-03T09:52:08.246953+00:00",
+  "reviewedFiles": [
+    {
+      "path": "tools/reference/check_e07_export_controls.py",
+      "sha256": "85f315f48f656fed17954e3f019d5341709ebfc7c7044413d31d544ed4b31701"
+    },
+    {
+      "path": "scripts/export_e07_installed_evidence.py",
+      "sha256": "5edcb8ebf9b9ee714b5f2e12d7f25dde08312df4b59ba897c08c0d01ba9dffbb"
+    },
+    {
+      "path": "scripts/export_e05_installed_evidence.py",
+      "sha256": "709f745db50b7bc6e4447ad8cfed225d64da4abde3f099070fb04a10f68c3373"
+    }
+  ],
+  "actualControlReport": {
+    "path": "test-runs/20261103-E07-01/V/export-controls-first/report.json",
+    "sha256": "7b68912dbb0efeaf4dd5b6bbdc9f28dcfea382162a96e00e229b823b40a20696"
+  },
+  "positiveControls": {
+    "original": true,
+    "copied": true,
+    "caseCount": 72,
+    "repeat": 3,
+    "wheelSha256": "5d5666944e628088615be6d7ff9f434757d9ae6787286fd621b8dd170bebbf55",
+    "packageFiles": 36,
+    "metadataSha256": "23bad202146c99ba25ccea9e30041ee8a933c1ee21e5582ef6c186bd22db52db"
+  },
+  "negativeControlsRejected": 33,
+  "controlTargets": [
+    {
+      "name": "empty-candidate-geometry",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "empty-reference-geometry",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "empty-input-preservation",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "failed-selected-profile-row",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-selected-profile-row",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-reference-index-sha",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-candidate-index-sha",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "partial-determinism-comparison",
+      "category": "recomputed-comparison",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "wrong-candidate-capture-role",
+      "category": "capture-role-denominator",
+      "reason": "Reference baseline differs from UPSTREAM lock"
+    },
+    {
+      "name": "wrong-reference-capture-role",
+      "category": "capture-role-denominator",
+      "reason": "Candidate observation identity differs"
+    },
+    {
+      "name": "boolean-repeat",
+      "category": "capture-role-denominator",
+      "reason": "Invalid capture role/repeat/failures"
+    },
+    {
+      "name": "partial-raw-membership",
+      "category": "capture-role-denominator",
+      "reason": "Capture case denominator differs"
+    },
+    {
+      "name": "wrong-source-approval-role",
+      "category": "rebound-command-role",
+      "reason": "Expanded source approval command differs"
+    },
+    {
+      "name": "wrong-source-approval-interpreter",
+      "category": "rebound-command-role",
+      "reason": "Source approval producer differs"
+    },
+    {
+      "name": "candidate-environment-not-isolated",
+      "category": "rebound-command-role",
+      "reason": "Historical candidate environment is not isolated"
+    },
+    {
+      "name": "installed-interpreter-without-I",
+      "category": "rebound-command-role",
+      "reason": "Installed verification did not use an isolated interpreter"
+    },
+    {
+      "name": "candidate-wrong-repeat",
+      "category": "rebound-command-role",
+      "reason": "Command repeat count differs"
+    },
+    {
+      "name": "candidate-wrong-adapter",
+      "category": "rebound-command-role",
+      "reason": "Historical candidate capture did not use the generated adapter"
+    },
+    {
+      "name": "compare-wrong-profile",
+      "category": "rebound-command-role",
+      "reason": "Historical comparison policy differs"
+    },
+    {
+      "name": "command-log-byte-mismatch",
+      "category": "raw-command-log",
+      "reason": "Actual command log SHA differs"
+    },
+    {
+      "name": "metadata-name-rebound-sha",
+      "category": "actual-current-METADATA",
+      "reason": "Distribution METADATA name differs"
+    },
+    {
+      "name": "metadata-readme-rebound-sha",
+      "category": "actual-current-METADATA",
+      "reason": "Distribution README bytes differ"
+    },
+    {
+      "name": "metadata-unsafe-archive-member",
+      "category": "actual-current-METADATA",
+      "reason": "Invalid METADATA archive member"
+    },
+    {
+      "name": "metadata-missing-receipt",
+      "category": "actual-current-METADATA",
+      "reason": "'distributionMetadata'"
+    },
+    {
+      "name": "missing-direction-module-identity",
+      "category": "complete-current-package-identities",
+      "reason": "Installed Python/license file denominator differs"
+    },
+    {
+      "name": "wrong-current-module-identity",
+      "category": "complete-current-package-identities",
+      "reason": "Current package bytes differ from the installed evidence: algorithms/layered/components.py"
+    },
+    {
+      "name": "missing-e07-notice-identity",
+      "category": "complete-current-package-identities",
+      "reason": "Installed Python/license file denominator differs"
+    },
+    {
+      "name": "invented-package-file-identity",
+      "category": "complete-current-package-identities",
+      "reason": "Installed Python/license file denominator differs"
+    },
+    {
+      "name": "raw-candidate-wrong-engine",
+      "category": "rebound-raw-observation-sha",
+      "reason": "Candidate observation identity differs"
+    },
+    {
+      "name": "raw-reference-wrong-entrypoint",
+      "category": "rebound-raw-observation-sha",
+      "reason": "Reference observation identity differs"
+    },
+    {
+      "name": "raw-candidate-wrong-request",
+      "category": "rebound-raw-observation-sha",
+      "reason": "Observation request fingerprint differs"
+    },
+    {
+      "name": "raw-candidate-mutated-input",
+      "category": "rebound-raw-observation-sha",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    },
+    {
+      "name": "raw-candidate-mutated-result",
+      "category": "rebound-raw-observation-sha",
+      "reason": "Recorded comparison differs from recomputed raw observations"
+    }
+  ],
+  "checkedSemantics": [
+    "Original and copied real72x3 run must pass before any mutation. Each mutation restores exact baseline bytes; the copied positive must pass again after all33 controls. Mutators run outside the exporter-error catch, so fixture-construction failures cannot be counted as rejected bad receipts.",
+    "Raw comparison is recomputed from both capture indices/observations. Empty geometry/input/determinism arrays and wrong profile/passed flags are rejected; command role edits update report and command receipts together, raw observation edits rebind index SHA.",
+    "Actual command logs, source approval interpreter/script, same input/repeat/adapter policy, -I/empty PATH, metadata raw digest/path/current README and complete current package/license identities each have explicit controls.",
+    "Temporary output must be new/inside checkout/outside original run; resolved cleanup target stays below explicit output. Original full capture inventory and source files are rehashed after controls.",
+    "subprocess.Popen is blocked during the actual control run; no engine/installation/phase protocol is claimed. phaseProtocolAssessed/runtimeReexecuted/engineLaunched remain false; all33 rejection reasons are present and relevant to the targeted category."
+  ],
+  "originalCaptureInventoryIndependentlyRecomputedExact": true,
+  "originalSourceInventoryIndependentlyRecomputedExact": true,
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E07-01/V/export-controls-receipt-final.json",
+      "sha256": "ec0362b0afe76ccd024e747e56fc19492175f31c190d8c71bd17ba303c3f5826"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/export-controls-first/report.json",
+      "sha256": "7b68912dbb0efeaf4dd5b6bbdc9f28dcfea382162a96e00e229b823b40a20696"
+    },
+    {
+      "path": "test-runs/20261103-E07-01/V/installed-export-controls-first.command.json",
+      "sha256": "271028153967d45a85c606799fe4ecf0f49804d310550282a77b8c109c9d1c95"
+    }
+  ],
+  "limitations": [
+    "Read-only independent tool/report review and actual original inventory/hash recomputation; the33 controls were genuinely executed by V, not rerun or attributed to B.",
+    "Receipt consistency cannot authenticate a fully forged execution chain or prove layout/API/lifecycle/release equivalence. Real current installed72 verification and source mathematics stay separate."
+  ],
+  "runtimeReexecuted": false,
+  "engineLaunched": false,
+  "phaseProtocolAssessed": false,
+  "pythonAlgorithmsVerified": 0,
+  "fullAlgorithmAccepted": false,
+  "blockers": []
+}

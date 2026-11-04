@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: EPL-2.0 OR GPL-3.0-or-later
+# Fixed elkjs0.12.1 worker TD01 reference-endpoint constructor, E19 source.
+# SHA256 275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86.
+"""Shared real geometric edge data; triangulation closures are staged separately.
+
+Only the reviewed constructor is currently needed by rectangle-boundary math.
+This does not substitute an unimplemented triangulation algorithm.
+"""
+
+
+class TEdge:
+    def __init__(self, first, second):
+        self.u = first
+        self.v = second

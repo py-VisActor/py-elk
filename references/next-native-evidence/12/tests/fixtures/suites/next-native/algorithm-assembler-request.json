@@ -1,0 +1,12 @@
+{
+  "mainFactories": ["M0", "M1", null, "M3", "NULL"],
+  "processorFactories": ["I0", "I1", "I2"],
+  "configurations": {
+    "M0": [["before", 0, "I2"], ["before", 0, "I0"], ["before", 2, "I1"]],
+    "M1": [["before", 0, "I1"], ["after", 4, "I0"]],
+    "M3": []
+  },
+  "additional": [["before", 0, "I2"], ["after", 2, "I0"], ["after", 4, "I1"]],
+  "resetMainFactories": ["M0", null, null, null, null],
+  "uncachedFactory": "I0"
+}

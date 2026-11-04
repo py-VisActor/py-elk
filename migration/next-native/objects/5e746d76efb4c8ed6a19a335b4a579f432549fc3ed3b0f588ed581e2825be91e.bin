@@ -1,0 +1,45 @@
+"""Native same-session provider calls; source boundary invoker-source-01.
+
+This private bridge does not implement the recursive coordinator or advertise
+known reference algorithms whose native pipelines have not been integrated.
+"""
+from importlib import import_module
+
+from ..metadata._data import REFERENCE_ALGORITHM_IDS
+from .._errors import OptionValidationError, UnsupportedAlgorithmError
+
+_NATIVE_MODULES={name:'pyelk.algorithms.'+name.rsplit('.',1)[1] for name in REFERENCE_ALGORITHM_IDS
+                 if name.rsplit('.',1)[1] in ('fixed','box','random','mrtree','radial','force','stress')}
+_SPECIAL_BODIES={
+    'org.eclipse.elk.sporeOverlap':('pyelk.algorithms.spore','_layout_overlap'),
+    'org.eclipse.elk.sporeCompaction':('pyelk.algorithms.spore','_layout_compaction'),
+}
+
+
+def algorithm_by_suffix(identifier):
+    if identifier is None or identifier=='':
+        return None
+    if type(identifier) is not str:
+        raise OptionValidationError('INVALID_ALGORITHM','/underlyingLayoutAlgorithm','Expected a provider identifier string')
+    matches=[name for name in REFERENCE_ALGORITHM_IDS if name==identifier or name.endswith('.'+identifier)]
+    return matches[0] if len(matches)==1 else None
+
+
+def invoke_layout(state,node,identifier,monitor=None):
+    """Resolve before creating a subtask; invoke the actual body without cloning."""
+    algorithm=algorithm_by_suffix(identifier)
+    if algorithm is None:
+        return False
+    if id(node) not in state.kinds or state.kinds[id(node)]!='node':
+        raise ValueError('Provider node is not part of this layout session')
+    module_name=_NATIVE_MODULES.get(algorithm)
+    body_name='_layout'
+    if algorithm in _SPECIAL_BODIES:
+        module_name,body_name=_SPECIAL_BODIES[algorithm]
+    if module_name is None:
+        raise UnsupportedAlgorithmError('UNSUPPORTED_ALGORITHM',state.paths[id(node)],
+                                        'Native provider pipeline is not integrated: '+algorithm)
+    implementation=import_module(module_name)
+    child=monitor.sub_task(1) if monitor is not None else None
+    getattr(implementation,body_name)(state,node,child)
+    return True

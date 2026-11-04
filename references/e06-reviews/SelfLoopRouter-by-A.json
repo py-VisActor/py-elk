@@ -1,0 +1,103 @@
+{
+  "schema": "py-elk-e06-independent-source-review/v1",
+  "reviewerLane": "A",
+  "ownerLane": "B",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "sourceDocument": {
+    "path": "references/e06-source-components-B.json",
+    "sha256": "c38f9c63674db4a45c4817ba085b83397148d641f0e31ca84b83480ea39eed3d"
+  },
+  "components": [
+    {
+      "componentId": "intermediate:SelfLoopRouter",
+      "canonicalComponentSha256": "93fcb6400d069159956c90f338295cce846334bbb73cc83046c6b4b746622f52",
+      "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+      "scope": {
+        "maximumOriginalNodes": 8,
+        "maximumRawEdges": 28,
+        "model": "flat single-component graph; NORMAL origin nodes; only default implicit one-edge-per-port; no public ports/labels/inside loops/compound hierarchy",
+        "defaultRouting": "ORTHOGONAL",
+        "defaultDistribution": "NORTH",
+        "defaultOrdering": "STACKED",
+        "defaultOriginalPortConstraints": "FREE",
+        "scopeStatus": "proposed guards; root public admission remains E05 until full E06 gate"
+      }
+    }
+  ],
+  "independentChecks": [
+    "Read actual layer/NORMAL/holder filters, ORTHOGONAL router selection, port-ID assignment and ONE_SIDE min/max route preparation. Restored North port block creates strict interval nesting by actual IDs, independent of zero/tiny coordinates.",
+    "For i<j holder order, inner i ports are both active in outer j while outer ports are inactive in inner: source crossing counts2/0 choose outer->inner REGULAR dependency weight2. All pairs therefore form an acyclic strict decreasing-index graph, not a generic detector bypass.",
+    "Read real initialize_2 critical predicates and total-weight callbacks; REGULAR makes critical predicates false and sums0. Sink/source FIFO loops, weighted decrements, marks and mark shift remain actual writes. Initial unique negative marks and remove-before-mutation justify identity membership projection only while source TreeSet has no nonempty fallback traversal.",
+    "Read newTreeSet->TreeSet->TreeMap and mark natural compare, real equals/hash and initial routingSlot0 prototype. Previous HashSet wording has been corrected. No arbitrary generated HashMap/HashSet traversal equivalence is assumed.",
+    "Read raw-segment longest-distance propagation, actual routingSlot/max slotCount writes, activity arrays, per-side stable sort and nextFreeRoutingSlotAtPort scan. Nested default input leaves chosen slots consistent, but procedure must execute rather than use loop index as an oracle.",
+    "Read literal -margin.top-nodeSelfLoopDistance baseline, sequential currPos+=factor*(labelSize+edgeEdge), clone(pos)+anchor and outer vector addition. NORTH/NORTH corner helper returns, orthogonal modify returns same chain, old bend list is cleared then receives two actual vectors.",
+    "Read source margin clone, per-bend max(left,-x), max(right,x-width), max(top,-y), max(bottom,y-height) and final four-field copy. Preserve real tiny/nonzero incoming margins and all f64 operation order; defer node.pos offset to Post.",
+    "Raw edges<=28 yields <=28 loop segments/56 loop ports per original node, <=378 pair dependencies/weighted degree54. Private HyperEdgeSegments are not LNodes and do not inflate original/exported-edge denominators. No RNG fallback under proven nested-DAG guard; no general zero-RNG cycle detector claim."
+  ],
+  "canonicalBinding": {
+    "sources": 2,
+    "spanOccurrences": 409,
+    "functionOffsetOccurrences": 389,
+    "staticCallEdges": 149,
+    "claim": "Exact source identity/LF/UTF16/lexical calls only; mathematical deduction independently read, not automatically proved by these counts."
+  },
+  "findings": [
+    {
+      "id": "ROUTER-MISSING-CRITICAL-PREDICATE",
+      "status": "resolved",
+      "description": "Incoming critical test_108 always executes even with REGULAR dependencies; now explicitly bounded, map callback identified as guarded out."
+    },
+    {
+      "id": "ROUTER-MISSING-PROTOTYPE-AND-SET-TYPE",
+      "status": "resolved",
+      "description": "Source initial slot/mark and natural TreeSet dispatch now bound; former HashSet description corrected. Earlier source documents and canonical logs retained by owner."
+    }
+  ],
+  "externalPrerequisites": [
+    "Approved default Pre/Restorer preserve one-edge implicit hyperloops and actual nested NORTH block; no public shared ports/labels/other distribution/order.",
+    "Root separately source-reviews NodeSize/margin expansion for restored empty-adjacency NORTH ports, then real BK/ordinary ORTHO and Post run in source dispatch order.",
+    "Current original8/total28 common public scope must be enforced by root; this component has no authority to expand all algorithm/API/lifecycle capability."
+  ],
+  "license": {
+    "spdx": "EPL-2.0 OR GPL-3.0-or-later",
+    "exactExternalJavaBuildVerified": false,
+    "projectDistributionLicenseResolved": false
+  },
+  "runtimeVerified": false,
+  "wholeE06SourceGateAccepted": false,
+  "fullAlgorithmAccepted": false,
+  "evidence": [
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-router-core-01.command.json",
+      "sha256": "d81209ba3a38f0b24912a823ae697d2800e3204d78fd9caef4a141b45b5750bf"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-router-core-01.stdout.log",
+      "sha256": "3ea443eec5caf2511077cd9064ef93d30fa54c6d3f6127d914a4d12aab340b41"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-router-float-01.command.json",
+      "sha256": "677a21a0fc756a64f9b387977094eae4382b89c9cea24ba70f5464716caefdd0"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-router-float-01.stdout.log",
+      "sha256": "53de95d1d14f89acb038cdddd56f7840d0c3916846e5ce43f6056d72710b61fa"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-router-tree-01.command.json",
+      "sha256": "60ab3e6a60f87cc3f8ff3870bf6475383785fea1fba7f8b6a4f496cc427e45bd"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/inspect-B-router-tree-01.stdout.log",
+      "sha256": "1f958ac3929a987c411a020f46e4ff2153440d58a57bcd98f4da6aa6d12d6d0f"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/B-loop-canonical-independent-03.command.json",
+      "sha256": "8e308265392797672715bbaf04be1e33bf323857d2f3235bb255403f44fadaf2"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/A/B-loop-canonical-independent-03.stdout.log",
+      "sha256": "7d1375fb801dc1eb0a557739b0c51f6d46fccfeaa42fc5817e867447288852dd"
+    }
+  ]
+}

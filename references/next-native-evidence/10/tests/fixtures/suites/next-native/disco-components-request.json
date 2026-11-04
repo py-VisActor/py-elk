@@ -1,0 +1,24 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "graph": {
+    "id": "disco-components",
+    "width": 240,
+    "height": 160,
+    "layoutOptions": {
+      "elk.algorithm": "disco",
+      "elk.padding": "[top=3,left=7,bottom=11,right=13]",
+      "elk.spacing.componentComponent": 9,
+      "elk.aspectRatio": 1.4
+    },
+    "children": [
+      {"id":"a","x":10,"y":20,"width":23,"height":17},
+      {"id":"b","x":65,"y":28,"width":31,"height":13},
+      {"id":"c","x":150,"y":90,"width":19,"height":29}
+    ],
+    "edges": [
+      {"id":"ab","sources":["a"],"targets":["b"],"sections":[{"id":"ab-old","startPoint":{"x":33,"y":28},"bendPoints":[{"x":49,"y":28}],"endPoint":{"x":65,"y":34}}]}
+    ]
+  },
+  "layoutArguments": {}
+}

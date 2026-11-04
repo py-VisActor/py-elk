@@ -1,0 +1,11 @@
+# 08批复盘
+
+交付96文件快照与212份原始证据。Root接243个类型与235个raw构造分支、68项实际Core默认、向量链及浅属性快照；A交基础/NS/Hyper计数；B交DisCo polygon、grid/raster及Drawing/Row小块，V逐块独立验收。新真实Box请求进入typed数据链，原始hash和错误文本差异分别保留。完整算法验收仍0。
+
+共享导入由延迟读取转为local/global单次解析，旧DOUBLE测试把try放在读取阶段，首次在constructor提前正确抛错。保留失败和旧probe，只改fixture并复验该一项，另外五项通过不重跑。Snapshot把node individualSpacings也移到import时解析，clone消费者不再重parse。浅value共享与独立key map用真实原copyProperties对象验证。
+
+并行瓶颈主要出现在独立源审队列。Root在自己的宿主实现之外分担了Drawing、Row、Block/Stack基础及clone/copyPosition短源叶，B获批即写；V专注新对象、计数闭包与其余数学。每份收据严格标明子范围，不能把同module新追加代码、owner控制或一次dispatcher当整算法验收。
+
+09先行实测发现CornerCases的Direction→Long只是未闭合调用链的疑点。实际七个原对象全部正常返回，追到collector忽略元素并加Long1，才确认是horizontal count。旧未批草稿保留，没有写假异常或修改原数学。这条经验是尽早做一个真实最小原控，再完整核caller/accumulator。
+
+下一批优先Integer盒provenance与Layered producer、junction typed/geometry桥、Snapshot新holder默认、完整sweep与packing/递归。保持变更校验；不重复旧provider/平台组，最终全量留全部功能完成后。本批局部命令用时不能用于声称整体提速比例。

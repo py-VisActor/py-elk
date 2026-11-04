@@ -1,0 +1,38 @@
+{
+  "schema": "py-elk-independent-code-review/v1",
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    ".local/v-port-kernels-review-01/src/pyelk/algorithms/layered/inverted_ports.py": "2dd2e0363e69b78dd3ec0e3a84cf6e60d6486ff2bd7037a385c60f41f72b7627",
+    ".local/v-port-kernels-review-01/src/pyelk/algorithms/layered/hyperedge_merger.py": "f06c8cef5fc294f05319fc46547c8aace7579b6ba4b6f760ae121afd7ba36958",
+    "tests/fixtures/suites/next-native/port-dummy-kernels-probe.cjs": "69607caa761362b271228ddfd56eb3fd03a6d6da58b130bc08572b09a92924b3",
+    "tests/fixtures/suites/next-native/port-dummy-kernels-request.json": "af9ba42e6c4ed142444bd27e0f5de7339af312dd598e4aa88f0c63f70b9b21a5",
+    "tests/fixtures/suites/next-native/port-dummy-kernels-oracle.json": "f00a0c8f0a630bc64671925e94c07d74e78473f0dbfefb3b7e7ba9381aabb28f",
+    "tests/fixtures/suites/next-native/port-dummy-kernels-oracle.command.json": "6584b2e46cfd24d4343c364c69e6533e1b24cac8b82b02b2f4968d1e4b155e96",
+    "tests/fixtures/suites/next-native/compare_port_dummy_kernels.py": "afb3a93802f7a94efff0ab9b1252460c821ffcf0727c1a777a98389748133334",
+    "test-runs/20261104-E13-01/V/port-dummy-kernels-comparison-01.json": "55ae745e7be2c4be6b1f552ef26752cfc00127b239422895687289d69fa9be88",
+    "test-runs/20261104-E13-01/V/port-dummy-kernels-comparison-01-command/command.json": "3547baffa2c455661f1a494982fb4be3c3a44dc7597fa755c155941c2bdb2c45",
+    "test-runs/20261104-E13-01/V/inverted-ports-source-review-01.json": "36616322f7529b81c5526799d600bae48bc57b6140081f3d312415b3ca3a7c16",
+    "test-runs/20261104-E13-01/V/hyperedge-merger-source-review-01.json": "185db01d4c6250c0cb580041b05ba87e3e36d4e53f74168cb8bf0a392e34e1fa"
+  },
+  "scope": "Two new standalone source processors over supplied intermediate layered graphs only",
+  "facts": [
+    "Read both entire native modules versus independently accepted P07/P08 source. Real endpoint setters preserve detach/append ordering; shallow copy keeps property object identity and removes only new junction key.",
+    "Original inverted case spans two layers and both WESTout/EASTin; verifies delayed attachment to generating layer, new LONG_EDGE zero size, fresh segment label list, HEAD marker overwriteWest/preserveEast asymmetry, original emptyjunction identity, copied ORIGIN.",
+    "Original merger component-only case has matching scratch component but differing explicit endpoints: merge succeeds and clears both retained markers. Removed dummy keeps layer pointer but is absent physical array; owned ports remain.",
+    "Original merger label case covers BEFORE versusAFTER rejection, NORMAL physical barrier, allowed BEFORE pair source match/target mismatch and subsequent marker changes. Full ordered node/port/edge adjacency and scratch IDs exact.",
+    "Native DFS explicit iterator stack matches incoming/outgoing then LONG_EDGE siblings; no graph-depth/count cap or guessed rank insertion.",
+    "One real Node process executed three independently specified local object cases; one new native comparison process exact typed differences0. Imported module closure hashes stable under immutable74file snapshot. No old NS/ports/full layouts reexecuted."
+  ],
+  "actualEvidence": {
+    "originalProcessCount": 1,
+    "localCaseCount": 3,
+    "comparisonPassed": true,
+    "fullLayoutValidated": false
+  },
+  "limitations": [
+    "DTO provides exact intermediate node/layer/marker relations and label views. This is not JSON admission, source layout positions, default layered scheduling/crossing/routing or whole algorithm acceptance.",
+    "Native explicit pending for missing actual label views is not falsely claimed as completed generic labels integration.",
+    "No installed package, current public API or lifecycle acceptance."
+  ]
+}

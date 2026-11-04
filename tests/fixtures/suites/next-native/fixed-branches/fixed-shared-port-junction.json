@@ -1,0 +1,110 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {},
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "fixed",
+      "elk.edgeRouting": "ORTHOGONAL"
+    },
+    "children": [
+      {
+        "id": "a",
+        "x": 10,
+        "y": 10,
+        "width": 40,
+        "height": 30,
+        "ports": [
+          {
+            "id": "p",
+            "x": 40,
+            "y": 10,
+            "width": 0,
+            "height": 0
+          }
+        ]
+      },
+      {
+        "id": "b",
+        "x": 120,
+        "y": 50,
+        "width": 20,
+        "height": 20
+      },
+      {
+        "id": "c",
+        "x": 120,
+        "y": 90,
+        "width": 20,
+        "height": 20
+      }
+    ],
+    "edges": [
+      {
+        "id": "e0",
+        "sources": [
+          "p"
+        ],
+        "targets": [
+          "b"
+        ],
+        "sections": [
+          {
+            "id": "s0",
+            "startPoint": {
+              "x": 50,
+              "y": 20
+            },
+            "endPoint": {
+              "x": 120,
+              "y": 60
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 20
+              },
+              {
+                "x": 70,
+                "y": 60
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "e1",
+        "sources": [
+          "p"
+        ],
+        "targets": [
+          "c"
+        ],
+        "sections": [
+          {
+            "id": "s1",
+            "startPoint": {
+              "x": 50,
+              "y": 20
+            },
+            "endPoint": {
+              "x": 120,
+              "y": 100
+            },
+            "bendPoints": [
+              {
+                "x": 70,
+                "y": 20
+              },
+              {
+                "x": 70,
+                "y": 100
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

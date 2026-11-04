@@ -1,0 +1,34 @@
+{
+  "schema": "py-elk-e04-oracle-provenance/v1",
+  "status": "OFFICIAL_ORACLE_CAPTURED",
+  "sourceRun": "test-runs/20261103-E04-01/V/oracle-first",
+  "sourceIndexSha256": "9aedf394eeaa578a510d2a8a605ac910ecb6bac55b2a69e6f064a72d40a9e26b",
+  "snapshotIndexSha256": "9aedf394eeaa578a510d2a8a605ac910ecb6bac55b2a69e6f064a72d40a9e26b",
+  "sourceFiles": 192,
+  "allSnapshotBytesMatchSource": true,
+  "suiteSha256": "42209981b60008e15a96e9634ef5f850cc76d1fa96bdbbd0f2e4fca03a16cf7b",
+  "selectionSha256": "7f1b0444db86ee805a42280e5e2bf9cb27482ac0c46115f2841e072e76f11a22",
+  "masterDenominator": 25,
+  "selectedMaster": 5,
+  "projectVariantCount": 16,
+  "caseCount": 21,
+  "repeat": 2,
+  "observationCount": 42,
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+    "entrypointSha256": "b1032b7cfd2a57c54c6f0e8369d7665e19a579954f7cd20a6dae28f1912ea0d7"
+  },
+  "toolSha256": {
+    "scripts/build_slice_suite.py": "c1497d2852952d80b9c314e12534c99a670d9f057816ca9fc4faf3b4c1e544ed",
+    "scripts/validate_layout.py": "ec49da5bc46d3934e18efd51cbca9ee625d9808032ed75f0bcaa6f99df2f4d4e",
+    "scripts/layout_checks.py": "075482bd8ac1032a89320c823ff7eecd84866e186ff0b1f5228bd7f570f37197",
+    "tools/reference/capture_layout.cjs": "a92801a5a304a504ed2a45630d6b31f4f3dccecd71175947f1831d677aa8871d"
+  },
+  "candidateCapture": null,
+  "pythonAlgorithmsVerified": 0,
+  "limitation": "Genuine bundled/FakeWorker oracle only; no native Python algorithm or source-gate acceptance.",
+  "selectionAtCaptureSha256": "dfadd9f80f73aa9e6c30785572953eba6b86b135885061497c62ce921e5cad6f",
+  "selectionRevalidatedAfterScopeFreeze": true,
+  "scopeFreezeReason": "Final preparation bounds max4 children and dimension/spacing/padding<=1e6; all21 original request bytes and cases remain identical."
+}

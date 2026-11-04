@@ -1,0 +1,129 @@
+"""Original native snapshots of stored typed properties, with shallow values.
+
+Source copy semantics: next-property-snapshot-sources.json, worker275e6caf.
+Geometry, graph ownership, IDs and endpoints are separate from this interface.
+No source runtime, serialized-option reparse or default injection is involved.
+"""
+from .._errors import UnknownOptionError
+from ..options.generic import RUNTIME_PROPERTY_SPECS, canonical_generic_id
+from ..options.generic import NO_RUNTIME_DEFAULT
+from ..options._core_defaults import CORE_SCALAR_DEFAULTS
+
+_PREFIX='org.eclipse.elk.'
+_UNSET=object()
+
+
+def property_key(name):
+    if _PREFIX+name in RUNTIME_PROPERTY_SPECS:return name
+    try:return canonical_generic_id(name,'/internalProperties/'+name)[len(_PREFIX):]
+    except UnknownOptionError:return name
+
+
+class PropertySnapshot:
+    """Independent key map; each value retains its actual native identity.
+
+    ``get`` presents the existing provider scalar view; ``get_native`` returns
+    the stored object itself. Integer identity provenance is a separate map;
+    an absent token is not inferred from Python integer identity.
+    """
+    def __init__(self,values,integer_boxes=None):
+        self.values=dict(values)
+        self.integer_boxes=dict(integer_boxes or {})
+
+    def copy(self):return PropertySnapshot(self.values,self.integer_boxes)
+
+    def has(self,name):return property_key(name) in self.values
+
+    def get_native(self,name,default=None):return self.values.get(property_key(name),default)
+
+    def read_native(self,name,caller_default=_UNSET,*,factory=None,materialize=None):
+        """Read this holder, cloning/caching only actual type4 defaults here.
+
+        Scalar/default EnumSets stay absent. An explicit factory for an opaque
+        owner must state its materialization rule; metadata is never a fallback.
+        """
+        key=property_key(name)
+        if key in self.values:return self.values[key]
+        from .._errors import UnsupportedOptionError
+        from ..algorithms.layered.graph import Vec2,Insets
+        from .node_micro import VectorChain,_native,_ENUMSET_DEFAULTS
+        canonical=_PREFIX+key;spec=RUNTIME_PROPERTY_SPECS.get(canonical)
+        if factory is not None:
+            if caller_default is not _UNSET:raise ValueError('Choose a default value or factory')
+            if (spec is None or spec.kind=='opaque')and materialize is None:
+                raise ValueError('An opaque default factory must declare materialization')
+            value=factory()
+        else:
+            default=(CORE_SCALAR_DEFAULTS.get(canonical,spec.declared_default if spec else NO_RUNTIME_DEFAULT)
+                     if caller_default is _UNSET else caller_default)
+            if default is NO_RUNTIME_DEFAULT:
+                raise UnsupportedOptionError('PROPERTY_DEFAULT_OWNER_REQUIRED','/internalProperties/'+name,
+                                             'An actual Property owner default is required: '+name)
+            if spec and spec.kind=='enumset':
+                if caller_default is _UNSET:
+                    if key not in _ENUMSET_DEFAULTS:_ENUMSET_DEFAULTS[key]=_native(default)
+                    value=_ENUMSET_DEFAULTS[key]
+                else:
+                    if not isinstance(default,set):raise TypeError('Caller EnumSet default must be its actual shared native set')
+                    value=default
+            elif isinstance(default,Vec2):value=Vec2(default.x,default.y)
+            elif isinstance(default,Insets):value=Insets(default.top,default.right,default.bottom,default.left)
+            elif isinstance(default,VectorChain):value=VectorChain(default)
+            elif spec and spec.kind=='individual_spacings'and isinstance(default,dict):value=dict(default)
+            elif spec and spec.kind=='opaque'and default is not None:
+                raise ValueError('An opaque owner default requires an explicit factory')
+            else:value=_native(default)
+        if spec and spec.kind=='signed_number':
+            from .node_micro import _PropertyReader
+            value=_PropertyReader._convert(spec,value,internal=True)
+        if materialize is None:
+            materialize=isinstance(value,(Vec2,Insets,VectorChain))or bool(spec and spec.kind=='individual_spacings'and isinstance(value,dict))
+        if materialize:self.values[key]=value
+        return value
+
+    def get(self,name,default=None):
+        from .json_transfer import JsonLayoutSession
+        return JsonLayoutSession._provider_value(self.get_native(name,default))
+
+    def set(self,name,value,*,integer_box=None):
+        key=property_key(name)
+        if value is None:
+            self.remove(key)
+            return
+        from .node_micro import _PropertyReader
+        canonical=_PREFIX+key
+        if canonical in RUNTIME_PROPERTY_SPECS:
+            value=_PropertyReader._convert(RUNTIME_PROPERTY_SPECS[canonical],value,internal=True)
+        self.values[key]=value
+        if integer_box is None:self.integer_boxes.pop(key,None)
+        else:self.integer_boxes[key]=integer_box
+
+    def remove(self,name):
+        key=property_key(name)
+        self.values.pop(key,None);self.integer_boxes.pop(key,None)
+
+
+def snapshot_properties(state,element):
+    if id(element) not in state.kinds:raise ValueError('Property holder is not part of this layout session')
+    from .node_micro import _PropertyReader
+    reader=_PropertyReader(state);kind=state.kinds[id(element)]
+    names=set(state._imported_property_values[id(element)])
+    names.update(state._configured_property_ids)
+    values={}
+    # Read only properties that are actually present. Applicable configured
+    # type4 values realize their already imported per-holder clone here.
+    for canonical in names:
+        name=canonical[len(_PREFIX):]
+        if reader.has(element,kind,name):values[name]=reader.get(element,kind,name)
+    if kind=='node' and reader.has(element,kind,'spacing.individual'):
+        values['spacing.individual']=reader.get(element,kind,'spacing.individual')
+    if id(element)in state.cleared_constraints:
+        values['nodeSize.constraints']=reader.get(element,kind,'nodeSize.constraints')
+    for name,value in list(state.computed_options.get(id(element),{}).items()):
+        if _PREFIX+name in RUNTIME_PROPERTY_SPECS:value=reader.get(element,kind,name)
+        values[name]=value
+    for holder,name in state._micro_removed:
+        if holder==id(element)and not reader.has(element,kind,name):values.pop(name,None)
+    boxes=dict(getattr(state,'_property_integer_boxes',{}).get(id(element),{}))
+    boxes.update(getattr(state,'_computed_integer_boxes',{}).get(id(element),{}))
+    return PropertySnapshot(values,{name:box for name,box in boxes.items()if name in values})

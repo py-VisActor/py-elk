@@ -1,0 +1,15 @@
+{
+  "cases": [
+    {"id":"deferred-ns-and-external","boundary":0.1,
+      "nodes":[{"id":"d","type":"NORTH_SOUTH_PORT","ports":[["de","EAST"]]},
+        {"id":"a","type":"NORMAL","ports":[["an","NORTH"],["ae","EAST"],["aw","WEST"]]},
+        {"id":"x","type":"EXTERNAL_PORT","ports":[["xw","WEST"]],"origin":"pe0"}],
+      "layers":[["d","a"],["x"]],"edges":[["ae","xw"],["de","xw"]],"portDummies":[["an","d"]]},
+    {"id":"zero-paths-infinity","boundary":2,
+      "nodes":[{"id":"a","type":"NORMAL","ports":[["aw","WEST"]]}],
+      "layers":[["a"]],"edges":[],"portDummies":[]},
+    {"id":"live-self-transfer-binary64","boundary":0.1,
+      "nodes":[{"id":"a","type":"NORMAL","ports":[["ae","EAST"],["aw","WEST"]]}],
+      "layers":[["a"]],"edges":[],"repeatEdge":{"source":"ae","target":"ae","count":61},"portDummies":[]}
+  ]
+}

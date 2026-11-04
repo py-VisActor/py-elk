@@ -1,0 +1,39 @@
+{
+  "accepted": true,
+  "blockers": [],
+  "filesSha256": {
+    "tools/platform/instrument_e10.py": "73b3d42b3c6edb34b7457e6598353edc3750369c3ae260e37faebe5f0152a009",
+    "tools/platform/benchmark_e10.py": "7b47912dce845be375979507ed0886bb859ccb62c4d6d31867dcbaff8fd10559"
+  },
+  "receiptSha256": "eb83f72dbd75fa36cda298e961267564920768d1953d32e080ea4723c4cdb621",
+  "actualRawChecks": [
+    {
+      "caseId": "small",
+      "spanCount": 25,
+      "workerElapsedSeconds": 0.005823141,
+      "workerCpuSeconds": 0.005820692,
+      "rawSha256": "5ac3d8f5f6526a75bddfdfc8b7b7ea450de3a0008ca9b1c61bd2d619c85fc875",
+      "resultAndTraceExact": true,
+      "nestedIntervalsContained": true
+    },
+    {
+      "caseId": "medium",
+      "spanCount": 25,
+      "workerElapsedSeconds": 0.008403027,
+      "workerCpuSeconds": 0.00836506,
+      "rawSha256": "03b3b29f37d4d75c3ff2e33238de6d35ec59fbd8b830eedc5e4cd648cc2ba538",
+      "resultAndTraceExact": true,
+      "nestedIntervalsContained": true
+    },
+    {
+      "caseId": "large",
+      "spanCount": 25,
+      "workerElapsedSeconds": 0.050031625,
+      "workerCpuSeconds": 0.048048727,
+      "rawSha256": "918bbf05594d4c15a0cf4f3368f24266bf8776aa6cf9eeb85d75a50fe6415a1f",
+      "resultAndTraceExact": true,
+      "nestedIntervalsContained": true
+    }
+  ],
+  "scope": "Separate private monitor instrumentation of real run_job/IPC. Nanosecond wall and per-process CPU intervals; nested costs including routing overlap and must not be summed as independent totals. Original request/result/trace match public samples. Excluded from public throughput statistics. No full validation or historical authentication."
+}

@@ -1,0 +1,156 @@
+{
+  "schema": "py-elk-e06-component-source-review/v1",
+  "iteration": "E06",
+  "reviewer": "V",
+  "reviewedLane": "A",
+  "status": "ACCEPTED_UNDER_COMPONENT_GUARDS",
+  "createdUtc": "2026-11-03T07:47:17.500306+00:00",
+  "sourceDocument": {
+    "path": "references/e06-source-components-A.json",
+    "sha256": "375d8c5154897e884cd142b328872b1c11881407e0b6ff0a613d5d8cb3c50f54"
+  },
+  "approvedComponents": [
+    "intermediate:LongEdgeSplitter",
+    "intermediate:LongEdgeJoiner",
+    "import:json-to-layered",
+    "export:layered-to-json"
+  ],
+  "componentSeals": {
+    "intermediate:LongEdgeSplitter": "1e3c976fb7b26388f0c0d85b0ef2be1f0a032c3b32dc382a61387b2952005f89",
+    "intermediate:LongEdgeJoiner": "97cfc24335078777db63b1628916f99640354c9a9b6522724b66233e159f41f4",
+    "import:json-to-layered": "8c2e2f74070b2fcf149721ba36d75d02f0603906553b8e3f586d9cf7e3df35bc",
+    "export:layered-to-json": "2fdee2d7ba38c8a1b64189e88a809de34f1213adec382b717a5ae0bbdda384f9"
+  },
+  "componentEncoding": "UTF-8 JSON, sort_keys=True, ensure_ascii=True, separators=(comma,colon), no trailing newline",
+  "commonSourceContextSha256": "e9054c6ddfb15478df5676340a0237691b73daa450e564227b7147a67aa46a73",
+  "canonicalBindings": {
+    "sources": 3,
+    "spanOccurrences": 798,
+    "functionOffsetOccurrences": 761,
+    "staticCallEdges": 334,
+    "classification": "lexical source binding, not dynamic reachability/equivalence"
+  },
+  "bindingEvidence": {
+    "path": "test-runs/20261103-E06-01/V/source-A-transfer-final/report.json",
+    "sha256": "4e5a2d4fa11a9db870b16b9996d7b958ba3b2b62db72ba29ee263b637427c941"
+  },
+  "componentDependencies": {
+    "intermediate:LongEdgeSplitter": [
+      {
+        "componentId": "phase:NETWORK_SIMPLEX",
+        "canonicalComponentSha256": "4fce717cb395c50a15b693194dfe71e6df5575133179ad0aaf94b3de85f3a5bf",
+        "proofIds": [
+          "NS-G4-NORMALIZE-BALANCE",
+          "NS-G6-SPLIT-SCALE"
+        ]
+      },
+      {
+        "componentId": "graph:edge-reversal",
+        "canonicalComponentSha256": "f565ff9b0e92fef8a541675f1738f39bd9d7a9012da55aff4e542a49a6d55913"
+      }
+    ],
+    "intermediate:LongEdgeJoiner": [
+      {
+        "componentId": "intermediate:LongEdgeSplitter",
+        "canonicalComponentSha256": "1e3c976fb7b26388f0c0d85b0ef2be1f0a032c3b32dc382a61387b2952005f89"
+      },
+      {
+        "componentId": "intermediate:ReversedEdgeRestorer",
+        "canonicalComponentSha256": "3808ed1631500e267ffa1cfa2cc13083c9690577f5b30bc631703756336ef4f7"
+      }
+    ],
+    "import:json-to-layered": [],
+    "export:layered-to-json": [
+      {
+        "componentId": "intermediate:LongEdgeJoiner",
+        "canonicalComponentSha256": "97cfc24335078777db63b1628916f99640354c9a9b6522724b66233e159f41f4"
+      },
+      {
+        "componentId": "intermediate:SelfLoopPostProcessor",
+        "canonicalComponentSha256": "7a2c04c94f760b60253d0a29f71d44bf1f195e23774581cf56e71e8a2549a629"
+      },
+      {
+        "componentId": "intermediate:ReversedEdgeRestorer",
+        "canonicalComponentSha256": "3808ed1631500e267ffa1cfa2cc13083c9690577f5b30bc631703756336ef4f7"
+      }
+    ]
+  },
+  "checkedSemantics": [
+    {
+      "id": "SPLIT-FORWARD-REVERSED-MULTIPLICITY",
+      "checked": "Actual process35/splitEdge condition uses forward rank gap, counts every separately owned LEdge even equal endpoints, and decreases remaining gap1. Thickness default1, literal floor(thickness/2), independent two ports, first-vs-later dummy false presence and current-segment ORIGIN retained. Shallow property copy includes actual REVERSED bool/presence; only new segment JUNCTION key is removed. Approved NS typed proof bounds count raw repeated edges, <=168 dummies/176 nodes/196 segments/392 ports, not E05 simple-DAG64."
+    },
+    {
+      "id": "JOIN-IDENTITY-INDEXED-TARGET",
+      "checked": "Actual process34 and joinAt keep current incoming original segment, insert survivor at dropped final target index BEFORE detaching dropped source then target. Ordered layer iterator removes dummy. Fresh per-raw-edge port chains cannot consume a parallel sibling. Bend vectors are copied/appended in oriented chain order; survivor REVERSED remains for separately approved final restorer, detached flags are not reset by fiction."
+    },
+    {
+      "id": "JOIN-MUTABLE-JUNCTION",
+      "checked": "Inherited exact E05 getDefault/Cloneable4/getProperty materializes independently cloned empty KVectorChains on both join reads. JS empty objects stay truthy; Python must not use empty-list truth. Actual copy loop uses new vectors, shared copied property values not mutated via removing own map key. Explicit junctionHostProof references old E05 join support, whereas E06 componentDependencies bind the current join seal."
+    },
+    {
+      "id": "IMPORT-DEFAULT-UNMERGED",
+      "checked": "Typed immutable default-unmerged /claims artifact independently rechecked canonical23 spans/19UTF16. MERGE_EDGES=false/HYPERNODE=false and no public ports/sections prevent collectors and point reuse. Each raw edge including loop/repeat gets independent LEdge, ORIGIN, two fresh implicit0size ports, source-before-target append order. Equal owner adds SELF_LOOPS; repeated pairs alone cannot create HYPEREDGES because per-port degree1."
+    },
+    {
+      "id": "IMPORT-FREE-COPY-DFS",
+      "checked": "Actual prepareGraphForLayout28460 dynamic callback accept62 reaches copyPortConstraints28399-28405 for EVERY raw node, reading real FREE and writing ORIGINAL_PORT_CONSTRAINTS before processors. No nested recursion. Shallow split preserves SELF_LOOPS flag; incoming-before-outgoing DFS skips already-visited nodes but never drops repeated edges/ports or business/public array order. Loop-only singleton admits one weak component, no extra LNode allocated."
+    },
+    {
+      "id": "EXPORT-RESTORATION-DESCENDANT",
+      "checked": "Typed join/B SelfLoopPostProcessor/final restorer dependencies resolve exact current seals. Every original edge survives/restores once incl loop/parallel, own id_s0, original direction/JSON array order. Source isDescendant starts at getGraph(child).parentNode: flat null yields false even same-owner loop, so both real absolute anchors used. No coordinate-system origin means immutableZERO_OFFSET. No dedup or source/target business-array swapping."
+    },
+    {
+      "id": "EXPORT-REAL-WRITES",
+      "checked": "Layer cleanup, single-component combine, graph move and resize retain source operand/addition order, actual margins/padding and current port anchors/bends. Move/apply both get/materialize and offset junction objects even empty; only final JSON transfer conditionally emits nonempty points. Arbitrary nested business keys preserved; private REVERSED/CYCLIC/SELF_LOOPS/FREE do not leak into options. Optional host edge-denominator checks are not claimed as upstream Java checks."
+    }
+  ],
+  "inheritedArtifacts": [
+    {
+      "path": "references/e05-source-components-A.json",
+      "sha256": "b78adcc0ed6b665a1f1cde35d53b03ed8e9adfbf611e45e508619101754e8ec0"
+    },
+    {
+      "path": "references/e04-source-components-A.json",
+      "sha256": "680adba43629a854f8226039fe3a11e1beb4e755014bfee7077cf7a1b414a05b"
+    },
+    {
+      "path": "references/e04-source-components-B.json",
+      "sha256": "1760ed7b3ea09a6f369d27095cbfc26cb44feeeefd55ffe691372c5892947cff"
+    },
+    {
+      "path": "references/e06-default-unmerged.json",
+      "sha256": "55ab82b2158c84c7e0d5d651a58db841ac40accda6f7e8edfc0765c40498b5b2"
+    }
+  ],
+  "manualSourceCommands": [
+    {
+      "path": "test-runs/20261103-E06-01/V/source-A-transfer-canonical-crosslane.command.json",
+      "sha256": "587dea0bb467e4217bf0999afade485bc79f82b631785f7cf93e52ba1df44104"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/source-unmerged-canonical-independent.command.json",
+      "sha256": "f398bdc89da01cf162c30bbf2761a8f72e16594cae80fcf50575c0b6aca54f4e"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/source-import-preparation-actual.command.json",
+      "sha256": "23d4ee07317e184b3d9961d561d33e0d4421b12a24459d2f2e4e5f707cdb0462"
+    },
+    {
+      "path": "test-runs/20261103-E06-01/V/source-transfer-final-branches.command.json",
+      "sha256": "98052adc54acaac920c1214456fe99f2984031ad58f6ca0c2fe05dd7fa2aa0d5"
+    }
+  ],
+  "blockers": [],
+  "externalOpenDependencies": [
+    "Other E06 processors retain their own independently approved guarded source bindings. This review approves only these four components; runtime effects/public API/geometry/installed wheel remain separate acceptance."
+  ],
+  "limitations": [
+    "Canonical LF/UTF16/function/lexical bindings are executable byte checks, not automatic mathematical equivalence proof. Mathematical guard and def-use conclusions were separately reviewed.",
+    "Earlier private general audit assumed dependencies stayed in lane A and failed on correctly declared B SelfLoopPostProcessor; original failure preserved and cross-lane exact registry check passed. Earlier reader guessed missing dollar function name and failed; actual canonical ranges were inspected separately.",
+    "Exact Java provenance and overall release-license decision remain open. No Python/runtime acceptance derives from these source receipts."
+  ],
+  "nativeRuntimeAccepted": false,
+  "pythonAlgorithmsVerified": 0,
+  "wholeE06SourceGateApproved": false
+}

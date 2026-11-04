@@ -1,0 +1,49 @@
+{
+  "schema": "py-elk-layout-request/v1",
+  "constructor": {},
+  "layoutArguments": {
+    "logging": false,
+    "measureExecutionTime": false
+  },
+  "graph": {
+    "id": "root",
+    "layoutOptions": {
+      "elk.algorithm": "layered",
+      "elk.randomSeed": 41
+    },
+    "children": [
+      {
+        "id": "a",
+        "width": 30,
+        "height": 20
+      },
+      {
+        "id": "b",
+        "width": 30,
+        "height": 20
+      }
+    ],
+    "edges": [
+      {
+        "id": "labelEdge",
+        "sources": [
+          "a"
+        ],
+        "targets": [
+          "b"
+        ],
+        "labels": [
+          {
+            "id": "el",
+            "text": "edge",
+            "width": 44,
+            "height": 12,
+            "layoutOptions": {
+              "elk.edgeLabels.placement": "HEAD"
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

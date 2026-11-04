@@ -1,0 +1,538 @@
+{
+  "schema": "py-elk-next-source-checkpoint/v1",
+  "baseArchive": "migration/next-native/base-sources.zip",
+  "baseArchiveSha256": "f66853bc9f593227fd8613236c981cd3aba3f6ce44ef90123eba3cb49dc21a65",
+  "baseFilesSha256": {
+    "api.py": "d2de3ef7b62a75289a94598fd9bb1098a18ee09a79550d6e0165fcfcc734d594",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_errors.py": "f58aca6c430a46e54b43ff1686259e1fe848710dda97fb7f7d6775efc810f53e",
+    "_json.py": "74de32a3d22a0bc5cadc675c4f876a202e1558e880d4a9f0ad04b5ca38b83904",
+    "__init__.py": "b316c306c0dfcb8f882befc4ed98f2182ed92bbd9b5898c29d3975b19d70d98d",
+    "algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "execution/context.py": "a1bf799b8b445825ece774122a1ec97f49903edadd7b83d4738301aca5faa919",
+    "execution/diagnostics.py": "b49966eb7c5c269becafc85af6acac55bf00e27fbe8a6dcac9bd99713e7a88b5",
+    "execution/lifecycle.py": "c98ab0d9e9ef811cdf3f783fc3b1adfaecafe61c1a6a55a5c38335a95960495c",
+    "execution/README.md": "e858ab8894fb12df3b36e1437f0f1c47a29867d33541df8a8dc787fef921dcc1",
+    "execution/worker.py": "8df60ed13477d8167207005a109d143b38d989aef78dc4413565aaca6c2ddbce",
+    "execution/__init__.py": "41b825bccbafe56b8385555f8c44829c05682d6fab80e2dc647255fd6862c4b6",
+    "geometry/README.md": "f710ab95477f6916fa0657c21d916fa6c9ca2c290ff8e55051892d38add26a9d",
+    "metadata/README.md": "8e8f4b7d61d0386f785a2847530c75c171406fe61307f43387efab3b374fbead",
+    "metadata/_data.py": "3bbce9e12096f25f7b5cd2477ed86112b6a18284d3677564985c959f2db90020",
+    "metadata/__init__.py": "6d5986ed402bb071012fd0a9f625083c7e5d7b13dd95ef564ea81c2e35da699b",
+    "model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "model/README.md": "5f8d8efdc51eca3561bfa13fb98d528575802f59a651e842223f66e26b1ecdc8",
+    "model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "options/README.md": "05270ec78cec35b8f0f38c35bffec4202efaf3f4e06acf69ee185565aad421d2",
+    "options/resolution.py": "d346d47bfbc7fe52a38cb611e347008639627a75732cc526eda6b88f4e73a45c",
+    "options/schema.py": "f9b2da74d2db6d9a7ab7ceb05093e7aef16703a39bcc908d94e47318bb0e9c5e",
+    "options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "_licenses/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+    "_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+    "_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+    "_licenses/NOTICE-E08.md": "f3b682b5f62e1741896fb8ad7720401dd37b4f4615450a270454d628842c07a6",
+    "_licenses/NOTICE-E09.md": "a3cbd61ecabb02569d65fc79b8004c4d494f5740b2a04a0d7f3236fb28e43711",
+    "_licenses/NOTICE-GWT-Random.md": "e2507db5931bdeaf0e6103fede6cab1f0c0c797d1ae5f444b2950368b47dc170",
+    "_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6",
+    "_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "algorithms/layered/components.py": "0b9013203232d9f0ed8ac7f26462c3b79c46f20134bc6c6c1f45d83b177eb12e",
+    "algorithms/layered/crossing.py": "abc3bb47d06c93ed7441addb388dd0b94bef120fc334aa8836a81a496c15d088",
+    "algorithms/layered/cycles.py": "7261471481e3a1d7f3bfdb3972f437c28e652eab967e29e41bc0ca172a3813c7",
+    "algorithms/layered/directions.py": "f90ec7e1cfdd1b4d9fcd5b46a724d60cce01fbf1310276fe9610b6ab8d44f4ec",
+    "algorithms/layered/graph.py": "b3cb2df06f5a24199ab04c15314237a6a0c1f8cf0a9a4dd5460373fb332c8479",
+    "algorithms/layered/import_export.py": "bffef5bb08ef69a58fc0714b5582f122b36a798c26bba7ad61d528c6f831fa3e",
+    "algorithms/layered/layering.py": "9039206edadba253330d488e502ab81d385293753b7a1c8da609f8f5e3c5aae5",
+    "algorithms/layered/long_edges.py": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+    "algorithms/layered/loops.py": "1752c18adedbc9be5b34b441cf79f4a28bc1cafba89abf817eeadad5be977124",
+    "algorithms/layered/phases.py": "c085d5f3f87df8d02b0ca68407cf434973da2781c6d2682792d5f373e3774515",
+    "algorithms/layered/pipeline.py": "57b120a482e8101d9afc69f2f4d043185c2aca3c6175cc8756063b01271b7701",
+    "algorithms/layered/placement.py": "c01b01921f06d25c11ccf2a28cac3f357feee694d4d9b4540b10ddb907d75bf8",
+    "algorithms/layered/processors.py": "26eace9a6d51bc0ae5dd2868f5e83c7822f07d62df6a4ea41b3c16249c865587",
+    "algorithms/layered/README.md": "0cd74c45fea563f21b037d3fb674c7f52119f4556d4fab9b50f1cafab10da60d",
+    "algorithms/layered/routing.py": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75",
+    "algorithms/layered/scope.py": "a4d29a2329d606bdad0dee82608c3ef71a7eda5d68832d59ddd8151c3bc7db5c",
+    "algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9"
+  },
+  "overrides": {
+    "_json.py": {
+      "path": "migration/next-native/overrides/_json.py",
+      "sha256": "07a4d371fd953686c528ff367104753c5a1599bfa37e590f59f6649deefb785b"
+    },
+    "_licenses/NOTICE-GWT-Ports.md": {
+      "path": "migration/next-native/overrides/_licenses/NOTICE-GWT-Ports.md",
+      "sha256": "9f610d072e5f81765f77fb339fd127730892d74e688bf991b7fab77d00d99674"
+    },
+    "_licenses/NOTICE-Guava-DoubleMath.md": {
+      "path": "migration/next-native/overrides/_licenses/NOTICE-Guava-DoubleMath.md",
+      "sha256": "8e16ac5f8440439e46f552d5121d14a67a4a4570259cdf080e6abb3065665a78"
+    },
+    "algorithms/box.py": {
+      "path": "migration/next-native/overrides/algorithms/box.py",
+      "sha256": "d9c778d2f6f58f747c83c4c02933e2be05576c333e55c59d15cd46a8f452454a"
+    },
+    "algorithms/disco.py": {
+      "path": "migration/next-native/overrides/algorithms/disco.py",
+      "sha256": "0fe01db24a8af731330722b6cba25a17f731a13bf2ca7c1cd8b106148748066c"
+    },
+    "algorithms/fixed.py": {
+      "path": "migration/next-native/overrides/algorithms/fixed.py",
+      "sha256": "269a257636cb06705f578be3700291e4d802e7db8087b52e55d748580bb4c51d"
+    },
+    "algorithms/force.py": {
+      "path": "migration/next-native/overrides/algorithms/force.py",
+      "sha256": "ac02bbf04bae1d62e8db492091da63b9fa0ac59c703d2d2a566ff310605e9f30"
+    },
+    "algorithms/layered/all_crossings.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/all_crossings.py",
+      "sha256": "ed589962634ba292241b976632402e85c6f1ea50564df28236677dc8cb0da987"
+    },
+    "algorithms/layered/barycenter.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/barycenter.py",
+      "sha256": "c8f7490240d0d7727906e27caeddb3aab9a82870ba92da0e44e71655b2bf49af"
+    },
+    "algorithms/layered/barycenter_order.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/barycenter_order.py",
+      "sha256": "c6f269094ec9df25fb63513904eec6428d47556fde3e93978fc19f06fb12d1a0"
+    },
+    "algorithms/layered/cell_layout.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/cell_layout.py",
+      "sha256": "5722e8c129f4bd0d90c32b25ec7eab071e424c8874e4dbad86c0950a015d8790"
+    },
+    "algorithms/layered/crossing_counter.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/crossing_counter.py",
+      "sha256": "d743b7b14bb9505f62849bc598558468cf7d4a6da6a337bab32bd6116275dfc8"
+    },
+    "algorithms/layered/crossing_matrix.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/crossing_matrix.py",
+      "sha256": "13ae938a9044a7e38eb78edcbf85c0f431e8f0fb23f918e9d2f6233cfc46e3b0"
+    },
+    "algorithms/layered/cycles.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/cycles.py",
+      "sha256": "77c3b814c7093c1bc9fd28b6395be2c6e1e99200d2e03d3d6beecc9fd2f733e3"
+    },
+    "algorithms/layered/diagnostic_strings.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/diagnostic_strings.py",
+      "sha256": "21a290e76268ff7841a732896781ae2a956ac7c7a71eeb12dd9efb2e9b9ef795"
+    },
+    "algorithms/layered/directions.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/directions.py",
+      "sha256": "ee5eaf63aa95309f1cfad9a35b1aac38c0ea3932904cf6dc72a2ac04bfef9d49"
+    },
+    "algorithms/layered/forster_constraints.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/forster_constraints.py",
+      "sha256": "8669e295715a378c37c5c3dccccd777dc02ddee453890e17bee21933d6aa416b"
+    },
+    "algorithms/layered/graph.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/graph.py",
+      "sha256": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d"
+    },
+    "algorithms/layered/graph_info.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/graph_info.py",
+      "sha256": "d2558b705111d3eecbcad0e8e91f55f40a74d891983f166c91693cf51d28c54d"
+    },
+    "algorithms/layered/greedy_port_distribution.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/greedy_port_distribution.py",
+      "sha256": "b66fec62b9078682f2b571e0c16b3d1e87feb74cde0db2fcceac59485dfcd827"
+    },
+    "algorithms/layered/greedy_switch.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/greedy_switch.py",
+      "sha256": "2fe52af8600a7814503745dd1058c55ececc753a4f34bf6b1e9132021261761b"
+    },
+    "algorithms/layered/hyperedge_crossings.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/hyperedge_crossings.py",
+      "sha256": "00fbf431722196f1fedc17e6a8bc7ac797d11dbf865bd601d48cbad32d0bce69"
+    },
+    "algorithms/layered/hyperedge_merger.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/hyperedge_merger.py",
+      "sha256": "f06c8cef5fc294f05319fc46547c8aace7579b6ba4b6f760ae121afd7ba36958"
+    },
+    "algorithms/layered/import_export.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/import_export.py",
+      "sha256": "26a9e28c25ad740a13d5846e31d7b2adc6b766ec447a76d148d230cf213279c4"
+    },
+    "algorithms/layered/input_model_sort.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/input_model_sort.py",
+      "sha256": "e0d5603a1bf3efe1fc467a2ebc85f7acfd967e0db2c179f24c28c7bd47c2be64"
+    },
+    "algorithms/layered/integer_box_tokens.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/integer_box_tokens.py",
+      "sha256": "d792310af88e41fd65a5dff7f77373da0cb1657407af651ab7729dc13a234100"
+    },
+    "algorithms/layered/inverted_ports.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/inverted_ports.py",
+      "sha256": "2dd2e0363e69b78dd3ec0e3a84cf6e60d6486ff2bd7037a385c60f41f72b7627"
+    },
+    "algorithms/layered/layer_sweep.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/layer_sweep.py",
+      "sha256": "b1dfbeca8df2bf4238063ef2fb14160bdd400198067fffc57a248cc4bbba593c"
+    },
+    "algorithms/layered/median_order.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/median_order.py",
+      "sha256": "a67e5184a40eb09b84faa0bcd7d504123250e792a149d0649fb2cac4219ed93d"
+    },
+    "algorithms/layered/model_order_barycenter.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/model_order_barycenter.py",
+      "sha256": "b17c45fe670184ff2ad6a2328eed29e996137b70fc6a442fd51f5315345af319"
+    },
+    "algorithms/layered/model_order_cost.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/model_order_cost.py",
+      "sha256": "c60cfba24a46a8874b6e18d3a605ff76df1d34e783477d89bc4664b4fd0c7c7a"
+    },
+    "algorithms/layered/model_order_import.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/model_order_import.py",
+      "sha256": "14b3b2e6757c13763f2c2e0f1389512ba2369b2a8ce68b9d078237117b454713"
+    },
+    "algorithms/layered/model_order_nodes.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/model_order_nodes.py",
+      "sha256": "38966864e446de4f03d6254f4a72464b86c35dcba4c1976390144b6ea56c4a32"
+    },
+    "algorithms/layered/model_order_ports.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/model_order_ports.py",
+      "sha256": "bb6307831f1bbdc9238b6f64c4b6e85453bbdf1f9302a618e959617a8d5afa9c"
+    },
+    "algorithms/layered/model_order_targets.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/model_order_targets.py",
+      "sha256": "f400646ed0f21c412edff3fd8ac0998fa43cd7e6c24ef57c5573985bc6bafd86"
+    },
+    "algorithms/layered/node_size.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/node_size.py",
+      "sha256": "986caba11f52dbecfb972c13dc0788840933cb1db18dcbc9846bb777b5d3008d"
+    },
+    "algorithms/layered/node_size_cells.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/node_size_cells.py",
+      "sha256": "decb0e95f0847a2fec8e7d4234f559986ad08566fdcce14c570645111cfd69d1"
+    },
+    "algorithms/layered/node_size_math.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/node_size_math.py",
+      "sha256": "3b3e4ccb55d71d891c489355675f23c42b1bc9b399c8d15e9d3ae3ad9953cc03"
+    },
+    "algorithms/layered/node_size_process.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/node_size_process.py",
+      "sha256": "ae64d268af49b49a4be561d178e837513b7dcc58bc610412281631f3af5b53f6"
+    },
+    "algorithms/layered/north_south_ports.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/north_south_ports.py",
+      "sha256": "9b373d8ac41d7b0c2f7b65058f4bfe671bc4d6712c433d176bdde76856fce2a2"
+    },
+    "algorithms/layered/ns_neighbor_crossings.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/ns_neighbor_crossings.py",
+      "sha256": "76829187781211c7da598c274dc5f6de9f74a5ec961a3b5fee49d28176e4dc58"
+    },
+    "algorithms/layered/port_distribution.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/port_distribution.py",
+      "sha256": "2f4e95818c784dd1f8ad38526ed5cb733d3effecf036102957fee743bfc0518e"
+    },
+    "algorithms/layered/port_label_placement.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/port_label_placement.py",
+      "sha256": "c2e816104d23b63be7bd270db8962fc2e2e3350518c60974fbea35492168a334"
+    },
+    "algorithms/layered/port_ranks.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/port_ranks.py",
+      "sha256": "90de5432bdc079e8a1b0b36fcc57cdcdff0b8849be17d533a627569141c3f5c9"
+    },
+    "algorithms/layered/ports.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/ports.py",
+      "sha256": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18"
+    },
+    "algorithms/layered/processors.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/processors.py",
+      "sha256": "7a6afd6a5fddb59ec65ee699c9646ed91b4553905120509319ab363c010ce032"
+    },
+    "algorithms/layered/property_access.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/property_access.py",
+      "sha256": "3c66538bd60f1c904714cd33a77811e21586592e6a80ac4810113b8326312417"
+    },
+    "algorithms/layered/scope.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/scope.py",
+      "sha256": "06726d1c824d74e3cf9ef253f455842433f219dcc1877c0c702837701bc132f9"
+    },
+    "algorithms/layered/sweep_copy.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/sweep_copy.py",
+      "sha256": "b360139dd972c0f369ce3d1dad06918bfaa372936be5b01b88eef96e68370665"
+    },
+    "algorithms/layered/sweep_type.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/sweep_type.py",
+      "sha256": "ba44ba88fd93bb21e8fa374ade10530835cacdbf07026debdd349e9168f05864"
+    },
+    "algorithms/layered/switch_decider.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/switch_decider.py",
+      "sha256": "36c442d8b19b259921563e41d2e7ed4c32de6c177e44f383e84373384117cc4b"
+    },
+    "algorithms/layered/two_node_crossings.py": {
+      "path": "migration/next-native/overrides/algorithms/layered/two_node_crossings.py",
+      "sha256": "5d9bcaf83fa9059f77c2d41fa07405723fa5981067103561f894fad511ca3c89"
+    },
+    "algorithms/mrtree.py": {
+      "path": "migration/next-native/overrides/algorithms/mrtree.py",
+      "sha256": "36c83ecf7b8a648770dc758c72127d6abdece5f6ae1bbbd4c2c6102c8fe25bd7"
+    },
+    "algorithms/polyomino.py": {
+      "path": "migration/next-native/overrides/algorithms/polyomino.py",
+      "sha256": "c1bb61c0531e0bcf755caafb911ce06e0fffd5095968365ce4eb614b2928b750"
+    },
+    "algorithms/radial.py": {
+      "path": "migration/next-native/overrides/algorithms/radial.py",
+      "sha256": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7"
+    },
+    "algorithms/random.py": {
+      "path": "migration/next-native/overrides/algorithms/random.py",
+      "sha256": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d"
+    },
+    "algorithms/rectpacking.py": {
+      "path": "migration/next-native/overrides/algorithms/rectpacking.py",
+      "sha256": "3384b8fe9832e776806cc7941fdc96a37533c9063912c79b44615d1c0deddead"
+    },
+    "algorithms/spore.py": {
+      "path": "migration/next-native/overrides/algorithms/spore.py",
+      "sha256": "f03e88709f36620c4553448d6591dde514d744e98233f968d70a5a056308f8b6"
+    },
+    "algorithms/stress.py": {
+      "path": "migration/next-native/overrides/algorithms/stress.py",
+      "sha256": "e214e3c0bdd08cb772e2037b4d0d7e4fdc05b3a2e8efc421af53163d566bcb33"
+    },
+    "algorithms/triangulation.py": {
+      "path": "migration/next-native/overrides/algorithms/triangulation.py",
+      "sha256": "1b484285cacb94f22cd9a2da593fd209efbfcc152991e83f80afaf0c5cf25fd5"
+    },
+    "execution/context.py": {
+      "path": "migration/next-native/overrides/execution/context.py",
+      "sha256": "38083e81bfb634856d64eaac115ea4a26c2820ebb49286a3dae0605f4c1ee1b5"
+    },
+    "execution/deprecated.py": {
+      "path": "migration/next-native/overrides/execution/deprecated.py",
+      "sha256": "2a3a7299b97e85794d1cc27cbd79146a9555120bb3fca66486d45796c9edd55a"
+    },
+    "execution/diagnostics.py": {
+      "path": "migration/next-native/overrides/execution/diagnostics.py",
+      "sha256": "4eab4b5ee115c25ed4b1c35da4074aa3b454f9070ab0940b2b3843d5295810cc"
+    },
+    "execution/entropy.py": {
+      "path": "migration/next-native/overrides/execution/entropy.py",
+      "sha256": "d462d3aa5c4b4b4586039de98c361dedb50fd6686cf872892178659b1cd902b7"
+    },
+    "execution/identity.py": {
+      "path": "migration/next-native/overrides/execution/identity.py",
+      "sha256": "cef88995b829792c1725b4fe33a0c60988a03bfbe9f67ccdad108d70a173128b"
+    },
+    "execution/inside_self_loops.py": {
+      "path": "migration/next-native/overrides/execution/inside_self_loops.py",
+      "sha256": "c1b8e3def109607d944f36556ac738f632f1c0857957528db8317919d7f574fb"
+    },
+    "execution/json_transfer.py": {
+      "path": "migration/next-native/overrides/execution/json_transfer.py",
+      "sha256": "6196a2f589c317dda8f60ee9c0734e68864a7ea71bad86286ed8192a4bc2eaae"
+    },
+    "execution/local_properties.py": {
+      "path": "migration/next-native/overrides/execution/local_properties.py",
+      "sha256": "b41422fb494246db93992fc74f95ec251be70fe0756da48c464f040bc9ca6284"
+    },
+    "execution/node_micro.py": {
+      "path": "migration/next-native/overrides/execution/node_micro.py",
+      "sha256": "7d9bfe459a644b3edcd55b9537eb77be4bf2fd948e3a27ee37ed2ac8c74b8bfb"
+    },
+    "execution/pools.py": {
+      "path": "migration/next-native/overrides/execution/pools.py",
+      "sha256": "530b5cdd98012e45e10a014c81ccab9be9520a9223ebf18eff4d7b103ff10bc5"
+    },
+    "execution/properties.py": {
+      "path": "migration/next-native/overrides/execution/properties.py",
+      "sha256": "20eac79257404633094f84f138bce1d7a582071424f9059ec6040139ea4373d2"
+    },
+    "execution/providers.py": {
+      "path": "migration/next-native/overrides/execution/providers.py",
+      "sha256": "ef99fedc5856c49d201ef1306205753334e4791ce387663332f2f3e03d71f609"
+    },
+    "execution/recursive.py": {
+      "path": "migration/next-native/overrides/execution/recursive.py",
+      "sha256": "0a57733135cada4b11632526e0ea8c32b945982363b46f44cfd4b4476974b030"
+    },
+    "execution/recursive_helpers.py": {
+      "path": "migration/next-native/overrides/execution/recursive_helpers.py",
+      "sha256": "40e73a8a9f0dd931ac309d2a1beeeb12f97159d8176ba5a414e22c1f74a995ab"
+    },
+    "execution/resolver.py": {
+      "path": "migration/next-native/overrides/execution/resolver.py",
+      "sha256": "feb37ea030e9c7b77eb7032801e24e7038fafeddc8acb5d557202158134e6ef8"
+    },
+    "execution/visitors.py": {
+      "path": "migration/next-native/overrides/execution/visitors.py",
+      "sha256": "f78dd17450a02f3f5120d0dd27b423a265f422a7b515186dbebcd542942bfbfd"
+    },
+    "metadata/_feature_data.py": {
+      "path": "migration/next-native/overrides/metadata/_feature_data.py",
+      "sha256": "939cc6eed908ab436b11bd6780717109e04a994ae97c2d0ca700f8df5fbe2b3c"
+    },
+    "options/_core_defaults.py": {
+      "path": "migration/next-native/overrides/options/_core_defaults.py",
+      "sha256": "2f1ed27cd08c54e8655d214362a2bc708afdd0d87a04a9b47ccf91f8469a5fa9"
+    },
+    "options/_generic_data.py": {
+      "path": "migration/next-native/overrides/options/_generic_data.py",
+      "sha256": "07b1c8899f1e8fb039e03d5e7c2953cfab8a1422d80774c1cca335a831191107"
+    },
+    "options/_object_data.py": {
+      "path": "migration/next-native/overrides/options/_object_data.py",
+      "sha256": "2123bff9108f27fe257864b4ac01d0941bb25b4b60afc13ad13e5eacfca19a2b"
+    },
+    "options/_owner_data.py": {
+      "path": "migration/next-native/overrides/options/_owner_data.py",
+      "sha256": "f13be99c4e1c75ceaf29d81f45caddda6bee65e439d19a72ba6a3a4b82e8d8fc"
+    },
+    "options/element.py": {
+      "path": "migration/next-native/overrides/options/element.py",
+      "sha256": "cbb4acaa90728c8935bad73e1ffef8f9605bb1b9b8600f5f3db80e71467acaeb"
+    },
+    "options/generic.py": {
+      "path": "migration/next-native/overrides/options/generic.py",
+      "sha256": "de185bf76c59ca8b6938c7098081226951f4bb01eaf12ca311190f96d9307a5f"
+    },
+    "options/owners.py": {
+      "path": "migration/next-native/overrides/options/owners.py",
+      "sha256": "60a05b434de9802b4fd2b1d5511f8b230413ddf6b65efd70e096380ff007a795"
+    },
+    "options/resolution.py": {
+      "path": "migration/next-native/overrides/options/resolution.py",
+      "sha256": "c9783bd37ef64d333240bf0f5297d1e589e27cb09a88f4c179ffd3a0fbb8df5b"
+    },
+    "options/schema.py": {
+      "path": "migration/next-native/overrides/options/schema.py",
+      "sha256": "950234e95efd599b1d6a7d31cfa9051523502138563af075013d0d32f7bd38d4"
+    }
+  },
+  "removed": [],
+  "sourceFiles": 126,
+  "sourceTreeSha256": {
+    "api.py": "d2de3ef7b62a75289a94598fd9bb1098a18ee09a79550d6e0165fcfcc734d594",
+    "py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "_errors.py": "f58aca6c430a46e54b43ff1686259e1fe848710dda97fb7f7d6775efc810f53e",
+    "_json.py": "07a4d371fd953686c528ff367104753c5a1599bfa37e590f59f6649deefb785b",
+    "__init__.py": "b316c306c0dfcb8f882befc4ed98f2182ed92bbd9b5898c29d3975b19d70d98d",
+    "algorithms/box.py": "d9c778d2f6f58f747c83c4c02933e2be05576c333e55c59d15cd46a8f452454a",
+    "algorithms/disco.py": "0fe01db24a8af731330722b6cba25a17f731a13bf2ca7c1cd8b106148748066c",
+    "algorithms/fixed.py": "269a257636cb06705f578be3700291e4d802e7db8087b52e55d748580bb4c51d",
+    "algorithms/force.py": "ac02bbf04bae1d62e8db492091da63b9fa0ac59c703d2d2a566ff310605e9f30",
+    "algorithms/mrtree.py": "36c83ecf7b8a648770dc758c72127d6abdece5f6ae1bbbd4c2c6102c8fe25bd7",
+    "algorithms/polyomino.py": "c1bb61c0531e0bcf755caafb911ce06e0fffd5095968365ce4eb614b2928b750",
+    "algorithms/radial.py": "3206d6094ebc91b754e19498ca3f071d08d3231140a8367e989a5cb06e1b6cc7",
+    "algorithms/random.py": "078081bbe0c282143658f50ea8b92b28bcf68a8791690d3233216099d1ba857d",
+    "algorithms/rectpacking.py": "3384b8fe9832e776806cc7941fdc96a37533c9063912c79b44615d1c0deddead",
+    "algorithms/spore.py": "f03e88709f36620c4553448d6591dde514d744e98233f968d70a5a056308f8b6",
+    "algorithms/stress.py": "e214e3c0bdd08cb772e2037b4d0d7e4fdc05b3a2e8efc421af53163d566bcb33",
+    "algorithms/triangulation.py": "1b484285cacb94f22cd9a2da593fd209efbfcc152991e83f80afaf0c5cf25fd5",
+    "algorithms/__init__.py": "4110be89ce944aee5a8daf6ac89b37bf0ac294d6c81a9e75b5e0d34d796d7974",
+    "execution/context.py": "38083e81bfb634856d64eaac115ea4a26c2820ebb49286a3dae0605f4c1ee1b5",
+    "execution/deprecated.py": "2a3a7299b97e85794d1cc27cbd79146a9555120bb3fca66486d45796c9edd55a",
+    "execution/diagnostics.py": "4eab4b5ee115c25ed4b1c35da4074aa3b454f9070ab0940b2b3843d5295810cc",
+    "execution/entropy.py": "d462d3aa5c4b4b4586039de98c361dedb50fd6686cf872892178659b1cd902b7",
+    "execution/identity.py": "cef88995b829792c1725b4fe33a0c60988a03bfbe9f67ccdad108d70a173128b",
+    "execution/inside_self_loops.py": "c1b8e3def109607d944f36556ac738f632f1c0857957528db8317919d7f574fb",
+    "execution/json_transfer.py": "6196a2f589c317dda8f60ee9c0734e68864a7ea71bad86286ed8192a4bc2eaae",
+    "execution/lifecycle.py": "c98ab0d9e9ef811cdf3f783fc3b1adfaecafe61c1a6a55a5c38335a95960495c",
+    "execution/local_properties.py": "b41422fb494246db93992fc74f95ec251be70fe0756da48c464f040bc9ca6284",
+    "execution/node_micro.py": "7d9bfe459a644b3edcd55b9537eb77be4bf2fd948e3a27ee37ed2ac8c74b8bfb",
+    "execution/pools.py": "530b5cdd98012e45e10a014c81ccab9be9520a9223ebf18eff4d7b103ff10bc5",
+    "execution/properties.py": "20eac79257404633094f84f138bce1d7a582071424f9059ec6040139ea4373d2",
+    "execution/providers.py": "ef99fedc5856c49d201ef1306205753334e4791ce387663332f2f3e03d71f609",
+    "execution/README.md": "e858ab8894fb12df3b36e1437f0f1c47a29867d33541df8a8dc787fef921dcc1",
+    "execution/recursive.py": "0a57733135cada4b11632526e0ea8c32b945982363b46f44cfd4b4476974b030",
+    "execution/recursive_helpers.py": "40e73a8a9f0dd931ac309d2a1beeeb12f97159d8176ba5a414e22c1f74a995ab",
+    "execution/resolver.py": "feb37ea030e9c7b77eb7032801e24e7038fafeddc8acb5d557202158134e6ef8",
+    "execution/visitors.py": "f78dd17450a02f3f5120d0dd27b423a265f422a7b515186dbebcd542942bfbfd",
+    "execution/worker.py": "8df60ed13477d8167207005a109d143b38d989aef78dc4413565aaca6c2ddbce",
+    "execution/__init__.py": "41b825bccbafe56b8385555f8c44829c05682d6fab80e2dc647255fd6862c4b6",
+    "geometry/README.md": "f710ab95477f6916fa0657c21d916fa6c9ca2c290ff8e55051892d38add26a9d",
+    "metadata/README.md": "8e8f4b7d61d0386f785a2847530c75c171406fe61307f43387efab3b374fbead",
+    "metadata/_data.py": "3bbce9e12096f25f7b5cd2477ed86112b6a18284d3677564985c959f2db90020",
+    "metadata/_feature_data.py": "939cc6eed908ab436b11bd6780717109e04a994ae97c2d0ca700f8df5fbe2b3c",
+    "metadata/__init__.py": "6d5986ed402bb071012fd0a9f625083c7e5d7b13dd95ef564ea81c2e35da699b",
+    "model/ordered.py": "54349ad5aaf8728bb8d0dafed25a859087ed9bf1f48a93131457d975393708df",
+    "model/README.md": "5f8d8efdc51eca3561bfa13fb98d528575802f59a651e842223f66e26b1ecdc8",
+    "model/__init__.py": "fed270c96b6f4fbfa1e63368f38a8674c043d70d6a91e21b49256711942fe330",
+    "options/element.py": "cbb4acaa90728c8935bad73e1ffef8f9605bb1b9b8600f5f3db80e71467acaeb",
+    "options/generic.py": "de185bf76c59ca8b6938c7098081226951f4bb01eaf12ca311190f96d9307a5f",
+    "options/owners.py": "60a05b434de9802b4fd2b1d5511f8b230413ddf6b65efd70e096380ff007a795",
+    "options/README.md": "05270ec78cec35b8f0f38c35bffec4202efaf3f4e06acf69ee185565aad421d2",
+    "options/resolution.py": "c9783bd37ef64d333240bf0f5297d1e589e27cb09a88f4c179ffd3a0fbb8df5b",
+    "options/schema.py": "950234e95efd599b1d6a7d31cfa9051523502138563af075013d0d32f7bd38d4",
+    "options/_catalogue.py": "89658f06b0d32a61a4d6c83a37cd1f4cf818642f1582830eef05005fc548c656",
+    "options/_core_defaults.py": "2f1ed27cd08c54e8655d214362a2bc708afdd0d87a04a9b47ccf91f8469a5fa9",
+    "options/_generic_data.py": "07b1c8899f1e8fb039e03d5e7c2953cfab8a1422d80774c1cca335a831191107",
+    "options/_object_data.py": "2123bff9108f27fe257864b4ac01d0941bb25b4b60afc13ad13e5eacfca19a2b",
+    "options/_owner_data.py": "f13be99c4e1c75ceaf29d81f45caddda6bee65e439d19a72ba6a3a4b82e8d8fc",
+    "options/__init__.py": "cc18b9a270ffebdf29586ef62de1561eca24f9c09ecd15b2e3dc9eb2eb9a413b",
+    "_licenses/Apache-2.0.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "_licenses/elkjs-LICENSE.md": "637e81f4a1b6b4079535c499fca05e238cf7605c1ff5b76d60d7da7ce96700c9",
+    "_licenses/NOTICE-E05.md": "db8b3b0213999ebfddf7e8dbb358864038274156528b447ba56ef47bab549807",
+    "_licenses/NOTICE-E06.md": "9635aa08b74e73edb2a6ce80c90a1be05185b598426981cc924d2b195ac57858",
+    "_licenses/NOTICE-E07.md": "fe579f603786b6813ace273cd02536db139bbf97bb7b951454a98854ed7870ef",
+    "_licenses/NOTICE-E08.md": "f3b682b5f62e1741896fb8ad7720401dd37b4f4615450a270454d628842c07a6",
+    "_licenses/NOTICE-E09.md": "a3cbd61ecabb02569d65fc79b8004c4d494f5740b2a04a0d7f3236fb28e43711",
+    "_licenses/NOTICE-Guava-DoubleMath.md": "8e16ac5f8440439e46f552d5121d14a67a4a4570259cdf080e6abb3065665a78",
+    "_licenses/NOTICE-GWT-Ports.md": "9f610d072e5f81765f77fb339fd127730892d74e688bf991b7fab77d00d99674",
+    "_licenses/NOTICE-GWT-Random.md": "e2507db5931bdeaf0e6103fede6cab1f0c0c797d1ae5f444b2950368b47dc170",
+    "_licenses/NOTICE.md": "ede5bce9ab6ed6577a9db063fb3248d40ffb6b1cc6e0d83c1f79f1ce21674db6",
+    "_licenses/__init__.py": "0cea9082fb0509664a6c0fca92f2454e1a289e21a93e1672e791f9e41e33c4a8",
+    "algorithms/layered/all_crossings.py": "ed589962634ba292241b976632402e85c6f1ea50564df28236677dc8cb0da987",
+    "algorithms/layered/barycenter.py": "c8f7490240d0d7727906e27caeddb3aab9a82870ba92da0e44e71655b2bf49af",
+    "algorithms/layered/barycenter_order.py": "c6f269094ec9df25fb63513904eec6428d47556fde3e93978fc19f06fb12d1a0",
+    "algorithms/layered/cell_layout.py": "5722e8c129f4bd0d90c32b25ec7eab071e424c8874e4dbad86c0950a015d8790",
+    "algorithms/layered/components.py": "0b9013203232d9f0ed8ac7f26462c3b79c46f20134bc6c6c1f45d83b177eb12e",
+    "algorithms/layered/crossing.py": "abc3bb47d06c93ed7441addb388dd0b94bef120fc334aa8836a81a496c15d088",
+    "algorithms/layered/crossing_counter.py": "d743b7b14bb9505f62849bc598558468cf7d4a6da6a337bab32bd6116275dfc8",
+    "algorithms/layered/crossing_matrix.py": "13ae938a9044a7e38eb78edcbf85c0f431e8f0fb23f918e9d2f6233cfc46e3b0",
+    "algorithms/layered/cycles.py": "77c3b814c7093c1bc9fd28b6395be2c6e1e99200d2e03d3d6beecc9fd2f733e3",
+    "algorithms/layered/diagnostic_strings.py": "21a290e76268ff7841a732896781ae2a956ac7c7a71eeb12dd9efb2e9b9ef795",
+    "algorithms/layered/directions.py": "ee5eaf63aa95309f1cfad9a35b1aac38c0ea3932904cf6dc72a2ac04bfef9d49",
+    "algorithms/layered/forster_constraints.py": "8669e295715a378c37c5c3dccccd777dc02ddee453890e17bee21933d6aa416b",
+    "algorithms/layered/graph.py": "c1987d704d0c6d5df00146c5c002c4e304b07b3bef6c5cd13a5de6275d5f9f3d",
+    "algorithms/layered/graph_info.py": "d2558b705111d3eecbcad0e8e91f55f40a74d891983f166c91693cf51d28c54d",
+    "algorithms/layered/greedy_port_distribution.py": "b66fec62b9078682f2b571e0c16b3d1e87feb74cde0db2fcceac59485dfcd827",
+    "algorithms/layered/greedy_switch.py": "2fe52af8600a7814503745dd1058c55ececc753a4f34bf6b1e9132021261761b",
+    "algorithms/layered/hyperedge_crossings.py": "00fbf431722196f1fedc17e6a8bc7ac797d11dbf865bd601d48cbad32d0bce69",
+    "algorithms/layered/hyperedge_merger.py": "f06c8cef5fc294f05319fc46547c8aace7579b6ba4b6f760ae121afd7ba36958",
+    "algorithms/layered/import_export.py": "26a9e28c25ad740a13d5846e31d7b2adc6b766ec447a76d148d230cf213279c4",
+    "algorithms/layered/input_model_sort.py": "e0d5603a1bf3efe1fc467a2ebc85f7acfd967e0db2c179f24c28c7bd47c2be64",
+    "algorithms/layered/integer_box_tokens.py": "d792310af88e41fd65a5dff7f77373da0cb1657407af651ab7729dc13a234100",
+    "algorithms/layered/inverted_ports.py": "2dd2e0363e69b78dd3ec0e3a84cf6e60d6486ff2bd7037a385c60f41f72b7627",
+    "algorithms/layered/layering.py": "9039206edadba253330d488e502ab81d385293753b7a1c8da609f8f5e3c5aae5",
+    "algorithms/layered/layer_sweep.py": "b1dfbeca8df2bf4238063ef2fb14160bdd400198067fffc57a248cc4bbba593c",
+    "algorithms/layered/long_edges.py": "8a3caac5a6018e8de4e9edb2242b7aa97604f1b1ed4afb95b5194b816d88e4fd",
+    "algorithms/layered/loops.py": "1752c18adedbc9be5b34b441cf79f4a28bc1cafba89abf817eeadad5be977124",
+    "algorithms/layered/median_order.py": "a67e5184a40eb09b84faa0bcd7d504123250e792a149d0649fb2cac4219ed93d",
+    "algorithms/layered/model_order_barycenter.py": "b17c45fe670184ff2ad6a2328eed29e996137b70fc6a442fd51f5315345af319",
+    "algorithms/layered/model_order_cost.py": "c60cfba24a46a8874b6e18d3a605ff76df1d34e783477d89bc4664b4fd0c7c7a",
+    "algorithms/layered/model_order_import.py": "14b3b2e6757c13763f2c2e0f1389512ba2369b2a8ce68b9d078237117b454713",
+    "algorithms/layered/model_order_nodes.py": "38966864e446de4f03d6254f4a72464b86c35dcba4c1976390144b6ea56c4a32",
+    "algorithms/layered/model_order_ports.py": "bb6307831f1bbdc9238b6f64c4b6e85453bbdf1f9302a618e959617a8d5afa9c",
+    "algorithms/layered/model_order_targets.py": "f400646ed0f21c412edff3fd8ac0998fa43cd7e6c24ef57c5573985bc6bafd86",
+    "algorithms/layered/node_size.py": "986caba11f52dbecfb972c13dc0788840933cb1db18dcbc9846bb777b5d3008d",
+    "algorithms/layered/node_size_cells.py": "decb0e95f0847a2fec8e7d4234f559986ad08566fdcce14c570645111cfd69d1",
+    "algorithms/layered/node_size_math.py": "3b3e4ccb55d71d891c489355675f23c42b1bc9b399c8d15e9d3ae3ad9953cc03",
+    "algorithms/layered/node_size_process.py": "ae64d268af49b49a4be561d178e837513b7dcc58bc610412281631f3af5b53f6",
+    "algorithms/layered/north_south_ports.py": "9b373d8ac41d7b0c2f7b65058f4bfe671bc4d6712c433d176bdde76856fce2a2",
+    "algorithms/layered/ns_neighbor_crossings.py": "76829187781211c7da598c274dc5f6de9f74a5ec961a3b5fee49d28176e4dc58",
+    "algorithms/layered/phases.py": "c085d5f3f87df8d02b0ca68407cf434973da2781c6d2682792d5f373e3774515",
+    "algorithms/layered/pipeline.py": "57b120a482e8101d9afc69f2f4d043185c2aca3c6175cc8756063b01271b7701",
+    "algorithms/layered/placement.py": "c01b01921f06d25c11ccf2a28cac3f357feee694d4d9b4540b10ddb907d75bf8",
+    "algorithms/layered/ports.py": "72b7eece3a466a29c35f8b43397002ba96df1698d0dcb73d4558d12c5bd2ca18",
+    "algorithms/layered/port_distribution.py": "2f4e95818c784dd1f8ad38526ed5cb733d3effecf036102957fee743bfc0518e",
+    "algorithms/layered/port_label_placement.py": "c2e816104d23b63be7bd270db8962fc2e2e3350518c60974fbea35492168a334",
+    "algorithms/layered/port_ranks.py": "90de5432bdc079e8a1b0b36fcc57cdcdff0b8849be17d533a627569141c3f5c9",
+    "algorithms/layered/processors.py": "7a6afd6a5fddb59ec65ee699c9646ed91b4553905120509319ab363c010ce032",
+    "algorithms/layered/property_access.py": "3c66538bd60f1c904714cd33a77811e21586592e6a80ac4810113b8326312417",
+    "algorithms/layered/README.md": "0cd74c45fea563f21b037d3fb674c7f52119f4556d4fab9b50f1cafab10da60d",
+    "algorithms/layered/routing.py": "8eb53efd30a59e60ff3aff27d2ea21e0f844bdf427b4c1d5f8eeb87e4b76da75",
+    "algorithms/layered/scope.py": "06726d1c824d74e3cf9ef253f455842433f219dcc1877c0c702837701bc132f9",
+    "algorithms/layered/sweep_copy.py": "b360139dd972c0f369ce3d1dad06918bfaa372936be5b01b88eef96e68370665",
+    "algorithms/layered/sweep_type.py": "ba44ba88fd93bb21e8fa374ade10530835cacdbf07026debdd349e9168f05864",
+    "algorithms/layered/switch_decider.py": "36c442d8b19b259921563e41d2e7ed4c32de6c177e44f383e84373384117cc4b",
+    "algorithms/layered/two_node_crossings.py": "5d9bcaf83fa9059f77c2d41fa07405723fa5981067103561f894fad511ca3c89",
+    "algorithms/layered/__init__.py": "0787a1377ca5255667dd69065d3aeaddf6f73369a106fa5d60eb60342d9836a9"
+  },
+  "fullValidation": false,
+  "algorithmAccepted": false,
+  "publicAPIIntegrated": false,
+  "packagePublished": false
+}

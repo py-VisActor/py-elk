@@ -1,0 +1,22 @@
+const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),Module=require('node:module');
+const [pkgArg,requestPath,outPath]=process.argv.slice(2),pkg=path.resolve(pkgArg),worker=path.join(pkg,'lib/elk-worker.js'),sha=b=>crypto.createHash('sha256').update(b).digest('hex'),raw=fs.readFileSync(worker),request=JSON.parse(fs.readFileSync(requestPath));
+if(sha(raw)!=='275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86')throw Error('worker differs');
+const bridge=String.raw`
+global.__splineGap=function(request){
+ $clinit_LayeredOptions();$clinit_InternalProperties_1();$clinit_LNode$NodeType();$clinit_PortSide();$clinit_SplineEdgeRouter$SideToProcess();$clinit_GraphProperties();
+ const enumFlags={SELF_LOOPS,CENTER_LABELS,NORTH_SOUTH_PORTS,END_LABELS},arr=list=>{const a=[],i=list.iterator_0();while(i.hasNext_0())a.push(i.next_1());return a;},router=new SplineEdgeRouter,map=router.edgeToSegmentMap,records=[];let oldEdge,oldSegment,oldCode;
+ for(const input of request.cases){
+  const g=new LGraph,left=new Layer(g),right=new Layer(g);$add_3(g.layers,left);$add_3(g.layers,right);const ports=[],edges=[];left.size_0.x_0=40.5;right.size_0.x_0=35.25;
+  for(let i=0;i<6;i++){const n=new LNode(g);n.id_0=i;n.pos.y_0=(i<3?[0,60,100][i]:[20,50,110][i-3])+input.shift;n.size_0.x_0=20;n.size_0.y_0=10;const layer=i<3?left:right;$setLayer(n,layer.nodes.array.length,layer);const p=new LPort;$setNode(p,n);$setSide(p,i<3?EAST_2:i===3?NORTH_3:WEST_2);p.id_0=i;p.pos.y_0=5;p.anchor.y_0=0;ports.push(p);if(i===3)$setProperty_0(p,SPLINE_NS_PORT_Y_COORD,85+input.shift);}
+  [[0,3],[0,4],[1,5],[2,5],[4,2],[1,2]].forEach((pair,i)=>{const e=new LEdge;e.id_0=i;$setSource_0(e,ports[pair[0]]);$setTarget_0(e,ports[pair[1]]);if(i===4)$setProperty_0(e,REVERSED,input.reversed);edges.push(e);});
+  const all=castTo($getEnumConstants(Lorg_eclipse_elk_alg_layered_options_GraphProperties_2_classLit),10),flags=new EnumSet$EnumSetImpl(all,castTo(createFrom(all,all.length),10),0);for(const name of input.flags)$add_5(flags,enumFlags[name]);$setProperty_0(g,GRAPH_PROPERTIES,flags);
+  const config=$getLayoutProcessorConfiguration_2(g),configuration=config.list.array.map(s=>arr(s).map(p=>p.name_0));$setProperty_0(g,RANDOM_0,new Random_0(7));router.lGraph=g;router.startEdges.array.length=0;router.allSplineSegments.array.length=0;$reset(router.successingEdge);
+  $clearThenFillMappings(router,left,right);$createSegmentsAndComputeRanking(router);
+  if(!oldEdge){oldEdge=edges[0];oldSegment=$get_10(map,oldEdge);oldCode=hashCode__I__devirtual$(oldEdge);}
+  const segments=router.splineSegmentsLayer.array,index=s=>segments.indexOf(s);
+  records.push({name:input.name,configuration,leftPorts:arr(router.leftPortsLayer).map(p=>p.id_0),rightPorts:arr(router.rightPortsLayer).map(p=>p.id_0),remaining:router.edgesRemainingLayer.array.map(e=>e.id_0),start:router.startEdges.array.map(e=>e.id_0),segments:segments.map(s=>({edges:arr(s.edges).map(e=>e.id_0),left:arr(s.leftPorts).map(p=>p.id_0),right:arr(s.rightPorts).map(p=>p.id_0),box:[s.boundingBox.y_0,s.boundingBox.height],top:s.hyperEdgeTopYPos,bottom:s.hyperEdgeBottomYPos,center:s.centerControlPointY,straight:s.isStraight,mark:s.mark,rank:s.rank,out:s.outgoing.array.map(d=>({source:index(d.source),target:index(d.target),weight:d.weight})),in:s.incoming.array.map(d=>({source:index(d.source),target:index(d.target),weight:d.weight}))})),successors:edges.map(e=>{const next=$get_10(router.successingEdge,e);return next?next.id_0:null;}),reversed:edges.map(e=>({has:$hasProperty(e,REVERSED),value:$booleanValue(castToBoolean($getProperty(e,REVERSED)))})),sameMap:router.edgeToSegmentMap===map,oldMappingPreserved:$get_10(map,oldEdge)===oldSegment,oldHashStable:hashCode__I__devirtual$(oldEdge)===oldCode,newSameIdDifferentObject:input===request.cases[0]?false:edges[0]!==oldEdge});
+ }
+ return {value:records,identityEvidence:{oldFirstCode:oldCode,oldLastCode:hashCode__I__devirtual$(oldEdge)}};
+};`;
+const m=new Module(worker,module);m.filename=worker;m.paths=Module._nodeModulePaths(pkg);m._compile(raw.toString()+bridge,worker);const observations=global.__splineGap(request);
+fs.writeFileSync(outPath,JSON.stringify({workerSha256:sha(raw),probeSha256:sha(fs.readFileSync(__filename)),requestSha256:sha(fs.readFileSync(requestPath)),pid:process.pid,parentPid:process.ppid,node:process.version,...observations,actualGapCollectionSegmentProductionRanking:true,actualMainProcess:false,layoutExecuted:false,nativeExecuted:false},null,2)+'\n',{flag:'wx'});

@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "C:\\code\\ppt-compare\\.local\\tools\\python-3.13.15\\python.exe",
+    "-c",
+    "from pathlib import Path\nimport subprocess,hashlib,json\npaths=['references/e13-option-type-sources.json','references/e13-ports-sources.json','references/e13-kernel-sources.json','references/e16-basic-sources.json','references/e17-tree-sources.json','references/next-json-transfer-sources.json','references/next-node-micro-sources.json','references/node-micro-topdown-sources.json','docs/changes/20261104-next-native-02.json']\nrows=[]\nfor path in paths:\n raw=Path(path).read_bytes();expected=hashlib.sha1(('blob '+str(len(raw))+'\\0').encode()+raw).hexdigest()\n actual=subprocess.check_output(['git','hash-object','--stdin','--path='+path],input=raw).decode().strip()\n assert actual==expected,path\n rows.append({'path':path,'sha256':hashlib.sha256(raw).hexdigest(),'gitBlobKeepsOriginalBytes':True})\nprint(json.dumps({'passed':True,'rows':rows,'fullValidation':False,'runtimeReexecuted':False}))\n"
+  ],
+  "cwd": "C:\\code\\py-visactor\\py-elk",
+  "exitCode": 0,
+  "timedOut": false,
+  "elapsedSeconds": 0.317366,
+  "stdoutSha256": "e098de4ca45053af7b09db98f88a62e3c92ff680f7955192765e1768882edd72",
+  "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

@@ -1,0 +1,124 @@
+{
+  "schema": "py-elk-e03-model-sources/v1",
+  "baseline": {
+    "version": "0.12.1",
+    "commit": "624ae90aa37110033a8af59c5ccbb292708b4317"
+  },
+  "status": "sealed-source-and-host-design",
+  "sources": [
+    {
+      "sourceId": "elkjs-json-adapter",
+      "path": "src/java-additional/org/eclipse/elk/graph/json/JsonAdapter.xtend",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "c968d1589ae1bbe74bf9ee75b45043da8c5b51dcd63e4e16e0cfa43fdf2d0c19",
+      "lineRanges": [
+        {
+          "startLine": 38,
+          "endLine": 50
+        },
+        {
+          "startLine": 111,
+          "endLine": 126
+        }
+      ]
+    },
+    {
+      "sourceId": "elkjs-generated-json-importer",
+      "path": "lib/elk-worker.js",
+      "commit": "624ae90aa37110033a8af59c5ccbb292708b4317",
+      "sha256": "275e6caf4af71c06f5afd673939bdb4c9a0edf6ad97b32476cb7bc6cfdc09d86",
+      "lineRanges": [
+        {
+          "startLine": 78881,
+          "endLine": 78909
+        },
+        {
+          "startLine": 79734,
+          "endLine": 79745
+        },
+        {
+          "startLine": 79817,
+          "endLine": 79838
+        },
+        {
+          "startLine": 79897,
+          "endLine": 79913
+        },
+        {
+          "startLine": 79947,
+          "endLine": 80020
+        }
+      ]
+    }
+  ],
+  "claims": [
+    {
+      "id": "M-SOURCE-01",
+      "kind": "fixed-source-behavior",
+      "sourceIds": [
+        "elkjs-json-adapter",
+        "elkjs-generated-json-importer"
+      ],
+      "description": "The fixed JSON adapter requires element IDs and accepts string or integral JSONNumber IDs. This evidence does not make Python int conversion equivalent to the generated GWT conversion."
+    },
+    {
+      "id": "M-SOURCE-02",
+      "kind": "fixed-source-behavior",
+      "sourceIds": [
+        "elkjs-generated-json-importer"
+      ],
+      "description": "The generated importer resolves extended endpoints to nodes or ports and requires at least one source and target. Its source also contains a primitive-edge importer, which this host slice does not implement."
+    },
+    {
+      "id": "M-HOST-01",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "ADR-0002 accepts Python str including empty strings and exact Python int IDs, rejects bool and all floats, preserves numeric/string distinction and applies global typed node/port/edge uniqueness. Optional label IDs do not enter endpoint indexes; this is an explicit host rule, not complete GWT identity parity."
+    },
+    {
+      "id": "M-HOST-02",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Graph imports and every export deep-clone JSON without changing key/list order, adding defaults, generating coordinates, dropping unknown business fields or stripping caller $H/error.stack. Shared acyclic children become independent copies."
+    },
+    {
+      "id": "M-HOST-03",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Node order includes root preorder; port and edge order follows node preorder and original arrays. Read-only ordered indexes serve lookup and never decide a new model order."
+    },
+    {
+      "id": "M-HOST-04",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Known structural containers must have declared array/object types; explicit width/height are finite nonnegative numbers and never bool. Primitive edges fail explicitly; nested nodes/ports/labels/multiple endpoints are data transport only. Every recognized node, port, edge, label and section requires any explicit layoutOptions container to be a Mapping; the model preserves its keys/values without parsing options or choosing scope precedence. This conservative host schema does not reproduce JS falsy-container acceptance."
+    },
+    {
+      "id": "M-HOST-05",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Sections/points/references receive basic container, optional typed ID and explicit finite-coordinate validation. Section topology, connectivity, coordinate frames and orthogonal geometry are not validated. Business nesting with identical field names is only cloned."
+    },
+    {
+      "id": "M-HOST-06",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "set_property clones and validates a nonstructural value before atomic replacement on the owned working graph. Identity/relationship/section replacement is prohibited, preventing stale indexes and caller input mutations."
+    },
+    {
+      "id": "M-HOST-07",
+      "kind": "host-design",
+      "sourceIds": [],
+      "description": "Anchor and Margin are internal keyword-only finite values; margins are nonnegative. Neither is injected into input/output JSON; no layout, renderer, worker, Java runtime or random stream is implemented."
+    }
+  ],
+  "designDocument": "docs/decisions/0002-model-options-context.md",
+  "pythonAlgorithmsVerified": 0,
+  "algorithmSourceGate": "unverified",
+  "nativeLayoutImplemented": false,
+  "limitations": [
+    "Source fingerprints bind fixed elkjs adapter and generated worker, not an exact external Java build commit.",
+    "E03 tests establish host transport/validation/ownership only, not JS error-name/message parity or native layout/API/lifecycle acceptance.",
+    "The model can carry advanced topology which the E02 native-basic-layered-v1 comparison profile still excludes."
+  ]
+}

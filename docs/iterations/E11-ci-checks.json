@@ -1,0 +1,46 @@
+{
+  "schema": "py-elk-ci-selected/v1",
+  "policy": "Explicit affected checks only. Unknown impact fails with paths for review; never falls back to full. This is not automatic proof of exhaustive impact.",
+  "finalManualGate": "Explicit confirmation plus E09-E19 complete and validationPolicy.featureImplementationComplete exactly true. The feature flag is set by root after the E20 feature inventory. E20/E21 acceptance may remain in_progress to avoid a completion cycle.",
+  "releaseSourceScope": "E11 metadata/license changes only. The source-only checker freezes all 35 runtime module ASTs except the __init__ version literal. Future algorithm changes or new modules must receive a new affected-check plan; they cannot pass as package-only changes.",
+  "usage": "python scripts/iteration/ci_selected.py --manifest docs/iterations/E11-ci-checks.json --out test-runs/ci-selected (GitHub event base); local: --base COMMIT or --paths-file JSON_ARRAY",
+  "savedEvidence": {
+    "path": "docs/changes/20261103-E10-change-validation.json",
+    "sha256": "20c64b324263d539206afc4835a2c6fb0124535a654a81141e9cb71db22a4a22",
+    "additionalFrozenFilesSha256": {
+      "docs/changes/20261103-E10-final-validation.json": "da0c5bdf36900aaaaddfe992e60464faf6f57cd3a23abdaf16dff95f1635faf0"
+    },
+    "meaning": "Exact current-byte rechecks for the existing E01-E10 batch; does not execute or authenticate historical tests. A changed byte requires an explicit rule."
+  },
+  "documentationOnly": ["docs/*.md", "docs/**/*.md", "AGENTS.md", "API_COMPATIBILITY.md", "DEVELOPMENT_PLAN.md", "benchmarks/README.md", "examples/README.md", "tests/README.md", "tools/reference/README.md", "references/README.md"],
+  "checks": {
+    "ci-selector": {"kind": "unittest-file", "path": "tests/platform/test_ci_selected.py"},
+    "release-source": {"kind": "python-script", "path": "scripts/iteration/e11_package.py", "arguments": ["--source-only"]},
+    "package-owner": {"kind": "unittest-file", "path": "tests/platform/test_e11_package.py"},
+    "history-owner": {"kind": "unittest-file", "path": "tests/platform/test_e11_history.py"},
+    "completion-metadata": {"kind": "python-script", "path": "scripts/validate_e01_audit.py"}
+  },
+  "rules": [
+    {
+      "paths": [".github/workflows/validate.yml", ".github/workflows/final-validation.yml", "scripts/iteration/ci_selected.py", "tests/platform/test_ci_selected.py", "docs/iterations/E11-ci-checks.json"],
+      "checks": ["ci-selector"]
+    },
+    {
+      "paths": ["src/**", "pyproject.toml", "README.md", "README.en.md", "LICENSE", "NOTICE", "THIRD_PARTY_NOTICES.md", "docs/decisions/0009-project-license.json"],
+      "checks": ["release-source"]
+    },
+    {
+      "paths": ["scripts/iteration/e11_package.py", "tests/platform/test_e11_package.py"],
+      "checks": ["package-owner"]
+    },
+    {
+      "paths": ["docs/iteration-plan.json"],
+      "checks": ["completion-metadata"]
+    },
+    {
+      "paths": ["references/history/E09/**", "scripts/iteration/e11_history.py", "tests/platform/test_e11_history.py"],
+      "checks": ["history-owner"]
+    }
+  ],
+  "fullValidation": false
+}
