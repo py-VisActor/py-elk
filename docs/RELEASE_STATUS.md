@@ -1,11 +1,19 @@
 # 当前发行状态
 
-0.1.1正在按[文档发行说明](releases/0.1.1.md)验证与发布：文档与项目链接更新，
-布局实现/运行依赖不变，仅运行版本字面量更新。Windows/Linux的同组wheel/sdist验证、
-Trusted Publisher上传、实际PyPI元数据与两工件SHA/安装回读各自记录，不提前标为发布。
-用户使用入口为[文档目录](README.md)。下方0.1.0状态及全部原证据保留为历史事实。
+**[py-visactor-elk 0.1.1](https://pypi.org/project/py-visactor-elk/0.1.1/)** 已正式发布。
+[同组工件发行流水线](https://github.com/py-VisActor/py-elk/actions/runs/42378501323)通过
+Windows/Linux各自的wheel和sdist安装；Trusted Publisher上传后，再核实PyPI实际
+Documentation链接、用户README描述、两个下载SHA，并独立安装实际下载的两类工件。
+[GitHub Release](https://github.com/py-VisActor/py-elk/releases/tag/v0.1.1-docs.1)
+使用相同已验证字节，精确来源与首次失败见[发行证据](releases/0.1.1-publication.json)。
 
-# 当前状态
+本版更新文档与项目链接，布局实现和运行依赖不变，运行文件仅更新版本字面量。
+用户入口为[文档目录](README.md)，维护入口为[开发指南](development/README.md)。
+原`v0.1.1`标签的YAML首失败保留，实际发布使用不可变`v0.1.1-docs.1`标签；
+以下0.1.0验收统计和限制均为历史事实，不改称本版重新执行。
+
+# 0.1.0历史发行与验收状态
+
 
 原生 Python ELK 迁移及独立包交付已按 E01–E21 的明示有限条件完成验收。正式实现为 `src/pyelk`，12 个算法、243 个选项、8 个类别、196 个 Python 模块／208 个运行文件。py-mermaid 的 I0–I3 集成继续单独后置。
 
