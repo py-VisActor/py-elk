@@ -298,6 +298,13 @@
     "platform-evidence-controls": {
       "kind": "unittest-file",
       "path": "tests/platform/test_platform_evidence.py"
+    },
+    "documentation-release": {
+      "kind": "python-script",
+      "path": "scripts/documentation_release.py",
+      "arguments": [
+        "guard"
+      ]
     }
   },
   "rules": [
@@ -844,6 +851,20 @@
       ],
       "checks": [
         "option-roles"
+      ]
+    },
+    {
+      "paths": [
+        "scripts/documentation_release.py",
+        ".github/workflows/publish-pypi.yml",
+        "CHANGELOG.md",
+        "docs/development/documentation-inventory.json",
+        "docs/changes/documentation-audience-20261107.json",
+        "docs/history/audience-before-20261107/*.txt",
+        "docs/releases/0.1.1*.json"
+      ],
+      "checks": [
+        "documentation-release"
       ]
     }
   ],

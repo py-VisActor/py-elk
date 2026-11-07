@@ -175,7 +175,9 @@ def check(root: Path = ROOT) -> dict:
                 errors.append("Invalid Python source: " + str(name.relative_to(root)))
     zh = (root / "README.md").read_text(encoding="utf-8")
     en = (root / "README.en.md").read_text(encoding="utf-8")
-    if "中文 | [English](README.en.md)" not in zh or "[中文](README.md) | English" not in en:
+    targets = ("README.en.md", "https://github.com/py-VisActor/py-elk/blob/main/README.en.md")
+    chinese = ("README.md", "https://github.com/py-VisActor/py-elk/blob/main/README.md")
+    if not any("中文 | [English](" + target + ")" in zh for target in targets) or not any("[中文](" + target + ") | English" in en for target in chinese):
         errors.append("Missing reciprocal README language links")
     commands = lambda text: re.findall(r"```(?:shell|powershell|bash)\n(.*?)\n```", text, re.S)
     if commands(zh) != commands(en):

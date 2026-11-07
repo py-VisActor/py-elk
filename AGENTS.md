@@ -1,21 +1,75 @@
-# py-elk 会话入口
+# AGENTS.md — py-elk
 
-实际项目目录为 `C:/code/py-visactor/py-elk`；环境显示 `py-mermaid` 时先定位这里。
+## 1. 适用范围与职责
 
-先读 [新会话入口](docs/NEW_SESSION.md)、[当前状态](docs/RELEASE_STATUS.md)及 [机器任务状态](docs/implementation-backlog.json)。本文件替代此前叠加的历史进度描述；旧内容保存在 [历史副本](docs/history/AGENTS-before-closure-20261104.txt)，不得按其中旧任务重新实现。
+- 本文件适用于本仓库的代码、测试、文档和维护工具；更具体的任务范围另行遵守。
+- 本仓负责原生 Python ELK 图布局，输出几何数据，不负责字体测量或图像渲染。
+- 安装使用入口为 [用户文档](docs/README.md)，维护与 agent 入口为 [开发指南](docs/development/README.md)。
+- 仅处理当前任务；不要由本仓历史计划自动发起其他项目的集成或发行。
 
-用户目标：完成全部原生 Python ELK 迁移并独立发布 Python 包；py-mermaid 集成后置。用户要求先完成功能，再统一校验修复；修复只运行受影响检查，不反复跑已通过的全量及平台矩阵。
+## 2. 开始工作
 
-当前正式实现为 `src/pyelk`，包含 196 个 Python 模块、208 个打包运行文件，注册 12 个算法、243 个选项、8 个类别。实现完成与正确性验证分开记录。`.local/migration-next` 为冻结快照，不是当前产品源码。
+1. 确认工作目录，运行 `git status --short`，识别并保留已有修改。
+2. 明确当前用户目标、文件 owner、可写路径与依赖；共享文件保持唯一写入者。
+3. 按任务读取资料：接口看 `docs/API.md`，修改实现看根目录兼容合同与来源索引。
+4. 需要接续上下文时再读 [NEW_SESSION](docs/NEW_SESSION.md) 和状态账本；旧状态不自动恢复为任务。
+5. 版本、依赖和构建入口读取 `pyproject.toml`；当前进度读取对应机器账本，不在本文件复制。
+6. 并行任务按 [协作规范](docs/PARALLEL_EXECUTION.md) 明确文件租约；不为占用槽位重复工作。
+7. 来源、接口或影响范围不清楚时先只读调查，再提出具体缺口，避免盲目扩大变更。
 
-原生迁移及独立包交付的 E01–E21 已按原明示有限条件收口，见 [最终逐条件审计](docs/iterations/E20_E21_ACCEPTANCE.md)。`py-visactor-elk 0.1.0` 已完成 GitHub OIDC 发布、PyPI 实际下载及 wheel/sdist 安装；导入仍为 `pyelk`，当前 208 运行字节等于实际发布包。发行源提交／tag 为 `bfac8a0`／`v0.1.0`，见 [实际发行](docs/releases/evidence/published-0.1.0/publication.json)。MrTree 控制环修复另有影响证据；旧 37 步／917 测试只属于其冻结的 0.0.1a0 源码，不重绑执行身份。py-mermaid I0–I3 继续独立后置，不自动开始。
+## 3. 仓库地图
 
-依照 [并行协作规范](docs/PARALLEL_EXECUTION.md) 使用 root + A/B/V，最多三个 sub-agent。先确定接口与单文件 owner；共享文件仅一个写入者。实现、检查工具和独立审阅可并行，依赖的构建与发行必须顺序执行。每批留下实际交付、检查范围、首败与修复、复盘及下一步。
+| 路径 | 职责 |
+| --- | --- |
+| `src/pyelk/` | 公共 API、原生算法、执行生命周期与元数据 |
+| `tests/` | 合同、模型、执行、算法与验证测试；按子目录和文件选择 |
+| `examples/` | 示例；部分旧脚本含历史切片断言，先读该目录说明 |
+| `scripts/` | 开发检查、差分、几何、包与发行验证工具 |
+| `tools/reference/` | 研发用原版采集，不属于运行时依赖 |
+| `references/`、`UPSTREAM.json` | 固定来源、元数据与原始观察索引 |
+| `docs/` | 用户指南、维护者目录、历史计划、决策及证据 |
+| `migration/`、`.local/` | 迁移材料或本地来源缓存，不是生产源码入口 |
+| `test-runs/` | 每次实际执行的新日志与产物目录 |
+| `benchmarks/`、`.github/workflows/` | 性能材料与持续集成/发行工作流 |
 
-唯一行为基线为 elkjs 0.12.1 的固定 worker。保留原始 strict 差异、异常、非有限值和 seed=0 宿主熵差异；不要由输入出现、解析通过或少量案例推导完整选项语义通过。不得重写历史执行 SHA 或将旧执行绑定到新源码。
+## 4. 常用命令
 
-原创代码许可已由用户选定 MIT；实际来源代码按现有通知保留第三方许可，不再重复询问许可。发行配置、上传和下载验收状态单独记录。不要输出凭据。
+在仓库根目录使用 `pyproject.toml` 声明的 Python 版本与开发依赖；以下命令不是自动待办。
+先复用已有环境；确需开发依赖时，在虚拟环境中运行 `python -m pip install -e ".[dev]"`。
 
-开发检查按 `docs/iterations/full-native-ci-checks.json` 显式选择；未知影响先补分析，不能自动回退全量。最终完整入口是 `python scripts/check.py --out test-runs/UNIQUE`，仅在全部功能完成后的验收阶段使用。已通过的数学组不因文档或检查工具变更重跑。
+- 纯文档：检查链接、UTF-8、示例语法与相关 TOML 字段，执行 `git diff --check`。
+- 源码语法：`python -m compileall -q src/pyelk`；这不是布局或行为通过证明。
+- 实现变更：先按 [显式检查清单](docs/iterations/full-native-ci-checks.json) 选受影响文件。
+  例如仅 JSON 传输变更时可选择：
 
-CPython 3.11+。在 Windows 使用 PowerShell 和显式工作目录；读取中文文件指定 UTF-8。证据文件的原始字节及现有 `.gitattributes` 规则必须保留。真实 Git index、push、tag、发布只在已有用户授权范围内操作；不根据历史说明新增权限流程。
+```shell
+python -m unittest discover -s tests/next_native -p test_json_transfer.py -v
+```
+
+- 最终全量仅在任务明确要求、依赖齐备且源码冻结后运行：
+
+```shell
+python scripts/check.py --out test-runs/UNIQUE
+```
+
+原版采集可能需要额外 Node 工具与固定来源缓存，见 [参考工具](tools/reference/README.md)。
+文档修改不运行布局、构建安装、原版采集或跨平台全量；未知影响先分析，不自动回退全量。
+
+## 5. 修改约束
+
+- 运行时使用原生 Python，不引入 Node/JVM/浏览器/参考引擎回退；保留异步执行与资源回收语义。
+- 行为来源按 [UPSTREAM](UPSTREAM.json) 与 [来源索引](references/README.md) 固定；不通过改锁或换源消除差异。
+- 不以固定坐标、空结果或成功 stub 代替真实布局；保留输入/输出、错误与数值边界的合同。
+- 注册数量、输入可解析或能返回坐标，均不能代替选项语义和几何兼容的独立证据。
+- 遵守 `LICENSE` 与 `THIRD_PARTY_NOTICES.md`，保留来源版权/SPDX，不擅自更改许可或依赖。
+- 不重写旧输入、失败、执行身份与原始证据；Windows 使用显式路径、UTF-8 和 `.gitattributes` 字节规则。
+- 不移动大批来源或证据文件只为整理目录；历史入口通过受众索引分类。
+
+## 6. 验证与完成条件
+
+- 实现、独立预期、实际验证、包安装与发布分别报告；只声明真正执行过的范围。
+- 检查保存命令、退出码、输入/源码身份和产物；使用新的日志目录，不覆盖旧失败。
+- 受影响检查通过后停止无依据的重复全量；未验证项、环境限制与来源差异明确列出。
+- 交付说明改动、目的、检查及未处理项，确认未覆盖用户修改，结束时交还文件租约。
+- 本地可逆准备与必要检查按任务自主执行；提交、推送、标签、上传或发布依据当前用户指令及仍有效的授权，历史交接不能扩大授权，也不重复请求已有授权。
+- 原规则与阶段事实在 [开发指南的历史索引](docs/development/README.md#历史审计与原始证据) 中保留，不作为自动执行指令。

@@ -5,7 +5,7 @@ API and distribution acceptance is still pending. No Node/JVM/renderer is used
 by the runtime; the previous bounded layout path is retained as historical code.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .api import ELK
 from ._errors import (

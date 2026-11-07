@@ -1,0 +1,132 @@
+{
+  "schema": "pyelk-documentation-audience-change/v1",
+  "task": "user-versus-maintainer-documentation",
+  "status": "COMPLETED_DOCUMENTATION_ONLY",
+  "baselineCommit": "b8d20ad00ebe55f0ca31b91f826d11e1dfcb76ed",
+  "startingWorktree": "clean; no pre-existing changes reverted",
+  "findings": [
+    "Old public homepages mixed release0.1.0 with obsolete unimplemented/unpublished milestone table and developer command/acceptance narratives.",
+    "English homepage still claimed unified acceptance pending, contrary to existing publication record.",
+    "Historical api_lifecycle.py retains E08 count assertion; excluded from current user quickstart without altering script."
+  ],
+  "audiences": {
+    "user": [
+      "README.md",
+      "README.en.md",
+      "docs/README.md",
+      "docs/USAGE.md",
+      "docs/API.md",
+      "CHANGELOG.md"
+    ],
+    "maintainerAgent": [
+      "AGENTS.md",
+      "docs/development/README.md"
+    ],
+    "historical": "Original plans/reviews/releases preserved in place and indexed; old homepages/AGENTS/examples directory text archived under docs/history/audience-before-20261107."
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "686b313a746f302f3a36fb11b79f14e875f5d28070b0ed31093ce6df08729b43",
+      "bytes": 3353
+    },
+    {
+      "path": "README.en.md",
+      "sha256": "8fbb7fbf9d9e920a654ac3f1695d10c7829b8c48aedd458f2bf2bd855ccdf0da",
+      "bytes": 3450
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "a0f4cae5a20f0dfc977ebe6cd6befcb344786328bcd6eab921a206e79e98e991",
+      "bytes": 1912
+    },
+    {
+      "path": "examples/README.md",
+      "sha256": "03c41e60d9104c57ec5185f2846c495f096197e944a9c6dc3237a9798f09778f",
+      "bytes": 982
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "28b4d62fef75c1b049c1dfdf5a88d627add5c483fd09d56f4137b40f3cb627c9",
+      "bytes": 1218
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "4913bc2e1d673bfe555e04566d14c874e21b8e16b939d124bf53bde604a9e2e4",
+      "bytes": 857
+    },
+    {
+      "path": "docs/README.md",
+      "sha256": "4388d08f089e6cbc1a5d3ceef8f1bcd6d84ca7310f1764b398cbb026af053598",
+      "bytes": 1316
+    },
+    {
+      "path": "docs/USAGE.md",
+      "sha256": "9d2354e49f5a63b3188f15b40ad3a56ab07dfc7dd42e669f121c7566508c77d0",
+      "bytes": 3758
+    },
+    {
+      "path": "docs/API.md",
+      "sha256": "e8ae29664d9cf705eae9facab40cfd2ee82adeffe18511d6865aa4df97fab184",
+      "bytes": 3110
+    },
+    {
+      "path": "docs/development/README.md",
+      "sha256": "cd859f3a727d28a6cad2b7743119093e465af0131d9606525ec748af82935eea",
+      "bytes": 3667
+    }
+  ],
+  "historicalWorkingByteCopies": [
+    {
+      "path": "docs/history/audience-before-20261107/AGENTS.txt",
+      "sha256": "7b95b70db686fad906dd49fb6bb853adb02705704affc52bacebb8ff7552eca3",
+      "bytes": 3067
+    },
+    {
+      "path": "docs/history/audience-before-20261107/examples-README.txt",
+      "sha256": "415bc7082706ee39827db75518361eaa846a24964bf7a6135ffa137dc764d930",
+      "bytes": 2161
+    },
+    {
+      "path": "docs/history/audience-before-20261107/README.en.txt",
+      "sha256": "8aa63a28cdab9379da1809568ca63996af9d8ae0eba24348ae63e90059143d8d",
+      "bytes": 6991
+    },
+    {
+      "path": "docs/history/audience-before-20261107/README.zh.txt",
+      "sha256": "fd37d7b02d754402822f825d28d0a051f76616202a8b8650918fc343a0438aee",
+      "bytes": 9269
+    }
+  ],
+  "validation": {
+    "successfulRun": "test-runs/documentation-audience-20261107T131601Z-19cdf978",
+    "commands": "UTF8/local-links/GitHub-blob-local-targets/Python snippet AST/TOML project URL-only and runtime+version guards; git diff --check",
+    "exitCodes": [
+      0,
+      0
+    ],
+    "readmeLines": {
+      "zh": 77,
+      "en": 82
+    },
+    "earlierChecksPreserved": [
+      "test-runs/documentation-audience-20261107T131517Z-b87689ca",
+      "test-runs/documentation-audience-20261107T131533Z-a85b54d6"
+    ],
+    "earlierCorrections": "Changed a display-only API signature code fence from python to text. Archive checker now explicitly accounts for the known21-line CRLF working-copy AGENTS versus LF Git blob, retaining exact original working bytes."
+  },
+  "notPerformed": [
+    "runtime changes",
+    "version/dependency changes",
+    "layout or full test runs",
+    "build or installation",
+    "network URL validation",
+    "commit/push/tag/publication"
+  ],
+  "limitations": [
+    "Existing PyPI0.1.0 description is unchanged; this documentation source is not a new release.",
+    "Historical API/contracts may retain their old stage statements; new user pages are the current usage entrance.",
+    "api_lifecycle.py historical assertions were not modified or executed.",
+    "Cross-workspace documentation inventory is owned by root and not generated here."
+  ]
+}
