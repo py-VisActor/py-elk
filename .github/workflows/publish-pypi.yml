@@ -1,7 +1,7 @@
 name: Publish reviewed py-elk release
 on:
   push:
-    tags: ['v0.1.1']
+    tags: ['v0.1.1', 'v0.1.1-*']
 permissions:
   contents: read
 jobs:
@@ -46,7 +46,8 @@ jobs:
           name: reviewed-distributions
           path: dist/
       - name: Download offline source-build prerequisites
-        run: python -m pip download --only-binary=:all: --dest wheelhouse setuptools==84.2.1 wheel==0.48.0 packaging==26.3
+        run: |
+          python -m pip download --only-binary=:all: --dest wheelhouse setuptools==84.2.1 wheel==0.48.0 packaging==26.3
       - name: Install both exact artifacts outside repository and run related smoke
         run: python scripts/documentation_release.py install --dist dist --out test-runs/release-installed --wheelhouse wheelhouse
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
@@ -92,7 +93,8 @@ jobs:
       - name: Verify actual PyPI metadata and downloaded bytes
         run: python scripts/documentation_release.py readback --dist dist --out test-runs/published
       - name: Obtain source-build prerequisites
-        run: python -m pip download --only-binary=:all: --dest wheelhouse setuptools==84.2.1 wheel==0.48.0 packaging==26.3
+        run: |
+          python -m pip download --only-binary=:all: --dest wheelhouse setuptools==84.2.1 wheel==0.48.0 packaging==26.3
       - name: Install actual PyPI downloads independently
         run: python scripts/documentation_release.py install --dist test-runs/published/packages --out test-runs/published-installed --wheelhouse wheelhouse
       - name: Publish GitHub release with the same verified assets

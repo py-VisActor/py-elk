@@ -140,7 +140,7 @@ def readback(dist,out):
     save(out/'publication.json',proof);return proof
 
 def github(dist,out):
-    tag='v'+VERSION;expected=json.loads((dist/'release-manifest.json').read_text('utf8'))
+    tag=os.environ.get('GITHUB_REF_NAME','v'+VERSION);expected=json.loads((dist/'release-manifest.json').read_text('utf8'))
     existing=request(API+'/releases?per_page=100');require(not any(r['tag_name']==tag for r in existing),'Release already exists; do not overwrite')
     release=request(API+'/releases','POST',{'tag_name':tag,'name':'py-visactor-elk '+VERSION,'body':(ROOT/'docs/releases/0.1.1.md').read_text('utf8'),'draft':False,'prerelease':False})
     uploads=release['upload_url'].split('{',1)[0];assets=[]

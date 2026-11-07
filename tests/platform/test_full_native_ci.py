@@ -32,13 +32,20 @@ class FullNativeCIPlanTests(unittest.TestCase):
                 self.assertLessEqual({'native-imports','native-host'},names)
                 self.assertNotIn('release-source',names)
                 self.assertFalse(any('e11_package.py'in row['argv']for row in selection['commands']))
-        for name in('.gitattributes','.github/workflows/publish-pypi.yml',
+        for name in('.gitattributes',
                     'docs/releases/0.1.0-readiness.json','docs/releases/evidence/0.1.0-delta.json',
                     'scripts/iteration/release_readiness.py'):
             with self.subTest(path=name):
                 names,selection=self.selected([name]);self.assertIn('release-readiness',names)
                 command=next(row['argv']for row in selection['commands']if row['id']=='release-readiness')
                 self.assertEqual(command,[sys.executable,'scripts/iteration/release_readiness.py','--source-only'])
+        # The 0.1.1 documentation release has a version-only delta guard;
+        # immutable 0.1.0 evidence continues to select its original checker.
+        names,selection=self.selected(['.github/workflows/publish-pypi.yml'])
+        self.assertIn('documentation-release',names)
+        self.assertNotIn('release-readiness',names)
+        self.assertEqual(next(row['argv']for row in selection['commands']if row['id']=='documentation-release'),
+                         [sys.executable,'scripts/documentation_release.py','guard'])
         names,_=self.selected(['docs/implementation-backlog.json',
                               'docs/changes/20261104-next-native-19-validation.json'])
         self.assertLessEqual({'release-readiness','completion-metadata'},names)
