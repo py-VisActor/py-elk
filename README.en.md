@@ -16,7 +16,7 @@ layouts. Your application supplies text measurements and renders the result.
 Use Python 3.11 or later on macOS (Apple Silicon and Intel), Windows, or Linux.
 
 ```shell
-python -m pip install py-visactor-elk==0.1.2
+python -m pip install py-visactor-elk==0.1.4
 ```
 
 The PyPI distribution is **`py-visactor-elk`**; the import is **`pyelk`**.

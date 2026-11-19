@@ -17,8 +17,8 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 API='https://api.github.com/repos/py-VisActor/py-elk'
-VERSION='0.1.2'
-BASELINE_TAG='v0.1.1'
+VERSION='0.1.4'
+BASELINE_TAG='v0.1.2-macos.1'
 DOC='https://github.com/py-VisActor/py-elk/blob/main/docs/README.md'
 
 def require(value,message):
@@ -55,7 +55,7 @@ def guard():
     for name in paths:
         original=git('show',base+':'+name);raw=(ROOT/name).read_bytes()
         if raw!=original:
-            require(name=='src/pyelk/__init__.py' and raw.replace(f'__version__ = "{VERSION}"'.encode(),f'__version__ = "{base.removeprefix("v")}"'.encode(),1)==original,'Runtime implementation changed: '+name)
+            require(name=='src/pyelk/__init__.py' and raw.replace(f'__version__ = "{VERSION}"'.encode(),f'__version__ = "{before["project"]["version"]}"'.encode(),1)==original,'Runtime implementation changed: '+name)
             changed.append(name)
     require(changed==['src/pyelk/__init__.py'],'Expected exact version-only runtime delta')
     for name in ('README.md','README.en.md','docs/USAGE.md'):

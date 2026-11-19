@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.4
+
+- Align the package version with the py-VisActor macOS release.
+
 ## 0.1.2
 
 - Document macOS installation and check isolated wheel and source installations on both Mac architectures.

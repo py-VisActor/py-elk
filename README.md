@@ -15,7 +15,7 @@
 支持 macOS（Apple Silicon 和 Intel）、Windows 与 Linux，使用 Python 3.11 或更高版本。
 
 ```shell
-python -m pip install py-visactor-elk==0.1.2
+python -m pip install py-visactor-elk==0.1.4
 ```
 
 PyPI 发行名是 **`py-visactor-elk`**，导入名是 **`pyelk`**。

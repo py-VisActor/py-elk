@@ -3,7 +3,7 @@
 ## 安装与运行
 
 ```shell
-python -m pip install py-visactor-elk==0.1.2
+python -m pip install py-visactor-elk==0.1.4
 ```
 
 完整可复制示例见 [中文首页](../README.md) / [English](../README.en.md)。
