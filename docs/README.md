@@ -1,6 +1,6 @@
 # 用户文档 / User documentation
 
-py-elk 接收 ELK JSON，计算图布局；不测量字体或绘制图片。Python 3.11+。
+py-elk 接收 ELK JSON，计算图布局；不测量字体或绘制图片。Python 3.11+，支持 macOS（Apple Silicon 和 Intel）、Windows 与 Linux。
 发行名为 `py-visactor-elk`，导入名为 `pyelk`。
 
 | 需要什么 / Need | 入口 / Guide |

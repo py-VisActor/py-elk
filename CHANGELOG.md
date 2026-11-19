@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.2
+
+- Document macOS installation and check isolated wheel and source installations on both Mac architectures.
+
 ## 0.1.1
 
 - Separate installation/API documentation from maintainer and AI agent workflows.

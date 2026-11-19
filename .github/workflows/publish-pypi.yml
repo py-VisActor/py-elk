@@ -1,7 +1,7 @@
 name: Publish reviewed py-elk release
 on:
   push:
-    tags: ['v0.1.1', 'v0.1.1-*']
+    tags: ['v0.1.2']
 permissions:
   contents: read
 jobs:
@@ -32,7 +32,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest, macos-15, macos-15-intel]
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683

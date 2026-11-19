@@ -17,7 +17,8 @@ import zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 API='https://api.github.com/repos/py-VisActor/py-elk'
-VERSION='0.1.1'
+VERSION='0.1.2'
+BASELINE_TAG='v0.1.1'
 DOC='https://github.com/py-VisActor/py-elk/blob/main/docs/README.md'
 
 def require(value,message):
@@ -38,7 +39,7 @@ def description(value):
 def git(*args):return subprocess.check_output(['git',*args],cwd=ROOT)
 
 def guard():
-    base='v0.1.0';before=tomllib.loads(git('show',base+':pyproject.toml').decode('utf8'))
+    base=BASELINE_TAG;before=tomllib.loads(git('show',base+':pyproject.toml').decode('utf8'))
     after=tomllib.loads((ROOT/'pyproject.toml').read_text('utf8'))
     require(after['project']['version']==VERSION,'Wrong documentation release version')
     a=after['project'].copy();b=before['project'].copy()
@@ -54,7 +55,7 @@ def guard():
     for name in paths:
         original=git('show',base+':'+name);raw=(ROOT/name).read_bytes()
         if raw!=original:
-            require(name=='src/pyelk/__init__.py' and raw.replace(b'__version__ = "0.1.1"',b'__version__ = "0.1.0"',1)==original,'Runtime implementation changed: '+name)
+            require(name=='src/pyelk/__init__.py' and raw.replace(f'__version__ = "{VERSION}"'.encode(),f'__version__ = "{base.removeprefix("v")}"'.encode(),1)==original,'Runtime implementation changed: '+name)
             changed.append(name)
     require(changed==['src/pyelk/__init__.py'],'Expected exact version-only runtime delta')
     for name in ('README.md','README.en.md','docs/USAGE.md'):
@@ -142,7 +143,7 @@ def readback(dist,out):
 def github(dist,out):
     tag=os.environ.get('GITHUB_REF_NAME','v'+VERSION);expected=json.loads((dist/'release-manifest.json').read_text('utf8'))
     existing=request(API+'/releases?per_page=100');require(not any(r['tag_name']==tag for r in existing),'Release already exists; do not overwrite')
-    release=request(API+'/releases','POST',{'tag_name':tag,'name':'py-visactor-elk '+VERSION,'body':(ROOT/'docs/releases/0.1.1.md').read_text('utf8'),'draft':False,'prerelease':False})
+    release=request(API+'/releases','POST',{'tag_name':tag,'name':'py-visactor-elk '+VERSION,'body':(ROOT/f'docs/releases/{VERSION}.md').read_text('utf8'),'draft':False,'prerelease':False})
     uploads=release['upload_url'].split('{',1)[0];assets=[]
     for p in [*artifacts(dist),dist/'release-manifest.json',out/'publication.json']:
         result=request(uploads+'?name='+urllib.parse.quote(p.name),'POST',p.read_bytes());assets.append({'name':p.name,'url':result['browser_download_url'],**identity(p)})
