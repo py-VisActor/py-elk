@@ -180,7 +180,7 @@ def main():
             commands.append({'name':name,'command':command,'exitCode':result.returncode})
             require(result.returncode==0,name+' failed: '+result.stderr[-2000:])
         installed=json.loads(result.stdout)
-        require(Path(installed['package']).is_relative_to(environment),'Smoke imported outside isolated environment')
+        require(Path(installed['package']).resolve().is_relative_to(environment.resolve()),'Smoke imported outside isolated environment')
         require(canonical_project_name(installed['distributionName'])==canonical_project_name(distribution),
                 'Installed distribution metadata identity differs')
     report={'schema':'py-elk-full-package-validation/v1','passed':True,
