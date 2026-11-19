@@ -1,5 +1,9 @@
 # 当前发行状态
 
+## 0.1.2 macOS 发行
+
+[PyPI 0.1.2](https://pypi.org/project/py-visactor-elk/0.1.2/) 与 [GitHub Release](https://github.com/py-VisActor/py-elk/releases/tag/v0.1.2-macos.1) 已发布。Apple Silicon、Intel、Windows 和 Linux 均从同一 wheel 与 sdist 隔离安装并执行实际布局。首次 macOS CI 的安装路径检查遇到系统路径别名，修正后使用 `v0.1.2-macos.1` 完成发布。[发行说明](releases/0.1.2.md) · [工件 SHA 与验证记录](releases/0.1.2-publication.json)。
+
 **[py-visactor-elk 0.1.1](https://pypi.org/project/py-visactor-elk/0.1.1/)** 已正式发布。
 [同组工件发行流水线](https://github.com/py-VisActor/py-elk/actions/runs/42378501323)通过
 Windows/Linux各自的wheel和sdist安装；Trusted Publisher上传后，再核实PyPI实际
